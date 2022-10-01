@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 C ASG/output/*
 C ASG/trace/*
+C log/trace/*
