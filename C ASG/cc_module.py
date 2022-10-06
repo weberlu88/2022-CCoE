@@ -1528,4 +1528,5 @@ def build(family_dir: str, sample_dir: str, output_filename: str=''):
     # save graph as svg file
     g.render(output_path, format='svg') #  view=True
 
-build('Dofloo-all', '9a37fcc7eab08d59532bc5c66390bc30.bin')
+# unit test
+# build('Dofloo-all', '9a37fcc7eab08d59532bc5c66390bc30.bin')
