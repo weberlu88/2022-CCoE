@@ -1,0 +1,74 @@
+Mirai's new variant "Mukashi" attacks network-attached devices
+Product/Version includes:Apex One 2019, OfficeScan XG, Deep Discovery Email Inspector 5.0, View More
+Update Date: 2020/12/17
+Article Number: 000283375
+Category: Remove a Malware / Virus
+Rating: 0
+
+Summary
+Mirai is a malware that turns networked devices running Linux into remotely controlled "bots" that can be used as part of a botnet in large-scale network attacks. It primarily targets online consumer devices such as IP cameras and home routers. The Mirai botnet was first found in August 2016 by MalwareMustDie, a whitehat malware research group, and has been used in some of the largest and most disruptive distributed denial of service (DDoS). Mirai was named after the 2011 TV anime series Mirai Nikki. The source code for Mirai was published on Hack Forums as open-source. Since the source code was published, the techniques have been adapted in other malware projects.
+
+The new Mirai variant named Mukashi is attacking network-attached storage (NAS) devices. Mukashi takes advantage of a vulnerability, CVE-2020-9054, found in Zyxel NAS devices which allows remote attackers to execute malicious codes into the affected system. It uses brute force attacks through default credentials to log into Zyxel NAS products. When logged in successfully, the attackers can now take control of the devices and add them to a botnet that can be used to perform distributed denial of service (DDoS) attacks. Mukashi retains the ability of communicating to a command-and-control server.
+
+This Backdoor gathers the following information and sends it to its servers:
+
+User/device information (IP address, port, username, password)
+Behaviour
+
+Brute Force
+Communicates to a command-and-control server
+Capabilities
+
+Exploits
+Information Theft
+Backdoor commands
+Impact
+
+Exploits - takes advantage of a software vulnerability or security flaw and can be used to remotely access a network and gain elevated privileges or move deeper into the network
+Compromise system security - with backdoor capabilities that can execute malicious commands
+Violation of user privacy - gathers user credentials and steals user information
+Additional Threat Reference Information
+
+Threat Encyclopedia: Backdoor.Linux.MIRAI.VWISG
+Threat Encyclopedia: IoT.Linux.MIRAI.VWISF
+Infection Chain
+
+
+
+MITRE ATT&CK Matrix
+
+BEHAVIOR	TACTIC	TECHNIQUE
+It takes advantage of vulnerability CVE-2020-9054	Initial Access	T1190 Exploit Public-Facing Application
+Brute force attack through the use of default credentials	Persistence, Privilege Escalation, Initial Access	T1078 Valid Accounts
+Report/send vulnerability result of victim’s device (IP address, port, login credential)	Exfiltration	T1041 Exfiltration Over Command and Control Channel
+Loads malware and components on Zyxel NAS device running firmware version 5.21	Command And Control, Lateral Movement	T1105 Remote File Copy
+Execute script to download and run payload	Defense Evasion, Execution	T1064 Scripting
+Scan TCP port of random IP address or host	Discovery	T1046 Network Service Scanning
+Identify IoT devices	Discovery	T1049 System Network Connections Discovery
+Adversaries may perform DDoS attack	Impact	T1498 Network Denial of Service
+Available Solutions
+
+Solution Modules	Solution Available	Pattern Branch	Release Date	Detection/Policy/Rules
+Email Protection	N/A	-	-	-
+URL Protection	Yes	In the Cloud	-	-
+Advanced Threat Scan Engine (ATSE)	Yes	15.793.00	April 9, 2020	Detection similar to VSAPI
+Predictive Machine Learning	N/A	-	-	-
+File detection (VSAPI)	Yes	ENT OPR 15.791.00	April 8, 2020	Backdoor.Linux.MIRAI.VWISF
+Backdoor.Linux.MIRAI.VWISG
+Backdoor.Linux.MIRAI.VWISK
+Backdoor.Linux.MIRAI.VWISE
+Backdoor.Linux.MIRAI.VWISM
+Backdoor.Linux.MIRAI.VWISN
+Backdoor.Linux.MIRAI.VWISH
+Backdoor.Linux.MIRAI.VWISI
+Backdoor.Linux.MIRAI.VWISL
+IoT.Linux.MIRAI.VWISF
+Trojan.SH.MIRAI.BOE
+Network Pattern	Yes	Rule 4362	NCIP 1.14087.00
+NCCP 1.14013.00	March 10, 2020	Rule 4362	CVE-2020-9054 - ZYXEL NAS - HTTP (REQUEST)
+Rule 2839	NCIP 1.13651.00
+NCCP 1.13611.00	Rule 2839	ZTE F460 F660 - Remote Code Execution - HTTP (Request)
+Rule 2544	NCIP 1.14043.00
+NCCP 1.13069.00	Rule 2544	JAWS Remote Code Execution Exploit - HTTP (Request)
+Behavioral Monitoring (AEGIS)	Yes	TMTD OPR 2105
+TMDT OPR 2107	April 9, 2020

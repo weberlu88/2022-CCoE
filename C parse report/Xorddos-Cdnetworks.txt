@@ -1,0 +1,41 @@
+Understanding a XOR.DDoS Attack
+2月 17, 2021
+
+Back in September 2015, a mass-scale XOR.DDoS attack over 150 gigabits per seconds (Gbps) occurred utilizing Linux malware. XOR.DDoS is the name of the malware, not the attack name, used to affect the Linux system. 
+
+It was detected in September 2014 and the analysis of this Linux trojan malware was published by various cybersecurity service companies and blogs including the security intelligence response team (SIRT).
+
+Is a distributed denial-of-service attack from so long ago still relevant today? In many ways it is and in this guide, we will provide an analysis of XOR.DDoS and how to counteract it.
+
+What is XOR.DDOS Malware?
+The traditional attack utilized the existing vulnerabilities of Linux machines to make bad use of the operating system. However, XOR.DDoS makes Windows PCs into zombie PCs and starts attacks through the Command & Control (C&C) server.
+
+The XOR.DDoS attack is used to defeat the network by generating mass volumes of data including meaningless strings in the SYN and DNS. 
+
+This is a very serious threat to the network because the data volume exceeds the network processing capacity and bandwidth of most general companies. 
+
+In addition to these primary targets, the UDP has been used to block mass traffic at the upper level. However, the XOR.DDoS attack uses the TCP, which the small network line cannot block
+
+What is BruteForce attack?
+A brute force attack tries many random passwords until it gets the correct password. There are various types of brute force attacks including the dictionary attack which determines the decryption key or password by trying combinations of words, the random attack which enters all keys, and the rainbow attack which uses a pre-defined hash table.
+
+Origin of XOR.DDOS attacks
+77.1 % of XOR.DDoS attacks have occurred in China and the U.S.A., mainly in the Linux servers that use Cloud services. Many large-scale cloud service providers were also the victims of XOR.DDoS malware, as have educational institutions and the gaming sector. In addition, as SSH services (22/TCP) are being used in most cases, it is assumed that cloud systems without proper management and cloud security have been hacked.
+
+Countermeasures against XOR.DDoS attacks
+The XOR.DDoS attack is carried out as a form of SYN flooding + including data. SYN is just a process to perform a 3-way handshake and does not require the inclusion of data in the SYN packets. 
+
+If SYN packets with data are detected, the XOR.DDoS attack can be defeated by blocking all of the SYN packets. In addition, it is good to use a SYN cookie against SYN flooding + SYN spoofing attacks, both of which have occurred in 2015, because a SYN cookie is effective and useful against spoofing.
+
+The SYN cookie blocks SYN spoofing effectively by including the cookie value in the sequence number and comparing the cookie value with SEQ – 1 = cookie value at the end. 
+
+The SYN cookie does not require a certain time to wait for the response; if the two values are not identical, the packet is just discarded. Therefore, the SYN cookie is a very effective way to block spoofing attacks. 
+
+Alternatively, First SYN DROP can be a second countermeasure. This technique works by saving the first SYN packet information in the memory and dropping the packet. If the session request is normal, the same IP address will send the SYN request again. If the request is made for attack, another SYN request from another IP will be received.
+
+Conclusion – Get a DDoS Mitigation service
+A large-scale network line is necessary to counteract against massive-scale TCP attacks such as XOR.DDoS. 
+
+The content delivery network industry can provide services to counteract against DDoS attacks. As the services are cloud-based, the available traffic processing capacity is very large and the cost is significantly lower than the cost taken to implement the services in each company. 
+
+With these services, most companies will benefit substantially from the affordable cost and time without any accompanying issues.
