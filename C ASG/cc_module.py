@@ -1098,6 +1098,8 @@ class AttackGraph:
             first_line = True
             with open(trace, 'r') as f:
                 for line in f:
+                    if line.find('execve(') != -1:
+                        aaaa = 1
                     if idx == 0 and first_line:
                         first_line = False
                         continue
@@ -1508,8 +1510,9 @@ class TTPLabeler:
 # g.render(output_path, format='svg') #  view=True
 
 def build(family_dir: str, sample_dir: str, output_filename: str=''):
-    ''' build ASG&TTG. Read from `trace/family/sample/`, store output image at `output/family/sample.svg`. '''
+    ''' build ASG&TTG. Read from `trace/family/sample/`, store output image at `output/family/sample.svg`. Return `AttackGraph`,`graphviz.graphs.Digraph`.'''
     path = f'./trace/{family_dir}/{sample_dir}' # trace log folder for a sample
+    print('path:', path)
     output_path = path.replace('trace', 'output')
     if len(output_filename):
         output_path = output_path.replace(sample_dir, output_filename)
@@ -1527,6 +1530,7 @@ def build(family_dir: str, sample_dir: str, output_filename: str=''):
 
     # save graph as svg file
     g.render(output_path, format='svg') #  view=True
+    return graph, g
 
 # unit test
 # build('Dofloo-all', '9a37fcc7eab08d59532bc5c66390bc30.bin')
