@@ -1247,7 +1247,7 @@ class AttackGraph:
         edges = dict(self.edges)
         
         self.all_nodes_num = len(nodes)
-        print('Node before reduction: ', self.all_nodes_num)
+        # print('Node before reduction: ', self.all_nodes_num) # 先註解掉
         self.color_nodes_num = 0
         
         
@@ -1276,7 +1276,7 @@ class AttackGraph:
             for node in rm_nodes:
                 print(f'Remove Node: {node.name}')
         
-        print(self.all_nodes_num - len(rm_nodes))
+        # print(self.all_nodes_num - len(rm_nodes)) # 先註解掉
         if (self.all_nodes_num - len(rm_nodes)) > display_threshold and not showall:
             nodes, edges = self.node_reduction(depth)
             
@@ -1509,9 +1509,12 @@ class TTPLabeler:
 # # save graph as svg file
 # g.render(output_path, format='svg') #  view=True
 
-def build(family_dir: str, sample_dir: str, output_filename: str=''):
+def build(family_dir: str, sample_dir: str, output_filename: str='', save_file: bool=True):
     ''' build ASG&TTG. Read from `trace/family/sample/`, store output image at `output/family/sample.svg`. Return `AttackGraph`,`graphviz.graphs.Digraph`.'''
     path = f'./trace/{family_dir}/{sample_dir}' # trace log folder for a sample
+    if not os.path.isdir(path):
+        print(f'error, path not extst: {path}')
+        return None, None
     print('path:', path)
     output_path = path.replace('trace', 'output')
     if len(output_filename):
@@ -1529,7 +1532,8 @@ def build(family_dir: str, sample_dir: str, output_filename: str=''):
     g = graph.draw(True)
 
     # save graph as svg file
-    g.render(output_path, format='svg') #  view=True
+    if save_file:
+        g.render(output_path, format='svg') #  view=True
     return graph, g
 
 # unit test
