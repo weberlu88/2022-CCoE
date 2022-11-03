@@ -1,0 +1,102 @@
+Tsunami/Backdoor
+analyzed from Memory
+Date: 17/05/2021
+Shikha Sangwan
+Tsunami is a powerful malware that is used for DDoS flooding in UNIX/LINUX systems. It makes
+the infected machine a bot which is then used for DDoS attacks. The malware sample that we
+got is a new variant of Tsunami malware. This malware is controlled by an IRC server, which
+establishes a secure connection with the victim machine and enables a backdoor that collects
+the sensitive information from the system and turns the infected system into a bot.
+Overview
+The sample is analysed from the memory. A suspicious process was detected in the memory
+which communicated with a malicious IP. That IP is an IRC server or channel. The infected
+system then listens and interprets commands from the channel. The malware behaves like a
+backdoor and information stealer, it executes shell commands and opens system files to get the
+system information, and then sends the information to the server.
+Infection Flow
+Technical Analysis
+After the malware was executed in the Debian 32-bit system, we dumped the memory. The
+acquired RAM was analysed by volatility.
+Backdoor:
+We checked the processes that were running in the memory using “pslist” plugin as shown in
+the figure below:
+Figure 1 pslist plugin
+We found a suspicious process with a very strange name. This process was the last process that
+was running on the system.
+As shown in the figure above, the process with the name “xpqjcock” has a PID “2498”. We
+checked the environment variables of the process and the process was running in the root
+directory (as shown in the figure below).
+Network Communication:
+Figure 2 process list
+Figure 3 environment variable
+Figure 4 network record
+We extracted the network activities from the memory. As shown in the figure 4, we see that a
+suspicious process is making a connection with an external IP on port 8080 i.e., https. We
+analysed and found that the IP is malicious and it is an IRC server. The IP has a history of
+communication with Tsunami backdoors.
+The IP has a passive record of the following domains:
+derpcity.ru
+uranus.kei.su
+These are malicious domains and used in the IRC channels.
+We used Yara scan plugin to scan for strings in the process. We searched for http in the process
+as shown in the figure below:
+We found that the server is sending a get request to the client and some data has been sent to
+the IRC server, as shown in the figure below.
+Information Stealer:
+We got the command line arguments that were made by the suspected process using “psaux”.
+Figure 5 yarascan
+Figure 6 request from server
+Figure 7 psaux plugin
+The process collects the network configuration and IP address information by executing the
+“ifconfig” command, as shown in the figure below.
+We checked for open handles of the suspected process using “lsof”.
+The process opened the files as shown in the figure below:
+It identifies the systems Linux kernel version, operating system name, and system hardware
+and sends all the information to the IRC channel.
+Figure 8 command executed by the process
+Figure 9 lsof plugin
+Figure 10 open handles
+Figure 11 information sent to the server
+Bot:
+Then the channel sends command to all the bots to perform attacks on the system. The
+command is sent in a specific format, like
+<target>.<port>.<time>.<threads>..===>.fast.tcp.connect().flooder
+In this, it specifies the target, port, time, threads and does TCP flooding.
+IOCs
+202.28.32.30
+derpcity.ru
+uranus.kei.su
+901008ec3cc76ac010e0d9538e55c0db
+Subex Secure Protection
+Subex Secure detects the android sample as “SS_Checksum_Tsunami_B”.
+MITRE ATTACK MATRIX
+ID TECHNIQUE
+T1569 System Services
+T1595 Active Scanning
+Figure 12 TCP flooding
+T1119 Automated Collection
+T1059 Command and Scripting Interpreter
+T1592 Gather Victim Host Information
+T1082 System Information Discovery
+T1016 System Network Configuration Discovery
+T1518.001 Security Software Discovery
+T1007 System Service Discovery
+T1498 Network Denial of Service
+T1021 Remote Services
+Our Honeypot Network
+This report has been prepared from the threat intelligence gathered by our honeypot network.
+This honeypot network is today operational in 62 cities across the world. These cities have at
+least one of the following attributes:
+▪Are landing centers for submarine cables
+▪Are internet traffic hotspots
+▪House multiple IoT projects with a high number of connected endpoints
+▪House multiple connected critical infrastructure projects
+▪Have academic and research centers focusing on IoT
+▪Have the potential to host multiple IoT projects across domains in the future.
+Over 3.5 million attacks a day is being registered across this network of individual honeypots.
+These attacks are studied, analysed, categorized, and marked according to a threat rank index,
+a priority assessment framework that we have developed within Subex. The honeypot network
+includes over 4000 physical and virtual devices covering over 400 device architectures and
+varied connectivity mediums globally. These devices are grouped based on the sectors they
+belong to for purposes of understanding sectoral attacks. Thus, a layered flow of threat
+intelligence is made possible.

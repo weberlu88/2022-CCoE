@@ -1,0 +1,105 @@
+Backdoor.Linux.TSUNAMI.AMY
+September 29, 2021
+
+ALIASES:
+Backdoor:Linux/Tusnami.C!MTB (MICROSOFT); Adware/Tsunami (FORTINET)
+
+Infection Channel:
+Downloaded from the Internet, Dropped by other malware
+
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+
+It executes commands from a remote malicious user, effectively compromising the affected system.
+
+TECHNICAL DETAILS
+File Size:
+49,092 bytes
+
+File Type:
+ELF
+
+Memory Resident:
+Yes
+
+Initial Samples Received Date:
+28 Sep 2021
+
+Payload:
+Drops files, Connects to URLs/IPs, Steals information
+
+Arrival Details
+
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+
+Installation
+
+This Backdoor drops the following copies of itself into the affected system:
+
+/dev/shm/{Malware Filename}
+/var/tmp/{Malware Filename}
+/var/lock/{Malware Filename}
+/var/lock/{Malware Filename}
+/root/{Random Characters}
+It drops the following files:
+
+.bawtz
+It adds the following processes:
+
+/bin/uname
+/bin/nvram or /usr/sbin/nvram
+/etc/ISP_name
+/etc/Model_name
+Backdoor Routine
+
+This Backdoor connects to any of the following IRC server(s):
+
+{BLOCKED}.{BLOCKED}.165.21
+{BLOCKED}.{BLOCKED}.217.181
+{BLOCKED}.{BLOCKED}.2.189
+{BLOCKED}.{BLOCKED}.137.56
+{BLOCKED}.{BLOCKED}.253.100
+{BLOCKED}.{BLOCKED}.233.35
+{BLOCKED}.{BLOCKED}.149.22
+{BLOCKED}.{BLOCKED}.242.233
+{BLOCKED}.{BLOCKED}.240.191
+{BLOCKED}.{BLOCKED}.24.229
+{BLOCKED}.{BLOCKED}.2.189
+It joins any of the following IRC channel(s):
+
+#ex86
+It executes the following commands from a remote malicious user:
+
+PAN - Performs an advanced SYN flood to a specific target at n seconds interval.
+UDP - Performs a UDP flood to a specific target at n seconds interval.
+HTTP - Perform a HTTP flood.
+STD - Triggers the bot to perform a denial of service (DoS) attack and also allows user to specify .
+UNKNOWN - Another non-spoof udp flooder
+KILL - Kill the running client.
+KILL_PORT - Kill a listener socket.
+GET - This downloads from and saves a file.
+SSHX <192 or 192.168 or 192.168.0> - Perform a SSH scan with provided credentials.
+SSH <192 or 192.168 or 192.168.0> - Perform a SSH scan.
+KILLALL - Kill all current packeting.
+HELP - Displays this.
+CBACK - Connect back to .
+IRC - Send commands to the IRC server.
+SH - Execute shell commands.
+Information Theft
+
+This Backdoor gathers the following data:
+
+Username
+Network Information
+Operating System Information
+Kernel Version
+System Hardware
+Other Details
+
+This Backdoor does the following:
+
+Adds the following crontab entries to enable its automatic execution at every minute:
+crontab * * * * * /{Malware Path}/{Malware Filename}> /dev/null 2>&1 &
+crontab * * * * * /{Copy Path}/{Malware Filename}> /dev/null 2>&1 &
+It does not continue with its routines if the following processes are running:
+strace
+tcpdump
