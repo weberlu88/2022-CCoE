@@ -21,6 +21,7 @@ Arrival Details
 
 This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
 
+~~
 Installation
 
 This Backdoor adds the following processes:
@@ -33,6 +34,7 @@ sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
 sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
 Backdoor Routine
 
+~~
 This Backdoor executes the following commands from a remote malicious user:
 
 Initiate DDoS attacks:
@@ -42,6 +44,7 @@ Stop DDoS attack
 Execute shell commands
 Information Theft
 
+~~
 This Backdoor gathers the following data:
 
 CPU information
@@ -63,6 +66,7 @@ Reads the following information from /proc:
 /proc/net
 Other Details
 
+~~
 This Backdoor opens the following files:
 
 /etc/host.conf
@@ -71,6 +75,7 @@ This Backdoor opens the following files:
 /etc/suid-debug
 /etc/ld.so.cache
 
+~~
 SOLUTION
 
 MINIMUM SCAN ENGINE: 9.850

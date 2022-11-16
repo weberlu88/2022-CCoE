@@ -1,0 +1,41 @@
+Number,Content
+"""Sentence 1","understanding a xor.ddos attack
+2月 17, 2021
+
+back in september 2015, a mass-scale xor.ddos attack over 150 gigabits per seconds (gbps) occurred utilizing linux malware."
+"""Sentence 2","xor.ddos is the name of the malware, not the attack name, used to affect the linux system."
+"""Sentence 3",it was detected in september 2014 and the analysis of this linux trojan malware was published by various cybersecurity service companies and blogs including the security intelligence response team (sirt).
+"""Sentence 4",is a distributed denial-of-service attack from so long ago still relevant today?
+"""Sentence 5","in many ways it is and in this guide, we will provide an analysis of xor.ddos and how to counteract it."
+"""Sentence 6",what is xor.ddos malware?
+"""Sentence 7",the traditional attack utilized the existing vulnerabilities of linux machines to make bad use of the operating system.
+"""Sentence 8","however, xor.ddos makes windows pcs into zombie pcs and starts attacks through the command & control (c&c) server."
+"""Sentence 9",the xor.ddos attack is used to defeat the network by generating mass volumes of data including meaningless strings in the syn and dns.
+"""Sentence 10",this is a very serious threat to the network because the data volume exceeds the network processing capacity and bandwidth of most general companies.
+"""Sentence 11","in addition to these primary targets, the udp has been used to block mass traffic at the upper level."
+"""Sentence 12","however, the xor.ddos attack uses the tcp, which the small network line cannot block
+
+what is bruteforce attack?"
+"""Sentence 13",a brute force attack tries many random passwords until it gets the correct password.
+"""Sentence 14","there are various types of brute force attacks including the dictionary attack which determines the decryption key or password by trying combinations of words, the random attack which enters all keys, and the rainbow attack which uses a pre-defined hash table."
+"""Sentence 15","origin of xor.ddos attacks
+77.1 % of xor.ddos attacks have occurred in china and the u.s.a., mainly in the linux servers that use cloud services."
+"""Sentence 16","many large-scale cloud service providers were also the victims of xor.ddos malware, as have educational institutions and the gaming sector."
+"""Sentence 17","in addition, as ssh services (22/tcp) are being used in most cases, it is assumed that cloud systems without proper management and cloud security have been hacked."
+"""Sentence 18","countermeasures against xor.ddos attacks
+the xor.ddos attack is carried out as a form of syn flooding + including data."
+"""Sentence 19",syn is just a process to perform a 3-way handshake and does not require the inclusion of data in the syn packets.
+"""Sentence 20","if syn packets with data are detected, the xor.ddos attack can be defeated by blocking all of the syn packets."
+"""Sentence 21","in addition, it is good to use a syn cookie against syn flooding + syn spoofing attacks, both of which have occurred in 2015, because a syn cookie is effective and useful against spoofing."
+"""Sentence 22",the syn cookie blocks syn spoofing effectively by including the cookie value in the sequence number and comparing the cookie value with seq – 1 = cookie value at the end.
+"""Sentence 23","the syn cookie does not require a certain time to wait for the response; if the two values are not identical, the packet is just discarded."
+"""Sentence 24","therefore, the syn cookie is a very effective way to block spoofing attacks."
+"""Sentence 25","alternatively, first syn drop can be a second countermeasure."
+"""Sentence 26",this technique works by saving the first syn packet information in the memory and dropping the packet.
+"""Sentence 27","if the session request is normal, the same ip address will send the syn request again."
+"""Sentence 28","if the request is made for attack, another syn request from another ip will be received."
+"""Sentence 29","conclusion – get a ddos mitigation service
+a large-scale network line is necessary to counteract against massive-scale tcp attacks such as xor.ddos."
+"""Sentence 30",the content delivery network industry can provide services to counteract against ddos attacks.
+"""Sentence 31","as the services are cloud-based, the available traffic processing capacity is very large and the cost is significantly lower than the cost taken to implement the services in each company."
+"""Sentence 32","with these services, most companies will benefit substantially from the affordable cost and time without any accompanying issues."

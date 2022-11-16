@@ -1,0 +1,88 @@
+Number,Content
+"""Sentence 1","mirai
+njccic threat profile
+original release date: 2016-12-28
+
+the mirai botnet is named after the mirai trojan, the malware that was used in its creation."
+"""Sentence 2","mirai was discovered by malwaremustdie!, a white-hat security research group, in august 2016. after obtaining samples of the mirai trojan, they determined that it had evolved from a previously-created trojan, known as gafgyt, lizkebab, bashlite, bash0day, bashdoor, and torlus."
+"""Sentence 3","they reported that it was created using elf (executable and linkable format) binaries, a common file format for linux and unix-based systems."
+"""Sentence 4","this format is used in the firmware of many iot devices including routers, dvrs, and ip cameras."
+"""Sentence 5","in the samples they studied, the research group noted that mirai targets ssh or telnet network protocols, exploiting default and hardcoded credentials or using brute-force techniques to compromise the linux-based devices."
+"""Sentence 6","according to a report by intelligence firm, flashpoint, the primary default username and password combination used on these vulnerable devices is root and xc3511."
+"""Sentence 7",(see fig.
+"""Sentence 8",1 for additional username/password combinations.)
+"""Sentence 9","once compromised, the malware payload is delivered."
+"""Sentence 10","in some cases, the malware’s executable files delete themselves after the main process launches, in order to avoid detection."
+"""Sentence 11",mirai also encrypts the traffic that passes between the infected devices and the c2 servers used to issue commands in order to prevent monitoring.
+"""Sentence 12",a detailed analysis of the mirai trojan can be found on the malwaremustdie!
+"""Sentence 13",blog.
+"""Sentence 14","ddos attacks attributed to the mirai botnet:
+
+the mirai botnet began garnering a lot of attention on october 1, 2016 when security researcher, brian krebs, published a blog post titled source code for iot botnet “mirai” released."
+"""Sentence 15","according to his post, the alleged botnet creator, “anna-senpai,” leaked the mirai botnet source code on a popular hacking forum."
+"""Sentence 16","just a week and a half prior, on september 20, krebs’ website was the target of the largest ddos attack that cloud security provider, akamai, had seen up to that point."
+"""Sentence 17","at 620 gbps, akamai struggled to mitigate the attack and ultimately made the decision to stop shielding krebsonsecurity.com, giving brian krebs approximately two hours to migrate his site off their network."
+"""Sentence 18","to protect his website hosting provider from the ongoing attack, krebs requested that all incoming network traffic be redirected to 127.0.0.1 until a better solution could be found."
+"""Sentence 19","a few days later, on september 25, krebs’ site returned with the help of project shield, an initiative by google designed to help protect journalists from online censorship."
+"""Sentence 20","after a thorough investigation, the ddos attack on krebs’ website was attributed to the mirai botnet."
+"""Sentence 21","more information about krebs’ ddos attack and recovery can be found in his blog post titled, the democratization of censorship."
+"""Sentence 22","on september 20, the same day as the krebs ddos attack, ovh, a french-based web hosting provider, was targeted with network traffic that amounted to nearly 1 tbps."
+"""Sentence 23","over the next 48 hours, ovh was the victim of more than 25 ddos attacks on its servers."
+"""Sentence 24","ovh founder, octave klaba, posted a picture to his personal twitter account of the company’s network traffic log detailing the simultaneous attacks, each of them well over 100 gbps."
+"""Sentence 25","klaba followed up with another post suggesting that this botnet, comprised of nearly 150,000 cameras and dvrs, was capable of delivering a multi-vector 1.5 tbps ddos attack."
+"""Sentence 26","fortunately, ovh was able to recover from the attack and it was determined that this was attack was conducted using the mirai botnet."
+"""Sentence 27","on october 22, 2016, dynamic network services, inc., also known as dyn, was the target of three large-scale ddos attacks, which caused disruption to many major websites and online services across the u.s. dyn’s dns server infrastructure, responsible for resolving domain names to their ip addresses, struggled due to the strength of the attacks which reportedly reached 1 tbps."
+"""Sentence 28",many large and popular companies felt the effects as users were unable to reach their websites for extended periods of time.
+"""Sentence 29","affected websites included: twitter, spotify, amazon, paypal, github, netflix, cnbc, among others."
+"""Sentence 30","dyn reported that the attacks were “well planned and executed, coming from tens of millions of ip addresses at the same time.” flashpoint confirmed that the attacks against the dyn dns were the result of the mirai botnet."
+"""Sentence 31","however, flashpoint also noted that these attacks came from different sources than those that attacked krebsonsecurity.com and ovh, suggesting it may have been a different attacker who downloaded the mirai source code and used it to create his or her own mirai botnet to launch this particular attack."
+"""Sentence 32","the investigation is ongoing and, as of now, no attribution has been made."
+"""Sentence 33","update 12/16/2016: a new variant, dubbed botnet #14 or annie, was discovered by researchers from qihoo 360 technology co., ltd. it was designed with a built-in, but limited, domain generation algorithm (dga) which generates one domain per day to use for communication with its c2 servers."
+"""Sentence 34","this feature makes it very difficult to dismantle the botnet because it requires the successful prediction and purchase of domain names that the algorithm has not yet generated, as well as the coordination between law enforcement, domain registrars, and even security companies."
+"""Sentence 35","however, qihoo’s researchers were able to crack botnet #14’s dga and determine which domains it would generate."
+"""Sentence 36",the swiss governmental computer emergency response team (govcert) posted a list of these domains here.
+"""Sentence 37",this resulted in the botnet creator removing the dga feature and claiming to have replaced it with tor to preserve anonymity for the botnet controller and make it much more difficult for law enforcement to track and shut down domains.
+"""Sentence 38","as of yet, no mirai variant has been spotted using tor for c2 communication in the wild."
+"""Sentence 39",update 2/21/2017: kaspersky lab published a report about a january 2017 discovery of a cross-platform windows-based botnet actively distributing a mirai variant.
+"""Sentence 40","internet-facing sql servers running windows that are connected to networks of devices with embedded linux systems such as ip cameras, dvrs, and media center appliances are particularly vulnerable to this threat."
+"""Sentence 41",analysis of the code of this new botnet leads researchers at kaspersky to believe that it was developed by a chinese-speaking author.
+"""Sentence 42","update 2/23/2017: uk police have arrested a suspect behind the ddos attacks that knocked a german telecommunications company, deutsche telekom, offline in november 2016. the source of these attacks was attributed to mirai botnet #14 which exploited a vulnerability in the company’s standard router."
+"""Sentence 43","update 3/30/2017: a new mirai botnet variant was observed targeting a us college beginning on february 28, 2017 and lasting 54 hours."
+"""Sentence 44","the traffic generated by this new variant averaged over 30,000 rps and peaked at approximately 37,000 rps - the largest seen by any mirai botnet to date."
+"""Sentence 45",the attack generated more than 2.8 billion requests.
+"""Sentence 46","devices used in the attack include cctv cameras, dvrs, and routers and cybersecurity firm, imperva, discovered that 56 percent of the 9,793 ips used in the attack originated from dvrs manufactured by the same vendor."
+"""Sentence 47",70 percent of the traffic originated from ten countries with the us representing almost 20 percent of the botnet ip addresses used.
+"""Sentence 48","update 4/11/2017: between march 20 and march 27, one variant of the mirai malware was observed delivering a bitcoin-mining module to infected 64-bit busybox-based iot devices."
+"""Sentence 49",researchers believe that distribution of this variant ceased because the infected devices lack the processing power needed to successfully mine bitcoin.
+"""Sentence 50",ibm researchers claim to have traced this version back to a web console used by a chinese-speaking actor.
+"""Sentence 51","update 7/22/2017: a 29-year-old hacker pleaded guilty to hijacking over 900,000 routers on the deutsche telekom network using mirai malware."
+"""Sentence 52",update 12/01/2017: new mirai attack attempts were detected in south america and north african countries.
+"""Sentence 53","update 12/13/2017: nj native, paras jha, pleads guilty to co-authoring the mirai botnet."
+"""Sentence 54","update 1/16/2018: a new variant of mirai, dubbed okiru, was discovered targeting devices containing arc processors."
+"""Sentence 55","update 2/23/2018: a new variant of mirai, dubbed omg, has emerged with added configurations to target vulnerable iot devices, turning them into proxy servers."
+"""Sentence 56",new firewall rules that allow traffic to travel through the generated http and socks ports were added configurations to the mirai code.
+"""Sentence 57","once these ports are open to traffic, omg sets up 3proxy – open-source software available on a russian website."
+"""Sentence 58","update 5/17/2018: a new variant of mirai, dubbed wicked, has emerged with added configurations to target at least three additional exploits including those affecting netgear routers and cctv-dvrs."
+"""Sentence 59","wicked scans ports 8080, 8443, 80, and 81 and attempts to locate vulnerable, unpatched iot devices running on those ports."
+"""Sentence 60","researchers at fortinet suspect the same author created the wicked, sora, owari, and omni botnets."
+"""Sentence 61","update 12/20/2018: mirai variant, dubbed miori, is being spread through a remote code execution vulnerability in the thinkphp framework, affecting versions 5.0.23 to 5.1.31.
+
+update 5/23/2019: new mirai variant uses 13 different exploits together in a single campaign targeting routers and other devices."
+"""Sentence 62",update 6/6/2019: a new mirai variant adds eight new exploits against a wide range of embedded devices.
+"""Sentence 63","these newly targeted devices range from wireless presentation systems to set-top-boxes, sd-wans, and iot devices such as smart home controllers."
+"""Sentence 64","update 7/11/2019: miori, a new mirai variant, was first observed in december 2018, spreading through a remote code execution (rce) vulnerability in thinkphp, enslaving linux machines to participate as a botnet and facilitate ddos (distributed denial of service) attacks."
+"""Sentence 65",miori has resurfaced using a text-based protocol to communicate with its command-and-control (c&c) rather than the customary use of binary-based protocol.
+"""Sentence 66","this variant is marked with a distinct message specified directly to researchers, pictured below, when they attempted to connect to the c&c server."
+"""Sentence 67",miori targets iot devices that have ssh or telnet services.
+"""Sentence 68",trend micro provides technical details and iocs here.
+"""Sentence 69","also, virusbulletin provides details regarding the older variant of miori here."
+"""Sentence 70","update 07/24/2019: a distributed denial of service (ddos), also known as an application-layer or layer-7 attack, was detected that lasted 13 days and directed a peak flow of 292,000 rps (requests per second)."
+"""Sentence 71","the attack was aimed at an undisclosed imperva customer, an online entertainment-service provider, that utilizes the content delivery network (cdn), with the intent of taking down the company’s service."
+"""Sentence 72","it was led by an internet of things (iot) botnet—assessed to be mirai by imperva researchers, that coordinated 402,000 different ips largely made up of home routers."
+"""Sentence 73","the entertainment company suffered no down time, as the attack was mitigated by imperva’s application security suite."
+"""Sentence 74","this attack was one of the most significant ddos layer 7 (application layer), rps attacks observed by researchers to-date."
+"""Sentence 75",imperva provides further reporting here.
+"""Sentence 76",update 08/01/2019: researchers at trend micro recently observed a new sample of mirai hiding the c&c server in tor to remain anonymous and evade law enforcement’s efforts to shut down operations.
+"""Sentence 77","though this tactic is not unique, it is not commonly used among iot malware families, causing researchers to believe this could set the precedent for future attacks."
+"""Sentence 78","update 09/28/2019: believed to be a mirai variant, researchers have reverse-engineered a new botnet dubbed linux/airdropbot."
+"""Sentence 79",this iot botnet aims to perform remote code execution attacks on systems with embedded linux os platforms (mips architecture).

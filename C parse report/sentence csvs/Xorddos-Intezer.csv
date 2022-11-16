@@ -1,0 +1,249 @@
+Number,Content
+"""Sentence 1","new linux backdoor redxor likely operated by chinese nation-state actor
+written by joakim kennedy and avigayil mechtinger - 10 march 2021
+
+we discovered a new sophisticated backdoor targeting linux endpoints and servers
+based on tactics, techniques, and procedures (ttps) the backdoor is believed to be developed by chinese nation-state actors
+the backdoor masquerades itself as polkit daemon."
+"""Sentence 2",we named it redxor for its network data encoding scheme based on xor.
+"""Sentence 3","the malware was compiled on red hat enterprise linux
+we provide recommendations for detecting and responding to this threat below
+monitor your cloud environments for redxor and other linux malware."
+"""Sentence 4",protect 10 servers for free with the intezer protect community edition.
+"""Sentence 5","intro
+2020 set a record for new linux malware families."
+"""Sentence 6",new malware families targeting linux systems are being discovered on a regular basis.
+"""Sentence 7",backdoors attributed to advanced threat actors are disclosed less frequently.
+"""Sentence 8","we have discovered an undocumented backdoor targeting linux systems, masqueraded as polkit daemon."
+"""Sentence 9",we named it redxor for its network data encoding scheme based on xor.
+"""Sentence 10","based on victimology, as well as similar components and tactics, techniques, and procedures (ttps), we believe redxor was developed by high profile chinese threat actors."
+"""Sentence 11","the samples, which have low detection rates in virustotal, were uploaded from indonesia and taiwan, countries known to be targeted by chinese threat actors."
+"""Sentence 12","the samples are compiled with a legacy gcc compiler on an old release of red hat enterprise linux, hinting that redxor is used in targeted attacks against legacy linux systems."
+"""Sentence 13",during our investigation we experienced an “on and off” availability of the command and control (c2) server indicating that the operation is still active.
+"""Sentence 14","connections to chinese threat actors
+we uncovered key similarities between redxor and previously reported malware associated with winnti umbrella threat group."
+"""Sentence 15","these malware are pwnlnx backdoor and xor.ddos and groundhog, two botnets attributed to winnti by blackberry."
+"""Sentence 16","the below samples can be used for reference:
+pwnlnx –  4278ab79c34ea92788259fb43e535aa3
+xor.ddos – d6a6dee6afa6879b729a0af3cde7ff33
+similarities between the samples:
+use of old open-source kernel rootkits: redxor uses an open-source lkm rootkit called “adore-ng” to hide its process."
+"""Sentence 17",based on a fireeye report winnti used this rootkit in their “adore.xse” linux backdoor.
+"""Sentence 18",embedding open-source lkm rootkits is a common winnti technique.
+"""Sentence 19",the group has been documented using azazel and suterusu.
+"""Sentence 20",the checklkm function name used by redxor has also been used in pwnlnx and xor.ddos.
+"""Sentence 21",provides the operator with a pseudo-terminal: redxor uses python pty shell by importing the python pty library.
+"""Sentence 22","pwnlnx implements the pty shell function in c.
+ figure 1: python pty shell used in redxor
+encoding network with xor: the backdoor encodes its network data with a scheme based on xor."
+"""Sentence 23",encoding network data with xor has been used in previous winnti malware including pwnlnx.
+"""Sentence 24","persistence service name: as part of its persistence methods, redxor attempts to create a service under rc.d."
+"""Sentence 25",the developer added “s99” before the name of the service to lower its priority and make it run last on system initiation.
+"""Sentence 26",this technique was used in xor.ddos and groundhog samples where the malware developer added “s90” to the service name.
+"""Sentence 27",main functions flow: pwnlx and redxor have a main function which is in charge of initialization.
+"""Sentence 28","in both backdoors, the main function calls another function which is in charge of the main logic."
+"""Sentence 29",the main logic function names are main_process in redxor and mainthread in pwlnx.
+"""Sentence 30",both main functions daemonize the process to detach from the terminal and run in the background.
+"""Sentence 31",xml for file listing: redxor’s directory function and pwnlnx’s getfiles function are both in charge of directory listing.
+"""Sentence 32","their code flow implementation is different, however, as both malware send the directory listing as an xml file to the c2 server."
+"""Sentence 33",figure 2 shows the xml structure used in pwnlnx and redxor.
+"""Sentence 34","the file’s data used in both functions are: path, name, type, user, permission, size, time."
+"""Sentence 35","figure 2: the xml structure used by pwnlnx’s getfiles function and redxor’s directory function
+legacy red hat compilers: redxor and pwnlnx were both compiled with a red hat 4.4.7 compiler."
+"""Sentence 36",this compiler is the default gcc compiler on rhel6.
+"""Sentence 37",chown similarity: both pwnlnx and redxor change the file’s user and group owner to a large id.
+"""Sentence 38",the same technique has been used by the xor.ddos malware as referenced in the analysis by malwaremustdie.
+"""Sentence 39","figure 3: similarity between pwnlnx and redxor of the uid and gid used with “lchown” function call
+overall flow and functionalities: the overall code flow, behavior, and capabilities of redxor are very similar to pwnlnx."
+"""Sentence 40",both have file uploading and downloading functionalities together with a running shell.
+"""Sentence 41",the network tunneling functionality in both families is called “portmap”.
+"""Sentence 42","unstripped elf binaries: malware developers will often tamper with a file’s symbols and/or sections, making it harder for researchers to analyze them."
+"""Sentence 43","however, redxor and various winnti malware, including pwnlnx and xor.ddos, are unstripped."
+"""Sentence 44","technical analysis
+the samples are both unstripped 64-bit elf files called po1kitd-update-k. uploaded to virustotal from taiwan and indonesia, they are low detected at the time of this writing."
+"""Sentence 45","figure 4: 2bd6e2f8c1a97347b1e499e29a1d9b7c in virustotal
+malware installation
+upon execution redxor forks off a child process allowing the parent process to exit."
+"""Sentence 46",the purpose is to detach the process from the shell.
+"""Sentence 47",the new child determines if it has been executed as the root user or as another user on the system.
+"""Sentence 48","it does this to create a hidden folder, called “.po1kitd.thumb”, inside the user’s home folder which is used to store files related to the malware."
+"""Sentence 49",the malware creates a hidden file called “.po1kitd-2a4d53” inside the folder.
+"""Sentence 50","the file is locked to the current running process, seen in figure 5, essentially creating a mutex."
+"""Sentence 51","if another instance of the malware is executed, it also tries to obtain the lock but ultimately fails."
+"""Sentence 52",upon this failure the process exits.
+"""Sentence 53","figure 5: the malware creates a “mutex” file locking it to the process id
+after the malware creates the mutex, it installs itself on the infected machine."
+"""Sentence 54","as shown in figure 6, the malware looks up its current path and moves the binary to the created folder."
+"""Sentence 55",it hides the file by naming it “.po1kitd-update-k”.
+"""Sentence 56",figure 6: malware moves the binary to the hidden folder “po1kitd.thumb” created earlier.
+"""Sentence 57",it first tries to use the “rename” function provided by libc.
+"""Sentence 58","if this fails, it executes an “mv” shell command via the “system” function
+after installing the binary to the hidden folder, the malware sets up persistence via “init” scripts."
+"""Sentence 59","the following files are created after executing the malware on boot:
+/usr/syno/etc/rc.d/s99po1kitd-update.sh
+/etc/init.d/po1kitd-update
+/etc/rc2.d/s99po1kitd-update
+the malware checks if the rootkit is active by creating a file and removing it."
+"""Sentence 60","then, the malware compares the “saved set-user-id” of the process to the user id."
+"""Sentence 61","if they don’t match, the rootkit is enabled."
+"""Sentence 62","if they match, it looks to see if the user id is “10”."
+"""Sentence 63","if this is the case, the rootkit is enabled."
+"""Sentence 64","this logic is shown in figure 7.
+figure 7: logic used by redxor to check if the rootkit is enabled
+the “checklkm” logic is almost identical to the “adore_init” function in the “adore-ng” rootkit."
+"""Sentence 65",afore-ng is a chinese open-source lkm (loadable kernel module) rootkit.
+"""Sentence 66",this technique allows the malware to stay under the radar by hiding its processes.
+"""Sentence 67","the code for the init function is shown in figure 8.
+ figure 8: client authentication code for the adore-ng rootkit
+configuration
+the malware stores the configuration encrypted within the binary."
+"""Sentence 68",in addition to the command and control (c2) ip address and port it can also be configured to use a proxy.
+"""Sentence 69","the configuration includes a password, as can be seen in figure 9. this password is used by the malware to authenticate to the c2 server."
+"""Sentence 70","figure 9: configuration options for the malware
+the configuration values are decrypted by the “doxor” function."
+"""Sentence 71",a pseudo-code representation of the function is shown in figure 10. the decryption logic is a simple xor against a byte key.
+"""Sentence 72",the byte key is incremented by a constant for each item in the buffer.
+"""Sentence 73",the only configuration value that is not encrypted is the server port.
+"""Sentence 74",the port value is used to derive the key and the adder.
+"""Sentence 75",the key is derived from bit shifting the port value eight steps to the right.
+"""Sentence 76",the constant uses the port value.
+"""Sentence 77",figure 10: decryption logic of the configuration data.
+"""Sentence 78","the data is xored against a key byte that is incremented by a constant for each entry in the buffer
+communication with the c2
+the malware communicates with the c2 server over a tcp socket."
+"""Sentence 79",the traffic is made to look like http traffic.
+"""Sentence 80",figure 11 shows a pseudo-code representation of the function used by the malware to prepare data that is to be sent to the c2 server.
+"""Sentence 81","first, it fills the buffer with null bytes."
+"""Sentence 82",the request body is xored against a key.
+"""Sentence 83",the malware uses the buffer length as the key.
+"""Sentence 84",this value is also passed into the function as the “total_length” argument.
+"""Sentence 85","figure 11: function for preparing data to be sent to the c2 server
+the same logic is used to decrypt the response body from the c2 server."
+"""Sentence 86","from the response, the malware extracts “jsessionid”, “content-length”, “total-length” and the response body."
+"""Sentence 87","the data is added to a struct with the following layout:
+0x0 jsessionid as int
+
+0x8 content-length as long
+
+0x10 total-length as long
+
+0x18 response body
+
+the content length is the length of the response body but also used as the key."
+"""Sentence 88",the total length value is used as a constant which is added to the key in each iteration.
+"""Sentence 89",the jsessionid value holds the command id for the job the c2 wants the malware to perform.
+"""Sentence 90","commands
+the c2 server tells the malware to execute different commands via a command code that is returned in the “jsessionid” cookie."
+"""Sentence 91",the codes are encoded as decimal integers.
+"""Sentence 92",a full list of commands supported by the analyzed malware sample are shown in the table below.
+"""Sentence 93",they can be grouped into command types.
+"""Sentence 94","commands in the 2000 range provide “filesystem” interaction, 3000 handle “shell” commands, and 4000 handle network tunneling."
+"""Sentence 95","table 1: list of commands supported by the malware
+code	command
+0000	system information
+0008	update
+0009	uninstall
+1000	ping
+1010	install lkm
+2049	list folder
+2054	upload file
+2055	open file
+2056	execute with system
+2058	remove file
+2060	remove folder
+2061	rename
+2062	create new folder
+2066	write content to file
+3000	start shell
+3058	exec shell command
+3999	close tty
+4001	portmap (proxy)
+4002	kill portmap
+system information
+when the malware first contacts the c2 server it sends a password encoded in the request body."
+"""Sentence 96",the c2 server responds with the command code 0 to collect system information.
+"""Sentence 97",the data collected about the system by the malware is listed in the table below.
+"""Sentence 98","the data is serialized into a url query-like string, encrypted and then sent as the request body."
+"""Sentence 99","table 2: data collected by the malware and sent back to the c2 server
+url key	description	comment
+hostip	ip	hardcoded to 127.0.0.1
+softtype		hardcoded to “linux”
+pscaddr	mac address	
+hostname	machine name	
+hosttar	username	possibly “host target”
+hostos	distribution	extracted from /etc/issue or /etc/redhat-release
+hostcpu	clock speed	/proc/cpuinfo
+hostmem	amount of memory	/proc/meminfo
+hostpack		hardcoded to “linux”
+lkmtag	is rootkit enabled	
+kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2."
+"""Sentence 100",the malware sends the password “pd=admin” and c2 responds with “all right” (jsessionid=0000).
+"""Sentence 101","next, the malware sends the system information and the c2 replies with the ping command (jsessionid=1000)."
+"""Sentence 102","figure 12: redxor communication with c2
+update functionality
+the malware can be updated by the threat actor."
+"""Sentence 103",this is performed by sending command code 8 to the malware.
+"""Sentence 104","when the malware receives this code the following actions are taken:
+the malware opens the mutex file for writing."
+"""Sentence 105",it sends a request with the command code 8 and an empty request body to the c2 server.
+"""Sentence 106",the response body from the server is written to the mutex file.
+"""Sentence 107",the response body is not encrypted.
+"""Sentence 108",the lock is released on the mutex file.
+"""Sentence 109",the malware executes “chmod” to set the execution flag on the file via the libc system function.
+"""Sentence 110",the malware sleeps and tries to obtain the lock on the file again when it wakes up.
+"""Sentence 111","if it fails, it assumes the update was successful, closes the connection to the c2 server and exits."
+"""Sentence 112","shell functionality
+the malware has the ability to provide its operator with a “tty” shell."
+"""Sentence 113","if a shell is requested via the command code 3000, the malware creates a new thread executing “/bin/sh”."
+"""Sentence 114","in the new spawned shell, the malware executes python -c “import pty;pty.spawn(‘/bin/sh’)” to get a pseudo-terminal (pty) interface."
+"""Sentence 115",any shell commands sent to the malware with the command code of 3058 are executed in the pty and the response is returned to the operator.
+"""Sentence 116","network tunneling
+network tunneling is enabled by sending the command code 4001 to the malware."
+"""Sentence 117","as part of the request, a “configuration” is sent as part of the response body."
+"""Sentence 118",the configuration consists of three items separated by a “#” character.
+"""Sentence 119","the items are: a port to bind to, the ip to connect to, and a port to connect to."
+"""Sentence 120",the malware uses a modified version of the open-source project rinetd for the tunneling logic.
+"""Sentence 121",rinetd is designed to use a configuration file stored on the machine.
+"""Sentence 122","to get around this, the malware author has modified the function that parses the configuration in order to directly take the required values normally found in the configuration file."
+"""Sentence 123","detection & response
+detect if a machine in your network has been compromised
+use a cloud workload protection platform like intezer protect to gain full runtime visibility over the code in your linux-based systems and get alerted on any malicious or unauthorized code or commands."
+"""Sentence 124",try our free community edition figure 13 emphasizes an intezer protect alert on a compromised machine.
+"""Sentence 125","the alert provides additional context about the malicious code including threat classification (redxor), binary’s path on the disk, process tree, command, and hash."
+"""Sentence 126","figure 13: intezer protect alerts on redxor
+we also recommend using the iocs section below to ensure that the redxor process and the files it creates do not exist on your system."
+"""Sentence 127","intezer protect defends all types of compute resources—including vms, containers and kubernetes—against the latest linux threats in runtime."
+"""Sentence 128","try our free community edition
+
+response
+if you are a victim of this operation, take the following steps:
+kill the process and delete all files related to the malware."
+"""Sentence 129",make sure your machine is clean and running only trusted code using a cloud workload protection platform like intezer protect.
+"""Sentence 130","wrap up
+linux systems are under constant attack given that linux runs on most of the public cloud workload."
+"""Sentence 131",a survey conducted by sophos found that 70% of organizations using the public cloud to host data or workloads experienced a security incident in the past year.
+"""Sentence 132","along with botnets and cryptominers, the linux threat landscape is also home to sophisticated threats like redxor developed by nation-state actors."
+"""Sentence 133",redxor samples are indexed in intezer analyze so that you can detect any suspicious file that shares code with this malware.
+"""Sentence 134","pasted image 0 6 figure 14: redxor sample in intezer analyze
+iocs
+redxor
+0a76c55fa88d4c134012a5136c09fb938b4be88a382f88bf2804043253b0559f 0423258b94e8a9af58ad63ea493818618de2d8c60cf75ec7980edcaa34dcc919
+network
+update[.]cloudjscdn[."
+"""Sentence 135",]com 158[.]247[.]208[.
+"""Sentence 136",]230 34[.]92[.
+"""Sentence 137","]228[].216
+process name
+po1kitd-update-k
+file and directories created on disk
+.po1kitd-update-k .po1kitd.thumb .po1kitd-2a4d53 .po1kitd-k3i86dfv .po1kitd-nrksh7d6 .po1kitd-2saq14 .2saq14 .2a4d53 po1kitd.ko po1kitd-update.desktop s99po1kitd-update.sh
+
+joakim kennedy
+dr. joakim kennedy is a security researcher analyzing malware and tracking threat actors on a daily basis."
+"""Sentence 138","for the last few years, joakim has been researching malware written in go."
+"""Sentence 139","to make the analysis easier he has written the go reverse engineering toolkit (github.com/goretk), an open-source toolkit for analysis of go binaries."
+"""Sentence 140","avigayil mechtinger
+avigayil is a product manager at intezer, leading intezer analyze product lifecycle."
+"""Sentence 141","prior to this role, avigayil was part of intezer's research team and specialized in malware analysis and threat hunting."
+"""Sentence 142","during her time at intezer, she has uncovered and documented different malware targeting both linux and windows platforms."
+"""Sentence 143",backdoor china cloud security dfir linux malware malware analysis nation-state redxor research winnti

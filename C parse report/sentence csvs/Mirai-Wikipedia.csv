@@ -1,0 +1,152 @@
+Number,Content
+"""Sentence 1","mirai (malware)
+from wikipedia, the free encyclopedia
+jump to navigationjump to search
+mirai
+original author(s)	paras jha, josiah white and dalton norman
+repository	
+github.com/jgamblin/mirai-source-code edit this at wikidata
+written in	c (agent), go (controller)
+operating system	linux
+type	botnet
+license	gnu general public license v3.0
+website	github.com/jgamblin/mirai-source-code 
+mirai (from the japanese word for future, 未来) is a malware that turns networked devices running linux into remotely controlled bots that can be used as part of a botnet in large-scale network attacks."
+"""Sentence 2",it primarily targets online consumer devices such as ip cameras and home routers.
+"""Sentence 3","[1] the mirai botnet was first found in august 2016[2] by malwaremustdie,[3] a white hat malware research group, and has been used in some of the largest and most disruptive distributed denial of service (ddos) attacks, including an attack on 20 september 2016[4] on computer security journalist brian krebs' web site, an attack on french web host ovh,[5] and the october 2016 dyn cyberattack."
+"""Sentence 4","[6][7] according to a chat log between anna-senpai and robert coelho, mirai was named after the 2011 tv anime series mirai nikki."
+"""Sentence 5","[8]
+
+the software was initially used by the creators to ddos minecraft servers and companies offering ddos protection to minecraft servers, with the authors using mirai to operate a protection racket."
+"""Sentence 6",[9] the source code for mirai was subsequently published on hack forums as open-source.
+"""Sentence 7","[10] since the source code was published, the techniques have been adapted in other malware projects."
+"""Sentence 8","[11][12]
+
+
+contents
+1	malware
+2	use in ddos attacks
+3	other notable incidents
+4	identity of the author
+5	in popular culture
+6	see also
+7	references
+malware
+devices infected by mirai continuously scan the internet for the ip address of internet of things (iot) devices."
+"""Sentence 9","mirai includes a table of ip address ranges that it will not infect, including private networks and addresses allocated to the united states postal service and department of defense."
+"""Sentence 10","[13]
+
+mirai then identifies vulnerable iot devices using a table of more than 60 common factory default usernames and passwords, and logs into them to infect them with the mirai malware."
+"""Sentence 11","[5][14][15] infected devices will continue to function normally, except for occasional sluggishness,[14] and an increased use of bandwidth."
+"""Sentence 12","a device remains infected until it is rebooted, which may involve simply turning the device off and after a short wait turning it back on."
+"""Sentence 13","after a reboot, unless the login password is changed immediately, the device will be reinfected within minutes."
+"""Sentence 14","[14] upon infection mirai will identify any competing malware, remove it from memory, and block remote administration ports."
+"""Sentence 15","[16]
+
+victim iot devices are identified by “first entering a rapid scanning phase where it asynchronously and “statelessly” sent tcp syn probes to pseudo-random ipv4 addresses, excluding those in a hard-coded ip blacklist, on telnet tcp ports 23 and 2323”."
+"""Sentence 16","[17] if an iot device responds to the probe, the attack then enters into a brute-force login phase."
+"""Sentence 17","during this phase, the attacker tries to establish a telnet connection using predetermined username and password pairs from a list of credentials."
+"""Sentence 18",most of these logins are default usernames and passwords from the iot vendor.
+"""Sentence 19","if the iot device allows the telnet access, the victim's ip, along with the successfully used credential is sent to a collection server."
+"""Sentence 20","there are hundreds of thousands of iot devices which use default settings, making them vulnerable to infection."
+"""Sentence 21","once infected, the device will monitor a command and control server which indicates the target of an attack."
+"""Sentence 22","[14] the reason for the use of the large number of iot devices is to bypass some anti-dos software which monitors the ip address of incoming requests and filters or sets up a block if it identifies an abnormal traffic pattern, for example, if too many requests come from a particular ip address."
+"""Sentence 23","other reasons include to be able to marshall more bandwidth than the perpetrator can assemble alone, and to avoid being traced."
+"""Sentence 24",mirai as an internet of things (iot) devices threat has not been stopped after the arrest of the actors[citation needed].
+"""Sentence 25",some believe that other actors are utilizing the mirai malware source code on github to evolve mirai into new variants.
+"""Sentence 26",they speculate that the goal is to expand its botnet node to many more iot devices.
+"""Sentence 27",the detail of the recent progress of these variants is listed in the following paragraphs.
+"""Sentence 28","on 12 december 2017, researchers identified a variant of mirai exploiting a zero-day flaw in huawei hg532 routers to accelerate mirai botnets infection,[18] implementing two known soap related exploits on routers web interface, cve-2014–8361 and cve-2017–17215."
+"""Sentence 29",this mirai version is called satori.
+"""Sentence 30","on 14 january 2018, a new variant of mirai dubbed “okiru” already targeting popular embedded processor like arm, mips, x86, powerpc[19] and others was found targeting arc processors based linux devices[20] for the first time."
+"""Sentence 31","argonaut risc core processor (shorted: arc processors) is the second-most-popular embedded 32 bit processor, shipped in more than 1.5 billion products per year, including desktop computers, servers, radio, cameras, mobile, utility meters, televisions, flash drives, automotive, networking devices (smart hubs, tv modems, routers, wifi) and internet of things."
+"""Sentence 32",only a relatively small number of arc-based devices run linux and are therefore exposed to mirai.
+"""Sentence 33","on 18 january 2018, a successor of mirai is reported to be designed to hijack cryptocurrency mining operations."
+"""Sentence 34","[21]
+
+on 26 january 2018, two similar mirai variant botnets were reported, the more modified version of which weaponizes edb 38722 d-link router's exploit to enlist further vulnerable iot devices."
+"""Sentence 35","the vulnerability in the router's home network administration protocol (hnap) is utilized to craft a malicious query to exploited routers that can bypass authentication, to then cause an arbitrary remote code execution."
+"""Sentence 36","the less modified version of mirai is called masuta (after the japanese transliteration of master), while the more modified version is called puremasuta."
+"""Sentence 37","[22]
+
+in march 2018, a new variant of mirai, dubbed as omg, has emerged to surface with added configurations to target vulnerable iot devices and turning them into proxy servers."
+"""Sentence 38",new firewall rules that allow traffic to travel through the generated http and socks ports were added configurations to the mirai code.
+"""Sentence 39","once these ports are open to traffic, omg sets up 3proxy – open-source software available on a russian website."
+"""Sentence 40","[23]
+
+between may to june 2018, another variant of mirai, dubbed as wicked, has emerged with added configurations to target at least three additional exploits including those affecting netgear routers and cctv-dvrs."
+"""Sentence 41","wicked scans ports 8080, 8443, 80, and 81 and attempts to locate vulnerable, unpatched iot devices running on those ports."
+"""Sentence 42","researchers suspect the same author created the wicked, sora, owari, and omni botnets."
+"""Sentence 43","[24][25]
+
+in early july 2018 it was reported at least thirteen versions of mirai malware has been detected actively infecting linux internet of things (iot) in the internet, and three of them were designed to target specific vulnerabilities by using exploit proof of concept, without launching brute-forcing attack to the default credential authentication."
+"""Sentence 44","[26] in the same month it was published a report of infection campaign of mirai malware to android devices through the android debug bridge on tcp/5555 which is actually an optional feature in the android operating system, but it was discovered that this feature appears to be enabled on some android phones."
+"""Sentence 45","[27]
+
+at the end of 2018, a mirai variant dubbed miori started being spread through a remote code execution vulnerability in the thinkphp framework, affecting versions 5.0.23 to 5.1.31. this vulnerability is continuously being abused by the further evolved mirai variants dubbed as hakai and yowai in january 2019, and variant speakup in february, 2019."
+"""Sentence 46","[28]
+
+use in ddos attacks
+mirai was used, alongside bashlite,[29] in the ddos attack on 20 september 2016 on the krebs on security site which reached 620 gbit/s."
+"""Sentence 47",[30] ars technica also reported a 1 tbit/s attack on french web host ovh.
+"""Sentence 48","[5]
+
+on 21 october 2016, multiple major ddos attacks in dns services of dns service provider dyn occurred using mirai malware installed on a large number of iot devices, many of which were still using their default usernames and passwords."
+"""Sentence 49","[31] these attacks resulted in the inaccessibility of several high-profile websites, including github, twitter, reddit, netflix, airbnb and many others."
+"""Sentence 50",[32] the attribution of the dyn attack to the mirai botnet was originally reported by level 3 communications.
+"""Sentence 51","[29][33]
+
+mirai was later revealed to have been used during the ddos attacks against rutgers university from 2014 to 2016, which left faculty and students on campus unable to access the outside internet for several days at a time."
+"""Sentence 52","additionally, a failure of the university's central authentication service caused course registration and other services unavailable during critical times in the academic semester."
+"""Sentence 53","the university reportedly spent $300,000 in consultation and increased the cyber-security budget of the university by $1 million in response to these attacks."
+"""Sentence 54",the university cited the attacks among its reasons for the increase in tuition and fees for the 2015–2016 school year.
+"""Sentence 55","[34] a person under the alias exfocus claimed responsibility for the attacks, stating in a reddit ama on the /r/rutgers subreddit that the user was a student at the school and the ddos attacks were motivated by frustrations with the university's bus system."
+"""Sentence 56",the same user later claimed in an interview with a new jersey-based blogger that they had lied about being affiliated with the university and that the attacks were being funded by an anonymous client.
+"""Sentence 57",security researcher brian krebs later alleged the user was indeed a student at rutgers university and that the latter interview was given in an attempt to distract investigators.
+"""Sentence 58","[8]
+
+staff at deep learning security observed the steady growth of mirai botnets before and after the 21 october attack."
+"""Sentence 59","[35]
+
+mirai has also been used in an attack on liberia's internet infrastructure in november 2016."
+"""Sentence 60","[36][37][38] according to computer security expert kevin beaumont, the attack appears to have originated from the actor which also attacked dyn."
+"""Sentence 61","[36]
+
+its ddos attacks were also notable in brazil, taiwan, costa rica and india."
+"""Sentence 62","[39]
+
+other notable incidents
+at the end of november 2016, approximately 900,000 routers, from deutsche telekom and produced by arcadyan, were crashed due to failed tr-064 exploitation attempts by a variant of mirai, which resulted in internet connectivity problems for the users of these devices."
+"""Sentence 63","[40][41] while talktalk later patched their routers, a new variant of mirai was discovered in talktalk routers."
+"""Sentence 64","[42]
+
+a british man suspected of being behind the attack was arrested at luton airport, according to the bbc."
+"""Sentence 65","[43]
+
+identity of the author
+on january 17, 2017, computer security journalist brian krebs, also known as 0x150 online, posted an article on his blog, krebs on security, where he disclosed the name of the person who he believed to have written the malware."
+"""Sentence 66","krebs stated that the likely real-life identity of anna-senpai (named after anna nishikinomiya, a character from shimoneta), the author of mirai, was actually an indian-american paras jha, the owner of a ddos mitigation service company protraf solutions and a student of rutgers university."
+"""Sentence 67","in an update to the original article, paras jha responded to krebs and denied having written mirai."
+"""Sentence 68",[8] the fbi was reported to have questioned jha on his involvement in the october 2016 dyn cyberattack.
+"""Sentence 69","[44] on december 13, 2017, paras jha, josiah white, and dalton norman entered a guilty plea to crimes related to the mirai botnet."
+"""Sentence 70","[45]
+
+daniel kaye, 29, also known as alias bestbuy, popopret or spiderman, has been accused of using an infected network of computers known as the mirai botnet to attack and blackmail lloyds banking group and barclays banks, according to the nca."
+"""Sentence 71",he has been extradited from germany to the uk according to the same report.
+"""Sentence 72","kaye has also pleaded guilty in court on hijacking more than 900,000 routers from the network of deutsche telekom."
+"""Sentence 73","[46][47]
+
+researchers later pointed to the handle name nexus zeta as responsible for the author of new variants of mirai (dubbed as okiru, satori, masuta and puremasuta),[48][49][22] and on august 21, 2018 an american grand jury indicted kenneth currin schuchman, 20, aka nexus zeta, of knowingly causing the transmission of a program, information, code, and commands, and as result of such conduct intentionally causing damage without authorization to protected computers, according to the indictment filed in u.s. district court in anchorage,[50][51] followed by the arrest and trial of the suspect."
+"""Sentence 74","[52]
+
+in popular culture
+american electronic musician and composer james ferraro's 2018 album four pieces for mirai references mirai in its ongoing narrative."
+"""Sentence 75","see also
+linux malware
+denial-of-service attack
+bashlite – another notable iot malware
+linux.darlloz – another notable iot malware
+remaiten – another iot ddos bot
+linux.wifatch
+hajime
+brickerbot"
