@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,/proc/self/exe,uname,/etc/ld.so.nohwcap,/sys/kernel/mm/transparent_hugepage/hpage_pmd_size,stdin,/var/log/ZohoAssist/urs_crash.dmp,/var/log/ZohoAssist,/etc//localtime,/var/log/ZohoAssist/service.log,/var/log/ZohoAssist/UpgraderTiming
+Dofloo-BleepingComputer.csv,0,0.0,0,0,0,0,0,0,0,0,0,0
+Dofloo-MalwareMustDie.csv,0,0.0,0,0,0,0,0,0,0,0,0,0
+Dofloo-Securityaffairs.csv,0,0.0,0,0,0,0,0,0,0,0,0,0
+Dofloo-SyscallParty.csv,2,0.1429,1,1,0,0,0,0,0,0,0,0
+Dofloo-Trendmicro.csv,1,0.07143,1,0,0,0,0,0,0,0,0,0

@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,/proc/self/exe,8.8.8.8:53,5.182.210.244:38273,0.0.0.0:38273,/proc/net/tcp,192.168.1.2:38273
+Mirai-Imperva.csv,0,0.0,0,0,0,0,0,0
+Mirai-IscSansEdu.csv,0,0.0,0,0,0,0,0,0
+Mirai-MalwareMustDie.csv,0,0.0,0,0,0,0,0,0
+Mirai-NJCCIC.csv,0,0.0,0,0,0,0,0,0
+Mirai-Wikipedia.csv,0,0.0,0,0,0,0,0,0

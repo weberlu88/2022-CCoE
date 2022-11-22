@@ -1,0 +1,14 @@
+text,type,weight
+/,file,1
+//8.8.8.8:53,file,1
+//Unknown,file,1
+/bin/watchdog,file,2
+/dev/misc/watchdog,file,2
+/dev/watchdog,file,2
+/dev/watchdog0,file,2
+/etc/watchdog,file,2
+/proc/self/exe,file,2
+111.240.131.42:23,net,2
+136.144.41.60:3074,net,2
+255.255.255.255:3074,net,2
+8.8.8.8:53,net,2

@@ -1,0 +1,14 @@
+text,type,weight
+/etc//tmp,file,1
+/etc/init.d/boot.local,file,2
+/etc/rc.d/rc.local,file,2
+/etc/rc.local,file,2
+/prober,file,1
+/proc/cpuinfo,file,2
+/proc/net/dev,file,1
+/proc/self/exe,file,1
+/proc/stat,file,1
+/tmp/Unknown,file,2
+114.114.114.114:53,net,2
+8.8.8.8:53,net,2
+uname,other,1

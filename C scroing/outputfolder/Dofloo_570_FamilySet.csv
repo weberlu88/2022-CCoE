@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,uname,/proc/cpuinfo,/proc/self/exe,/prober,/etc/rc.local,/etc/rc.d/rc.local,/etc/init.d/boot.local,/etc//tmp,/tmp/Unknown,114.114.114.114:53,8.8.8.8:53,/proc/stat,/proc/net/dev
+Dofloo-BleepingComputer.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-MalwareMustDie.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-Securityaffairs.csv,2,0.2,0,0,0,0,1,1,0,0,0,0,0,0,0
+Dofloo-SyscallParty.csv,6,0.45,1,1,1,0,1,0,1,0,0,0,0,0,1
+Dofloo-Trendmicro.csv,7,0.55,0,1,1,0,1,1,1,0,0,0,0,1,1

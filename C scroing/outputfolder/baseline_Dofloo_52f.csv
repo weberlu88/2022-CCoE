@@ -1,0 +1,12 @@
+text,type,weight
+/dev/urandom,file,1
+/etc/mtab,file,1
+/proc/cpuinfo,file,1
+/proc/net/dev,file,1
+/proc/self/exe,file,1
+/proc/stat,file,1
+/proc/sys/kernel/version,file,1
+stdin,file,1
+156.96.155.251:48080,net,2
+NIC,net,1
+uname,other,1

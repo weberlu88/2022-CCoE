@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,uname,/proc/self/exe,/prober,/etc/rc.local,/etc/rc.d/rc.local,/etc/init.d/boot.local,/dev/urandom,NIC,154.91.161.81:48080,/proc/net/dev,/sys/devices/system/cpu/online,/proc/stat
+Dofloo-BleepingComputer.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-MalwareMustDie.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-Securityaffairs.csv,2,0.25,0,0,0,1,1,0,0,0,0,0,0,0
+Dofloo-SyscallParty.csv,5,0.4375,1,1,0,1,0,1,0,0,0,1,0,0
+Dofloo-Trendmicro.csv,6,0.5625,0,1,0,1,1,1,0,0,0,1,0,1

@@ -1,0 +1,9 @@
+report_name,ttl_match,coverage_score,uname
+Tsunami-Aquasec.csv,1,1.0,1
+Tsunami-Aquasec2.csv,0,0.0,0
+Tsunami-Cadosecurity.csv,0,0.0,0
+Tsunami-Juniper.csv,0,0.0,0
+Tsunami-Kerneronsec.csv,0,0.0,0
+Tsunami-Subexsecure.csv,0,0.0,0
+Tsunami-Trendmicro.csv,1,1.0,1
+Tsunami-Unit42.csv,0,0.0,0

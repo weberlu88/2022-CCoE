@@ -1,0 +1,13 @@
+text,type,weight
+/dev/urandom,file,1
+/etc/init.d/boot.local,file,2
+/etc/rc.d/rc.local,file,2
+/etc/rc.local,file,2
+/prober,file,1
+/proc/net/dev,file,1
+/proc/self/exe,file,1
+/proc/stat,file,1
+/sys/devices/system/cpu/online,file,1
+23.236.66.13:50050,net,2
+NIC,net,1
+uname,other,1

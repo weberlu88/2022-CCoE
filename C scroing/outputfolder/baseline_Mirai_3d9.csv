@@ -1,0 +1,7 @@
+text,type,weight
+/proc/net/tcp,file,1
+/proc/self/exe,file,1
+0.0.0.0:38273,net,2
+192.168.1.2:38273,net,1
+5.182.210.244:38273,net,1
+8.8.8.8:53,net,2

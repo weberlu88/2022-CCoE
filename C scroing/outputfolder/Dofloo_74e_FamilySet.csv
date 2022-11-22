@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,stdin,/proc/self/exe,uname,/etc/ld.so.nohwcap,/prober,/etc/rc.local,/etc/rc.d/rc.local,/etc/init.d/boot.local,nul,2,/dev/urandom,NIC,/etc/resolv.conf,218.60.25.91:10210,/proc/net/dev,/sys/devices/system/cpu/online,/proc/stat,/etc/nsswitch.conf,/etc/ld.so.cache,/lib/x86_64-linux-gnu/libnss_files.so.2,/lib/x86_64-linux-gnu/libc.so.6,/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2,/etc/host.conf,/etc/hosts,/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2,/lib/x86_64-linux-gnu/libnss_dns.so.2,/lib/x86_64-linux-gnu/libresolv.so.2,127.0.0.53:53,/lib/x86_64-linux-gnu/libnss_myhostname.so.2,/lib/x86_64-linux-gnu/librt.so.1,/lib/x86_64-linux-gnu/libpthread.so.0,0.0.0.0:1020
+Dofloo-BleepingComputer.csv,1,0.02041,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-MalwareMustDie.csv,2,0.04082,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-Securityaffairs.csv,3,0.102,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-SyscallParty.csv,6,0.1633,0,1,1,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-Trendmicro.csv,11,0.3061,0,1,0,0,0,1,1,1,0,1,0,0,1,0,1,0,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0

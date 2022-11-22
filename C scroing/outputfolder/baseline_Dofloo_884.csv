@@ -1,0 +1,11 @@
+text,type,weight
+/etc//localtime,file,1
+/etc/ld.so.nohwcap,file,1
+/proc/self/exe,file,1
+/sys/kernel/mm/transparent_hugepage/hpage_pmd_size,file,1
+/var/log/ZohoAssist,file,2
+/var/log/ZohoAssist/UpgraderTiming,file,2
+/var/log/ZohoAssist/service.log,file,2
+/var/log/ZohoAssist/urs_crash.dmp,file,2
+stdin,file,1
+uname,other,1
