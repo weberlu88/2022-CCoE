@@ -1172,6 +1172,7 @@ class AttackGraph:
         self._path = path
         self.exec = False
         self.step_list = []
+        self.new_var = 11111111
         self.set_of_object = {}
         self.set_of_object_summary = {"File":0, "Process":0, "Net":0, "Memory":0, "Other":0}
         self.set_of_object_summary_list = {"File":[], "Process":[], "Net":[], "Memory":[], "Other":[]}
@@ -2044,7 +2045,10 @@ class AttackGraph:
             fd = info['fd']
             path = self.file_table.get(fd)
         else:
-            path = info['path']
+            try:
+                path = info['path']
+            except KeyError:
+                path = None
         
         # fd may open in parent process
         if not path and not self._inside_execve:
@@ -3675,7 +3679,10 @@ class AttackGraph:
             fd = info['fd']
             path = self.file_table.get(fd)
         else:
-            path = info['path']
+            try:
+                path = info['path']
+            except KeyError:
+                path = None
         
         # fd may open in parent process
         if not path and not self._inside_execve:
