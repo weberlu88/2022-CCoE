@@ -1,0 +1,33 @@
+node_name,type,appearance,importance
+malware,proc,28,False
+uname,other,2,False
+Memory Address,mem,491,True
+8192*1024 bytes,other,7,False
+/proc/self/exe,file,1,False
+/prober,file,1,False
+sh,proc,126,True
+1526,proc,365,True
+status:0,other,7,True
+ID,other,46,True
+sed,proc,164,False
+NO_PID,proc,6,False
+/etc/rc.local,file,15,False
+Permission:0700,other,3,True
+Permission:022,other,3,True
+status:1,other,2,True
+status:2,other,4,True
+/etc/rc.d/rc.local,file,1,True
+/etc/init.d/boot.local,file,1,True
+Unknown,file,3,True
+1527,proc,6822,True
+1528,proc,2,True
+1529,proc,2,True
+/dev/urandom,file,186,False
+NIC,net,10,False
+23.236.66.13:50050,net,418,True
+Sleep Duration,other,336,False
+/proc/net/dev,file,4500,False
+Timestamp,other,189,False
+/sys/devices/system/cpu/online,file,300,False
+/proc/stat,file,894,False
+NO_SOCKET,net,39,True
