@@ -6,7 +6,6 @@ from datetime import datetime
 from graphviz import Digraph        
 from datetime import datetime
 
-# Global Variables
 STRACE_TIME_FORMAT = '%H:%M:%S.%f' #03:05:34.993967
 
 ###### regex #########
@@ -26,8 +25,7 @@ PRIVATE_IP_REGEX = '(^127\.)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[
 ###### Syscall Table ######
 process_creation = ['clone', 'fork', 'vfork']
 open_file = ['open', 'openat']
-# write_file = ['write', 'rename']
-write_file = ['write']
+write_file = ['write', 'rename']
 info = ['uname', 'sysinfo']
 send = ['send', 'sendto', 'sendmsg']
 recv = ['recv', 'recvfrom', 'recvmsg']
@@ -37,7 +35,6 @@ link = ['symlink', 'symlinkat', 'link', 'linkat']
 #### ignore path ####
 ignore_paths = ['/dev/null', 'stdout', 'stderr']
 
-### Trace Parser ### 
 def parse_line(log):
     signal = re.search('--- (SIG.*?) {(.*)}', log)
     term = re.search('[0-9]* \+\+\+ (.*) \+\+\+', log)
@@ -95,7 +92,7 @@ def strace_log_merge(path):
         return False
     
     return True
-
+    
 def myprint(syscall, name):
     if syscall['name'] == name:
         print(f"{syscall['args']}: {syscall['return']}")
@@ -116,8 +113,7 @@ class Edge:
         self.tactic = ''
         self.color = None
         self.id = None
-
-### File Descriptor Handler ###
+        
 class FileTable:
     def __init__(self):
         self.fd_table = {
@@ -158,8 +154,6 @@ class FileTable:
         display += '-------------\n'
         return display
 
-
-### System Call Parser ###
 class SyscallParser:
     def __init__(self):        
         self.parse_handler = {
@@ -299,7 +293,7 @@ class SyscallParser:
         if not self.isTimeSink:
             args  = self.syscall['args'].split(",")
             timestamp = int(args[0][1:])
-            print(timestamp)
+            # print(timestamp)
             sys_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
             info["sys_time"] = sys_time
         else:
@@ -617,12 +611,12 @@ class SyscallParser:
     
     def nanosleep(self):
         info = {}
+        args  = self.syscall['args']
+        sec = args.split(",")[0].split("=")[1]
+        nsec = args.split(",")[1].split("=")[1][0:-1]
+        interval = sec + "s + " + nsec + "ns"
         
         if not self.isSleepSink:
-            args  = self.syscall['args']
-            sec = args.split(",")[0].split("=")[1]
-            nsec = args.split(",")[1].split("=")[1][0:-1]
-            interval = sec + "s + " + nsec + "ns"
             info["interval"] = interval
         else:
             info["interval"]  = "Sleep Duration"
@@ -630,12 +624,12 @@ class SyscallParser:
     
     def time(self):
         info = {}
+        timeStamp  = self.syscall['return']
+        ts = int(timeStamp)
         
-        # if you encounter a "year is out of range" error the timestamp
-        # may be in milliseconds, try `ts /= 1000` in that case
         if not self.isTimeSink:
-            timeStamp  = self.syscall['return']
-            ts = int(timeStamp)
+            # if you encounter a "year is out of range" error the timestamp
+            # may be in milliseconds, try `ts /= 1000` in that case
             sys_time = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
             info["sys_time"] = sys_time
         else:
@@ -1046,7 +1040,6 @@ class SyscallParser:
     
 sys_parser = SyscallParser()
 
-### Attack Scenario Graph Main Class Definition ###
 class AttackGraph:
     def __init__(self, path):
         self.malware_hash = path.split('/')[-1]
@@ -1179,6 +1172,7 @@ class AttackGraph:
         self._path = path
         self.exec = False
         self.step_list = []
+        self.new_var = 11111111
         self.set_of_object = {}
         self.set_of_object_summary = {"File":0, "Process":0, "Net":0, "Memory":0, "Other":0}
         self.set_of_object_summary_list = {"File":[], "Process":[], "Net":[], "Memory":[], "Other":[]}
@@ -2051,7 +2045,10 @@ class AttackGraph:
             fd = info['fd']
             path = self.file_table.get(fd)
         else:
-            path = info['path']
+            try:
+                path = info['path']
+            except KeyError:
+                path = None
         
         # fd may open in parent process
         if not path and not self._inside_execve:
@@ -2552,7 +2549,7 @@ class AttackGraph:
                     if call['type'] == 'sys':
                         # sys_ignore = ['open', 'openat', 'read']
 #                         sys_ignore = ['read']
-#                         if(call['name'] == 'uname'):
+#                         if(call['name'] == 'rename'):
 #                             print("Call:", call)
 #                             print("Args:", call['args'], type(call['args']))
 #                             print("Args split:", call['args'].split(",") )
@@ -2571,19 +2568,18 @@ class AttackGraph:
         for step in self.step_list:
             from_node = step[0]
             to_node = step[1]
-            edge_name = step[2]
-            
+            edge = step[2]
             reverse_edge = ["read", "recv"] 
-            if to_node.name not in self.set_of_object and edge_name not in reverse_edge:
-                trans_dict = {"f":"File", "c":"File", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other", "pipe":"Other"}
+            if to_node.name not in self.set_of_object and edge.name not in reverse_edge:
+                trans_dict = {"f":"File", "c":"File", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
 
-                self.set_of_object[to_node.name] = trans_dict.get(to_node.type, "Other") # pipe 沒處理到會出錯 歸為 Other
+                self.set_of_object[to_node.name] = trans_dict[to_node.type]
                 self.set_of_object_summary[trans_dict[to_node.type]] += 1
                 self.set_of_object_summary_list[trans_dict[to_node.type]].append(to_node.name)
 
-            if edge_name in reverse_edge:
+            if edge.name in reverse_edge:
                 if from_node.name not in self.set_of_object:
-                    trans_dict = {"f":"File", "c":"File", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other", "pipe":"Other"}
+                    trans_dict = {"f":"File", "c":"File", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
 
                     self.set_of_object[from_node.name] = trans_dict[from_node.type]
                     self.set_of_object_summary[trans_dict[from_node.type]] += 1
@@ -2819,8 +2815,1576 @@ class AttackGraph:
         self.node_seq = sorted(self.node_seq, key=lambda x: int(x[0]))
         
         return dot
+    def __init__(self, path):
+        self.malware_hash = path.split('/')[-1]
+        self.traces = sorted(glob.glob(path + '/strace*'))
+        self.proc_id  = -1 # initialize
+        self.traces_lines = 0
+        self.trigger_lines = 0
+        self.graph = {}
+        self.edges = {}
+        self.current_dir = ""
+        self.isDuplicate = True
 
-### MITRE Mapping Rules ###
+        self.proc_node_map = {}
+        self.file_table = FileTable()
+        
+        # record seen file path
+        self._file_node_map = {}
+        
+        # unique ip set
+        self.unique_ip = set()
+        
+        # handler function
+        self._syscall_handler_table = {
+            'process': self._process,
+            'read': self._read,
+            'open': self._openn,
+            'execve': self._execve,
+            'close': self._close,
+            'write': self._write,
+            'socket': self._socket,
+            'connect': self._connect,
+            'info': self._info,
+            'send': self._send,
+            'recv': self._recv,
+            'ioctl': self._ioctl,
+            'rm': self._rm,
+            'bind': self._bind,
+            'mkdir': self._mkdir,
+            'link': self._link,
+            'kill': self._kill,
+            'ptrace': self._ptrace
+        }
+
+        self.added_handler_table = [
+            ### Dofloo v1 ###
+            "readlink",
+            "waitpid",
+            "access",
+            "fstat",
+            "mmap",
+            "stat",
+            "wait4",
+            "statfs",
+            "fcntl",
+            "fchown",
+            "fchmod",
+            "mmap2",
+            "_newselect",
+            "getsockopt",
+            "fstat64",
+            "lseek",
+            
+            ### Dofloo v2 ###
+            "brk",
+            "set_thread_area",
+            "set_tid_address",
+            "set_robust_list",
+            "futex",
+            "ugetrlimit",
+            "getcwd",
+            "exit_group",
+            "mprotect",
+            "arch_prctl",
+            "munmap",
+            "getuid",
+            "getgid",
+            "getpid",
+            "geteuid",
+            "getppid",
+            "getegid",
+            "prlimit64",
+            "umask",
+            "setsid",
+            "nanosleep",
+            "time",
+            
+            ### xorddos ###
+            "dup2",
+            "stat64",
+            "gettimeofday",
+            "shmget",
+            "shmat",
+            "shmdt",
+            "getdents",
+            "lstat",
+            "pipe",
+            "fcntl64",
+            "mremap",
+            "newfstatat",
+            "setsockopt",
+            "getsockname",
+            "ppoll",
+
+            ### Tsunami ###
+            "chdir"
+        ]
+        
+        # self.added_handler_table = {
+        #     "readlink": self._readlink,
+        #     "waitpid": self._waitpid,
+        #     "access": self._access,
+        #     "fstat": self._fstat,
+        #     "mmap": self._mmap,
+        #     "stat": self._stat,
+        #     "wait4": self._wait4,
+        #     "statfs": self._statfs,
+        #     "fcntl": self._fcntl,
+        #     "fchown": self._fchown,
+        #     "fchmod": self._fchmod,
+        #     "mmap2": self._mmap2,
+        #     "_newselect": self._newselect,
+        #     "getsockopt": self._getsockopt,
+        #     "fstat64": self._fstat64,
+        #     "lseek": self._lseek
+        # }
+        
+        self._path = path
+        self.exec = False
+        self.step_list = []
+        
+    def replace_cwd(self, node):
+        cwd = '/prober/host_share/'
+        if node.name.split('/')[-1] == self.malware_hash:
+            node.name = 'malware'
+    
+        if node.name.startswith(cwd):
+            node.name = './' + node.name.replace(cwd, '')
+    
+    # connect two nodes
+    def _connect_node(self, from_node, to_node, edge):
+        #if to_node.name == 'sysinfo':
+        #    print(f'Connect {from_node.name} to {to_node.name}')
+        self.replace_cwd(from_node)
+        self.replace_cwd(to_node)
+        
+        self.graph[from_node].append(to_node)
+        self.edges[(from_node, to_node, edge.name)] = edge
+        self.step_list.append((from_node, to_node, edge.name))
+    
+    # connect proc to file if there is no edge between them currently
+    # from_proc: edge direction
+    # if True: current node to file node (write, exec...). False: file node to current node (read)
+    def _connect_proc_file(self, path, edge_name, time, from_proc = True, node_typ = 'f'):
+        
+        # if file node not exist: create new node, else: connect current node to exist file node
+        if path not in self._file_node_map and path not in self.proc_node_map:
+            child_node = Node(path, node_typ)
+            
+            if from_proc:
+                from_node = self.current_node
+                to_node = child_node
+            else:
+                from_node = child_node
+                to_node = self.current_node
+            
+            if node_typ != 'p':
+                self._file_node_map[path] = child_node
+            else:
+                self.proc_node_map[path] = child_node
+            
+            self.graph[child_node] = []
+            self._connect_node(from_node, to_node, Edge(edge_name, time)) 
+        # file node exist
+        else:
+            if node_typ != 'p':
+                child_node = self._file_node_map[path]
+            else:
+                child_node = self.proc_node_map[path]
+                
+            if from_proc:
+                from_node = self.current_node
+                to_node = child_node
+            else:
+                from_node = child_node
+                to_node = self.current_node
+                
+            # if curent node has not connected to file node (escape loop in strace.log)
+            if not self.isDuplicate :
+                if (from_node, to_node, edge_name) not in self.edges:
+                    self._connect_node(from_node, to_node, Edge(edge_name, time))
+            else:
+                self._connect_node(from_node, to_node, Edge(edge_name, time))
+    
+    # remove connection between two nodes
+    def _rm_connect(self, edge):
+        from_node, to_node, _ = edge
+        self.graph[from_node].remove(to_node)
+        self.edges.pop(edge)
+        
+    def _find_path_by_fd(self, fd, time):
+        path = 'Unknown'
+        local_file_table = FileTable()
+        
+        # malware use only one ip
+        if len(self.unique_ip) == 1:
+            path = list(self.unique_ip)[0]
+        
+        # rebuild fd table from first line of merge.log
+        else:
+            if not os.path.isfile(f'{self._path}/merge.log'):
+                strace_log_merge(self._path)
+
+            with open(f'{self._path}/merge.log', 'r') as f:
+                for line in f:
+                    try:
+                        line2 = re.search(RE_LOG_MERGE_CALL, line).group(1)
+                    except AttributeError:
+                        print(line)
+                        raise
+                    syscall = parse_line(line2)
+
+                    if not syscall or syscall['type'] != 'sys':
+                        continue
+
+                    name = syscall['name']
+
+                    # if found: get path and update class file_table
+                    if syscall['time'] == time:
+                        path = local_file_table.get(fd)
+                        if not path:
+                            pass
+                            #print(syscall)
+                            #raise KeyError('_find_path_by_fd: fd not found.')
+                        self.file_table.update(fd, path)
+                        break
+
+                    # build fd table
+                    if syscall['success']:
+                        if name in open_file:
+                            info = sys_parser.parse(syscall)
+                            local_file_table.add(syscall['return'], info['path'])
+
+                            # print("syscall:", syscall)
+                            # print(local_file_table)
+                        elif name == 'socket':
+                            info = sys_parser.parse(syscall)
+                            # update fd table if create socket successfully
+                            if info['family'] not in ['AF_INET', 'PF_IENT']:
+                                local_file_table.add(fd, info['family'])
+                            else:
+                                local_file_table.add(syscall['return'])
+
+                        elif name == 'close':
+                            info = sys_parser.parse(syscall)
+                            local_file_table.rm(info['fd'])
+                            
+                    elif name == 'connect':
+                        info = sys_parser.parse(syscall)
+                        # ignore IPC usage
+                        if info['family'] not in ['AF_INET', 'PF_INET']:
+                            return
+                        local_file_table.update(info['fd'], info['addr'])
+        
+        
+        return path
+        
+    def _process(self, syscall):
+        pid = syscall['return']
+        child_node = Node(pid)
+        self.proc_node_map[pid] = child_node
+        self.graph[child_node] = []
+
+        # if self._inside_execve:
+        if self.exec:
+            edge = Edge('exec', syscall['time'])
+            
+        else:
+            edge = Edge(syscall['name'], syscall['time'])
+
+        self._connect_node(self.current_node, child_node, edge)
+    
+    def _execve(self, syscall):
+        self._inside_execve = True # True will not draw the system file
+        self.exec = True # Flag for present exec edge
+        info = sys_parser.parse(syscall)
+        if info['command'].split('/')[-1] == self.malware_hash:
+            info['command'] = 'malware'
+
+        # set current ndoe name = execve command
+        self.current_node.name = info['command']
+
+        # find target file if command has option
+        if info['option']:
+            self._execve_options = [ re.search('\"(.*)\"', opt).group(1) for opt in info['option'].split(',')]
+        else:
+            self._execve_options = []
+
+    def _added_handler(self, syscall):
+        info = sys_parser.parse(syscall)
+        # for file
+        if("fd" in info or "path" in info):
+            
+            if("fd" in info):
+                fd = info['fd']
+                path = self.file_table.get(fd)
+                if not path and not self._inside_execve:
+                    path = self._find_path_by_fd(fd, syscall['time'])
+                    
+                if path in ignore_paths:
+                    return
+            elif("path" in info):
+                path = info["path"]
+
+            
+            edge_name = syscall["name"]
+
+            
+
+            # if fd exist in fd table 
+            if path:
+                if path[0] != "/":
+                    path = self.current_dir + path
+
+                # if file appear in execve or currently not in execve
+                if (self._inside_execve and (path in self._execve_options)) or not self._inside_execve:
+                    # file node not exist
+                    if path not in self._file_node_map:
+                        child_node = Node(path, typ='f')
+                        self._file_node_map[path] = child_node
+                        self.graph[child_node] = []
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+
+                    # file node exist
+                    else:
+                        child_node = self._file_node_map[path]
+                        
+                        # if curent node has connected to file node open(), remove open and connect edge
+                        replace_edge_name = ['open']
+                        for exist_edge_name in replace_edge_name:
+                            edge = (self.current_node, child_node, exist_edge_name)
+                            if edge in self.edges:
+                                self._rm_connect(edge)
+                        
+                        # if has conected with write(), don't re-connect current node and child node
+                        if not self.isDuplicate :
+                            if (self.current_node, child_node, edge_name) not in self.edges:
+                                self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                        else:
+                            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+            ### For chdir ###
+            if syscall["name"] == "chdir":
+                self.current_dir = info["path"].strip("\"") + "/"
+
+        # For process
+        elif("pid" in info):
+            
+            pid = info["pid"]
+            edge_name = syscall["name"]
+ 
+            if pid in self.proc_node_map: # the process id need to have alreay been create, then we just can manipulate it
+                child_node = self.proc_node_map[pid]
+                
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+            else:
+                node_name = "NO_PID"
+                if node_name not in self._file_node_map:
+                    child_node = Node(node_name)
+                    self._file_node_map[node_name] = child_node
+                    self.graph[child_node] = []
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                else:
+                    child_node = self._file_node_map[node_name]
+                    if not self.isDuplicate :
+                        if (child_node, self.current_node, edge_name) not in self.edges:
+                            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                    else:
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                    
+        # For socket
+        elif("sck_id" in info):
+            sck_id = info["sck_id"]
+            path = self._find_path_by_fd(sck_id, syscall['time']) # get socket ip addr
+            edge_name = syscall["name"]
+
+            # file node not exist
+            if path not in self._file_node_map:
+                child_node = Node(path, typ='n')
+                self._file_node_map[path] = child_node
+                self.graph[child_node] = []
+                self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+
+            # file node exist
+            else:
+                child_node = self._file_node_map[path]
+                # if curent node has connected to file node open(), remove open edge
+                # replace_edge_name = ['connect']
+                # for exist_edge_name in replace_edge_name:
+                #     edge = (self.current_node, child_node, exist_edge_name)
+                #     if edge in self.edges:
+                #         self._rm_connect(edge)
+
+                # # if has conected with recv(), don't re-connect current node and child node
+                # if (child_node, self.current_node, edge_name) not in self.edges:
+                # if (self.current_node, child_node, edge_name) not in self.edges:
+                self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                
+        ### non-classify type ###
+        elif("m_addr" in info):
+            # return
+            m_addr = info["m_addr"]
+            edge_name = syscall["name"]
+
+            # if "Memory Addr" not in self._file_node_map:
+            #     child_node = Node("Memory Addr", typ='m_addr')
+            #     self._file_node_map["Memory Addr"] = child_node
+            #     self.graph[child_node] = []
+            #     # if not self._inside_execve:
+            #     self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))                
+            # else:
+            #     child_node = self._file_node_map["Memory Addr"]
+            #     if (self.current_node, child_node, edge_name) not in self.edges:
+            #         self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))  
+
+            # node not exist
+            if m_addr not in self._file_node_map:
+                child_node = Node(m_addr, typ='m_addr')
+                self._file_node_map[m_addr] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     self._connect_node(self.proc_node_map[self.proc_id], child_node,  Edge(edge_name, syscall['time']))
+                    
+            # node exist
+            else:
+                child_node = self._file_node_map[m_addr]
+                # if not self._inside_execve:  
+                # don't re-connect current node and child node   
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                        
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                    
+                # else:
+                #     # don't re-connect current node and child node
+                #     if (self.proc_node_map[self.proc_id], child_node, edge_name) not in self.edges:
+                #         self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))
+                
+            
+        elif("res_limit" in info):
+            res_limit = info["res_limit"]
+            edge_name = syscall["name"]
+            # node not exist
+            if res_limit not in self._file_node_map:
+                child_node = Node(res_limit, typ='else')
+                self._file_node_map[res_limit] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))
+            # node exist
+            else:
+                child_node = self._file_node_map[res_limit]
+                # if not self._inside_execve:  
+                # don't re-connect current node and child node
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                    
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                    
+                # else:
+                #     # don't re-connect current node and child node
+                #     if (self.proc_node_map[self.proc_id], child_node, edge_name) not in self.edges:
+                #         self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))            
+            
+        elif("status_code" in info):
+            status_code = info["status_code"]
+            edge_name = syscall["name"]
+            # node not exist
+            if status_code not in self._file_node_map:
+                child_node = Node(status_code, typ='else')
+                self._file_node_map[status_code] = child_node
+                self.graph[child_node] = []
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+
+            # node exist
+            else:
+                child_node = self._file_node_map[status_code]
+
+                # don't re-connect current node and child node
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+  
+        elif("id" in info):
+            id = info["id"]
+            edge_name = syscall["name"]
+            # node not exist
+            if id not in self._file_node_map:
+                child_node = Node(id, typ='else')
+                self._file_node_map[id] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                    # self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))
+            # node exist
+            else:
+                child_node = self._file_node_map[id]
+                # if not self._inside_execve:  
+                # don't re-connect current node and child node
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+  
+
+        elif("permission_mask" in info):
+            permission_mask = info["permission_mask"]
+            edge_name = syscall["name"]
+            # node not exist
+            if permission_mask not in self._file_node_map:
+                child_node = Node(permission_mask, typ='else')
+                self._file_node_map[permission_mask] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))
+            # node exist
+            else:
+                child_node = self._file_node_map[permission_mask]
+                # if not self._inside_execve:  
+                # don't re-connect current node and child node
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     # don't re-connect current node and child node
+                #     if (self.proc_node_map[self.proc_id], child_node, edge_name) not in self.edges:
+                #         self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))   
+        elif("interval" in info):
+            interval = info["interval"]
+            edge_name = syscall["name"]
+            # node not exist
+            if interval not in self._file_node_map:
+                child_node = Node(interval, typ='else')
+                self._file_node_map[interval] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))
+            # node exist
+            else:
+                child_node = self._file_node_map[interval]
+                # if not self._inside_execve:  
+                # don't re-connect current node and child node
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     # don't re-connect current node and child node
+                #     if (self.proc_node_map[self.proc_id], child_node, edge_name) not in self.edges:
+                #         self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time'])) 
+        elif("sys_time" in info):
+            sys_time = info["sys_time"]
+            edge_name = syscall["name"]
+            # node not exist
+            if sys_time not in self._file_node_map:
+                child_node = Node(sys_time, typ='else')
+                self._file_node_map[sys_time] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time']))
+            # node exist
+            else:
+                child_node = self._file_node_map[sys_time]
+                # if not self._inside_execve:  
+                # don't re-connect current node and child node
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                     self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                # else:
+                #     # don't re-connect current node and child node
+                #     if (self.proc_node_map[self.proc_id], child_node, edge_name) not in self.edges:
+                #         self._connect_node(self.proc_node_map[self.proc_id] , child_node,  Edge(edge_name, syscall['time'])) 
+        elif("old_fd" in info and "new_fd" in info):
+            old_fd = info["old_fd"]
+            new_fd = info["new_fd"]   
+            self.file_table.update( new_fd, self.file_table.get(old_fd) )
+
+        elif("shm_id" in info):
+            shm_id = info["shm_id"]
+            edge_name = syscall["name"]
+            
+            if ("shm_addr" not in info):
+                if shm_id not in self._file_node_map:
+                    child_node = Node(shm_id, typ='else')
+                    self._file_node_map[shm_id] = child_node
+                    self.graph[child_node] = []
+                    # if not self._inside_execve:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                    child_node = self._file_node_map[shm_id]
+                    if not self.isDuplicate :
+                        if (self.current_node, child_node, edge_name) not in self.edges:
+                            self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                    else:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                    
+            else:
+                # return 
+                shm_addr = info["shm_addr"]
+
+                # if "Memory Addr" not in self._file_node_map:
+                #     child_node = Node("Memory Addr", typ='m_addr')
+                #     self._file_node_map["Memory Addr"] = child_node
+                #     self.graph[child_node] = []
+                #     # if not self._inside_execve:
+                #     self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))                  
+                # else:
+                #     child_node = self._file_node_map["Memory Addr"]
+                #     if (self.current_node, child_node, edge_name) not in self.edges:
+                #         self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))   
+
+                # not have the addr
+                if shm_addr not in self._file_node_map:
+
+                    child_node = Node(shm_addr, typ='m_addr')
+                    self._file_node_map[shm_addr] = child_node
+                    self.graph[child_node] = []
+                    # if not self._inside_execve:
+                    self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))
+                    
+                # if have addr, the id connect to the addr    
+                else:
+                    child_node = self._file_node_map[shm_addr]
+                    if not self.isDuplicate :
+                        if (self.current_node, child_node, edge_name) not in self.edges:
+                            self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))
+                    else:
+                        self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))
+                        
+                        
+        elif("read_fd" in info and "write_fd" in info):
+            read_fd = info["read_fd"]
+            write_fd = info["write_fd"]
+            edge_name = syscall["name"]
+            
+            read_node = "Pipe " + read_fd + " : read end from Pipe " + write_fd
+            write_node = "Pipe " + write_fd + " : write end to Pipe " + read_fd
+            
+            self.file_table.add(read_fd, read_node)
+            self.file_table.add(write_fd, write_node)
+            
+            if read_node not in self._file_node_map:
+                child_node = Node(read_node, typ='pipe')
+                self._file_node_map[read_node] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+            else:
+                child_node = self._file_node_map[read_node]
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+            
+            if write_node not in self._file_node_map:
+                child_node = Node(write_node, typ='pipe')
+                self._file_node_map[write_node] = child_node
+                self.graph[child_node] = []
+                # if not self._inside_execve:
+                self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+            else:
+                child_node = self._file_node_map[write_node]
+                if not self.isDuplicate :
+                    if (self.current_node, child_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))    
+                else:
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))  
+                    
+        elif("fds" in info or "readfds_sets" in info) :
+            if "fds" in info:
+                fds = info["fds"]
+                edge_name = syscall["name"]
+                for fd in fds:
+                    path = self.file_table.get(fd)
+                    if not path and not self._inside_execve:
+                        path = self._find_path_by_fd(fd, syscall['time'])
+                    if path in ignore_paths:
+                        continue
+                    
+                    # if fd exist in fd table 
+                    if path:
+                        if path[0] != "/":
+                            path = self.current_dir + path
+                        # if file appear in execve or currently not in execve
+                        if (self._inside_execve and (path in self._execve_options)) or not self._inside_execve:
+                            
+                            # file node not exist
+                            if path not in self._file_node_map:
+                                child_node = Node(path, typ='f')
+                                self._file_node_map[path] = child_node
+                                self.graph[child_node] = []
+                                self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+
+                            # file node exist
+                            else:
+                                child_node = self._file_node_map[path]
+                                
+                                # if curent node has connected to file node open(), remove open and connect edge
+                                replace_edge_name = ['open']
+                                for exist_edge_name in replace_edge_name:
+                                    edge = (self.current_node, child_node, exist_edge_name)
+                                    if edge in self.edges:
+                                        self._rm_connect(edge)
+
+                                # if has conected with write(), don't re-connect current node and child node
+                                if not self.isDuplicate :
+                                    if (self.current_node, child_node, edge_name) not in self.edges:
+                                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                                else:
+                                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                                    
+            else:
+                for key in info:
+                    if len(info[key]) != 0:
+
+                        fds = info[key]
+                        edge_name = syscall["name"]
+                        for fd in fds:
+                            path = self.file_table.get(fd)
+                            if not path and not self._inside_execve:
+                                path = self._find_path_by_fd(fd, syscall['time'])
+                            if path in ignore_paths:
+                                continue
+                            
+                            # if fd exist in fd table 
+                            if path:
+                                if path[0] != "/":
+                                    path = self.current_dir + path
+                                # if file appear in execve or currently not in execve
+                                if (self._inside_execve and (path in self._execve_options)) or not self._inside_execve:
+                                    
+                                    # file node not exist
+                                    if path not in self._file_node_map:
+                                        child_node = Node(path, typ='f')
+                                        self._file_node_map[path] = child_node
+                                        self.graph[child_node] = []
+                                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+
+                                    # file node exist
+                                    else:
+                                        child_node = self._file_node_map[path]
+                                        
+                                        # if curent node has connected to file node open(), remove open and connect edge
+                                        replace_edge_name = ['open']
+                                        for exist_edge_name in replace_edge_name:
+                                            edge = (self.current_node, child_node, exist_edge_name)
+                                            if edge in self.edges:
+                                                self._rm_connect(edge)
+                                        
+                                        # if has conected with write(), don't re-connect current node and child node
+                                        if not self.isDuplicate :
+                                            if (self.current_node, child_node, edge_name) not in self.edges:
+                                                self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                                        else:
+                                            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+        
+    def _read(self, syscall):
+        info = sys_parser.parse(syscall)
+        fd = info['fd']
+        path = self.file_table.get(fd)
+        
+        # fd may open in parent process
+        if not path and not self._inside_execve:
+            path = self._find_path_by_fd(fd, syscall['time'])
+            
+        # ignore paths
+        if path in ignore_paths:
+            return
+        
+        edge_name = 'read'
+#         if not syscall['success']:
+#             edge_name = f"read{syscall['return_msg']}"
+        
+        # if fd exist in fd table 
+        if path:
+            
+            ### For pipe ###
+            if("Pipe" in path):
+                read_fd = path.split(" ")[1]
+                write_fd= path.split(" ")[-1]
+                
+                read_node = "Pipe " + read_fd + " : read end from Pipe " + write_fd
+                write_node = "Pipe " + write_fd + " : write end to Pipe " + read_fd
+                
+                # 不重複畫 edge
+                if not self.isDuplicate :
+                    if (self._file_node_map[write_node],  self._file_node_map[read_node], edge_name) not in self.edges:
+                        self._connect_node(self._file_node_map[write_node] , self._file_node_map[read_node],  Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self._file_node_map[write_node] , self._file_node_map[read_node],  Edge(edge_name, syscall['time']))
+            if path[0] != "/":
+                path = self.current_dir + path      
+            # if file appear in execve or currently not in execve
+            if (self._inside_execve and (path in self._execve_options)) or not self._inside_execve:
+                # file node not exist
+                if path not in self._file_node_map:
+                    child_node = Node(path, typ='f')
+                    self._file_node_map[path] = child_node
+                    self.graph[child_node] = []
+                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+
+                # file node exist
+                else:
+                    child_node = self._file_node_map[path]
+                    # if curent node has connected to file node open(), remove open edge
+                    replace_edge_name = ['open', 'connect']
+                    for exist_edge_name in replace_edge_name:
+                        edge = (self.current_node, child_node, exist_edge_name)
+                        if edge in self.edges:
+                            self._rm_connect(edge)
+
+                    # if has conected with read(), don't re-connect current node and child node
+                    if not self.isDuplicate :
+                        if (child_node ,self.current_node, edge_name) not in self.edges:
+                            self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                    else:
+                        self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                    
+            
+    def _write(self, syscall):
+        info = sys_parser.parse(syscall)
+        if 'fd' in info:
+            fd = info['fd']
+            path = self.file_table.get(fd)
+        else:
+            try:
+                path = info['path']
+            except KeyError:
+                path = None
+        
+        # fd may open in parent process
+        if not path and not self._inside_execve:
+            path = self._find_path_by_fd(fd, syscall['time'])
+        
+        # ignore paths
+        if path in ignore_paths:
+            return
+            
+        edge_name = 'write'
+#         if not syscall['success']:
+#             edge_name = f"write{syscall['return_msg']}"
+        
+        # if fd exist in fd table 
+        if path:
+           
+            ### For pipe ###
+            if("Pipe" in path):
+                read_fd = path.split(" ")[-1]
+                write_fd= path.split(" ")[1]
+                
+                read_node = "Pipe " + read_fd + " : read end from Pipe " + write_fd
+                write_node = "Pipe " + write_fd + " : write end to Pipe " + read_fd
+                
+                # 不重複畫 edge
+                if not self.isDuplicate :
+                    if (self._file_node_map[write_node],  self._file_node_map[read_node], edge_name) not in self.edges:
+                        self._connect_node(self._file_node_map[write_node] , self._file_node_map[read_node],  Edge(edge_name, syscall['time']))      
+                else:
+                    self._connect_node(self._file_node_map[write_node] , self._file_node_map[read_node],  Edge(edge_name, syscall['time'])) 
+            if path[0] != "/":
+                path = self.current_dir + path
+            # if file appear in execve or currently not in execve
+            if (self._inside_execve and (path in self._execve_options)) or not self._inside_execve:
+                # file node not exist
+                if path not in self._file_node_map:
+                    child_node = Node(path, typ='f')
+                    self._file_node_map[path] = child_node
+                    self.graph[child_node] = []
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+                # file node exist
+                else:
+                    child_node = self._file_node_map[path]
+                    
+                    # if curent node has connected to file node open(), remove open and connect edge
+                    replace_edge_name = ['open', 'connect']
+                    for exist_edge_name in replace_edge_name:
+                        edge = (self.current_node, child_node, exist_edge_name)
+                        if edge in self.edges:
+                            self._rm_connect(edge)
+                    
+                    # if has conected with write(), don't re-connect current node and child node
+                    if not self.isDuplicate :
+                        if (self.current_node, child_node, edge_name) not in self.edges:
+                            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                    else:
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+           
+    def _openn(self, syscall):
+        info = sys_parser.parse(syscall)
+        if not info:
+            return
+        path = info['path']
+        if path[0] != "/":
+            path = self.current_dir + path
+        edge_name = 'open'
+
+#         if not syscall['success']:
+#             edge_name = f"open{syscall['return_msg']}"
+
+        # update fd table if open successfully
+        if syscall['success']:
+            self.file_table.add(syscall['return'], info['path'])
+            #print(f"open {info['path']}: {self.file_table}")
+        
+        if path in ignore_paths:
+            return
+        
+        # open and openat appear after execve in same strace.log
+        if self._inside_execve:
+            # find path that apeears in execve command option
+            #print(path, self._execve_options, self._execve_options[0])
+            if path in self._execve_options:
+                self._connect_proc_file(path, edge_name, syscall['time']) 
+
+        # not inside execve
+        else:
+            self._connect_proc_file(path, edge_name, syscall['time'])
+        
+    def _close(self, syscall):
+        info = sys_parser.parse(syscall)
+        fd = info['fd']
+        
+        # delete fd only if successfully close
+        if syscall['success']:
+            self.file_table.rm(fd)
+        
+    def _info(self, syscall):
+        edge_name = 'read'
+        path = syscall['name']
+        if path[0] != "/":
+            path = self.current_dir + path
+        if not self._inside_execve:
+            self._connect_proc_file(path, edge_name, syscall['time'], from_proc = False, node_typ = 'c')
+
+        
+    def _socket(self, syscall):
+        info = sys_parser.parse(syscall)
+        fd = info['fd']
+        
+        if not syscall['success']:
+            return
+        
+        # update fd table if create socket successfully
+        if info['family'] not in ['AF_INET', 'PF_INET']:
+            self.file_table.add(fd, "NOT_NET")
+        else:
+            self.file_table.add(syscall['return'])
+        #print('socket: ', self.file_table)
+        
+    def _bind(self, syscall):
+        info = sys_parser.parse(syscall)
+        
+        # ignore IPC usage
+        if info['family'] not in ['AF_INET', 'PF_INET']:
+            return
+        
+        fd = info['fd']
+        path = info['addr']
+        edge_name = 'bind'
+        
+        res = self.file_table.update(fd, path)
+        if not res:
+            print('socket fd not found.')
+            raise KeyError
+            
+        self._connect_proc_file(path, edge_name, syscall['time'], node_typ = 'n')
+        
+    def _connect(self, syscall):
+        info = sys_parser.parse(syscall)
+        
+        # ignore IPC usage
+        if info['family'] not in ['AF_INET', 'PF_INET']:
+            return
+        
+        fd = info['fd']
+        path = info['addr']
+        self.unique_ip.add(path)
+        edge_name = 'connect'
+        
+        res = self.file_table.update(fd, path)
+        if not res:
+            print('socket fd not found.')
+            raise KeyError
+        
+        # if file node not exist: create new node, else: connect current node to exist file node
+        self._connect_proc_file(path, edge_name, syscall['time'], node_typ = 'n')
+    
+    def _recv(self, syscall):
+        info = sys_parser.parse(syscall)
+        fd = info['fd']
+        edge_name = 'recv'
+
+        if fd == "-1":
+            node_name = "NO_SOCKET"
+            if node_name not in self._file_node_map:
+                child_node = Node(node_name, typ='n')
+                self._file_node_map[node_name] = child_node
+                self.graph[child_node] = []
+                self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+            else:
+                child_node = self._file_node_map[node_name]
+                if not self.isDuplicate :
+                    if (child_node, self.current_node, edge_name) not in self.edges:
+                        self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))      
+            return 
+        # socket error
+        # if fd == '-1':
+        #     # get ip addr from recvfrom
+        #     if syscall['name'] == 'recvfrom':
+        #         if 'addr' in info:
+        #             path = info['addr']
+        #             self.unique_ip.add(path)
+        #         elif len(self.unique_ip) == 1:
+        #             path = list(self.unique_ip)[0]
+        #         else:
+        #             return
+                    
+        #     else:
+        #         return
+            
+        # socket create successfully
+        if fd != '-1':
+            # AF_UNIX socket
+            if self.file_table.get(fd) == "NOT_NET":
+                return
+            
+            # if malware use UDP, we need to map fd to ip addr through sendto
+            if syscall['name'] == 'recvfrom' and not self.file_table.get(fd):
+                if 'addr' in info:
+                    path = info['addr']
+
+                elif len(self.unique_ip) == 1:
+                    path = list(self.unique_ip)[0]
+
+                self.file_table.update(fd, path)
+                self.unique_ip.add(path)       
+                
+            path = self.file_table.get(fd)
+            # created in parent process, find it
+            if not path:
+                path = self._find_path_by_fd(fd, syscall['time'])
+        
+        # file node not exist
+        if path not in self._file_node_map:
+            child_node = Node(path, typ='n')
+            self._file_node_map[path] = child_node
+            self.graph[child_node] = []
+            self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+
+        # file node exist
+        else:
+            child_node = self._file_node_map[path]
+            # if curent node has connected to file node open(), remove open edge
+            replace_edge_name = ['connect']
+            for exist_edge_name in replace_edge_name:
+                edge = (self.current_node, child_node, exist_edge_name)
+                if edge in self.edges:
+                    self._rm_connect(edge)
+
+            # if has conected with recv(), don't re-connect current node and child node
+            if not self.isDuplicate :
+                if (child_node, self.current_node, edge_name) not in self.edges:
+                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+            else:
+                self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                
+
+                        
+    def _send(self, syscall):
+        info = sys_parser.parse(syscall)
+        fd = info['fd']
+        edge_name = 'send'
+
+        if fd == "-1":
+            node_name = "NO_SOCKET"
+            if node_name not in self._file_node_map:
+                child_node = Node(node_name, typ='n')
+                self._file_node_map[node_name] = child_node
+                self.graph[child_node] = []
+                self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+            else:
+                child_node = self._file_node_map[node_name]
+                if not self.isDuplicate :
+                    if (child_node, self.current_node, edge_name) not in self.edges:
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+            return       
+        # socket create unsuccessfully
+        # if fd == '-1':
+        #     if syscall['name'] == 'sendto':
+        #         if 'addr' in info:
+        #             path = info['addr']
+        #             self.unique_ip.add(path)
+        #         elif len(self.unique_ip) == 1:
+        #             path = list(self.unique_ip)[0]
+        #         else:
+        #             return
+                    
+        #     else:
+        #         return
+            
+        # socket create successfully
+        if fd != '-1':
+            # AF_UNIX socket
+            if self.file_table.get(fd) == "NOT_NET":
+                return
+            
+            # if malware use UDP, we need to map fd to ip addr through sendto
+            if syscall['name'] == 'sendto' and not self.file_table.get(fd):
+                if 'addr' in info:
+                    path = info['addr']
+
+                elif len(self.unique_ip) == 1:
+                    path = list(self.unique_ip)[0]
+
+                self.file_table.update(fd, path)
+                self.unique_ip.add(path)       
+                
+            path = self.file_table.get(fd)
+            # created in parent process, find it
+            if not path:
+                path = self._find_path_by_fd(fd, syscall['time'])
+        
+            
+        # file node not exist
+        if path not in self._file_node_map:
+            child_node = Node(path, typ='n')
+            self._file_node_map[path] = child_node
+            self.graph[child_node] = []
+            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+
+        # file node exist
+        else:
+            child_node = self._file_node_map[path]
+            # if curent node has connected to file node open(), remove open edge
+            replace_edge_name = ['connect', 'getsockopt']
+            for exist_edge_name in replace_edge_name:
+                edge = (self.current_node, child_node, exist_edge_name)
+                if edge in self.edges:
+                    self._rm_connect(edge)
+
+            # if has conected with send(), don't re-connect current node and child node
+            if not self.isDuplicate :
+                if (self.current_node, child_node, edge_name) not in self.edges:
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+            else:
+                self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
+                
+                
+
+                
+    def _ioctl(self, syscall):
+        info = sys_parser.parse(syscall)
+        if info['req'] != 'SIOCGIFADDR':
+            return
+        
+        edge_name = 'read'
+        path = info['dev']
+        
+        self._connect_proc_file(path, edge_name, syscall['time'], from_proc = False, node_typ = 'n')
+        
+    
+    def _rm(self, syscall):
+        info = sys_parser.parse(syscall)
+        path = info['path']
+        
+        edge_name = 'rm'
+        self._connect_proc_file(path, edge_name, syscall['time'])
+        
+    def _mkdir(self, syscall):
+        info = sys_parser.parse(syscall)
+        path = info['path']
+        
+        edge_name = 'mkdir'
+        self._connect_proc_file(path, edge_name, syscall['time'])
+        
+    def _link(self, syscall):
+        info = sys_parser.parse(syscall)
+        t = info['target']
+        l = info['link']
+        
+        self._connect_proc_file(t, 'read', syscall['time'], from_proc = False)
+        self._connect_proc_file(l, 'write', syscall['time'])
+        
+    
+    def _kill(self, syscall):
+        info = sys_parser.parse(syscall)
+        pid = info['pid']
+        
+        self._connect_proc_file(pid, 'kill', syscall['time'], node_typ = 'p')
+        
+    def _ptrace(self, syscall):
+        info = sys_parser.parse(syscall)
+        req = info['req'].lower()
+        if 'pid' in info:
+            self._connect_proc_file(info['pid'], req, syscall['time'], node_typ = 'p')
+        else:
+            self._connect_proc_file(self.current_node.name, req, syscall['time'], node_typ = 'p')
+        
+    def _syscall_handler(self, syscall):
+        name = syscall['name']
+        
+        # child process creation
+        if name in process_creation:
+            self._syscall_handler_table['process'](syscall)
+            self.trigger_lines += 1
+        
+        # file open
+        elif name in open_file:
+            self._syscall_handler_table['open'](syscall)
+            self.trigger_lines += 1
+            
+        elif name in write_file:
+            self._syscall_handler_table['write'](syscall)
+            self.trigger_lines += 1
+        
+        elif name in info:
+            self._syscall_handler_table['info'](syscall)
+            self.trigger_lines += 1
+            
+        elif name in send:
+            self._syscall_handler_table['send'](syscall)
+            self.trigger_lines += 1
+        
+        elif name in recv:
+            self._syscall_handler_table['recv'](syscall)
+            self.trigger_lines += 1
+            
+        elif name in remove:
+            self._syscall_handler_table['rm'](syscall)
+            self.trigger_lines += 1
+            
+        elif name in link:
+            self._syscall_handler_table['link'](syscall)
+            self.trigger_lines += 1
+        
+        elif name in self._syscall_handler_table:
+            self._syscall_handler_table[name](syscall)
+            self.trigger_lines += 1
+
+        elif name in self.added_handler_table:
+            self._added_handler(syscall)
+        #     self.added_handler_table[name](syscall)
+        #     self.trigger_lines += 1
+    
+    # main method to create attck graph
+    def create(self):
+        total_line = 0
+        for idx, trace in enumerate(self.traces):
+            #print(trace)
+            proc_id = re.search(RE_PID, trace).group(1)
+            self.proc_id = proc_id
+            # init root node
+            if idx == 0:
+                self.proc_node_map[proc_id] = Node('malware')
+            
+            # current process node for this trace
+            self.current_node = self.proc_node_map[proc_id]
+            self.graph[self.current_node] = []
+            self._inside_execve = False
+            self.exec = False
+            
+            first_line = True
+            
+            # counter = 0
+            with open(trace, 'r') as f:
+                for line in f:
+                    total_line += 1
+                    if idx == 0 and first_line:
+                        first_line = False
+                        continue
+                    line = line.strip()
+                    call = parse_line(line)
+                    
+                    if not call:
+                        continue
+
+                    if call['type'] == 'sys':
+                        # sys_ignore = ['open', 'openat', 'read']
+#                         sys_ignore = ['read']
+                        # if(call['name'] == 'wait4'):
+                        #     print("Call:", call)
+                        #     print("Args:", call['args'], type(call['args']))
+                        #     print("Args split:", call['args'].split(",") )
+                        #     print("Parse :", sys_parser.parse(call))
+                        #     break
+                        
+                        
+                        self._syscall_handler(call)
+                         #myprint(call, 'socket')
+            
+
+        self.traces_lines = total_line
+        # print("Total trace lines:", self.traces_lines)
+
+    def sort_edges(self, edges, rm_nodes):
+        if len(rm_nodes) != 0:
+            edges = [edge for pair, edge in edges.items() if pair[0] not in rm_nodes and pair[1] not in rm_nodes]
+        else:
+            edges = list(edges.values())
+            
+        edges.sort(key = lambda edge: datetime.strptime(edge.timestamp, STRACE_TIME_FORMAT))
+        self._edges_sort_map = {}
+        
+        for idx, edge in enumerate(edges):
+            self._edges_sort_map[edge] = str(idx + 1)
+            
+    def node_reduction(self, depth):
+        file_counter = {}
+        ip_counter = {"External_IP": 0, "Local_IP": 0}
+        
+        file_set = set()
+        ip_set = set()
+        
+        pub_ip_node = Node('External_IP', typ = 'n')
+        pub_ip_node.color = COMMAND_CONTROL_COLOR
+        pub_ip_node.tactic ='Command & Control', 
+        pub_ip_node.technique = "Command & Control"
+        pub_ip_node.id = "C&C"
+        
+        pri_ip_node = Node('Local_IP', typ = 'n')
+    
+        reduced_file_map = {}
+        nodes = set()
+        
+        # create another edges for visualization
+        node_pairs = []
+        edge_vals = []
+        for pair, edge in self.edges.items():
+            node_pairs.append(pair)
+            edge_vals.append(edge)
+            
+        edges = {}
+        for pair_idx, pair in enumerate(node_pairs):
+            new_pair = list(pair)
+            for idx, node in enumerate(new_pair[:2]):
+                # if node is a file or ip addr
+                if node.type in ['f', 'n']:
+                    if node.name.startswith('8.8.8.8'):
+                        nodes.add(node)
+                        continue
+                        
+                    if re.search(ENDPOINT_REGEX, node.name):
+                        if re.search(PRIVATE_IP_REGEX, node.name):
+                            if node.name not in ip_set:
+                                ip_counter['Local_IP'] += 1
+                                ip_set.add(node.name)
+                                
+                            new_pair[idx] = pri_ip_node
+                            nodes.add(pri_ip_node)
+                        else:
+                            if node.name not in ip_set:
+                                ip_counter['External_IP'] += 1
+                                ip_set.add(node.name)
+                                
+                            new_pair[idx] = pub_ip_node
+                            nodes.add(pub_ip_node)
+
+                    # file path
+                    else:
+                        paths = node.name.split('/')
+                        
+                        if len(paths) <= depth:
+                            name = "/".join(paths)
+                        else:
+                            name = "/".join(paths[:depth + 1])
+                            
+
+                        if name not in reduced_file_map:
+                            if name == "NO_SOCKET" or name[0:3] == "NIC":
+                                file_node = Node(name, typ = 'n')
+                            else:
+                                file_node = Node(name, typ = 'f')
+                            file_node.tactic = node.tactic
+                            file_node.technique = node.technique
+                            file_node.color = node.color
+                            file_node.id = node.id
+                            
+                            reduced_file_map[name] = file_node
+                            file_counter[name] = 1
+                            file_set.add(node.name)
+                            
+                        else:
+                            file_node = reduced_file_map[name]
+                            
+                            if node.name not in file_set:
+                                file_set.add(node.name)
+                                file_counter[name] += 1
+                            
+                        nodes.add(file_node)
+                        new_pair[idx] = file_node
+                        
+                    
+                # if node is process or command       
+                else:
+                    nodes.add(node)
+                    
+            # save new pair
+            new_pair = tuple(new_pair)
+            edges[new_pair] = edge_vals[pair_idx]
+            
+        # label count number on reduction node
+        for node in nodes:
+            if node.type == 'n' and node.name in ip_counter:
+                count = ip_counter[node.name]
+                if count > 1:
+                    node.name = node.name + f" ({count})"
+            elif node.type == 'f' and node.name in file_counter:
+                count = file_counter[node.name]
+                if count > 1:
+                    node.name = node.name + f" ({count})"
+                
+            
+        return nodes, edges
+    
+    def is_process_node(self, node):
+        return node.type == 'p' and re.search('^[0-9]*$', node.name)
+                                  
+    def draw(self, showall = True, depth = 3):
+        # Create Digraph object
+        display_threshold = 30
+        # twopi
+        dot = Digraph(engine='dot', format='pdf')
+        #dot.attr(size='35,50')
+        #dot.graph_attr['overlap'] =  "false"
+        #dot.graph_attr['splines'] = "true"
+        
+        node_table = {}
+        nodes = list(self.graph.keys())
+        edges = dict(self.edges)
+        
+        self.all_nodes_num = len(nodes)
+        print('Node before reduction: ', self.all_nodes_num)
+        self.color_nodes_num = 0
+        
+        
+        # nodes to be removed
+        rm_nodes = set()
+        
+        # remove node that have only on edge clone from parent
+        if not showall:
+            # node have no child node
+            for node in nodes:
+                # if a node have no child node
+                if self.is_process_node(node):
+                    if len(self.graph[node]) == 0:
+                        rm_nodes.add(node)
+                    
+            for node in nodes:
+                if len(self.graph[node]) == 1 and self.graph[node][0] in rm_nodes:
+                    rm_nodes.add(node)
+
+            # node in rm_nodes that have only one parent node which its edge in process_creation
+            for pair, edge in edges.items():
+                from_node, to_node, _ = pair
+                if to_node in rm_nodes and edge.name not in process_creation:
+                    rm_nodes.remove(to_node)
+            
+            for node in rm_nodes:
+                print(f'Remove Node: {node.name}')
+        
+        # print(self.all_nodes_num - len(rm_nodes))
+        if (self.all_nodes_num - len(rm_nodes)) > display_threshold and not showall:
+            nodes, edges = self.node_reduction(depth)
+            
+        
+        # visulization node counting
+        self.viz_nodes_num = len(nodes) - len(rm_nodes)
+        print('Nodes after reduction: ', self.viz_nodes_num)
+        # sort edge
+        self.sort_edges(edges, rm_nodes)
+        
+        # draw node
+        for idx, node in enumerate(nodes):
+            idx = str(idx)
+            
+            if not showall and node in rm_nodes:
+                continue
+            
+            
+            node_name = node.name
+            if node.technique:
+                 node_name += f'\n({node.id})'
+            
+            if node.color:
+                self.color_nodes_num += 1
+
+            if node.type == 'n':
+                dot.node(idx, node_name, shape='diamond', color = node.color, style='filled')
+            elif node.type in ['f', 'c']:
+                dot.node(idx, node_name, shape='rectangle', color = node.color, style='filled')
+            # elif node.type == 'n':
+            #     dot.node(idx, node_name, shape='diamond', color = node.color, style='filled')
+            elif node.type == 'm_addr':
+                dot.node(idx, node_name, shape='pentagon', color = node.color, style='filled')
+            elif node.type == 'pipe':
+                dot.node(idx, node_name, shape='cylinder', color = node.color, style='filled')
+            elif node.type == 'else':
+                dot.node(idx, node_name, shape='tab', color = node.color, style='filled')
+            else:
+                dot.node(idx, node_name, color = node.color, style='filled')
+                
+            node_table[node] = idx
+        
+        self.node_seq = []
+        
+        # draw edge
+        for pair, edge in edges.items():
+            from_node, to_node, _ = pair
+            
+            if not showall and (from_node in rm_nodes or to_node in rm_nodes):
+                continue
+            
+            self.node_seq.append([self._edges_sort_map[edge], from_node, to_node, edge])
+            
+            from_node = node_table[from_node]
+            to_node = node_table[to_node]
+            
+            edge_name = self._edges_sort_map[edge] + '. ' + edge.name
+            dot.edge(from_node, to_node, edge_name, color = edge.color)
+        
+        # sort node sequence
+        self.node_seq = sorted(self.node_seq, key=lambda x: int(x[0]))
+        
+        return dot
+
 DISCOVERY_COLOR = '#FDE74C'
 PERSISTENCE_COLOR = '#9BC53D'
 EXECUTION_COLOR = '#26C485'
@@ -2891,9 +4455,6 @@ COMMAND_CONTROL = [{
     "files": [],
     "color": COMMAND_CONTROL_COLOR
 }]
-
-
-### Tactic & Technique Graph Generation ###
 
 # Generation of TT Graph
 class TTPLabeler:
@@ -2971,13 +4532,14 @@ class TTPLabeler:
             self.execution_mapper()
             self.command_control_mapper()
 
-def build(family_dir: str, sample_dir: str, output_filename: str='', save_file: bool=True, draw: bool=False):
+def build(family_dir: str, sample_dir: str, output_filename: str='',
+    save_file: bool=True, draw: bool=True):
     ''' build ASG&TTG. Read from `trace/family/sample/`, store output image at `output/family/sample.svg`. Return `AttackGraph`,`graphviz.graphs.Digraph`.'''
     path = f'../C ASG/trace/{family_dir}/{sample_dir}' # trace log folder for a sample
     if not os.path.isdir(path):
         print(f'  error, path not extst: {path}')
-        return None
-    # print('  path:', path)
+        return None, None
+    print('  path:', path)
     output_path = path.replace('trace', 'output')
     if len(output_filename):
         output_path = output_path.replace(sample_dir, output_filename)
@@ -2986,8 +4548,16 @@ def build(family_dir: str, sample_dir: str, output_filename: str='', save_file: 
     graph = AttackGraph(path)
     graph.create()
 
-    return graph
+    # Create TT Graph based on AS Graph
+    mapper = TTPLabeler(graph)
+    mapper.fit()
 
-# unit test
-# graph = build('dofloo', '0046a78514a658b9b7a4e29e8581f85b.bin')
-# print("set of object:", graph.set_of_object)
+    # Create Visualization Instance
+    g = None
+    if draw:
+        g = graph.draw(True)
+
+    # save graph as svg file
+    if save_file:
+        g.render(output_path, format='svg') #  view=True
+    return graph, g
