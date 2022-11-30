@@ -1,72 +1,80 @@
 Number,Content
-"""Sentence 1","linux-targeted malware increases by 35% in 2021: xorddos, mirai and mozi most prevalent
+Sentence 1,"linux-targeted malware increases by 35% in 2021: xorddos, mirai and mozi most prevalent
 january 13, 2022 mihai maganu endpoint & cloud security
 
+"
+Sentence 2,"
 malware targeting linux systems increased by 35% in 2021 compared to 2020
+"
+Sentence 3,"
 xorddos, mirai and mozi malware families accounted for over 22% of linux-targeted threats observed by crowdstrike in 2021
+"
+Sentence 4,"
 ten times more mozi malware samples were observed in 2021 compared to 2020
+"
+Sentence 5,"
 malware targeting linux-based operating systems, commonly deployed in internet of things (iot) devices, have increased by 35% in 2021 compared to 2020, according to current crowdstrike threat telemetry, with the top three malware families accounting for 22% of all linux-based iot malware in 2021. 
 
 xorddos, mirai and mozi are the most prevalent linux-based malware families observed in 2021, with mozi registering a significant tenfold increase in the number of in-the-wild samples in 2021 compared to 2020. the primary purpose of these malware families is to compromise vulnerable internet-connected devices, amass them into botnets, and use them to perform distributed denial of service (ddos) attacks."
-"""Sentence 2","linux-based malware and iot
+Sentence 6,"linux-based malware and iot
 linux powers most of today’s cloud infrastructure and web servers, yet it also powers mobile and iot devices."
-"""Sentence 3","it’s popular because it offers scalability, security features and a wide range of distributions to support multiple hardware designs and great performance on any hardware requirements."
-"""Sentence 4","with various linux builds and distributions at the heart of cloud infrastructures, mobile and iot, it presents a massive opportunity for threat actors."
-"""Sentence 5","for example, whether using hardcoded credentials, open ports or unpatched vulnerabilities, linux-running iot devices are a low-hanging fruit for threat actors — and their en masse compromise can threaten the integrity of critical internet services."
-"""Sentence 6","more than 30 billion iot devices are projected to be connected to the internet by the end of 2025, creating a potentially very large attack surface for threats and cybercriminals to create massive botnets."
-"""Sentence 7",a botnet is a network of compromised devices connected to a remote command-and-control (c2) center.
-"""Sentence 8","it functions as a small cog in the larger network, and can infect other devices."
-"""Sentence 9","botnets are often used for ddos attacks, spamming targets, gaining remote control and performing cpu-intensive activities like cryptomining."
-"""Sentence 10","ddos attacks use multiple internet-connected devices to access a specific service or gateway, preventing legitimate traffic from passing through by consuming the entire bandwidth, causing it to crash."
-"""Sentence 11","the 2016 mirai botnet incident serves as a reminder that a large number of seemingly benign devices performing a ddos attack can disrupt critical internet services, affecting both organizations and average users."
-"""Sentence 12","top linux threats in today’s landscape
+Sentence 7,"it’s popular because it offers scalability, security features and a wide range of distributions to support multiple hardware designs and great performance on any hardware requirements."
+Sentence 8,"with various linux builds and distributions at the heart of cloud infrastructures, mobile and iot, it presents a massive opportunity for threat actors."
+Sentence 9,"for example, whether using hardcoded credentials, open ports or unpatched vulnerabilities, linux-running iot devices are a low-hanging fruit for threat actors — and their en masse compromise can threaten the integrity of critical internet services."
+Sentence 10,"more than 30 billion iot devices are projected to be connected to the internet by the end of 2025, creating a potentially very large attack surface for threats and cybercriminals to create massive botnets."
+Sentence 11,a botnet is a network of compromised devices connected to a remote command-and-control (c2) center.
+Sentence 12,"it functions as a small cog in the larger network, and can infect other devices."
+Sentence 13,"botnets are often used for ddos attacks, spamming targets, gaining remote control and performing cpu-intensive activities like cryptomining."
+Sentence 14,"ddos attacks use multiple internet-connected devices to access a specific service or gateway, preventing legitimate traffic from passing through by consuming the entire bandwidth, causing it to crash."
+Sentence 15,"the 2016 mirai botnet incident serves as a reminder that a large number of seemingly benign devices performing a ddos attack can disrupt critical internet services, affecting both organizations and average users."
+Sentence 16,"top linux threats in today’s landscape
 analyzing the current linux threat landscape, the xorddos, mirai and mozi malware families and variants have emerged as the most prolific in 2021, accounting for over 22% of all iot linux-targeting malware."
-"""Sentence 13","xorddos: 123% increase in malware samples
+Sentence 17,"xorddos: 123% increase in malware samples
 xorddos is a linux trojan compiled for multiple linux architectures, ranging from arm to x86 and x64."
-"""Sentence 14",its name is derived from using xor encryption in malware and network communication to the c2 infrastructure.
-"""Sentence 15","when targeting iot devices, the trojan is known to use ssh brute-forcing attacks to gain remote control on vulnerable devices."
-"""Sentence 16",fig.
-"""Sentence 17","1- docker’s official documentation (click to enlarge)
+Sentence 18,its name is derived from using xor encryption in malware and network communication to the c2 infrastructure.
+Sentence 19,"when targeting iot devices, the trojan is known to use ssh brute-forcing attacks to gain remote control on vulnerable devices."
+Sentence 20,fig.
+Sentence 21,"1- docker’s official documentation (click to enlarge)
 
 on linux machines, some variants of xorddos show that its operators scan and search for docker servers with the 2375 port open."
-"""Sentence 18","this port offers an unencrypted docker socket and remote root passwordless access to the host, which attackers can abuse to get root access to the machine."
-"""Sentence 19","crowdstrike researchers have found that the number of xorddos malware samples throughout 2021 has increased by almost 123% compared to 2020.
+Sentence 22,"this port offers an unencrypted docker socket and remote root passwordless access to the host, which attackers can abuse to get root access to the machine."
+Sentence 23,"crowdstrike researchers have found that the number of xorddos malware samples throughout 2021 has increased by almost 123% compared to 2020.
 
 
 fig."
-"""Sentence 20","2 – falcon detection for linux xorddos malware sample (click to enlarge)
+Sentence 24,"2 – falcon detection for linux xorddos malware sample (click to enlarge)
 
 mozi: 10 times more prevalent in 2021
 mozi is a peer-to-peer (p2p) botnet network that utilizes the distributed hash table (dht) system, implementing its own extended dht."
-"""Sentence 21",the distributed and decentralized lookup mechanism provided by dht enables mozi to hide c2 communication behind a large amount of legitimate dht traffic.
-"""Sentence 22",fig.
-"""Sentence 23","3 – credits: kn0wledge
+Sentence 25,the distributed and decentralized lookup mechanism provided by dht enables mozi to hide c2 communication behind a large amount of legitimate dht traffic.
+Sentence 26,fig.
+Sentence 27,"3 – credits: kn0wledge
 
 the use of dht is interesting because it allows mozi to quickly grow a p2p network."
-"""Sentence 24","and, because it uses an extension over dht, it’s not correlated with normal traffic, so detecting the c2 communication becomes difficult."
-"""Sentence 25",mozi infects systems by brute-forcing ssh and telnet ports.
-"""Sentence 26",it then blocks those ports so that it is not overwritten by other malicious actors or malware.
-"""Sentence 27",fig.
-"""Sentence 28","4 – falcon detection for linux mozi malware sample (click to enlarge)
+Sentence 28,"and, because it uses an extension over dht, it’s not correlated with normal traffic, so detecting the c2 communication becomes difficult."
+Sentence 29,mozi infects systems by brute-forcing ssh and telnet ports.
+Sentence 30,it then blocks those ports so that it is not overwritten by other malicious actors or malware.
+Sentence 31,fig.
+Sentence 32,"4 – falcon detection for linux mozi malware sample (click to enlarge)
 
 mirai: the common ancestor
 mirai malware has made a name for itself in the last few years, especially after its developer published mirai’s source code."
-"""Sentence 29","similar to mozi, mirai abuses weak protocols and weak passwords, such as telnet, to compromise devices using brute-forcing attacks."
-"""Sentence 30","with multiple mirai variants emerging since its source code became public, the linux trojan can be considered the common ancestor to many of today’s linux ddos malware."
-"""Sentence 31","while most variants add onto existing mirai features or implement different communication protocols, at their core they share the same mirai dna."
-"""Sentence 32","some of the most prevalent variants tracked by crowdstrike researchers involve sora, izih9  and rekai."
-"""Sentence 33","compared to 2020, the numbers of identified samples for all three variants have increased by 33%, 39% and  83% respectively in 2021.
+Sentence 33,"similar to mozi, mirai abuses weak protocols and weak passwords, such as telnet, to compromise devices using brute-forcing attacks."
+Sentence 34,"with multiple mirai variants emerging since its source code became public, the linux trojan can be considered the common ancestor to many of today’s linux ddos malware."
+Sentence 35,"while most variants add onto existing mirai features or implement different communication protocols, at their core they share the same mirai dna."
+Sentence 36,"some of the most prevalent variants tracked by crowdstrike researchers involve sora, izih9  and rekai."
+Sentence 37,"compared to 2020, the numbers of identified samples for all three variants have increased by 33%, 39% and  83% respectively in 2021.
 
 
 fig."
-"""Sentence 34","5 – falcon detection for linux mirai malware sample (click to enlarge)
+Sentence 38,"5 – falcon detection for linux mirai malware sample (click to enlarge)
 
 crowdstrike protection for linux
 linux is one of the primary operating systems for many business-critical applications."
-"""Sentence 35","as linux servers can be found on premises and in private and public clouds, protecting them requires a solution that provides runtime protection and visibility for all linux hosts, regardless of location."
-"""Sentence 36","the crowdstrike falcon® platform protects linux workloads, including containers, running in all environments, from public and private clouds to on-premises and hybrid data centers."
-"""Sentence 37","using machine learning, artificial intelligence, behavior-based indicators of attack (ioas) and custom hash blocking to defend linux workloads against malware and sophisticated threats, the falcon platform delivers complete visibility and context into any attack on linux workloads."
-"""Sentence 38","indicators of compromise (iocs)
+Sentence 39,"as linux servers can be found on premises and in private and public clouds, protecting them requires a solution that provides runtime protection and visibility for all linux hosts, regardless of location."
+Sentence 40,"the crowdstrike falcon® platform protects linux workloads, including containers, running in all environments, from public and private clouds to on-premises and hybrid data centers."
+Sentence 41,"using machine learning, artificial intelligence, behavior-based indicators of attack (ioas) and custom hash blocking to defend linux workloads against malware and sophisticated threats, the falcon platform delivers complete visibility and context into any attack on linux workloads."
+Sentence 42,"indicators of compromise (iocs)
 
 file	sha256
 mozi	4790754ccd895626c67f0d63736577d363de7e7684b624d584615d83532d1414
@@ -74,6 +82,6 @@ xorddos	f85f13bf67bba755ec5f4c46d760f460a2dc137494d7edf64aeb22ddc2f30760
 mirai	4f2f4d758d13a9cb2fd4c71e8015ba622b2b4c1c26ceb1114b258d6e3c174010
 additional resources
 learn more about how the falcon platform protects linux systems in this solution brief."
-"""Sentence 39",read this press release about crowdstrike falcon’s enhanced linux protection.
-"""Sentence 40","find out how the powerful crowdstrike falcon platform provides comprehensive protection across your organization, workers, data and identities."
-"""Sentence 41",get a full-featured free trial of crowdstrike falcon prevent™ and learn how true next-gen av performs against today’s most sophisticated threats.
+Sentence 43,read this press release about crowdstrike falcon’s enhanced linux protection.
+Sentence 44,"find out how the powerful crowdstrike falcon platform provides comprehensive protection across your organization, workers, data and identities."
+Sentence 45,get a full-featured free trial of crowdstrike falcon prevent™ and learn how true next-gen av performs against today’s most sophisticated threats.

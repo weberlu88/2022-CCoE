@@ -1,91 +1,91 @@
 Number,Content
-"""Sentence 1","tsunami/backdoor
+Sentence 1,"tsunami/backdoor
 analyzed from memory
 date: 17/05/2021
 shikha sangwan
 tsunami is a powerful malware that is used for ddos flooding in unix/linux systems."
-"""Sentence 2","it makes
+Sentence 2,"it makes
 the infected machine a bot which is then used for ddos attacks."
-"""Sentence 3","the malware sample that we
+Sentence 3,"the malware sample that we
 got is a new variant of tsunami malware."
-"""Sentence 4","this malware is controlled by an irc server, which
+Sentence 4,"this malware is controlled by an irc server, which
 establishes a secure connection with the victim machine and enables a backdoor that collects
 the sensitive information from the system and turns the infected system into a bot."
-"""Sentence 5","overview
+Sentence 5,"overview
 the sample is analysed from the memory."
-"""Sentence 6","a suspicious process was detected in the memory
+Sentence 6,"a suspicious process was detected in the memory
 which communicated with a malicious ip."
-"""Sentence 7",that ip is an irc server or channel.
-"""Sentence 8","the infected
+Sentence 7,that ip is an irc server or channel.
+Sentence 8,"the infected
 system then listens and interprets commands from the channel."
-"""Sentence 9","the malware behaves like a
+Sentence 9,"the malware behaves like a
 backdoor and information stealer, it executes shell commands and opens system files to get the
 system information, and then sends the information to the server."
-"""Sentence 10","infection flow
+Sentence 10,"infection flow
 technical analysis
 after the malware was executed in the debian 32-bit system, we dumped the memory."
-"""Sentence 11","the
+Sentence 11,"the
 acquired ram was analysed by volatility."
-"""Sentence 12","backdoor:
+Sentence 12,"backdoor:
 we checked the processes that were running in the memory using “pslist” plugin as shown in
 the figure below:
 figure 1 pslist plugin
 we found a suspicious process with a very strange name."
-"""Sentence 13","this process was the last process that
+Sentence 13,"this process was the last process that
 was running on the system."
-"""Sentence 14","as shown in the figure above, the process with the name “xpqjcock” has a pid “2498”."
-"""Sentence 15","we
+Sentence 14,"as shown in the figure above, the process with the name “xpqjcock” has a pid “2498”."
+Sentence 15,"we
 checked the environment variables of the process and the process was running in the root
 directory (as shown in the figure below)."
-"""Sentence 16","network communication:
+Sentence 16,"network communication:
 figure 2 process list
 figure 3 environment variable
 figure 4 network record
 we extracted the network activities from the memory."
-"""Sentence 17","as shown in the figure 4, we see that a
+Sentence 17,"as shown in the figure 4, we see that a
 suspicious process is making a connection with an external ip on port 8080 i.e., https."
-"""Sentence 18","we
+Sentence 18,"we
 analysed and found that the ip is malicious and it is an irc server."
-"""Sentence 19","the ip has a history of
+Sentence 19,"the ip has a history of
 communication with tsunami backdoors."
-"""Sentence 20","the ip has a passive record of the following domains:
+Sentence 20,"the ip has a passive record of the following domains:
 derpcity.ru
 uranus.kei.su
 these are malicious domains and used in the irc channels."
-"""Sentence 21",we used yara scan plugin to scan for strings in the process.
-"""Sentence 22","we searched for http in the process
+Sentence 21,we used yara scan plugin to scan for strings in the process.
+Sentence 22,"we searched for http in the process
 as shown in the figure below:
 we found that the server is sending a get request to the client and some data has been sent to
 the irc server, as shown in the figure below."
-"""Sentence 23","information stealer:
+Sentence 23,"information stealer:
 we got the command line arguments that were made by the suspected process using “psaux”."
-"""Sentence 24","figure 5 yarascan
+Sentence 24,"figure 5 yarascan
 figure 6 request from server
 figure 7 psaux plugin
 the process collects the network configuration and ip address information by executing the
 “ifconfig” command, as shown in the figure below."
-"""Sentence 25",we checked for open handles of the suspected process using “lsof”.
-"""Sentence 26","the process opened the files as shown in the figure below:
+Sentence 25,we checked for open handles of the suspected process using “lsof”.
+Sentence 26,"the process opened the files as shown in the figure below:
 it identifies the systems linux kernel version, operating system name, and system hardware
 and sends all the information to the irc channel."
-"""Sentence 27","figure 8 command executed by the process
+Sentence 27,"figure 8 command executed by the process
 figure 9 lsof plugin
 figure 10 open handles
 figure 11 information sent to the server
 bot:
 then the channel sends command to all the bots to perform attacks on the system."
-"""Sentence 28","the
+Sentence 28,"the
 command is sent in a specific format, like
 <target>.<port>.<time>.<threads>..===>.fast.tcp.connect().flooder
 in this, it specifies the target, port, time, threads and does tcp flooding."
-"""Sentence 29","iocs
+Sentence 29,"iocs
 202.28.32.30
 derpcity.ru
 uranus.kei.su
 901008ec3cc76ac010e0d9538e55c0db
 subex secure protection
 subex secure detects the android sample as “ss_checksum_tsunami_b”."
-"""Sentence 30","mitre attack matrix
+Sentence 30,"mitre attack matrix
 id technique
 t1569 system services
 t1595 active scanning
@@ -101,8 +101,8 @@ t1498 network denial of service
 t1021 remote services
 our honeypot network
 this report has been prepared from the threat intelligence gathered by our honeypot network."
-"""Sentence 31",this honeypot network is today operational in 62 cities across the world.
-"""Sentence 32","these cities have at
+Sentence 31,this honeypot network is today operational in 62 cities across the world.
+Sentence 32,"these cities have at
 least one of the following attributes:
 ▪are landing centers for submarine cables
 ▪are internet traffic hotspots
@@ -110,13 +110,13 @@ least one of the following attributes:
 ▪house multiple connected critical infrastructure projects
 ▪have academic and research centers focusing on iot
 ▪have the potential to host multiple iot projects across domains in the future."
-"""Sentence 33",over 3.5 million attacks a day is being registered across this network of individual honeypots.
-"""Sentence 34","these attacks are studied, analysed, categorized, and marked according to a threat rank index,
+Sentence 33,over 3.5 million attacks a day is being registered across this network of individual honeypots.
+Sentence 34,"these attacks are studied, analysed, categorized, and marked according to a threat rank index,
 a priority assessment framework that we have developed within subex."
-"""Sentence 35","the honeypot network
+Sentence 35,"the honeypot network
 includes over 4000 physical and virtual devices covering over 400 device architectures and
 varied connectivity mediums globally."
-"""Sentence 36","these devices are grouped based on the sectors they
+Sentence 36,"these devices are grouped based on the sectors they
 belong to for purposes of understanding sectoral attacks."
-"""Sentence 37","thus, a layered flow of threat
+Sentence 37,"thus, a layered flow of threat
 intelligence is made possible."

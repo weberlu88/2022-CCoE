@@ -1,5 +1,5 @@
 Number,Content
-"""Sentence 1","backdoor.linux.tsunami.amy
+Sentence 1,"backdoor.linux.tsunami.amy
 september 29, 2021
 
 aliases:
@@ -9,8 +9,8 @@ infection channel:
 downloaded from the internet, dropped by other malware
 
 this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-"""Sentence 2","it executes commands from a remote malicious user, effectively compromising the affected system."
-"""Sentence 3","technical details
+Sentence 2,"it executes commands from a remote malicious user, effectively compromising the affected system."
+Sentence 3,"technical details
 file size:
 49,092 bytes
 
@@ -29,7 +29,7 @@ drops files, connects to urls/ips, steals information
 arrival details
 
 this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-"""Sentence 4","installation
+Sentence 4,"installation
 
 this backdoor drops the following copies of itself into the affected system:
 
@@ -52,48 +52,48 @@ backdoor routine
 this backdoor connects to any of the following irc server(s):
 
 {blocked}."
-"""Sentence 5","{blocked}.165.21
+Sentence 5,"{blocked}.165.21
 {blocked}."
-"""Sentence 6","{blocked}.217.181
+Sentence 6,"{blocked}.217.181
 {blocked}."
-"""Sentence 7","{blocked}.2.189
+Sentence 7,"{blocked}.2.189
 {blocked}."
-"""Sentence 8","{blocked}.137.56
+Sentence 8,"{blocked}.137.56
 {blocked}."
-"""Sentence 9","{blocked}.253.100
+Sentence 9,"{blocked}.253.100
 {blocked}."
-"""Sentence 10","{blocked}.233.35
+Sentence 10,"{blocked}.233.35
 {blocked}."
-"""Sentence 11","{blocked}.149.22
+Sentence 11,"{blocked}.149.22
 {blocked}."
-"""Sentence 12","{blocked}.242.233
+Sentence 12,"{blocked}.242.233
 {blocked}."
-"""Sentence 13","{blocked}.240.191
+Sentence 13,"{blocked}.240.191
 {blocked}."
-"""Sentence 14","{blocked}.24.229
+Sentence 14,"{blocked}.24.229
 {blocked}."
-"""Sentence 15","{blocked}.2.189
+Sentence 15,"{blocked}.2.189
 it joins any of the following irc channel(s):
 
 #ex86
 it executes the following commands from a remote malicious user:
 
 pan - performs an advanced syn flood to a specific target at n seconds interval."
-"""Sentence 16",udp - performs a udp flood to a specific target at n seconds interval.
-"""Sentence 17",http - perform a http flood.
-"""Sentence 18",std - triggers the bot to perform a denial of service (dos) attack and also allows user to specify .
-"""Sentence 19","unknown - another non-spoof udp flooder
+Sentence 16,udp - performs a udp flood to a specific target at n seconds interval.
+Sentence 17,http - perform a http flood.
+Sentence 18,std - triggers the bot to perform a denial of service (dos) attack and also allows user to specify .
+Sentence 19,"unknown - another non-spoof udp flooder
 kill - kill the running client."
-"""Sentence 20",kill_port - kill a listener socket.
-"""Sentence 21",get - this downloads from and saves a file.
-"""Sentence 22",sshx <192 or 192.168 or 192.168.0> - perform a ssh scan with provided credentials.
-"""Sentence 23",ssh <192 or 192.168 or 192.168.0> - perform a ssh scan.
-"""Sentence 24",killall - kill all current packeting.
-"""Sentence 25",help - displays this.
-"""Sentence 26",cback - connect back to .
-"""Sentence 27",irc - send commands to the irc server.
-"""Sentence 28",sh - execute shell commands.
-"""Sentence 29","information theft
+Sentence 20,kill_port - kill a listener socket.
+Sentence 21,get - this downloads from and saves a file.
+Sentence 22,sshx <192 or 192.168 or 192.168.0> - perform a ssh scan with provided credentials.
+Sentence 23,ssh <192 or 192.168 or 192.168.0> - perform a ssh scan.
+Sentence 24,killall - kill all current packeting.
+Sentence 25,help - displays this.
+Sentence 26,cback - connect back to .
+Sentence 27,irc - send commands to the irc server.
+Sentence 28,sh - execute shell commands.
+Sentence 29,"information theft
 
 this backdoor gathers the following data:
 

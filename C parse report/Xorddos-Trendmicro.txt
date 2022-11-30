@@ -19,6 +19,7 @@ Backdoor Commands
 Downloads Files
 Propagation
 Rootkit Capability
+~~
 Impact:
 
 Launches DoS/DDoS attacks
@@ -28,12 +29,14 @@ Threat Encyclopedia: ELF_XORDDOS.SM
 Threat Encyclopedia: Trojan.Linux.XORDDOS.SMSH
 Threat Encyclopedia: ELF_XORDDOS.AP
 
+~~
 Solutions Available:
 
 Detection	OPR
 Trojan.Linux.XORDDOS.SMSH	15.569.00
 ELF_XORDDOS.SM	16.163.00
 ELF_XORDDOS.AP	16.165.00
+~~
 Identification:
 
 The malware is usually found on Linux based servers. Since the malware has a capability to hide itself using its rootkit capabilities and XOR encrypted C&C communication, un-monitored and un-protected servers may not report the infection unless an administrator is able to see the unusual processes running or unusual connections to un-familiar IP addresses.
@@ -44,6 +47,7 @@ Auto-start mechanisms
 Dropped copies of the malware
 Unusual network connections to unknown IP addresses
 Running processes usually showing as 8-10 random characters
+~~
 Installation:
 
 Actions to Take:
@@ -92,12 +96,12 @@ It drops the following copies of itself into the affected system:
 
 /lib/libudev.so
 Autostart Technique
-
+~~
 This Backdoor drops the following files:
 
 /etc/cron.hourly/gcc.sh (Cron is a time-based job scheduler in Unix-like computer operating systems)
 Backdoor Routine
-
+~~
 This Backdoor executes the following commands from a remote malicious user:
 
 Execute files
@@ -111,6 +115,7 @@ Perform DDoS attack
 It posts the following information to its command and control (C&C) server:
 
 http://www1.{BLOCKED}t456.com/dd.rar:1520
+~~
 Information Theft
 
 This Backdoor gathers the following data:
@@ -121,7 +126,7 @@ Network Speed
 PID of Running Process
 MD5 of Running Process
 Other Details
-
+~~
 This Backdoor does the following:
 
 Drops a shell script in /etc/init.d folder which setups the auto-start mechanism of the malware.

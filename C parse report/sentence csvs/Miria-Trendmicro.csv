@@ -1,5 +1,5 @@
 Number,Content
-"""Sentence 1","mirai's new variant mukashi attacks network-attached devices
+Sentence 1,"mirai's new variant mukashi attacks network-attached devices
 product/version includes:apex one 2019, officescan xg, deep discovery email inspector 5.0, view more
 update date: 2020/12/17
 article number: 000283375
@@ -8,17 +8,17 @@ rating: 0
 
 summary
 mirai is a malware that turns networked devices running linux into remotely controlled bots that can be used as part of a botnet in large-scale network attacks."
-"""Sentence 2",it primarily targets online consumer devices such as ip cameras and home routers.
-"""Sentence 3","the mirai botnet was first found in august 2016 by malwaremustdie, a whitehat malware research group, and has been used in some of the largest and most disruptive distributed denial of service (ddos)."
-"""Sentence 4",mirai was named after the 2011 tv anime series mirai nikki.
-"""Sentence 5",the source code for mirai was published on hack forums as open-source.
-"""Sentence 6","since the source code was published, the techniques have been adapted in other malware projects."
-"""Sentence 7",the new mirai variant named mukashi is attacking network-attached storage (nas) devices.
-"""Sentence 8","mukashi takes advantage of a vulnerability, cve-2020-9054, found in zyxel nas devices which allows remote attackers to execute malicious codes into the affected system."
-"""Sentence 9",it uses brute force attacks through default credentials to log into zyxel nas products.
-"""Sentence 10","when logged in successfully, the attackers can now take control of the devices and add them to a botnet that can be used to perform distributed denial of service (ddos) attacks."
-"""Sentence 11",mukashi retains the ability of communicating to a command-and-control server.
-"""Sentence 12","this backdoor gathers the following information and sends it to its servers:
+Sentence 2,it primarily targets online consumer devices such as ip cameras and home routers.
+Sentence 3,"the mirai botnet was first found in august 2016 by malwaremustdie, a whitehat malware research group, and has been used in some of the largest and most disruptive distributed denial of service (ddos)."
+Sentence 4,mirai was named after the 2011 tv anime series mirai nikki.
+Sentence 5,the source code for mirai was published on hack forums as open-source.
+Sentence 6,"since the source code was published, the techniques have been adapted in other malware projects."
+Sentence 7,the new mirai variant named mukashi is attacking network-attached storage (nas) devices.
+Sentence 8,"mukashi takes advantage of a vulnerability, cve-2020-9054, found in zyxel nas devices which allows remote attackers to execute malicious codes into the affected system."
+Sentence 9,it uses brute force attacks through default credentials to log into zyxel nas products.
+Sentence 10,"when logged in successfully, the attackers can now take control of the devices and add them to a botnet that can be used to perform distributed denial of service (ddos) attacks."
+Sentence 11,mukashi retains the ability of communicating to a command-and-control server.
+Sentence 12,"this backdoor gathers the following information and sends it to its servers:
 
 user/device information (ip address, port, username, password)
 behaviour

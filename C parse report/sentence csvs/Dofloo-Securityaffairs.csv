@@ -1,21 +1,21 @@
 Number,Content
-"""Sentence 1","aesddos bot exploits cve-2019-3396 flaw to hit atlassian confluence server
+Sentence 1,"aesddos bot exploits cve-2019-3396 flaw to hit atlassian confluence server
 april 28, 2019  by pierluigi paganini
 
 a new variant of the aesddos bot is exploiting a recent vulnerability in the atlassian collaborative software confluence."
-"""Sentence 2",security experts at trend micro have spotted a new variant of aesddos botnet that is exploiting a recently discovered vulnerability in the atlassian collaborative software confluence.
-"""Sentence 3","the flaw exploited in the attacks, tracked as cve-2019-3396, is a server-side template injection vulnerability that resides in the widget connector macro in confluence server."
-"""Sentence 4","threat actors leverage the vulnerability to install denial of service (ddos) malware and crypto-currency miners, and to remotely execute code."
-"""Sentence 5","“in our analysis, we saw that an attacker was able to exploit cve-2019-3396 to infect machines with the aesddos botnet malware.” reads the analysis published by trend micro."
-"""Sentence 6","“a shell command was remotely executed to download and execute a malicious shell script (trojan.sh.lodex.j), which in turn downloaded another shell script (trojan.sh.dogoload.j) that finally installed the aesddos botnet malware on the affected system.”
+Sentence 2,security experts at trend micro have spotted a new variant of aesddos botnet that is exploiting a recently discovered vulnerability in the atlassian collaborative software confluence.
+Sentence 3,"the flaw exploited in the attacks, tracked as cve-2019-3396, is a server-side template injection vulnerability that resides in the widget connector macro in confluence server."
+Sentence 4,"threat actors leverage the vulnerability to install denial of service (ddos) malware and crypto-currency miners, and to remotely execute code."
+Sentence 5,"“in our analysis, we saw that an attacker was able to exploit cve-2019-3396 to infect machines with the aesddos botnet malware.” reads the analysis published by trend micro."
+Sentence 6,"“a shell command was remotely executed to download and execute a malicious shell script (trojan.sh.lodex.j), which in turn downloaded another shell script (trojan.sh.dogoload.j) that finally installed the aesddos botnet malware on the affected system.”
 
 the aesddos bot involved in the recent attacks has the ability to launch several types of ddos attacks, including syn, lsyn, udp, udps, and tcp flood."
-"""Sentence 7",the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
-"""Sentence 8","once the malware has infected a system, it can gather system information, including model id and cpu description, speed, family, model, and type."
-"""Sentence 9",the aesddos bot uses the aes algorithm to encrypt gathered data and data received from the c2 server.
-"""Sentence 10","trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command."
-"""Sentence 11",atlassian has already addressed the vulnerability in the confluence software with the release of the version 6.15.1.
-"""Sentence 12","“since the successful exploitation of cve-2019-3396 in atlassian confluence server can put resources at risk, enterprises should be able to identify vulnerabilities, make use of the latest threat intelligence against malware or exploits, and detect modifications to the application’s design and the underlying infrastructure that hosts it,” trend micro concludes."
-"""Sentence 13","pierluigi paganini
+Sentence 7,the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+Sentence 8,"once the malware has infected a system, it can gather system information, including model id and cpu description, speed, family, model, and type."
+Sentence 9,the aesddos bot uses the aes algorithm to encrypt gathered data and data received from the c2 server.
+Sentence 10,"trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command."
+Sentence 11,atlassian has already addressed the vulnerability in the confluence software with the release of the version 6.15.1.
+Sentence 12,"“since the successful exploitation of cve-2019-3396 in atlassian confluence server can put resources at risk, enterprises should be able to identify vulnerabilities, make use of the latest threat intelligence against malware or exploits, and detect modifications to the application’s design and the underlying infrastructure that hosts it,” trend micro concludes."
+Sentence 13,"pierluigi paganini
 
 securityaffairs – aesddos bot, ddos"

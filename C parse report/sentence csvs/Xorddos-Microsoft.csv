@@ -1,32 +1,34 @@
 Number,Content
-"""Sentence 1","may 19, 2022 • 27 min read
+Sentence 1,"may 19, 2022 • 27 min read
 rise in xorddos: a deeper look at the stealthy ddos malware targeting linux devices
 microsoft 365 defender research team
 share
 updated september 12, 2022: new information has been added to the initial access and payload analysis sections in this blog, including details on a rootkit component that we found while investigating a xorddos sample we saw in june 2022.
 
 in the last six months, we observed a 254% increase in activity from a linux trojan called xorddos."
-"""Sentence 2","first discovered in 2014 by the research group malwaremustdie, xorddos was named after its denial-of-service-related activities on linux endpoints and servers as well as its usage of xor-based encryption for its communications."
-"""Sentence 3","xorddos depicts the trend of malware increasingly targeting linux-based operating systems, which are commonly deployed on cloud infrastructures and internet of things (iot) devices."
-"""Sentence 4","by compromising iot and other internet-connected devices, xorddos amasses botnets that can be used to carry out distributed denial-of-service (ddos) attacks."
-"""Sentence 5","using a botnet to perform ddos attacks can potentially create significant disruptions, such as the 2.4 tbps ddos attack microsoft mitigated in august 2021. ddos attacks in and of themselves can be highly problematic for numerous reasons, but such attacks can also be used as cover to hide further malicious activities, like deploying malware and infiltrating target systems."
-"""Sentence 6","botnets can also be used to compromise other devices, and xorddos is known for using secure shell (ssh) brute force attacks to gain remote control on target devices."
-"""Sentence 7","ssh is one of the most common protocols in it infrastructures and enables encrypted communications over insecure networks for remote system administration purposes, making it an attractive vector for attackers."
-"""Sentence 8","once xorddos identifies valid ssh credentials, it uses root privileges to run a script that downloads and installs xorddos on the target device."
-"""Sentence 9",xorddos uses evasion and persistence mechanisms that allow its operations to remain robust and stealthy.
-"""Sentence 10","its evasion capabilities include obfuscating the malware’s activities, evading rule-based detection mechanisms and hash-based malicious file lookup, as well as using anti-forensic techniques to break process tree-based analysis."
-"""Sentence 11",we observed in recent campaigns that xorddos hides malicious activities from analysis by overwriting sensitive files with a null byte.
-"""Sentence 12",it also includes various persistence mechanisms to support different linux distributions.
-"""Sentence 13",a diagram depicting a typical attack flow for xorddos malware.
-"""Sentence 14",the attacker communicates with a bot to ssh brute force a target device and download xorddos.
-"""Sentence 15",the malware then performs several techniques for evasion and persistence before connecting with the attacker's c2 server to send data and receive commands.
-"""Sentence 16","figure 1. a typical attack vector for xorddos malware
+Sentence 2,"first discovered in 2014 by the research group malwaremustdie, xorddos was named after its denial-of-service-related activities on linux endpoints and servers as well as its usage of xor-based encryption for its communications."
+Sentence 3,"xorddos depicts the trend of malware increasingly targeting linux-based operating systems, which are commonly deployed on cloud infrastructures and internet of things (iot) devices."
+Sentence 4,"by compromising iot and other internet-connected devices, xorddos amasses botnets that can be used to carry out distributed denial-of-service (ddos) attacks."
+Sentence 5,"using a botnet to perform ddos attacks can potentially create significant disruptions, such as the 2.4 tbps ddos attack microsoft mitigated in august 2021. ddos attacks in and of themselves can be highly problematic for numerous reasons, but such attacks can also be used as cover to hide further malicious activities, like deploying malware and infiltrating target systems."
+Sentence 6,"botnets can also be used to compromise other devices, and xorddos is known for using secure shell (ssh) brute force attacks to gain remote control on target devices."
+Sentence 7,"ssh is one of the most common protocols in it infrastructures and enables encrypted communications over insecure networks for remote system administration purposes, making it an attractive vector for attackers."
+Sentence 8,"once xorddos identifies valid ssh credentials, it uses root privileges to run a script that downloads and installs xorddos on the target device."
+Sentence 9,xorddos uses evasion and persistence mechanisms that allow its operations to remain robust and stealthy.
+Sentence 10,"its evasion capabilities include obfuscating the malware’s activities, evading rule-based detection mechanisms and hash-based malicious file lookup, as well as using anti-forensic techniques to break process tree-based analysis."
+Sentence 11,we observed in recent campaigns that xorddos hides malicious activities from analysis by overwriting sensitive files with a null byte.
+Sentence 12,it also includes various persistence mechanisms to support different linux distributions.
+Sentence 13,a diagram depicting a typical attack flow for xorddos malware.
+Sentence 14,the attacker communicates with a bot to ssh brute force a target device and download xorddos.
+Sentence 15,the malware then performs several techniques for evasion and persistence before connecting with the attacker's c2 server to send data and receive commands.
+Sentence 16,"figure 1. a typical attack vector for xorddos malware
+"
+Sentence 17,"
 xorddos may further illustrate another trend observed in various platforms, in which malware is used to deliver other dangerous threats."
-"""Sentence 17","we found that devices first infected with xorddos were later infected with additional malware such as the tsunami backdoor, which further deploys the xmrig coin miner."
-"""Sentence 18","while we did not observe xorddos directly installing and distributing secondary payloads like tsunami, it’s possible that the trojan is leveraged as a vector for follow-on activities."
-"""Sentence 19","microsoft defender for endpoint protects against xorddos by detecting and remediating the trojan’s multi-stage, modular attacks throughout its entire attack chain and any potential follow-on activities on endpoints."
-"""Sentence 20","in this blog post, we detail our in-depth analysis of xorddos to help defenders understand its techniques and protect their networks from this stealthy malware."
-"""Sentence 21","this blog post covers the following topics:
+Sentence 18,"we found that devices first infected with xorddos were later infected with additional malware such as the tsunami backdoor, which further deploys the xmrig coin miner."
+Sentence 19,"while we did not observe xorddos directly installing and distributing secondary payloads like tsunami, it’s possible that the trojan is leveraged as a vector for follow-on activities."
+Sentence 20,"microsoft defender for endpoint protects against xorddos by detecting and remediating the trojan’s multi-stage, modular attacks throughout its entire attack chain and any potential follow-on activities on endpoints."
+Sentence 21,"in this blog post, we detail our in-depth analysis of xorddos to help defenders understand its techniques and protect their networks from this stealthy malware."
+Sentence 22,"this blog post covers the following topics:
 
 initial access
 xorddos payload analysis
@@ -41,15 +43,17 @@ hunting queries
 indicators
 initial access
 xorddos propagates primarily via ssh brute force."
-"""Sentence 22",it uses a malicious shell script to try various root credential combinations across thousands of servers until finding a match on a target linux device.
-"""Sentence 23","as a result, we see many failed sign-in attempts on devices successfully infected by the malware:
+Sentence 23,it uses a malicious shell script to try various root credential combinations across thousands of servers until finding a match on a target linux device.
+Sentence 24,"as a result, we see many failed sign-in attempts on devices successfully infected by the malware:
 
 line chart depicting the increasing amount of failed sign-in attempts by a device infected by xorddos."
-"""Sentence 24","figure 2. failed sign-in attempts on a device affected by xorddos
+Sentence 25,"figure 2. failed sign-in attempts on a device affected by xorddos
+"
+Sentence 26,"
 our analysis determined two of xorddos’ methods for initial access."
-"""Sentence 25",the first method involves copying a malicious elf file to temporary file storage /dev/shm and then running it.
-"""Sentence 26","files written at /dev/shm are deleted during system restart, thus concealing the source of infection during forensic analysis."
-"""Sentence 27","the second method involves running a bash script that performs the following activities via the command line:
+Sentence 27,the first method involves copying a malicious elf file to temporary file storage /dev/shm and then running it.
+Sentence 28,"files written at /dev/shm are deleted during system restart, thus concealing the source of infection during forensic analysis."
+Sentence 29,"the second method involves running a bash script that performs the following activities via the command line:
 
 iterates the following folders to find a writable directory:
 /bin
@@ -59,16 +63,16 @@ iterates the following folders to find a writable directory:
 /usr
 /etc
 if a writable directory is found, changes the working directory to the discovered writable directory."
-"""Sentence 28",uses the curl command to download the elf file payload from the remote location hxxp://ipv4pii_777789ffaa5b68638cdaea8ecfa10b24b326ed7d/1[.
-"""Sentence 29",]txt and saves the file as  ygljglkjgfg0.
-"""Sentence 30",changes the file mode to “executable”.
-"""Sentence 31",runs the elf file payload.
-"""Sentence 32",moves and renames the wget binary to evade rule-based detections triggered by malicious usage of the wget binary.
-"""Sentence 33","in this case, it renames the wget binary to good and moves the file to the following locations:
+Sentence 30,uses the curl command to download the elf file payload from the remote location hxxp://ipv4pii_777789ffaa5b68638cdaea8ecfa10b24b326ed7d/1[.
+Sentence 31,]txt and saves the file as  ygljglkjgfg0.
+Sentence 32,changes the file mode to “executable”.
+Sentence 33,runs the elf file payload.
+Sentence 34,moves and renames the wget binary to evade rule-based detections triggered by malicious usage of the wget binary.
+Sentence 35,"in this case, it renames the wget binary to good and moves the file to the following locations:
 mv /usr/bin/wget /usr/bin/good
 mv /bin/wget /bin/good
 attempts to download the elf file payload for a second time, now only using the file good and not the wget binary."
-"""Sentence 34","after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+Sentence 36,"after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
 sensitive file	description
 /root/.bash_history	contains the commands that were run earlier
 /var/log/wtmp	contains login related record for users
@@ -78,7 +82,7 @@ sensitive file	description
 /var/log/boot.log	contains information related to system boot and message logged via system startup processes
 /var/log/cron	contains information related to cron job launch, success and failure error logs
 /var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc."
-"""Sentence 35","/var/log/firewalld	contains logs related to firewall activities
+Sentence 37,"/var/log/firewalld	contains logs related to firewall activities
 /var/log/maillog	contains information related to a mail server running on the system
 /var/log/messages	contains generic system activity messages
 /var/log/spooler	contains messages from usenet
@@ -86,40 +90,46 @@ sensitive file	description
 /var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
 screenshot of the remote bash script command used for initial access
 figure 3. remote bash script command used for initial access
+"
+Sentence 38,"
 whichever initial access method is used, the result is the same: the running of a malicious elf file, which is the xorddos malware."
-"""Sentence 36","in the next section, we do a deep dive into the xorddos payload."
-"""Sentence 37",other xorddos variants that we recently saw in our investigations use this bash script installation method to either download or build its rootkit remotely.
-"""Sentence 38",this installation method differentiates itself by matching the kernel build of the target device with the rootkit available on the attacker’s command and control (c2) server.
-"""Sentence 39",a xorddos variant's attack chain where the malware checks if the rootkit that matches to the linux os version exists on its c2 server for download and installation on the affected device.
-"""Sentence 40","figure 4. xorddos variant attack flow
+Sentence 39,"in the next section, we do a deep dive into the xorddos payload."
+Sentence 40,other xorddos variants that we recently saw in our investigations use this bash script installation method to either download or build its rootkit remotely.
+Sentence 41,this installation method differentiates itself by matching the kernel build of the target device with the rootkit available on the attacker’s command and control (c2) server.
+Sentence 42,a xorddos variant's attack chain where the malware checks if the rootkit that matches to the linux os version exists on its c2 server for download and installation on the affected device.
+Sentence 43,"figure 4. xorddos variant attack flow
+"
+Sentence 44,"
 after enumerating the target device, the script communicates with the attacker’s c2 server, and checks if a rootkit that matches the kernel build of the target device exists on the server."
-"""Sentence 41","if it finds an existing rootkit that matches with the target device, the script downloads the rootkit."
-"""Sentence 42","the following steps initiate the matching and downloading of the xorddos malware and rootkit:
+Sentence 45,"if it finds an existing rootkit that matches with the target device, the script downloads the rootkit."
+Sentence 46,"the following steps initiate the matching and downloading of the xorddos malware and rootkit:
 
 the bash script gets the target device’s kernel-related information using the following sequence of commands and sends it to the attacker’s server:
 lsmod with tail to get the list of loaded linux kernel modules
 modinfo extracts the vermagic number, a string containing information such as the kernel version number and cpu type used by the kernel module to load into kernel space."
-"""Sentence 43",the vermagic number is gathered from the listed kernel modules.
-"""Sentence 44",the vermagic string is sent to the attacker’s server in encoded form.
-"""Sentence 45",command section screenshot where vermagic string in the rootkit is seen.
-"""Sentence 46","figure 5. screenshot of the ‘modinfo’ command section that contains the ‘vermagic’ string in the rootkit
+Sentence 47,the vermagic number is gathered from the listed kernel modules.
+Sentence 48,the vermagic string is sent to the attacker’s server in encoded form.
+Sentence 49,command section screenshot where vermagic string in the rootkit is seen.
+Sentence 50,"figure 5. screenshot of the ‘modinfo’ command section that contains the ‘vermagic’ string in the rootkit
+"
+Sentence 51,"
 if the rootkit binary specific to the kernel build exists on the server, it is downloaded along with the xorddos elf as a compressed .tar file."
-"""Sentence 47",the .tar file is further uncompressed in a new directory named after the string obtained by encoding the md5 hash of the vermagic string and created under the location /tmp on the target device.
-"""Sentence 48","after the .tar file is uncompressed, the xorddos elf malware installs the xorddos rootkit."
-"""Sentence 49","if the kernel build of the target device does not match any of the rootkits on the attacker’s server, the bash script initiates the following steps to build and compile the rootkit remotely:
+Sentence 52,the .tar file is further uncompressed in a new directory named after the string obtained by encoding the md5 hash of the vermagic string and created under the location /tmp on the target device.
+Sentence 53,"after the .tar file is uncompressed, the xorddos elf malware installs the xorddos rootkit."
+Sentence 54,"if the kernel build of the target device does not match any of the rootkits on the attacker’s server, the bash script initiates the following steps to build and compile the rootkit remotely:
 
 the bash script prepares archived linux kernel headers in the /tmp directory."
-"""Sentence 50",linux kernel headers are defining c-language public kernel apis and data structures to enable compilation of 3rd party kernel modules.
-"""Sentence 51",the bash script downloads and launches the elf binary uploader in /tmp.
-"""Sentence 52",this binary uses an http post request to upload the archived kernel headers to the attacker’s server.
-"""Sentence 53",the elf binary removes the uploader component from /tmp to minimize xorddos’ footprint.
-"""Sentence 54",the uploaded archived kernel headers are used on the c2 server to build and compile the rootkit component.
-"""Sentence 55","thus, the newly built rootkit component becomes available for download from the c2 server, also making it available for other future infections."
-"""Sentence 56","the bash script then initiates the prior set of steps to download and install the xorddos elf malware, which installs the rootkit into the target device."
-"""Sentence 57","xorddos payload analysis
+Sentence 55,linux kernel headers are defining c-language public kernel apis and data structures to enable compilation of 3rd party kernel modules.
+Sentence 56,the bash script downloads and launches the elf binary uploader in /tmp.
+Sentence 57,this binary uses an http post request to upload the archived kernel headers to the attacker’s server.
+Sentence 58,the elf binary removes the uploader component from /tmp to minimize xorddos’ footprint.
+Sentence 59,the uploaded archived kernel headers are used on the c2 server to build and compile the rootkit component.
+Sentence 60,"thus, the newly built rootkit component becomes available for download from the c2 server, also making it available for other future infections."
+Sentence 61,"the bash script then initiates the prior set of steps to download and install the xorddos elf malware, which installs the rootkit into the target device."
+Sentence 62,"xorddos payload analysis
 the xorddos payload we analyzed for this research is a 32-bit elf file that was not stripped, meaning it contained debug symbols that detailed the malware’s dedicated code for each of its activities."
-"""Sentence 58","the inclusion of debug symbols makes it easier to debug and reverse engineer non-stripped binaries, as compared to stripped binaries that discard these symbols."
-"""Sentence 59","in this case, the non-stripped binary includes the following source-code file names associated with the symbol table entries as part of the .strtab section in the elf file:
+Sentence 63,"the inclusion of debug symbols makes it easier to debug and reverse engineer non-stripped binaries, as compared to stripped binaries that discard these symbols."
+Sentence 64,"in this case, the non-stripped binary includes the following source-code file names associated with the symbol table entries as part of the .strtab section in the elf file:
 
 crtstuff.c
 autorun.c
@@ -138,34 +148,36 @@ thread.c
 findip.c
 dns.c
 the above list of source-code file names indicate that the binary is programmed in c/c++ and that its code is modular."
-"""Sentence 60","detection evasion capabilities
+Sentence 65,"detection evasion capabilities
 xorddos contains modules with specific functionalities to evade detection, as detailed below."
-"""Sentence 61","daemon processes
+Sentence 66,"daemon processes
 
 a daemon process is a process that runs in the background rather than under the control of users and detaches itself from the controlling terminal, terminating only when the system is shut down."
-"""Sentence 62","similar to some linux malware families, the xorddos trojan uses daemon processes, as detailed below, to break process tree-based analysis:
+Sentence 67,"similar to some linux malware families, the xorddos trojan uses daemon processes, as detailed below, to break process tree-based analysis:
 
 the malware calls the subroutine daemon(__nochdir, __noclose) to set itself as a background daemon process, which internally calls fork() and setsid()."
-"""Sentence 63",the fork() api creates a new child process with the same process group-id as the calling process.
-"""Sentence 64","after the successful call to the fork() api, the parent stops itself by returning “exit_success (0)”."
-"""Sentence 65","the purpose is to ensure that the child process is not a group process leader, which is a prerequisite for the setsid() api call to be successful."
-"""Sentence 66",it then calls setsid() to detach itself from the controlling terminal.
-"""Sentence 67",the daemon subroutine also has a provision to change the directory to the root directory (“/“) if the first parameter __nochdir is called with a value equal to “0”.
-"""Sentence 68",one reason for the daemon process to change the directory to the root partition (“/“)is because running the process from the mounted file system prevents unmounting unless the process is stopped.
-"""Sentence 69","it passes the second parameter __noclose as “0” to redirect standard input, standard output, and standard error to /dev/null."
-"""Sentence 70",it does this by calling dup2 on the file descriptor for /dev/null.
-"""Sentence 71",the malware calls multiple signal apis to ignore a possible signal from the controlling terminal and detach the current process from the standard stream and hangup signals (sighup) when the terminal session is disconnected.
-"""Sentence 72","performing this evasive signal suppression helps stop the effects of standard libraries trying to write to standard output or standard error, or trying to read from standard input, which could stop the malware’s child process."
-"""Sentence 73","the api signal() sets the disposition of the signal signum to the handler, which is either sig_ign, sig_dfl, or the address of a programmer-defined signal handler."
-"""Sentence 74","in this case, the second parameter is set to “sig_ign=1”, which ignores the signal corresponding to signum."
-"""Sentence 75",screenshot of how signals associated with terminal-related operations are ignored.
-"""Sentence 76","figure 6. ignore signals associated with the terminal-related operations
+Sentence 68,the fork() api creates a new child process with the same process group-id as the calling process.
+Sentence 69,"after the successful call to the fork() api, the parent stops itself by returning “exit_success (0)”."
+Sentence 70,"the purpose is to ensure that the child process is not a group process leader, which is a prerequisite for the setsid() api call to be successful."
+Sentence 71,it then calls setsid() to detach itself from the controlling terminal.
+Sentence 72,the daemon subroutine also has a provision to change the directory to the root directory (“/“) if the first parameter __nochdir is called with a value equal to “0”.
+Sentence 73,one reason for the daemon process to change the directory to the root partition (“/“)is because running the process from the mounted file system prevents unmounting unless the process is stopped.
+Sentence 74,"it passes the second parameter __noclose as “0” to redirect standard input, standard output, and standard error to /dev/null."
+Sentence 75,it does this by calling dup2 on the file descriptor for /dev/null.
+Sentence 76,the malware calls multiple signal apis to ignore a possible signal from the controlling terminal and detach the current process from the standard stream and hangup signals (sighup) when the terminal session is disconnected.
+Sentence 77,"performing this evasive signal suppression helps stop the effects of standard libraries trying to write to standard output or standard error, or trying to read from standard input, which could stop the malware’s child process."
+Sentence 78,"the api signal() sets the disposition of the signal signum to the handler, which is either sig_ign, sig_dfl, or the address of a programmer-defined signal handler."
+Sentence 79,"in this case, the second parameter is set to “sig_ign=1”, which ignores the signal corresponding to signum."
+Sentence 80,screenshot of how signals associated with terminal-related operations are ignored.
+Sentence 81,"figure 6. ignore signals associated with the terminal-related operations
+"
+Sentence 82,"
 xor-based encryption
 
 as its name suggests, xorddos uses xor-based encryption to obfuscate data."
-"""Sentence 77",it calls the dec_conf function to decode encoded strings using the xor key “bb2fa36aaa9541f0”.
-"""Sentence 78",the table below shows the decoded values of the obfuscated data used across the malware’s various modules to conduct its activities.
-"""Sentence 79","encrypted strings	decoded value
+Sentence 83,it calls the dec_conf function to decode encoded strings using the xor key “bb2fa36aaa9541f0”.
+Sentence 84,the table below shows the decoded values of the obfuscated data used across the malware’s various modules to conduct its activities.
+Sentence 85,"encrypted strings	decoded value
 m7a4nq_/na	/usr/bin/
 m [(n3	/bin/
 m6_6n3	/tmp/
@@ -175,39 +187,47 @@ m.[$n3	/lib/
 m4s4nac/na	/var/run/
 !#ff3ve.-7\x17v[_	cat resolv.conf
 <encrypted_remote_url>	hxxp://aa.hostasa[."
-"""Sentence 80","]org/config.rar
+Sentence 86,"]org/config.rar
 process name spoofing
 
 when a process is launched, arguments are provided to its main function as null-terminated strings, where the first argument is always the process image path."
-"""Sentence 81","to spoof its process name, xorddos zeroes out all argument buffers while running and overrides its first argument buffer containing the image path with a fake command line, such as cat resolv.conf."
-"""Sentence 82",diagram displaying how process name spoofing is achieved by modifying memory associated with argument vectors.
-"""Sentence 83",figure 7. process name spoofing achieved by modifying memory associated with argument vectors.
-"""Sentence 84",screenshot of the output of the 'ps -aef' containing an entry for cat resolv.conf.
-"""Sentence 85","figure 8. output of the ‘ps -aef’ contains an entry for “cat resolv.conf”
+Sentence 87,"to spoof its process name, xorddos zeroes out all argument buffers while running and overrides its first argument buffer containing the image path with a fake command line, such as cat resolv.conf."
+Sentence 88,diagram displaying how process name spoofing is achieved by modifying memory associated with argument vectors.
+Sentence 89,figure 7. process name spoofing achieved by modifying memory associated with argument vectors.
+Sentence 90,
+Sentence 91,"
+screenshot of the output of the 'ps -aef' containing an entry for cat resolv.conf."
+Sentence 92,"figure 8. output of the ‘ps -aef’ contains an entry for “cat resolv.conf”
+"
+Sentence 93,"
 kernel rootkit
 
 some xorddos samples install a kernel rootkit, while others embed the rootkit in the xorddos binary."
-"""Sentence 86","upon execution, the xorddos binary drops the embedded rootkit component into the disk."
-"""Sentence 87",a rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
-"""Sentence 88","the xorddos kernel rootkit generally has the following capabilities:
+Sentence 94,"upon execution, the xorddos binary drops the embedded rootkit component into the disk."
+Sentence 95,a rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
+Sentence 96,"the xorddos kernel rootkit generally has the following capabilities:
 
 provide root access
 hide the kernel module
 hide the malware’s processes
 hide the malware’s network connections and ports
 based on the debug symbols found in the rootkit, it’s likely that xorddos’ rootkit code was inspired by open-source projects like suterusu and rooty."
-"""Sentence 89",xorddos attempts to hide itself by invoking its rootkit.
-"""Sentence 90","the user mode malware calls the function getself(), which invokes readlink() to fetch the location of the malware file image on disk."
-"""Sentence 91",screenshot of xorddos' code it uses for self-replication.
-"""Sentence 92",figure 9. code used by xorddos for self-replication.
-"""Sentence 93","after this step, the malware tries to read the contents of its image file and loads it into a memory buffer, then sends a request to unhide() the process and deletes the image on disk."
-"""Sentence 94",the technique allows xorddos to bypass detection or minimize its malicious footprint.
-"""Sentence 95",the xorddos rootkit parses the in-kernel list of loaded modules to remove itself and the protected malware from the list.
-"""Sentence 96",this approach prevents tools like ismod from listing kernel-loaded modules.
-"""Sentence 97",code screenshot of the rootkit's ability to list loaded modules and remove itself and the xorddos malware from the list.
-"""Sentence 98",figure 10.
-"""Sentence 99",__this_module refers to the current module that list_del tries to hide.
-"""Sentence 100","the following table describes the symbols found in the rootkit and their corresponding functionalities:
+Sentence 97,xorddos attempts to hide itself by invoking its rootkit.
+Sentence 98,"the user mode malware calls the function getself(), which invokes readlink() to fetch the location of the malware file image on disk."
+Sentence 99,screenshot of xorddos' code it uses for self-replication.
+Sentence 100,figure 9. code used by xorddos for self-replication.
+Sentence 101,
+Sentence 102,"
+after this step, the malware tries to read the contents of its image file and loads it into a memory buffer, then sends a request to unhide() the process and deletes the image on disk."
+Sentence 103,the technique allows xorddos to bypass detection or minimize its malicious footprint.
+Sentence 104,the xorddos rootkit parses the in-kernel list of loaded modules to remove itself and the protected malware from the list.
+Sentence 105,this approach prevents tools like ismod from listing kernel-loaded modules.
+Sentence 106,code screenshot of the rootkit's ability to list loaded modules and remove itself and the xorddos malware from the list.
+Sentence 107,figure 10.
+Sentence 108,__this_module refers to the current module that list_del tries to hide.
+Sentence 109,
+Sentence 110,"
+the following table describes the symbols found in the rootkit and their corresponding functionalities:
 
 function name  	description  
 give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
@@ -230,17 +250,19 @@ firewall_dropip	adds a provided ip address to drop_ips list
 unfirewall_dropip	deletes a provided ip address to drop_ips list
 hide_proc	adds a provided entry to hidden_procs list
 unhide_proc	deletes a provided entry to hidden_procs list
+"
+Sentence 111,"
 process and port hiding
 
 the malware tries to hide its processes and ports using its kernel rootkit component."
-"""Sentence 101",hiding a process assists the malware in evading rule-based detections.
-"""Sentence 102",the /proc filesystem contains information related to all running processes.
-"""Sentence 103","a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:
+Sentence 112,hiding a process assists the malware in evading rule-based detections.
+Sentence 113,the /proc filesystem contains information related to all running processes.
+Sentence 114,"a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:
 
 /proc/7728 – contains process-id (pid) 7728-related information
 /proc/698 – contains pid 698-related information
 running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command."
-"""Sentence 104","> strace -e open ps
+Sentence 115,"> strace -e open ps
 open(“/proc/3922/status”, o_rdonly)     = 6
 open(“/proc/4324/stat”, o_rdonly)       = 6
 open(“/proc/4324/status”, o_rdonly)     = 6
@@ -251,24 +273,26 @@ open(“/proc/5960/status”, o_rdonly)     = 6
 open(“/proc/5978/stat”, o_rdonly)       = 6
 open(“/proc/5978/status”, o_rdonly)     = 6
 if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode."
-"""Sentence 105","in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action."
-"""Sentence 106",ioctl is one way to communicate between the user-mode service and kernel device driver.
-"""Sentence 107",the malware uses the number “0x9748712” to uniquely identify its ioctl calls from other ioctl calls in the system.
-"""Sentence 108","along with this number, it also passes an integer array."
-"""Sentence 109","the first entry in the array corresponds to the command, and the second entry stores the value to act on, such as $pid."
-"""Sentence 110","command	usage
+Sentence 116,"in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action."
+Sentence 117,ioctl is one way to communicate between the user-mode service and kernel device driver.
+Sentence 118,the malware uses the number “0x9748712” to uniquely identify its ioctl calls from other ioctl calls in the system.
+Sentence 119,"along with this number, it also passes an integer array."
+Sentence 120,"the first entry in the array corresponds to the command, and the second entry stores the value to act on, such as $pid."
+Sentence 121,"command	usage
 0	check if its rootkit driver is present
 1, 2	hide or unhide <pid>
 3	hide <port>
+"
+Sentence 122,"
 hiding network connections
 
 the rootkit also leverages kernel hooking to disrupt the regular invocation of various kernel system calls by substituting the original system call handler in the sys_call_table with its own."
-"""Sentence 111","the hook functions ensure that the events associated with xorddos’s malicious activity are filtered out, thus evading detection."
-"""Sentence 112",the /proc/net interface provides information about currently active tcp connections and is implemented by kernel apis tcp4_seq_show() and tcp6_seq_show() .
-"""Sentence 113","utilities, such as netstat, acquire tcp/udp connection information from files named /proc/net/tcp and /proc/net/udp."
-"""Sentence 114","these files contain one entry per line, each indicating the source and destination port, the source and destination ip addresses, and other relevant information about the active connection."
-"""Sentence 115","the rootkit replaces the default read() system call with hook functions, filters the file read entries, and skips the port it intends to hide, further obfuscating c2 communications."
-"""Sentence 116","the following table lists kernel apis and their hook names used by the rootkit:
+Sentence 123,"the hook functions ensure that the events associated with xorddos’s malicious activity are filtered out, thus evading detection."
+Sentence 124,the /proc/net interface provides information about currently active tcp connections and is implemented by kernel apis tcp4_seq_show() and tcp6_seq_show() .
+Sentence 125,"utilities, such as netstat, acquire tcp/udp connection information from files named /proc/net/tcp and /proc/net/udp."
+Sentence 126,"these files contain one entry per line, each indicating the source and destination port, the source and destination ip addresses, and other relevant information about the active connection."
+Sentence 127,"the rootkit replaces the default read() system call with hook functions, filters the file read entries, and skips the port it intends to hide, further obfuscating c2 communications."
+Sentence 128,"the following table lists kernel apis and their hook names used by the rootkit:
 
 kernel api	hooked function by rootkit	function description
 tcp4_seq_show()	n_tcp4_seq_show()	hiding /proc/net/tcp, tcpv4 connection
@@ -277,75 +301,85 @@ udp4_seq_show()	n_ udp4_seq_show()	hiding /proc/net/udp, udpv4 connection
 udp6_seq_show()	n_ udp6_seq_show()	hiding /proc/net/udp6, udpv4 connection
 persistence mechanisms
 xorddos uses various persistence mechanisms to support different linux distributions when automatically launching upon system startup, as detailed below."
-"""Sentence 117","init script
+Sentence 129,"init script
 
 the malware drops an init script at the location /etc/init.d."
-"""Sentence 118",init scripts are startup scripts used to run any program when the system starts up.
-"""Sentence 119","they follow the linux standard base (lsb)-style header section to include default runlevels, descriptions, and dependencies."
-"""Sentence 120",screenshot of the content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf.
-"""Sentence 121","figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf
+Sentence 130,init scripts are startup scripts used to run any program when the system starts up.
+Sentence 131,"they follow the linux standard base (lsb)-style header section to include default runlevels, descriptions, and dependencies."
+Sentence 132,screenshot of the content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf.
+Sentence 133,"figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf
+"
+Sentence 134,"
 cron script
 
 the malware creates a cron script at the location /etc/cron.hourly/gcc.sh.the cron script passes parameters with the following content:
 
 screenshot of the contents of the gcc.sh script."
-"""Sentence 122","figure 12. content of the gcc.sh script
+Sentence 135,"figure 12. content of the gcc.sh script
+"
+Sentence 136,"
 it then creates a /etc/crontab file to run /etc/cron.hourly/gcc.sh every three minutes:
 
 screenshot displaying the system command to delete the /etc/cron.hourly/gcc.sh entry from /etc/crontab file and add a new entry."
-"""Sentence 123","it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
+Sentence 137,"it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
 figure 13. system command to delete the /etc/cron.hourly/gcc.sh entry from the /etc/crontab file and add a new entry
+"
+Sentence 138,"
 screenshot of a command that reads :*/3 * * * * root /etc/cron.hourly/gcc.sh
 figure 14. the content of the file /etc/crontab
+"
+Sentence 139,"
 system v runlevel
 
 a runlevel is a mode of init and the system that specifies what system services are operating for unix system v-style operating systems."
-"""Sentence 124","runlevels contain a value, typically numbered zero through six, which each designate a different system configuration and allows access to a different combination of processes."
-"""Sentence 125","some system administrators set a system’s default runlevel according to their needs or use runlevels to identify which subsystems are working, such as whether the network is operational."
-"""Sentence 126","the /etc/rc<run_level> directory contains symbolic links (symlinks), which are soft links that point to the original file."
-"""Sentence 127",these symlinks point to the scripts that should run at the specified runlevel.
-"""Sentence 128",the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
-"""Sentence 129",screenshot displaying the installation of rc.d directory's symlink scripts with /etc/init.d/<base_file_name>.
-"""Sentence 130","figure 15. installation of rc.d directory’s symlink scripts with /etc/init.d/<base_file_name>
+Sentence 140,"runlevels contain a value, typically numbered zero through six, which each designate a different system configuration and allows access to a different combination of processes."
+Sentence 141,"some system administrators set a system’s default runlevel according to their needs or use runlevels to identify which subsystems are working, such as whether the network is operational."
+Sentence 142,"the /etc/rc<run_level> directory contains symbolic links (symlinks), which are soft links that point to the original file."
+Sentence 143,these symlinks point to the scripts that should run at the specified runlevel.
+Sentence 144,the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
+Sentence 145,screenshot displaying the installation of rc.d directory's symlink scripts with /etc/init.d/<base_file_name>.
+Sentence 146,"figure 15. installation of rc.d directory’s symlink scripts with /etc/init.d/<base_file_name>
 auto-start services
 
 the malware runs a command to install startup services that automatically run xorddos at boot."
-"""Sentence 131",the malware’s linuxexec_argv2 subroutine runs the system api with the provided arguments.
-"""Sentence 132",the commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
-"""Sentence 133","screenshot displaying chkconfig and update-rc.d commands installing the startup service
+Sentence 147,the malware’s linuxexec_argv2 subroutine runs the system api with the provided arguments.
+Sentence 148,the commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
+Sentence 149,"screenshot displaying chkconfig and update-rc.d commands installing the startup service
 figure 16. chkconfig and update-rc.d commands install the startup service
 argument-based code-flow
 xorddos has specific code paths corresponding to the number of arguments provided to the program."
-"""Sentence 134",this flexibility makes its operation more robust and stealthy.
-"""Sentence 135","the malware first runs without any argument and then later runs another instance with different arguments, such as pids and fake commands, to perform capabilities like clean-up, spoofing, and persistence."
-"""Sentence 136","before handling the argument-based control, it calls the readlink api with the first parameter as /proc/self/exe to fetch its full process path."
-"""Sentence 137",the full path is used later to create auto-start service entries and read the file’s content.
-"""Sentence 138","in this section, we will cover the main tasks carried out as part of the different arguments provided:
+Sentence 150,this flexibility makes its operation more robust and stealthy.
+Sentence 151,"the malware first runs without any argument and then later runs another instance with different arguments, such as pids and fake commands, to perform capabilities like clean-up, spoofing, and persistence."
+Sentence 152,"before handling the argument-based control, it calls the readlink api with the first parameter as /proc/self/exe to fetch its full process path."
+Sentence 153,the full path is used later to create auto-start service entries and read the file’s content.
+Sentence 154,"in this section, we will cover the main tasks carried out as part of the different arguments provided:
 
 1: standard code path without any provided arguments
 
 this code path depicts the malware’s standard workflow, which is also the typical workflow where xorddos runs as part of the entries created in system start-up locations."
-"""Sentence 139","the malware first checks whether it’s running from the locations /usr/bin/, /bin/, or /tmp/."
-"""Sentence 140","if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/."
-"""Sentence 141",it also creates a copy of itself at the location /lib/libudev.so.
-"""Sentence 142","to evade hash-based malicious file lookup, it performs the following steps, which modify the file hash to make every file unique:
+Sentence 155,"the malware first checks whether it’s running from the locations /usr/bin/, /bin/, or /tmp/."
+Sentence 156,"if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/."
+Sentence 157,it also creates a copy of itself at the location /lib/libudev.so.
+Sentence 158,"to evade hash-based malicious file lookup, it performs the following steps, which modify the file hash to make every file unique:
 
 opens the file for writing only
 calls lseek (fd, 0, seek_end) to point at the last position in the file
 creates a random 10-character string
 writes the string at the end of the file with an additional null byte
 after modifying the file, it runs the binary, performs a double fork(), and deletes its file from the disk."
-"""Sentence 143","screenshot displaying the end of the malware file containing two random strings, ‘wieegnexuk’ and ‘yybrdajydg,’ indicating that the original malware binary was modified twice
+Sentence 159,"screenshot displaying the end of the malware file containing two random strings, ‘wieegnexuk’ and ‘yybrdajydg,’ indicating that the original malware binary was modified twice
 figure 17. the end of the malware file contains two random strings, ‘wieegnexuk’ and ‘yybrdajydg,’ indicating that the original malware binary was modified twice
+"
+Sentence 160,"
 2: clean-up code path
 
 in this code path, the malware runs with another argument provided as the pid, for example:
 
 /usr/bin/jwvwvxoupv 4849
 using the above example, the malware shares the 64-byte size memory segment with the ipc key “0xda718716” to check for another malware process provided as an argument."
-"""Sentence 144","if not found, it runs its own binary without any argument and calls the fork() api twice to make sure the grandchild process has no parent."
-"""Sentence 145","this results in the grandchild process being adopted by the init process, which disconnects it from the process tree and acts as an anti-forensic technique."
-"""Sentence 146","additionally, it performs the following tasks on a provided $pid:
+Sentence 161,"if not found, it runs its own binary without any argument and calls the fork() api twice to make sure the grandchild process has no parent."
+Sentence 162,"this results in the grandchild process being adopted by the init process, which disconnects it from the process tree and acts as an anti-forensic technique."
+Sentence 163,"additionally, it performs the following tasks on a provided $pid:
 
 fetches the process file name corresponding to the provided $pid
 deletes the file for the provided $pid
@@ -355,7 +389,7 @@ for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
 performs the command chkconfig –del <file_name>
 performs the command update-rc.d <file_name> remove
 ends the process that was provided as an argument."
-"""Sentence 147","3: process name spoofing code path
+Sentence 164,"3: process name spoofing code path
 
 the malware spawns new dropped binaries with two additional arguments: a fake command line and its pids, for example:
 
@@ -364,6 +398,8 @@ the malware spawns new dropped binaries with two additional arguments: a fake co
 /usr/bin/jwvwvxoupv top 4849
 /usr/bin/jwvwvxoupv pwd 4849
 /usr/bin/kagbjahdic id 4849
+"
+Sentence 165,"
 the fake commands can include:
 
 cat resolv.conf
@@ -389,27 +425,29 @@ route -n
 ps -ef
 ls
 sleep 1
+"
+Sentence 166,"
 in this code path, the malware uses process name spoofing to hide from the process tree by modifying its fake command line at runtime."
-"""Sentence 148",it then hides its process by calling hidepidport with command “1” and reads the content of the file on disk related to the current process.
-"""Sentence 149","it then enters a five-second loop to perform the following checks:
+Sentence 167,it then hides its process by calling hidepidport with command “1” and reads the content of the file on disk related to the current process.
+Sentence 168,"it then enters a five-second loop to perform the following checks:
 
 fetches the file name specific to the $pid provided as part of the third argument by calling the readlink api on /proc/$pid/exe."
-"""Sentence 150","if the readlink call fails, that likely indicates that the file on disk doesn’t exist."
-"""Sentence 151","in this case, it:
+Sentence 169,"if the readlink call fails, that likely indicates that the file on disk doesn’t exist."
+Sentence 170,"in this case, it:
 intends to delete all service-related entries for the $pid but fails."
-"""Sentence 152",this appears to be due to a code flaw that allows a zeroed-out buffer to be passed as a service name when the buffer is supposed to be filled from a successful readlink api call.
-"""Sentence 153",creates directories similar to the standard code path scenario.
-"""Sentence 154",calls the stat api for the file /lib/libudev.so.
-"""Sentence 155","if the stat api returns a non-zero value, then it attempts to copy the content of the current process’s image-file fetched earlier to the following locations with a random name:
+Sentence 171,this appears to be due to a code flaw that allows a zeroed-out buffer to be passed as a service name when the buffer is supposed to be filled from a successful readlink api call.
+Sentence 172,creates directories similar to the standard code path scenario.
+Sentence 173,calls the stat api for the file /lib/libudev.so.
+Sentence 174,"if the stat api returns a non-zero value, then it attempts to copy the content of the current process’s image-file fetched earlier to the following locations with a random name:
 /usr/bin/
 /bin/
 /tmp/   
 copies the /lib/libudev.so file to the same three directories listed above if the stat api call is successful on /lib/libudev.so."
-"""Sentence 156",changes the hash of the written or copied file and then runs it without passing any parameters.
-"""Sentence 157","if the readlink call is successful and returns the count of bytes copied, sleeps for one second and then loops for the remaining time out of five seconds."
-"""Sentence 158",unhides the current process and the $pid that was provided as part of the third argument.
-"""Sentence 159",deletes the on-disk file for the current process.
-"""Sentence 160","4: known locations code path without any provided arguments
+Sentence 175,changes the hash of the written or copied file and then runs it without passing any parameters.
+Sentence 176,"if the readlink call is successful and returns the count of bytes copied, sleeps for one second and then loops for the remaining time out of five seconds."
+Sentence 177,unhides the current process and the $pid that was provided as part of the third argument.
+Sentence 178,deletes the on-disk file for the current process.
+Sentence 179,"4: known locations code path without any provided arguments
 
 this code path is similar to the standard code path, with the main difference being that the malware runs from one of the following locations:
 
@@ -419,38 +457,44 @@ this code path is similar to the standard code path, with the main difference be
 once it runs from one of these locations, the malware calls the following functions to perform various tasks:
 
 installsys – this function sets up the rootkit by extracting it under /usr/bin folder using a random name and loading it into the kernel."
-"""Sentence 161",screenshot of the randomly-named files the xorddos rootkit extracts to the /usr/bin folder.
-"""Sentence 162","figure 18. dropped files with random string names in /usr/bin
+Sentence 180,screenshot of the randomly-named files the xorddos rootkit extracts to the /usr/bin folder.
+Sentence 181,"figure 18. dropped files with random string names in /usr/bin
+"
+Sentence 182,"
 as mentioned in the xor-based encryption section, the encoded string m7a4nq_/na translates to the folder path /usr/bin when decoded with the multi-byte key 0xbb2fa36aaa9541f0."
-"""Sentence 163",the /usr/bin folder path is where the rootkit is dropped.
-"""Sentence 164",the dropped rootkit is further inserted into the linux kernel module using the insmod command.
-"""Sentence 165",this is followed by the removal of the dropped rootkit from the disk.
-"""Sentence 166",screenshot of the insmod command calling functions to drop the xorddos rootkit into the linux kernel.
-"""Sentence 167",figure 19. screenshot of the xorddos binary code where the highlighted insmod command calls functions to drop the rootkit into the linux kernel module.
-"""Sentence 168",xorddos uses /proc/rs_dev character device to communicate with the rootkit.
-"""Sentence 169","it calls the checklkm() function to see if the rootkit meets the installation requirements, such as an exact kernel header match and no technologies present that can block the rootkit’s installation, like secure boot or enforced signed loadable kernel module (lkm) loading."
-"""Sentence 170",screenshot of the code where the xorddos binary uses the /proc/rs_dev device handle to access the rootkit.
-"""Sentence 171",figure 20. the rootkit becomes accessible to the xorddos malware by using the device handle /proc/rs_dev.
-"""Sentence 172",xorddos attempts to open /proc/rs_dev.
-"""Sentence 173","if the linux kernel module interface is up, xorddos sends an ioctl request with the unique identifier 0x9748712 with argument “0” to open two-way communication between the xorddos binary and its rootkit."
-"""Sentence 174",addservice – creates the persistent auto-start entries previously mentioned so that the malware runs when the system starts.
-"""Sentence 175",hidepidport – hides the malware’s ports and processes.
-"""Sentence 176","checklkm – checks whether the rootkit device is active or not, and to see if the rootkit meets the installation requirements, such as an exact kernel header match and no secure boot or other technologies that can block the rootkit’s installation."
-"""Sentence 177",it uses a similar ioctl call with the number “0x9748712” and command “0” to find if the rootkit is active.
-"""Sentence 178","if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8)."
-"""Sentence 179","decrypt_remotestr – decodes remote urls using the same xor key, “bb2fa36aaa9541f0”, to decode config.rar and the other directories."
-"""Sentence 180","after decoding the urls, it adds them into a remote list, which is later used to communicate and fetch commands from the command and control (c2) server:
-www[.]enoan2107[."
-"""Sentence 181","]com:3306
-www[.]gzcfr5axf6[."
-"""Sentence 182","]com:3306
+Sentence 183,the /usr/bin folder path is where the rootkit is dropped.
+Sentence 184,the dropped rootkit is further inserted into the linux kernel module using the insmod command.
+Sentence 185,this is followed by the removal of the dropped rootkit from the disk.
+Sentence 186,screenshot of the insmod command calling functions to drop the xorddos rootkit into the linux kernel.
+Sentence 187,figure 19. screenshot of the xorddos binary code where the highlighted insmod command calls functions to drop the rootkit into the linux kernel module.
+Sentence 188,
+Sentence 189,"
+xorddos uses /proc/rs_dev character device to communicate with the rootkit."
+Sentence 190,"it calls the checklkm() function to see if the rootkit meets the installation requirements, such as an exact kernel header match and no technologies present that can block the rootkit’s installation, like secure boot or enforced signed loadable kernel module (lkm) loading."
+Sentence 191,screenshot of the code where the xorddos binary uses the /proc/rs_dev device handle to access the rootkit.
+Sentence 192,figure 20. the rootkit becomes accessible to the xorddos malware by using the device handle /proc/rs_dev.
+Sentence 193,
+Sentence 194,"
+xorddos attempts to open /proc/rs_dev."
+Sentence 195,"if the linux kernel module interface is up, xorddos sends an ioctl request with the unique identifier 0x9748712 with argument “0” to open two-way communication between the xorddos binary and its rootkit."
+Sentence 196,addservice – creates the persistent auto-start entries previously mentioned so that the malware runs when the system starts.
+Sentence 197,hidepidport – hides the malware’s ports and processes.
+Sentence 198,"checklkm – checks whether the rootkit device is active or not, and to see if the rootkit meets the installation requirements, such as an exact kernel header match and no secure boot or other technologies that can block the rootkit’s installation."
+Sentence 199,it uses a similar ioctl call with the number “0x9748712” and command “0” to find if the rootkit is active.
+Sentence 200,"if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8)."
+Sentence 201,"decrypt_remotestr – decodes remote urls using the same xor key, “bb2fa36aaa9541f0”, to decode config.rar and the other directories."
+Sentence 202,"after decoding the urls, it adds them into a remote list, which is later used to communicate and fetch commands from the command and control (c2) server:
+www.enoan2107.com:3306
+www.gzcfr5axf6.com:3306
 malicious activity threads
 after creating persistent entries, deleting evidence of its activities, and decoding config.rar, the malware initializes a cyclic redundancy check (crc) table followed by an unnamed semaphore using the sem_init api."
-"""Sentence 183","this semaphore is initialized with apshared value set to “0”, making the resultant semaphore shared between all the threads."
-"""Sentence 184","the semaphore is used to maintain concurrency between threads accessing a shared object, such as kill_cfg data."
-"""Sentence 185","the malware then initializes three threads to perform malicious activities, such as stopping a process, creating a tcp connection, and retrieving kill_cfg data."
-"""Sentence 186","screenshot displaying the semaphore and malicious thread initialization
+Sentence 203,"this semaphore is initialized with apshared value set to “0”, making the resultant semaphore shared between all the threads."
+Sentence 204,"the semaphore is used to maintain concurrency between threads accessing a shared object, such as kill_cfg data."
+Sentence 205,"the malware then initializes three threads to perform malicious activities, such as stopping a process, creating a tcp connection, and retrieving kill_cfg data."
+Sentence 206,"screenshot displaying the semaphore and malicious thread initialization
 figure 21. semaphore and malicious thread initialization
+"
+Sentence 207,"
  kill_process
 
 the kill_process thread performs the following tasks:
@@ -467,13 +511,13 @@ denyip=
 tcp_thread
 
 the tcp_thread triggers the connection with the c2 server decoded earlier using decrypt_remotestr()."
-"""Sentence 187","it performs the following tasks:
+Sentence 208,"it performs the following tasks:
 
 reads the content of the file /var/run/gcc.pid to get a unique 32-byte magic string that identifies the device while connecting with the c2 server; if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string."
-"""Sentence 188","calculates the crc header, including details of the device such as the magic string, os release version, malware version, rootkit presence, memory stats, cpu information, and lan speed."
-"""Sentence 189",encrypts the data and sends it to the c2 server.
-"""Sentence 190",waits to receive any of the following commands from the c2 server and then acts on the command using the exec_packet subroutine.
-"""Sentence 191","command	job
+Sentence 209,"calculates the crc header, including details of the device such as the magic string, os release version, malware version, rootkit presence, memory stats, cpu information, and lan speed."
+Sentence 210,encrypts the data and sends it to the c2 server.
+Sentence 211,waits to receive any of the following commands from the c2 server and then acts on the command using the exec_packet subroutine.
+Sentence 212,"command	job
 2	stop
 3	create a thread pool for launching ddos attacks
 6	download file
@@ -481,43 +525,49 @@ reads the content of the file /var/run/gcc.pid to get a unique 32-byte magic str
 8	send system information to the c2 server
 9	get configuration file to stop processes
 screenshot displaying code for the collection of system information."
-"""Sentence 192","figure 22. collection of system information
+Sentence 213,"figure 22. collection of system information
+"
+Sentence 214,"
 daemon_get_killed_process
 
 the daemon_get_killed_processthread downloads the kill_cfg data from the remote url decoded earlier (hxxp://aa[.]hostasa[.]org/config[."
-"""Sentence 193",]rar) and decrypts it using the same xor key previously mentioned.
-"""Sentence 194",it then sleeps for 30 minutes.
-"""Sentence 195",screenshot displaying code for the daemon_get_killed_process thread function fetching and decoding the kill_cfg data from remote url.
-"""Sentence 196","figure 23. daemon_get_killed_process thread function fetches and decodes the kill_cfg data from the remote url
+Sentence 215,]rar) and decrypts it using the same xor key previously mentioned.
+Sentence 216,it then sleeps for 30 minutes.
+Sentence 217,screenshot displaying code for the daemon_get_killed_process thread function fetching and decoding the kill_cfg data from remote url.
+Sentence 218,"figure 23. daemon_get_killed_process thread function fetches and decodes the kill_cfg data from the remote url
+"
+Sentence 219,"
 ddos attack thread pool
 the malware calls sysconf(_sc_nprocessors_conf) to fetch the number of processors in the device."
-"""Sentence 197",it then creates threads with twice the number of processors found on the device.
-"""Sentence 198",invoking each thread internally calls the thread routine threadwork.
-"""Sentence 199","using the global variable “g_stop” and commands received from the c2 server, threadwork then sends crafted packets 65,535 times to perform a ddos attack."
-"""Sentence 200","command	function	job
+Sentence 220,it then creates threads with twice the number of processors found on the device.
+Sentence 221,invoking each thread internally calls the thread routine threadwork.
+Sentence 222,"using the global variable “g_stop” and commands received from the c2 server, threadwork then sends crafted packets 65,535 times to perform a ddos attack."
+Sentence 223,"command	function	job
 0x4	fix_syn  	syn flood attack
 0x5	fix_dns  	dns attack
 0xa	fix_ack  	ack flood attack
+"
+Sentence 224,"
 defending against linux platform threats
 xorddos’ modular nature provides attackers with a versatile trojan capable of infecting a variety of linux system architectures."
-"""Sentence 201",its ssh brute force attacks are a relatively simple yet effective technique for gaining root access over a number of potential targets.
-"""Sentence 202","adept at stealing sensitive data, installing a rootkit device, using various evasion and persistence mechanisms, and performing ddos attacks, xorddos enables adversaries to create potentially significant disruptions on target systems."
-"""Sentence 203","moreover, xorddos may be used to bring in other dangerous threats or to provide a vector for follow-on activities."
-"""Sentence 204",xorddos and other threats targeting linux devices emphasize how crucial it is to have security solutions with comprehensive capabilities and complete visibility spanning numerous distributions of linux operating systems.
-"""Sentence 205",microsoft defender for endpoint offers such visibility and protection to catch these emerging threats with its next-generation antimalware and endpoint detection and response (edr) capabilities.
-"""Sentence 206","leveraging threat intelligence from integrated threat data, including client and cloud heuristics, machine learning models, memory scanning, and behavioral monitoring, microsoft defender for endpoint can detect and remediate xorddos and its multi-stage, modular attacks."
-"""Sentence 207","this includes detecting and protecting against its use of a malicious shell script for initial access, its drop-and-execution of binaries from a world-writable location, and any potential follow-on activities on endpoints."
-"""Sentence 208","defenders can apply the following mitigations to reduce the impact of this threat:
+Sentence 225,its ssh brute force attacks are a relatively simple yet effective technique for gaining root access over a number of potential targets.
+Sentence 226,"adept at stealing sensitive data, installing a rootkit device, using various evasion and persistence mechanisms, and performing ddos attacks, xorddos enables adversaries to create potentially significant disruptions on target systems."
+Sentence 227,"moreover, xorddos may be used to bring in other dangerous threats or to provide a vector for follow-on activities."
+Sentence 228,xorddos and other threats targeting linux devices emphasize how crucial it is to have security solutions with comprehensive capabilities and complete visibility spanning numerous distributions of linux operating systems.
+Sentence 229,microsoft defender for endpoint offers such visibility and protection to catch these emerging threats with its next-generation antimalware and endpoint detection and response (edr) capabilities.
+Sentence 230,"leveraging threat intelligence from integrated threat data, including client and cloud heuristics, machine learning models, memory scanning, and behavioral monitoring, microsoft defender for endpoint can detect and remediate xorddos and its multi-stage, modular attacks."
+Sentence 231,"this includes detecting and protecting against its use of a malicious shell script for initial access, its drop-and-execution of binaries from a world-writable location, and any potential follow-on activities on endpoints."
+Sentence 232,"defenders can apply the following mitigations to reduce the impact of this threat:
 
 encourage the use of microsoft edge—available on linux and various platforms—or other web browsers that support microsoft defender smartscreen, which identifies and blocks malicious websites, including phishing sites, scam sites, and sites that contain exploits and host malware."
-"""Sentence 209",use device discovery to find unmanaged linux devices on your network and onboard them to microsoft defender for endpoint.
-"""Sentence 210",turn on cloud-delivered protection in microsoft defender antivirus or the equivalent for your antivirus product to use cloud-based machine learning protections that can block a huge majority of new and unknown variants.
-"""Sentence 211","run edr in block mode so that microsoft defender for endpoint can block malicious artifacts, even when your non-microsoft antivirus doesn’t detect the threat or when microsoft defender antivirus is running in passive mode."
-"""Sentence 212",enable network protection to prevent applications or users from accessing malicious domains and other malicious content on the internet.
-"""Sentence 213","enable investigation and remediation in full automated mode to allow microsoft defender for endpoint to take immediate action on alerts to resolve breaches, significantly reducing alert volume."
-"""Sentence 214","as threats across all platforms continue to grow in number and sophistication, security solutions must be capable of providing advanced protection on a wide range of devices, regardless of the operating system in use."
-"""Sentence 215","organizations will continue to face threats from a variety of entry points across devices, so microsoft continues to heavily invest in protecting all the major platforms and providing extensive capabilities that organizations needed to protect their networks and systems."
-"""Sentence 216","detection details
+Sentence 233,use device discovery to find unmanaged linux devices on your network and onboard them to microsoft defender for endpoint.
+Sentence 234,turn on cloud-delivered protection in microsoft defender antivirus or the equivalent for your antivirus product to use cloud-based machine learning protections that can block a huge majority of new and unknown variants.
+Sentence 235,"run edr in block mode so that microsoft defender for endpoint can block malicious artifacts, even when your non-microsoft antivirus doesn’t detect the threat or when microsoft defender antivirus is running in passive mode."
+Sentence 236,enable network protection to prevent applications or users from accessing malicious domains and other malicious content on the internet.
+Sentence 237,"enable investigation and remediation in full automated mode to allow microsoft defender for endpoint to take immediate action on alerts to resolve breaches, significantly reducing alert volume."
+Sentence 238,"as threats across all platforms continue to grow in number and sophistication, security solutions must be capable of providing advanced protection on a wide range of devices, regardless of the operating system in use."
+Sentence 239,"organizations will continue to face threats from a variety of entry points across devices, so microsoft continues to heavily invest in protecting all the major platforms and providing extensive capabilities that organizations needed to protect their networks and systems."
+Sentence 240,"detection details
 microsoft defender for endpoint detects and blocks xorddos’s installer script and rootkit binary as the following malware:
 
 dos:linux/xorddos.a
@@ -529,11 +579,15 @@ behavior:linux/xorddos.a
 backdoor:linux/xorddosrootkit.a
 trojan:sh/xorddosinstaller.a
 when xorddos is detected on a device, microsoft 365 defender raises an alert, which shows the complete attack chain, including the process tree, file information, user information, and prevention details."
-"""Sentence 217",screenshot of the microsoft 365 defender alert upon detection of xorddos malware in an environment.
-"""Sentence 218","figure 24. microsoft 365 defender alert for detection of xorddos malware
+Sentence 241,screenshot of the microsoft 365 defender alert upon detection of xorddos malware in an environment.
+Sentence 242,"defending against loft 365 defender alert for detection of xorddos malware
+"
+Sentence 243,"
 the timeline view displays all of the detection and prevention events associated with xorddos, providing details such as the mitre att&ck techniques and tactics, remediation status, and event entities graph."
-"""Sentence 219",screenshot of the microsoft 365 defender timeline showing where the malicious .elf file was run and the succeeding remediation of the dropped binaries.
-"""Sentence 220","figure 25. microsoft 365 defender timeline displaying that hflggwyfsc.elf was run from a world-writable directory and the remediation of dropped binaries
+Sentence 244,screenshot of the microsoft 365 defender timeline showing where the malicious .elf file was run and the succeeding remediation of the dropped binaries.
+Sentence 245,"figure 25. microsoft 365 defender timeline displaying that hflggwyfsc.elf was run from a world-writable directory and the remediation of dropped binaries
+"
+Sentence 246,"
 events with the following titles indicate threat activity related to xorddos:
 
 the content of libudev.so was collected into libudev.so.6
@@ -542,7 +596,7 @@ gcc.sh was executed after being dropped by hflggwyfsc.elf
 a shell command was executed by crond
 suid/sgid process unix_chkpwd executed
 screenshot of the microsoft 365 defender timeline showing the alert where a suspicious shell command run by crond was dropped from the malicious .elf."
-"""Sentence 221","figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
+Sentence 247,"figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
 hunting queries
 to locate malicious activity related to xorddos activity, run the following advanced hunting queries in microsoft 365 defender or microsoft defender security center:
 
@@ -563,7 +617,11 @@ command-line of malicious process
 
 deviceprocessevents
 | where processcommandline contains cat resolv.conf
+"
+Sentence 248,"
 indicators
+"
+Sentence 249,"
 file information
 file name:	hflggwyfsc.elf
 file size:	611.22 kb (625889 bytes)
@@ -573,6 +631,8 @@ sha1:	f05194fb2b3978611b99cfbf5e5f1dd44cd5e04b
 sha256:	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432
 file type:	elf 32-bit lsb executable, intel 80386, version 1 (sysv), statically linked, for gnu/linux 2.6.9, not stripped
 first submission in vt:	2022-01-25 05:32:10 utc
+"
+Sentence 250,"
 dropped files
 dropped file path	file type	sha-256
 /etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf
@@ -598,35 +658,17 @@ installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0ea
 /usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
 /usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25
 /usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+"
+Sentence 251,"
 download urls
-www[.]enoan2107[."
-"""Sentence 222","]com:3306
-www[.]gzcfr5axf6[."
-"""Sentence 223","]com:3306
-hxxp://aa[.]hostasa[."
-"""Sentence 224","]org/config.rar
+www.enoan2107.com:3306
+www.gzcfr5axf6.com:3306
+hxxp://aa.hostasa.org/config.rar
+"
+Sentence 252,"
 ratnesh pandey, yevgeny kulakov, and jonathan bar or
 with saurabh swaroop
 microsoft 365 defender research team
 
 filed under:
-cybersecurity
-you may also like these articles
-practitioner and ciso collaboration in a security war room.featured image for defenders beware: a case for post-ransomware investigations
-october 18, 2022 • 13 min read
-defenders beware: a case for post-ransomware investigations
-the microsoft detection and response team (dart) details a recent ransomware incident in which the attacker used a collection of commodity tools and techniques, such as using living-off-the-land binaries, to launch their malicious code."
-"""Sentence 225","read more defenders beware: a case for post-ransomware investigations
-side profile of a woman wearing a dark shirt in a dim office scrolling or working on a microsoft surface studio.featured image for how microsoft purview and priva help simplify data protection
-october 18, 2022 • 10 min read
-how microsoft purview and priva help simplify data protection
-learn how microsoft purview and microsoft priva can help simplify data governance across your enterprise using the tools you already have—today."
-"""Sentence 226","read more how microsoft purview and priva help simplify data protection
-data center illuminated with a bluish light."
-"""Sentence 227","yellow cords running on the servers are prominently displayed.featured image for new “prestige” ransomware impacts organizations in ukraine and poland
-october 14, 2022 • 7 min read
-new “prestige” ransomware impacts organizations in ukraine and poland
-the microsoft threat intelligence center (mstic) has identified evidence of a novel ransomware campaign targeting organizations in the logistics and transportation industry in ukraine and poland utilizing a previously unidentified ransomware payload."
-"""Sentence 228","read more new “prestige” ransomware impacts organizations in ukraine and poland
-get started with microsoft security
-microsoft is a leader in cybersecurity, and we embrace our responsibility to make the world a safer place."
+cybersecurity"

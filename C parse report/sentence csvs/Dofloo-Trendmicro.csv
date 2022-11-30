@@ -1,5 +1,5 @@
 Number,Content
-"""Sentence 1","backdoor.linux.dofloo.ab
+Sentence 1,"backdoor.linux.dofloo.ab
 
 aliases:
 backdoor.linux.dofloo.c (kaspersky); elf/dofloo.c!tr(fortinet)
@@ -8,8 +8,8 @@ overview
 
 infection channel: dropped by other malware, downloaded from the internet
 this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-"""Sentence 2","it executes commands from a remote malicious user, effectively compromising the affected system."
-"""Sentence 3","technical details
+Sentence 2,"it executes commands from a remote malicious user, effectively compromising the affected system."
+Sentence 3,"technical details
 
 file size: 1,001,465 bytes
 file type: elf
@@ -19,8 +19,8 @@ payload: launches dos/ddos attacks, steals information
 arrival details
 
 this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-"""Sentence 4",
-"""Sentence 5","
+Sentence 4,
+Sentence 5,"
 installation
 
 this backdoor adds the following processes:
@@ -34,7 +34,7 @@ sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
 backdoor routine
 
 "
-"""Sentence 6","
+Sentence 6,"
 this backdoor executes the following commands from a remote malicious user:
 
 initiate ddos attacks:
@@ -45,7 +45,7 @@ execute shell commands
 information theft
 
 "
-"""Sentence 7","
+Sentence 7,"
 this backdoor gathers the following data:
 
 cpu information
@@ -68,7 +68,7 @@ reads the following information from /proc:
 other details
 
 "
-"""Sentence 8","
+Sentence 8,"
 this backdoor opens the following files:
 
 /etc/host.conf
@@ -78,7 +78,7 @@ this backdoor opens the following files:
 /etc/ld.so.cache
 
 "
-"""Sentence 9","
+Sentence 9,"
 solution
 
 minimum scan engine: 9.850
@@ -87,8 +87,8 @@ first vsapi pattern date: 04 jun 2020
 vsapi opr pattern file: 15.911.00
 vsapi opr pattern date: 05 jun 2020
 scan your computer with your trend micro product to delete files detected as backdoor.linux.dofloo.ab if the detected files have already been cleaned, deleted, or quarantined by your trend micro product, no further step is required."
-"""Sentence 10",you may opt to simply delete the quarantined files.
-"""Sentence 11","please check the following trend micro support pages for more information:
+Sentence 10,you may opt to simply delete the quarantined files.
+Sentence 11,"please check the following trend micro support pages for more information:
 
 home and home office support
 business support"

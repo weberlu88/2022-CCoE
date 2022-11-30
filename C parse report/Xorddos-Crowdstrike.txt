@@ -1,9 +1,13 @@
 Linux-Targeted Malware Increases by 35% in 2021: XorDDoS, Mirai and Mozi Most Prevalent
 January 13, 2022 Mihai Maganu Endpoint & Cloud Security
 
+~~
 Malware targeting Linux systems increased by 35% in 2021 compared to 2020
+~~
 XorDDoS, Mirai and Mozi malware families accounted for over 22% of Linux-targeted threats observed by CrowdStrike in 2021
+~~
 Ten times more Mozi malware samples were observed in 2021 compared to 2020
+~~
 Malware targeting Linux-based operating systems, commonly deployed in Internet of Things (IoT) devices, have increased by 35% in 2021 compared to 2020, according to current CrowdStrike threat telemetry, with the top three malware families accounting for 22% of all Linux-based IoT malware in 2021. 
 
 XorDDoS, Mirai and Mozi are the most prevalent Linux-based malware families observed in 2021, with Mozi registering a significant tenfold increase in the number of in-the-wild samples in 2021 compared to 2020. The primary purpose of these malware families is to compromise vulnerable internet-connected devices, amass them into botnets, and use them to perform distributed denial of service (DDoS) attacks. 

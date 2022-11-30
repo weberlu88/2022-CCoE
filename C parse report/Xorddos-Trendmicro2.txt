@@ -6,6 +6,7 @@ June 22, 2020
 Read time: 4 min (981 words)
 
 Subscribe
+~~
 We have recently detected variants of two existing Linux botnet malware types targeting exposed Docker servers; these are XORDDoS malware (detected by Trend Micro as Backdoor.Linux.XORDDOS.AE) and Kaiji DDoS malware (detected by Trend Micro as DDoS.Linux.KAIJI.A).
 
 Having Docker servers as their target is a new development for both XORDDoS and Kaiji; XORDDoS was known for targeting Linux hosts on cloud systems, while recently discovered Kaiji was first reported to affect internet of things (IoT) devices. Attackers usually used botnets to perform brute-force attacks after scanning for open Secure Shell (SSH) and Telnet ports. Now, they also searched for Docker servers with exposed ports (2375). Port 2375, one of the two ports Docker API uses, is for unencrypted and unauthenticated communication.
@@ -23,20 +24,22 @@ chmod 777 VIP
 The XORDDoS payload (detected by Trend Micro as Backdoor.Linux.XORDDOS.AE) still used the XOR-key it used in other recorded attacks, BB2FA36AAA9541F0, to encrypt its strings and to communicate with the command and control (C&C) server. It also created multiple copies of itself inside the machine as a persistence mechanism.
 
 
-
 Figure 1. Code snippet showing XORDDoS creating multiple copies of itself
+~~
 
 The payload initiated SYN, ACK, and DNS types of DDoS attacks.
 
 
 
 Figure 2. Code snippet showing the types of DDoS attack that XORDDoS can launch
+~~
 
 It is also capable of downloading and executing a follow-up malware, or updating itself.
 
 
 
 Figure 3. Code snippet showing XORDDoS’ capability to download and update files.
+~~
 
 It gathered the following data, which are relevant to its attempt to initiate a DDoS attack:
 
@@ -54,13 +57,11 @@ Similar with the XORDDoS malware, Kaiji is now also targeting exposed Docker ser
 
 The script 123.sh (detected by Trend Micro as Trojan.SH.KAIJI.A) downloaded and executed the malware payload, linux_arm (detected by Trend Micro as DDoS.Linux.KAIJI.A). Afterwards, the script also removed other Linux binaries that are basic components of the operating system but are not necessary for its DDoS operation.
 
-
-
 Figure 4. Query that downloads and executes 123.sh
+~~
 
 Figure 5. Code snippet showing the removal of Linux binaries
-
-Figure 5. Code snippet showing the removal of Linux binaries
+~~
 
 The payload linux_arm, which is the Kaiji DDoS malware, initiated the following DDoS attacks:
 
@@ -96,6 +97,7 @@ Trend Micro Cloud One™– for comprehensive visibility and protection against 
 Trend Micro Cloud One - Container Security– for automated container image and registry scanning that helps detect threats early on
 Trend Micro Cloud One – Workload Security – for protecting new and existing workloads against even unknown threats using techniques such as machine learning and virtual patching
 For security as software: Trend Micro Deep Security™ Software (workload and container security) and Trend Micro Deep Security Smart Check (container image security) for scanning container images and preventing further compromise
+~~
 Indicators of Compromise
 Kaiji
 

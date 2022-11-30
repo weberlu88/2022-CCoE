@@ -1,5 +1,5 @@
 Number,Content
-"""Sentence 1","breaking down mirai: an iot ddos botnet analysis
+Sentence 1,"breaking down mirai: an iot ddos botnet analysis
 application security
 ...
 breaking down mirai: an iot ddos botnet analysis
@@ -10,32 +10,32 @@ ben, igal, dima
 oct 26, 2016  8 min read
 
 by now many of you have heard that on september 20, 2016, the website of renowned security journalist brian krebs was hit with one of the largest distributed denial of service attacks (ddos) to date."
-"""Sentence 2","the magnitude of that attack, the star status of its target within the infosec community and the heaps of drama that followed made this one of the most high-profile ddos stories of the year."
-"""Sentence 3","on september 30, the story saw another development when a hackforum user by the name of ‘anna-senpai’ leaked the source code for mirai—the botnet malware behind the attacks."
-"""Sentence 4","it was speculated that in doing so the perpetrator was trying to hide his tracks, rightfully concerned about the repercussions of taking a swing at brian."
-"""Sentence 5","since the source code was published, the imperva incapsula security team has been digging deep to see what surprises mirai may hold."
-"""Sentence 6","in this post we’ll share:
+Sentence 2,"the magnitude of that attack, the star status of its target within the infosec community and the heaps of drama that followed made this one of the most high-profile ddos stories of the year."
+Sentence 3,"on september 30, the story saw another development when a hackforum user by the name of ‘anna-senpai’ leaked the source code for mirai—the botnet malware behind the attacks."
+Sentence 4,"it was speculated that in doing so the perpetrator was trying to hide his tracks, rightfully concerned about the repercussions of taking a swing at brian."
+Sentence 5,"since the source code was published, the imperva incapsula security team has been digging deep to see what surprises mirai may hold."
+Sentence 6,"in this post we’ll share:
 
 our own encounters with mirai botnets
 the results of our investigation of mirai’s source code
 update:
 
 new mirai scanner released: we developed a scanner that can check whether one or more devices on your network is infected by or vulnerable to mirai."
-"""Sentence 7",you can find the beta of the mirai scanner here.
-"""Sentence 8",if you missed out “deep dive into the mirai botnet” hosted by ben herzberg check out our video recording of the event.
-"""Sentence 9","close encounters of the third kind
+Sentence 7,you can find the beta of the mirai scanner here.
+Sentence 8,if you missed out “deep dive into the mirai botnet” hosted by ben herzberg check out our video recording of the event.
+Sentence 9,"close encounters of the third kind
 a thorough review of mirai’s source code allowed us to create a strong signature with which we could identify mirai’s activity on our network."
-"""Sentence 10",we then turned to our logs and examined recent assaults to see if any of them carried mirai’s fingerprints.
-"""Sentence 11","sure enough, we found the mirai botnet was responsible for a slew of gre floods that were mitigated by our service on august 17. using a hit-and-run tactic, the attack peaked at 280 gbps and 130 mpps, both indicating a very powerful botnet."
-"""Sentence 12","mirai-powered gre floods
+Sentence 10,we then turned to our logs and examined recent assaults to see if any of them carried mirai’s fingerprints.
+Sentence 11,"sure enough, we found the mirai botnet was responsible for a slew of gre floods that were mitigated by our service on august 17. using a hit-and-run tactic, the attack peaked at 280 gbps and 130 mpps, both indicating a very powerful botnet."
+Sentence 12,"mirai-powered gre floods
 
 figure 1: mitigating a slew of mirai-powered gre floods, peaking at 280 gbps/130 mpps
 investigation of the attack uncovered 49,657 unique ips which hosted mirai-infected devices."
-"""Sentence 13","as previously reported, these were mostly cctv cameras—a popular choice of ddos botnet herders."
-"""Sentence 14",other victimized devices included dvrs and routers.
-"""Sentence 15","overall, ip addresses of mirai-infected devices were spotted in 164 countries."
-"""Sentence 16","as evidenced by the map below, the botnet ips are highly dispersed, appearing even in such remote locations as montenegro, tajikistan and somalia."
-"""Sentence 17","geo-locations of all mirai-infected devices
+Sentence 13,"as previously reported, these were mostly cctv cameras—a popular choice of ddos botnet herders."
+Sentence 14,other victimized devices included dvrs and routers.
+Sentence 15,"overall, ip addresses of mirai-infected devices were spotted in 164 countries."
+Sentence 16,"as evidenced by the map below, the botnet ips are highly dispersed, appearing even in such remote locations as montenegro, tajikistan and somalia."
+Sentence 17,"geo-locations of all mirai-infected devices
 
 figure 2: geo-locations of all mirai-infected devices uncovered so far
 country	% of mirai botnet ips
@@ -51,24 +51,24 @@ romania	2.3%
 colombia	1.5%
 figure 3: top countries of origin of mirai ddos attacks
 interestingly, since the source code was made public, we’ve also seen a few new mirai-powered assaults."
-"""Sentence 18","this time they took the form of low-volume application layer http floods, one of which was even directed against our domain (www.incapsula.com)."
-"""Sentence 19","characterized by relative low requests per second (rps) counts and small numbers of source ips, these looked like the experimental first steps of new mirai users who were testing the water after the malware became widely available."
-"""Sentence 20","likely, these are signs of things to come and we expect to deal with mirai-powered attacks in the near future."
-"""Sentence 21","mirai botnet http flood
+Sentence 18,"this time they took the form of low-volume application layer http floods, one of which was even directed against our domain (www.incapsula.com)."
+Sentence 19,"characterized by relative low requests per second (rps) counts and small numbers of source ips, these looked like the experimental first steps of new mirai users who were testing the water after the malware became widely available."
+Sentence 20,"likely, these are signs of things to come and we expect to deal with mirai-powered attacks in the near future."
+Sentence 21,"mirai botnet http flood
 
 figure 4: mirai botnet launching a short-lived http flood against incapsula.com
 source code analysis
 mirai is a piece of malware that infects iot devices and is used as a launch platform for ddos attacks."
-"""Sentence 22","mirai’s c&c (command and control) code is coded in go, while its bots are coded in c.
+Sentence 22,"mirai’s c&c (command and control) code is coded in go, while its bots are coded in c.
 
 like most malware in this category, mirai is built for two core purposes:
 
 locate and compromise iot devices to further grow the botnet."
-"""Sentence 23",launch ddos attacks based on instructions received from a remote c&c.
-"""Sentence 24","to fulfill its recruitment function, mirai performs wide-ranging scans of ip addresses."
-"""Sentence 25","the purpose of these scans is to locate under-secured iot devices that could be remotely accessed via easily guessable login credentials—usually factory default usernames and passwords (e.g., admin/admin)."
-"""Sentence 26",mirai uses a brute force technique for guessing passwords a.k.a.
-"""Sentence 27","dictionary attacks based on the following list:
+Sentence 23,launch ddos attacks based on instructions received from a remote c&c.
+Sentence 24,"to fulfill its recruitment function, mirai performs wide-ranging scans of ip addresses."
+Sentence 25,"the purpose of these scans is to locate under-secured iot devices that could be remotely accessed via easily guessable login credentials—usually factory default usernames and passwords (e.g., admin/admin)."
+Sentence 26,mirai uses a brute force technique for guessing passwords a.k.a.
+Sentence 27,"dictionary attacks based on the following list:
 
 root     xc3511
 root     vizxv
@@ -113,7 +113,7 @@ root     hi3518
 root     jvbzd
 root     anko
 root     zlxx."
-"""Sentence 28","root     7ujmko0vizxv
+Sentence 28,"root     7ujmko0vizxv
 root     7ujmko0admin
 root     system
 root     ikwb
@@ -133,7 +133,7 @@ admin    meinsm
 tech     tech
 mother   f**er [censored]
 mirai’s attack function enables it to launch http floods and various network (osi layer 3-4) ddos attacks."
-"""Sentence 29","when attacking http floods, mirai bots hide behind the following default user-agents:
+Sentence 29,"when attacking http floods, mirai bots hide behind the following default user-agents:
 
 mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/51.0.2704.103 safari/537.36
 mozilla/5.0 (windows nt 10.0; wow64) applewebkit/537.36 (khtml, like gecko) chrome/52.0.2743.116 safari/537.36
@@ -141,7 +141,7 @@ mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrom
 mozilla/5.0 (windows nt 6.1; wow64) applewebkit/537.36 (khtml, like gecko) chrome/52.0.2743.116 safari/537.36
 mozilla/5.0 (macintosh; intel mac os x 10_11_6) applewebkit/601.7.7 (khtml, like gecko) version/9.1.2 safari/601.7.7
 for network layer assaults, mirai is capable of launching gre ip and gre eth floods, as well as syn and ack floods, stomp (simple text oriented message protocol) floods, dns floods and udp flood attacks."
-"""Sentence 30","mira also seems to possess some bypass capabilities, which allow it to circumvent security solutions:
+Sentence 30,"mira also seems to possess some bypass capabilities, which allow it to circumvent security solutions:
 
 #define table_atk_dosarrest                     45  // server: dosarrest
 #define table_atk_cloudflare_nginx      46  // server: cloudflare-nginx
@@ -156,8 +156,8 @@ while this may seem like a standard source code, mirai also has a few quirks tha
 
 mirai’s “don’t mess with” list
 one of the most interesting things revealed by the code was a hardcoded list of ips mirai bots are programmed to avoid when performing their ip scans."
-"""Sentence 31","this list, which you can find below, includes the us postal service, the department of defense, the internet assigned numbers authority (iana) and ip ranges belonging to hewlett-packard and general electric."
-"""Sentence 32","127.0.0.0/8               - loopback
+Sentence 31,"this list, which you can find below, includes the us postal service, the department of defense, the internet assigned numbers authority (iana) and ip ranges belonging to hewlett-packard and general electric."
+Sentence 32,"127.0.0.0/8               - loopback
 0.0.0.0/8                 - invalid address space
 3.0.0.0/8                 - general electric (ge)
 15.0.0.0/7                - hewlett-packard (hp)
@@ -169,7 +169,7 @@ one of the most interesting things revealed by the code was a hardcoded list of 
 169.254.0.0/16            - iana nat reserved
 198.18.0.0/15             - iana special use
 224.*.*."
-"""Sentence 33","*+                - multicast
+Sentence 33,"*+                - multicast
 6.0.0.0/7                 - department of defense 
 11.0.0.0/8                - department of defense
 21.0.0.0/8                - department of defense
@@ -181,15 +181,15 @@ one of the most interesting things revealed by the code was a hardcoded list of 
 55.0.0.0/8                - department of defense
 214.0.0.0/7               - department of defense
 this list is interesting, as it offers a glimpse into the psyche of the code’s authors."
-"""Sentence 34","on the one hand, it exposes concerns of drawing attention to their activities."
-"""Sentence 35","a concern we find ironic, considering that this malware was eventually used in one of the most high-profile attacks to date."
-"""Sentence 36","on the other hand, the content list is fairly naïve—the sort of thing you would expect from someone who learned about cyber security from the popular media (or maybe from this wiki page), not a professional cyber criminal."
-"""Sentence 37","together these paint a picture of a skilled, yet not particularly experienced, coder who might be a bit over his head."
-"""Sentence 38",that is unless some ip ranges were cleared off the code before it was released.
-"""Sentence 39","a territorial predator
+Sentence 34,"on the one hand, it exposes concerns of drawing attention to their activities."
+Sentence 35,"a concern we find ironic, considering that this malware was eventually used in one of the most high-profile attacks to date."
+Sentence 36,"on the other hand, the content list is fairly naïve—the sort of thing you would expect from someone who learned about cyber security from the popular media (or maybe from this wiki page), not a professional cyber criminal."
+Sentence 37,"together these paint a picture of a skilled, yet not particularly experienced, coder who might be a bit over his head."
+Sentence 38,that is unless some ip ranges were cleared off the code before it was released.
+Sentence 39,"a territorial predator
 another interesting thing about mirai is its “territorial” nature."
-"""Sentence 40","the malware holds several killer scripts meant to eradicate other worms and trojans, as well as prohibiting remote connection attempts of the hijacked device."
-"""Sentence 41","for example, the following scripts close all processes that use ssh, telnet and http ports:
+Sentence 40,"the malware holds several killer scripts meant to eradicate other worms and trojans, as well as prohibiting remote connection attempts of the hijacked device."
+Sentence 41,"for example, the following scripts close all processes that use ssh, telnet and http ports:
 
 killer_kill_by_port(htons(23))  // kill telnet service
 killer_kill_by_port(htons(22))  // kill ssh service
@@ -206,7 +206,7 @@ and this function searches and destroys the anime malware—a “competing” pi
 searching for .anime process
        table_unlock_val(table_killer_anime);
                 // if path contains .anime kill."
-"""Sentence 42","if (util_stristr(realpath, rp_len - 1, table_retrieve_val(table_killer_anime, null)) != -1)
+Sentence 42,"if (util_stristr(realpath, rp_len - 1, table_retrieve_val(table_killer_anime, null)) != -1)
                 {
                     unlink(realpath);
                     kill(pid, 9);
@@ -215,12 +215,12 @@ searching for .anime process
 the purpose of this aggressive behavior is to:
 
 help mirai maximize the attack potential of the botnet devices."
-"""Sentence 43",prevent similar removal attempts from other malware.
-"""Sentence 44",these offensive and defensive measures shine a light on the turf wars being waged by botnet herders—a step away from the multi-tenant botnets we previously encountered in our research.
-"""Sentence 45",so much for honor among thieves.
-"""Sentence 46",from russia with love?
-"""Sentence 47","lastly, it’s worth noting that mirai code holds traces of russian-language strings despite its english c&c interface."
-"""Sentence 48","here, for instance, russian is used to describe the “username” and “password” login fields:
+Sentence 43,prevent similar removal attempts from other malware.
+Sentence 44,these offensive and defensive measures shine a light on the turf wars being waged by botnet herders—a step away from the multi-tenant botnets we previously encountered in our research.
+Sentence 45,so much for honor among thieves.
+Sentence 46,from russia with love?
+Sentence 47,"lastly, it’s worth noting that mirai code holds traces of russian-language strings despite its english c&c interface."
+Sentence 48,"here, for instance, russian is used to describe the “username” and “password” login fields:
 
 // get username
 this.conn.setdeadline(time.now().add(60 * time.second))
@@ -229,14 +229,14 @@ this.conn.write([]byte(\033[34;1mпользователь\033[33;3m: \033[0m))
 this.conn.setdeadline(time.now().add(60 * time.second))
 this.conn.write([]byte(\033[34;1mпароль\033[33;3m: \033[0m))
 this opens the door for speculation about the code’s origin, serving as a clue that mirai was developed by russian hackers or—at least—a group of hackers, some of whom were of russian origin."
-"""Sentence 49","other bits of code, which contain rick rolls’ jokes next to russian strings saying “я люблю куриные наггетсы” which translates to “i love chicken nuggets” provide yet more evidence of the russian heritage of the code authors, as well as their age demographic."
-"""Sentence 50","what can you do to prevent iot botnet from spreading
+Sentence 49,"other bits of code, which contain rick rolls’ jokes next to russian strings saying “я люблю куриные наггетсы” which translates to “i love chicken nuggets” provide yet more evidence of the russian heritage of the code authors, as well as their age demographic."
+Sentence 50,"what can you do to prevent iot botnet from spreading
 while ddos attacks from mirai botnets can be mitigated, there’s no way to avoid being targeted."
-"""Sentence 51","however, as a device owner, there are things you can do to make the digital space safer for your fellow internet citizens:
+Sentence 51,"however, as a device owner, there are things you can do to make the digital space safer for your fellow internet citizens:
 
 stop using default/generic passwords."
-"""Sentence 52",disable all remote (wan) access to your devices.
-"""Sentence 53","to verify that your device is not open to remote access, you can use this tool to scan the following ports: ssh (22), telnet (23) and http/https (80/443)."
-"""Sentence 54","with over a quarter billion cctv cameras around the world alone, as well as the continued growth of other iot devices, basic security practices like these should become the new norm."
-"""Sentence 55",make no mistake; mirai is neither the first nor the last malware to take advantage of lackluster security practices.
-"""Sentence 56",try imperva for free
+Sentence 52,disable all remote (wan) access to your devices.
+Sentence 53,"to verify that your device is not open to remote access, you can use this tool to scan the following ports: ssh (22), telnet (23) and http/https (80/443)."
+Sentence 54,"with over a quarter billion cctv cameras around the world alone, as well as the continued growth of other iot devices, basic security practices like these should become the new norm."
+Sentence 55,make no mistake; mirai is neither the first nor the last malware to take advantage of lackluster security practices.
+Sentence 56,try imperva for free
