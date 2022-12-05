@@ -1,0 +1,370 @@
+report,baseline,sentence number,sentence
+Dofloo-MalwareMustDie,/etc,38,"1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+.text:0x0a760  stmfd   sp!, {r4-r8,lr}
+.text:0x0a764  sub  sp, sp, #0x208
+.text:0x0a768  add  r7, sp, #0x108
+.text:0x0a76c  mov  r4, r0
+.text:0x0a770  mov  r8, r1
+.text:0x0a774  mov  r0, r7
+.text:0x0a778  mov  r1, #0x100
+.text:0x0a77c  bl   sub_0x026fb0
+.text:0x0a780  ldr  r0,  <-- chattr -i /etc/crontab
+.text:0x0a784  bl   sub_0x0e3e0
+.text:0x0a788  ldr  r0, <-- chmod +w /etc/crontab
+
+adding the autostart entry in it:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+.text:0x0a7dc ; xref: sub_0x0a760
+.text:0x0a7dc  ldr  r1, <-- sed -i '/%s/d' /etc/crontab
+.text:0x0a7e0  mov  r2, r5
+.text:0x0a7e4  mov  r0, r6
+   :
+.text:0x0a800  ldr  r1, <-- echo '*/1 * * * * root %s/%s %s' >> /etc/crontab
+.text:0x0a804  str  r8, [sp,#0x108+var_108]
+.text:0x0a808  bl   sub_0x0182dc
+.text:0x0a80c  mov  r0, r6
+.text:0x0a810  bl   sub_0x0e3e0
+
+create the file: /etc/.mysys, which later on found as the self copy attempt."
+Dofloo-MalwareMustDie,/etc/.,38,"1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+.text:0x0a760  stmfd   sp!, {r4-r8,lr}
+.text:0x0a764  sub  sp, sp, #0x208
+.text:0x0a768  add  r7, sp, #0x108
+.text:0x0a76c  mov  r4, r0
+.text:0x0a770  mov  r8, r1
+.text:0x0a774  mov  r0, r7
+.text:0x0a778  mov  r1, #0x100
+.text:0x0a77c  bl   sub_0x026fb0
+.text:0x0a780  ldr  r0,  <-- chattr -i /etc/crontab
+.text:0x0a784  bl   sub_0x0e3e0
+.text:0x0a788  ldr  r0, <-- chmod +w /etc/crontab
+
+adding the autostart entry in it:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+.text:0x0a7dc ; xref: sub_0x0a760
+.text:0x0a7dc  ldr  r1, <-- sed -i '/%s/d' /etc/crontab
+.text:0x0a7e0  mov  r2, r5
+.text:0x0a7e4  mov  r0, r6
+   :
+.text:0x0a800  ldr  r1, <-- echo '*/1 * * * * root %s/%s %s' >> /etc/crontab
+.text:0x0a804  str  r8, [sp,#0x108+var_108]
+.text:0x0a808  bl   sub_0x0182dc
+.text:0x0a80c  mov  r0, r6
+.text:0x0a810  bl   sub_0x0e3e0
+
+create the file: /etc/.mysys, which later on found as the self copy attempt."
+Dofloo-MalwareMustDie,/etc,40,".text:0x0a840  mov  r1, #0x42
+.text:0x0a844  sub  sp, sp, #4
+.text:0x0a848  ldr  r0, <-- /etc/.mysys
+.text:0x0a84c  bl   sub_0x0e350
+.text:0x0a850  cmp  r0, #0
+.text:0x0a854  mov  r1, #6
+.text:0x0a858  bgt  loc_0x0a86c
+
+2. initiation of the service... which lead to cnc information :-)
+
+we'll see 3 thread will be spawned, which using /dev/null as value, this is typical mo for most types of aes.ddos'ers we saw."
+Dofloo-MalwareMustDie,/etc/.,40,".text:0x0a840  mov  r1, #0x42
+.text:0x0a844  sub  sp, sp, #4
+.text:0x0a848  ldr  r0, <-- /etc/.mysys
+.text:0x0a84c  bl   sub_0x0e350
+.text:0x0a850  cmp  r0, #0
+.text:0x0a854  mov  r1, #6
+.text:0x0a858  bgt  loc_0x0a86c
+
+2. initiation of the service... which lead to cnc information :-)
+
+we'll see 3 thread will be spawned, which using /dev/null as value, this is typical mo for most types of aes.ddos'ers we saw."
+Dofloo-MalwareMustDie,nul,40,".text:0x0a840  mov  r1, #0x42
+.text:0x0a844  sub  sp, sp, #4
+.text:0x0a848  ldr  r0, <-- /etc/.mysys
+.text:0x0a84c  bl   sub_0x0e350
+.text:0x0a850  cmp  r0, #0
+.text:0x0a854  mov  r1, #6
+.text:0x0a858  bgt  loc_0x0a86c
+
+2. initiation of the service... which lead to cnc information :-)
+
+we'll see 3 thread will be spawned, which using /dev/null as value, this is typical mo for most types of aes.ddos'ers we saw."
+Dofloo-MalwareMustDie,nul,41,"1
+2
+3
+4
+5
+6
+7
+8
+.text:0x082e0  ldr  r0, <-- /dev/null
+.text:0x082e4  bl   sub_0x0e350 ; 
+.text:0x082e8  mov  r1, #2
+.text:0x082ec  ldr  r0, <-- /dev/null
+.text:0x082f0  bl   sub_0x0e350
+.text:0x082f4  mov  r1, #2
+.text:0x082f8  ldr  r0, <-- /dev/null
+.text:0x082fc  bl   sub_0x0e350
+
+..following with efforts to start the service:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+.text:0x0831c  ldr  r0, [r5]
+.text:0x08320  ldr  r1, <-- mt
+.text:0x08324  bl   sub_0x0a760
+.text:0x08328  mov  r0, #1
+.text:0x0832c  mov  r1, r0
+.text:0x08330  bl   sub_0x01614c
+.text:0x08334  ldr  r0, <-- reg ro = int server...
+.text:0x08338  bl   sub_0x018f2c
+.text:0x0833c  mov  r1, r4
+.text:0x08340  mov  r3, r4
+.text:0x08344  ldr  r2, =sub_0x08a60
+.text:0x08348  ldr  r0, =unk_0x0d0990
+.text:0x0834c  bl   sub_0x0b33c
+.text:0x08350  mov  r1, r4
+.text:0x08354  mov  r3, r4
+.text:0x08358  ldr  r2, =sub_0x088d8
+.text:0x0835c  ldr  r0, =unk_0x0d0988
+.text:0x08360  bl   sub_0x0b33c
+.text:0x08364  mov  r1, r4
+.text:0x08368  mov  r3, r4
+.text:0x0836c  ldr  r2, =sub_0x08598
+.text:0x08370  ldr  r0, =unk_0x09097c
+.text:0x08374  bl   sub_0x0b33c
+.text:0x08378  mov  r1, r4
+.text:0x0837c  mov  r3, r4
+
+to connect to something."
+Dofloo-Securityaffairs,48080,7,the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+Dofloo-Securityaffairs,/etc,10,"trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command."
+Dofloo-Securityaffairs,/etc/rc.d/rc.local,10,"trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command."
+Dofloo-Securityaffairs,/etc/rc.local,10,"trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command."
+Dofloo-SyscallParty,/proc/self/exe,27,the main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+Dofloo-SyscallParty,/etc,36,"persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
+Dofloo-SyscallParty,/etc/init.d/boot.local,36,"persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
+Dofloo-SyscallParty,/etc/rc.local,36,"persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
+Dofloo-SyscallParty,/etc,37,the /etc/rc.local will execute certain commands after all of the systems' services have started.
+Dofloo-SyscallParty,/etc/rc.local,37,the /etc/rc.local will execute certain commands after all of the systems' services have started.
+Dofloo-SyscallParty,/etc,39,"a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+Dofloo-SyscallParty,/etc/rc.local,39,"a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+Dofloo-SyscallParty,/proc/net/dev,53,the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
+Dofloo-SyscallParty,uname,77,"we can see that if the ‘uname’ call fails then “unknown” will be copied into the destination buffer which originally resided in r11, else if it is successful, will branch to 0xca8c."
+Dofloo-SyscallParty,/proc/cpuinfo,80,the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
+Dofloo-SyscallParty,sysinfo,82,the malware then calls sysinfo(..) and reads into the struct (also named sysinfo) which is originally located in r3.
+Dofloo-Trendmicro,/etc,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,/etc/init.d/boot.local,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,/etc/rc.d/rc.local,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,/etc/rc.local,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,/proc/cpuinfo,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"
+Dofloo-Trendmicro,/proc/net/dev,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"
+Dofloo-Trendmicro,/proc/self/exe,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"
+Dofloo-Trendmicro,/proc/stat,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"
+Dofloo-Trendmicro,/etc,8,"this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"
+Dofloo-Trendmicro,/etc/host.conf,8,"this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"
+Dofloo-Trendmicro,/etc/nsswitch.conf,8,"this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"
+Dofloo-Trendmicro,/etc/resolv.conf,8,"this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"

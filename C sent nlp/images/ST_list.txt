@@ -1,0 +1,34 @@
+0  /etc                      .text:0x0a780  ldr  r0,  <-- chattr -i /etc/crontab
+1  /etc/.                    create the file: /etc/.mysys, which later on found as the self copy attempt.
+2  /etc                      .text:0x0a848  ldr  r0, <-- /etc/.mysys
+3  /etc/.                    .text:0x0a848  ldr  r0, <-- /etc/.mysys
+4  nul                       we'll see 3 thread will be spawned, which using /dev/null as value, this is typical mo for most types of aes.ddos'ers we saw.
+5  nul                       .text:0x082e0  ldr  r0, <-- /dev/null
+6  48080                     the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+7  /etc                      trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.
+8  /etc/rc.d/rc.local        trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.
+9  /etc/rc.local             trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.
+10 /proc/self/exe            the main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+11 /etc                      persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
+12 /etc/init.d/boot.local    persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
+13 /etc/rc.local             persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
+14 /etc                      the /etc/rc.local will execute certain commands after all of the systems' services have started.
+15 /etc/rc.local             the /etc/rc.local will execute certain commands after all of the systems' services have started.
+16 /etc                      a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).
+17 /etc/rc.local             a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).
+18 /proc/net/dev             the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
+19 uname                     we can see that if the ‘uname’ call fails then “unknown” will be copied into the destination buffer which originally resided in r11, else if it is successful, will branch to 0xca8c.
+20 /proc/cpuinfo             the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
+21 sysinfo                   the malware then calls sysinfo(..) and reads into the struct (also named sysinfo) which is originally located in r3.
+22 /etc                      sed -i -e '/exit/d' /etc/rc.local
+23 /etc/init.d/boot.local    sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+24 /etc/rc.d/rc.local        sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+25 /etc/rc.local             sed -i -e '/exit/d' /etc/rc.local
+26 /proc/cpuinfo             /proc/cpuinfo
+27 /proc/net/dev             /proc/net/dev
+28 /proc/self/exe            /proc/self/exe
+29 /proc/stat                /proc/stat
+30 /etc                      /etc/host.conf
+31 /etc/host.conf            /etc/host.conf
+32 /etc/nsswitch.conf        /etc/nsswitch.conf
+33 /etc/resolv.conf          /etc/resolv.conf
