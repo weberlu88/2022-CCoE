@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,.*/selinux.*,/proc/.*,/etc/init.d/.*,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",eth[0-9]*,.*/hosts.*,/etc/sed.*,.*nsswitch.conf.*,.*bin/sed,/etc/rc.*,^sh$,^sed$,.*resolv.conf.*,.*mtab.*,uname,0x[0-9a-zA-Z]{8},"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",/sys/.*,Permission.*,.*bin/*
+Dofloo-BleepingComputer.csv,1,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+Dofloo-MalwareMustDie.csv,5,0.25,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1
+Dofloo-Securityaffairs.csv,3,0.15,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+Dofloo-SyscallParty.csv,6,0.3,0,1,1,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1
+Dofloo-Trendmicro.csv,6,0.3,0,1,1,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0

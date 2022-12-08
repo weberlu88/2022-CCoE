@@ -1,0 +1,369 @@
+report,regex,sentence number,sentence
+Dofloo-BleepingComputer,.*bin/*,10,"exposed docker apis were abused by other malicious campaigns, with one being detected in march by imperva while exploiting the cve-2019-5736 runc vulnerability disclosed one month earlier allowing attackers to overwrite the host runc binary and gain root-level code execution privileges."
+Dofloo-MalwareMustDie,.*bin/*,5,"i am quite active in supporting the team members of this project, so recently almost everyday i reverse elf files between 5-10 binaries."
+Dofloo-MalwareMustDie,.*bin/*,8,"in this story i faced an arm architecture binary, which i found it interesting so i decided to share it here."
+Dofloo-MalwareMustDie,.*bin/*,9,"the reason is because, practically: it was designed to work in arm router with minimizing a well-known linux malware with ddos functions/features, that i also previously posted some in here --->[-1-] [-2-] [-3-] [-4-] [-5-] [-6-], to specifically infect arm (router) devices, and this binary is trying to convince that it is a windowshelp binary :d , and ,specifically: from my reverse engineering point of view, arm & thumb assembly are interesting."
+Dofloo-MalwareMustDie,.*bin/*,11,"the malware
+as usual, china actor(s) serves their malware binary under specific panel, and this binary is spotted among with other linux/elknots malware."
+Dofloo-MalwareMustDie,.*bin/*,12,"so as you can see it was served from sept 10th and is having 4 downloads (including me, one time)
+
+the file looks like this:
+
+1
+2
+3
+4
+5
+6
+$ ls -alf 1
+-rwxr--r--  1 mmd  mmd  165,176 sep 10 10:21 1
+$ md5 1
+md5 (1) = 0bb68bd65d94f61b7b20117b99d8526c
+$ file 1
+1: elf 32-bit lsb executable, arm, version 1 (gnu/linux), statically linked, stripped
+
+well, we know is an arm binary, but i need more information, so i check the elf composition:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+  entry point address:  0x2f118
+  start of program headers: 52 (bytes into file)
+  start of section headers: 0 (bytes into file)
+  flags: 0x4000002, has entry point, version4 eabi
+  size of this header: 52 (bytes)
+  size of program headers: 32 (bytes)
+  number of program headers: 2
+  size of section headers: 40 (bytes)
+  number of section headers: 0
+  section header string table index: 0
+ 
+program headers:
+  type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+  load     0x000000 0x00008000 0x00008000 0x282b1 0x282b1 r e 0x8000
+  load     0x000c24 0x000d0c24 0x000d0c24 0x00000 0x00000 rw  0x8000
+now it's time for calculating the data, we know the size and we see the each load headers size which is just unfit, further, i don't see any section (either dynamic or static) nor relocation data that i can expect from an arm elf (they should have more symbols), which is strange."
+Dofloo-MalwareMustDie,0x[0-9a-zA-Z]{8},12,"so as you can see it was served from sept 10th and is having 4 downloads (including me, one time)
+
+the file looks like this:
+
+1
+2
+3
+4
+5
+6
+$ ls -alf 1
+-rwxr--r--  1 mmd  mmd  165,176 sep 10 10:21 1
+$ md5 1
+md5 (1) = 0bb68bd65d94f61b7b20117b99d8526c
+$ file 1
+1: elf 32-bit lsb executable, arm, version 1 (gnu/linux), statically linked, stripped
+
+well, we know is an arm binary, but i need more information, so i check the elf composition:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+  entry point address:  0x2f118
+  start of program headers: 52 (bytes into file)
+  start of section headers: 0 (bytes into file)
+  flags: 0x4000002, has entry point, version4 eabi
+  size of this header: 52 (bytes)
+  size of program headers: 32 (bytes)
+  number of program headers: 2
+  size of section headers: 40 (bytes)
+  number of section headers: 0
+  section header string table index: 0
+ 
+program headers:
+  type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+  load     0x000000 0x00008000 0x00008000 0x282b1 0x282b1 r e 0x8000
+  load     0x000c24 0x000d0c24 0x000d0c24 0x00000 0x00000 rw  0x8000
+now it's time for calculating the data, we know the size and we see the each load headers size which is just unfit, further, i don't see any section (either dynamic or static) nor relocation data that i can expect from an arm elf (they should have more symbols), which is strange."
+Dofloo-MalwareMustDie,.*bin/*,13,"this a sign of protection, someone want to hide something, in the end that person is hiding everything which ending up to be very suspicious :-) - so the binary could be packed or encrypted protection, we have many possibility."
+Dofloo-MalwareMustDie,0x[0-9a-zA-Z]{8},15,"1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :)."
+Dofloo-MalwareMustDie,0x[0-9a-zA-Z]{8},17,"i look from its dcb data from where it was called and clarifying the answer:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0x0002fbf0 aprot_execprot_ dcb prot_exec|prot_write failed.,0xa,0
+0x0002fc0e                 dcb 0xa,0
+0x0002fc10 ainfothisfileis dcb 0x24,info: this file is packed with the upx executable packer http:/
+0x0002fc10                 dcb /upx.sf.net ,0x24,0xa,0
+0x0002fc5f aidupx3_91copyr dcb 0x24,id: upx 3.91 copyright (c) 1996-2013 the upx team."
+Dofloo-MalwareMustDie,0x[0-9a-zA-Z]{8},18,"all rights r
+0x0002fc5f                 dcb eserved."
+Dofloo-MalwareMustDie,0x[0-9a-zA-Z]{8},19,",0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?"
+Dofloo-MalwareMustDie,0x[0-9a-zA-Z]{8},28,"and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough."
+Dofloo-MalwareMustDie,eth[0-9]*,35,"how it grabs the ethernet data, or how this malware use socket to connect an ip, for example, since the code is too long."
+Dofloo-MalwareMustDie,^sed$,38,"1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+.text:0x0a760  stmfd   sp!, {r4-r8,lr}
+.text:0x0a764  sub  sp, sp, #0x208
+.text:0x0a768  add  r7, sp, #0x108
+.text:0x0a76c  mov  r4, r0
+.text:0x0a770  mov  r8, r1
+.text:0x0a774  mov  r0, r7
+.text:0x0a778  mov  r1, #0x100
+.text:0x0a77c  bl   sub_0x026fb0
+.text:0x0a780  ldr  r0,  <-- chattr -i /etc/crontab
+.text:0x0a784  bl   sub_0x0e3e0
+.text:0x0a788  ldr  r0, <-- chmod +w /etc/crontab
+
+adding the autostart entry in it:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+.text:0x0a7dc ; xref: sub_0x0a760
+.text:0x0a7dc  ldr  r1, <-- sed -i '/%s/d' /etc/crontab
+.text:0x0a7e0  mov  r2, r5
+.text:0x0a7e4  mov  r0, r6
+   :
+.text:0x0a800  ldr  r1, <-- echo '*/1 * * * * root %s/%s %s' >> /etc/crontab
+.text:0x0a804  str  r8, [sp,#0x108+var_108]
+.text:0x0a808  bl   sub_0x0182dc
+.text:0x0a80c  mov  r0, r6
+.text:0x0a810  bl   sub_0x0e3e0
+
+create the file: /etc/.mysys, which later on found as the self copy attempt."
+Dofloo-MalwareMustDie,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",43,"1
+2
+.text:0x09e68 ldr  r0, =unk_0x08c5c4  <-- address to get the cnc ip address
+.text:0x09e68 <-- go down to hard-copied data:0x08c5c8 it's the ip 182.254.180.241
+
+now we know the cnc is in 182.254.180.241 which is in:
+?"
+Dofloo-MalwareMustDie,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",44,"1
+2
+3
+4
+asn: 45090 / cnnic-tencent-net
+prefix: 182.254.180.0/23
+isp: comsenz technology ltd
+country: china
+..well, i am not surprised."
+Dofloo-MalwareMustDie,.*bin/*,49,"we saw not only arm architecture, but mips, ppc, mipsel, superh(sh) binaries are also spotted in the wild."
+Dofloo-MalwareMustDie,.*bin/*,61,"c++ reversing for the aes.ddos
+i just figured a good technique in open source to reverse the assembly code into the (close) original c++ codes, so far works fine under the known libraries and specific forms of elf binary."
+Dofloo-Securityaffairs,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",7,the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+Dofloo-Securityaffairs,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",7,the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+Dofloo-Securityaffairs,/etc/rc.*,10,"trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command."
+Dofloo-SyscallParty,.*bin/*,5,"we are going to be using:
+
+gdb-peda: https://github.com/longld/peda
+binaryninja: https://binary.ninja/
+ltrace: https://linux.die.net/man/1/ltrace
+radare2: http://rada.re/r/
+
+a look at the file..
+if we run ‘file’ on the executable we get:
+
+elf 32-bit lsb executable, arm, eabi5 version 1 (sysv), statically linked, for gnu/linux 2.6.14, not stripped."
+Dofloo-SyscallParty,.*bin/*,24,we use rabin2 to find the original entry point by doing rabin2 -s kfts | grep type=func name=main.
+Dofloo-SyscallParty,.*bin/*,25,"which gives us the following output:
+
+vaddr=0x00013dec paddr=0x0000bdec ord=5366 fwd=none sz=688 bind=global type=func name=main
+nice!"
+Dofloo-SyscallParty,/proc/.*,27,the main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+Dofloo-SyscallParty,/etc/rc.*,36,"persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
+Dofloo-SyscallParty,/etc/init.d/.*,36,"persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
+Dofloo-SyscallParty,/etc/rc.*,37,the /etc/rc.local will execute certain commands after all of the systems' services have started.
+Dofloo-SyscallParty,/etc/rc.*,39,"a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+Dofloo-SyscallParty,^sed$,39,"a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+Dofloo-SyscallParty,/proc/.*,53,the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
+Dofloo-SyscallParty,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",71,we pass in the first parameter in the register ‘r0’ from the location 0xc1fc8 which has the value of 61.147.91.53. we put the return value os gethostbyname into register r3 then preform some arithmetic on it.
+Dofloo-SyscallParty,/proc/.*,80,the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
+Dofloo-Trendmicro,/etc/rc.*,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,/etc/init.d/.*,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,^sed$,5,"installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine"
+Dofloo-Trendmicro,/proc/.*,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"
+Dofloo-Trendmicro,.*nsswitch.conf.*,8,"this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"
+Dofloo-Trendmicro,.*resolv.conf.*,8,"this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"

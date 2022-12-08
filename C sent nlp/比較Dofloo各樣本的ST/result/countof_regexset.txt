@@ -1,0 +1,71 @@
+Sample no.   S1  S2  S3  S4  S5  S6  S7  S8  S9 S10 S11 S12 S13 
+# of regex   14  14  14  14  14   6  14  14  17  17  14  14   6 
+Sample hash 004 121 26d 392 44d 52f 54a 570 60f 74e 9a3 bd6 f47 
+
+Size of regex_pool: 24, size of total_used_regex: 18
+
+S1 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1526', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sedQUGLbs', 'status:1', '/etc/sedQhw17q', '/etc/sedvTqQwq', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1527', '1528', '1529', '/dev/urandom', 'NIC', '23.236.66.13:50050', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S2 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1534', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sedqkkItM', 'status:1', '/etc/sed9lYUvL', '/etc/sedCXBMCP', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1535', '1536', '/dev/urandom', 'NIC', '154.19.204.221:48080', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S3 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1515', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sedI1Vb8f', 'status:1', '/etc/sedHd8EYe', '/etc/sedbA89te', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1516', '1517', '/dev/urandom', 'NIC', '216.224.120.213:48080', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S4 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1530', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sed8CBk2u', 'status:1', '/etc/sedlFBaTt', '/etc/sedNEATrt', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1531', '1532', '1533', '/dev/urandom', 'NIC', '154.91.161.81:48080', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S5 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1520', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sedaNAsl8', 'status:1', '/etc/sedNV3ca7', '/etc/sedTStD6a', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1521', '1522', '1523', '/dev/urandom', 'NIC', '49.235.91.21:50050', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S6 has 6 of regex
+regex_set: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', 'Permission.*', '/proc/.*', '.*mtab.*', 'uname', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+special_token_dict: dict_keys(['stdin', 'uname', '8192*1024 bytes', 'ID', '/proc/sys/kernel/version', 'Memory Address', '/proc/self/exe', '1522', '2044*1024 bytes', '1523', 'RLIM_INFINITY bytes', 'Permission:000', 'Pipe 0 : read end from Pipe 1', 'Pipe 1 : write end to Pipe 0', '1524', '/dev/urandom', 'NIC', 'Unknown', '156.96.155.251:48080', '/proc/cpuinfo', 'sysinfo', 'Sleep Duration', '1525', '/proc/net/dev', '/etc/mtab', '/proc/stat'])
+
+
+S7 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1533', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sed8RVpFS', 'status:1', '/etc/sedN0wywQ', '/etc/sedhhCXIU', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1534', '1535', '1536', '/dev/urandom', 'NIC', '154.91.161.81:48080', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S8 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/cpuinfo', '/proc/self/exe', '/prober', 'sh', '1530', 'status:0', 'ID', '.', '/usr/local/sbin/chmod', '/usr/local/bin/chmod', '/usr/sbin/chmod', '/usr/bin/chmod', '/sbin/chmod', '/bin/chmod', 'chmod', 'NO_PID', 'Permission:000', '/etc/rc.local', '/usr/local/sbin/mv', '/usr/local/bin/mv', '/usr/sbin/mv', '/usr/bin/mv', '/sbin/mv', '/bin/mv', 'mv', 'status:1', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', 'malware', '"/prober/5700e4b1c6498619a0e2562321363bd0.bin"', '"/etc"', '/etc/"5700e4b1c6498619a0e2562321363bd0.bin"', '/etc/.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'Permission:0700', 'Permission:022', '/etc/sedOMGxR5', '/etc/sed1kOTU8', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', '1531', '/etc/"/tmp"', '/tmp/Unknown', '1532', '1533', '114.114.114.114:53', '8.8.8.8:53', 'Sleep Duration', '/proc/stat', '/proc/net/dev'])
+
+
+S9 has 17 of regex
+regex_set: {'.*nsswitch.conf.*', '/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '.*/hosts.*', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '.*resolv.conf.*', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['stdin', '/proc/self/exe', 'Unknown', 'Memory Address', 'uname', '/prober', 'sh', '1531', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '8192*1024 bytes', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sedRrSM8d', 'status:1', '/etc/sed7WeJOi', '/etc/sedSQpmdi', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', '/usr/local/sbin/rm', '/usr/local/bin/rm', '/usr/sbin/rm', '/usr/bin/rm', '/sbin/rm', '/bin/rm', 'rm', '"/"', ' "nul"', 'nul', ' "2"', '2', '1532', '1533', '/dev/urandom', 'NIC', '/etc/resolv.conf', '218.60.25.91:10210', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET', '/etc/nsswitch.conf', '/etc/host.conf', '/etc/hosts', '127.0.0.53:53', '0.0.0.0:1020'])
+
+
+S10 has 17 of regex
+regex_set: {'.*nsswitch.conf.*', '/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '.*/hosts.*', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '.*resolv.conf.*', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['stdin', '/proc/self/exe', 'Unknown', 'Memory Address', 'uname', '/prober', 'sh', '1525', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '8192*1024 bytes', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sed9sZ8Py', 'status:1', '/etc/sedcbT4kB', '/etc/sedE7wFLA', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', '/usr/local/sbin/rm', '/usr/local/bin/rm', '/usr/sbin/rm', '/usr/bin/rm', '/sbin/rm', '/bin/rm', 'rm', '"/"', ' "nul"', 'nul', ' "2"', '2', '1526', '1527', '/dev/urandom', 'NIC', '/etc/resolv.conf', '218.60.25.91:10210', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET', '/etc/nsswitch.conf', '/etc/host.conf', '/etc/hosts', '127.0.0.53:53', '0.0.0.0:1020'])
+
+
+S11 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1529', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sedGVTWzs', 'status:1', '/etc/sed8ZcDzr', '/etc/sed04s7Wq', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1530', '1531', '1532', '/dev/urandom', 'NIC', '183.131.83.38:50050', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S12 has 14 of regex
+regex_set: {'/sys/.*', '.*bin/sed', 'Permission.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc.*', '.*/selinux.*', '^sh$', '^sed$', '/proc/.*', '/etc/sed.*', 'uname', '.*bin/*', '/etc/init.d/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+special_token_dict: dict_keys(['uname', 'Memory Address', '8192*1024 bytes', '/proc/self/exe', '/prober', 'sh', '1540', 'status:0', 'ID', '.', '/usr/local/sbin/sed', '/usr/local/bin/sed', '/usr/sbin/sed', '/usr/bin/sed', '/sbin/sed', '/bin/sed', 'sed', 'NO_PID', '/sys/fs/selinux', '/selinux', '/etc/selinux/config', '/etc/rc.local', 'Permission:0700', 'Permission:022', '/etc/sed9xokf3', 'status:1', '/etc/sedS4gdT6', '/etc/sedpjmlj6', 'status:2', '/etc/rc.d/rc.local', '/etc/init.d/boot.local', 'Unknown', '1541', '1542', '1543', '/dev/urandom', 'NIC', '20.205.41.8:48080', 'Sleep Duration', '/proc/net/dev', 'Timestamp', '/sys/devices/system/cpu/online', '/proc/stat', 'NO_SOCKET'])
+
+
+S13 has 6 of regex
+regex_set: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', 'Permission.*', '/proc/.*', '.*mtab.*', 'uname', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+special_token_dict: dict_keys(['stdin', 'uname', '8192*1024 bytes', 'ID', '/proc/sys/kernel/version', 'Memory Address', '/proc/self/exe', '1493', '2044*1024 bytes', '1494', 'RLIM_INFINITY bytes', 'Permission:000', 'Pipe 0 : read end from Pipe 1', 'Pipe 1 : write end to Pipe 0', '1495', '/dev/urandom', 'NIC', 'Unknown', '42.194.9.81:48080', '/proc/cpuinfo', 'sysinfo', 'Sleep Duration', '1496', '/proc/net/dev', '/etc/mtab', '/proc/stat'])
+
+
