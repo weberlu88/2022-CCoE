@@ -1129,7 +1129,11 @@ class AttackGraph:
             "getegid",
             "prlimit64",
             "umask",
-            "setsid",
+            ### Note ###
+            # setsid()  runs  a  program  in a new session. The command calls fork(2) if already a process group leader.
+            # Otherwise, it executes a program in the current proces
+            # 我們已經有處理 clone、fork 來創建 new program，不需要再這裡再做一次
+#             "setsid",
             "nanosleep",
             "time",
             
@@ -1185,7 +1189,7 @@ class AttackGraph:
         
         self.isDuplicate = True
         self.isHardFilter = True
-        self.hardRule = ["/lib/","/usr/lib/", "/etc/ld.so"] # 去除
+        self.hardRule = [".*/lib.*","/usr/lib/.*", "/etc/ld.so.*", "/usr/local/lib/.*", ".*locale.*"] # 去除
         
         self.file_filter = ["/etc/sed", "/etc/selinux"] # 保留
         
@@ -1414,6 +1418,8 @@ class AttackGraph:
                     for rule in self.hardRule:
                         isMatch = re.match(rule, path)
                         if isMatch:
+                            # if path.find('locale') >= 0:
+                            #     print('  hardRule return, edge_name is', edge_name, 'path is', path)
                             return
                     
                     
@@ -1760,7 +1766,7 @@ class AttackGraph:
             else:
                 # return 
                 shm_addr = info["shm_addr"]
-
+#                 print("shm_addr:", shm_addr)
                 # if "Memory Addr" not in self._file_node_map:
                 #     child_node = Node("Memory Addr", typ='m_addr')
                 #     self._file_node_map["Memory Addr"] = child_node
@@ -1779,17 +1785,17 @@ class AttackGraph:
                     self._file_node_map[shm_addr] = child_node
                     self.graph[child_node] = []
                     # if not self._inside_execve:
-                    self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))
+                    self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
                     
                 # if have addr, the id connect to the addr    
                 else:
                     child_node = self._file_node_map[shm_addr]
                     if not self.isDuplicate :
                         if (self.current_node, child_node, edge_name) not in self.edges:
-                            self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))
+                            self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
                     else:
-                        self._connect_node(self._file_node_map[shm_id] , child_node,  Edge(edge_name, syscall['time']))
-                        
+                        self._connect_node(self.current_node , child_node,  Edge(edge_name, syscall['time']))
+                
                         
         elif("read_fd" in info and "write_fd" in info):
             read_fd = info["read_fd"]
@@ -2552,7 +2558,7 @@ class AttackGraph:
                     if call['type'] == 'sys':
                         # sys_ignore = ['open', 'openat', 'read']
 #                         sys_ignore = ['read']
-#                         if(call['name'] == 'uname'):
+#                         if(call['name'] == 'gettimeofday'):
 #                             print("Call:", call)
 #                             print("Args:", call['args'], type(call['args']))
 #                             print("Args split:", call['args'].split(",") )
@@ -2575,15 +2581,15 @@ class AttackGraph:
             
             reverse_edge = ["read", "recv"] 
             if to_node.name not in self.set_of_object and edge_name not in reverse_edge:
-                trans_dict = {"f":"File", "c":"File", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other", "pipe":"Other"}
+                trans_dict = {"f":"File", "c":"File", "pipe":"Process", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
 
-                self.set_of_object[to_node.name] = trans_dict.get(to_node.type, "Other") # pipe 沒處理到會出錯 歸為 Other
+                self.set_of_object[to_node.name] = trans_dict[to_node.type]
                 self.set_of_object_summary[trans_dict[to_node.type]] += 1
                 self.set_of_object_summary_list[trans_dict[to_node.type]].append(to_node.name)
 
             if edge_name in reverse_edge:
                 if from_node.name not in self.set_of_object:
-                    trans_dict = {"f":"File", "c":"File", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other", "pipe":"Other"}
+                    trans_dict = {"f":"File", "c":"File", "pipe":"Process", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
 
                     self.set_of_object[from_node.name] = trans_dict[from_node.type]
                     self.set_of_object_summary[trans_dict[from_node.type]] += 1
