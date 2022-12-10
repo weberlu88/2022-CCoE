@@ -32,7 +32,7 @@ class RegexMaster:
     def __init__(self) -> None:
         self.used_regex_set = set() # 紀錄被 find_spacial_token() 找到過的 regex
         self.regex_file = {
-            "sed command": ".*bin/sed", 
+            "sed command": "bin/sed", 
             "startup": ["/etc/rc", "/etc/init.d/"],
             "process_info": "/proc/", 
             "sed temp file": "/etc/sed", 
