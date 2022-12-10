@@ -33,18 +33,18 @@ class RegexMaster:
         self.used_regex_set = set() # 紀錄被 find_spacial_token() 找到過的 regex
         self.regex_file = {
             "sed command": ".*bin/sed", 
-            "startup": ["/etc/rc.*", "/etc/init.d/.*"],
-            "process_info": "/proc/.*", 
-            "sed temp file": "/etc/sed.*", 
-            "selinx": ".*/selinux.*", 
-            "sys": ["/sys/.*", ".*bin/*", ".*lsb-release.*"], 
-            "uname":"uname",
-            "dns": [".*mtab.*", ".*nsswitch.conf.*", ".*resolv.conf.*", ".*/hosts.*"],
+            "startup": ["/etc/rc", "/etc/init.d/"],
+            "process_info": "/proc/", 
+            "sed temp file": "/etc/sed", 
+            "selinx": "/selinux", 
+            "sys": ["/sys/", "bin/", "lsb-release"], 
+            "uname":"uname(.)($)",
+            "dns": ["mtab", "nsswitch.conf", "resolv.conf", "/hosts"],
         }
         self.regex_process = {"command": ["^sh$", "^sed$"]} # must exact match
         self.regex_net = {
-            "net address":["\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", ":\d+"], # 說\d要背棄用了
-            "NIC": "eth[0-9]*"}
+            "net address":[r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"], # 把 port 砍了 r":\d+" 會抓到時間，如 11:48
+            "NIC": "eth[0-9]$"}
         self.regex_mem = {"Memory Address": "0x[0-9a-zA-Z]{8}"}
         self.regex_other = {"permission":"Permission.*", "ID":["UID", "GID"]}
         # 整理 regex rules
@@ -71,7 +71,7 @@ class RegexMaster:
         for word in sentence.split():
             for r in self.all_regex_list:
                 # print('r', r)
-                if re.match(r, word):
+                if re.search(r, word):
                     # print("Match :", word, 'with regex', r)
                     result_list.append(RegexMatchResult(word, match_regex=r)) # 暫時忽略 type
                     self.used_regex_set.add(r)
@@ -81,9 +81,9 @@ class RegexMaster:
 
 # test case
 if __name__ == '__main__':
-    sentence = "How does the sed command edit a file? It creates a tmp file /etc/sedQhw17q to store your input first. Try 111 find 5.5.5.5:33"
+    sentence = "How does the sed command edit a file? It creates a tmp file /etc/sedQhw17q to store your input first. Try binary 111 find 5.5.5.5:33"
     regex = "/etc/sed.*"
-    regex_list = ["\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", ":\d+"]
+    regex_list = [r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", r":\d+"]
     result = find_spacial_token_regex(regex, sentence)
     print(result)
 
