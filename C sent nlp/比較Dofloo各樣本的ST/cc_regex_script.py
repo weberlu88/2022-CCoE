@@ -1,22 +1,5 @@
 import re
 
-def find_spacial_token_regex(regex: str|list, sentence:str) -> str:
-    ''' Return the matched 'word' if regex find it. If not found return None'''
-    for word in sentence.split():
-        if isinstance(regex, str):
-            isMatch = re.match(regex, word)
-            if isMatch:
-                # print("Match :", word, 'with regex', regex)
-                return word
-        elif isinstance(regex, list):
-            for r in regex:
-                if re.match(r, word):
-                    # print("Match :", word, 'with regex', r)
-                    return word
-        else:
-            raise TypeError("regex must be str or list.")
-    return None
-
 class RegexMatchResult:
     def __init__(self, word: str, type: str=None, match_regex: str=None) -> None:
         self.word = word
@@ -58,8 +41,11 @@ class RegexMaster:
                 self.all_regex_list.append(v)
         pass
 
-    def get_all_regex(self) -> list:
+    def get_all_regex(self) -> list: # should turn into classmethod
         return self.all_regex_list
+
+    def get_used_regex(self) -> set:
+        return self.used_regex_set
 
     def find_spacial_token(self, sentence:str) -> list[RegexMatchResult]:
         if not isinstance(sentence, str):
@@ -79,12 +65,41 @@ class RegexMaster:
             return result_list     
         return None
 
+    def get_regex_type(self): # should turn into classmethod
+        pass
+
+    @classmethod
+    def find_spacial_token_with_regex(cls, regex: str|list, sentence:str) -> list[RegexMatchResult]:
+        ''' Return a list of RegexMatchResult which contains matched 'word' if regex find it. If not found return None'''
+        if not isinstance(sentence, str):
+            try:
+                sentence = str(sentence)
+            except:
+                raise TypeError("RegexMaster: Sentence cannot convert into string.")
+        result_list = []
+        for word in sentence.split():
+            if isinstance(regex, str):
+                isMatch = re.search(regex, word)
+                if isMatch:
+                    # print("Match :", word, 'with regex', regex)
+                    result_list.append(RegexMatchResult(word, match_regex=r))
+            elif isinstance(regex, list):
+                for r in regex:
+                    if re.search(r, word):
+                        # print("Match :", word, 'with regex', r)
+                        result_list.append(RegexMatchResult(word, match_regex=r)) # 暫時忽略 type
+            else:
+                raise TypeError("regex must be str or list.")
+        if len(result_list):
+            return result_list     
+        return None
+
 # test case
 if __name__ == '__main__':
     sentence = "How does the sed command edit a file? It creates a tmp file /etc/sedQhw17q to store your input first. Try binary 111 find 5.5.5.5:33"
     regex = "/etc/sed.*"
     regex_list = [r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", r":\d+"]
-    result = find_spacial_token_regex(regex, sentence)
+    result = RegexMaster.find_spacial_token_with_regex(regex, sentence)
     print(result)
 
     '''

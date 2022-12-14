@@ -1,0 +1,63 @@
+report,regex,matched word,sentence number,sentence
+Dofloo-MalwareMustDie,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",182.254.180.241,43,"1
+2
+.text:0x09e68 ldr  r0, =unk_0x08c5c4  <-- address to get the cnc ip address
+.text:0x09e68 <-- go down to hard-copied data:0x08c5c8 it's the ip 182.254.180.241
+
+now we know the cnc is in 182.254.180.241 which is in:
+?"
+Dofloo-MalwareMustDie,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",182.254.180.0/23,44,"1
+2
+3
+4
+asn: 45090 / cnnic-tencent-net
+prefix: 182.254.180.0/23
+isp: comsenz technology ltd
+country: china
+..well, i am not surprised."
+Dofloo-Securityaffairs,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",23.224.59.34:48080,7,the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+Dofloo-Securityaffairs,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",23.224.59.34:48080,7,the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+Dofloo-SyscallParty,/proc/,/proc/self/exe,27,the main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+Dofloo-SyscallParty,/proc/,/proc/net/dev,53,the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
+Dofloo-SyscallParty,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",61.147.91.53.,71,we pass in the first parameter in the register ‘r0’ from the location 0xc1fc8 which has the value of 61.147.91.53. we put the return value os gethostbyname into register r3 then preform some arithmetic on it.
+Dofloo-SyscallParty,/proc/,/proc/cpuinfo,80,the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
+Dofloo-Trendmicro,/proc/,/proc/net,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"
+Dofloo-Trendmicro,/sys/,/proc/sys/kernel/osrelease,7,"this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details"

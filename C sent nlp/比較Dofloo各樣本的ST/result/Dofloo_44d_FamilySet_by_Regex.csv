@@ -1,0 +1,6 @@
+report_name,ttl_match,coverage_score,bin/,^sh$,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",^sed$,/selinux,/etc/init.d/,/etc/rc,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",/sys/,/proc/,bin/sed,/etc/sed,Permission.*
+Dofloo-BleepingComputer.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-MalwareMustDie.csv,2,0.1538,0,0,1,1,0,0,0,0,0,0,0,0,0
+Dofloo-Securityaffairs.csv,3,0.2308,0,0,1,0,0,0,1,1,0,0,0,0,0
+Dofloo-SyscallParty.csv,5,0.3846,0,0,1,1,0,1,1,0,0,1,0,0,0
+Dofloo-Trendmicro.csv,5,0.3846,0,0,0,1,0,1,1,0,1,1,0,0,0
