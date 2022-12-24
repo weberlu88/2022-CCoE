@@ -60,7 +60,7 @@ class RegexMaster:
                 "ip + port": r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$"}
             self.regex_mem = {"Memory Address": "0x[0-9a-zA-Z]{8}"}
             self.regex_ID = {"UID": r"UID(\$|\.|$)", "GID": r"GID(\$|\.|$)"}
-            self.regex_permission = {"permission": "permission(\s)[0-9]{1,4}"}
+            self.regex_permission = {"permission": r"permission(\s|:)[0-9]{1,4}"}
             self.all_regex_dict = {**self.regex_file,  **self.regex_process, **self.regex_net, **self.regex_mem, **self.regex_ID, **self.regex_permission}
         # 整理 regex rules       
         self.all_regex_list = []
