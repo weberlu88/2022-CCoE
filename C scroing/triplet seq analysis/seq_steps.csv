@@ -14,7 +14,7 @@ step,src_node,type,deg,edge,dst_node,type,deg,importance,tactic
 74,sed,proc,107,statfs,/sys/fs/selinux,file,6,0
 75,sed,proc,107,statfs,/selinux,file,6,0,discovery
 78,sed,proc,107,access,/etc/selinux/config,file,6,0
-80,sed,proc,107,open,/etc/rc.local,file,6,1
+80,sed,proc,107,open,/etc/rc.local,file,6,1,persistence
 84,sed,proc,107,fcntl,/etc/sedQUGLbs,file,6,1
 85,sed,proc,107,fstat,/etc/sedQUGLbs,file,6,0
 86,sed,proc,107,write,/etc/sedQUGLbs,file,6,1
