@@ -2,6 +2,7 @@ import re
 
 class RegexMatchResult:
     def __init__(self, word: str, type: str=None, match_regex: str=None) -> None:
+        self.line = ''
         self.word = word
         self.type = type
         self.match_regex = match_regex
@@ -12,7 +13,7 @@ class RegexMatchResult:
         return f"<RegexMatchResult word={self.word}, type={self.type}, match_regex={self.match_regex}>"
 
 class RegexMaster:
-    def __init__(self) -> None:
+    def __init__(self, familyname:str=None) -> None:
         self.used_regex_set = set() # 紀錄被 find_spacial_token() 找到過的 regex
         self.regex_file = {
             "sed command": "bin/sed", 
@@ -29,9 +30,39 @@ class RegexMaster:
             "net address":[r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"], # 把 port 砍了 r":\d+" 會抓到時間，如 11:48
             "NIC": "eth[0-9]$"}
         self.regex_mem = {"Memory Address": "0x[0-9a-zA-Z]{8}"}
-        self.regex_other = {"permission":"Permission.*", "ID":["UID", "GID"]}
-        # 整理 regex rules
+        self.regex_other = {"permission":"permission:{0,1}[0-9]{0,4}", "ID":["UID", "GID"]}
         self.all_regex_dict = {**self.regex_file,  **self.regex_process, **self.regex_net, **self.regex_mem, **self.regex_other}
+        # 切換其他家族
+        if familyname and familyname.lower() == 'xorddos':
+            self.regex_file = {
+                "sed command": "bin/sed", 
+                "startup": ["/etc/rc", "/etc/init.d/"],
+                "proc info":"/proc/", 
+                "sed temp file":"/etc/sed", 
+                "selinux":"/selinux",
+                "boot":"/boot/", 
+                "rootkit component":"/proc/rs_dev",
+                "execution file created by xorddos":"/boot/[a-z]{10}", 
+                "run":["/run/", "/var/run/"],
+                "var": "/var/", 
+                "perl": "/perl/", 
+                "crontab": "/etc/cron",
+                "init process": "bin/openrc", 
+                "init service": "bin/insserv", 
+                "uname": r"uname(\$|\.|$)"}
+            self.regex_process = {
+                "command": ["^sed$", "^sh$", "^chkconfig$", "^systemctl$", "update-rc.d"],
+                "execution file created by xorddos": "/boot/[a-z]{10}", 
+                "pipe": r"^pipe(\$|\.|$)",}
+            self.regex_net = {
+                "ip":r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", 
+                "port": [r"[a-zA-z]:\d{1,5}$", r"port \d{1,5}$"], # 空白需要額外寫 rule 辨識
+                "ip + port": r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$"}
+            self.regex_mem = {"Memory Address": "0x[0-9a-zA-Z]{8}"}
+            self.regex_ID = {"UID": r"UID(\$|\.|$)", "GID": r"GID(\$|\.|$)"}
+            self.regex_permission = {"permission": "permission(\s)[0-9]{1,4}"}
+            self.all_regex_dict = {**self.regex_file,  **self.regex_process, **self.regex_net, **self.regex_mem, **self.regex_ID, **self.regex_permission}
+        # 整理 regex rules       
         self.all_regex_list = []
         for v in self.all_regex_dict.values():
             if isinstance(v,list):
@@ -57,7 +88,7 @@ class RegexMaster:
         for word in sentence.split():
             for r in self.all_regex_list:
                 # print('r', r)
-                if re.search(r, word):
+                if re.search(r, word, re.IGNORECASE):
                     # print("Match :", word, 'with regex', r)
                     result_list.append(RegexMatchResult(word, match_regex=r)) # 暫時忽略 type
                     self.used_regex_set.add(r)
@@ -79,13 +110,13 @@ class RegexMaster:
         result_list = []
         for word in sentence.split():
             if isinstance(regex, str):
-                isMatch = re.search(regex, word)
+                isMatch = re.search(regex, word, re.IGNORECASE)
                 if isMatch:
                     # print("Match :", word, 'with regex', regex)
-                    result_list.append(RegexMatchResult(word, match_regex=r))
+                    result_list.append(RegexMatchResult(word, match_regex=regex))
             elif isinstance(regex, list):
                 for r in regex:
-                    if re.search(r, word):
+                    if re.search(r, word, re.IGNORECASE):
                         # print("Match :", word, 'with regex', r)
                         result_list.append(RegexMatchResult(word, match_regex=r)) # 暫時忽略 type
             else:
