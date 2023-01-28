@@ -1,6 +1,6 @@
-report_name,ttl_match,coverage_score,bin/,^sh$,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",^sed$,/selinux,/etc/init.d/,/etc/rc,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",/sys/,/proc/,bin/sed,/etc/sed,Permission.*
-Dofloo-BleepingComputer.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Dofloo-MalwareMustDie.csv,2,0.1538,0,0,1,1,0,0,0,0,0,0,0,0,0
-Dofloo-Securityaffairs.csv,3,0.2308,0,0,1,0,0,0,1,1,0,0,0,0,0
-Dofloo-SyscallParty.csv,5,0.3846,0,0,1,1,0,1,1,0,0,1,0,0,0
-Dofloo-Trendmicro.csv,5,0.3846,0,0,0,1,0,1,1,0,1,1,0,0,0
+report_name,ttl_match,coverage_score,/selinux,0x[0-9a-zA-Z]{8},eth[0-9]$,/sys/,/etc/init.d/,^sh$,mtab,/etc/sed,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",lsb-release,UID,resolv.conf,uname(.)($),"permission:{0,1}[0-9]{0,4}","\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",bin/sed,^sed$,/proc/,/hosts,/etc/rc,GID,nsswitch.conf,bin/
+Dofloo-BleepingComputer.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dofloo-MalwareMustDie.csv,3,0.1304,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Dofloo-Securityaffairs.csv,3,0.1304,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+Dofloo-SyscallParty.csv,7,0.3043,0,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,1,0,1,0,0,0
+Dofloo-Trendmicro.csv,8,0.3478,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,1,1,0,1,0,1,0

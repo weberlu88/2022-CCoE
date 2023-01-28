@@ -1,7 +1,7 @@
-report_name,ttl_match,coverage_score,"port \d{1,5}$","permission(\s)[0-9]{1,4}",/etc/cron,/etc/rc,UID(\$|\.|$),bin/sed,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$",^pipe(\$|\.|$),/boot/,/var/,/proc/,uname(\$|\.|$),^systemctl$,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",/perl/,^sed$,/var/run/,/run/,^sh$,/etc/sed,bin/insserv,"[a-zA-z]:\d{1,5}$",0x[0-9a-zA-Z]{8},update-rc.d,^chkconfig$,/boot/[a-z]{10},GID(\$|\.|$),/proc/rs_dev,bin/openrc,/etc/init.d/,/selinux
+report_name,ttl_match,coverage_score,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$",GID(\$|\.|$),/boot/,/etc/rc,"[a-zA-z]:\d{1,5}$","\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",0x[0-9a-zA-Z]{8},/etc/cron,bin/insserv,^chkconfig$,^pipe(\$|\.|$),/var/run/,^sed$,^systemctl$,/boot/[a-z]{10},/run/,/etc/sed,/var/,/proc/,/perl/,/selinux,update-rc.d,UID(\$|\.|$),uname(\$|\.|$),bin/sed,bin/openrc,^sh$,"permission(\s|:)[0-9]{1,4}",/etc/init.d/,/proc/rs_dev,"port \d{1,5}$"
 Xorddos-Cdnetworks.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 Xorddos-Crowdstrike.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Xorddos-Intezer.csv,6,0.1935,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0
-Xorddos-Microsoft.csv,14,0.4516,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0,0,1,1,1,0,0,1,1,1,1,0,1,1,0,1,0
-Xorddos-Trendmicro.csv,6,0.1935,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0
-Xorddos-Trendmicro2.csv,1,0.03226,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Xorddos-Intezer.csv,6,0.1935,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0
+Xorddos-Microsoft.csv,14,0.4516,0,1,0,1,1,0,1,1,0,1,0,1,0,0,0,1,0,1,1,0,0,1,0,0,0,0,1,0,1,1,0
+Xorddos-Trendmicro.csv,6,0.1935,0,0,0,1,1,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Xorddos-Trendmicro2.csv,1,0.03226,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

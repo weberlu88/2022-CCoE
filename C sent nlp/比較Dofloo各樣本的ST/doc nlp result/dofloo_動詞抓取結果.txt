@@ -1,0 +1,2650 @@
+---
+en_verb: have, m.word: 0x00008000, sent: so as you can see it was served from sept 10th and is having 4 downloads (including me, one time)
+
+the file looks like this:
+
+1
+2
+3
+4
+5
+6
+$ ls -alf 1
+-rwxr--r--  1 mmd  mmd  165,176 sep 10 10:21 1
+$ md5 1
+md5 (1) = 0bb68bd65d94f61b7b20117b99d8526c
+$ file 1
+1: elf 32-bit lsb executable, arm, version 1 (gnu/linux), statically linked, stripped
+
+well, we know is an arm binary, but i need more information, so i check the elf composition:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+  entry point address:  0x2f118
+  start of program headers: 52 (bytes into file)
+  start of section headers: 0 (bytes into file)
+  flags: 0x4000002, has entry point, version4 eabi
+  size of this header: 52 (bytes)
+  size of program headers: 32 (bytes)
+  number of program headers: 2
+  size of section headers: 40 (bytes)
+  number of section headers: 0
+  section header string table index: 0
+ 
+program headers:
+  type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+  load     0x000000 0x00008000 0x00008000 0x282b1 0x282b1 r e 0x8000
+  load     0x000c24 0x000d0c24 0x000d0c24 0x00000 0x00000 rw  0x8000
+now it's time for calculating the data, we know the size and we see the each load headers size which is just unfit, further, i don't see any section (either dynamic or static) nor relocation data that i can expect from an arm elf (they should have more symbols), which is strange.
+---
+en_verb: have, m.word: 0x00008000, sent: so as you can see it was served from sept 10th and is having 4 downloads (including me, one time)
+
+the file looks like this:
+
+1
+2
+3
+4
+5
+6
+$ ls -alf 1
+-rwxr--r--  1 mmd  mmd  165,176 sep 10 10:21 1
+$ md5 1
+md5 (1) = 0bb68bd65d94f61b7b20117b99d8526c
+$ file 1
+1: elf 32-bit lsb executable, arm, version 1 (gnu/linux), statically linked, stripped
+
+well, we know is an arm binary, but i need more information, so i check the elf composition:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+  entry point address:  0x2f118
+  start of program headers: 52 (bytes into file)
+  start of section headers: 0 (bytes into file)
+  flags: 0x4000002, has entry point, version4 eabi
+  size of this header: 52 (bytes)
+  size of program headers: 32 (bytes)
+  number of program headers: 2
+  size of section headers: 40 (bytes)
+  number of section headers: 0
+  section header string table index: 0
+ 
+program headers:
+  type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+  load     0x000000 0x00008000 0x00008000 0x282b1 0x282b1 r e 0x8000
+  load     0x000c24 0x000d0c24 0x000d0c24 0x00000 0x00000 rw  0x8000
+now it's time for calculating the data, we know the size and we see the each load headers size which is just unfit, further, i don't see any section (either dynamic or static) nor relocation data that i can expect from an arm elf (they should have more symbols), which is strange.
+---
+en_verb: be, m.word: 0x000d0c24, sent: so as you can see it was served from sept 10th and is having 4 downloads (including me, one time)
+
+the file looks like this:
+
+1
+2
+3
+4
+5
+6
+$ ls -alf 1
+-rwxr--r--  1 mmd  mmd  165,176 sep 10 10:21 1
+$ md5 1
+md5 (1) = 0bb68bd65d94f61b7b20117b99d8526c
+$ file 1
+1: elf 32-bit lsb executable, arm, version 1 (gnu/linux), statically linked, stripped
+
+well, we know is an arm binary, but i need more information, so i check the elf composition:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+  entry point address:  0x2f118
+  start of program headers: 52 (bytes into file)
+  start of section headers: 0 (bytes into file)
+  flags: 0x4000002, has entry point, version4 eabi
+  size of this header: 52 (bytes)
+  size of program headers: 32 (bytes)
+  number of program headers: 2
+  size of section headers: 40 (bytes)
+  number of section headers: 0
+  section header string table index: 0
+ 
+program headers:
+  type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+  load     0x000000 0x00008000 0x00008000 0x282b1 0x282b1 r e 0x8000
+  load     0x000c24 0x000d0c24 0x000d0c24 0x00000 0x00000 rw  0x8000
+now it's time for calculating the data, we know the size and we see the each load headers size which is just unfit, further, i don't see any section (either dynamic or static) nor relocation data that i can expect from an arm elf (they should have more symbols), which is strange.
+---
+en_verb: be, m.word: 0x000d0c24, sent: so as you can see it was served from sept 10th and is having 4 downloads (including me, one time)
+
+the file looks like this:
+
+1
+2
+3
+4
+5
+6
+$ ls -alf 1
+-rwxr--r--  1 mmd  mmd  165,176 sep 10 10:21 1
+$ md5 1
+md5 (1) = 0bb68bd65d94f61b7b20117b99d8526c
+$ file 1
+1: elf 32-bit lsb executable, arm, version 1 (gnu/linux), statically linked, stripped
+
+well, we know is an arm binary, but i need more information, so i check the elf composition:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+  entry point address:  0x2f118
+  start of program headers: 52 (bytes into file)
+  start of section headers: 0 (bytes into file)
+  flags: 0x4000002, has entry point, version4 eabi
+  size of this header: 52 (bytes)
+  size of program headers: 32 (bytes)
+  number of program headers: 2
+  size of section headers: 40 (bytes)
+  number of section headers: 0
+  section header string table index: 0
+ 
+program headers:
+  type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+  load     0x000000 0x00008000 0x00008000 0x282b1 0x282b1 r e 0x8000
+  load     0x000c24 0x000d0c24 0x000d0c24 0x00000 0x00000 rw  0x8000
+now it's time for calculating the data, we know the size and we see the each load headers size which is just unfit, further, i don't see any section (either dynamic or static) nor relocation data that i can expect from an arm elf (they should have more symbols), which is strange.
+---
+en_verb: add, m.word: 0x0002f118, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f11c, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: r1,r2,r10,r11,lr, m.word: 0x0002f120, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f124, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f128, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f12c, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f130, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f134, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f138, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f13c, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: add, m.word: 0x0002f140, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f144, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f148, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0xffffffff, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f14c, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f150, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f154, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f158, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002f15c, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: find, m.word: 0x0002fbd0, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: find, m.word: 0x0002fbd4, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002fbd8, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002fbdc, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: svc, m.word: 0x0002fbe0, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+;-- entry0:
+0x0002f118  adr     r12, off_2f104
+0x0002f11c  ldmia   r12, {r1,r2,r10,r11,lr}
+0x0002f120  add     r10, r10, r12
+0x0002f124  add     r11, r11, r12
+0x0002f128  mov     r0, r2
+0x0002f12c  sub     r9, r12, r1
+0x0002f130  add     r1, r1, #0x1000
+0x0002f134  mov     r3, #0
+0x0002f138  stmfd   sp!, {r0-r3,lr}
+0x0002f13c  mov     r2, #7
+0x0002f140  ldr     r3, [r12,#0x10]
+0x0002f144  mov     r5, #0
+0x0002f148  mov     r4, 0xffffffff
+0x0002f14c  orr     r3, r3, #0x10
+0x0002f150  mov     r7, #0xc0
+0x0002f154  svc     0
+0x0002f158  cmn     r0, #0x1000
+0x0002f15c  bcs     loc_0x02fbd0
+  [...]
+
+..following the registers value and in r1 we will find the value that can tell what is happening:
+
+1
+2
+3
+4
+5
+0x0002fbd0  mov  r2, #0x1e
+0x0002fbd4  adr  r1, aprot_execprot_ ; prot_exec|prot_write failed.\n
+0x0002fbd8  mov  r0, #2
+0x0002fbdc  mov  r7, #4
+0x0002fbe0  svc  0
+this value may ring your bells too :).
+---
+en_verb: look, m.word: 0x0002fbf0, sent: i look from its dcb data from where it was called and clarifying the answer:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0x0002fbf0 aprot_execprot_ dcb prot_exec|prot_write failed.,0xa,0
+0x0002fc0e                 dcb 0xa,0
+0x0002fc10 ainfothisfileis dcb 0x24,info: this file is packed with the upx executable packer http:/
+0x0002fc10                 dcb /upx.sf.net ,0x24,0xa,0
+0x0002fc5f aidupx3_91copyr dcb 0x24,id: upx 3.91 copyright (c) 1996-2013 the upx team.
+---
+en_verb: pack, m.word: 0x0002fc0e, sent: i look from its dcb data from where it was called and clarifying the answer:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0x0002fbf0 aprot_execprot_ dcb prot_exec|prot_write failed.,0xa,0
+0x0002fc0e                 dcb 0xa,0
+0x0002fc10 ainfothisfileis dcb 0x24,info: this file is packed with the upx executable packer http:/
+0x0002fc10                 dcb /upx.sf.net ,0x24,0xa,0
+0x0002fc5f aidupx3_91copyr dcb 0x24,id: upx 3.91 copyright (c) 1996-2013 the upx team.
+---
+en_verb: pack, m.word: 0x0002fc10, sent: i look from its dcb data from where it was called and clarifying the answer:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0x0002fbf0 aprot_execprot_ dcb prot_exec|prot_write failed.,0xa,0
+0x0002fc0e                 dcb 0xa,0
+0x0002fc10 ainfothisfileis dcb 0x24,info: this file is packed with the upx executable packer http:/
+0x0002fc10                 dcb /upx.sf.net ,0x24,0xa,0
+0x0002fc5f aidupx3_91copyr dcb 0x24,id: upx 3.91 copyright (c) 1996-2013 the upx team.
+---
+en_verb: pack, m.word: 0x0002fc10, sent: i look from its dcb data from where it was called and clarifying the answer:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0x0002fbf0 aprot_execprot_ dcb prot_exec|prot_write failed.,0xa,0
+0x0002fc0e                 dcb 0xa,0
+0x0002fc10 ainfothisfileis dcb 0x24,info: this file is packed with the upx executable packer http:/
+0x0002fc10                 dcb /upx.sf.net ,0x24,0xa,0
+0x0002fc5f aidupx3_91copyr dcb 0x24,id: upx 3.91 copyright (c) 1996-2013 the upx team.
+---
+en_verb: pack, m.word: 0x0002fc5f, sent: i look from its dcb data from where it was called and clarifying the answer:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0x0002fbf0 aprot_execprot_ dcb prot_exec|prot_write failed.,0xa,0
+0x0002fc0e                 dcb 0xa,0
+0x0002fc10 ainfothisfileis dcb 0x24,info: this file is packed with the upx executable packer http:/
+0x0002fc10                 dcb /upx.sf.net ,0x24,0xa,0
+0x0002fc5f aidupx3_91copyr dcb 0x24,id: upx 3.91 copyright (c) 1996-2013 the upx team.
+---
+en_verb: eserve, m.word: 0x0002fc5f, sent: all rights r
+0x0002fc5f                 dcb eserved.
+---
+en_verb: go, m.word: 0x0002fcab, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: go, m.word: 0x0002fcac, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0x6c00031a,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0x942c5302,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: go, m.word: 0x18d063cb, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: go, m.word: 0x0002fcac, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0xd185e779,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0x57399e2e,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0xd24c892f,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: go, m.word: 0x1003ea02, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: go, m.word: 0x0002fcac, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0x6a5a70c9,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0x2f701d6a,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: None, m.word: 0xd2ec6754,, sent: ,0x24,0xa,0
+0x0002fcab                 dcb 0x0 ;; here goes the table..
+0x0002fcac                 dcd 0x9a8, 0x5f9, 0x500e, 0x6c00031a, 0x942c5302, 0x18d063cb
+0x0002fcac                 dcd 0x49382ee, 0xd185e779, 0x57399e2e, 0xd24c892f, 0x1003ea02
+0x0002fcac                 dcd 0x6a5a70c9, 0x2f701d6a, 0x6d0d9a7, 0xd2ec6754, 0x95ece49
+[...]                      [...]
+
+oh, silly me.. it is a upx, but, is it common and not modded one?
+---
+en_verb: have, m.word: 0x00083b5c, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: have, m.word: 0x00083b5c, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x00008000, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x00008000, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x0008c4dc, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x0008c4dc, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x000080d4, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x000080d4, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x0008c4dc, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: 0x0008c4dc, sent: and we have the new program headers too:
+
+1
+2
+3
+4
+5
+6
+type     offset   virtaddr   physaddr   filesiz memsiz  flg align
+exidx    0x07bb5c 0x00083b5c 0x00083b5c 0x00900 0x00900 r   0x4
+load     0x000000 0x00008000 0x00008000 0x7c4dc 0x7c4dc r e 0x8000
+load     0x07c4dc 0x0008c4dc 0x0008c4dc 0x00a4c 0x44748 rw  0x8000
+note     0x0000d4 0x000080d4 0x000080d4 0x00020 0x00020 r   0x4
+tls      0x07c4dc 0x0008c4dc 0x0008c4dc 0x00014 0x00030 r   0x4
+a quick calculation of the size above shows that at least we have accuracy to more than 80% to the actual size now, good enough.
+---
+en_verb: None, m.word: sed, sent: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+.text:0x0a760  stmfd   sp!, {r4-r8,lr}
+.text:0x0a764  sub  sp, sp, #0x208
+.text:0x0a768  add  r7, sp, #0x108
+.text:0x0a76c  mov  r4, r0
+.text:0x0a770  mov  r8, r1
+.text:0x0a774  mov  r0, r7
+.text:0x0a778  mov  r1, #0x100
+.text:0x0a77c  bl   sub_0x026fb0
+.text:0x0a780  ldr  r0,  <-- chattr -i /etc/crontab
+.text:0x0a784  bl   sub_0x0e3e0
+.text:0x0a788  ldr  r0, <-- chmod +w /etc/crontab
+
+adding the autostart entry in it:
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+.text:0x0a7dc ; xref: sub_0x0a760
+.text:0x0a7dc  ldr  r1, <-- sed -i '/%s/d' /etc/crontab
+.text:0x0a7e0  mov  r2, r5
+.text:0x0a7e4  mov  r0, r6
+   :
+.text:0x0a800  ldr  r1, <-- echo '*/1 * * * * root %s/%s %s' >> /etc/crontab
+.text:0x0a804  str  r8, [sp,#0x108+var_108]
+.text:0x0a808  bl   sub_0x0182dc
+.text:0x0a80c  mov  r0, r6
+.text:0x0a810  bl   sub_0x0e3e0
+
+create the file: /etc/.mysys, which later on found as the self copy attempt.
+---
+en_verb: be, m.word: 182.254.180.241, sent: 1
+2
+.text:0x09e68 ldr  r0, =unk_0x08c5c4  <-- address to get the cnc ip address
+.text:0x09e68 <-- go down to hard-copied data:0x08c5c8 it's the ip 182.254.180.241
+
+now we know the cnc is in 182.254.180.241 which is in:
+?
+---
+en_verb: be, m.word: 182.254.180.241, sent: 1
+2
+.text:0x09e68 ldr  r0, =unk_0x08c5c4  <-- address to get the cnc ip address
+.text:0x09e68 <-- go down to hard-copied data:0x08c5c8 it's the ip 182.254.180.241
+
+now we know the cnc is in 182.254.180.241 which is in:
+?
+---
+en_verb: None, m.word: 182.254.180.0/23, sent: 1
+2
+3
+4
+asn: 45090 / cnnic-tencent-net
+prefix: 182.254.180.0/23
+isp: comsenz technology ltd
+country: china
+..well, i am not surprised.
+---
+en_verb: connect, m.word: 23.224.59.34:48080, sent: the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+---
+en_verb: connect, m.word: 23.224.59.34:48080, sent: the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.
+---
+en_verb: modify, m.word: /etc/rc.local, sent: trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.
+---
+en_verb: None, m.word: /etc/rc.d/rc.local,, sent: trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.
+---
+en_verb: give, m.word: vaddr=0x00013dec, sent: which gives us the following output:
+
+vaddr=0x00013dec paddr=0x0000bdec ord=5366 fwd=none sz=688 bind=global type=func name=main
+nice!
+---
+en_verb: give, m.word: paddr=0x0000bdec, sent: which gives us the following output:
+
+vaddr=0x00013dec paddr=0x0000bdec ord=5366 fwd=none sz=688 bind=global type=func name=main
+nice!
+---
+en_verb: None, m.word: /proc/self/exe, sent: the main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+---
+en_verb: add, m.word: /etc/rc.local, sent: persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
+---
+en_verb: add, m.word: /etc/init.d/boot.local, sent: persistence
+persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
+---
+en_verb: execute, m.word: /etc/rc.local, sent: the /etc/rc.local will execute certain commands after all of the systems' services have started.
+---
+en_verb: format, m.word: sed, sent: a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).
+---
+en_verb: format, m.word: sed, sent: a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).
+---
+en_verb: format, m.word: /etc/rc.local, sent: a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).
+---
+en_verb: read, m.word: /proc/net/dev, sent: the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
+---
+en_verb: None, m.word: 61.147.91.53., sent: we pass in the first parameter in the register ‘r0’ from the location 0xc1fc8 which has the value of 61.147.91.53. we put the return value os gethostbyname into register r3 then preform some arithmetic on it.
+---
+en_verb: None, m.word: ‘uname’, sent: we can see that if the ‘uname’ call fails then “unknown” will be copied into the destination buffer which originally resided in r11, else if it is successful, will branch to 0xca8c.
+---
+en_verb: open, m.word: /proc/cpuinfo, sent: the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
+---
+en_verb: se, m.word: sed, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: /etc/rc.local, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: sed, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: /etc/rc.local, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: sed, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: /etc/rc.local, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: sed, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: /etc/rc.local, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: sed, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: /etc/rc.d/rc.local, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: se, m.word: sed, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: start, m.word: /etc/init.d/boot.local, sent: 
+installation
+
+this backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+backdoor routine
+
+
+---
+en_verb: gather, m.word: /proc/stat, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: gather, m.word: /proc/meminfo, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/cpuinfo, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/net/dev, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/self/exe, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/self/maps, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/vm/overcommit_memory, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/vm/overcommit_memory, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/kernel/rtsig-max, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/kernel/rtsig-max, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/kernel/ngroups_max, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/kernel/ngroups_max, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/kernel/osrelease, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/sys/kernel/osrelease, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/self/fd/%d/%s, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/self/fd, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: None, m.word: /proc/net, sent: 
+this backdoor gathers the following data:
+
+cpu information
+memory statistics
+ip address of infected machine
+reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+other details
+
+
+---
+en_verb: open, m.word: /etc/resolv.conf, sent: 
+this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache
+
+
+---
+en_verb: open, m.word: /etc/nsswitch.conf, sent: 
+this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache
+
+
+---
+en_verb: None, m.word: /etc/suid-debug, sent: 
+this backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache
+
+
+Dofloo-BleepingComputer.csv set()
+Dofloo-MalwareMustDie.csv {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '0x[0-9a-zA-Z]{8}', '^sed$'}
+Dofloo-Securityaffairs.csv {'/etc/rc', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+Dofloo-SyscallParty.csv {'/etc/rc', '0x[0-9a-zA-Z]{8}', '/etc/init.d/', '^sed$', '/proc/', 'uname(.)($)', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+Dofloo-Trendmicro.csv {'/etc/rc', 'resolv.conf', '/etc/init.d/', '^sed$', '/proc/', '/sys/', 'UID', 'nsswitch.conf'}

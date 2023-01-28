@@ -1,0 +1,9 @@
+Porcess ['kill', 'execve', 'clone', 'set_tid_address', 'fork', 'set_thread_area', 'mprotect', 'brk', 'ptrace', 'arch_prctl', 'vfork', 'wait4', 'futex', 'exit_group', 'mremap', 'waitpid', 'set_robust_list', 'nanosleep'] 
+
+File ['close', 'readlink', 'stat', 'lseek', 'openat', 'read', 'rmdir', 'mmap', 'fstat', 'rename', 'getdents', 'fstat64', 'fchmod', 'stat64', 'link', 'mmap2', 'unlinkat', 'mkdir', '_newselect', 'fcntl64', 'unlink', 'statfs', 'getcwd', 'fchown', 'ppoll', 'lstat', 'linkat', 'symlinkat', 'chdir', 'dup2', 'open', 'umask', 'newfstatat', 'symlink', 'munmap', 'fcntl', 'access', 'write'] 
+
+Device ['ioctl'] 
+
+Infomation ['uname', 'prlimit64', 'getgid', 'getegid', 'shmdt', 'getpid', 'sysinfo', 'time', 'setsid', 'shmget', 'geteuid', 'gettimeofday', 'shmat', 'getppid', 'getuid', 'ugetrlimit'] 
+
+Communication ['getsockopt', 'recv', 'socket', 'getsockname', 'bind', 'pipe', 'recvfrom', 'setsockopt', 'sendto', 'send', 'connect', 'recvmsg', 'sendmsg'] 

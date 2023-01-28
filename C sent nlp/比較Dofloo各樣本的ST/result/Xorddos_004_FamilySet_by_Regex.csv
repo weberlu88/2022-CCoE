@@ -1,0 +1,7 @@
+report_name,ttl_match,coverage_score,resolv.conf,bin/sed,/etc/sed,GID,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",/proc/,/selinux,bin/,^sh$,/sys/,UID,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+",mtab,/etc/rc,0x[0-9a-zA-Z]{8},^sed$,lsb-release,"permission:{0,1}[0-9]{0,4}",eth[0-9]$,uname(.)($),/etc/init.d/,nsswitch.conf,/hosts
+Xorddos-Cdnetworks.csv,1,0.04348,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Xorddos-Crowdstrike.csv,0,0.0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Xorddos-Intezer.csv,8,0.3478,0,0,0,1,1,1,0,1,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0
+Xorddos-Microsoft.csv,10,0.4348,1,0,0,1,0,1,0,1,1,0,1,0,0,1,1,0,0,0,1,0,1,0,0
+Xorddos-Trendmicro.csv,3,0.1304,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0
+Xorddos-Trendmicro2.csv,2,0.08696,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
