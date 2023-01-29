@@ -1,0 +1,218 @@
+=== mem_usage: 209.88 MB ===
+
+Sample Xorddos-Microsoft.csv
+	lenght of ctd's OPset is 51
+	#R_malObj
+	num of ctd objects: 12, num of asg objects: 26. R_malObj is 0.4615
+	#R_malSysObj
+	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
+len(asg_OPset): 73, len(ctd_OPset): 51
+	no.1 | asg_op <OP act=write, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.2 | asg_op <OP act=stat64, obj=/var/>, len of ctdSameObjOpsIdx: [0, 10, 11, 15, 24, 27, 28, 32, 44]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.3 | asg_op <OP act=lseek, obj=/etc/cron>, len of ctdSameObjOpsIdx: [1, 6, 31, 49]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.4 | asg_op <OP act=open, obj=/run/>, len of ctdSameObjOpsIdx: [14, 16, 23, 25, 29, 33, 47]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.5 | asg_op <OP act=stat64, obj=/run/>, len of ctdSameObjOpsIdx: [14, 16, 23, 25, 29, 33, 47]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.6 | asg_op <OP act=clone, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.7 | asg_op <OP act=fstat, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.8 | asg_op <OP act=write, obj=/etc/cron>, len of ctdSameObjOpsIdx: [1, 6, 31, 49]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.9 | asg_op <OP act=lseek, obj=/boot/>, len of ctdSameObjOpsIdx: []
+	no.10 | asg_op <OP act=shmget, obj=[a-zA-z]:\d{1,5}$>, len of ctdSameObjOpsIdx: [37, 46]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.11 | asg_op <OP act=stat, obj=bin/openrc>, len of ctdSameObjOpsIdx: []
+	no.12 | asg_op <OP act=newfstatat, obj=/proc/>, len of ctdSameObjOpsIdx: [8, 9, 12, 18, 20, 21, 30, 36, 45]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.13 | asg_op <OP act=access, obj=/selinux>, len of ctdSameObjOpsIdx: []
+	no.14 | asg_op <OP act=rename, obj=/etc/cron>, len of ctdSameObjOpsIdx: [1, 6, 31, 49]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.15 | asg_op <OP act=write, obj=/boot/>, len of ctdSameObjOpsIdx: []
+	no.16 | asg_op <OP act=readlink, obj=/proc/>, len of ctdSameObjOpsIdx: [8, 9, 12, 18, 20, 21, 30, 36, 45]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.17 | asg_op <OP act=clone, obj=/boot/>, len of ctdSameObjOpsIdx: []
+	no.18 | asg_op <OP act=lseek, obj=/var/>, len of ctdSameObjOpsIdx: [0, 10, 11, 15, 24, 27, 28, 32, 44]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.19 | asg_op <OP act=lseek, obj=/run/>, len of ctdSameObjOpsIdx: [14, 16, 23, 25, 29, 33, 47]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.20 | asg_op <OP act=fchown, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.21 | asg_op <OP act=write, obj=/var/>, len of ctdSameObjOpsIdx: [0, 10, 11, 15, 24, 27, 28, 32, 44]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.22 | asg_op <OP act=write, obj=/run/>, len of ctdSameObjOpsIdx: [14, 16, 23, 25, 29, 33, 47]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.23 | asg_op <OP act=newfstatat, obj=/run/>, len of ctdSameObjOpsIdx: [14, 16, 23, 25, 29, 33, 47]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.24 | asg_op <OP act=lstat, obj=/etc/rc>, len of ctdSameObjOpsIdx: [4]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.25 | asg_op <OP act=open, obj=/etc/init.d/>, len of ctdSameObjOpsIdx: [13, 40]
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.8828125
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.26 | asg_op <OP act=getsockopt, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.27 | asg_op <OP act=access, obj=/proc/>, len of ctdSameObjOpsIdx: [8, 9, 12, 18, 20, 21, 30, 36, 45]
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.28 | asg_op <OP act=rm, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.29 | asg_op <OP act=stat, obj=bin/sed>, len of ctdSameObjOpsIdx: []
+	no.30 | asg_op <OP act=_newselect, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$>, len of ctdSameObjOpsIdx: []
+	no.31 | asg_op <OP act=stat, obj=/perl/>, len of ctdSameObjOpsIdx: []
+	no.32 | asg_op <OP act=open, obj=/var/run/>, len of ctdSameObjOpsIdx: [3, 7, 19, 35, 41, 50]
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.33 | asg_op <OP act=exec, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.34 | asg_op <OP act=stat64, obj=/var/run/>, len of ctdSameObjOpsIdx: [3, 7, 19, 35, 41, 50]
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.35 | asg_op <OP act=wait4, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.36 | asg_op <OP act=clone, obj=^sh$>, len of ctdSameObjOpsIdx: [43]
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.37 | asg_op <OP act=rm, obj=/boot/>, len of ctdSameObjOpsIdx: []
+	no.38 | asg_op <OP act=clone, obj=^chkconfig$>, len of ctdSameObjOpsIdx: [2, 17, 34]
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.39 | asg_op <OP act=write, obj=/etc/rc>, len of ctdSameObjOpsIdx: [4]
+	before resolve 209.88671875
+	=== diff of mem_usage calling resolve(): 0.88  ===
+	no.40 | asg_op <OP act=send, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$>, len of ctdSameObjOpsIdx: []
+	no.41 | asg_op <OP act=fcntl, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.42 | asg_op <OP act=getsockname, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.43 | asg_op <OP act=_newselect, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>, len of ctdSameObjOpsIdx: []
+	no.44 | asg_op <OP act=lseek, obj=/etc/init.d/>, len of ctdSameObjOpsIdx: [13, 40]
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.45 | asg_op <OP act=waitpid, obj=^sh$>, len of ctdSameObjOpsIdx: [43]
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.46 | asg_op <OP act=exec, obj=^sed$>, len of ctdSameObjOpsIdx: []
+	no.47 | asg_op <OP act=statfs, obj=/selinux>, len of ctdSameObjOpsIdx: []
+	no.48 | asg_op <OP act=lseek, obj=/var/run/>, len of ctdSameObjOpsIdx: [3, 7, 19, 35, 41, 50]
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 0.00  ===
+	no.49 | asg_op <OP act=setsockopt, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.50 | asg_op <OP act=open, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.51 | asg_op <OP act=umask, obj=permission(\s|:)[0-9]{1,4}>, len of ctdSameObjOpsIdx: []
+	no.52 | asg_op <OP act=send, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>, len of ctdSameObjOpsIdx: []
+	no.53 | asg_op <OP act=open, obj=/proc/>, len of ctdSameObjOpsIdx: [8, 9, 12, 18, 20, 21, 30, 36, 45]
+	before resolve 210.765625
+	=== diff of mem_usage calling resolve(): 1.75  ===
+	before resolve 212.51953125
+	=== diff of mem_usage calling resolve(): 1.75  ===
+	before resolve 214.26953125
+	=== diff of mem_usage calling resolve(): 3.50  ===
+	before resolve 217.76953125
+	=== diff of mem_usage calling resolve(): 7.00  ===
+	before resolve 224.76953125
+	=== diff of mem_usage calling resolve(): 14.00  ===
+	before resolve 238.76953125
+	=== diff of mem_usage calling resolve(): 28.00  ===
+	before resolve 266.76953125
+	=== diff of mem_usage calling resolve(): 56.00  ===
+	before resolve 322.76953125
+	=== diff of mem_usage calling resolve(): 112.00  ===
+	no.54 | asg_op <OP act=write, obj=/etc/init.d/>, len of ctdSameObjOpsIdx: [13, 40]
+	before resolve 434.76953125
+	=== diff of mem_usage calling resolve(): 224.00  ===
+	before resolve 658.76953125
+	=== diff of mem_usage calling resolve(): 448.00  ===
+	no.55 | asg_op <OP act=stat64, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.56 | asg_op <OP act=write, obj=/var/run/>, len of ctdSameObjOpsIdx: [3, 7, 19, 35, 41, 50]
+	before resolve 1106.7734375
+	=== diff of mem_usage calling resolve(): 896.00  ===
+	before resolve 2002.77734375
+	=== diff of mem_usage calling resolve(): 1792.01  ===
+	before resolve 3794.78515625

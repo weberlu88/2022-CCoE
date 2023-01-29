@@ -1,0 +1,102 @@
+=== mem_usage: 209.25 MB ===
+
+Sample Xorddos-Microsoft.csv
+	lenght of ctd's OPset is 51
+	#R_malObj
+	num of ctd objects: 12, num of asg objects: 26. R_malObj is 0.4615
+	#R_malSysObj
+	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
+len(asg_OPset): 73, len(ctd_OPset): 51
+	no.1 | asg_op <OP act=stat, obj=/perl/>, len of ctdSameObjOpsIdx: []
+	no.2 | asg_op <OP act=setsockopt, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.3 | asg_op <OP act=shmget, obj=[a-zA-z]:\d{1,5}$>, len of ctdSameObjOpsIdx: [17, 32]
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+	no.4 | asg_op <OP act=getsockname, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.5 | asg_op <OP act=open, obj=/boot/>, len of ctdSameObjOpsIdx: []
+	no.6 | asg_op <OP act=exec, obj=^sed$>, len of ctdSameObjOpsIdx: []
+	no.7 | asg_op <OP act=open, obj=/var/>, len of ctdSameObjOpsIdx: [0, 1, 3, 7, 22, 30, 37, 44, 47]
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+	no.8 | asg_op <OP act=fcntl, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.9 | asg_op <OP act=newfstatat, obj=/proc/>, len of ctdSameObjOpsIdx: [2, 5, 16, 29, 35, 36, 46, 48, 49]
+=== mem_usage: 209.25 MB ===
+	no.10 | asg_op <OP act=stat64, obj=/run/>, len of ctdSameObjOpsIdx: [9, 15, 20, 23, 25, 31, 42]
+=== mem_usage: 209.25 MB ===
+	no.11 | asg_op <OP act=lseek, obj=/run/>, len of ctdSameObjOpsIdx: [9, 15, 20, 23, 25, 31, 42]
+=== mem_usage: 209.25 MB ===
+	no.12 | asg_op <OP act=lseek, obj=/var/run/>, len of ctdSameObjOpsIdx: [12, 21, 24, 26, 43, 50]
+=== mem_usage: 209.25 MB ===
+	no.13 | asg_op <OP act=lseek, obj=/etc/cron>, len of ctdSameObjOpsIdx: [8, 18, 27, 28]
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+	no.14 | asg_op <OP act=rm, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.15 | asg_op <OP act=stat64, obj=/var/run/>, len of ctdSameObjOpsIdx: [12, 21, 24, 26, 43, 50]
+=== mem_usage: 209.25 MB ===
+	no.16 | asg_op <OP act=connect, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$>, len of ctdSameObjOpsIdx: []
+	no.17 | asg_op <OP act=fstat, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.18 | asg_op <OP act=stat64, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.19 | asg_op <OP act=rm, obj=/etc/rc>, len of ctdSameObjOpsIdx: [33]
+=== mem_usage: 209.25 MB ===
+	no.20 | asg_op <OP act=write, obj=/run/>, len of ctdSameObjOpsIdx: [9, 15, 20, 23, 25, 31, 42]
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+	no.21 | asg_op <OP act=lseek, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.22 | asg_op <OP act=exit_group, obj=[a-zA-z]:\d{1,5}$>, len of ctdSameObjOpsIdx: [17, 32]
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.25 MB ===
+	no.23 | asg_op <OP act=umask, obj=permission(\s|:)[0-9]{1,4}>, len of ctdSameObjOpsIdx: []
+	no.24 | asg_op <OP act=clone, obj=^sh$>, len of ctdSameObjOpsIdx: [11]
+=== mem_usage: 209.25 MB ===
+	no.25 | asg_op <OP act=fchmod, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.26 | asg_op <OP act=send, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$>, len of ctdSameObjOpsIdx: []
+	no.27 | asg_op <OP act=clone, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.28 | asg_op <OP act=connect, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>, len of ctdSameObjOpsIdx: []
+	no.29 | asg_op <OP act=write, obj=/var/run/>, len of ctdSameObjOpsIdx: [12, 21, 24, 26, 43, 50]
+=== mem_usage: 209.25 MB ===
+=== mem_usage: 209.54 MB ===
+	no.30 | asg_op <OP act=write, obj=/etc/cron>, len of ctdSameObjOpsIdx: [8, 18, 27, 28]
+=== mem_usage: 211.29 MB ===
+	no.31 | asg_op <OP act=fchown, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.32 | asg_op <OP act=newfstatat, obj=/run/>, len of ctdSameObjOpsIdx: [9, 15, 20, 23, 25, 31, 42]
+=== mem_usage: 211.29 MB ===
+	no.33 | asg_op <OP act=write, obj=/etc/sed>, len of ctdSameObjOpsIdx: []
+	no.34 | asg_op <OP act=lseek, obj=/etc/init.d/>, len of ctdSameObjOpsIdx: [38, 40]
+=== mem_usage: 211.29 MB ===
+=== mem_usage: 211.29 MB ===
+	no.35 | asg_op <OP act=write, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.36 | asg_op <OP act=send, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>, len of ctdSameObjOpsIdx: []
+	no.37 | asg_op <OP act=open, obj=/run/>, len of ctdSameObjOpsIdx: [9, 15, 20, 23, 25, 31, 42]
+=== mem_usage: 213.04 MB ===
+=== mem_usage: 216.54 MB ===
+	no.38 | asg_op <OP act=open, obj=/etc/cron>, len of ctdSameObjOpsIdx: [8, 18, 27, 28]
+=== mem_usage: 223.54 MB ===
+	no.39 | asg_op <OP act=rename, obj=/etc/cron>, len of ctdSameObjOpsIdx: [8, 18, 27, 28]
+=== mem_usage: 237.54 MB ===
+	no.40 | asg_op <OP act=open, obj=/var/run/>, len of ctdSameObjOpsIdx: [12, 21, 24, 26, 43, 50]
+=== mem_usage: 265.54 MB ===
+=== mem_usage: 321.54 MB ===
+	no.41 | asg_op <OP act=waitpid, obj=^sh$>, len of ctdSameObjOpsIdx: [11]
+=== mem_usage: 321.54 MB ===
+	no.42 | asg_op <OP act=write, obj=/etc/rc>, len of ctdSameObjOpsIdx: [33]
+=== mem_usage: 433.54 MB ===
+	no.43 | asg_op <OP act=clone, obj=update-rc.d>, len of ctdSameObjOpsIdx: [41]
+=== mem_usage: 433.54 MB ===
+	no.44 | asg_op <OP act=lstat, obj=/etc/rc>, len of ctdSameObjOpsIdx: [33]
+=== mem_usage: 433.54 MB ===
+	no.45 | asg_op <OP act=write, obj=/etc/init.d/>, len of ctdSameObjOpsIdx: [38, 40]
+=== mem_usage: 657.54 MB ===
+	no.46 | asg_op <OP act=getsockopt, obj=^systemctl$>, len of ctdSameObjOpsIdx: []
+	no.47 | asg_op <OP act=open, obj=/boot/[a-z]{10}>, len of ctdSameObjOpsIdx: []
+	no.48 | asg_op <OP act=open, obj=/proc/rs_dev>, len of ctdSameObjOpsIdx: [14, 34, 45]
+=== mem_usage: 1105.55 MB ===
+=== mem_usage: 2001.55 MB ===

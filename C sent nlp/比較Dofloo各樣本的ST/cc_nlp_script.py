@@ -10,6 +10,7 @@ from spacy import displacy
 from spacy.lang.char_classes import ALPHA, ALPHA_LOWER, ALPHA_UPPER, HYPHENS
 from spacy.lang.char_classes import CONCAT_QUOTES, LIST_ELLIPSES, LIST_ICONS
 from spacy.util import compile_infix_regex
+import os, psutil
 
 # https://stackoverflow.com/questions/66636097/prevent-spacy-tokenizer-from-splitting-on-specific-character
 def prepare_nlp() -> Callable:
@@ -104,7 +105,7 @@ class OperationEvaluator:
             self.mode_verb_convertor[opMode] = string.split('、')
         # syscall belongs to mode
         syscall_mode_table = {
-            OperationMode.FILE_READ: "linkat()、statfs()、stat()、lseek()、readlink()、munmap()、stat64()、access() 、link()、lstat()、ppoll()、getcwd()、read()、fstat64()、dup2()、fstat()、fcntl64()、symlinkat()、umask()、newfstatat()、symlink()、getdents()、fcntl()、_newselect()、chdir()、close()",
+            OperationMode.FILE_READ: "linkat()、statfs()、stat()、lseek()、readlink()、munmap()、stat64()、access()、link()、lstat()、ppoll()、getcwd()、read()、fstat64()、dup2()、fstat()、fcntl64()、symlinkat()、umask()、newfstatat()、symlink()、getdents()、fcntl()、_newselect()、chdir()、close()",
             OperationMode.FILE_CUD: "rmdir()、mmap()、rename()、fchmod()、mmap2()、mkdir()、fchown()、write()、open()、openat()、unlink()、unlinkat()、remove()",
             OperationMode.PROCESS_EXE: "execve()、clone()、fork()、vfork()",
             OperationMode.PROCESS_KILL: "kill()",
@@ -128,14 +129,27 @@ class OperationEvaluator:
         # print(self.syscall_convertor)
         pass
 
+    def _print_mem_usage(self):
+        # process = psutil.Process(os.getpid())
+        mem_usage = psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2
+        print(f"=== mem_usage: {mem_usage:.2f} MB ===")  # in MiB 
+
+    def _get_mem_usage(self) -> int:
+        # process = psutil.Process(os.getpid())
+        mem_usage = psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2
+        return mem_usage
+
     def resolve(self, syscall:str, en_verb:str) -> bool:
         '''Determine if syscall matches en_verb (lemma). Return True if match, otherwise False.'''
         mode = self.syscall_convertor.get(syscall, None)
         if mode is None:
             return False
-        acceptable_modes:list = [mode]
+        # acceptable_modes:list = [mode]
         # mode_expansion:dict = {} # mode 一對一對應，不做向下兼容 (CUD不包含read)
+        # mem_before_create_lst = self._get_mem_usage()
         verb_list:list = self.mode_verb_convertor.get(mode, None)
+        # mem_after_create_lst = self._get_mem_usage()
+        # print(f"\t=== diff of mem_usage calling self.mode_verb_convertor.get(): {mem_after_create_lst - mem_before_create_lst:.2f}  ===")
         if mode == OperationMode.FILE_CUD:
             verb_list += self.mode_verb_convertor[OperationMode.FILE_CUD]
         if verb_list is None:
