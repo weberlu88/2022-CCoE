@@ -153,9 +153,12 @@ class OperationEvaluator:
         if mode == OperationMode.FILE_CUD:
             verb_list += self.mode_verb_convertor[OperationMode.FILE_CUD]
         if verb_list is None:
+            del en_verb
             return False
         if en_verb in verb_list:
+            del en_verb
             return True
+        del en_verb
         return False
 
 if __name__ == '__main__':

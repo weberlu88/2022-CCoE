@@ -1,0 +1,141 @@
+=== mem_usage: 211.21 MB ===
+asg_object: {'^pipe(\\$|\\.|$)', '/selinux', 'update-rc.d', '/boot/[a-z]{10}', '/proc/', '/etc/init.d/', '/proc/rs_dev', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d{1,5}$', '^sh$', '[a-zA-z]:\\d{1,5}$', '/etc/sed', '^sed$', '^systemctl$', '/perl/', '/var/run/', '/etc/cron', 'bin/insserv', '/var/', '^chkconfig$', '/boot/', 'bin/sed', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'permission(\\s|:)[0-9]{1,4}', '/etc/rc', '/run/', 'bin/openrc'}
+
+
+Sample Xorddos-Cdnetworks.csv
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 26. R_malObj is 0.0000
+	> ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+	len(asg_OPset): 73, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 15. R_malChangeOps is 0.0000
+
+Sample Xorddos-Crowdstrike.csv
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 26. R_malObj is 0.0000
+	> ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+	len(asg_OPset): 73, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 15. R_malChangeOps is 0.0000
+
+Sample Xorddos-Intezer.csv
+	lenght of ctd's OPset is 7
+	#R_malObj
+	num of ctd objects: 4, num of asg objects: 26. R_malObj is 0.1538
+	> ctd_object: {'/etc/init.d/', '/etc/rc', '/proc/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+	len(asg_OPset): 73, len(ctd_OPset): 7
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 73. R_malOps is 0.0137
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 15. R_malChangeOps is 0.0000
+
+	hits
+	<OP act=open, obj=/proc/>, <OP act=extract, obj=/proc/>
+
+Sample Xorddos-Microsoft.csv
+	lenght of ctd's OPset is 51
+	#R_malObj
+	num of ctd objects: 12, num of asg objects: 26. R_malObj is 0.4615
+	> ctd_object: {'/etc/init.d/', '/proc/rs_dev', '/var/run/', '/run/', '/etc/cron', '/var/', '^chkconfig$', '/etc/rc', '^sh$', '/proc/', 'update-rc.d', '[a-zA-z]:\\d{1,5}$'}
+	#R_malSysObj
+	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
+	len(asg_OPset): 73, len(ctd_OPset): 51
+	#R_malOps
+	num of matched asg op: 26, num of asg op: 73. R_malOps is 0.3562
+	#R_malChangeOps
+	num of matched asg op: 5, num of asg op: 15. R_malChangeOps is 0.3333
+
+	hits
+	<OP act=access, obj=/proc/>, <OP act=check, obj=/proc/>
+	<OP act=open, obj=/var/run/>, <OP act=create, obj=/var/run/>
+	<OP act=open, obj=/run/>, <OP act=create, obj=/run/>
+	<OP act=write, obj=/var/>, <OP act=create, obj=/var/>
+	<OP act=open, obj=/proc/>, <OP act=use, obj=/proc/>
+	<OP act=umask, obj=[a-zA-z]:\d{1,5}$>, <OP act=fetch, obj=[a-zA-z]:\d{1,5}$>
+	<OP act=rename, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=open, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=stat64, obj=/var/run/>, <OP act=read, obj=/var/run/>
+	<OP act=newfstatat, obj=/run/>, <OP act=read, obj=/run/>
+	<OP act=stat64, obj=/run/>, <OP act=read, obj=/run/>
+	<OP act=lseek, obj=/var/>, <OP act=read, obj=/var/>
+	<OP act=newfstatat, obj=/proc/>, <OP act=check, obj=/proc/>
+	<OP act=write, obj=/etc/init.d/>, <OP act=drop, obj=/etc/init.d/>
+	<OP act=open, obj=/var/>, <OP act=create, obj=/var/>
+	<OP act=write, obj=/var/run/>, <OP act=create, obj=/var/run/>
+	<OP act=clone, obj=^chkconfig$>, <OP act=perform, obj=^chkconfig$>
+	<OP act=write, obj=/run/>, <OP act=create, obj=/run/>
+	<OP act=open, obj=/proc/rs_dev>, <OP act=use, obj=/proc/rs_dev>
+	<OP act=stat, obj=/run/>, <OP act=read, obj=/run/>
+	<OP act=readlink, obj=/proc/>, <OP act=check, obj=/proc/>
+	<OP act=stat64, obj=/var/>, <OP act=read, obj=/var/>
+	<OP act=lseek, obj=/var/run/>, <OP act=read, obj=/var/run/>
+	<OP act=write, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=open, obj=/etc/init.d/>, <OP act=drop, obj=/etc/init.d/>
+	<OP act=lseek, obj=/run/>, <OP act=read, obj=/run/>
+
+	sys_hits
+	<OP act=rename, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=open, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=write, obj=/etc/init.d/>, <OP act=drop, obj=/etc/init.d/>
+	<OP act=write, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=open, obj=/etc/init.d/>, <OP act=drop, obj=/etc/init.d/>
+
+Sample Xorddos-Trendmicro.csv
+	lenght of ctd's OPset is 6
+	#R_malObj
+	num of ctd objects: 6, num of asg objects: 26. R_malObj is 0.2308
+	> ctd_object: {'/etc/rc', '/run/', '/var/run/', '/var/', '/etc/cron', '[a-zA-z]:\\d{1,5}$'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+	len(asg_OPset): 73, len(ctd_OPset): 6
+	#R_malOps
+	num of matched asg op: 11, num of asg op: 73. R_malOps is 0.1507
+	#R_malChangeOps
+	num of matched asg op: 3, num of asg op: 15. R_malChangeOps is 0.2000
+
+	hits
+	<OP act=rename, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=open, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=stat64, obj=/var/run/>, <OP act=read, obj=/var/run/>
+	<OP act=newfstatat, obj=/run/>, <OP act=read, obj=/run/>
+	<OP act=stat64, obj=/run/>, <OP act=read, obj=/run/>
+	<OP act=lseek, obj=/var/>, <OP act=read, obj=/var/>
+	<OP act=stat, obj=/run/>, <OP act=read, obj=/run/>
+	<OP act=stat64, obj=/var/>, <OP act=read, obj=/var/>
+	<OP act=lseek, obj=/var/run/>, <OP act=read, obj=/var/run/>
+	<OP act=write, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=lseek, obj=/run/>, <OP act=read, obj=/run/>
+
+	sys_hits
+	<OP act=rename, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=open, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+	<OP act=write, obj=/etc/cron>, <OP act=drop, obj=/etc/cron>
+
+Sample Xorddos-Trendmicro2.csv
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 26. R_malObj is 0.0385
+	> ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+	len(asg_OPset): 73, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 73. R_malOps is 0.0274
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 15. R_malChangeOps is 0.0000
+
+	hits
+	<OP act=_newselect, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>, <OP act=find, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>
+	<OP act=send, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>, <OP act=wget, obj=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}>

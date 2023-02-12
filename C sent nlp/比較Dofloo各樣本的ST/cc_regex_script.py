@@ -52,7 +52,7 @@ class RegexMaster:
                 "uname": r"uname(\$|\.|$)"}
             self.regex_process = {
                 "command": ["^sed$", "^sh$", "^chkconfig$", "^systemctl$", "update-rc.d"],
-                "execution file created by xorddos": "/boot/[a-z]{10}", 
+                "execution file created by xorddos": "/boot/[a-z]{10}", # 重複了?
                 "pipe": r"^pipe(\$|\.|$)",}
             self.regex_net = {
                 "ip":r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", 
