@@ -1409,7 +1409,7 @@ class AttackGraph:
 
             # if fd exist in fd table 
             if path:
-                if path[0] != "/":
+                if len(path) >= 1 and path[0] != "/":
                     path = self.current_dir + path
                 
                 ### hard filter the /lib/*、 /etc/ld.so ###
@@ -2142,7 +2142,7 @@ class AttackGraph:
         if not info:
             return
         path = info['path']
-        if path[0] != "/":
+        if len(path) >= 1 and path[0] != "/":
             path = self.current_dir + path
             
         ### hard filter the /lib/*、 /etc/ld.so ###
