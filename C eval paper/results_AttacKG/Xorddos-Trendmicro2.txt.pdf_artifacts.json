@@ -1,0 +1,844 @@
+{
+    "15": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "30": {
+        "type": "network",
+        "nlp": [
+            "server",
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "49": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "59": {
+        "type": "executable",
+        "nlp": [
+            "noel collado"
+        ],
+        "ioc": []
+    },
+    "89": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "99": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "104": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "107": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "backdoor.linux.xorddos.ae"
+        ]
+    },
+    "117": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "131": {
+        "type": "file",
+        "nlp": [
+            "development"
+        ],
+        "ioc": []
+    },
+    "144": {
+        "type": "network",
+        "nlp": [
+            "systems",
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "164": {
+        "type": "file",
+        "nlp": [
+            "devices"
+        ],
+        "ioc": []
+    },
+    "166": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "183": {
+        "type": "executable",
+        "nlp": [
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "221": {
+        "type": "file",
+        "nlp": [
+            "communication"
+        ],
+        "ioc": []
+    },
+    "234": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "247": {
+        "type": "network",
+        "nlp": [
+            "hosted",
+            "server"
+        ],
+        "ioc": []
+    },
+    "253": {
+        "type": "network",
+        "nlp": [
+            "hosted",
+            "server"
+        ],
+        "ioc": []
+    },
+    "269": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "272": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "278": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "289": {
+        "type": "file",
+        "nlp": [
+            "disable"
+        ],
+        "ioc": []
+    },
+    "297": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "302": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "310": {
+        "type": "system",
+        "nlp": [
+            "systems",
+            "system"
+        ],
+        "ioc": []
+    },
+    "329": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "336": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "339": {
+        "type": "network",
+        "nlp": [
+            "ports",
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "353": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "362": {
+        "type": "network",
+        "nlp": [
+            "server"
+        ],
+        "ioc": []
+    },
+    "367": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "373": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "385": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "389": {
+        "type": "network",
+        "nlp": [
+            "url",
+            "hosted"
+        ],
+        "ioc": [
+            "http://122.51.133.49:10086/vip"
+        ]
+    },
+    "399": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "404": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "414": {
+        "type": "network",
+        "nlp": [
+            "the xor-key"
+        ],
+        "ioc": []
+    },
+    "430": {
+        "type": "file",
+        "nlp": [
+            "communicate"
+        ],
+        "ioc": []
+    },
+    "433": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "437": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "c&c"
+        ],
+        "ioc": [
+            "backdoor.linux.xorddos.ae"
+        ]
+    },
+    "470": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "477": {
+        "type": "network",
+        "nlp": [
+            "dns"
+        ],
+        "ioc": []
+    },
+    "487": {
+        "type": "network",
+        "nlp": [
+            "snippet"
+        ],
+        "ioc": []
+    },
+    "511": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "514": {
+        "type": "file",
+        "nlp": [
+            "updating"
+        ],
+        "ioc": []
+    },
+    "529": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    },
+    "540": {
+        "type": "network",
+        "nlp": [
+            "relevant"
+        ],
+        "ioc": []
+    },
+    "543": {
+        "type": "file",
+        "nlp": [
+            "attempt"
+        ],
+        "ioc": []
+    },
+    "558": {
+        "type": "network",
+        "nlp": [
+            "network",
+            "running",
+            "running process"
+        ],
+        "ioc": []
+    },
+    "588": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "595": {
+        "type": "network",
+        "nlp": [
+            "url"
+        ],
+        "ioc": []
+    },
+    "596": {
+        "type": "network",
+        "nlp": [
+            "linked",
+            "dofloo"
+        ],
+        "ioc": []
+    },
+    "599": {
+        "type": "actor",
+        "nlp": [
+            "attacker"
+        ],
+        "ioc": []
+    },
+    "604": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "607": {
+        "type": "file",
+        "nlp": [
+            "backdoor.linux.dofloo.ab"
+        ],
+        "ioc": []
+    },
+    "617": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "630": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "635": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "646": {
+        "type": "file",
+        "nlp": [
+            "propagation"
+        ],
+        "ioc": []
+    },
+    "655": {
+        "type": "network",
+        "nlp": [
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "676": {
+        "type": "file",
+        "nlp": [
+            "container"
+        ],
+        "ioc": []
+    },
+    "684": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "payload"
+        ],
+        "ioc": []
+    },
+    "686": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "123.sh"
+        ]
+    },
+    "695": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "trojan.sh"
+        ]
+    },
+    "702": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "710": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "718": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "payload"
+        ],
+        "ioc": []
+    },
+    "731": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "757": {
+        "type": "network",
+        "nlp": [
+            "url",
+            "snippet showing"
+        ],
+        "ioc": []
+    },
+    "766": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "payload"
+        ],
+        "ioc": []
+    },
+    "774": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "payload"
+        ],
+        "ioc": []
+    },
+    "787": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "points",
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "818": {
+        "type": "file",
+        "nlp": [
+            "host",
+            "information directories",
+            "actors"
+        ],
+        "ioc": []
+    },
+    "821": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "information directories",
+            "actors"
+        ],
+        "ioc": []
+    },
+    "826": {
+        "type": "network",
+        "nlp": [
+            "running"
+        ],
+        "ioc": []
+    },
+    "834": {
+        "type": "network",
+        "nlp": [
+            "seen"
+        ],
+        "ioc": []
+    },
+    "840": {
+        "type": "actor",
+        "nlp": [
+            "host",
+            "information directories",
+            "actors"
+        ],
+        "ioc": []
+    },
+    "892": {
+        "type": "file",
+        "nlp": [
+            "attractive",
+            "cybercriminals"
+        ],
+        "ioc": []
+    },
+    "903": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "907": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploit"
+        ],
+        "ioc": []
+    },
+    "921": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": []
+    },
+    "941": {
+        "type": "network",
+        "nlp": [
+            "networking"
+        ],
+        "ioc": []
+    },
+    "947": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "974": {
+        "type": "registry",
+        "nlp": [
+            "registry"
+        ],
+        "ioc": []
+    },
+    "985": {
+        "type": "file",
+        "nlp": [
+            "pipeline"
+        ],
+        "ioc": []
+    },
+    "1010": {
+        "type": "file",
+        "nlp": [
+            "security tools"
+        ],
+        "ioc": []
+    },
+    "1027": {
+        "type": "actor",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "1030": {
+        "type": "file",
+        "nlp": [
+            "security"
+        ],
+        "ioc": []
+    },
+    "1035": {
+        "type": "file",
+        "nlp": [
+            "security"
+        ],
+        "ioc": []
+    },
+    "1045": {
+        "type": "network",
+        "nlp": [
+            "cloud workloads"
+        ],
+        "ioc": []
+    },
+    "1074": {
+        "type": "executable",
+        "nlp": [
+            "container image"
+        ],
+        "ioc": []
+    },
+    "1076": {
+        "type": "registry",
+        "nlp": [
+            "registry"
+        ],
+        "ioc": []
+    },
+    "1155": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "256"
+        ],
+        "ioc": []
+    },
+    "1161": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "software",
+            "smart"
+        ],
+        "ioc": [
+            "123.sh"
+        ]
+    },
+    "1163": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8"
+        ]
+    },
+    "1165": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "trojan.sh"
+        ]
+    },
+    "1169": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56"
+        ]
+    },
+    "1173": {
+        "type": "network",
+        "nlp": [
+            "urls",
+            "url"
+        ],
+        "ioc": [
+            "http://62.171.160.189/11/123.sh",
+            "http://122.51.133.49:10086/vip",
+            "http://62.171.160.189/linux_arm"
+        ]
+    },
+    "1183": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "1187": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "the"
+        ],
+        "ioc": [
+            "backdoor.linux.xorddos.ae"
+        ]
+    },
+    "1189": {
+        "type": "network",
+        "nlp": [
+            "url"
+        ],
+        "ioc": []
+    },
+    "1201": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c",
+            "dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3",
+            "286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe"
+        ]
+    },
+    "35": {
+        "type": "network",
+        "nlp": [
+            "server",
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "191": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "349": {
+        "type": "network",
+        "nlp": [
+            "ports",
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "415": {
+        "type": "network",
+        "nlp": [
+            "the xor-key"
+        ],
+        "ioc": []
+    },
+    "441": {
+        "type": "network",
+        "nlp": [
+            "the xor-key"
+        ],
+        "ioc": []
+    },
+    "666": {
+        "type": "network",
+        "nlp": [
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "737": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "payload"
+        ],
+        "ioc": []
+    },
+    "846": {
+        "type": "actor",
+        "nlp": [
+            "host",
+            "information directories",
+            "actors"
+        ],
+        "ioc": []
+    },
+    "864": {
+        "type": "actor",
+        "nlp": [
+            "host",
+            "information directories",
+            "actors"
+        ],
+        "ioc": []
+    }
+}

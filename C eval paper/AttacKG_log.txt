@@ -1,0 +1,141 @@
+--
+Dofloo-BleepingComputer
+num of object-like items 66, num of dependencies 49
+
+Contains actions:
+
+Contains 0 matched objects in report: 
+set()
+--
+Dofloo-MalwareMustDie
+num of object-like items 281, num of dependencies 150
+
+Contains actions:
+{'type': 'executable', 'data': ['executable']} -> 0x0002fc10
+{'type': 'file', 'data': ['data:0x08c5c8', 'unk_0x08c5c4 <']} -> 182.254.180.241
+
+Contains 2 matched objects in report: 
+{'0x[0-9a-zA-Z]{8}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+--
+Dofloo-Securityaffairs
+num of object-like items 51, num of dependencies 39
+
+Contains actions:
+{'type': 'file', 'data': ['48080']} -> 23.224.59.34
+{'type': 'executable', 'data': ['commands']} -> 23.224.59.34
+{'type': 'file', 'data': ['algorithm', 'files']} -> /rc.local
+
+Contains 2 matched objects in report: 
+{'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'rc.local'}
+--
+Dofloo-Trendmicro
+num of object-like items 33, num of dependencies 21
+
+Contains actions:
+{'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /suid-debug
+{'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /proc/
+{'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /suid-debug
+
+Contains 4 matched objects in report: 
+{'UID', 'rc.local', '/proc/', '/sys/'}
+--
+Xorddos-Cdnetworks
+num of object-like items 54, num of dependencies 24
+
+Contains actions:
+
+Contains 0 matched objects in report: 
+set()
+--
+Xorddos-Crowdstrike
+num of object-like items 113, num of dependencies 76
+
+Contains actions:
+
+Contains 0 matched objects in report: 
+set()
+--
+Xorddos-Intezer
+num of object-like items 257, num of dependencies 136
+
+Contains actions:
+{'type': 'executable', 'data': ['/proc/']} -> 127.0.0.1
+{'type': 'system', 'data': ['system']} -> 127.0.0.1
+{'type': 'file', 'data': ['0a76c55fa88d4c134012a5136c09fb938b4be88a382f88bf2804043253b0559f', 'file']} -> 34.92.228.216
+{'type': 'executable', 'data': ['0423258b94e8a9af58ad63ea493818618de2d8c60cf75ec7980edcaa34dcc919', 'file', 'sample']} -> 158.247.208.230
+
+Contains 2 matched objects in report: 
+{'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/'}
+--
+Xorddos-MS
+num of object-like items 716, num of dependencies 512
+
+Contains actions:
+{'type': 'network', 'data': ['host', 'libudev.so']} -> /usr/bin/
+{'type': 'file', 'data': ['arguments']} -> resolv.conf
+{'type': 'network', 'data': ['strace']} -> /proc/$pid
+{'type': 'executable', 'data': ['information', 'integer array', 'ioctl calls', 'malware', 'provision for communicating', 'sending input']} -> /proc/rs_dev
+{'type': 'file', 'data': ['information', 'integer array', 'ioctl calls', 'malware', 'provision for communicating', 'sending input']} -> /proc/rs_dev
+{'type': 'file', 'data': ['connection information']} -> /proc/net/tcp
+{'type': 'file', 'data': ['connection information']} -> /proc/net/udp
+{'type': 'file', 'data': ['connection information']} -> /proc/net/tcp
+{'type': 'file', 'data': ['connection information']} -> /proc/net/udp
+{'type': 'file', 'data': ['/', 'files', 'netstat']} -> /proc/net/tcp
+{'type': 'file', 'data': ['/', 'files', 'netstat']} -> /proc/net/udp
+{'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/udp6
+{'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/tcp6
+{'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/udp
+{'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/tcp
+{'type': 'executable', 'data': ['description']} -> /proc/net/tcp
+{'type': 'executable', 'data': ['description']} -> /proc/net/tcp6
+{'type': 'executable', 'data': ['description']} -> /proc/net/udp
+{'type': 'executable', 'data': ['description']} -> /proc/net/udp6
+{'type': 'executable', 'data': ['script']} -> /proc/net/udp6
+{'type': 'executable', 'data': ['script']} -> /proc/net/udp
+{'type': 'executable', 'data': ['command', 'malware', 'scripts', 'services']} -> init.d/<base_file_name
+{'type': 'executable', 'data': ['scripts']} -> init.d/<base_file_name
+{'type': 'executable', 'data': ['command', 'malware', 'scripts', 'services']} -> init.d/<base_file_name
+{'type': 'executable', 'data': ['first parameter']} -> /proc/self/
+{'type': 'executable', 'data': ['argument', 'malware']} -> /usr/bin/jwvwvxoupv
+{'type': 'system', 'data': ['services']} -> init.d/<file_name
+{'type': 'executable', 'data': ['command', 'malware']} -> /usr/bin/jwvwvxoupv
+{'type': 'executable', 'data': ['command', 'malware']} -> /usr/bin/kagbjahdic
+{'type': 'executable', 'data': ['command', 'malware']} -> resolv.conf
+{'type': 'executable', 'data': ['commands']} -> /usr/bin/jwvwvxoupv
+{'type': 'executable', 'data': ['commands']} -> /usr/bin/kagbjahdic
+{'type': 'executable', 'data': ['commands']} -> resolv.conf
+{'type': 'file', 'data': ['attempts']} -> /usr/bin/
+{'type': 'file', 'data': ['communicate']} -> /proc/rs_dev
+{'type': 'executable', 'data': ['malware']} -> /proc/rs_dev
+{'type': 'file', 'data': ['attempts']} -> /proc/rs_dev
+{'type': 'file', 'data': ['microsoft 365 defender']} -> suid/sgid
+{'type': 'file', 'data': ['microsoft 365 defender']} -> suid/sgid
+{'type': 'file', 'data': ['microsoft 365 defender']} -> suid/sgid
+{'type': 'file', 'data': ['microsoft 365 defender']} -> suid/sgid
+{'type': 'system', 'data': ['system']} -> suid/sgid
+{'type': 'system', 'data': ['system']} -> suid/sgid
+{'type': 'file', 'data': ['175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4', '360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd', '9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489', 'b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a', 'd71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7', 'dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7', 'ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e', 'file']} -> /tmp/bin/3200
+{'type': 'file', 'data': ['483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25', 'c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea', 'file']} -> /tmp/bin/3200
+{'type': 'executable', 'data': ['installation requirements', 'kernel']} -> /proc/rs_dev
+{'type': 'executable', 'data': ['malware']} -> /proc/rs_dev
+
+Contains 7 matched objects in report: 
+{'0x[0-9a-zA-Z]{8}', 'resolv.conf', 'bin/', 'UID', 'GID', 'init.d', '/proc/'}
+--
+Xorddos-Trendmicro
+num of object-like items 70, num of dependencies 51
+
+Contains actions:
+
+Contains 1 matched objects in report: 
+{'permission:{0,1}[0-9]{0,4}'}
+--
+Xorddos-Trendmicro2
+num of object-like items 110, num of dependencies 73
+
+Contains actions:
+{'type': 'executable', 'data': ['malware']} -> http://122.51.133.49:10086/vip
+{'type': 'executable', 'data': ['malware']} -> http://122.51.133.49:10086/vip
+
+Contains 2 matched objects in report: 
+{'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}

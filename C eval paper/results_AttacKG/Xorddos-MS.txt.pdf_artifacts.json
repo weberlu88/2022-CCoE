@@ -1,0 +1,5477 @@
+{
+    "19": {
+        "type": "executable",
+        "nlp": [
+            "payload",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "30": {
+        "type": "network",
+        "nlp": [
+            "september"
+        ],
+        "ioc": []
+    },
+    "36": {
+        "type": "file",
+        "nlp": [
+            "information"
+        ],
+        "ioc": []
+    },
+    "53": {
+        "type": "file",
+        "nlp": [
+            "details"
+        ],
+        "ioc": []
+    },
+    "57": {
+        "type": "executable",
+        "nlp": [
+            "rootkit component"
+        ],
+        "ioc": []
+    },
+    "65": {
+        "type": "network",
+        "nlp": [
+            "sample"
+        ],
+        "ioc": []
+    },
+    "82": {
+        "type": "file",
+        "nlp": [
+            "254%"
+        ],
+        "ioc": []
+    },
+    "96": {
+        "type": "file",
+        "nlp": [
+            "2014"
+        ],
+        "ioc": []
+    },
+    "101": {
+        "type": "executable",
+        "nlp": [
+            "malwaremustdie"
+        ],
+        "ioc": []
+    },
+    "112": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "118": {
+        "type": "file",
+        "nlp": [
+            "endpoints"
+        ],
+        "ioc": []
+    },
+    "133": {
+        "type": "file",
+        "nlp": [
+            "communications"
+        ],
+        "ioc": []
+    },
+    "140": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "147": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "155": {
+        "type": "executable",
+        "nlp": [
+            "cloud infrastructures"
+        ],
+        "ioc": []
+    },
+    "159": {
+        "type": "file",
+        "nlp": [
+            "things ("
+        ],
+        "ioc": []
+    },
+    "186": {
+        "type": "network",
+        "nlp": [
+            "denial-of-"
+        ],
+        "ioc": []
+    },
+    "190": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "209": {
+        "type": "file",
+        "nlp": [
+            "2.4",
+            "such",
+            "devices"
+        ],
+        "ioc": []
+    },
+    "216": {
+        "type": "network",
+        "nlp": [
+            "microsoft"
+        ],
+        "ioc": []
+    },
+    "249": {
+        "type": "file",
+        "nlp": [
+            "activities"
+        ],
+        "ioc": []
+    },
+    "253": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "257": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "267": {
+        "type": "file",
+        "nlp": [
+            "devices"
+        ],
+        "ioc": []
+    },
+    "278": {
+        "type": "executable",
+        "nlp": [
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "286": {
+        "type": "network",
+        "nlp": [
+            "remote control"
+        ],
+        "ioc": []
+    },
+    "285": {
+        "type": "network",
+        "nlp": [
+            "remote control"
+        ],
+        "ioc": []
+    },
+    "289": {
+        "type": "file",
+        "nlp": [
+            "devices"
+        ],
+        "ioc": []
+    },
+    "291": {
+        "type": "executable",
+        "nlp": [
+            "protocols",
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "308": {
+        "type": "network",
+        "nlp": [
+            "networks"
+        ],
+        "ioc": []
+    },
+    "310": {
+        "type": "network",
+        "nlp": [
+            "remote"
+        ],
+        "ioc": []
+    },
+    "311": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "321": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "328": {
+        "type": "system",
+        "nlp": [
+            "credentials"
+        ],
+        "ioc": []
+    },
+    "332": {
+        "type": "executable",
+        "nlp": [
+            "root",
+            "script",
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "333": {
+        "type": "file",
+        "nlp": [
+            "privileges"
+        ],
+        "ioc": []
+    },
+    "370": {
+        "type": "executable",
+        "nlp": [
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "384": {
+        "type": "file",
+        "nlp": [
+            "analysis",
+            "file"
+        ],
+        "ioc": []
+    },
+    "412": {
+        "type": "file",
+        "nlp": [
+            "files",
+            "analysis",
+            "activities"
+        ],
+        "ioc": []
+    },
+    "431": {
+        "type": "network",
+        "nlp": [
+            "support different"
+        ],
+        "ioc": []
+    },
+    "437": {
+        "type": "file",
+        "nlp": [
+            "flow",
+            "diagram"
+        ],
+        "ioc": []
+    },
+    "445": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "448": {
+        "type": "actor",
+        "nlp": [
+            "attacker"
+        ],
+        "ioc": []
+    },
+    "455": {
+        "type": "executable",
+        "nlp": [
+            "brute",
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "462": {
+        "type": "file",
+        "nlp": [
+            "xorddos"
+        ],
+        "ioc": []
+    },
+    "465": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "475": {
+        "type": "network",
+        "nlp": [
+            "server",
+            "connecting"
+        ],
+        "ioc": []
+    },
+    "478": {
+        "type": "actor",
+        "nlp": [
+            "attacker"
+        ],
+        "ioc": []
+    },
+    "480": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "487": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "490": {
+        "type": "file",
+        "nlp": [
+            "1"
+        ],
+        "ioc": []
+    },
+    "498": {
+        "type": "executable",
+        "nlp": [
+            "platforms",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "535": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "xmrig coin"
+        ],
+        "ioc": []
+    },
+    "561": {
+        "type": "executable",
+        "nlp": [
+            "payloads"
+        ],
+        "ioc": []
+    },
+    "582": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender",
+            "chain",
+            "endpoints",
+            "modular"
+        ],
+        "ioc": []
+    },
+    "618": {
+        "type": "actor",
+        "nlp": [
+            "post"
+        ],
+        "ioc": []
+    },
+    "628": {
+        "type": "file",
+        "nlp": [
+            "networks",
+            "xorddos"
+        ],
+        "ioc": []
+    },
+    "642": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "669": {
+        "type": "file",
+        "nlp": [
+            "activity"
+        ],
+        "ioc": []
+    },
+    "681": {
+        "type": "network",
+        "nlp": [
+            "details"
+        ],
+        "ioc": []
+    },
+    "692": {
+        "type": "executable",
+        "nlp": [
+            "brute",
+            "payload",
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "700": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "704": {
+        "type": "executable",
+        "nlp": [
+            "root",
+            "match"
+        ],
+        "ioc": []
+    },
+    "705": {
+        "type": "system",
+        "nlp": [
+            "credential"
+        ],
+        "ioc": []
+    },
+    "723": {
+        "type": "file",
+        "nlp": [
+            "attempts",
+            "result"
+        ],
+        "ioc": []
+    },
+    "734": {
+        "type": "file",
+        "nlp": [
+            "devices"
+        ],
+        "ioc": []
+    },
+    "739": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "742": {
+        "type": "network",
+        "nlp": [
+            "chart"
+        ],
+        "ioc": []
+    },
+    "752": {
+        "type": "file",
+        "nlp": [
+            "attempts"
+        ],
+        "ioc": []
+    },
+    "767": {
+        "type": "file",
+        "nlp": [
+            "attempts"
+        ],
+        "ioc": []
+    },
+    "776": {
+        "type": "network",
+        "nlp": [
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "794": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "804": {
+        "type": "network",
+        "nlp": [
+            "running"
+        ],
+        "ioc": []
+    },
+    "807": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    },
+    "813": {
+        "type": "network",
+        "nlp": [
+            "/dev/shm are"
+        ],
+        "ioc": []
+    },
+    "810": {
+        "type": "network",
+        "nlp": [
+            "/dev/shm are"
+        ],
+        "ioc": []
+    },
+    "812": {
+        "type": "network",
+        "nlp": [
+            "/dev/shm are"
+        ],
+        "ioc": []
+    },
+    "816": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "824": {
+        "type": "file",
+        "nlp": [
+            "infection"
+        ],
+        "ioc": []
+    },
+    "827": {
+        "type": "file",
+        "nlp": [
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "836": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "script",
+            "bash"
+        ],
+        "ioc": []
+    },
+    "873": {
+        "type": "file",
+        "nlp": [
+            "working directory",
+            "directory",
+            "writable directory"
+        ],
+        "ioc": []
+    },
+    "882": {
+        "type": "network",
+        "nlp": [
+            "curl"
+        ],
+        "ioc": []
+    },
+    "883": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "888": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "889": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "893": {
+        "type": "network",
+        "nlp": [
+            "remote location"
+        ],
+        "ioc": []
+    },
+    "892": {
+        "type": "network",
+        "nlp": [
+            "remote location"
+        ],
+        "ioc": []
+    },
+    "895": {
+        "type": "network",
+        "nlp": [
+            "url"
+        ],
+        "ioc": [
+            "hxxp://ipv4pii_777789ffaa5b68638cdaea8ecfa10b24b326ed7d/1[.]txt"
+        ]
+    },
+    "900": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "902": {
+        "type": "file",
+        "nlp": [
+            "ygljglkjgfg0"
+        ],
+        "ioc": []
+    },
+    "906": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "909": {
+        "type": "executable",
+        "nlp": [
+            "executable"
+        ],
+        "ioc": []
+    },
+    "914": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "915": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "932": {
+        "type": "file",
+        "nlp": [
+            "usage"
+        ],
+        "ioc": []
+    },
+    "952": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "963": {
+        "type": "network",
+        "nlp": [
+            "/usr/bin/wget /usr"
+        ],
+        "ioc": []
+    },
+    "981": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "982": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "992": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1004": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1025": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    },
+    "1033": {
+        "type": "executable",
+        "nlp": [
+            "commands",
+            "description"
+        ],
+        "ioc": []
+    },
+    "1073": {
+        "type": "network",
+        "nlp": [
+            "information"
+        ],
+        "ioc": []
+    },
+    "1108": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "1121": {
+        "type": "file",
+        "nlp": [
+            "/cron"
+        ],
+        "ioc": []
+    },
+    "1120": {
+        "type": "file",
+        "nlp": [
+            "/cron"
+        ],
+        "ioc": []
+    },
+    "1140": {
+        "type": "network",
+        "nlp": [
+            "security",
+            "/dmesg contains information"
+        ],
+        "ioc": []
+    },
+    "1138": {
+        "type": "network",
+        "nlp": [
+            "security",
+            "/dmesg contains information"
+        ],
+        "ioc": []
+    },
+    "1139": {
+        "type": "network",
+        "nlp": [
+            "security",
+            "/dmesg contains information"
+        ],
+        "ioc": []
+    },
+    "1141": {
+        "type": "network",
+        "nlp": [
+            "security",
+            "/dmesg contains information"
+        ],
+        "ioc": []
+    },
+    "1150": {
+        "type": "file",
+        "nlp": [
+            "logins",
+            "devices"
+        ],
+        "ioc": []
+    },
+    "1152": {
+        "type": "system",
+        "nlp": [
+            "drivers"
+        ],
+        "ioc": []
+    },
+    "1170": {
+        "type": "network",
+        "nlp": [
+            "/"
+        ],
+        "ioc": []
+    },
+    "1172": {
+        "type": "file",
+        "nlp": [
+            "contains information"
+        ],
+        "ioc": []
+    },
+    "1190": {
+        "type": "system",
+        "nlp": [
+            "system",
+            "yum"
+        ],
+        "ioc": []
+    },
+    "1197": {
+        "type": "file",
+        "nlp": [
+            "server",
+            "/spooler"
+        ],
+        "ioc": []
+    },
+    "1233": {
+        "type": "network",
+        "nlp": [
+            "remote bash"
+        ],
+        "ioc": []
+    },
+    "1234": {
+        "type": "network",
+        "nlp": [
+            "remote bash"
+        ],
+        "ioc": []
+    },
+    "1235": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1236": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "1244": {
+        "type": "network",
+        "nlp": [
+            "remote bash"
+        ],
+        "ioc": []
+    },
+    "1245": {
+        "type": "network",
+        "nlp": [
+            "remote bash"
+        ],
+        "ioc": []
+    },
+    "1246": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1247": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "1261": {
+        "type": "file",
+        "nlp": [
+            "result"
+        ],
+        "ioc": []
+    },
+    "1272": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1278": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "1289": {
+        "type": "file",
+        "nlp": [
+            "section",
+            "dive"
+        ],
+        "ioc": []
+    },
+    "1293": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "1308": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "bash"
+        ],
+        "ioc": []
+    },
+    "1340": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "1341": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "1347": {
+        "type": "network",
+        "nlp": [
+            "server",
+            "c2"
+        ],
+        "ioc": []
+    },
+    "1354": {
+        "type": "file",
+        "nlp": [
+            "chain"
+        ],
+        "ioc": []
+    },
+    "1357": {
+        "type": "executable",
+        "nlp": [
+            "matches",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "1372": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "1389": {
+        "type": "file",
+        "nlp": [
+            "flow"
+        ],
+        "ioc": []
+    },
+    "1398": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1402": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "1403": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "1432": {
+        "type": "network",
+        "nlp": [
+            "matches"
+        ],
+        "ioc": []
+    },
+    "1439": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1455": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "1460": {
+        "type": "executable",
+        "nlp": [
+            "bash"
+        ],
+        "ioc": []
+    },
+    "1461": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1469": {
+        "type": "network",
+        "nlp": [
+            "lsmod",
+            "sends",
+            "information"
+        ],
+        "ioc": []
+    },
+    "1481": {
+        "type": "actor",
+        "nlp": [
+            "commands",
+            "attackers",
+            "number",
+            "information such",
+            "space"
+        ],
+        "ioc": []
+    },
+    "1500": {
+        "type": "file",
+        "nlp": [
+            "number"
+        ],
+        "ioc": []
+    },
+    "1528": {
+        "type": "file",
+        "nlp": [
+            "number"
+        ],
+        "ioc": []
+    },
+    "1535": {
+        "type": "executable",
+        "nlp": [
+            "modules"
+        ],
+        "ioc": []
+    },
+    "1545": {
+        "type": "actor",
+        "nlp": [
+            "server",
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "1550": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "1584": {
+        "type": "file",
+        "nlp": [
+            "command",
+            "section",
+            "specific"
+        ],
+        "ioc": []
+    },
+    "1606": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1610": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "directory"
+        ],
+        "ioc": []
+    },
+    "1646": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1653": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "1677": {
+        "type": "actor",
+        "nlp": [
+            "server",
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "1680": {
+        "type": "executable",
+        "nlp": [
+            "bash"
+        ],
+        "ioc": []
+    },
+    "1685": {
+        "type": "network",
+        "nlp": [
+            "steps"
+        ],
+        "ioc": []
+    },
+    "1695": {
+        "type": "executable",
+        "nlp": [
+            "bash"
+        ],
+        "ioc": []
+    },
+    "1696": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1705": {
+        "type": "file",
+        "nlp": [
+            "directory"
+        ],
+        "ioc": []
+    },
+    "1723": {
+        "type": "file",
+        "nlp": [
+            "compilation"
+        ],
+        "ioc": []
+    },
+    "1725": {
+        "type": "file",
+        "nlp": [
+            "3rd party kernel"
+        ],
+        "ioc": []
+    },
+    "1728": {
+        "type": "executable",
+        "nlp": [
+            "modules"
+        ],
+        "ioc": []
+    },
+    "1732": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "/tmp",
+            "bash"
+        ],
+        "ioc": []
+    },
+    "1749": {
+        "type": "file",
+        "nlp": [
+            "request"
+        ],
+        "ioc": []
+    },
+    "1754": {
+        "type": "executable",
+        "nlp": [
+            "server",
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "1758": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "1778": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "1784": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "1807": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "1821": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "1828": {
+        "type": "file",
+        "nlp": [
+            "steps"
+        ],
+        "ioc": []
+    },
+    "1836": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "1848": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "1849": {
+        "type": "file",
+        "nlp": [
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "1864": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1868": {
+        "type": "network",
+        "nlp": [
+            "stripped"
+        ],
+        "ioc": []
+    },
+    "1878": {
+        "type": "executable",
+        "nlp": [
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "1899": {
+        "type": "network",
+        "nlp": [
+            "reverse engineer non-stripped"
+        ],
+        "ioc": []
+    },
+    "1906": {
+        "type": "file",
+        "nlp": [
+            "compared"
+        ],
+        "ioc": []
+    },
+    "1923": {
+        "type": "network",
+        "nlp": [
+            "non-stripped binary",
+            "dns.c",
+            "socket.c"
+        ],
+        "ioc": []
+    },
+    "1930": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1943": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "section"
+        ],
+        "ioc": []
+    },
+    "1972": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "1989": {
+        "type": "executable",
+        "nlp": [
+            "modular"
+        ],
+        "ioc": []
+    },
+    "2037": {
+        "type": "file",
+        "nlp": [
+            "only"
+        ],
+        "ioc": []
+    },
+    "2040": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "2072": {
+        "type": "executable",
+        "nlp": [
+            "background daemon",
+            "setsid",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "2111": {
+        "type": "network",
+        "nlp": [
+            "process"
+        ],
+        "ioc": []
+    },
+    "2127": {
+        "type": "executable",
+        "nlp": [
+            "successful call"
+        ],
+        "ioc": []
+    },
+    "2126": {
+        "type": "executable",
+        "nlp": [
+            "successful call"
+        ],
+        "ioc": []
+    },
+    "2140": {
+        "type": "network",
+        "nlp": [
+            "returning exit_success"
+        ],
+        "ioc": []
+    },
+    "2141": {
+        "type": "network",
+        "nlp": [
+            "returning exit_success"
+        ],
+        "ioc": []
+    },
+    "2172": {
+        "type": "file",
+        "nlp": [
+            "call"
+        ],
+        "ioc": []
+    },
+    "2197": {
+        "type": "executable",
+        "nlp": [
+            "provision"
+        ],
+        "ioc": []
+    },
+    "2201": {
+        "type": "file",
+        "nlp": [
+            "first parameter _",
+            "nochdir",
+            "root directory",
+            "directory"
+        ],
+        "ioc": []
+    },
+    "2212": {
+        "type": "network",
+        "nlp": [
+            "first parameter _",
+            "nochdir",
+            "root directory",
+            "directory"
+        ],
+        "ioc": []
+    },
+    "2234": {
+        "type": "file",
+        "nlp": [
+            "stopped",
+            "prevents",
+            "first parameter _",
+            "root partition",
+            "root directory"
+        ],
+        "ioc": []
+    },
+    "2248": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "2249": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "2262": {
+        "type": "network",
+        "nlp": [
+            "second parameter",
+            "standard input",
+            "0"
+        ],
+        "ioc": []
+    },
+    "2292": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "2293": {
+        "type": "executable",
+        "nlp": [
+            "descriptor"
+        ],
+        "ioc": []
+    },
+    "2300": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "2341": {
+        "type": "network",
+        "nlp": [
+            "standard input",
+            "suppression helps",
+            "trying"
+        ],
+        "ioc": []
+    },
+    "2370": {
+        "type": "executable",
+        "nlp": [
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "2385": {
+        "type": "file",
+        "nlp": [
+            "handler",
+            "signum"
+        ],
+        "ioc": []
+    },
+    "2395": {
+        "type": "network",
+        "nlp": [
+            "sig_dfl"
+        ],
+        "ioc": []
+    },
+    "2406": {
+        "type": "executable",
+        "nlp": [
+            "programmer-defined signal",
+            "handler"
+        ],
+        "ioc": []
+    },
+    "2418": {
+        "type": "actor",
+        "nlp": [
+            "sig_ign=1"
+        ],
+        "ioc": []
+    },
+    "2468": {
+        "type": "network",
+        "nlp": [
+            "encryption"
+        ],
+        "ioc": []
+    },
+    "2504": {
+        "type": "executable",
+        "nlp": [
+            "modules",
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "2517": {
+        "type": "actor",
+        "nlp": [
+            "/usr/bin/ m"
+        ],
+        "ioc": []
+    },
+    "2515": {
+        "type": "actor",
+        "nlp": [
+            "/usr/bin/ m"
+        ],
+        "ioc": []
+    },
+    "2533": {
+        "type": "network",
+        "nlp": [
+            "/"
+        ],
+        "ioc": []
+    },
+    "2537": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "libudev.so"
+        ]
+    },
+    "2553": {
+        "type": "network",
+        "nlp": [
+            "resolv.conf"
+        ],
+        "ioc": []
+    },
+    "2555": {
+        "type": "network",
+        "nlp": [
+            "encrypted_remote_url",
+            "spoofing"
+        ],
+        "ioc": []
+    },
+    "2565": {
+        "type": "network",
+        "nlp": [
+            "strings",
+            "process",
+            "url"
+        ],
+        "ioc": [
+            "hxxp://aa.hostasa[.]org/config.rar"
+        ]
+    },
+    "2569": {
+        "type": "file",
+        "nlp": [
+            "arguments"
+        ],
+        "ioc": []
+    },
+    "2575": {
+        "type": "file",
+        "nlp": [
+            "main function"
+        ],
+        "ioc": []
+    },
+    "2574": {
+        "type": "file",
+        "nlp": [
+            "main function"
+        ],
+        "ioc": []
+    },
+    "2612": {
+        "type": "file",
+        "nlp": [
+            "first argument",
+            "buffer"
+        ],
+        "ioc": []
+    },
+    "2620": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "2628": {
+        "type": "file",
+        "nlp": [
+            "diagram displaying"
+        ],
+        "ioc": []
+    },
+    "2633": {
+        "type": "actor",
+        "nlp": [
+            "spoofing"
+        ],
+        "ioc": []
+    },
+    "2641": {
+        "type": "file",
+        "nlp": [
+            "argument"
+        ],
+        "ioc": []
+    },
+    "2656": {
+        "type": "file",
+        "nlp": [
+            "argument"
+        ],
+        "ioc": []
+    },
+    "2701": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "2733": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "2767": {
+        "type": "executable",
+        "nlp": [
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "2772": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "2776": {
+        "type": "file",
+        "nlp": [
+            "based"
+        ],
+        "ioc": []
+    },
+    "2805": {
+        "type": "file",
+        "nlp": [
+            "attempts"
+        ],
+        "ioc": []
+    },
+    "2817": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "2827": {
+        "type": "file",
+        "nlp": [
+            "readlink"
+        ],
+        "ioc": []
+    },
+    "2836": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "2837": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "2872": {
+        "type": "executable",
+        "nlp": [
+            "buffer",
+            "loads",
+            "malware",
+            "sends"
+        ],
+        "ioc": []
+    },
+    "2893": {
+        "type": "executable",
+        "nlp": [
+            "request"
+        ],
+        "ioc": []
+    },
+    "2931": {
+        "type": "executable",
+        "nlp": [
+            "modules",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "2945": {
+        "type": "executable",
+        "nlp": [
+            "modules",
+            "prevents"
+        ],
+        "ioc": []
+    },
+    "2973": {
+        "type": "executable",
+        "nlp": [
+            "modules",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "2984": {
+        "type": "file",
+        "nlp": [
+            "refers"
+        ],
+        "ioc": []
+    },
+    "3013": {
+        "type": "executable",
+        "nlp": [
+            "description"
+        ],
+        "ioc": []
+    },
+    "3018": {
+        "type": "executable",
+        "nlp": [
+            "root privilege"
+        ],
+        "ioc": []
+    },
+    "3017": {
+        "type": "executable",
+        "nlp": [
+            "root privilege"
+        ],
+        "ioc": []
+    },
+    "3025": {
+        "type": "system",
+        "nlp": [
+            "credentials"
+        ],
+        "ioc": []
+    },
+    "3060": {
+        "type": "network",
+        "nlp": [
+            "udp6 connection"
+        ],
+        "ioc": []
+    },
+    "3059": {
+        "type": "network",
+        "nlp": [
+            "udp6 connection"
+        ],
+        "ioc": []
+    },
+    "3094": {
+        "type": "file",
+        "nlp": [
+            "port"
+        ],
+        "ioc": []
+    },
+    "3102": {
+        "type": "executable",
+        "nlp": [
+            "unhide_udp4_port",
+            "port"
+        ],
+        "ioc": []
+    },
+    "3114": {
+        "type": "actor",
+        "nlp": [
+            "unhide_tcp4_port deletes",
+            "hide_tcp6_port",
+            "port",
+            "ports",
+            "hide_tcp4_port",
+            "hide_udp6_port",
+            "udp6 ports"
+        ],
+        "ioc": []
+    },
+    "3130": {
+        "type": "file",
+        "nlp": [
+            "port"
+        ],
+        "ioc": []
+    },
+    "3233": {
+        "type": "file",
+        "nlp": [
+            "hide_proc adds",
+            "entry",
+            "address"
+        ],
+        "ioc": []
+    },
+    "3254": {
+        "type": "executable",
+        "nlp": [
+            "port",
+            "malware",
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "3273": {
+        "type": "executable",
+        "nlp": [
+            "port",
+            "malware",
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "3283": {
+        "type": "system",
+        "nlp": [
+            "filesystem"
+        ],
+        "ioc": []
+    },
+    "3288": {
+        "type": "network",
+        "nlp": [
+            "all"
+        ],
+        "ioc": []
+    },
+    "3307": {
+        "type": "file",
+        "nlp": [
+            "directory"
+        ],
+        "ioc": []
+    },
+    "3313": {
+        "type": "network",
+        "nlp": [
+            "each running"
+        ],
+        "ioc": []
+    },
+    "3318": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3335": {
+        "type": "network",
+        "nlp": [
+            "information /proc/698",
+            "process"
+        ],
+        "ioc": []
+    },
+    "3342": {
+        "type": "file",
+        "nlp": [
+            "698-related"
+        ],
+        "ioc": []
+    },
+    "3340": {
+        "type": "file",
+        "nlp": [
+            "698-related"
+        ],
+        "ioc": []
+    },
+    "3343": {
+        "type": "network",
+        "nlp": [
+            "information running"
+        ],
+        "ioc": []
+    },
+    "3344": {
+        "type": "network",
+        "nlp": [
+            "information running"
+        ],
+        "ioc": []
+    },
+    "3346": {
+        "type": "network",
+        "nlp": [
+            "strace"
+        ],
+        "ioc": []
+    },
+    "3350": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "3359": {
+        "type": "file",
+        "nlp": [
+            "/proc/$pid"
+        ],
+        "ioc": []
+    },
+    "3364": {
+        "type": "network",
+        "nlp": [
+            "running"
+        ],
+        "ioc": []
+    },
+    "3371": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "3378": {
+        "type": "file",
+        "nlp": [
+            "open(/proc/3922"
+        ],
+        "ioc": []
+    },
+    "3458": {
+        "type": "file",
+        "nlp": [
+            "directory"
+        ],
+        "ioc": []
+    },
+    "3470": {
+        "type": "executable",
+        "nlp": [
+            "mode"
+        ],
+        "ioc": []
+    },
+    "3477": {
+        "type": "executable",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3481": {
+        "type": "file",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3489": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev"
+        ],
+        "ioc": []
+    },
+    "3487": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev"
+        ],
+        "ioc": []
+    },
+    "3491": {
+        "type": "file",
+        "nlp": [
+            "sending input",
+            "provision for communicating"
+        ],
+        "ioc": []
+    },
+    "3495": {
+        "type": "network",
+        "nlp": [
+            "control"
+        ],
+        "ioc": []
+    },
+    "3502": {
+        "type": "executable",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3519": {
+        "type": "system",
+        "nlp": [
+            "service",
+            "driver"
+        ],
+        "ioc": []
+    },
+    "3521": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "3526": {
+        "type": "executable",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3530": {
+        "type": "file",
+        "nlp": [
+            "0x9748712"
+        ],
+        "ioc": []
+    },
+    "3543": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3559": {
+        "type": "network",
+        "nlp": [
+            "first entry",
+            "second entry",
+            "value"
+        ],
+        "ioc": []
+    },
+    "3566": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "3584": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "3594": {
+        "type": "file",
+        "nlp": [
+            "unhide",
+            "1"
+        ],
+        "ioc": []
+    },
+    "3610": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "3625": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "3626": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3632": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3634": {
+        "type": "executable",
+        "nlp": [
+            "handler",
+            "driver"
+        ],
+        "ioc": []
+    },
+    "3671": {
+        "type": "file",
+        "nlp": [
+            "active"
+        ],
+        "ioc": []
+    },
+    "3692": {
+        "type": "file",
+        "nlp": [
+            "netstat",
+            "/",
+            "files"
+        ],
+        "ioc": []
+    },
+    "3699": {
+        "type": "file",
+        "nlp": [
+            "connection information"
+        ],
+        "ioc": []
+    },
+    "3698": {
+        "type": "file",
+        "nlp": [
+            "connection information"
+        ],
+        "ioc": []
+    },
+    "3703": {
+        "type": "network",
+        "nlp": [
+            "/proc/net/tcp and",
+            "/proc/net/udp"
+        ],
+        "ioc": []
+    },
+    "3705": {
+        "type": "network",
+        "nlp": [
+            "/proc/net/tcp and",
+            "/proc/net/udp"
+        ],
+        "ioc": []
+    },
+    "3709": {
+        "type": "network",
+        "nlp": [
+            "/proc/net/tcp and",
+            "/proc/net/udp"
+        ],
+        "ioc": []
+    },
+    "3716": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    },
+    "3741": {
+        "type": "network",
+        "nlp": [
+            "active connection",
+            "relevant information",
+            "destination port",
+            "destination"
+        ],
+        "ioc": []
+    },
+    "3751": {
+        "type": "file",
+        "nlp": [
+            "default"
+        ],
+        "ioc": []
+    },
+    "3755": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3763": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "3768": {
+        "type": "executable",
+        "nlp": [
+            "skips"
+        ],
+        "ioc": []
+    },
+    "3772": {
+        "type": "executable",
+        "nlp": [
+            "intends"
+        ],
+        "ioc": []
+    },
+    "3778": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "3803": {
+        "type": "executable",
+        "nlp": [
+            "description"
+        ],
+        "ioc": []
+    },
+    "3811": {
+        "type": "network",
+        "nlp": [
+            "support different",
+            "/proc/net/tcp6",
+            "/proc/net/udp",
+            "/proc/net/udp6",
+            "/proc/net/tcp"
+        ],
+        "ioc": []
+    },
+    "3813": {
+        "type": "network",
+        "nlp": [
+            "support different",
+            "/proc/net/tcp6",
+            "/proc/net/udp",
+            "/proc/net/udp6",
+            "/proc/net/tcp"
+        ],
+        "ioc": []
+    },
+    "3876": {
+        "type": "network",
+        "nlp": [
+            "/proc/net/udp",
+            "support different",
+            "/proc/net/udp6"
+        ],
+        "ioc": []
+    },
+    "3884": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3892": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "3894": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "3907": {
+        "type": "executable",
+        "nlp": [
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "3918": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3927": {
+        "type": "file",
+        "nlp": [
+            "base"
+        ],
+        "ioc": []
+    },
+    "3931": {
+        "type": "network",
+        "nlp": [
+            "descriptions",
+            "section"
+        ],
+        "ioc": []
+    },
+    "3949": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "3961": {
+        "type": "file",
+        "nlp": [
+            "11"
+        ],
+        "ioc": []
+    },
+    "3979": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "3991": {
+        "type": "network",
+        "nlp": [
+            "cron.hourly/"
+        ],
+        "ioc": []
+    },
+    "3997": {
+        "type": "network",
+        "nlp": [
+            "parameters"
+        ],
+        "ioc": []
+    },
+    "4023": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "script"
+        ],
+        "ioc": []
+    },
+    "4032": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4038": {
+        "type": "network",
+        "nlp": [
+            "root",
+            "script",
+            "system",
+            "system(\"sed",
+            "cron.hourly/",
+            "host",
+            "malware"
+        ],
+        "ioc": [
+            "gcc.sh"
+        ]
+    },
+    "4062": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4074": {
+        "type": "network",
+        "nlp": [
+            "\\'/\\\\/etc\\\\/cron.hourly\\\\/"
+        ],
+        "ioc": []
+    },
+    "4081": {
+        "type": "file",
+        "nlp": [
+            "&& echo \\'*/3"
+        ],
+        "ioc": []
+    },
+    "4084": {
+        "type": "file",
+        "nlp": [
+            "&& echo \\'*/3"
+        ],
+        "ioc": []
+    },
+    "4105": {
+        "type": "file",
+        "nlp": [
+            "13"
+        ],
+        "ioc": []
+    },
+    "4108": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "4123": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4133": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "4142": {
+        "type": "executable",
+        "nlp": [
+            "root"
+        ],
+        "ioc": []
+    },
+    "4145": {
+        "type": "network",
+        "nlp": [
+            "cron.hourly/"
+        ],
+        "ioc": []
+    },
+    "4149": {
+        "type": "file",
+        "nlp": [
+            "14"
+        ],
+        "ioc": []
+    },
+    "4155": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4160": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "4164": {
+        "type": "file",
+        "nlp": [
+            "runlevel"
+        ],
+        "ioc": []
+    },
+    "4167": {
+        "type": "executable",
+        "nlp": [
+            "mode"
+        ],
+        "ioc": []
+    },
+    "4172": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "4177": {
+        "type": "system",
+        "nlp": [
+            "system",
+            "services",
+            "systems"
+        ],
+        "ioc": []
+    },
+    "4192": {
+        "type": "file",
+        "nlp": [
+            "zero",
+            "six",
+            "value"
+        ],
+        "ioc": []
+    },
+    "4205": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "4209": {
+        "type": "file",
+        "nlp": [
+            "access"
+        ],
+        "ioc": []
+    },
+    "4218": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "4222": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "4231": {
+        "type": "file",
+        "nlp": [
+            "runlevels"
+        ],
+        "ioc": []
+    },
+    "4235": {
+        "type": "system",
+        "nlp": [
+            "subsystems"
+        ],
+        "ioc": []
+    },
+    "4237": {
+        "type": "network",
+        "nlp": [
+            "working"
+        ],
+        "ioc": []
+    },
+    "4243": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "4257": {
+        "type": "network",
+        "nlp": [
+            "soft links",
+            "links",
+            "point"
+        ],
+        "ioc": []
+    },
+    "4271": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4275": {
+        "type": "network",
+        "nlp": [
+            "symlinks point"
+        ],
+        "ioc": []
+    },
+    "4278": {
+        "type": "executable",
+        "nlp": [
+            "runlevel",
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "4288": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "services",
+            "malware",
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "4295": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "4302": {
+        "type": "file",
+        "nlp": [
+            "init.d/<base_file_name"
+        ],
+        "ioc": []
+    },
+    "4322": {
+        "type": "file",
+        "nlp": [
+            "base_file_name"
+        ],
+        "ioc": []
+    },
+    "4347": {
+        "type": "executable",
+        "nlp": [
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "4351": {
+        "type": "file",
+        "nlp": [
+            "init.d/<base_file_name"
+        ],
+        "ioc": []
+    },
+    "4366": {
+        "type": "file",
+        "nlp": [
+            "init.d/<base_file_name"
+        ],
+        "ioc": []
+    },
+    "4371": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "4373": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "services",
+            "malware",
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "4386": {
+        "type": "file",
+        "nlp": [
+            "boot"
+        ],
+        "ioc": []
+    },
+    "4389": {
+        "type": "executable",
+        "nlp": [
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "4390": {
+        "type": "actor",
+        "nlp": [
+            "linuxexec_argv2"
+        ],
+        "ioc": []
+    },
+    "4394": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "4399": {
+        "type": "file",
+        "nlp": [
+            "arguments"
+        ],
+        "ioc": []
+    },
+    "4402": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "4406": {
+        "type": "system",
+        "nlp": [
+            "service_name"
+        ],
+        "ioc": []
+    },
+    "4415": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "4422": {
+        "type": "file",
+        "nlp": [
+            "boot"
+        ],
+        "ioc": []
+    },
+    "4426": {
+        "type": "executable",
+        "nlp": [
+            "commands",
+            "chkconfig"
+        ],
+        "ioc": []
+    },
+    "4435": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "4437": {
+        "type": "file",
+        "nlp": [
+            "16"
+        ],
+        "ioc": []
+    },
+    "4444": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "4448": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "4482": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "4483": {
+        "type": "network",
+        "nlp": [
+            "first"
+        ],
+        "ioc": []
+    },
+    "4487": {
+        "type": "file",
+        "nlp": [
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4490": {
+        "type": "network",
+        "nlp": [
+            "later"
+        ],
+        "ioc": []
+    },
+    "4496": {
+        "type": "file",
+        "nlp": [
+            "arguments"
+        ],
+        "ioc": []
+    },
+    "4503": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "4534": {
+        "type": "executable",
+        "nlp": [
+            "first parameter"
+        ],
+        "ioc": []
+    },
+    "4536": {
+        "type": "network",
+        "nlp": [
+            "/proc/self/"
+        ],
+        "ioc": []
+    },
+    "4553": {
+        "type": "network",
+        "nlp": [
+            "later"
+        ],
+        "ioc": []
+    },
+    "4559": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "4564": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    },
+    "4569": {
+        "type": "file",
+        "nlp": [
+            "arguments",
+            "workflow",
+            "section",
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "4576": {
+        "type": "system",
+        "nlp": [
+            "tasks"
+        ],
+        "ioc": []
+    },
+    "4621": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "4625": {
+        "type": "file",
+        "nlp": [
+            "locations"
+        ],
+        "ioc": []
+    },
+    "4628": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4633": {
+        "type": "network",
+        "nlp": [
+            "running"
+        ],
+        "ioc": []
+    },
+    "4689": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "libudev.so"
+        ]
+    },
+    "4714": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4719": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "position"
+        ],
+        "ioc": []
+    },
+    "4743": {
+        "type": "network",
+        "nlp": [
+            "random 10-character"
+        ],
+        "ioc": []
+    },
+    "4744": {
+        "type": "network",
+        "nlp": [
+            "random 10-character"
+        ],
+        "ioc": []
+    },
+    "4765": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "position"
+        ],
+        "ioc": []
+    },
+    "4775": {
+        "type": "file",
+        "nlp": [
+            "fork",
+            "file"
+        ],
+        "ioc": []
+    },
+    "4793": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "4794": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4798": {
+        "type": "network",
+        "nlp": [
+            "strings"
+        ],
+        "ioc": []
+    },
+    "4802": {
+        "type": "file",
+        "nlp": [
+            "yybrdajydg"
+        ],
+        "ioc": []
+    },
+    "4808": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "4812": {
+        "type": "network",
+        "nlp": [
+            "twice"
+        ],
+        "ioc": []
+    },
+    "4820": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument",
+            "path"
+        ],
+        "ioc": []
+    },
+    "4821": {
+        "type": "file",
+        "nlp": [
+            "yybrdajydg",
+            "file"
+        ],
+        "ioc": []
+    },
+    "4839": {
+        "type": "network",
+        "nlp": [
+            "twice"
+        ],
+        "ioc": []
+    },
+    "4871": {
+        "type": "network",
+        "nlp": [
+            "strings",
+            "/usr/bin/jwvwvxoupv 4849"
+        ],
+        "ioc": []
+    },
+    "4876": {
+        "type": "file",
+        "nlp": [
+            "provided",
+            "example"
+        ],
+        "ioc": []
+    },
+    "4879": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4897": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "4923": {
+        "type": "network",
+        "nlp": [
+            "twice"
+        ],
+        "ioc": []
+    },
+    "4969": {
+        "type": "system",
+        "nlp": [
+            "tasks"
+        ],
+        "ioc": []
+    },
+    "4979": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "4981": {
+        "type": "network",
+        "nlp": [
+            "corresponding"
+        ],
+        "ioc": []
+    },
+    "4999": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "5023": {
+        "type": "file",
+        "nlp": [
+            "file_name"
+        ],
+        "ioc": []
+    },
+    "5027": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "5051": {
+        "type": "file",
+        "nlp": [
+            "init.d/<file_name",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "5061": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5069": {
+        "type": "file",
+        "nlp": [
+            "arguments"
+        ],
+        "ioc": []
+    },
+    "5073": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5086": {
+        "type": "network",
+        "nlp": [
+            "/usr/bin/jwvwvxoupv cat resolv.conf 4849 /usr",
+            "/usr/bin/kagbjahdic id 4849 ~~ the fake",
+            "bash whoami id"
+        ],
+        "ioc": []
+    },
+    "5124": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "5133": {
+        "type": "network",
+        "nlp": [
+            "/usr/bin/kagbjahdic id 4849 ~~ the fake",
+            "echo",
+            "/usr/bin/jwvwvxoupv cat resolv.conf 4849 /usr",
+            "bash whoami id"
+        ],
+        "ioc": []
+    },
+    "5164": {
+        "type": "file",
+        "nlp": [
+            "1",
+            "path"
+        ],
+        "ioc": []
+    },
+    "5172": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5199": {
+        "type": "file",
+        "nlp": [
+            "hidepidport"
+        ],
+        "ioc": []
+    },
+    "5201": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "5202": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "1"
+        ],
+        "ioc": []
+    },
+    "5236": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "specific"
+        ],
+        "ioc": []
+    },
+    "5269": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "5282": {
+        "type": "executable",
+        "nlp": [
+            "intends"
+        ],
+        "ioc": []
+    },
+    "5286": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "5301": {
+        "type": "file",
+        "nlp": [
+            "buffer",
+            "due"
+        ],
+        "ioc": []
+    },
+    "5309": {
+        "type": "network",
+        "nlp": [
+            "service",
+            "zeroed-"
+        ],
+        "ioc": []
+    },
+    "5310": {
+        "type": "network",
+        "nlp": [
+            "service",
+            "zeroed-"
+        ],
+        "ioc": []
+    },
+    "5322": {
+        "type": "file",
+        "nlp": [
+            "buffer",
+            "due"
+        ],
+        "ioc": []
+    },
+    "5333": {
+        "type": "file",
+        "nlp": [
+            "call",
+            "successful readlink"
+        ],
+        "ioc": []
+    },
+    "5351": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "5353": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "libudev.so"
+        ]
+    },
+    "5368": {
+        "type": "file",
+        "nlp": [
+            "attempts"
+        ],
+        "ioc": []
+    },
+    "5376": {
+        "type": "executable",
+        "nlp": [
+            "processs image",
+            "random name"
+        ],
+        "ioc": []
+    },
+    "5379": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "5381": {
+        "type": "network",
+        "nlp": [
+            "earlier"
+        ],
+        "ioc": []
+    },
+    "5391": {
+        "type": "network",
+        "nlp": [
+            "non-zero value",
+            "/usr/bin/"
+        ],
+        "ioc": []
+    },
+    "5401": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "5428": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "5443": {
+        "type": "executable",
+        "nlp": [
+            "successful"
+        ],
+        "ioc": []
+    },
+    "5466": {
+        "type": "file",
+        "nlp": [
+            "five seconds"
+        ],
+        "ioc": []
+    },
+    "5471": {
+        "type": "file",
+        "nlp": [
+            "process"
+        ],
+        "ioc": []
+    },
+    "5491": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "5506": {
+        "type": "file",
+        "nlp": [
+            "arguments"
+        ],
+        "ioc": []
+    },
+    "5511": {
+        "type": "network",
+        "nlp": [
+            "similar",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5549": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5557": {
+        "type": "system",
+        "nlp": [
+            "tasks"
+        ],
+        "ioc": []
+    },
+    "5568": {
+        "type": "network",
+        "nlp": [
+            "extracting",
+            "/usr/bin folder"
+        ],
+        "ioc": []
+    },
+    "5571": {
+        "type": "network",
+        "nlp": [
+            "extracting",
+            "/usr/bin folder"
+        ],
+        "ioc": []
+    },
+    "5573": {
+        "type": "network",
+        "nlp": [
+            "extracting",
+            "/usr/bin folder"
+        ],
+        "ioc": []
+    },
+    "5578": {
+        "type": "executable",
+        "nlp": [
+            "random name"
+        ],
+        "ioc": []
+    },
+    "5577": {
+        "type": "executable",
+        "nlp": [
+            "random name"
+        ],
+        "ioc": []
+    },
+    "5592": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    },
+    "5596": {
+        "type": "network",
+        "nlp": [
+            "extracts"
+        ],
+        "ioc": []
+    },
+    "5602": {
+        "type": "network",
+        "nlp": [
+            "/usr/bin folder"
+        ],
+        "ioc": []
+    },
+    "5608": {
+        "type": "file",
+        "nlp": [
+            "files",
+            "random string names",
+            "translates"
+        ],
+        "ioc": []
+    },
+    "5626": {
+        "type": "file",
+        "nlp": [
+            "section"
+        ],
+        "ioc": []
+    },
+    "5631": {
+        "type": "network",
+        "nlp": [
+            "m7a4nq_/na",
+            "/usr/bin ~~"
+        ],
+        "ioc": []
+    },
+    "5655": {
+        "type": "network",
+        "nlp": [
+            "/usr/bin folder path"
+        ],
+        "ioc": []
+    },
+    "5677": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "5697": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "5723": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "5743": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev character device"
+        ],
+        "ioc": []
+    },
+    "5741": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev character device"
+        ],
+        "ioc": []
+    },
+    "5745": {
+        "type": "file",
+        "nlp": [
+            "communicate"
+        ],
+        "ioc": []
+    },
+    "5765": {
+        "type": "executable",
+        "nlp": [
+            "installation requirements",
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "5777": {
+        "type": "file",
+        "nlp": [
+            "present",
+            "installation"
+        ],
+        "ioc": []
+    },
+    "5812": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev device"
+        ],
+        "ioc": []
+    },
+    "5829": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5837": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev"
+        ],
+        "ioc": []
+    },
+    "5841": {
+        "type": "file",
+        "nlp": [
+            "attempts"
+        ],
+        "ioc": []
+    },
+    "5846": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev"
+        ],
+        "ioc": []
+    },
+    "5858": {
+        "type": "network",
+        "nlp": [
+            "sends"
+        ],
+        "ioc": []
+    },
+    "5861": {
+        "type": "executable",
+        "nlp": [
+            "ioctl request"
+        ],
+        "ioc": []
+    },
+    "5868": {
+        "type": "file",
+        "nlp": [
+            "argument"
+        ],
+        "ioc": []
+    },
+    "5869": {
+        "type": "file",
+        "nlp": [
+            "0"
+        ],
+        "ioc": []
+    },
+    "5875": {
+        "type": "network",
+        "nlp": [
+            "communication"
+        ],
+        "ioc": []
+    },
+    "5884": {
+        "type": "system",
+        "nlp": [
+            "addservice"
+        ],
+        "ioc": []
+    },
+    "5898": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5902": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "5909": {
+        "type": "executable",
+        "nlp": [
+            "malwares"
+        ],
+        "ioc": []
+    },
+    "5922": {
+        "type": "file",
+        "nlp": [
+            "active",
+            "not"
+        ],
+        "ioc": []
+    },
+    "5935": {
+        "type": "executable",
+        "nlp": [
+            "installation requirements"
+        ],
+        "ioc": []
+    },
+    "5941": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "5947": {
+        "type": "file",
+        "nlp": [
+            "boot"
+        ],
+        "ioc": []
+    },
+    "5956": {
+        "type": "file",
+        "nlp": [
+            "installation"
+        ],
+        "ioc": []
+    },
+    "5969": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "5978": {
+        "type": "file",
+        "nlp": [
+            "active."
+        ],
+        "ioc": []
+    },
+    "5990": {
+        "type": "actor",
+        "nlp": [
+            "0xad1473b8",
+            "active",
+            "files",
+            "lchown(<filename"
+        ],
+        "ioc": []
+    },
+    "6017": {
+        "type": "network",
+        "nlp": [
+            "urls",
+            "the",
+            "directories",
+            "remote list",
+            "remote"
+        ],
+        "ioc": []
+    },
+    "6051": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "later"
+        ],
+        "ioc": [
+            "www.gzcfr5axf6.com",
+            "www.enoan2107.com"
+        ]
+    },
+    "6057": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "6060": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "6064": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "6071": {
+        "type": "file",
+        "nlp": [
+            "3306"
+        ],
+        "ioc": []
+    },
+    "6077": {
+        "type": "file",
+        "nlp": [
+            "activity"
+        ],
+        "ioc": []
+    },
+    "6093": {
+        "type": "file",
+        "nlp": [
+            "urls",
+            "document",
+            "directories",
+            "remote list"
+        ],
+        "ioc": [
+            "config.rar"
+        ]
+    },
+    "6096": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "6125": {
+        "type": "file",
+        "nlp": [
+            "0"
+        ],
+        "ioc": []
+    },
+    "6153": {
+        "type": "file",
+        "nlp": [
+            "kill_cfg"
+        ],
+        "ioc": []
+    },
+    "6157": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "6165": {
+        "type": "file",
+        "nlp": [
+            "activities"
+        ],
+        "ioc": []
+    },
+    "6171": {
+        "type": "network",
+        "nlp": [
+            "process"
+        ],
+        "ioc": []
+    },
+    "6207": {
+        "type": "system",
+        "nlp": [
+            "tasks"
+        ],
+        "ioc": []
+    },
+    "6213": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "6219": {
+        "type": "network",
+        "nlp": [
+            "/"
+        ],
+        "ioc": []
+    },
+    "6232": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "6259": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "libudev.so"
+        ]
+    },
+    "6265": {
+        "type": "file",
+        "nlp": [
+            "rmfile=",
+            "file"
+        ],
+        "ioc": []
+    },
+    "6285": {
+        "type": "file",
+        "nlp": [
+            "md5=",
+            "process",
+            "filename=",
+            "files",
+            "decrypt_remotestr(",
+            "file",
+            "32-byte"
+        ],
+        "ioc": []
+    },
+    "6310": {
+        "type": "executable",
+        "nlp": [
+            "process",
+            "filename=",
+            "decrypt_remotestr(",
+            "md5=",
+            "file",
+            "files",
+            "keys"
+        ],
+        "ioc": []
+    },
+    "6331": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "6344": {
+        "type": "system",
+        "nlp": [
+            "tasks"
+        ],
+        "ioc": []
+    },
+    "6351": {
+        "type": "file",
+        "nlp": [
+            "md5=",
+            "process",
+            "filename=",
+            "files",
+            "decrypt_remotestr(",
+            "file",
+            "32-byte"
+        ],
+        "ioc": []
+    },
+    "6355": {
+        "type": "network",
+        "nlp": [
+            "/",
+            "random 32"
+        ],
+        "ioc": []
+    },
+    "6361": {
+        "type": "file",
+        "nlp": [
+            "md5=",
+            "process",
+            "filename=",
+            "files",
+            "decrypt_remotestr(",
+            "file",
+            "32-byte"
+        ],
+        "ioc": []
+    },
+    "6364": {
+        "type": "actor",
+        "nlp": [
+            "magic"
+        ],
+        "ioc": []
+    },
+    "6371": {
+        "type": "network",
+        "nlp": [
+            "c2",
+            "connecting"
+        ],
+        "ioc": []
+    },
+    "6379": {
+        "type": "file",
+        "nlp": [
+            "md5=",
+            "process",
+            "filename=",
+            "files",
+            "decrypt_remotestr(",
+            "file",
+            "32-byte"
+        ],
+        "ioc": []
+    },
+    "6395": {
+        "type": "network",
+        "nlp": [
+            "/",
+            "random 32"
+        ],
+        "ioc": []
+    },
+    "6406": {
+        "type": "file",
+        "nlp": [
+            "details"
+        ],
+        "ioc": []
+    },
+    "6410": {
+        "type": "file",
+        "nlp": [
+            "such",
+            "information"
+        ],
+        "ioc": []
+    },
+    "6420": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "6440": {
+        "type": "network",
+        "nlp": [
+            "sends"
+        ],
+        "ioc": []
+    },
+    "6444": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "6454": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "6457": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "6464": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "6470": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "file",
+            "information"
+        ],
+        "ioc": []
+    },
+    "6491": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "6495": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "6511": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "6519": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "6524": {
+        "type": "network",
+        "nlp": [
+            "daemon_get_killed_processthread",
+            "earlier",
+            "remote",
+            "url"
+        ],
+        "ioc": [
+            "hxxp://aa[.]hostasa[.]org/config[.]rar"
+        ]
+    },
+    "6554": {
+        "type": "file",
+        "nlp": [
+            "30 minutes"
+        ],
+        "ioc": []
+    },
+    "6572": {
+        "type": "network",
+        "nlp": [
+            "remote",
+            "url"
+        ],
+        "ioc": []
+    },
+    "6589": {
+        "type": "network",
+        "nlp": [
+            "remote",
+            "url"
+        ],
+        "ioc": []
+    },
+    "6596": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "6645": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "6650": {
+        "type": "network",
+        "nlp": [
+            "commands",
+            "sends"
+        ],
+        "ioc": []
+    },
+    "6661": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "6670": {
+        "type": "network",
+        "nlp": [
+            "0x5",
+            "dns",
+            "fix_dns"
+        ],
+        "ioc": []
+    },
+    "6685": {
+        "type": "executable",
+        "nlp": [
+            "modular"
+        ],
+        "ioc": []
+    },
+    "6688": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "6700": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "6701": {
+        "type": "file",
+        "nlp": [
+            "architectures"
+        ],
+        "ioc": []
+    },
+    "6705": {
+        "type": "executable",
+        "nlp": [
+            "brute",
+            "ssh"
+        ],
+        "ioc": []
+    },
+    "6717": {
+        "type": "file",
+        "nlp": [
+            "root",
+            "number"
+        ],
+        "ioc": []
+    },
+    "6728": {
+        "type": "network",
+        "nlp": [
+            "stealing sensitive"
+        ],
+        "ioc": []
+    },
+    "6729": {
+        "type": "network",
+        "nlp": [
+            "stealing sensitive"
+        ],
+        "ioc": []
+    },
+    "6745": {
+        "type": "executable",
+        "nlp": [
+            "performing"
+        ],
+        "ioc": []
+    },
+    "6759": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "6799": {
+        "type": "network",
+        "nlp": [
+            "numerous",
+            "security solutions"
+        ],
+        "ioc": []
+    },
+    "6812": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "6815": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender"
+        ],
+        "ioc": []
+    },
+    "6832": {
+        "type": "network",
+        "nlp": [
+            "next-generation"
+        ],
+        "ioc": []
+    },
+    "6830": {
+        "type": "network",
+        "nlp": [
+            "next-generation"
+        ],
+        "ioc": []
+    },
+    "6833": {
+        "type": "executable",
+        "nlp": [
+            "antimalware"
+        ],
+        "ioc": []
+    },
+    "6856": {
+        "type": "network",
+        "nlp": [
+            "cloud heuristics"
+        ],
+        "ioc": []
+    },
+    "6855": {
+        "type": "network",
+        "nlp": [
+            "cloud heuristics"
+        ],
+        "ioc": []
+    },
+    "6860": {
+        "type": "executable",
+        "nlp": [
+            "models"
+        ],
+        "ioc": []
+    },
+    "6870": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender"
+        ],
+        "ioc": []
+    },
+    "6899": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "6911": {
+        "type": "file",
+        "nlp": [
+            "binaries"
+        ],
+        "ioc": []
+    },
+    "6916": {
+        "type": "network",
+        "nlp": [
+            "world-writable"
+        ],
+        "ioc": []
+    },
+    "6914": {
+        "type": "network",
+        "nlp": [
+            "world-writable"
+        ],
+        "ioc": []
+    },
+    "6917": {
+        "type": "network",
+        "nlp": [
+            "location"
+        ],
+        "ioc": []
+    },
+    "6927": {
+        "type": "file",
+        "nlp": [
+            "endpoints"
+        ],
+        "ioc": []
+    },
+    "6959": {
+        "type": "executable",
+        "nlp": [
+            "microsoft defender"
+        ],
+        "ioc": []
+    },
+    "6968": {
+        "type": "file",
+        "nlp": [
+            "websites"
+        ],
+        "ioc": []
+    },
+    "6972": {
+        "type": "network",
+        "nlp": [
+            "phishing sites"
+        ],
+        "ioc": []
+    },
+    "6981": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploits"
+        ],
+        "ioc": []
+    },
+    "6983": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": []
+    },
+    "6984": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "6988": {
+        "type": "file",
+        "nlp": [
+            "discovery"
+        ],
+        "ioc": []
+    },
+    "6996": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "7002": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender"
+        ],
+        "ioc": []
+    },
+    "7030": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender",
+            "cloud-based",
+            "protections",
+            "cloud-"
+        ],
+        "ioc": []
+    },
+    "7041": {
+        "type": "executable",
+        "nlp": [
+            "variants"
+        ],
+        "ioc": []
+    },
+    "7051": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender",
+            "artifacts"
+        ],
+        "ioc": []
+    },
+    "7073": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender"
+        ],
+        "ioc": []
+    },
+    "7077": {
+        "type": "network",
+        "nlp": [
+            "running"
+        ],
+        "ioc": []
+    },
+    "7080": {
+        "type": "executable",
+        "nlp": [
+            "passive mode"
+        ],
+        "ioc": []
+    },
+    "7083": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "7093": {
+        "type": "file",
+        "nlp": [
+            "domains",
+            "malicious content"
+        ],
+        "ioc": []
+    },
+    "7109": {
+        "type": "executable",
+        "nlp": [
+            "mode"
+        ],
+        "ioc": []
+    },
+    "7113": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender",
+            "alerts"
+        ],
+        "ioc": []
+    },
+    "7112": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender",
+            "alerts"
+        ],
+        "ioc": []
+    },
+    "7140": {
+        "type": "file",
+        "nlp": [
+            "number"
+        ],
+        "ioc": []
+    },
+    "7158": {
+        "type": "file",
+        "nlp": [
+            "devices"
+        ],
+        "ioc": []
+    },
+    "7164": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "7188": {
+        "type": "file",
+        "nlp": [
+            "devices",
+            "invest"
+        ],
+        "ioc": []
+    },
+    "7205": {
+        "type": "network",
+        "nlp": [
+            "networks"
+        ],
+        "ioc": []
+    },
+    "7207": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "7212": {
+        "type": "file",
+        "nlp": [
+            "microsoft defender",
+            "microsoft 365 defender",
+            "alert"
+        ],
+        "ioc": []
+    },
+    "7218": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "/xorddosinstaller.a",
+            "xorddoss installer"
+        ],
+        "ioc": []
+    },
+    "7219": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "/xorddosinstaller.a",
+            "xorddoss installer"
+        ],
+        "ioc": []
+    },
+    "7227": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "7258": {
+        "type": "network",
+        "nlp": [
+            "xorddos.a"
+        ],
+        "ioc": []
+    },
+    "7268": {
+        "type": "network",
+        "nlp": [
+            "script",
+            "/xorddosinstaller.a",
+            "xorddoss installer"
+        ],
+        "ioc": []
+    },
+    "7279": {
+        "type": "file",
+        "nlp": [
+            "microsoft 365 defender",
+            "alert",
+            "microsoft defender"
+        ],
+        "ioc": []
+    },
+    "7289": {
+        "type": "file",
+        "nlp": [
+            "chain"
+        ],
+        "ioc": []
+    },
+    "7296": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "7300": {
+        "type": "network",
+        "nlp": [
+            "information"
+        ],
+        "ioc": []
+    },
+    "7304": {
+        "type": "file",
+        "nlp": [
+            "details"
+        ],
+        "ioc": []
+    },
+    "7309": {
+        "type": "file",
+        "nlp": [
+            "upon",
+            "microsoft 365 defender"
+        ],
+        "ioc": []
+    },
+    "7317": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "7332": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "7350": {
+        "type": "file",
+        "nlp": [
+            "365 defender",
+            "tactics",
+            "details such"
+        ],
+        "ioc": []
+    },
+    "7371": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "microsoft 365 defender",
+            ".elf"
+        ],
+        "ioc": []
+    },
+    "7372": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "microsoft 365 defender",
+            ".elf"
+        ],
+        "ioc": []
+    },
+    "7375": {
+        "type": "network",
+        "nlp": [
+            "showing"
+        ],
+        "ioc": []
+    },
+    "7395": {
+        "type": "executable",
+        "nlp": [
+            "microsoft"
+        ],
+        "ioc": []
+    },
+    "7397": {
+        "type": "file",
+        "nlp": [
+            "defender",
+            ".elf"
+        ],
+        "ioc": []
+    },
+    "7408": {
+        "type": "network",
+        "nlp": [
+            "crond suid/sgid",
+            "world-writable"
+        ],
+        "ioc": []
+    },
+    "7406": {
+        "type": "network",
+        "nlp": [
+            "crond suid/sgid",
+            "world-writable"
+        ],
+        "ioc": []
+    },
+    "7409": {
+        "type": "file",
+        "nlp": [
+            "directory"
+        ],
+        "ioc": []
+    },
+    "7417": {
+        "type": "file",
+        "nlp": [
+            "events"
+        ],
+        "ioc": []
+    },
+    "7433": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "libudev.so"
+        ]
+    },
+    "7441": {
+        "type": "executable",
+        "nlp": [
+            "bash"
+        ],
+        "ioc": []
+    },
+    "7444": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "7451": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "gcc.sh"
+        ]
+    },
+    "7462": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "7466": {
+        "type": "network",
+        "nlp": [
+            "crond suid/sgid",
+            "world-writable"
+        ],
+        "ioc": []
+    },
+    "7476": {
+        "type": "file",
+        "nlp": [
+            "microsoft 365 defender"
+        ],
+        "ioc": []
+    },
+    "7477": {
+        "type": "file",
+        "nlp": [
+            "microsoft 365 defender"
+        ],
+        "ioc": []
+    },
+    "7487": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "suspicious shell",
+            "crond"
+        ],
+        "ioc": []
+    },
+    "7501": {
+        "type": "executable",
+        "nlp": [
+            "microsoft"
+        ],
+        "ioc": []
+    },
+    "7503": {
+        "type": "file",
+        "nlp": [
+            "activity",
+            "defender"
+        ],
+        "ioc": []
+    },
+    "7510": {
+        "type": "executable",
+        "nlp": [
+            "suspicious shell"
+        ],
+        "ioc": []
+    },
+    "7512": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "7531": {
+        "type": "file",
+        "nlp": [
+            "filename",
+            "microsoft defender",
+            "activity",
+            "strcat(folderpath",
+            "initiatingprocessfilename",
+            "|",
+            "microsoft 365 defender",
+            "devicefileevents",
+            "files",
+            "sort"
+        ],
+        "ioc": []
+    },
+    "7542": {
+        "type": "file",
+        "nlp": [
+            "filename",
+            "microsoft defender",
+            "activity",
+            "strcat(folderpath",
+            "initiatingprocessfilename",
+            "|",
+            "microsoft 365 defender",
+            "devicefileevents",
+            "host",
+            "files",
+            "sort"
+        ],
+        "ioc": [
+            "gcc.sh"
+        ]
+    },
+    "7626": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "cron.hourly/"
+        ],
+        "ioc": [
+            "gcc.sh",
+            "libudev.so"
+        ]
+    },
+    "7633": {
+        "type": "network",
+        "nlp": [
+            "/"
+        ],
+        "ioc": []
+    },
+    "7637": {
+        "type": "executable",
+        "nlp": [
+            "command"
+        ],
+        "ioc": []
+    },
+    "7644": {
+        "type": "file",
+        "nlp": [
+            "files",
+            "file",
+            "|"
+        ],
+        "ioc": []
+    },
+    "7646": {
+        "type": "executable",
+        "nlp": [
+            "processcommandline"
+        ],
+        "ioc": []
+    },
+    "7655": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "7680": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "f05194fb2b3978611b99cfbf5e5f1dd44cd5e04b",
+            "6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf",
+            "2dc6225a9d104a950fb33a74da262b93"
+        ]
+    },
+    "7700": {
+        "type": "executable",
+        "nlp": [
+            "executable"
+        ],
+        "ioc": []
+    },
+    "7703": {
+        "type": "actor",
+        "nlp": [
+            "80386"
+        ],
+        "ioc": []
+    },
+    "7706": {
+        "type": "file",
+        "nlp": [
+            "1"
+        ],
+        "ioc": []
+    },
+    "7738": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "7749": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "7755": {
+        "type": "network",
+        "nlp": [
+            "cron.hourly/"
+        ],
+        "ioc": []
+    },
+    "7756": {
+        "type": "network",
+        "nlp": [
+            "filename",
+            "microsoft defender",
+            "activity",
+            "strcat(folderpath",
+            "initiatingprocessfilename",
+            "|",
+            "microsoft 365 defender",
+            "devicefileevents",
+            "host",
+            "files",
+            "sort"
+        ],
+        "ioc": [
+            "gcc.sh"
+        ]
+    },
+    "7759": {
+        "type": "executable",
+        "nlp": [
+            "script",
+            "sshd"
+        ],
+        "ioc": []
+    },
+    "7761": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a",
+            "cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459"
+        ]
+    },
+    "7764": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "libudev.so"
+        ]
+    },
+    "7768": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432",
+            "53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394",
+            "2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3",
+            "359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39"
+        ]
+    },
+    "7793": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b",
+            "798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c"
+        ]
+    },
+    "7826": {
+        "type": "network",
+        "nlp": [
+            "kkldnszwvq"
+        ],
+        "ioc": []
+    },
+    "7829": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4",
+            "360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd",
+            "b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a",
+            "d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7",
+            "dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7",
+            "ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e",
+            "9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489"
+        ]
+    },
+    "7898": {
+        "type": "executable",
+        "nlp": [
+            "script"
+        ],
+        "ioc": []
+    },
+    "7909": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39",
+            "53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394"
+        ]
+    },
+    "7939": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": [
+            "c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea",
+            "483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25"
+        ]
+    },
+    "7955": {
+        "type": "network",
+        "nlp": [
+            "urls",
+            "host"
+        ],
+        "ioc": [
+            "www.enoan2107.com"
+        ]
+    },
+    "7965": {
+        "type": "network",
+        "nlp": [
+            "kkldnszwvq",
+            "url",
+            "/tmp/bin/3200"
+        ],
+        "ioc": [
+            "hxxp://aa.hostasa.org/config.rar"
+        ]
+    },
+    "7972": {
+        "type": "file",
+        "nlp": [
+            "kulakov"
+        ],
+        "ioc": []
+    },
+    "7980": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "saurabh swaroop"
+        ],
+        "ioc": [
+            "www.gzcfr5axf6.com"
+        ]
+    },
+    "7986": {
+        "type": "file",
+        "nlp": [
+            "3306",
+            "file",
+            "filed"
+        ],
+        "ioc": [
+            "8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2"
+        ]
+    },
+    "124": {
+        "type": "executable",
+        "nlp": [
+            "malwaremustdie"
+        ],
+        "ioc": []
+    },
+    "132": {
+        "type": "executable",
+        "nlp": [
+            "malwaremustdie"
+        ],
+        "ioc": []
+    },
+    "424": {
+        "type": "file",
+        "nlp": [
+            "files",
+            "analysis",
+            "activities"
+        ],
+        "ioc": []
+    },
+    "805": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "942": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "1478": {
+        "type": "network",
+        "nlp": [
+            "lsmod",
+            "sends",
+            "information"
+        ],
+        "ioc": []
+    },
+    "1871": {
+        "type": "file",
+        "nlp": [
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "1884": {
+        "type": "file",
+        "nlp": [
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "1977": {
+        "type": "network",
+        "nlp": [
+            "non-stripped binary",
+            "dns.c",
+            "socket.c"
+        ],
+        "ioc": []
+    },
+    "1986": {
+        "type": "network",
+        "nlp": [
+            "non-stripped binary",
+            "dns.c",
+            "socket.c"
+        ],
+        "ioc": []
+    },
+    "2884": {
+        "type": "file",
+        "nlp": [
+            "unhide",
+            "file",
+            "malware",
+            "buffer"
+        ],
+        "ioc": []
+    },
+    "3460": {
+        "type": "executable",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3534": {
+        "type": "executable",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3550": {
+        "type": "executable",
+        "nlp": [
+            "ioctl calls",
+            "integer array",
+            "sending input",
+            "malware",
+            "provision for communicating",
+            "information"
+        ],
+        "ioc": []
+    },
+    "3639": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "3771": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "3922": {
+        "type": "executable",
+        "nlp": [
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "4632": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4654": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4678": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4684": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4700": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "4908": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "argument"
+        ],
+        "ioc": []
+    },
+    "5185": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5192": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5218": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "5639": {
+        "type": "network",
+        "nlp": [
+            "m7a4nq_/na",
+            "/usr/bin ~~"
+        ],
+        "ioc": []
+    },
+    "5750": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev character device"
+        ],
+        "ioc": []
+    },
+    "5833": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev device"
+        ],
+        "ioc": []
+    },
+    "5881": {
+        "type": "network",
+        "nlp": [
+            "communication"
+        ],
+        "ioc": []
+    },
+    "6300": {
+        "type": "file",
+        "nlp": [
+            "md5=",
+            "process",
+            "filename=",
+            "files",
+            "decrypt_remotestr(",
+            "file",
+            "32-byte"
+        ],
+        "ioc": []
+    },
+    "6385": {
+        "type": "file",
+        "nlp": [
+            "md5=",
+            "process",
+            "filename=",
+            "files",
+            "decrypt_remotestr(",
+            "file",
+            "32-byte"
+        ],
+        "ioc": []
+    }
+}

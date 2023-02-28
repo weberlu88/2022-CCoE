@@ -1,0 +1,370 @@
+{
+    "9": {
+        "type": "network",
+        "nlp": [
+            "atlassian"
+        ],
+        "ioc": []
+    },
+    "35": {
+        "type": "executable",
+        "nlp": [
+            "software"
+        ],
+        "ioc": []
+    },
+    "42": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "53": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploiting"
+        ],
+        "ioc": []
+    },
+    "57": {
+        "type": "vulnerability",
+        "nlp": [
+            "vulnerability"
+        ],
+        "ioc": []
+    },
+    "62": {
+        "type": "executable",
+        "nlp": [
+            "software"
+        ],
+        "ioc": []
+    },
+    "67": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploiting",
+            "exploits",
+            "exploit",
+            "exploited",
+            "vulnerability"
+        ],
+        "ioc": [
+            "cve-2019-3396"
+        ]
+    },
+    "81": {
+        "type": "network",
+        "nlp": [
+            "server-side"
+        ],
+        "ioc": []
+    },
+    "91": {
+        "type": "executable",
+        "nlp": [
+            "macro"
+        ],
+        "ioc": []
+    },
+    "94": {
+        "type": "network",
+        "nlp": [
+            "server"
+        ],
+        "ioc": []
+    },
+    "97": {
+        "type": "actor",
+        "nlp": [
+            "actors"
+        ],
+        "ioc": []
+    },
+    "105": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "109": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "124": {
+        "type": "file",
+        "nlp": [
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "130": {
+        "type": "actor",
+        "nlp": [
+            "attacker"
+        ],
+        "ioc": []
+    },
+    "145": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "153": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "157": {
+        "type": "executable",
+        "nlp": [
+            "host",
+            "command",
+            "script"
+        ],
+        "ioc": [
+            "trojan.sh"
+        ]
+    },
+    "191": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "195": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "210": {
+        "type": "network",
+        "nlp": [
+            "several"
+        ],
+        "ioc": []
+    },
+    "230": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "237": {
+        "type": "file",
+        "nlp": [
+            "48080"
+        ],
+        "ioc": []
+    },
+    "242": {
+        "type": "network",
+        "nlp": [
+            "host",
+            "receive remote shell"
+        ],
+        "ioc": [
+            "23.224.59.34"
+        ]
+    },
+    "244": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "247": {
+        "type": "actor",
+        "nlp": [
+            "attacker"
+        ],
+        "ioc": []
+    },
+    "255": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "269": {
+        "type": "executable",
+        "nlp": [
+            "description"
+        ],
+        "ioc": []
+    },
+    "286": {
+        "type": "file",
+        "nlp": [
+            "files",
+            "algorithm"
+        ],
+        "ioc": []
+    },
+    "296": {
+        "type": "network",
+        "nlp": [
+            "c2"
+        ],
+        "ioc": []
+    },
+    "319": {
+        "type": "network",
+        "nlp": [
+            "/rc.local"
+        ],
+        "ioc": []
+    },
+    "329": {
+        "type": "file",
+        "nlp": [
+            "autostart"
+        ],
+        "ioc": []
+    },
+    "335": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "337": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "341": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "path}/{malware"
+        ],
+        "ioc": []
+    },
+    "343": {
+        "type": "file",
+        "nlp": [
+            "atlassian"
+        ],
+        "ioc": []
+    },
+    "348": {
+        "type": "vulnerability",
+        "nlp": [
+            "vulnerability"
+        ],
+        "ioc": []
+    },
+    "352": {
+        "type": "file",
+        "nlp": [
+            "software"
+        ],
+        "ioc": []
+    },
+    "364": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploitation"
+        ],
+        "ioc": []
+    },
+    "367": {
+        "type": "vulnerability",
+        "nlp": [
+            "vulnerability"
+        ],
+        "ioc": [
+            "cve-2019-3396"
+        ]
+    },
+    "370": {
+        "type": "network",
+        "nlp": [
+            "atlassian"
+        ],
+        "ioc": []
+    },
+    "372": {
+        "type": "actor",
+        "nlp": [
+            "server"
+        ],
+        "ioc": []
+    },
+    "377": {
+        "type": "executable",
+        "nlp": [
+            "risk"
+        ],
+        "ioc": []
+    },
+    "395": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "397": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploits"
+        ],
+        "ioc": []
+    },
+    "405": {
+        "type": "file",
+        "nlp": [
+            "design"
+        ],
+        "ioc": []
+    },
+    "411": {
+        "type": "network",
+        "nlp": [
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "416": {
+        "type": "file",
+        "nlp": [
+            "resources",
+            "micro concludes"
+        ],
+        "ioc": []
+    },
+    "420": {
+        "type": "network",
+        "nlp": [
+            "securityaffairs"
+        ],
+        "ioc": []
+    },
+    "257": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    }
+}

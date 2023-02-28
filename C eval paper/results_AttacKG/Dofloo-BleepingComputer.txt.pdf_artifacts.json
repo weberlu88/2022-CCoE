@@ -1,0 +1,487 @@
+{
+    "14": {
+        "type": "network",
+        "nlp": [
+            "14"
+        ],
+        "ioc": []
+    },
+    "19": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "37": {
+        "type": "executable",
+        "nlp": [
+            "payload",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "41": {
+        "type": "file",
+        "nlp": [
+            "dofloo"
+        ],
+        "ioc": []
+    },
+    "46": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "50": {
+        "type": "network",
+        "nlp": [
+            "popular"
+        ],
+        "ioc": []
+    },
+    "64": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "69": {
+        "type": "network",
+        "nlp": [
+            "hackers",
+            "miners",
+            "2014"
+        ],
+        "ioc": []
+    },
+    "123": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "125": {
+        "type": "file",
+        "nlp": [
+            "abused"
+        ],
+        "ioc": []
+    },
+    "139": {
+        "type": "file",
+        "nlp": [
+            "early-2018"
+        ],
+        "ioc": []
+    },
+    "144": {
+        "type": "network",
+        "nlp": [
+            "spreading"
+        ],
+        "ioc": []
+    },
+    "147": {
+        "type": "executable",
+        "nlp": [
+            "cloud"
+        ],
+        "ioc": []
+    },
+    "175": {
+        "type": "file",
+        "nlp": [
+            "micro"
+        ],
+        "ioc": []
+    },
+    "216": {
+        "type": "file",
+        "nlp": [
+            "misconfiguration  "
+        ],
+        "ioc": []
+    },
+    "217": {
+        "type": "file",
+        "nlp": [
+            "misconfiguration  "
+        ],
+        "ioc": []
+    },
+    "228": {
+        "type": "network",
+        "nlp": [
+            "remote access",
+            "host"
+        ],
+        "ioc": []
+    },
+    "241": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "246": {
+        "type": "network",
+        "nlp": [
+            "remote access",
+            "host"
+        ],
+        "ioc": []
+    },
+    "245": {
+        "type": "network",
+        "nlp": [
+            "remote access",
+            "host"
+        ],
+        "ioc": []
+    },
+    "252": {
+        "type": "network",
+        "nlp": [
+            "resources"
+        ],
+        "ioc": []
+    },
+    "257": {
+        "type": "actor",
+        "nlp": [
+            "micro",
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "275": {
+        "type": "network",
+        "nlp": [
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "277": {
+        "type": "network",
+        "nlp": [
+            "sending",
+            "host"
+        ],
+        "ioc": []
+    },
+    "300": {
+        "type": "executable",
+        "nlp": [
+            "source"
+        ],
+        "ioc": []
+    },
+    "302": {
+        "type": "file",
+        "nlp": [
+            "/"
+        ],
+        "ioc": []
+    },
+    "305": {
+        "type": "file",
+        "nlp": [
+            "scanner"
+        ],
+        "ioc": []
+    },
+    "310": {
+        "type": "actor",
+        "nlp": [
+            "actors"
+        ],
+        "ioc": []
+    },
+    "311": {
+        "type": "network",
+        "nlp": [
+            "connecting",
+            "communication"
+        ],
+        "ioc": []
+    },
+    "327": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "344": {
+        "type": "actor",
+        "nlp": [
+            "attackers",
+            "micro's"
+        ],
+        "ioc": []
+    },
+    "345": {
+        "type": "actor",
+        "nlp": [
+            "attackers",
+            "micro's"
+        ],
+        "ioc": []
+    },
+    "350": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "command"
+        ],
+        "ioc": []
+    },
+    "359": {
+        "type": "network",
+        "nlp": [
+            "several"
+        ],
+        "ioc": []
+    },
+    "381": {
+        "type": "file",
+        "nlp": [
+            "masters",
+            "information",
+            "system"
+        ],
+        "ioc": []
+    },
+    "400": {
+        "type": "executable",
+        "nlp": [
+            "information",
+            "masters",
+            "command"
+        ],
+        "ioc": []
+    },
+    "406": {
+        "type": "network",
+        "nlp": [
+            "c&c"
+        ],
+        "ioc": []
+    },
+    "432": {
+        "type": "file",
+        "nlp": [
+            "dofloo"
+        ],
+        "ioc": []
+    },
+    "436": {
+        "type": "executable",
+        "nlp": [
+            "commands",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "438": {
+        "type": "network",
+        "nlp": [
+            "during",
+            "remote shell"
+        ],
+        "ioc": []
+    },
+    "477": {
+        "type": "file",
+        "nlp": [
+            "campaign",
+            "dofloo"
+        ],
+        "ioc": []
+    },
+    "489": {
+        "type": "vulnerability",
+        "nlp": [
+            "vulnerability",
+            "exploited"
+        ],
+        "ioc": []
+    },
+    "497": {
+        "type": "network",
+        "nlp": [
+            "late",
+            "atlassian"
+        ],
+        "ioc": []
+    },
+    "499": {
+        "type": "executable",
+        "nlp": [
+            "server"
+        ],
+        "ioc": []
+    },
+    "522": {
+        "type": "file",
+        "nlp": [
+            "campaigns"
+        ],
+        "ioc": []
+    },
+    "533": {
+        "type": "vulnerability",
+        "nlp": [
+            "exploiting",
+            "vulnerability"
+        ],
+        "ioc": []
+    },
+    "536": {
+        "type": "vulnerability",
+        "nlp": [
+            "vulnerability"
+        ],
+        "ioc": [
+            "cve-2019-5736"
+        ]
+    },
+    "545": {
+        "type": "actor",
+        "nlp": [
+            "attackers"
+        ],
+        "ioc": []
+    },
+    "549": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": []
+    },
+    "554": {
+        "type": "executable",
+        "nlp": [
+            "root-"
+        ],
+        "ioc": []
+    },
+    "565": {
+        "type": "file",
+        "nlp": [
+            "actively"
+        ],
+        "ioc": []
+    },
+    "567": {
+        "type": "file",
+        "nlp": [
+            "misconfigured"
+        ],
+        "ioc": []
+    },
+    "569": {
+        "type": "system",
+        "nlp": [
+            "services",
+            "scripts"
+        ],
+        "ioc": []
+    },
+    "571": {
+        "type": "network",
+        "nlp": [
+            "november",
+            "networks"
+        ],
+        "ioc": []
+    },
+    "617": {
+        "type": "network",
+        "nlp": [
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "657": {
+        "type": "system",
+        "nlp": [
+            "systems"
+        ],
+        "ioc": []
+    },
+    "674": {
+        "type": "network",
+        "nlp": [
+            "admins",
+            "hosts"
+        ],
+        "ioc": []
+    },
+    "685": {
+        "type": "file",
+        "nlp": [
+            "explained",
+            "sources",
+            "only"
+        ],
+        "ioc": []
+    },
+    "697": {
+        "type": "network",
+        "nlp": [
+            "remote"
+        ],
+        "ioc": []
+    },
+    "704": {
+        "type": "file",
+        "nlp": [
+            "documentation"
+        ],
+        "ioc": []
+    },
+    "712": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "764": {
+        "type": "network",
+        "nlp": [
+            "pro-russian hackers botnet cryptojacking cryptominer ddos docker"
+        ],
+        "ioc": []
+    },
+    "132": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "316": {
+        "type": "actor",
+        "nlp": [
+            "actors"
+        ],
+        "ioc": []
+    },
+    "583": {
+        "type": "system",
+        "nlp": [
+            "services",
+            "scripts"
+        ],
+        "ioc": []
+    }
+}

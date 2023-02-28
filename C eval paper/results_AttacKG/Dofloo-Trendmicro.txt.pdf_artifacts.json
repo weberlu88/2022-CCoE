@@ -1,0 +1,249 @@
+{
+    "9": {
+        "type": "file",
+        "nlp": [
+            "/dofloo.c!tr(fortinet"
+        ],
+        "ioc": []
+    },
+    "19": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "30": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "33": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "37": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "41": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "unknowingly",
+            "sites"
+        ],
+        "ioc": []
+    },
+    "53": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "56": {
+        "type": "network",
+        "nlp": [
+            "remote"
+        ],
+        "ioc": []
+    },
+    "58": {
+        "type": "file",
+        "nlp": [
+            "user",
+            "system"
+        ],
+        "ioc": []
+    },
+    "67": {
+        "type": "network",
+        "nlp": [
+            "details"
+        ],
+        "ioc": []
+    },
+    "73": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "89": {
+        "type": "executable",
+        "nlp": [
+            "payload"
+        ],
+        "ioc": []
+    },
+    "98": {
+        "type": "file",
+        "nlp": [
+            "information"
+        ],
+        "ioc": []
+    },
+    "100": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "details"
+        ],
+        "ioc": []
+    },
+    "106": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "109": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "113": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "117": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "unknowingly",
+            "sites"
+        ],
+        "ioc": []
+    },
+    "146": {
+        "type": "network",
+        "nlp": [
+            "/rc.local"
+        ],
+        "ioc": []
+    },
+    "180": {
+        "type": "network",
+        "nlp": [
+            "/rc.local"
+        ],
+        "ioc": []
+    },
+    "215": {
+        "type": "executable",
+        "nlp": [
+            "commands"
+        ],
+        "ioc": []
+    },
+    "218": {
+        "type": "network",
+        "nlp": [
+            "remote"
+        ],
+        "ioc": []
+    },
+    "252": {
+        "type": "file",
+        "nlp": [
+            "information memory"
+        ],
+        "ioc": []
+    },
+    "324": {
+        "type": "network",
+        "nlp": [
+            "/proc/stat /proc/meminfo /proc/",
+            "/proc/self/fd/%d/%s /proc/self/",
+            "/proc/net/dev /proc/self/exe /proc/self/maps /proc/sys/vm/overcommit_memory /proc/sys/kernel/rtsig-max /proc/sys/kernel/ngroups_max",
+            "/proc/"
+        ],
+        "ioc": []
+    },
+    "330": {
+        "type": "file",
+        "nlp": [
+            "host.conf",
+            "/suid-debug /etc/",
+            "details",
+            "files",
+            "/proc/"
+        ],
+        "ioc": []
+    },
+    "331": {
+        "type": "file",
+        "nlp": [
+            "host.conf",
+            "/suid-debug /etc/",
+            "details",
+            "files",
+            "/proc/"
+        ],
+        "ioc": []
+    },
+    "334": {
+        "type": "network",
+        "nlp": [
+            "details",
+            "host.conf",
+            "/suid-debug /etc/"
+        ],
+        "ioc": []
+    },
+    "358": {
+        "type": "network",
+        "nlp": [
+            "host"
+        ],
+        "ioc": [
+            "ld.so"
+        ]
+    },
+    "370": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "files"
+        ],
+        "ioc": []
+    },
+    "412": {
+        "type": "file",
+        "nlp": [
+            "file",
+            "files"
+        ],
+        "ioc": []
+    },
+    "430": {
+        "type": "network",
+        "nlp": [
+            "step"
+        ],
+        "ioc": []
+    },
+    "442": {
+        "type": "file",
+        "nlp": [
+            "files"
+        ],
+        "ioc": []
+    }
+}

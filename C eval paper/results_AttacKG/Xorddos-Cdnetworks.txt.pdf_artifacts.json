@@ -1,0 +1,398 @@
+{
+    "30": {
+        "type": "executable",
+        "nlp": [
+            "seconds",
+            "xor.ddos",
+            "over",
+            "malware"
+        ],
+        "ioc": []
+    },
+    "32": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "38": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "50": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "71": {
+        "type": "system",
+        "nlp": [
+            "service",
+            "cybersecurity"
+        ],
+        "ioc": []
+    },
+    "88": {
+        "type": "network",
+        "nlp": [
+            "denial-of-"
+        ],
+        "ioc": []
+    },
+    "92": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "116": {
+        "type": "file",
+        "nlp": [
+            "many",
+            "analysis"
+        ],
+        "ioc": []
+    },
+    "118": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "128": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "147": {
+        "type": "system",
+        "nlp": [
+            "system"
+        ],
+        "ioc": []
+    },
+    "151": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "163": {
+        "type": "executable",
+        "nlp": [
+            "command",
+            "zombie"
+        ],
+        "ioc": []
+    },
+    "167": {
+        "type": "network",
+        "nlp": [
+            "c&c"
+        ],
+        "ioc": []
+    },
+    "179": {
+        "type": "network",
+        "nlp": [
+            "dns",
+            "network"
+        ],
+        "ioc": []
+    },
+    "203": {
+        "type": "network",
+        "nlp": [
+            "dns",
+            "network"
+        ],
+        "ioc": []
+    },
+    "221": {
+        "type": "file",
+        "nlp": [
+            "addition"
+        ],
+        "ioc": []
+    },
+    "253": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "270": {
+        "type": "executable",
+        "nlp": [
+            "brute",
+            "random passwords"
+        ],
+        "ioc": []
+    },
+    "283": {
+        "type": "executable",
+        "nlp": [
+            "brute"
+        ],
+        "ioc": []
+    },
+    "294": {
+        "type": "file",
+        "nlp": [
+            "decryption key",
+            "all keys"
+        ],
+        "ioc": []
+    },
+    "293": {
+        "type": "file",
+        "nlp": [
+            "decryption key",
+            "all keys"
+        ],
+        "ioc": []
+    },
+    "305": {
+        "type": "network",
+        "nlp": [
+            "random attack"
+        ],
+        "ioc": []
+    },
+    "304": {
+        "type": "network",
+        "nlp": [
+            "random attack"
+        ],
+        "ioc": []
+    },
+    "331": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "336": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos",
+            "china"
+        ],
+        "ioc": []
+    },
+    "349": {
+        "type": "network",
+        "nlp": [
+            "cloud"
+        ],
+        "ioc": []
+    },
+    "350": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "357": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "364": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "365": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "377": {
+        "type": "file",
+        "nlp": [
+            "addition"
+        ],
+        "ioc": []
+    },
+    "381": {
+        "type": "system",
+        "nlp": [
+            "systems",
+            "ssh",
+            "services"
+        ],
+        "ioc": []
+    },
+    "405": {
+        "type": "network",
+        "nlp": [
+            "cloud security"
+        ],
+        "ioc": []
+    },
+    "412": {
+        "type": "file",
+        "nlp": [
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "434": {
+        "type": "network",
+        "nlp": [
+            "process"
+        ],
+        "ioc": []
+    },
+    "471": {
+        "type": "network",
+        "nlp": [
+            "all"
+        ],
+        "ioc": []
+    },
+    "530": {
+        "type": "network",
+        "nlp": [
+            "number"
+        ],
+        "ioc": []
+    },
+    "574": {
+        "type": "file",
+        "nlp": [
+            "discarded"
+        ],
+        "ioc": []
+    },
+    "593": {
+        "type": "network",
+        "nlp": [
+            "second",
+            "first"
+        ],
+        "ioc": []
+    },
+    "611": {
+        "type": "network",
+        "nlp": [
+            "packet information",
+            "first"
+        ],
+        "ioc": []
+    },
+    "625": {
+        "type": "file",
+        "nlp": [
+            "normal"
+        ],
+        "ioc": []
+    },
+    "648": {
+        "type": "file",
+        "nlp": [
+            "attack",
+            "request"
+        ],
+        "ioc": []
+    },
+    "662": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "667": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "679": {
+        "type": "file",
+        "nlp": [
+            "such",
+            "xor.ddos"
+        ],
+        "ioc": []
+    },
+    "686": {
+        "type": "network",
+        "nlp": [
+            "network"
+        ],
+        "ioc": []
+    },
+    "690": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "699": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "712": {
+        "type": "network",
+        "nlp": [
+            "large"
+        ],
+        "ioc": []
+    },
+    "722": {
+        "type": "file",
+        "nlp": [
+            "taken"
+        ],
+        "ioc": []
+    },
+    "726": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "733": {
+        "type": "system",
+        "nlp": [
+            "services"
+        ],
+        "ioc": []
+    },
+    "52": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    }
+}
