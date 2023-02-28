@@ -17,7 +17,7 @@ class RegexMaster:
         self.used_regex_set = set() # 紀錄被 find_spacial_token() 找到過的 regex
         self.regex_file = {
             "sed command": "bin/sed", 
-            "startup": ["/etc/rc", "/etc/init.d/"],
+            "startup": ["/etc/rc", "/etc/init.d/", "rc.local", "init.d"],
             "process_info": "/proc/", 
             "sed temp file": "/etc/sed", 
             "selinx": "/selinux", 
