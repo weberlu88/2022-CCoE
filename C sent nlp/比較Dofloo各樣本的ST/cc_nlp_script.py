@@ -68,9 +68,10 @@ def syscall_verb_analysis(syscall: str, en_verb: str) -> tuple[bool, int]:
 from enum import Enum
 
 class OperationMode(Enum):
-    FILE_READ = 1
-    FILE_CUD = 2
-    # FILE_DELETE = 3 # delete can done with unlink() rename() open()
+    FILE_READ_CLOSE = 0
+    FILE_CREATE_OPEN = 1
+    FILE_UPDATE = 2
+    FILE_DELETE = 3
     PROCESS_EXE = 4
     PROCESS_KILL = 5
     PROCESS_Other = 6
@@ -90,8 +91,10 @@ class OperationEvaluator:
     def __init__(self) -> None:
         # mode has en_verb
         self.mode_verb_convertor = {
-            OperationMode.FILE_READ: "read、gather、check、find、check、close、fetch、look",
-            OperationMode.FILE_CUD: "add、format、modify、write、overwrite、create、set、change、delete、rename、open、drop、use、extract",
+            OperationMode.FILE_READ_CLOSE: "read、get、gather、check、find、check、close、fetch、look、see、use、extract、wait、select",
+            OperationMode.FILE_CREATE_OPEN: "create、open、add、drop、mount",
+            OperationMode.FILE_UPDATE: "update、format、modify、write、overwrite、set、change、rename",
+            OperationMode.FILE_DELETE: "delete、remove、drop",
             OperationMode.PROCESS_EXE: "execute、use、call、spawn、fork、perform、install、add、start",
             OperationMode.PROCESS_KILL: "kill",
             OperationMode.PROCESS_Other: "map、wait、sleep、trace、exit、end、break",
@@ -105,8 +108,10 @@ class OperationEvaluator:
             self.mode_verb_convertor[opMode] = string.split('、')
         # syscall belongs to mode
         syscall_mode_table = {
-            OperationMode.FILE_READ: "linkat()、statfs()、stat()、lseek()、readlink()、munmap()、stat64()、access()、link()、lstat()、ppoll()、getcwd()、read()、fstat64()、dup2()、fstat()、fcntl64()、symlinkat()、umask()、newfstatat()、symlink()、getdents()、fcntl()、_newselect()、chdir()、close()",
-            OperationMode.FILE_CUD: "rmdir()、mmap()、rename()、fchmod()、mmap2()、mkdir()、fchown()、write()、open()、openat()、unlink()、unlinkat()、remove()",
+            OperationMode.FILE_READ_CLOSE: "linkat()、statfs()、stat()、lseek()、readlink()、stat64()、access()、poll()、ppoll()、getcwd()、read()、fstat64()、dup()、dup2()、fstat()、fcntl64()、symlinkat()、umask()、newfstatat()、getdents()、fcntl()、_newselect()、select()、chdir()、close()",
+            OperationMode.FILE_CREATE_OPEN: "mkdir()、open()、openat()、mmap()、mmap2()",
+            OperationMode.FILE_UPDATE: "write()、rename()、fchmod()、chown()、fchown()、lchown()、link()、lstat()、symlink()",
+            OperationMode.FILE_DELETE: "rm()、rmdir()、munmap()、unlink()、unlinkat()、remove()",
             OperationMode.PROCESS_EXE: "execve()、clone()、fork()、vfork()",
             OperationMode.PROCESS_KILL: "kill()",
             OperationMode.PROCESS_Other: "mremap()、mprotect()、set_tid_address()、arch_prctl()、set_thread_area()、waitpid()、nanosleep()、ptrace()、set_robust_list()、wait4()、futex()、exit_group()、brk()",
@@ -150,8 +155,8 @@ class OperationEvaluator:
         verb_list:list = self.mode_verb_convertor.get(mode, None)
         # mem_after_create_lst = self._get_mem_usage()
         # print(f"\t=== diff of mem_usage calling self.mode_verb_convertor.get(): {mem_after_create_lst - mem_before_create_lst:.2f}  ===")
-        if mode == OperationMode.FILE_CUD:
-            verb_list += self.mode_verb_convertor[OperationMode.FILE_CUD]
+        # if mode == OperationMode.FILE_CUD:
+        #     verb_list += self.mode_verb_convertor[OperationMode.FILE_CUD]
         if verb_list is None:
             del en_verb
             return False
