@@ -89,7 +89,7 @@ class OperationEvaluator:
     You shold call the resolve() func instead of accessing these fields.
     '''
     def __init__(self) -> None:
-        # mode has en_verb
+        # mode has en_verbs
         self.mode_verb_convertor = {
             OperationMode.FILE_READ_CLOSE: "read、get、gather、check、find、check、close、fetch、look、see、use、extract、wait、select",
             OperationMode.FILE_CREATE_OPEN: "create、open、add、drop、mount",
@@ -125,6 +125,7 @@ class OperationEvaluator:
             lst = string.split('、')
             lst = [li.rstrip('()') for li in lst]
             syscall_mode_table[opMode] = lst
+        # syscall -> mode
         self.syscall_convertor = {}
         for k,v_lst in syscall_mode_table.items():
             for v in v_lst:
@@ -144,15 +145,15 @@ class OperationEvaluator:
         mem_usage = psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2
         return mem_usage
 
-    def resolve(self, syscall:str, en_verb:str) -> bool:
-        '''Determine if syscall matches en_verb (lemma). Return True if match, otherwise False.'''
-        mode = self.syscall_convertor.get(syscall, None)
-        if mode is None:
+    def resolve(self, syscall:str, en_verb:str, downcast=False) -> tuple[OperationMode, OperationMode]|bool:
+        '''Determine if syscall matches en_verb (lemma). Return [OperationMode_syscall, OperationMode_verb] if match, otherwise False.'''
+        mode_sys = self.syscall_convertor.get(syscall, None)
+        if mode_sys is None:
             return False
         # acceptable_modes:list = [mode]
         # mode_expansion:dict = {} # mode 一對一對應，不做向下兼容 (CUD不包含read)
         # mem_before_create_lst = self._get_mem_usage()
-        verb_list:list = self.mode_verb_convertor.get(mode, None)
+        verb_list:list = self.mode_verb_convertor.get(mode_sys, None)
         # mem_after_create_lst = self._get_mem_usage()
         # print(f"\t=== diff of mem_usage calling self.mode_verb_convertor.get(): {mem_after_create_lst - mem_before_create_lst:.2f}  ===")
         # if mode == OperationMode.FILE_CUD:
@@ -162,9 +163,21 @@ class OperationEvaluator:
             return False
         if en_verb in verb_list:
             del en_verb
-            return True
+            return mode_sys, mode_sys # the two modes are same
         del en_verb
         return False
+    
+    # 有 bug，勿用在verb上! 因為同個動詞會有可能出現在兩種mode中。 用在syscall上是可以的。
+    def get_mode(self, action: str) -> OperationMode | None:
+        '''get OperationMode for a `systemcall` action. Plz don't pass in en_verbs like 'send', judging ev_verb has bug. '''
+        typeOfSyscall = self.syscall_convertor.get(action, None)
+        if typeOfSyscall:
+            return typeOfSyscall
+        for typeOfVerb, verbList in self.mode_verb_convertor.items():
+            if action in verbList:
+                return typeOfVerb
+        return None
+        
 
 if __name__ == '__main__':
     # test 1, <connects, 23.224.59.34:48080>
@@ -182,6 +195,20 @@ if __name__ == '__main__':
     # OperationEvaluator test case
     operationEvaluator = OperationEvaluator()
     res = operationEvaluator.resolve('linkat', 'read')
-    print(res) # True
+    print(res) # True [OperationMode.FILE_READ_CLOSE, OperationMode.FILE_READ_CLOSE]
     res = operationEvaluator.resolve('linkat', 'connect')
     print(res) # False
+    res = operationEvaluator.resolve('ioctl', 'send')
+    print(res) # [OperationMode.DEVICE, OperationMode.DEVICE]
+
+    mode = operationEvaluator.get_mode('linkat')
+    print("mode of 'linkat':", mode) # OperationMode.FILE_READ_CLOSE
+    mode = operationEvaluator.get_mode('read')
+    print("mode of 'read':", mode)   # OperationMode.FILE_READ_CLOSE
+    mode = operationEvaluator.get_mode('connect')
+    print("mode of 'connect':", mode) # OperationMode.COMM_TRANSMIT
+    mode = operationEvaluator.get_mode('install')
+    print("mode of 'install':", mode) # OperationMode.PROCESS_EXE
+    mode = operationEvaluator.get_mode('send')
+    print("mode of 'send':", mode) # OperationMode.COMM_CONNECT (其實也屬於DEVICE，但只能做到return一個mode)
+    
