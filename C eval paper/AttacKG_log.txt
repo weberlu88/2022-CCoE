@@ -15,7 +15,7 @@ Contains actions:
 {'type': 'file', 'data': ['data:0x08c5c8', 'unk_0x08c5c4 <']} -> 182.254.180.241
 
 Contains 2 matched objects in report: 
-{'0x[0-9a-zA-Z]{8}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+{'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '0x[0-9a-zA-Z]{8}'}
 --
 Dofloo-Securityaffairs
 num of object-like items 51, num of dependencies 39
@@ -26,18 +26,29 @@ Contains actions:
 {'type': 'file', 'data': ['algorithm', 'files']} -> /rc.local
 
 Contains 2 matched objects in report: 
-{'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'rc.local'}
+{'rc.local', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+--
+Dofloo-SyscallParty
+num of object-like items 191, num of dependencies 102
+
+Contains actions:
+{'type': 'file', 'data': ['file']} -> /rc.local
+{'type': 'executable', 'data': ['command', 'malware']} -> /rc.local
+{'type': 'executable', 'data': ['commands']} -> /rc.local
+
+Contains 3 matched objects in report: 
+{'rc.local', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/'}
 --
 Dofloo-Trendmicro
 num of object-like items 33, num of dependencies 21
 
 Contains actions:
-{'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /suid-debug
 {'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /proc/
+{'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /suid-debug
 {'type': 'file', 'data': ['/proc/', '/suid-debug /etc/', 'details', 'files', 'host.conf']} -> /suid-debug
 
 Contains 4 matched objects in report: 
-{'UID', 'rc.local', '/proc/', '/sys/'}
+{'UID', 'rc.local', '/sys/', '/proc/'}
 --
 Xorddos-Cdnetworks
 num of object-like items 54, num of dependencies 24
@@ -76,19 +87,19 @@ Contains actions:
 {'type': 'network', 'data': ['strace']} -> /proc/$pid
 {'type': 'executable', 'data': ['information', 'integer array', 'ioctl calls', 'malware', 'provision for communicating', 'sending input']} -> /proc/rs_dev
 {'type': 'file', 'data': ['information', 'integer array', 'ioctl calls', 'malware', 'provision for communicating', 'sending input']} -> /proc/rs_dev
-{'type': 'file', 'data': ['connection information']} -> /proc/net/tcp
 {'type': 'file', 'data': ['connection information']} -> /proc/net/udp
 {'type': 'file', 'data': ['connection information']} -> /proc/net/tcp
 {'type': 'file', 'data': ['connection information']} -> /proc/net/udp
-{'type': 'file', 'data': ['/', 'files', 'netstat']} -> /proc/net/tcp
+{'type': 'file', 'data': ['connection information']} -> /proc/net/tcp
 {'type': 'file', 'data': ['/', 'files', 'netstat']} -> /proc/net/udp
-{'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/udp6
+{'type': 'file', 'data': ['/', 'files', 'netstat']} -> /proc/net/tcp
 {'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/tcp6
+{'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/udp6
 {'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/udp
 {'type': 'executable', 'data': ['malware', 'script']} -> /proc/net/tcp
+{'type': 'executable', 'data': ['description']} -> /proc/net/udp
 {'type': 'executable', 'data': ['description']} -> /proc/net/tcp
 {'type': 'executable', 'data': ['description']} -> /proc/net/tcp6
-{'type': 'executable', 'data': ['description']} -> /proc/net/udp
 {'type': 'executable', 'data': ['description']} -> /proc/net/udp6
 {'type': 'executable', 'data': ['script']} -> /proc/net/udp6
 {'type': 'executable', 'data': ['script']} -> /proc/net/udp
@@ -101,8 +112,8 @@ Contains actions:
 {'type': 'executable', 'data': ['command', 'malware']} -> /usr/bin/jwvwvxoupv
 {'type': 'executable', 'data': ['command', 'malware']} -> /usr/bin/kagbjahdic
 {'type': 'executable', 'data': ['command', 'malware']} -> resolv.conf
-{'type': 'executable', 'data': ['commands']} -> /usr/bin/jwvwvxoupv
 {'type': 'executable', 'data': ['commands']} -> /usr/bin/kagbjahdic
+{'type': 'executable', 'data': ['commands']} -> /usr/bin/jwvwvxoupv
 {'type': 'executable', 'data': ['commands']} -> resolv.conf
 {'type': 'file', 'data': ['attempts']} -> /usr/bin/
 {'type': 'file', 'data': ['communicate']} -> /proc/rs_dev
@@ -120,7 +131,7 @@ Contains actions:
 {'type': 'executable', 'data': ['malware']} -> /proc/rs_dev
 
 Contains 7 matched objects in report: 
-{'0x[0-9a-zA-Z]{8}', 'resolv.conf', 'bin/', 'UID', 'GID', 'init.d', '/proc/'}
+{'UID', '/proc/', 'init.d', 'resolv.conf', '0x[0-9a-zA-Z]{8}', 'bin/', 'GID'}
 --
 Xorddos-Trendmicro
 num of object-like items 70, num of dependencies 51
