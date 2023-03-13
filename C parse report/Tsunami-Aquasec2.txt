@@ -24,7 +24,7 @@ By far, this may be their simplest and most dramatic attack. What we discovered 
 Kangaroo attack flowKangaroo attack flow
 
 
-k.sh was dropped and executed on the attacked serverThe file k.sh that was dropped and executed on the attacked server
+k.sh was dropped and executed on the attacked server The file k.sh that was dropped and executed on the attacked server
 
 The shell script is cloning a GitHub project from what seems to be a TeamTNT account. The project was a bit of a conundrum at first, specifying that this is a fork of “Pollard's kangaroo for SECPK1”. We consulted  Jonathan S., a cryptographic expert, to better understand this technique. Additionally, we conducted further research to shed light on what we observed. We tracked this topic within a Bitcoin talk forum as well as several academic papers, “A New Method for Solving the Elliptic Curve Discrete Logarithm Problem”, “How Would Quantum Computing Impact the Security of Bitcoin by Enhancing Our Ability to Solve the Elliptic Curve Discrete Logarithm Problem?” and the best explanation about Pollard’s Kangaroo for WIF solving. In addition, we consulted with a cryptographic expert to better understand this topic.
 
