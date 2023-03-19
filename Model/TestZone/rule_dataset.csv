@@ -69,12 +69,14 @@ FILE,UPDATE,man,lchmod,change,change permissions of a file
 FILE,UPDATE,Xorddos.Micro,write,update,"if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string."
 FILE,UPDATE,Xorddos.Trend2,rename,update,Figure 3. Code snippet showing XORDDoS’ capability to download and update files.
 FILE,UPDATE,Dofloo.Syscall,write,format,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+FILE,UPDATE,Dofloo.Syscall,rename,format,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
 FILE,UPDATE,Dofloo.Security,write,modify,"Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local"
 FILE,UPDATE,Dofloo.Security,rename,modify,"Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local"
 FILE,UPDATE,Xorddos.Micro,fchmod,modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
 FILE,UPDATE,Xorddos.Micro,chmod,modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
 FILE,UPDATE,Xorddos.Micro,lchmod,modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
 FILE,UPDATE,Dofloo.Bleep,write,overwrite,allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.
+FILE,UPDATE,Dofloo.Bleep,rename,overwrite,allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.
 FILE,UPDATE,Xorddos.Micro,write,set,"The malware calls the subroutine daemon(__nochdir, __noclose) to set itself as a background daemon process, which internally calls fork() and setsid()."
 FILE,UPDATE,Xorddos.Micro,fchmod,set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 FILE,UPDATE,Xorddos.Micro,chmod,set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
