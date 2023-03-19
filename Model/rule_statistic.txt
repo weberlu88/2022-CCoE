@@ -1,0 +1,114 @@
+For total 88 uq syscalls & 71 uq verbs
+
+EntityType: FILE   has 38 uq syscalls & 38 uq verbs & 12 actionType          
+	=>syscall: ['read()', 'readlink()', 'access()', 'statfs()', 'stat()', 'stat64()', 'fstat()', 'newfstatat()', 'lstat()', 'getcwd()', 'getdents()', 'poll()', 'ppoll()', 'dup()', 'dup2()', 'fcntl64()', 'mkdir()', 'open()', 'openat()', 'mmap()', 'mmap2()', 'umask()', 'link()', 'linkat()', 'symlinkat()', 'symlink()', 'write()', 'rename()', 'fchmod()', 'chmod()', 'lchmod()', 'rmdir()', 'munmap()', 'unlink()', 'unlinkat()', 'remove()', 'close()', 'lseek()']          
+	=>verb:    ['read', 'place', 'gather', 'fetch', 'look', 'see', 'use', 'extract', 'check', 'access', 'get', 'wait', 'duplicate', 'create', 'share', 'manipulate', 'find', 'create ', 'open', 'map', 'set', 'make', 'add', 'drop', 'mount', 'write', 'change', 'rename', 'update', 'format', 'modify', 'overwrite', 'remove', 'ummap', 'delete', 'close', 'free', 'reposition']
+	FILE_READ    has  2 uq syscalls &  8 uq verbs    ['read()', 'readlink()'] ['read', 'place', 'gather', 'fetch', 'look', 'see', 'use', 'extract']
+	ACCESS       has  1 uq syscalls &  2 uq verbs    ['access()'] ['check', 'access']
+	STATUS       has  6 uq syscalls &  1 uq verbs    ['statfs()', 'stat()', 'stat64()', 'fstat()', 'newfstatat()', 'lstat()'] ['get']
+	DIR          has  2 uq syscalls &  1 uq verbs    ['getcwd()', 'getdents()'] ['get']
+	WAIT         has  2 uq syscalls &  1 uq verbs    ['poll()', 'ppoll()'] ['wait']
+	FD_DUP       has  2 uq syscalls &  3 uq verbs    ['dup()', 'dup2()'] ['duplicate', 'create', 'share']
+	FD_OTHER     has  1 uq syscalls &  2 uq verbs    ['fcntl64()'] ['manipulate', 'find']
+	CREATE_OPEN  has 10 uq syscalls & 10 uq verbs    ['mkdir()', 'open()', 'openat()', 'mmap()', 'mmap2()', 'umask()', 'link()', 'linkat()', 'symlinkat()', 'symlink()'] ['create ', 'open', 'create', 'map', 'set', 'make', 'extract', 'add', 'drop', 'mount']
+	UPDATE       has  5 uq syscalls &  8 uq verbs    ['write()', 'rename()', 'fchmod()', 'chmod()', 'lchmod()'] ['write', 'change', 'rename', 'update', 'format', 'modify', 'overwrite', 'set']
+	DELETE       has  5 uq syscalls &  4 uq verbs    ['rmdir()', 'munmap()', 'unlink()', 'unlinkat()', 'remove()'] ['remove', 'ummap', 'delete', 'drop']
+	CLOSE        has  1 uq syscalls &  2 uq verbs    ['close()'] ['close', 'free']
+	OTHER        has  1 uq syscalls &  1 uq verbs    ['lseek()'] ['reposition']
+
+EntityType: PROC   has 21 uq syscalls & 27 uq verbs &  6 actionType          
+	=>syscall: ['execve()', 'clone()', 'fork()', 'vfork()', 'kill()', 'exit_group()', 'ptrace()', 'shmdt()', 'shmat()', 'shmget()', 'waitpid()', 'wait4()', 'mremap()', 'mprotect()', 'set_tid_address()', 'arch_prctl()', 'set_thread_area()', 'nanosleep()', 'set_robust_list()', 'futex()', 'brk()']          
+	=>verb:    ['execute', 'create', 'use', 'call', 'spawn', 'fork', 'perform', 'install', 'add', 'start', 'send', 'exit', 'kill', 'end', 'trace', 'observe', 'control', 'examine', 'change', 'attach', 'allocate', 'wait', 'remap', 'set', 'suspend', 'sleep', 'wake']
+	PROC_EXE     has  4 uq syscalls & 10 uq verbs    ['execve()', 'clone()', 'fork()', 'vfork()'] ['execute', 'create', 'use', 'call', 'spawn', 'fork', 'perform', 'install', 'add', 'start']
+	PROC_KILL    has  2 uq syscalls &  4 uq verbs    ['kill()', 'exit_group()'] ['send', 'exit', 'kill', 'end']
+	PROC_TRACE   has  1 uq syscalls &  5 uq verbs    ['ptrace()'] ['trace', 'observe', 'control', 'examine', 'change']
+	PROC_MEM     has  3 uq syscalls &  2 uq verbs    ['shmdt()', 'shmat()', 'shmget()'] ['attach', 'allocate']
+	PROC_WAIT    has  2 uq syscalls &  1 uq verbs    ['waitpid()', 'wait4()'] ['wait']
+	PROC_OTHER   has  9 uq syscalls &  7 uq verbs    ['mremap()', 'mprotect()', 'set_tid_address()', 'arch_prctl()', 'set_thread_area()', 'nanosleep()', 'set_robust_list()', 'futex()', 'brk()'] ['remap', 'set', 'suspend', 'sleep', 'wait', 'wake', 'change']
+
+EntityType: DEVICE has  1 uq syscalls &  2 uq verbs &  1 actionType          
+	=>syscall: ['ioctl()']          
+	=>verb:    ['control', 'manipulate']
+	DEVICE       has  1 uq syscalls &  2 uq verbs    ['ioctl()'] ['control', 'manipulate']
+
+EntityType: ID     has  7 uq syscalls &  3 uq verbs &  2 actionType          
+	=>syscall: ['setsid()', 'getppid()', 'getpid()', 'getgid()', 'getegid()', 'geteuid()', 'getuid()']          
+	=>verb:    ['set', 'assign', 'get']
+	ID_SET       has  1 uq syscalls &  2 uq verbs    ['setsid()'] ['set', 'assign']
+	ID_GET       has  6 uq syscalls &  1 uq verbs    ['getppid()', 'getpid()', 'getgid()', 'getegid()', 'geteuid()', 'getuid()'] ['get']
+
+EntityType: TIME   has  3 uq syscalls &  2 uq verbs &  2 actionType          
+	=>syscall: ['settimeofday()', 'time()', 'gettimeofday()']          
+	=>verb:    ['set', 'get']
+	TIME_SET     has  1 uq syscalls &  1 uq verbs    ['settimeofday()'] ['set']
+	TIME_GET     has  2 uq syscalls &  1 uq verbs    ['time()', 'gettimeofday()'] ['get']
+
+EntityType: INFO   has  5 uq syscalls &  5 uq verbs &  1 actionType          
+	=>syscall: ['prlimit64()', 'getrlimit()', 'ugetrlimit()', 'sysinfo()', 'uname()']          
+	=>verb:    ['get', 'return', 'gather', 'look', 'find']
+	INFO_GET     has  5 uq syscalls &  5 uq verbs    ['prlimit64()', 'getrlimit()', 'ugetrlimit()', 'sysinfo()', 'uname()'] ['get', 'return', 'gather', 'look', 'find']
+
+EntityType: NET    has 13 uq syscalls & 16 uq verbs &  3 actionType          
+	=>syscall: ['connect()', 'pipe()', 'bind()', 'socket()', 'setsockopt()', 'getsockopt()', 'getsockname()', 'recv()', 'recvmsg()', 'recvfrom()', 'send()', 'sendto()', 'sendmsg()']          
+	=>verb:    ['initiate', 'connect', 'create', 'bind', 'assign', 'hook', 'set', 'manipulate', 'get', 'receive', 'send', 'transfer', 'communicate', 'download', 'wget', 'curl']
+	NET_CONNECT  has  4 uq syscalls &  6 uq verbs    ['connect()', 'pipe()', 'bind()', 'socket()'] ['initiate', 'connect', 'create', 'bind', 'assign', 'hook']
+	NET_OPTION   has  3 uq syscalls &  3 uq verbs    ['setsockopt()', 'getsockopt()', 'getsockname()'] ['set', 'manipulate', 'get']
+	NET_TRANSMIT has  6 uq syscalls &  7 uq verbs    ['recv()', 'recvmsg()', 'recvfrom()', 'send()', 'sendto()', 'sendmsg()'] ['receive', 'send', 'transfer', 'communicate', 'download', 'wget', 'curl']
+
+======================================
+For total 88 uq syscalls & 71 uq verbs
+
+EntityType: FILE   has 38 uq syscalls & 38 uq verbs & 12 actionType          
+	=>syscall: ['read()', 'readlink()', 'access()', 'statfs()', 'stat()', 'stat64()', 'fstat()', 'newfstatat()', 'lstat()', 'getcwd()', 'getdents()', 'poll()', 'ppoll()', 'dup()', 'dup2()', 'fcntl64()', 'mkdir()', 'open()', 'openat()', 'mmap()', 'mmap2()', 'umask()', 'link()', 'linkat()', 'symlinkat()', 'symlink()', 'write()', 'rename()', 'fchmod()', 'chmod()', 'lchmod()', 'rmdir()', 'munmap()', 'unlink()', 'unlinkat()', 'remove()', 'close()', 'lseek()']          
+	=>verb:    ['read', 'place', 'gather', 'fetch', 'look', 'see', 'use', 'extract', 'check', 'access', 'get', 'wait', 'duplicate', 'create', 'share', 'manipulate', 'find', 'create ', 'open', 'map', 'set', 'make', 'add', 'drop', 'mount', 'write', 'change', 'rename', 'update', 'format', 'modify', 'overwrite', 'remove', 'ummap', 'delete', 'close', 'free', 'reposition']
+	FILE_READ    has  2 uq syscalls &  8 uq verbs
+	ACCESS       has  1 uq syscalls &  2 uq verbs
+	STATUS       has  6 uq syscalls &  1 uq verbs
+	DIR          has  2 uq syscalls &  1 uq verbs
+	WAIT         has  2 uq syscalls &  1 uq verbs
+	FD_DUP       has  2 uq syscalls &  3 uq verbs
+	FD_OTHER     has  1 uq syscalls &  2 uq verbs
+	CREATE_OPEN  has 10 uq syscalls & 10 uq verbs
+	UPDATE       has  5 uq syscalls &  8 uq verbs
+	DELETE       has  5 uq syscalls &  4 uq verbs
+	CLOSE        has  1 uq syscalls &  2 uq verbs
+	OTHER        has  1 uq syscalls &  1 uq verbs
+
+EntityType: PROC   has 21 uq syscalls & 27 uq verbs &  6 actionType          
+	=>syscall: ['execve()', 'clone()', 'fork()', 'vfork()', 'kill()', 'exit_group()', 'ptrace()', 'shmdt()', 'shmat()', 'shmget()', 'waitpid()', 'wait4()', 'mremap()', 'mprotect()', 'set_tid_address()', 'arch_prctl()', 'set_thread_area()', 'nanosleep()', 'set_robust_list()', 'futex()', 'brk()']          
+	=>verb:    ['execute', 'create', 'use', 'call', 'spawn', 'fork', 'perform', 'install', 'add', 'start', 'send', 'exit', 'kill', 'end', 'trace', 'observe', 'control', 'examine', 'change', 'attach', 'allocate', 'wait', 'remap', 'set', 'suspend', 'sleep', 'wake']
+	PROC_EXE     has  4 uq syscalls & 10 uq verbs
+	PROC_KILL    has  2 uq syscalls &  4 uq verbs
+	PROC_TRACE   has  1 uq syscalls &  5 uq verbs
+	PROC_MEM     has  3 uq syscalls &  2 uq verbs
+	PROC_WAIT    has  2 uq syscalls &  1 uq verbs
+	PROC_OTHER   has  9 uq syscalls &  7 uq verbs
+
+EntityType: DEVICE has  1 uq syscalls &  2 uq verbs &  1 actionType          
+	=>syscall: ['ioctl()']          
+	=>verb:    ['control', 'manipulate']
+	DEVICE       has  1 uq syscalls &  2 uq verbs
+
+EntityType: ID     has  7 uq syscalls &  3 uq verbs &  2 actionType          
+	=>syscall: ['setsid()', 'getppid()', 'getpid()', 'getgid()', 'getegid()', 'geteuid()', 'getuid()']          
+	=>verb:    ['set', 'assign', 'get']
+	ID_SET       has  1 uq syscalls &  2 uq verbs
+	ID_GET       has  6 uq syscalls &  1 uq verbs
+
+EntityType: TIME   has  3 uq syscalls &  2 uq verbs &  2 actionType          
+	=>syscall: ['settimeofday()', 'time()', 'gettimeofday()']          
+	=>verb:    ['set', 'get']
+	TIME_SET     has  1 uq syscalls &  1 uq verbs
+	TIME_GET     has  2 uq syscalls &  1 uq verbs
+
+EntityType: INFO   has  5 uq syscalls &  5 uq verbs &  1 actionType          
+	=>syscall: ['prlimit64()', 'getrlimit()', 'ugetrlimit()', 'sysinfo()', 'uname()']          
+	=>verb:    ['get', 'return', 'gather', 'look', 'find']
+	INFO_GET     has  5 uq syscalls &  5 uq verbs
+
+EntityType: NET    has 13 uq syscalls & 16 uq verbs &  3 actionType          
+	=>syscall: ['connect()', 'pipe()', 'bind()', 'socket()', 'setsockopt()', 'getsockopt()', 'getsockname()', 'recv()', 'recvmsg()', 'recvfrom()', 'send()', 'sendto()', 'sendmsg()']          
+	=>verb:    ['initiate', 'connect', 'create', 'bind', 'assign', 'hook', 'set', 'manipulate', 'get', 'receive', 'send', 'transfer', 'communicate', 'download', 'wget', 'curl']
+	NET_CONNECT  has  4 uq syscalls &  6 uq verbs
+	NET_OPTION   has  3 uq syscalls &  3 uq verbs
+	NET_TRANSMIT has  6 uq syscalls &  7 uq verbs

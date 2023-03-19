@@ -123,7 +123,7 @@ class OperationEvaluator:
         corresponding_syscall_list = self.translate_rule(entityType, en_verb)
         if corresponding_syscall_list and syscall in corresponding_syscall_list:
             hit = True
-        elif entityType.upper() == "FILE" and syscall in self.update_syscall_list:
+        if entityType.upper() == "FILE" and syscall in self.update_syscall_list:
             isSysChange = True
         return hit, isSysChange
 
