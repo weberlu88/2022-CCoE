@@ -1,5 +1,5 @@
-=== mem_usage: 789.00 MB ===
-asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/selinux', 'permission:{0,1}[0-9]{0,4}', 'bin/sed', 'bin/', '^sed$', '/etc/rc', '/etc/sed', '/sys/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/', '^sh$', '/etc/init.d/'}
+=== mem_usage: 785.05 MB ===
+asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/etc/sed', 'permission:{0,1}[0-9]{0,4}', '^sed$', 'bin/sed', '/etc/init.d/', '/selinux', 'bin/', '/proc/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^sh$', '/sys/', '/etc/rc'}
 
 
 Sample Dofloo-BleepingComputer.csv
@@ -39,19 +39,18 @@ Sample Dofloo-Securityaffairs.csv
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 3, num of asg objects: 13. R_malObj is 0.2308
-		ctd_object: {'/etc/rc', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc'}
 	#R_malSysObj
 	num of ctd objects: 1, num of asg objects: 3. R_malSysObj is 0.3333
 		len(asg_OPset): 30, len(ctd_OPset): 4
 	#R_malOps
-	num of matched asg op: 3, num of asg op: 30. R_malOps is 0.1000
-		refered lifecycle: [18, 16, 19]
+	num of matched asg op: 2, num of asg op: 30. R_malOps is 0.0667
+		refered lifecycle: [16, 19]
 	#R_malChangeOps
 	num of matched asg op: 1, num of asg op: 3. R_malChangeOps is 0.3333
 		ref-sys lifecycle: [16]
 
 	hits
-	<OP19 act=connect, obj=ip_addr+port>, <OP 1 act=connect, obj=23.224.59.34:48080, sent=the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
 	<OP17 act=rename, obj=/etc/rc>, <OP 3 act=modify, obj=/etc/rc.local, sent=trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
 	<OP20 act=connect, obj=ip_addr>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
 
@@ -63,33 +62,33 @@ Sample Dofloo-SyscallParty.csv
 	lenght of ctd's OPset is 11
 	#R_malObj
 	num of ctd objects: 5, num of asg objects: 13. R_malObj is 0.3846
-		ctd_object: {'^sed$', '/etc/rc', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/', '/etc/init.d/'}
+		ctd_object: {'^sed$', '/etc/init.d/', '/proc/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc'}
 	#R_malSysObj
 	num of ctd objects: 2, num of asg objects: 3. R_malSysObj is 0.6667
 		len(asg_OPset): 30, len(ctd_OPset): 11
 	#R_malOps
 	num of matched asg op: 5, num of asg op: 30. R_malOps is 0.1667
-		refered lifecycle: [0, 16, 17, 9, 26]
+		refered lifecycle: [26, 9, 16, 0, 17]
 	#R_malChangeOps
 	num of matched asg op: 1, num of asg op: 3. R_malChangeOps is 0.3333
 		ref-sys lifecycle: [16]
 
 	hits
-	<OP 1 act=readlink, obj=/proc/>, <OP 8 act=read, obj=/proc/net/dev, sent=the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.>
-	<OP17 act=rename, obj=/etc/rc>, <OP 7 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
-	<OP18 act=open, obj=/etc/init.d/>, <OP 4 act=add, obj=/etc/init.d/boot.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
-	<OP10 act=open, obj=/etc/rc>, <OP 3 act=add, obj=/etc/rc.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
-	<OP27 act=open, obj=/proc/>, <OP11 act=open, obj=/proc/cpuinfo, sent=the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.>
+	<OP27 act=open(), obj=/proc/>, <OP11 act=open, obj=/proc/cpuinfo, sent=the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.>
+	<OP10 act=open(), obj=/etc/rc>, <OP 3 act=add, obj=/etc/rc.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
+	<OP17 act=rename(), obj=/etc/rc>, <OP 7 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
+	<OP 1 act=readlink(), obj=/proc/>, <OP 8 act=read, obj=/proc/net/dev, sent=the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.>
+	<OP18 act=open(), obj=/etc/init.d/>, <OP 4 act=add, obj=/etc/init.d/boot.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
 
 	sys_hits
-	<OP17 act=rename, obj=/etc/rc>, <OP 7 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
+	<OP17 act=rename(), obj=/etc/rc>, <OP 7 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
 
 Sample Dofloo-Trendmicro.csv
 	num of segment in report: 11
 	lenght of ctd's OPset is 9
 	#R_malObj
 	num of ctd objects: 5, num of asg objects: 13. R_malObj is 0.3846
-		ctd_object: {'^sed$', '/etc/rc', '/sys/', '/proc/', '/etc/init.d/'}
+		ctd_object: {'^sed$', '/etc/init.d/', '/proc/', '/sys/', '/etc/rc'}
 	#R_malSysObj
 	num of ctd objects: 2, num of asg objects: 3. R_malSysObj is 0.6667
 		len(asg_OPset): 30, len(ctd_OPset): 9

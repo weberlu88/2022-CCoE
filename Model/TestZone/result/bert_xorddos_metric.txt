@@ -1,0 +1,130 @@
+=== mem_usage: 803.78 MB ===
+asg_object: {'bin/openrc', '/boot/[a-z]{10}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/sed', '/etc/rc', 'bin/sed', '^systemctl$', '/proc/rs_dev', 'update-rc.d', '/etc/cron', '^sed$', 'permission(\\s|:)[0-9]{1,4}', '^sh$', '^pipe(\\$|\\.|$)', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d{1,5}$', '/run/', '/selinux', '[a-zA-z]:\\d{1,5}$', '/var/', '/boot/', '/proc/', 'bin/insserv', '^chkconfig$', '/etc/init.d/', '/perl/', '/var/run/'}
+
+
+Sample Xorddos-Cdnetworks.csv
+	num of segment in report: 32
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 26. R_malObj is 0.0000
+		ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Xorddos-Crowdstrike.csv
+	num of segment in report: 45
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 26. R_malObj is 0.0000
+		ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Xorddos-Intezer.csv
+	num of segment in report: 156
+	lenght of ctd's OPset is 7
+	#R_malObj
+	num of ctd objects: 4, num of asg objects: 26. R_malObj is 0.1538
+		ctd_object: {'/etc/rc', '/etc/init.d/', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+		len(asg_OPset): 73, len(ctd_OPset): 7
+	#R_malOps
+	num of matched asg op: 3, num of asg op: 73. R_malOps is 0.0411
+		refered lifecycle: [65, 18, 0]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+v   <OP66 act=connect, obj=ip_addr>, <OP 5 act=hardcode, obj=127.0.0.1, sent=table 2: data collected by the malware and sent back to the c2 server url key	description	comment hostip	ip	hardcoded to 127.0.0.1 softtype		hardcoded to “linux” pscaddr	mac address	 hostname	machine name	 hosttar	username	possibly “host target” hostos	distribution	extracted from /etc/issue or /etc/redhat-release hostcpu	clock speed	/proc/cpuinfo hostmem	amount of memory	/proc/meminfo hostpack		hardcoded to “linux” lkmtag	is rootkit enabled	 kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.>
+	<OP19 act=open, obj=/proc/>, <OP 6 act=extract, obj=/proc/cpuinfo, sent=table 2: data collected by the malware and sent back to the c2 server url key	description	comment hostip	ip	hardcoded to 127.0.0.1 softtype		hardcoded to “linux” pscaddr	mac address	 hostname	machine name	 hosttar	username	possibly “host target” hostos	distribution	extracted from /etc/issue or /etc/redhat-release hostcpu	clock speed	/proc/cpuinfo hostmem	amount of memory	/proc/meminfo hostpack		hardcoded to “linux” lkmtag	is rootkit enabled	 kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.>
+	<OP 1 act=readlink, obj=/proc/>, <OP 6 act=extract, obj=/proc/cpuinfo, sent=table 2: data collected by the malware and sent back to the c2 server url key	description	comment hostip	ip	hardcoded to 127.0.0.1 softtype		hardcoded to “linux” pscaddr	mac address	 hostname	machine name	 hosttar	username	possibly “host target” hostos	distribution	extracted from /etc/issue or /etc/redhat-release hostcpu	clock speed	/proc/cpuinfo hostmem	amount of memory	/proc/meminfo hostpack		hardcoded to “linux” lkmtag	is rootkit enabled	 kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.>
+
+Sample Xorddos-Ms.csv
+	num of segment in report: 252
+	lenght of ctd's OPset is 51
+	#R_malObj
+	num of ctd objects: 12, num of asg objects: 26. R_malObj is 0.4615
+		ctd_object: {'/run/', '[a-zA-z]:\\d{1,5}$', '/var/', '^chkconfig$', '/proc/rs_dev', '/etc/cron', '/var/run/', '/etc/rc', '/etc/init.d/', 'update-rc.d', '^sh$', '/proc/'}
+	#R_malSysObj
+	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
+		len(asg_OPset): 73, len(ctd_OPset): 51
+	#R_malOps
+	num of matched asg op: 14, num of asg op: 73. R_malOps is 0.1918
+		refered lifecycle: [19, 51, 12, 59, 50, 26, 52, 58, 60, 18, 15, 67, 22, 0]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+v   <OP20 act=open, obj=/proc/rs_dev>, <OP16 act=have, obj=/proc/rs_dev, sent=in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action.>
+	<OP52 act=open, obj=/var/run/>, <OP31 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP13 act=open, obj=/etc/init.d/>, <OP20 act=drop, obj=/etc/init.d/hflggwyfsc.elf, sent=figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf>
+v   <OP60 act=write, obj=/var/run/>, <OP 6 act=m6_6n3, obj=/var/run/gcc.pid, sent=encrypted strings	decoded value m7a4nq_/na	/usr/bin/ m [(n3	/bin/ m6_6n3	/tmp/ m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid m.[$n__#4%\c\x1ab]0	/lib/libudev.so m.[$n3	/lib/ m4s4nac/na	/var/run/ !#ff3ve.-7\x17v[_	cat resolv.conf <encrypted_remote_url>	hxxp://aa.hostasa[.>
+	<OP51 act=open, obj=/run/>, <OP29 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP27 act=clone, obj=^chkconfig$>, <OP27 act=install, obj=chkconfig, sent=screenshot displaying chkconfig and update-rc.d commands installing the startup service figure 16. chkconfig and update-rc.d commands install the startup service argument-based code-flow xorddos has specific code paths corresponding to the number of arguments provided to the program.>
+	<OP53 act=open, obj=/var/>, <OP30 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+v   <OP59 act=write, obj=/run/>, <OP 7 act=resolv.conf, obj=/var/run/, sent=encrypted strings	decoded value m7a4nq_/na	/usr/bin/ m [(n3	/bin/ m6_6n3	/tmp/ m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid m.[$n__#4%\c\x1ab]0	/lib/libudev.so m.[$n3	/lib/ m4s4nac/na	/var/run/ !#ff3ve.-7\x17v[_	cat resolv.conf <encrypted_remote_url>	hxxp://aa.hostasa[.>
+v   <OP61 act=write, obj=/var/>, <OP 8 act=resolv.conf, obj=/var/run/, sent=encrypted strings	decoded value m7a4nq_/na	/usr/bin/ m [(n3	/bin/ m6_6n3	/tmp/ m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid m.[$n__#4%\c\x1ab]0	/lib/libudev.so m.[$n3	/lib/ m4s4nac/na	/var/run/ !#ff3ve.-7\x17v[_	cat resolv.conf <encrypted_remote_url>	hxxp://aa.hostasa[.>
+v   <OP19 act=open, obj=/proc/>, <OP17 act=have, obj=/proc/rs_dev, sent=in this case, the malware has a provision for communicating with its rootkit component /proc/rs_dev by sending input and output control (ioctl) calls with additional information to take appropriate action.>
+    <OP16 act=open, obj=/etc/cron>, <OP21 act=pass, obj=/etc/cron.hourly/gcc.sh.the, sent= cron script  the malware creates a cron script at the location /etc/cron.hourly/gcc.sh.the cron script passes parameters with the following content:  screenshot of the contents of the gcc.sh script.>
+	<OP68 act=access, obj=/proc/>, <OP14 act=check, obj=/proc/$pid, sent=a user-mode process can get any process specific information by reading the /proc directory that contains the subdirectory for each running process on the system, such as:  /proc/7728 – contains process-id (pid) 7728-related information /proc/698 – contains pid 698-related information running the strace -e open ps command checks the traces of the open call on /proc/$pid to fetch information on running processes as part of the ps command.>
+v   <OP23 act=clone, obj=^sh$>, <OP34 act=find, obj=sh, sent= the fake commands can include:  cat resolv.conf netstat -an bash whoami id cd /etc ifconfig eth0 ifconfig echo “find” uptime sh top gnome-terminal su netstat -antop grep “a” who ls -la pwd route -n ps -ef ls sleep 1>
+	<OP 1 act=readlink, obj=/proc/>, <OP28 act=call, obj=/proc/self/exe, sent=before handling the argument-based control, it calls the readlink api with the first parameter as /proc/self/exe to fetch its full process path.>
+
+Sample Xorddos-Trendmicro.csv
+	num of segment in report: 27
+	lenght of ctd's OPset is 6
+	#R_malObj
+	num of ctd objects: 6, num of asg objects: 26. R_malObj is 0.2308
+		ctd_object: {'/run/', '[a-zA-z]:\\d{1,5}$', '/var/', '/etc/cron', '/etc/rc', '/var/run/'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+		len(asg_OPset): 73, len(ctd_OPset): 6
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 73. R_malOps is 0.0137
+		refered lifecycle: [15]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP16 act=open, obj=/etc/cron>, <OP 1 act=drop, obj=/etc/cron.hourly/gcc.sh, sent= this backdoor drops the following files:  /etc/cron.hourly/gcc.sh (cron is a time-based job scheduler in unix-like computer operating systems) backdoor routine>
+
+Sample Xorddos-Trendmicro2.csv
+	num of segment in report: 47
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 26. R_malObj is 0.0385
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 73. R_malOps is 0.0137
+		refered lifecycle: [61]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP62 act=send, obj=ip_addr>, <OP 2 act=find, obj=http://62.171.160.189/linux_arm, sent= indicators of compromise kaiji  file name	sha 256	trend micro pattern detection 123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a related urls:  http://62.171.160.189/linux_arm http://62.171.160.189/11/123.sh xorddos and other malware variants found through the same url  sha 256	trend micro pattern detection dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae 6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab 286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a related url:  http://122.51.133.49:10086/vip>
+
+
+OperationPair that changes system resources:
+ [<OP22 act=write, obj=/etc/rc>, <OP45 act=write, obj=/etc/sed>, <OP48 act=rename, obj=/etc/cron>, <OP15 act=write, obj=/etc/init.d/>, <OP18 act=write, obj=/etc/cron>, <OP47 act=fchmod, obj=/etc/sed>]

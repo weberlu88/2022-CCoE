@@ -81,7 +81,7 @@ FILE,UPDATE,Xorddos.Micro,write,set,"The malware calls the subroutine daemon(__n
 FILE,UPDATE,Xorddos.Micro,fchmod,set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 FILE,UPDATE,Xorddos.Micro,chmod,set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 FILE,UPDATE,Xorddos.Micro,lchmod,set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
-FILE,DELETE,man,rmdir,remove,delete a directory
+FILE,DELETE,man,rmdir,delete,delete a directory
 FILE,DELETE,man,munmap,ummap,unmap files or devices into memory
 FILE,DELETE,man,unlink,delete,delete a name and possibly the file it refers to
 FILE,DELETE,man,unlinkat,remove,remove a directory entry relative to a directory file descriptor
