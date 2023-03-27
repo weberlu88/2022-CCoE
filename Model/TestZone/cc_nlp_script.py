@@ -155,6 +155,9 @@ class OperationEvaluator:
         corresponding_syscall_list = self.translate_rule(entityType, en_verb)
         if corresponding_syscall_list and syscall in corresponding_syscall_list:
             hit = True
+            # verb refinement, add a black list of ev_verb. these words are not verb.
+            if en_verb in ['m6_6n3', 'se', 'resolv.conf']:
+                hit = False
         else:
             # en_verb not in rule, select a alternative one
             if sentence:
