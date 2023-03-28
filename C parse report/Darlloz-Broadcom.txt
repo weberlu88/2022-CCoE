@@ -1,0 +1,52 @@
+IoT Worm Used to Mine Cryptocurrency 
+
+Mar 19, 2014 08:58 AM
+
+Last November, we found an Internet of Things (IoT) worm named Linux.Darlloz. The worm targets computers running Intel x86 architectures. Not only that, but the worm also focuses on devices running the ARM, MIPS and PowerPC architectures, which are usually found on routers and set-top boxes. Since the initial discovery of Linux.Darlloz, we have found a new variant of the worm in mid-January. According to our analysis, the author of the worm continuously updates the code and adds new features, particularly focusing on making money with the worm.
+
+By scanning the entire Internet IP address space in February, we found that there were more than 31,000 devices infected with Linux.Darlloz.
+
+Coin mining
+In addition, we have discovered the current purpose of the worm is to mine cryptocurrencies. Once a computer running Intel architecture is infected with the new variant, the worm installs cpuminer, an open source coin mining software. The worm then starts mining Mincoins or Dogecoins on infected computers.  By the end of February 2014, the attacker mined 42,438 Dogecoins (approximately US$46 at the time of writing) and 282 Mincoins (approximately US$150 at the time of writing). These amounts are relatively low for the average cybercrime activity so, we expect the attacker to continue to evolve their threat for increased monetization.
+
+The worm’s new coin mining feature only affects computers running the Intel x86 architecture and we haven't seen it impact IoT devices. These devices typically require more memory and a powerful CPU for coin mining. 
+
+Why Mincoin and Dogecoin?
+The worm appears to aim at mining Mincoins and Dogecoins, rather than focusing on the well-known and more valuable cryptocurrency Bitcoin. The reason for this is Mincoin and Dogecoin use the scrypt algorithm, which can still mine successfully on home PCs whereas Bitcoin requires custom ASIC chips to be profitable.
+
+New targets
+The initial version of Darlloz has nine combinations of user names and passwords for routers and set-top boxes. The latest version now has 13 of these login credential combinations, which also work for IP cameras, typically used for remote monitoring of premises.
+
+Why IoT devices?
+The Internet of Things is all about connected devices of all types. While many users may ensure that their computers are secure from attack, users may not realize that their IoT devices need to be protected too. Unlike regular computers, a lot of IoT devices ship with a default user name and password and many users may not have changed these. As a result, the use of default user names and passwords is one of the top attack vectors against IoT devices. Many of these devices also contain unpatched vulnerabilities users are unaware of.
+
+While this particular threat focuses on computers, routers, set-top boxes and IP cameras, the worm could be updated to target other IoT devices in the future, such as home automation devices and wearable technology.
+
+Blocking other attackers
+As described in a previous blog, the worm prevents other attackers or worms, such as Linux.Aidra, from targeting devices already compromised with Linux.Darlloz. The malware author implemented this feature into the worm when it was released last November.
+
+In early January, there were reports about a back door on a number of routers. By using the back door, remote attackers could gain access to the routers, allowing them to compromise the user’s network. For Darlloz’ author, this represented a threat, so they implemented a feature to block the access to the back door port by creating a new firewall rule on infected devices to ensure that no other attackers can get in through the same back door.
+
+Infections in the wild
+Once a device is infected, Darlloz starts a HTTP Web server on port 58455 in order to spread. The server hosts worm files and lets anyone download files through this port by using a HTTP GET request. We searched for IP addresses that open this port and host Darlloz files on static paths. Assuming that the Darlloz worm can be downloaded, we tried to collect OS finger prints of the host server. The following statistics give an overview of the infection.
+
+There were 31,716 identified IP addresses that were infected with Darlloz.
+Darlloz infections affected 139 regions.
+There were 449 identified OS finger prints from infected IP addresses.
+43 percent of Darlloz infections compromised Intel based-computers or servers running on Linux.
+38 percent of Darlloz infections seem to have affected a variety of IoT devices, including routers, set-top boxes, IP cameras, and printers.
+DarllozPie.png
+
+Figure 1. The top five regions with Darlloz infections
+
+The five regions that accounted for 50 percent of all Darlloz infections were China, the US, South Korea, Taiwan and India. The reason for the high infections in these regions is most likely due to their large volumes of Internet users or the penetration of IoT devices.
+
+Infected IoT devices
+Consumers may not realize that their IoT devices could be infected with malware. As a result, this worm managed to compromise 31,000 computers and IoT devices in four months and it is still spreading. We expect that the malware author will continue to update this worm with new features as the technology landscape changes over time. Symantec will continue to keep an eye on this threat.
+
+Mitigation
+
+Apply security patches for all software installed on computers or IoT devices
+Update firmware on all devices
+Change the password from default on all devices
+Block the connection on port 23 or 80 from outside if not required

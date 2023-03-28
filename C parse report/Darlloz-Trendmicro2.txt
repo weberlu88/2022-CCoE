@@ -1,0 +1,185 @@
+Worm.Linux.DARLLOZ.AA
+October 24, 2019
+ 
+Analysis by: Jemimah Mae Molina
+ALIASES:
+ELF:Darlloz-D [Trj] (AVAST); Net-Worm.Linux.Darlloz.a (KASPERSKY)
+
+OVERVIEW
+This Worm arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+
+It takes advantage of software vulnerabilities to propagate across networks.
+
+TECHNICAL DETAILS
+FILE SIZE: 75,164 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: No
+INITIAL SAMPLES RECEIVED DATE: 23 Oct 2019
+PAYLOAD: Deletes files, Terminates processes
+Arrival Details
+
+This Worm arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+
+Installation
+
+
+~~
+This Worm creates the following folders:
+
+/var/run/.zollard
+
+~~
+
+Other System Modifications
+
+This Worm deletes the following files:
+
+/var/run/.lightscan
+/var/run/lightscan
+/var/run/.lihtscan
+/var/run/mipsel
+/var/run/mips
+/var/run/sh
+/var/run/arm
+/var/run/ppc
+/var/run/m
+/var/run/mi
+/var/run/s
+/var/run/a
+/var/run/p
+/var/run/msx
+/var/run/mx
+/var/run/sx
+/var/run/ax
+/var/run/px
+/var/run/32
+/var/run/sel
+/var/run/pid
+/var/run/gcc
+/var/run/dev
+/var/run/psx
+/var/run/mpl
+/var/run/mps
+/var/run/sph
+/var/run/arml
+/var/run/mips.l
+/var/run/mipsell
+/var/run/ppcl
+/var/run/shl
+/bin/pp
+/bin/mi
+/bin/mii
+/var/run/arm
+/var/run/mips
+/var/run/mipsel
+/var/run/ppc
+/var/run/sh
+/var/run/.lamorte/.log
+/var/run/.lamorte/.out
+/var/run/.lamorte/lamortee
+/var/run/ash
+/var/run/mish
+/var/run/msh
+/var/run/psh
+/var/run/sshd
+/var/run/telnetd
+/var/run/.output
+/var/run/.results
+/var/run/.logd_a
+/var/run/.logd_m
+/var/run/.logd_ms
+/var/run/.logd_p
+/var/run/.logd_s
+/var/tmp/dreams.install.sh
+/var/tmp/ep2.ppc
+/var/run/.cmd.run
+/dev/shm/cmd.so
+/dev/shm/que
+/dev/cmd.so
+/dev/que
+/var/cmd.so
+/media/cmd.so
+/media/http.so
+/tmp/hi
+/tmp/http.so
+/tmp/que
+/usr/bin/-wget
+
+~~
+It deletes the following folders:
+
+/var/run/.lamorte
+Propagation
+
+~~
+This Worm takes advantage of the following software vulnerabilities to propagate across networks:
+
+CVE-2012-1823
+Process Termination
+
+~~
+This Worm terminates the following services if found on the affected system:
+
+inetd
+inetd.busybox
+telnetd
+xinetd
+
+~~
+It terminates the following processes if found running in the affected system's memory:
+
+inetd
+xinetd
+telnetd
+utelnetd
+scfgmgr
+Other Details
+
+This Worm does the following:
+
+It terminates and deletes the following processes and files:
+/var/run/.lightpid
+/var/run/.aidrapid
+/var/run/lightpid
+/var/run/.lihtpid
+/var/run/.lamorte/lamorte.pid
+/var/run/.daemon.pid
+
+~~
+It drops TCP packets on the following ports:
+23
+32764
+
+~~
+It loads the following modules:
+/lib/modules/{kernel version}/kernel/net/ipv4/netfilter/ip_tables.ko
+/lib/modules/{kernel version}/kernel/net/ipv4/netfilter/iptable_filter.ko
+
+~~
+It deletes the following files if /bin/busybox exists:
+/bin/wget
+/sbin/wget
+/usr/bin/wget
+/ffp/bin/wget
+
+~~
+It listens on port 58455.
+It uses the following credentials to try to login to other devices:
+root
+dreambox
+vizxv
+sysadmin
+superuser
+1234
+12345
+1111
+smcadmin
+mysql
+123456
+
+SOLUTION
+
+Scan your computer with your Trend Micro product to delete files detected as Worm.Linux.DARLLOZ.AA. If the detected files have already been cleaned, deleted, or quarantined by your Trend Micro product, no further step is required. You may opt to simply delete the quarantined files. Please check the following Trend Micro Support pages for more information:
+
+Home and Home Office Support
+Business Support
