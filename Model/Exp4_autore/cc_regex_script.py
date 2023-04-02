@@ -1,4 +1,6 @@
 import re
+import ASG
+import Utility
 
 class RegexMatchResult:
     def __init__(self, word: str, type: str=None, match_regex: str=None) -> None:
@@ -13,63 +15,50 @@ class RegexMatchResult:
         return f"<RegexMatchResult word={self.word}, type={self.type}, match_regex={self.match_regex}>"
 
 class RegexMaster:
-    def __init__(self, familyname:str=None) -> None:
+    def __init__(self, graph:ASG.AttackGraph,familyname:str=None) -> None:
         self.used_regex_set = set() # 紀錄被 find_spacial_token() 找到過的 regex
-        self.regex_file = {
-            "sed command": "bin/sed", 
-            "startup": ["/etc/rc", "/etc/init.d/"], # 為AttacKG放寬標準的字串 , "rc.local", "init.d"
-            "process_info": "/proc/", 
-            "sed temp file": "/etc/sed", 
-            "selinx": "/selinux", 
-            "sys": ["/sys/", "bin/", "lsb-release"], 
-            "uname":"uname(.)($)",
-            "dns": ["mtab", "nsswitch.conf", "resolv.conf", "/hosts"],
-        }
-        self.regex_process = {"command": ["^sh$", "^sed$"]} # must exact match
-        self.regex_net = {
-            "net address":[r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+", r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"], # 把 port 砍了 r":\d+" 會抓到時間，如 11:48
-            "NIC": "eth[0-9]$"}
-        self.regex_mem = {"Memory Address": "0x[0-9a-zA-Z]{8}"}
-        self.regex_other = {"permission":"permission:{0,1}[0-9]{0,4}", "ID":["UID", "GID"]}
-        self.all_regex_dict = {**self.regex_file,  **self.regex_process, **self.regex_net, **self.regex_mem, **self.regex_other}
-        # 切換其他家族
-        if familyname and familyname.lower() == 'xorddos':
-            self.regex_file = {
-                "sed command": "bin/sed", 
-                "startup": ["/etc/rc", "/etc/init.d/"],
-                "proc info":"/proc/", 
-                "sed temp file":"/etc/sed", 
-                "selinux":"/selinux",
-                "boot":"/boot/", 
-                "rootkit component":"/proc/rs_dev",
-                "execution file created by xorddos":"/boot/[a-z]{10}", 
-                "run":["/run/", "/var/run/"],
-                "var": "/var/", 
-                "perl": "/perl/", 
-                "crontab": "/etc/cron",
-                "init process": "bin/openrc", 
-                "init service": "bin/insserv", 
-                "uname": r"uname(\$|\.|$)"}
-            self.regex_process = {
-                "command": ["^sed$", "^sh$", "^chkconfig$", "^systemctl$", "update-rc.d"],
-                "execution file created by xorddos": "/boot/[a-z]{10}", # 重複了?
-                "pipe": r"^pipe(\$|\.|$)",}
-            self.regex_net = {
-                "ip":r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", 
-                "port": [r"[a-zA-z]:\d{1,5}$", r"port \d{1,5}$"], # 空白需要額外寫 rule 辨識
-                "ip + port": r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$"}
-            self.regex_mem = {"Memory Address": "0x[0-9a-zA-Z]{8}"}
-            self.regex_ID = {"UID": r"UID(\$|\.|$)", "GID": r"GID(\$|\.|$)"}
-            self.regex_permission = {"permission": r"permission(\s|:)[0-9]{1,4}"}
-            self.all_regex_dict = {**self.regex_file,  **self.regex_process, **self.regex_net, **self.regex_mem, **self.regex_ID, **self.regex_permission}
-        # 整理 regex rules       
+        set_of_objects_file = Utility.get_set_of_objects_file(graph)
+
+        # rule dict from .xlsx
+        RULES_DICT = Utility.build_RULES_DICT() 
+
+        # use the rule dict to build up the regex, it may not match all objects
+        regex_match_file, regex_non_match_file = Utility.build_file_regex(set_of_objects_file, RULES_DICT) 
+        self.file_regex:list[str] = list(regex_match_file.keys()) # type 'FILE'
+        self.proc_regex:list[str] = Utility.get_proc_regex(graph) # type 'PROC'
+        self.net_regex:list[str]  = Utility.get_net_regex(graph)  # type 'NET'
+        self.mem_regex:list[str]  = Utility.get_mem_regex(graph)  # type 'MEM' but dont have syscall rules
+        self.ID_regex:list[str]   = Utility.get_ID_regex(graph)   # type 'ID'
+        permission_regex:list[str] = Utility.get_premission_regex(graph)
+        self.info_regex:list[str] = []
+        infos = ['uname(.|$)','sysinfo']
+        for info in infos:
+            exit = False
+            for x in self.file_regex:
+                if re.search(info, x, re.IGNORECASE):
+                    exit = True
+                    break
+            if exit:
+                self.info_regex.append(info)
+            self.file_regex = [ x for x in self.file_regex if re.search(info, x, re.IGNORECASE) is None ] # 從file裡抓出info的re
+        self.file_regex.extend(permission_regex) # 把umask的檔案權限歸類為file
+        
+        # 合併 regex rules       
         self.all_regex_list = []
-        for v in self.all_regex_dict.values():
-            if isinstance(v,list):
-                for i in v:
-                    self.all_regex_list.append(i)
-            else:
-                self.all_regex_list.append(v)
+        self.all_regex_list.extend(self.file_regex) # 'FILE'
+        self.all_regex_list.extend(self.proc_regex) # 'PROC'
+        self.all_regex_list.extend(self.net_regex)  # 'NET'
+        self.all_regex_list.extend(self.mem_regex)  # 'MEM'
+        self.all_regex_list.extend(self.ID_regex)   # 'ID'
+        self.all_regex_list.extend(self.info_regex) # 'INFO'
+
+        self.all_type_list = ['FILE']*len(self.file_regex) + ['PROC']*len(self.proc_regex) \
+                           + ['NET'] *len(self.net_regex)  + ['MEM']*len(self.mem_regex) \
+                           + ['ID'] *len(self.ID_regex)    + ['INFO']*len(self.info_regex)
+        assert len(self.all_regex_list) == len(self.all_type_list)
+        # ['FILE', 'PROC', 'DEVICE', 'INFO', 'NET', 'ID'], 
+        # DEVICE is not used cause it's resource bytes,
+        # MEM is labeled but no syscall rules for him
         pass
 
     def get_all_regex(self) -> list: # should turn into classmethod
@@ -86,18 +75,23 @@ class RegexMaster:
                 raise TypeError("RegexMaster: Sentence cannot convert into string.")
         result_list = []
         for word in sentence.split():
-            for r in self.all_regex_list:
+            for i,r in enumerate(self.all_regex_list):
                 # print('r', r)
                 if re.search(r, word, re.IGNORECASE):
                     # print("Match :", word, 'with regex', r)
-                    result_list.append(RegexMatchResult(word, match_regex=r)) # 暫時忽略 type
+                    result_list.append(RegexMatchResult(word, match_regex=r, type=self.all_type_list[i])) # has type
                     self.used_regex_set.add(r)
         if len(result_list):
             return result_list     
         return None
 
-    def get_regex_type(self): # should turn into classmethod
-        pass
+    def get_regex_type(self, regex:str) -> str: # should turn into classmethod (but cannot since it require fields)
+        ''' return the type(string) of regex. `['FILE', 'PROC', 'INFO', 'NET', 'ID', 'MEM']` '''
+        try:
+            i = self.all_regex_list.index(regex)
+            return self.all_type_list[i]
+        except ValueError:
+            return None
 
     @classmethod
     def find_spacial_token_with_regex(cls, regex: str|list, sentence:str) -> list[RegexMatchResult]:
@@ -113,7 +107,8 @@ class RegexMaster:
                 isMatch = re.search(regex, word, re.IGNORECASE)
                 if isMatch:
                     # print("Match :", word, 'with regex', regex)
-                    result_list.append(RegexMatchResult(word, match_regex=regex))
+                    # i = cls.all_type_list.index()
+                    result_list.append(RegexMatchResult(word, match_regex=regex)) # 暫時忽略 type
             elif isinstance(regex, list):
                 for r in regex:
                     if re.search(r, word, re.IGNORECASE):

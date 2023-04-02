@@ -91,6 +91,7 @@ class OperationMode(Enum):
 
 class OperationEvaluator:
     def __init__(self) -> None:
+        self.rule_dataset_path = "../rule_dataset.csv"
         self.df = self.read_rule()
         self.update_syscall_list = list(self.df[self.df['ActionType'].isin(['UPDATE'])]['Syscall'].unique())
         # Load pre-trained model tokenizer (vocabulary)
@@ -108,7 +109,7 @@ class OperationEvaluator:
         pass
 
     def read_rule(self) -> pd.DataFrame:
-        df = pd.read_csv('rule_dataset.csv')
+        df = pd.read_csv(self.rule_dataset_path)
 
         def clean_braces(x):
             x = x.replace("()", "").replace(",", "").replace(" ", "")
@@ -117,7 +118,7 @@ class OperationEvaluator:
         df['Syscall'] = df['Syscall'].apply(clean_braces)
         return df
     
-    def _format_type(self, in_type:str) -> str|None:
+    def _format_type(self, in_type:str) -> str|None: # todo: add type ID
         entityType = in_type.upper()
         if entityType.startswith('PROC'):
             entityType = 'PROC'
@@ -255,7 +256,7 @@ class OperationEvaluator:
         return h
 
     def rulefile_to_md5(self):
-        with open("rule_dataset.csv", "rb") as f:
+        with open(self.rule_dataset_path, "rb") as f:
             # 分批讀取檔案內容，計算 MD5 雜湊值
             for chunk in iter(lambda: f.read(4096), b""):
                 self.md5.update(chunk)

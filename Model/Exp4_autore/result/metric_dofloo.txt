@@ -1,0 +1,111 @@
+=== mem_usage: 800.31 MB ===
+asg_object: {'/proc/net/dev', '/proc/self', '/etc/sed[0-9a-zA-Z]{6}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '.*/selinux', '/.*bin/sed', '/etc/rc\\.local', 'UID.*', 'sed', 'sh', 'GID.*', 'Permission', '/etc/init\\.d/.*', '/proc/stat', 'Permission:[0-9]{3}', '/etc/rc.*\\.d/.*', '/dev/urandom', '/sys/devices/.*', 'PID.*'}
+
+
+Sample Dofloo-BleepingComputer.csv
+	num of segment in report: 15
+	lenght of ctd's OPset is 12
+	#R_malObj
+	num of ctd objects: 2, num of asg objects: 19. R_malObj is 0.1053
+		ctd_object: {'sed', 'sh'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 41, len(ctd_OPset): 12
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 41. R_malOps is 0.0488
+		refered lifecycle: [27, 23]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 3. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP28 act=fchmod, obj=sed>, <OP10 act=disclose, obj=exposed, sent=exposed docker apis were abused by other malicious campaigns, with one being detected in march by imperva while exploiting the cve-2019-5736 runc vulnerability disclosed one month earlier allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.>
+	<OP24 act=write, obj=sed>, <OP 1 act=scan, obj=exposed, sent=exposed docker apis abused by ddos, cryptojacking botnet malware  by sergiu gatlan  june 14, 2019 11:48 am   attackers are actively scanning for exposed docker apis on port 2375 and use them to deploy a malicious payload which drops a dofloo trojan variant, a malware known as a popular tool for building large scale botnets.>
+
+Sample Dofloo-MalwareMustDie.csv
+	num of segment in report: 76
+	lenght of ctd's OPset is 12
+	#R_malObj
+	num of ctd objects: 4, num of asg objects: 19. R_malObj is 0.2105
+		ctd_object: {'sed', 'sh', 'PID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 41, len(ctd_OPset): 12
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 41. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 3. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Dofloo-Securityaffairs.csv
+	num of segment in report: 13
+	lenght of ctd's OPset is 9
+	#R_malObj
+	num of ctd objects: 5, num of asg objects: 19. R_malObj is 0.2632
+		ctd_object: {'/etc/rc.*\\.d/.*', 'sh', '/etc/rc\\.local', 'sed', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+		len(asg_OPset): 41, len(ctd_OPset): 9
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 41. R_malOps is 0.0488
+		refered lifecycle: [32, 28]
+	#R_malChangeOps
+	num of matched asg op: 1, num of asg op: 3. R_malChangeOps is 0.3333
+		ref-sys lifecycle: [28]
+
+	hits
+	<OP33 act=connect, obj=ip_addr>, <OP 4 act=connect, obj=23.224.59.34:48080, sent=the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
+	<OP29 act=rename, obj=/etc/rc\.local>, <OP 6 act=modify, obj=/etc/rc.local, sent=trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
+
+	sys_hits
+	<OP29 act=rename, obj=/etc/rc\.local>, <OP 6 act=modify, obj=/etc/rc.local, sent=trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
+
+Sample Dofloo-SyscallParty.csv
+	num of segment in report: 96
+	lenght of ctd's OPset is 24
+	#R_malObj
+	num of ctd objects: 7, num of asg objects: 19. R_malObj is 0.3684
+		ctd_object: {'/etc/rc\\.local', 'sh', '/etc/init\\.d/.*', '/proc/net/dev', '/proc/self', 'sed', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
+		len(asg_OPset): 41, len(ctd_OPset): 24
+	#R_malOps
+	num of matched asg op: 4, num of asg op: 41. R_malOps is 0.0976
+		refered lifecycle: [30, 15, 23, 28]
+	#R_malChangeOps
+	num of matched asg op: 1, num of asg op: 3. R_malChangeOps is 0.3333
+		ref-sys lifecycle: [28]
+
+	hits
+	<OP31 act=open, obj=/etc/init\.d/.*>, <OP10 act=add, obj=/etc/init.d/boot.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
+	<OP16 act=open, obj=/etc/rc\.local>, <OP 9 act=add, obj=/etc/rc.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
+	<OP24 act=write, obj=sed>, <OP13 act=format, obj=sed, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
+	<OP29 act=rename, obj=/etc/rc\.local>, <OP14 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
+
+	sys_hits
+	<OP29 act=rename, obj=/etc/rc\.local>, <OP14 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
+
+Sample Dofloo-Trendmicro.csv
+	num of segment in report: 11
+	lenght of ctd's OPset is 9
+	#R_malObj
+	num of ctd objects: 9, num of asg objects: 19. R_malObj is 0.4737
+		ctd_object: {'/etc/rc\\.local', 'sh', '/etc/rc.*\\.d/.*', '/etc/init\\.d/.*', '/proc/stat', '/proc/net/dev', '/proc/self', 'UID.*', 'sed'}
+	#R_malSysObj
+	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
+		len(asg_OPset): 41, len(ctd_OPset): 9
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 41. R_malOps is 0.0488
+		refered lifecycle: [27, 23]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 3. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP28 act=fchmod, obj=sed>, <OP 1 act=se, obj=sed, sent= installation  this backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local backdoor routine >
+	<OP24 act=write, obj=sed>, <OP 1 act=se, obj=sed, sent= installation  this backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local backdoor routine >
+
+
+OperationPair that changes system resources:
+ [<OP23 act=write, obj=/etc/sed[0-9a-zA-Z]{6}>, <OP29 act=rename, obj=/etc/rc\.local>, <OP27 act=fchmod, obj=/etc/sed[0-9a-zA-Z]{6}>]
