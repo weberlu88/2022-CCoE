@@ -119,14 +119,18 @@ class OperationEvaluator:
         return df
     
     def _format_type(self, in_type:str) -> str|None: # todo: add type ID
+        if in_type is None:
+            raise ValueError("_format_type() get a 'None' in_type param") 
         entityType = in_type.upper()
+        if entityType.startswith('ID'):
+            entityType = 'ID'
         if entityType.startswith('PROC'):
             entityType = 'PROC'
         if entityType.startswith('NET'):
             entityType = 'NET'
         if entityType.startswith('INFO'):
             entityType = 'INFO'
-        entityType_lst = ['FILE', 'PROC', 'DEVICE', 'INFO', 'NET']
+        entityType_lst = ['FILE', 'PROC', 'DEVICE', 'INFO', 'NET', 'ID', 'MEM']
         if entityType not in entityType_lst:
             return None
         return entityType

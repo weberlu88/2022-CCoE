@@ -43,7 +43,7 @@ class RegexMaster:
             self.file_regex = [ x for x in self.file_regex if re.search(info, x, re.IGNORECASE) is None ] # 從file裡抓出info的re
         self.file_regex.extend(permission_regex) # 把umask的檔案權限歸類為file
         
-        # 合併 regex rules       
+        # 合併 regex rules，其實是 used regex，無法取得所有的 regex
         self.all_regex_list = []
         self.all_regex_list.extend(self.file_regex) # 'FILE'
         self.all_regex_list.extend(self.proc_regex) # 'PROC'
@@ -61,11 +61,11 @@ class RegexMaster:
         # MEM is labeled but no syscall rules for him
         pass
 
-    def get_all_regex(self) -> list: # should turn into classmethod
-        return self.all_regex_list
+    # def get_all_regex(self) -> list: # should turn into classmethod
+    #     return self.all_regex_list
 
     def get_used_regex(self) -> set:
-        return self.used_regex_set
+        return set(self.all_regex_list)
 
     def find_spacial_token(self, sentence:str) -> list[RegexMatchResult]:
         if not isinstance(sentence, str):

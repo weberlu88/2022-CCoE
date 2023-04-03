@@ -1,0 +1,135 @@
+=== mem_usage: 806.02 MB ===
+===========
+asg_object: {'^update-rc.d$', '/boot', '/etc/rc.*\\.d/.*', 'Permission', '^/boot/pyaqircmpc$', '/proc/\\d+/exe', '^/boot/qnztnkzxje$', 'UID.*', '^/boot/culylmxbnn$', '^/boot/dgbfmcdgie$', '^/boot/vxcezwunnx$', '^/boot/bxzcujmwuj$', '^/boot/pydamssrzt$', '^/boot/xcyyuwgxmx$', '/run/systemd/.*', '^/boot/lgwpwkxyat$', '^/boot/devawlqrit$', '^/boot/kfiegjyafw$', '/.*bin/insserv', '^/boot/hbzgcgpgrl$', '.*/selinux', '^/boot/ixfnusqrgg$', '^/boot/zqghiflwfw$', '^/boot/bthcxsfqan$', '/proc/stat', '^/boot/rjvpbnmhxl$', '^/boot/surblktlmj$', '^/boot/eirlnrbbue$', '/etc/init\\.d/.*', '/etc/crontab', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^/boot/ftrnncnlir$', '/.*bin/sed', '^/boot/ljmsrriafj$', '/var/run', '/etc/sed[0-9a-zA-Z]{6}', '^/boot/qizzmavgpl$', '/proc/\\d+/root', '/etc/cron\\..*/.*', '^/boot/lxwrjfjxtp$', '^/boot/lydfnrjaxp$', '^systemctl$', '^/boot/ksxexbvwow$', '^/boot/fykepenmvn$', '^/boot/yterrxdnqm$', '.*/perl5.*/', '^/boot/pxqgyrrbzu$', '^/boot/bsuztxmack$', '^/boot/qrwzvycybx$', '^/boot/cuzvqbtvfd$', '^/boot/nkoyupuxpx$', '^sh$', '^/boot/kkxlhyzfmp$', '^/boot/hucenabudx$', '/proc/self', '^sed$', '/.*bin/openrc', 'GID.*', '^chkconfig$', '/var/run/.*', '.*/perl.*/', '^/boot/ksatflruxo$', '/var', '^/boot/hlgpkoezsl$', '^/boot/rsztkcqmag$', '^/boot/bkrlffbdxs$', '^/boot/mmyypjufxq$', '^/boot/ogyujgrviy$', 'Sha.*', '^/boot/iswqwsprgu$', '^/boot/auqrvglpdz$', '^/boot/fgqxqatvys$', '^/boot/gvqambdbei$', '^/boot/lwiovnycak$', '^/boot/jpyqhyfzey$', '^/boot/kyjfilcrnq$', '^/boot/iphpevdezt$', '^/boot/mfpmkpexoo$', '^/boot/frdsmulhvu$', '^/boot/zdmysrquou$', 'Permission:[0-9]{3}', '^/boot/fzmicupinj$', '^/boot/awroivjpkx$', '^/boot/bsthdzgvmt$', '^/boot/yekbvdwwsw$', '^/boot/kfsglskbdb$', '^/boot/btiipgrbod$', 'PID.*', '^/boot/gzouwclwnr$', '^/boot/lwhpfsdftn$', '^/boot/dczbbqscrr$', '^/boot/pzjfoxtpmb$', '^/boot/tljpweugni$'}
+
+
+Sample Xorddos-Cdnetworks.csv
+	num of segment in report: 32
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 2, num of asg objects: 93. R_malObj is 0.0215
+		ctd_object: {'Sha.*', 'UID.*'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 5. R_malSysObj is 0.0000
+		len(asg_OPset): 377, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 377. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Xorddos-Crowdstrike.csv
+	num of segment in report: 45
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 93. R_malObj is 0.0108
+		ctd_object: {'Sha.*'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 5. R_malSysObj is 0.0000
+		len(asg_OPset): 377, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 377. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Xorddos-Intezer.csv
+	num of segment in report: 156
+	lenght of ctd's OPset is 9
+	#R_malObj
+	num of ctd objects: 7, num of asg objects: 93. R_malObj is 0.0753
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'UID.*', '/etc/rc.*\\.d/.*', 'Sha.*', 'Permission', '/etc/init\\.d/.*', 'GID.*'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 5. R_malSysObj is 0.4000
+		len(asg_OPset): 377, len(ctd_OPset): 9
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 377. R_malOps is 0.0027
+		refered lifecycle: [313]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP314 act=connect, obj=ip_addr>, <OP 6 act=hardcode, obj=127.0.0.1, sent=table 2: data collected by the malware and sent back to the c2 server url key	description	comment hostip	ip	hardcoded to 127.0.0.1 softtype		hardcoded to “linux” pscaddr	mac address	 hostname	machine name	 hosttar	username	possibly “host target” hostos	distribution	extracted from /etc/issue or /etc/redhat-release hostcpu	clock speed	/proc/cpuinfo hostmem	amount of memory	/proc/meminfo hostpack		hardcoded to “linux” lkmtag	is rootkit enabled	 kernel	kernel version	extracted from unamefigure 12 shows the communication between redxor and the c2.>
+
+Sample Xorddos-Ms.csv
+	num of segment in report: 252
+	lenght of ctd's OPset is 57
+	#R_malObj
+	num of ctd objects: 16, num of asg objects: 93. R_malObj is 0.1720
+		ctd_object: {'/var/run/.*', '^update-rc.d$', '^chkconfig$', 'UID.*', '^sh$', '/etc/cron\\..*/.*', '/proc/self', 'Sha.*', '/boot', '/etc/rc.*\\.d/.*', '/var', 'PID.*', '/etc/init\\.d/.*', '/etc/crontab', 'GID.*', '/var/run'}
+	#R_malSysObj
+	num of ctd objects: 4, num of asg objects: 5. R_malSysObj is 0.8000
+		len(asg_OPset): 377, len(ctd_OPset): 57
+	#R_malOps
+	num of matched asg op: 16, num of asg op: 377. R_malOps is 0.0424
+		refered lifecycle: [270, 8, 299, 265, 300, 0, 280, 309, 308, 21, 298, 13, 16, 269, 307, 281]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP271 act=getegid, obj=GID.*>, <OP14 act=assign, obj=gid, sent= the following table describes the symbols found in the rootkit and their corresponding functionalities:  function name  	description   give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0” module_hide	hides the rootkit kernel module module_show	unhides the rootkit kernel module get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6 get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6 hide_udp4_port	adds a provided port to a list of hidden udp4 ports unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports hide_udp6_port	adds a provided port to a list of hidden udp6 ports unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports unhide_allz	iterates list of all hidden ports and deletes all entries firewall_acceptip	adds an ip address provided to accept_ips list unfirewall_acceptip	deletes a provided entry from accept_ips list firewall_dropip	adds a provided ip address to drop_ips list unfirewall_dropip	deletes a provided ip address to drop_ips list hide_proc	adds a provided entry to hidden_procs list unhide_proc	deletes a provided entry to hidden_procs list>
+	<OP 9 act=write, obj=/boot>, <OP 4 act=contain, obj=/var/log/boot.log, sent=after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character: sensitive file	description /root/.bash_history	contains the commands that were run earlier /var/log/wtmp	contains login related record for users /var/log/btmp	contains record of failed login attempt /var/log/lastlog	contains the recent login information for users /var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges /var/log/boot.log	contains information related to system boot and message logged via system startup processes /var/log/cron	contains information related to cron job launch, success and failure error logs /var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.>
+	<OP300 act=open, obj=/var/run>, <OP31 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP266 act=clone, obj=^chkconfig$>, <OP27 act=install, obj=chkconfig, sent=screenshot displaying chkconfig and update-rc.d commands installing the startup service figure 16. chkconfig and update-rc.d commands install the startup service argument-based code-flow xorddos has specific code paths corresponding to the number of arguments provided to the program.>
+	<OP301 act=open, obj=/var/run/.*>, <OP32 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP 1 act=readlink, obj=/proc/self>, <OP29 act=call, obj=/proc/self/exe, sent=before handling the argument-based control, it calls the readlink api with the first parameter as /proc/self/exe to fetch its full process path.>
+	<OP281 act=getpid, obj=PID.*>, <OP38 act=hide, obj=hidepidport, sent=hidepidport – hides the malware’s ports and processes.>
+	<OP310 act=write, obj=/var/run/.*>, <OP12 act=resolv.conf, obj=/var/run/, sent=encrypted strings	decoded value m7a4nq_/na	/usr/bin/ m [(n3	/bin/ m6_6n3	/tmp/ m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid m.[$n__#4%\c\x1ab]0	/lib/libudev.so m.[$n3	/lib/ m4s4nac/na	/var/run/ !#ff3ve.-7\x17v[_	cat resolv.conf <encrypted_remote_url>	hxxp://aa.hostasa[.>
+	<OP309 act=write, obj=/var/run>, <OP 7 act=m6_6n3, obj=/var/run/gcc.pid, sent=encrypted strings	decoded value m7a4nq_/na	/usr/bin/ m [(n3	/bin/ m6_6n3	/tmp/ m4s4nac/n&zv\x1aa/tb	/var/run/gcc.pid m.[$n__#4%\c\x1ab]0	/lib/libudev.so m.[$n3	/lib/ m4s4nac/na	/var/run/ !#ff3ve.-7\x17v[_	cat resolv.conf <encrypted_remote_url>	hxxp://aa.hostasa[.>
+	<OP22 act=clone, obj=^sh$>, <OP36 act=find, obj=sh, sent= the fake commands can include:  cat resolv.conf netstat -an bash whoami id cd /etc ifconfig eth0 ifconfig echo “find” uptime sh top gnome-terminal su netstat -antop grep “a” who ls -la pwd route -n ps -ef ls sleep 1>
+	<OP299 act=open, obj=/var>, <OP30 act=create, obj=/var/run/., sent=if it’s not running from these locations, then it creates and copies itself using a 10-character string name on those locations, as well as /lib/ and /var/run/.>
+	<OP14 act=open, obj=/etc/init\.d/.*>, <OP18 act=drop, obj=/etc/init.d/hflggwyfsc.elf, sent=figure 11. content of the init script dropped at the location /etc/init.d/hflggwyfsc.elf>
+	<OP17 act=open, obj=/etc/cron\..*/.*>, <OP19 act=pass, obj=/etc/cron.hourly/gcc.sh.the, sent= cron script  the malware creates a cron script at the location /etc/cron.hourly/gcc.sh.the cron script passes parameters with the following content:  screenshot of the contents of the gcc.sh script.>
+	<OP270 act=getgid, obj=GID.*>, <OP14 act=assign, obj=gid, sent= the following table describes the symbols found in the rootkit and their corresponding functionalities:  function name  	description   give_root  	provides a root privilege by setting a new set of credentials and assigning its uid, gid to “0” module_hide	hides the rootkit kernel module module_show	unhides the rootkit kernel module get_udp_seq_show	hides the udp4 connection by hooking /proc/net/udphides the udp6 connection by hooking /proc/net/udp6 get_tcp_seq_show	hides the tcp4 connection by hooking /proc/net/tcphides the tcp6 connection by hooking /proc/net/tcp6 hide_udp4_port	adds a provided port to a list of hidden udp4 ports unhide_udp4_port	deletes a provided port from a list of hidden udp4 ports hide_udp6_port	adds a provided port to a list of hidden udp6 ports unhide_udp6_port	deletes a provided port from a list of hidden udp6 ports hide_tcp4_port	adds a provided port to a list of hidden tcp4 ports unhide_tcp4_port	deletes a provided port from a list of hidden tcp4 ports hide_tcp6_port	adds a provided port to a list of hidden tcp6 ports unhide_tcp6_port	deletes a provided port from a list of hidden tcp6 ports unhide_allz	iterates list of all hidden ports and deletes all entries firewall_acceptip	adds an ip address provided to accept_ips list unfirewall_acceptip	deletes a provided entry from accept_ips list firewall_dropip	adds a provided ip address to drop_ips list unfirewall_dropip	deletes a provided ip address to drop_ips list hide_proc	adds a provided entry to hidden_procs list unhide_proc	deletes a provided entry to hidden_procs list>
+	<OP308 act=write, obj=/var>, <OP 3 act=contain, obj=/var/log/btmp, sent=after running the elf file, uses an anti-forensic technique that hides its past activity by overwriting the content of the following sensitive files with a newline character: sensitive file	description /root/.bash_history	contains the commands that were run earlier /var/log/wtmp	contains login related record for users /var/log/btmp	contains record of failed login attempt /var/log/lastlog	contains the recent login information for users /var/log/secure	contains information related to security such as logs for authentication failure, sudo logins, and authorization privileges /var/log/boot.log	contains information related to system boot and message logged via system startup processes /var/log/cron	contains information related to cron job launch, success and failure error logs /var/log/dmesg	contains information related to kernel ring buffer messages, hardware devices, drivers, etc.>
+	<OP282 act=getppid, obj=PID.*>, <OP38 act=hide, obj=hidepidport, sent=hidepidport – hides the malware’s ports and processes.>
+
+Sample Xorddos-Trendmicro.csv
+	num of segment in report: 27
+	lenght of ctd's OPset is 8
+	#R_malObj
+	num of ctd objects: 7, num of asg objects: 93. R_malObj is 0.0753
+		ctd_object: {'/var/run/.*', '/etc/cron\\..*/.*', '/etc/rc.*\\.d/.*', '/var', 'PID.*', 'Permission', '/var/run'}
+	#R_malSysObj
+	num of ctd objects: 2, num of asg objects: 5. R_malSysObj is 0.4000
+		len(asg_OPset): 377, len(ctd_OPset): 8
+	#R_malOps
+	num of matched asg op: 3, num of asg op: 377. R_malOps is 0.0080
+		refered lifecycle: [280, 16, 281]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP281 act=getpid, obj=PID.*>, <OP 3 act=gather, obj=pid, sent= information theft  this backdoor gathers the following data:  memory information cpu information network speed pid of running process md5 of running process other details>
+	<OP17 act=open, obj=/etc/cron\..*/.*>, <OP 2 act=drop, obj=/etc/cron.hourly/gcc.sh, sent= this backdoor drops the following files:  /etc/cron.hourly/gcc.sh (cron is a time-based job scheduler in unix-like computer operating systems) backdoor routine>
+	<OP282 act=getppid, obj=PID.*>, <OP 3 act=gather, obj=pid, sent= information theft  this backdoor gathers the following data:  memory information cpu information network speed pid of running process md5 of running process other details>
+
+Sample Xorddos-Trendmicro2.csv
+	num of segment in report: 47
+	lenght of ctd's OPset is 5
+	#R_malObj
+	num of ctd objects: 3, num of asg objects: 93. R_malObj is 0.0323
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'Sha.*', 'PID.*'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 5. R_malSysObj is 0.0000
+		len(asg_OPset): 377, len(ctd_OPset): 5
+	#R_malOps
+	num of matched asg op: 3, num of asg op: 377. R_malOps is 0.0080
+		refered lifecycle: [311, 280, 281]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 6. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP312 act=send, obj=ip_addr>, <OP 5 act=find, obj=http://62.171.160.189/linux_arm, sent= indicators of compromise kaiji  file name	sha 256	trend micro pattern detection 123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a related urls:  http://62.171.160.189/linux_arm http://62.171.160.189/11/123.sh xorddos and other malware variants found through the same url  sha 256	trend micro pattern detection dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae 6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab 286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a related url:  http://122.51.133.49:10086/vip>
+	<OP281 act=getpid, obj=PID.*>, <OP 2 act=gather, obj=pid, sent=  it gathered the following data, which are relevant to its attempt to initiate a ddos attack:  cpu information md5 of running process memory information network speed pid of running process it should be noted that most of the behaviors exhibited by this particular xorddos variant have already been observed in earlier variants of the malware.>
+	<OP282 act=getppid, obj=PID.*>, <OP 2 act=gather, obj=pid, sent=  it gathered the following data, which are relevant to its attempt to initiate a ddos attack:  cpu information md5 of running process memory information network speed pid of running process it should be noted that most of the behaviors exhibited by this particular xorddos variant have already been observed in earlier variants of the malware.>
+
+
+OperationPair that changes system resources:
+ [<OP19 act=write, obj=/etc/cron\..*/.*>, <OP295 act=fchmod, obj=/etc/sed[0-9a-zA-Z]{6}>, <OP21 act=write, obj=/etc/rc.*\.d/.*>, <OP16 act=write, obj=/etc/init\.d/.*>, <OP296 act=rename, obj=/etc/crontab>, <OP293 act=write, obj=/etc/sed[0-9a-zA-Z]{6}>]

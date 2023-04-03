@@ -327,7 +327,7 @@ def get_proc_regex(graph):
     proc_regex = []
     for proc in set_of_proc_O:
         if (not proc.isnumeric()) and proc not in ignore_name:
-            proc_regex.append(proc)
+            proc_regex.append(f"^{proc}$")
     
     return proc_regex
 
@@ -336,7 +336,7 @@ def get_net_regex(graph):
 
     net_regex = []
     
-    ip_regex = ["\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "port d+ ", "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:d+"]
+    ip_regex = ["\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "port d+", "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:d+"]
     nic_regex = ["eth.*"]
 
     for net_O in set_of_net_O:
