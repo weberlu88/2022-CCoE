@@ -164,7 +164,7 @@ def name_handler(dest_object: str) -> str:
             indicator = dest_object[len(prefix)-1:].split("/")[0]
             
 #             return prefix[0:-1] + indicator
-            return ".*/" + indicator + ".*/"
+            return ".*/" + indicator + "/.*"
 
             
 #             indicator = path[len(prefix):].split("/")[0]
@@ -206,11 +206,11 @@ def build_RULES_DICT(path="Basic Search Rule.xlsx"):
 
         # 2 建造 rule dict: key = dir_name, value = [F_Rules, D_Rules] (F_Rules、D_Rules 都是 list)
         RULES_DICT[NAME] = [temp_F_Regex, temp_D_Regex]
-    
+
     return RULES_DICT
 
 def special_case_handler(dest_object):
-    special_case_list = ["uname", "/dict/words", ".*/selinux"]
+    special_case_list = ["uname", "/dict/words", ".*/selinux", ".*/perl/.*"]
 
     for rule in special_case_list:
         if re.search(rule, dest_object):
@@ -282,7 +282,10 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
 
         ### handling special case
         if special_case_handler(file_name):
-            regex_match_file[special_case_handler(file_name)] = [file_name]
+            if special_case_handler(file_name) not in regex_match_file:
+                regex_match_file[special_case_handler(file_name)] = [file_name]
+            else:
+                regex_match_file[special_case_handler(file_name)].append(file_name)
             continue
 
         # if file_name == "uname":
@@ -305,11 +308,13 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
             else:
                 regex_non_match_file.append(file_name)
     
+    if ".*/perl5/.*" in regex_match_file:
+        regex_match_file[".*/perl/.*"] += regex_match_file[".*/perl5/.*"]
+        regex_match_file.pop(".*/perl5/.*", None)
+
     return regex_match_file, regex_non_match_file
 
 def get_set_of_dict(graph):
-    ''' return 5 types of all object including "subject" and "object".
-     `{"File":[], "Process":[], "Net":[], "Memory":[], "Other":[]}` '''
     set_of_dict = {"File":[], "Process":[], "Net":[], "Memory":[], "Other":[]}
     for key in graph.set_of_object:
         set_of_dict[graph.set_of_object[key]].append(key)
@@ -326,8 +331,9 @@ def get_proc_regex(graph):
     
     proc_regex = []
     for proc in set_of_proc_O:
-        if (not proc.isnumeric()) and proc not in ignore_name:
-            proc_regex.append(f"^{proc}$")
+        if "/" not in proc: # 不用處理 malware 自行創建的執行檔，因為在File那邊已經處理了
+            if (not proc.isnumeric()) and proc not in ignore_name:
+                proc_regex.append("^" + proc + "$")
     
     return proc_regex
 
@@ -336,8 +342,8 @@ def get_net_regex(graph):
 
     net_regex = []
     
-    ip_regex = ["\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "port d+", "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:d+"]
-    nic_regex = ["eth.*"]
+    ip_regex = ["\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "port \d+", "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"]
+    nic_regex = ["^eth.*"]
 
     for net_O in set_of_net_O:
         if re.search(ip_regex[0], net_O):
@@ -345,9 +351,13 @@ def get_net_regex(graph):
                 net_regex += ip_regex
                 continue
         if re.search(nic_regex[0], net_O):
-            if ("eth.*" not in net_regex):
+            if ("^eth.*" not in net_regex):
                 net_regex += nic_regex 
                 continue 
+        if net_O == "NIC": # 避免畫圖時 sink 成 NIC 而抓不到 regex
+            if ("^eth.*" not in net_regex):
+                net_regex += nic_regex
+                continue
 
     return net_regex
 
@@ -364,11 +374,13 @@ def get_ID_regex(graph):
     set_of_other_O = get_set_of_dict(graph)["Other"]
 
     ID_regex = []
+    ignore_str = "Shared Memory ID"
 
     for other_O in set_of_other_O:
-        if "ID" in other_O and other_O[0]:
-            if other_O[0:3] + ".*" not in ID_regex:
-                ID_regex.append(other_O[0:3] + ".*")
+        if ignore_str not in other_O:
+            if "ID" in other_O and other_O[0]:
+                if "^" + other_O[0:3] + ".*" not in ID_regex:
+                    ID_regex.append("^" + other_O[0:3] + ".*")
 
     return ID_regex
 
