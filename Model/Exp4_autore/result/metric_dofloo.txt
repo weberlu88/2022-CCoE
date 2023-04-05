@@ -1,4 +1,4 @@
-asg_object: {'/proc/stat', '/dev/urandom', '^PID.*', '/etc/rc.*\\.d/.*', 'Permission:[0-9]{3}', '/etc/rc\\.local', '/.*bin/sed', '/etc/sed[0-9a-zA-Z]{6}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^GID.*', 'Permission', '/proc/net/dev', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/sys/devices/.*', '/etc/init\\.d/.*', '^sed$', '^sh$', '^UID.*', '/proc/self', '.*/selinux'}
+asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', 'Permission:[0-9]{3}', '/proc/stat', '^sh$', '^GID.*', '^PID.*', '^UID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/sys/devices/.*', 'Permission', '/etc/sed[0-9a-zA-Z]{6}', '/etc/rc.*\\.d/.*', '^sed$', '/dev/urandom', '/etc/rc\\.local', '/proc/net/dev', '/proc/self', '/etc/init\\.d/.*', '.*/selinux', '/.*bin/sed'}
 
 Sample Dofloo-BleepingComputer.csv
 	num of segment in report: 15
@@ -21,7 +21,7 @@ Sample Dofloo-MalwareMustDie.csv
 	lenght of ctd's OPset is 15
 	#R_malObj
 	num of ctd objects: 2, num of asg objects: 20. R_malObj is 0.1000
-		ctd_object: {'^sed$', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^sed$'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
 		len(asg_OPset): 38, len(ctd_OPset): 15
@@ -37,21 +37,21 @@ Sample Dofloo-Securityaffairs.csv
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 4, num of asg objects: 20. R_malObj is 0.2000
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc\\.local', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/etc/rc.*\\.d/.*'}
+		ctd_object: {'/etc/rc.*\\.d/.*', '/etc/rc\\.local', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
 	#R_malSysObj
 	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
 		len(asg_OPset): 38, len(ctd_OPset): 4
 	#R_malOps
 	num of matched asg op: 3, num of asg op: 38. R_malOps is 0.0789
-		refered lifecycle: [25, 26, 21]
+		refered lifecycle: [25, 21, 26]
 	#R_malChangeOps
 	num of matched asg op: 1, num of asg op: 3. R_malChangeOps is 0.3333
 		ref-sys lifecycle: [21]
 
 	hits
 	<OP26 act=connect(), obj=ip_addr>, <OP 1 act=connect, obj=23.224.59.34:48080, sent=the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
-	<OP27 act=connect(), obj=ip_addr+port>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
 	<OP22 act=rename(), obj=/etc/rc\.local>, <OP 3 act=modify, obj=/etc/rc.local, sent=trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
+	<OP27 act=connect(), obj=ip_addr+port>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=the malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
 
 	sys_hits
 	<OP22 act=rename(), obj=/etc/rc\.local>, <OP 3 act=modify, obj=/etc/rc.local, sent=trend micro researchers also discovered that the latest variant of the aesddos bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
@@ -61,20 +61,20 @@ Sample Dofloo-SyscallParty.csv
 	lenght of ctd's OPset is 10
 	#R_malObj
 	num of ctd objects: 6, num of asg objects: 20. R_malObj is 0.3000
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/rc\\.local', '^sed$', '/proc/net/dev', '/etc/init\\.d/.*', '/proc/self'}
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^sed$', '/etc/init\\.d/.*', '/etc/rc\\.local', '/proc/net/dev', '/proc/self'}
 	#R_malSysObj
 	num of ctd objects: 2, num of asg objects: 4. R_malSysObj is 0.5000
 		len(asg_OPset): 38, len(ctd_OPset): 10
 	#R_malOps
 	num of matched asg op: 3, num of asg op: 38. R_malOps is 0.0789
-		refered lifecycle: [13, 23, 21]
+		refered lifecycle: [23, 13, 21]
 	#R_malChangeOps
 	num of matched asg op: 1, num of asg op: 3. R_malChangeOps is 0.3333
 		ref-sys lifecycle: [21]
 
 	hits
-	<OP14 act=open(), obj=/etc/rc\.local>, <OP 3 act=add, obj=/etc/rc.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
 	<OP24 act=open(), obj=/etc/init\.d/.*>, <OP 4 act=add, obj=/etc/init.d/boot.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
+	<OP14 act=open(), obj=/etc/rc\.local>, <OP 3 act=add, obj=/etc/rc.local, sent=persistence persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
 	<OP22 act=rename(), obj=/etc/rc\.local>, <OP 7 act=format, obj=/etc/rc.local, sent=a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
 
 	sys_hits
@@ -85,7 +85,7 @@ Sample Dofloo-Trendmicro.csv
 	lenght of ctd's OPset is 7
 	#R_malObj
 	num of ctd objects: 7, num of asg objects: 20. R_malObj is 0.3500
-		ctd_object: {'/proc/stat', '/etc/rc\\.local', '^sed$', '/proc/net/dev', '/etc/init\\.d/.*', '/etc/rc.*\\.d/.*', '/proc/self'}
+		ctd_object: {'/etc/rc.*\\.d/.*', '^sed$', '/etc/init\\.d/.*', '/etc/rc\\.local', '/proc/net/dev', '/proc/stat', '/proc/self'}
 	#R_malSysObj
 	num of ctd objects: 3, num of asg objects: 4. R_malSysObj is 0.7500
 		len(asg_OPset): 38, len(ctd_OPset): 7
