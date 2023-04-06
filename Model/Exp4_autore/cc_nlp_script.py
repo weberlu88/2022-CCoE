@@ -63,6 +63,8 @@ def find_verb_of_vocab(sentence: str, target_word: str, lemma=True):
         token = token.head
         # verb found
         if token.tag_.startswith('VB'):
+            if token.lemma_ in ['m6_6n3', 'se', 'resolv.conf']: # verb refinement, add a black list of ev_verb. these words are not verb.
+                continue 
             if lemma:
                 return token.lemma_
             return token.text
@@ -76,6 +78,7 @@ def syscall_verb_analysis(syscall: str, en_verb: str) -> tuple[bool, int]:
 from enum import Enum
 
 class OperationMode(Enum):
+    '''This enum type is deprecated. Replace by rules written in csv.'''
     FILE_READ_CLOSE = 0
     FILE_CREATE_OPEN = 1
     FILE_UPDATE = 2
@@ -165,7 +168,7 @@ class OperationEvaluator:
                 hit = False
         else:
             # en_verb not in rule, select a alternative one
-            if sentence:
+            if sentence and en_verb:
                 wvec = self.word_vector_from_BERT(en_verb, sentence) # 句子過長或句中找不到動詞
                 if wvec is None:
                     return False, isSysChange
