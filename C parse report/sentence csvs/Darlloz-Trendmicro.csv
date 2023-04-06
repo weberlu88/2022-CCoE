@@ -1,0 +1,204 @@
+Number,Content
+Sentence 1,"November 29, 2013
+ 
+Analysis by: Anthony Joe Melgarejo
+ALIASES:
+Linux.Darlloz (Symantec), Linux/Darlloz.A worm (ESET)
+
+"
+Sentence 2,"
+OVERVIEW
+INFECTION CHANNEL: Propagates via network shares
+This worm exploits software vulnerabilities to propagate to other computers across a network."
+Sentence 3,"TECHNICAL DETAILS
+FILE SIZE: 71,392 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: No
+INITIAL SAMPLES RECEIVED DATE: 28 Nov 2013
+PAYLOAD: Terminates processes
+Arrival Details
+
+This worm may arrive via network shares."
+Sentence 4,"Installation
+
+This worm drops the following copies of itself into the affected system:
+
+/tmp/x86
+
+"
+Sentence 5,"
+It creates the following folders:
+
+/var/run/.zollard/
+Other System Modifications
+
+"
+Sentence 6,"
+This worm deletes the following files:
+
+/var/run/.lightscan
+/var/run/lightscan
+/var/run/mipsel
+/var/run/mips
+/var/run/sh
+/var/run/arm
+/var/run/ppc
+/var/run/m
+/var/run/mi
+/var/run/s
+/var/run/a
+/var/run/p
+/var/run/msx
+/var/run/mx
+/var/run/sx
+/var/run/ax
+/var/run/px
+/var/run/32
+/var/run/sel
+/var/run/pid
+/var/run/gcc
+/var/run/dev
+/var/run/psx
+/var/run/mpl
+/var/run/mps
+/var/run/sph
+/var/run/arml
+/var/run/mips.l
+/var/run/mipsell
+/var/run/ppcl
+/var/run/shl
+/bin/pp
+/bin/mi
+/bin/mii
+/var/tmp/dreams.install.sh
+/var/tmp/ep2.ppc
+/usr/bin/wget
+/usr/bin/-wget
+Propagation
+
+"
+Sentence 7,"
+This worm exploits the following software vulnerabilities to propagate to other computers across a network:
+
+CVE-2013-1823
+Process Termination
+
+"
+Sentence 8,"
+This worm terminates the following processes if found running in the affected system's memory:
+
+telnetd
+
+"
+Sentence 9,"
+NOTES:
+
+This malware generates random IP addresses and attempts to access them."
+Sentence 10,"If an accessible IP address is found, it attempts to access the following directories:
+
+/cgi-bin/php
+/cgi-bin/php5
+/cgi-bin/php-cgi
+/cgi-bin/php.cgi
+/cgi-bin/php4
+
+"
+Sentence 11,"
+It uses the following list of user names and passwords to access the locations mentioned above in case they are password-protected:
+
+root
+1234
+12345
+dreambox
+smcadmin
+
+"
+Sentence 12,"
+It loads the following modules (iptables):
+
+/lib/modules/{kernel version}/kernel/net/ipv4/netfilter/ip_tables.ko
+/lib/modules/{kernel version}/kernel/net/ipv4/netfilter/iptable_filter.ko
+It drops TCP packets on port 23."
+Sentence 13,"As a result, telnet communications are blocked in the affected system."
+Sentence 14,
+Sentence 15,"
+It terminates and deletes the following processes and files:
+
+/var/run/.lightpid
+/var/run/.aidrapid
+/var/run/lightpid
+   
+"
+Sentence 16,"
+SOLUTION
+MINIMUM SCAN ENGINE: 9.700
+FIRST VSAPI PATTERN FILE: 10.440.07
+FIRST VSAPI PATTERN DATE: 28 Nov 2013
+VSAPI OPR PATTERN FILE: 10.441.00
+VSAPI OPR PATTERN DATE: 29 Nov 2013
+Step 1
+
+Scan your computer with your Trend Micro product to delete files detected as UNIX_DARLLOZ.A."
+Sentence 17,"If the detected files have already been cleaned, deleted, or quarantined by your Trend Micro product, no further step is required."
+Sentence 18,You may opt to simply delete the quarantined files.
+Sentence 19,Please check this Knowledge Base page for more information.
+Sentence 20,"Step 2
+
+Search and delete these folders
+
+[ Learn More ]
+Please make sure you check the Search Hidden Files and Folders checkbox in the More advanced options option to include all hidden folders in the search result."
+Sentence 21,"var/run/.zollard/
+Step 3
+
+Restore this file from backup only Microsoft-related files will be restored."
+Sentence 22,"If this malware/grayware also deleted files related to programs that are not from Microsoft, please reinstall those programs on you computer again."
+Sentence 23,"/var/run/.lightpid
+/var/run/.aidrapid
+/var/run/lightpid
+/var/run/.lightscan
+/var/run/lightscan
+/var/run/mipsel
+/var/run/mips
+/var/run/sh
+/var/run/arm
+/var/run/ppc
+/var/run/m
+/var/run/mi
+/var/run/s
+/var/run/a
+/var/run/p
+/var/run/msx
+/var/run/mx
+/var/run/sx
+/var/run/ax
+/var/run/px
+/var/run/32
+/var/run/sel
+/var/run/pid
+/var/run/gcc
+/var/run/dev
+/var/run/psx
+/var/run/mpl
+/var/run/mps
+/var/run/sph
+/var/run/arml
+/var/run/mips.l
+/var/run/mipsell
+/var/run/ppcl
+/var/run/shl
+/bin/pp
+/bin/mi
+/bin/mii
+/var/tmp/dreams.install.sh
+/var/tmp/ep2.ppc
+/usr/bin/wget
+/usr/bin/-wget
+Step 4
+
+Download and apply these security patches Refrain from using these products until the appropriate patches have been installed."
+Sentence 24,Trend Micro advises users to download critical patches upon release by vendors.
+Sentence 25,"https://bugs.php.net/patch-display.php?bug_id=61910&patch=CVE-2012-1823.patch&revision=latest
+
+Did this description help?"
+Sentence 26,Tell us how we did.

