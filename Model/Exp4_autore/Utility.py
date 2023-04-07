@@ -229,7 +229,7 @@ def match_search_rule(dest_object: str, RULES_DICT: dict) -> str:
         prefix = dest_object.split("/")[1]
     except:
         prefix = dest_object
-        print(""""Error on file_name.split("/")[1]""", prefix)
+        # print(""""Error on file_name.split("/")[1]""", prefix)
     
     ## 有一個 object 直接是 /selinux，需要額外處理 
     if prefix in RULES_DICT:
@@ -300,7 +300,7 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
             prefix = file_name.split("/")[1]
         except:
             prefix = file_name
-            print(""""Error on file_name.split("/")[1]""", prefix)
+            # print(""""Error on file_name.split("/")[1]""", prefix)
         regex = match_search_rule(file_name, RULES_DICT)
         
         if regex != False:
