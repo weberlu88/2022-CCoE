@@ -3,7 +3,7 @@ import re
 
 #### 自動化 regex: 建立 dest_object_set ####
 
-# 1. create set of objects (包含主詞、動詞)
+# 1. create set of objects (包含只剩下受詞 + type)
 def create_set_of_objects(graph):
     num_of_step = len(graph.step_list) # num_of_edges
     num_of_node_S = 0
@@ -17,34 +17,44 @@ def create_set_of_objects(graph):
         node_O = step[1]
         edge_name = step[2]
 
-        if edge_name not in reverse_edge:
+        node_S_name = node_S.name + ":" + node_S.type
+        if node_S_name not in seen_node_S:
+            seen_node_S.append(node_S_name)
+            num_of_node_S += 1
 
-            node_S_name = node_S.name + ":" + node_S.type
-            if node_S_name not in seen_node_S:
-                seen_node_S.append(node_S_name)
-                num_of_node_S += 1
+        node_O_name = node_O.name + ":" + node_O.type
+        if node_O_name not in seen_node_O:
+            seen_node_O.append(node_O_name)
+            num_of_node_O += 1
 
-            node_O_name = node_O.name + ":" + node_O.type
-            if node_O_name not in seen_node_O:
-                seen_node_O.append(node_O_name)
-                num_of_node_O += 1
-        else:
+        # if edge_name not in reverse_edge:
 
-            node_S_name = node_S.name + ":" + node_S.type
-            if node_S_name not in seen_node_O:
-                seen_node_O.append(node_S_name)
-                num_of_node_O += 1
+        #     node_S_name = node_S.name + ":" + node_S.type
+        #     if node_S_name not in seen_node_S:
+        #         seen_node_S.append(node_S_name)
+        #         num_of_node_S += 1
 
-            node_O_name = node_O.name + ":" + node_O.type
-            if node_O_name not in seen_node_S:
-                seen_node_S.append(node_O_name)
-                num_of_node_S += 1
+        #     node_O_name = node_O.name + ":" + node_O.type
+        #     if node_O_name not in seen_node_O:
+        #         seen_node_O.append(node_O_name)
+        #         num_of_node_O += 1
+        # else:
+
+        #     node_S_name = node_S.name + ":" + node_S.type
+        #     if node_S_name not in seen_node_O:
+        #         seen_node_O.append(node_S_name)
+        #         num_of_node_O += 1
+
+        #     node_O_name = node_O.name + ":" + node_O.type
+        #     if node_O_name not in seen_node_S:
+        #         seen_node_S.append(node_O_name)
+        #         num_of_node_S += 1
 
 #     print("num_of_step:", num_of_step)
 #     print("num_of_node_S:", num_of_node_S)
 #     print("num_of_node_O:", num_of_node_O)
     
-    return seen_node_O
+    return seen_node_S, seen_node_O
 # 2. 從 seen_node_O 中找出 dest_objects set
 def get_dest_objects_set(seen_node_O):
     set_of_objects = []
@@ -127,7 +137,7 @@ def prun_set_of_file_O(set_of_file_O):
 
     set_of_objects_file = [] # without filter_file = [".", "/", "/prober", "Unknown", "malware"]
 
-    filter_file = [".", "/", "/prober", "Unknown", "malware"]
+    filter_file = [".", "/", "./", "/prober", "Unknown", "malware"]
     for file_name in set_of_file_O:
         if file_name not in filter_file:
             set_of_objects_file.append(file_name)
@@ -137,7 +147,7 @@ def prun_set_of_file_O(set_of_file_O):
     return set_of_objects_file
 
 def get_set_of_objects_file(graph):
-    seen_node_O = create_set_of_objects(graph)
+    seen_node_S, seen_node_O = create_set_of_objects(graph)
     set_of_objects = get_dest_objects_set(seen_node_O)
     set_of_file_O = get_set_of_file_O(set_of_objects, graph)
     set_of_objects_file = prun_set_of_file_O(set_of_file_O)
@@ -210,11 +220,12 @@ def build_RULES_DICT(path="Basic Search Rule.xlsx"):
     return RULES_DICT
 
 def special_case_handler(dest_object):
-    special_case_list = ["uname", "/dict/words", ".*/selinux", ".*/perl/.*"]
+    special_case_list = ["/dict/words", ".*/selinux", ".*/perl/.*"]
 
     for rule in special_case_list:
         if re.search(rule, dest_object):
             return rule
+
 
 def match_search_rule(dest_object: str, RULES_DICT: dict) -> str:
     
@@ -225,11 +236,7 @@ def match_search_rule(dest_object: str, RULES_DICT: dict) -> str:
         return bin_handler(dest_object)
         
     
-    try:
-        prefix = dest_object.split("/")[1]
-    except:
-        prefix = dest_object
-        # print(""""Error on file_name.split("/")[1]""", prefix)
+    prefix = dest_object.split("/")[1]
     
     ## 有一個 object 直接是 /selinux，需要額外處理 
     if prefix in RULES_DICT:
@@ -292,15 +299,12 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
                 regex_match_file[special_case_handler(file_name)].append(file_name)
             continue
 
-        # if file_name == "uname":
-        #     regex_match_file["uname"] = [file_name]
-        #     continue
-        
-        try:
-            prefix = file_name.split("/")[1]
-        except:
-            prefix = file_name
-            # print(""""Error on file_name.split("/")[1]""", prefix)
+        # if len(file_name.split("/")) == 1:
+        #     print("Err:", file_name)
+        #     break
+
+
+        prefix = file_name.split("/")[1]
         regex = match_search_rule(file_name, RULES_DICT)
         
         if regex != False:
@@ -330,12 +334,12 @@ def get_set_of_dict(graph):
     return set_of_dict
 
 def get_proc_regex(graph):
-    seen_node_O = create_set_of_objects(graph)
+    seen_node_S, seen_node_O = create_set_of_objects(graph)
     set_of_objects = get_dest_objects_set(seen_node_O)
     set_of_proc_O = get_set_of_proc_O(set_of_objects, graph)
     
 
-    ignore_name = ['NO_PID']
+    ignore_name = ['NO_PID', 'malware']
     
     proc_regex = []
     for proc in set_of_proc_O:
@@ -355,7 +359,7 @@ def get_net_regex(graph):
 
     for net_O in set_of_net_O:
         if re.search(ip_regex[0], net_O):
-            if ("port d+ " not in net_regex):
+            if ("port \d+" not in net_regex):
                 net_regex += ip_regex
                 continue
         if re.search(nic_regex[0], net_O):
@@ -404,3 +408,113 @@ def get_premission_regex(graph):
     
     return prm_regex
 
+def get_reduction_statistic(graph): # the graph is a non-reduciton graph, because we need to calculate the difference bewteen non-reduciton and reduction graph
+    # count the reduciton # 要用尚未 reduce 的去計算
+    seen_mem = [] # type = m_addr
+    seen_NIC = [] # type = n
+    # seen_ID = [] # type = other
+    seen_time = [] # type = other
+    # seen_sleep_duration = []  # type = other
+
+
+    for i in range(len(graph.step_list)):
+        src_node = graph.step_list[i][0]
+        dest_node = graph.step_list[i][1]
+        edge_name = graph.step_list[i][2]
+        
+        
+        ### mem ###
+        
+        if src_node.type == "m_addr":
+            if src_node.name not in seen_mem:
+                seen_mem.append(src_node.name)
+                
+        
+        if dest_node.type == "m_addr":
+            
+            if dest_node.name not in seen_mem:
+                seen_mem.append(dest_node.name)
+            
+        ### time ### 
+        time_edge = ["time", "gettimeofday"]
+        if edge_name in time_edge:
+            if dest_node.name not in seen_time:
+                seen_time.append(dest_node.name)  
+                
+        ### NIC ###
+        if dest_node.type == "n" and "eth" in dest_node.name:
+            if dest_node.name not in seen_NIC:
+                seen_NIC.append(dest_node.name)
+                
+    #     ### ID ###
+    #     if edge_name[-2:] == "id":
+    #         result = re.match("\d+",  dest_node.name)
+    #         if result:
+    # #             print(edge_name,  dest_node.name)
+    #             if dest_node.name not in seen_ID:
+    #                 seen_ID.append(dest_node.name)
+                
+    #     ### sleep ###
+    #     if edge_name == "nanosleep" or edge_name == "sleep":
+    #         if dest_node.name not in seen_sleep_duration:
+    #             seen_sleep_duration.append(dest_node.name)
+                
+
+    num_of_mem_sink = len(seen_mem) - 1
+    print("mem:",len(seen_mem), "->", 1, "sink:",  num_of_mem_sink)
+
+    num_of_time_sink = len(seen_time) - 1
+    print("time:",len(seen_time), "->", 1, "sink:",  num_of_time_sink)
+
+    num_of_NIC_sink = len(seen_NIC) - 1
+    print("NIC:",len(seen_NIC), "->", 1, "sink:",  num_of_NIC_sink)
+
+    # num_of_ID_sink = len(seen_ID) - 1
+    # print("ID:",len(seen_ID), "->", 1, "sink:",  num_of_ID_sink)
+
+    # num_of_sleep_sink = len(seen_sleep_duration) - 1
+    # print("Sleep:",len(seen_sleep_duration), "->", 1, "sink:",  num_of_sleep_sink)
+
+
+def get_uni_step(graph):
+    step_set = list(set(graph.step_list))
+    step_set_id = {}
+    for i in range(len(step_set)):
+        step_set_id[step_set[i]] = str(i+1)   
+        
+    unique_step = {}
+
+    for step in graph.step_list:
+        src_node = step[0]
+        dest_node = step[1]
+        edge_name = step[2]
+
+        temp_key = "Step_ID:" + step_set_id[step] + " " + src_node.name + " -> " + edge_name + " -> " + dest_node.name
+
+
+        if temp_key not in unique_step:
+            unique_step[temp_key] = 1
+        else:
+            unique_step[temp_key] += 1
+            
+    return unique_step
+
+def get_step_reduction_statistic(unique_step):
+    step_reduction = {}
+    for key in unique_step:
+
+        if unique_step[key] > 1:
+
+            step_component = key.split(" ")[1:]
+            step = ""
+            for component in step_component:
+                step += " " + component
+        #     print(step)
+        #     break
+            reduction_num = unique_step[key] - 1
+            if step not in step_reduction:
+                step_reduction[step] = reduction_num
+            else:
+                step_reduction[step] += reduction_num
+                
+    return step_reduction

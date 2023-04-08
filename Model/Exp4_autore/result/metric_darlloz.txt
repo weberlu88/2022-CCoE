@@ -1,4 +1,4 @@
-asg_object: {'/etc/modprobe\\.d', '/var/tmp/.*', '^PID.*', '/proc/self', '^iptables$', '/proc', '/.*bin/iptables', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/sys/module/.*', '/.*bin/-wget', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/.*bin/busybox', '/var/run/.*', '/.*bin/wget', '/.*bin/pp', '^insmod$', '/.*bin/insmod', '/proc/\\d+/stat', '/.*bin/mii', '/run/.*', '/home/.*', 'uname(.|$)', '/.*bin/mi', '^uname$'}
+asg_object: {'/.*bin/pp', '/.*bin/busybox', '/.*bin/mi', 'uname(.|$)', '/.*bin/iptables', '^insmod$', '/.*bin/wget', '/.*bin/-wget', '/proc/\\d+/stat', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/proc/self', '^iptables$', '/sys/module/.*', '/.*bin/insmod', '/proc', '/etc/modprobe\\.d', '/var/run/.*', '/.*bin/mii', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/run/.*', '^PID.*', '/home/.*', '/var/tmp/.*', '^uname$'}
 
 Sample Darlloz-Broadcom.csv
 	num of segment in report: 48
@@ -8,9 +8,9 @@ Sample Darlloz-Broadcom.csv
 		ctd_object: set()
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 0
+		len(asg_OPset): 37, len(ctd_OPset): 0
 	#R_malOps
-	num of matched asg op: 0, num of asg op: 36. R_malOps is 0.0000
+	num of matched asg op: 0, num of asg op: 37. R_malOps is 0.0000
 		refered lifecycle: []
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
@@ -21,12 +21,12 @@ Sample Darlloz-Giac.csv
 	lenght of ctd's OPset is 3
 	#R_malObj
 	num of ctd objects: 2, num of asg objects: 24. R_malObj is 0.0833
-		ctd_object: {'uname(.|$)', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'uname(.|$)'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 3
+		len(asg_OPset): 37, len(ctd_OPset): 3
 	#R_malOps
-	num of matched asg op: 0, num of asg op: 36. R_malOps is 0.0000
+	num of matched asg op: 0, num of asg op: 37. R_malOps is 0.0000
 		refered lifecycle: []
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
@@ -37,28 +37,12 @@ Sample Darlloz-Icc17.csv
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 3, num of asg objects: 24. R_malObj is 0.1250
-		ctd_object: {'/run/.*', '/var/run/.*', '^iptables$'}
+		ctd_object: {'/var/run/.*', '^iptables$', '/run/.*'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 4
+		len(asg_OPset): 37, len(ctd_OPset): 4
 	#R_malOps
-	num of matched asg op: 0, num of asg op: 36. R_malOps is 0.0000
-		refered lifecycle: []
-	#R_malChangeOps
-	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
-		ref-sys lifecycle: []
-
-Sample Darlloz-ResearchCheckPoint.csv
-	num of segment in report: 102
-	lenght of ctd's OPset is 2
-	#R_malObj
-	num of ctd objects: 2, num of asg objects: 24. R_malObj is 0.0833
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc'}
-	#R_malSysObj
-	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 2
-	#R_malOps
-	num of matched asg op: 0, num of asg op: 36. R_malOps is 0.0000
+	num of matched asg op: 0, num of asg op: 37. R_malOps is 0.0000
 		refered lifecycle: []
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
@@ -69,40 +53,40 @@ Sample Darlloz-Trendmicro.csv
 	lenght of ctd's OPset is 15
 	#R_malObj
 	num of ctd objects: 8, num of asg objects: 24. R_malObj is 0.3333
-		ctd_object: {'/run/.*', '/var/tmp/.*', '/.*bin/pp', '/.*bin/mi', '/.*bin/-wget', '/var/run/.*', '/.*bin/wget', '/.*bin/mii'}
+		ctd_object: {'/var/run/.*', '/.*bin/mii', '/.*bin/pp', '/.*bin/mi', '/run/.*', '/.*bin/wget', '/var/tmp/.*', '/.*bin/-wget'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 15
+		len(asg_OPset): 37, len(ctd_OPset): 15
 	#R_malOps
-	num of matched asg op: 2, num of asg op: 36. R_malOps is 0.0556
-		refered lifecycle: [2, 3]
+	num of matched asg op: 2, num of asg op: 37. R_malOps is 0.0541
+		refered lifecycle: [5, 4]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP 3 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
-	<OP 4 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
+	<OP 6 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
+	<OP 5 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
 
 Sample Darlloz-Trendmicro2.csv
 	num of segment in report: 18
 	lenght of ctd's OPset is 18
 	#R_malObj
 	num of ctd objects: 9, num of asg objects: 24. R_malObj is 0.3750
-		ctd_object: {'/run/.*', '/var/tmp/.*', '/.*bin/pp', '/.*bin/mi', '/.*bin/-wget', '/.*bin/busybox', '/var/run/.*', '/.*bin/wget', '/.*bin/mii'}
+		ctd_object: {'/var/run/.*', '/.*bin/mii', '/.*bin/pp', '/.*bin/busybox', '/.*bin/mi', '/run/.*', '/.*bin/wget', '/var/tmp/.*', '/.*bin/-wget'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 18
+		len(asg_OPset): 37, len(ctd_OPset): 18
 	#R_malOps
-	num of matched asg op: 2, num of asg op: 36. R_malOps is 0.0556
-		refered lifecycle: [2, 3]
+	num of matched asg op: 2, num of asg op: 37. R_malOps is 0.0541
+		refered lifecycle: [5, 4]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP 3 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
-	<OP 4 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
+	<OP 6 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
+	<OP 5 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
 
 Sample Darlloz-cisco.csv
 	num of segment in report: 32
@@ -112,9 +96,9 @@ Sample Darlloz-cisco.csv
 		ctd_object: set()
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
-		len(asg_OPset): 36, len(ctd_OPset): 0
+		len(asg_OPset): 37, len(ctd_OPset): 0
 	#R_malOps
-	num of matched asg op: 0, num of asg op: 36. R_malOps is 0.0000
+	num of matched asg op: 0, num of asg op: 37. R_malOps is 0.0000
 		refered lifecycle: []
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000

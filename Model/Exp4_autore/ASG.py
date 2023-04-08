@@ -34,7 +34,7 @@ remove = ['unlink', 'unlinkat', 'rmdir']
 link = ['symlink', 'symlinkat', 'link', 'linkat']
 
 #### ignore path ####
-ignore_paths = ['/dev/null', 'stdout', 'stderr', 'Unknown', '//Unknown']
+ignore_paths = ['/dev/null', 'stdout', 'stderr', 'stdin', './', '/', 'Unknown', '//Unknown']
 
 
 ########## Trace Parser ##########
@@ -263,6 +263,7 @@ class SyscallParser:
         self.isNICSink = False
         self.isIDSink = False
         self.isSleepSink = True
+        
 
 #         self.isMemSink = False
 #         self.isTimeSink = False
@@ -400,9 +401,11 @@ class SyscallParser:
     def newfstatat(self):
         info = {}
         args  = self.syscall['args'].split(",")
-        path = args[1].strip(" ").strip("\"")
-        info["path"] = path
-        
+        # path = args[1].strip(" ").strip("\"")
+        fd = args[0].strip(" ").strip("\"")
+        # info["path"] = path
+        info["fd"] = fd
+
         return info
     
     def setsockopt(self):
@@ -1078,6 +1081,7 @@ class AttackGraph:
         self.graph = {}
         self.edges = {}
         self.current_dir = ""
+        self.isReverseRead = False
         
 
         self.proc_node_map = {}
@@ -1402,28 +1406,40 @@ class AttackGraph:
             
             if("fd" in info):
                 fd = info['fd']
-                path = self.file_table.get(fd)
-                
-                ### inside_execve = False ###
-                if not path and not self._inside_execve:
-                    path = self._find_path_by_fd(fd, syscall['time'])
-                
-                ### inside_execve = True : Not draw the common file###
-                elif path and self._inside_execve == True:
-                    
-                    isCommonFile = True
-                    for p in self.file_filter:
-                        if p in path:
-                            isCommonFile = False
-                            break
-                        
-                    if isCommonFile:
-                        return    
-                
-                if path in ignore_paths:
+
+                if fd == "AT_FDCWD":
                     return
+                    # path = self.current_dir
+                    # if path == "":
+                    #     path = '/prober/host_share/'
+                    # print("newF:", path)
+                else:
+
+                    path = self.file_table.get(fd)
+                
+                    ### inside_execve = False ###
+                    if not path and not self._inside_execve:
+                        path = self._find_path_by_fd(fd, syscall['time'])
+                    
+                    ### inside_execve = True : Not draw the common file###
+                    elif path and self._inside_execve == True:
+                        
+                        isCommonFile = True
+                        for p in self.file_filter:
+                            if p in path:
+                                isCommonFile = False
+                                break
+                            
+                        if isCommonFile:
+                            return    
+                    
+                    if path in ignore_paths:
+                        return
             elif("path" in info):
                 path = info["path"]
+                if path in ignore_paths:
+                    return
+                
 
             
             edge_name = syscall["name"]
@@ -2056,7 +2072,11 @@ class AttackGraph:
                 child_node = Node(path, typ='f')
                 self._file_node_map[path] = child_node
                 self.graph[child_node] = []
-                self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+
+                if self.isReverseRead:
+                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time'])) # 反轉畫
+                else:
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time'])) # 不反轉
 
             # file node exist
             else:
@@ -2071,9 +2091,15 @@ class AttackGraph:
                 # if has conected with read(), don't re-connect current node and child node
                 if not self.isDuplicate :
                     if (child_node ,self.current_node, edge_name) not in self.edges:
-                        self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                        if self.isReverseRead:
+                            self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                        else:
+                            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
                 else:
-                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                    if self.isReverseRead:
+                        self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                    else:
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
                     
             
     def _write(self, syscall):
@@ -2220,7 +2246,8 @@ class AttackGraph:
             self.file_table.rm(fd)
         
     def _info(self, syscall):
-        edge_name = 'read'
+        # edge_name = 'read'
+        edge_name = 'exec'
         path = syscall['name']
         if path[0] != "/":
             path = self.current_dir + path
@@ -2234,14 +2261,14 @@ class AttackGraph:
                     return
                 
         if not self._inside_execve:
-            self._connect_proc_file(path, edge_name, syscall['time'], from_proc = False, node_typ = 'c')
+            self._connect_proc_file(path, edge_name, syscall['time'], from_proc = True, node_typ = 'p') # if want to change to procee type, set type = 'p'
             
         ### inside_execve = True : Not draw the common file###
         elif self._inside_execve == True:
             if path not in self.file_filter: # if not the specific file that we select to remain, then do nothing
                 return  
             else:
-                self._connect_proc_file(path, edge_name, syscall['time'], from_proc = False, node_typ = 'c')
+                self._connect_proc_file(path, edge_name, syscall['time'], from_proc = True, node_typ = 'c')
         
     def _socket(self, syscall):
         info = sys_parser.parse(syscall)
@@ -2306,14 +2333,24 @@ class AttackGraph:
                 child_node = Node(node_name, typ='n')
                 self._file_node_map[node_name] = child_node
                 self.graph[child_node] = []
-                self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+
+                if self.isReverseRead:
+                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                else:
+                    self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
             else:
                 child_node = self._file_node_map[node_name]
                 if not self.isDuplicate :
                     if (child_node, self.current_node, edge_name) not in self.edges:
-                        self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                        if self.isReverseRead:
+                            self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))
+                        else:
+                            self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time']))
                 else:
-                    self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time']))      
+                    if self.isReverseRead:
+                        self._connect_node(child_node, self.current_node, Edge(edge_name, syscall['time'])) 
+                    else:
+                        self._connect_node(self.current_node, child_node, Edge(edge_name, syscall['time'])) 
             return 
         # socket error
         # if fd == '-1':
@@ -2471,7 +2508,7 @@ class AttackGraph:
         edge_name = 'read'
         path = info['dev']
         
-        self._connect_proc_file(path, edge_name, syscall['time'], from_proc = False, node_typ = 'n')
+        self._connect_proc_file(path, edge_name, syscall['time'], from_proc = True, node_typ = 'n')
         
     
     def _rm(self, syscall):
@@ -2481,8 +2518,12 @@ class AttackGraph:
         if path[0] != "/":
             path = self.current_dir + path
         
-        edge_name = 'rm'
-        self._connect_proc_file(path, edge_name, syscall['time'])
+
+        if path[0] != "/": # some case the rm target is worng, no need to draw
+            return
+        else:
+            edge_name = 'rm'
+            self._connect_proc_file(path, edge_name, syscall['time'])
         
     def _mkdir(self, syscall):
         info = sys_parser.parse(syscall)
@@ -2855,7 +2896,7 @@ class AttackGraph:
             from_node = node_table[from_node]
             to_node = node_table[to_node]
             
-            edge_name = self._edges_sort_map[edge] + '. ' + edge.name
+            edge_name = self._edges_sort_map[edge] + '. ' + edge.name + "()"
             dot.edge(from_node, to_node, edge_name, color = edge.color)
         
         # sort node sequence
