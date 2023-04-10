@@ -1,9 +1,9 @@
-Total rules: 227, EntityType: ['FILE' 'PROC' 'DEVICE' 'ID' 'TIME' 'INFO' 'NET']
-For total 88 uq syscalls & 71 uq verbs
+Total rules: 240, EntityType: ['FILE' 'PROC' 'DEVICE' 'ID' 'TIME' 'INFO' 'NET']
+For total 93 uq syscalls & 72 uq verbs
 
-EntityType: FILE   has 93 rules | 38 uq_syscalls | 38 uq_verbs | 12 actionType          
-	=>syscall: ['read()', 'readlink()', 'access()', 'statfs()', 'stat()', 'stat64()', 'fstat()', 'newfstatat()', 'lstat()', 'getcwd()', 'getdents()', 'poll()', 'ppoll()', 'dup()', 'dup2()', 'fcntl64()', 'mkdir()', 'open()', 'openat()', 'mmap()', 'mmap2()', 'umask()', 'link()', 'linkat()', 'symlinkat()', 'symlink()', 'write()', 'rename()', 'fchmod()', 'chmod()', 'lchmod()', 'rmdir()', 'munmap()', 'unlink()', 'unlinkat()', 'remove()', 'close()', 'lseek()']          
-	=>verb:    ['read', 'place', 'gather', 'fetch', 'look', 'see', 'use', 'extract', 'check', 'access', 'get', 'wait', 'duplicate', 'create', 'share', 'manipulate', 'find', 'create ', 'open', 'map', 'set', 'make', 'add', 'drop', 'mount', 'write', 'change', 'rename', 'update', 'format', 'modify', 'overwrite', 'delete', 'ummap', 'remove', 'close', 'free', 'reposition']          
+EntityType: FILE   has 104 rules | 42 uq_syscalls | 38 uq_verbs | 12 actionType          
+	=>syscall: ['read()', 'readlink()', 'access()', 'statfs()', 'stat()', 'stat64()', 'fstat()', 'newfstatat()', 'lstat()', 'getcwd()', 'getdents()', 'poll()', 'ppoll()', 'dup()', 'dup2()', 'fcntl()', 'fcntl64()', 'mkdir()', 'open()', 'openat()', 'mmap()', 'mmap2()', 'umask()', 'link()', 'linkat()', 'symlinkat()', 'symlink()', 'fchdir()', 'chdir()', 'write()', 'rename()', 'fchmod()', 'chmod()', 'lchmod()', 'rm()', 'rmdir()', 'munmap()', 'unlink()', 'unlinkat()', 'remove()', 'close()', 'lseek()']          
+	=>verb:    ['read', 'place', 'gather', 'fetch', 'look', 'see', 'use', 'extract', 'check', 'access', 'get', 'wait', 'duplicate', 'create', 'share', 'manipulate', 'find', 'set', 'create ', 'open', 'map', 'make', 'add', 'drop', 'mount', 'change', 'write', 'rename', 'update', 'format', 'modify', 'overwrite', 'delete', 'remove', 'ummap', 'close', 'free', 'reposition']          
 	=>verb:    from manpage 25, from report 13
 	FILE_READ    has  2 uq syscalls &  8 uq verbs
 	ACCESS       has  1 uq syscalls &  2 uq verbs
@@ -11,18 +11,18 @@ EntityType: FILE   has 93 rules | 38 uq_syscalls | 38 uq_verbs | 12 actionType
 	DIR          has  2 uq syscalls &  1 uq verbs
 	WAIT         has  2 uq syscalls &  1 uq verbs
 	FD_DUP       has  2 uq syscalls &  3 uq verbs
-	FD_OTHER     has  1 uq syscalls &  2 uq verbs
+	FD_OTHER     has  2 uq syscalls &  4 uq verbs
 	CREATE_OPEN  has 10 uq syscalls & 10 uq verbs
-	UPDATE       has  5 uq syscalls &  8 uq verbs
-	DELETE       has  5 uq syscalls &  4 uq verbs
+	UPDATE       has  7 uq syscalls &  8 uq verbs
+	DELETE       has  6 uq syscalls &  4 uq verbs
 	CLOSE        has  1 uq syscalls &  2 uq verbs
 	OTHER        has  1 uq syscalls &  1 uq verbs
 
-EntityType: PROC   has 63 rules | 21 uq_syscalls | 27 uq_verbs |  6 actionType          
-	=>syscall: ['execve()', 'clone()', 'fork()', 'vfork()', 'kill()', 'exit_group()', 'ptrace()', 'shmdt()', 'shmat()', 'shmget()', 'waitpid()', 'wait4()', 'mremap()', 'mprotect()', 'set_tid_address()', 'arch_prctl()', 'set_thread_area()', 'nanosleep()', 'set_robust_list()', 'futex()', 'brk()']          
-	=>verb:    ['execute', 'create', 'use', 'call', 'spawn', 'fork', 'perform', 'install', 'add', 'start', 'send', 'exit', 'kill', 'end', 'trace', 'observe', 'control', 'examine', 'change', 'attach', 'allocate', 'wait', 'remap', 'set', 'suspend', 'sleep', 'wake']          
-	=>verb:    from manpage 16, from report 11
-	PROC_EXE     has  4 uq syscalls & 10 uq verbs
+EntityType: PROC   has 65 rules | 22 uq_syscalls | 28 uq_verbs |  6 actionType          
+	=>syscall: ['execve()', 'exec()', 'clone()', 'fork()', 'vfork()', 'kill()', 'exit_group()', 'ptrace()', 'shmdt()', 'shmat()', 'shmget()', 'waitpid()', 'wait4()', 'mremap()', 'mprotect()', 'set_tid_address()', 'arch_prctl()', 'set_thread_area()', 'nanosleep()', 'set_robust_list()', 'futex()', 'brk()']          
+	=>verb:    ['execute', 'replace', 'create', 'use', 'call', 'spawn', 'fork', 'perform', 'install', 'add', 'start', 'send', 'exit', 'kill', 'end', 'trace', 'observe', 'control', 'examine', 'change', 'attach', 'allocate', 'wait', 'remap', 'set', 'suspend', 'sleep', 'wake']          
+	=>verb:    from manpage 17, from report 11
+	PROC_EXE     has  5 uq syscalls & 11 uq verbs
 	PROC_KILL    has  2 uq syscalls &  4 uq verbs
 	PROC_TRACE   has  1 uq syscalls &  5 uq verbs
 	PROC_MEM     has  3 uq syscalls &  2 uq verbs
@@ -62,3 +62,4 @@ EntityType: NET    has 46 rules | 13 uq_syscalls | 16 uq_verbs |  3 actionType
 	NET_CONNECT  has  4 uq syscalls &  6 uq verbs
 	NET_OPTION   has  3 uq syscalls &  3 uq verbs
 	NET_TRANSMIT has  6 uq syscalls &  7 uq verbs
+
