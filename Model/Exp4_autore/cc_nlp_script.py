@@ -151,11 +151,16 @@ class OperationEvaluator:
 
     # The main mathod provide by this moduel
     def resolve(self, entityType: str, syscall:str, en_verb:str, downcast=False, 
-                use_bert=True, sentence:str =None) -> tuple[bool,bool]:
-        ''' @hit: judge if syscall and en_verb match. @isSysChange: if syscall update system settings. 
-            @param: use_bert=True, means select a most similar verb in rule as alternative when OoV. 
-            @param: sentence, must pass in when use_bert=True. '''
-        hit, isSysChange = False, False
+                use_bert=True, sentence:str =None) -> tuple[bool,bool,str]:
+        ''' 
+        Return:
+            @hit: `bool` judge if syscall and en_verb match. 
+            @isSysChange: `bool` if syscall update system settings. 
+            @altVerb: `str` or `None` Param en_verb not in rule, select a alternative one.\n
+        Param:
+            @use_bert=`True`: means select a most similar verb in rule as alternative when OoV. 
+            @sentence: must pass in when use_bert=True. '''
+        hit, isSysChange, alternative_verb = False, False, None
         if entityType.upper() == "FILE" and syscall in self.update_syscall_list:
             isSysChange = True
 
@@ -171,7 +176,7 @@ class OperationEvaluator:
             if sentence and en_verb:
                 wvec = self.word_vector_from_BERT(en_verb, sentence) # 句子過長或句中找不到動詞
                 if wvec is None:
-                    return False, isSysChange
+                    return False, isSysChange, None
                 # get rule indexs for this entityType
                 # calc similarity for each wvec of rules
                 # get max similarity verb as alternative
@@ -203,7 +208,7 @@ class OperationEvaluator:
             else:
                 hit = False
 
-        return hit, isSysChange
+        return hit, isSysChange, alternative_verb
     
     def find_word_index(self, target_word:str, tokenized_text:list) -> int:
         ''' return the index of first occur target_word '''

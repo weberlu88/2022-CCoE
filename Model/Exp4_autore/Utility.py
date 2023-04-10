@@ -5,6 +5,7 @@ import re
 
 # 1. create set of objects (包含只剩下受詞 + type)
 def create_set_of_objects(graph):
+    '''return 2 lists seen_node_S, seen_node_O'''
     num_of_step = len(graph.step_list) # num_of_edges
     num_of_node_S = 0
     num_of_node_O = 0
@@ -477,6 +478,7 @@ def get_reduction_statistic(graph): # the graph is a non-reduciton graph, becaus
 
 
 def get_uni_step(graph):
+    '''return a list of unique steps in step list'''
     step_set = list(set(graph.step_list))
     step_set_id = {}
     for i in range(len(step_set)):

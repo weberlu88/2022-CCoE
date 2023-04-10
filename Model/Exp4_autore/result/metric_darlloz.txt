@@ -1,4 +1,4 @@
-asg_object: {'/.*bin/pp', '/.*bin/busybox', '/.*bin/mi', 'uname(.|$)', '/.*bin/iptables', '^insmod$', '/.*bin/wget', '/.*bin/-wget', '/proc/\\d+/stat', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/proc/self', '^iptables$', '/sys/module/.*', '/.*bin/insmod', '/proc', '/etc/modprobe\\.d', '/var/run/.*', '/.*bin/mii', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/run/.*', '^PID.*', '/home/.*', '/var/tmp/.*', '^uname$'}
+asg_object: {'/proc/self', '/sys/module/.*', '/run/.*', '/.*bin/mii', '/.*bin/wget', '^PID.*', '/var/run/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/home/.*', '/.*bin/insmod', '/var/tmp/.*', '^iptables$', '/.*bin/iptables', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/.*bin/pp', '^insmod$', '/.*bin/busybox', '^uname$', '/proc/\\d+/stat', '/.*bin/-wget', '/.*bin/mi', 'uname(.|$)', '/etc/modprobe\\.d', '/proc'}
 
 Sample Darlloz-Broadcom.csv
 	num of segment in report: 48
@@ -37,7 +37,7 @@ Sample Darlloz-Icc17.csv
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 3, num of asg objects: 24. R_malObj is 0.1250
-		ctd_object: {'/var/run/.*', '^iptables$', '/run/.*'}
+		ctd_object: {'/run/.*', '/var/run/.*', '^iptables$'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
 		len(asg_OPset): 37, len(ctd_OPset): 4
@@ -53,19 +53,21 @@ Sample Darlloz-Trendmicro.csv
 	lenght of ctd's OPset is 15
 	#R_malObj
 	num of ctd objects: 8, num of asg objects: 24. R_malObj is 0.3333
-		ctd_object: {'/var/run/.*', '/.*bin/mii', '/.*bin/pp', '/.*bin/mi', '/run/.*', '/.*bin/wget', '/var/tmp/.*', '/.*bin/-wget'}
+		ctd_object: {'/.*bin/pp', '/run/.*', '/var/tmp/.*', '/.*bin/-wget', '/.*bin/mii', '/.*bin/mi', '/var/run/.*', '/.*bin/wget'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
 		len(asg_OPset): 37, len(ctd_OPset): 15
 	#R_malOps
-	num of matched asg op: 2, num of asg op: 37. R_malOps is 0.0541
-		refered lifecycle: [5, 4]
+	num of matched asg op: 4, num of asg op: 37. R_malOps is 0.1081
+		refered lifecycle: [7, 5, 6, 4]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
+	<OP 8 act=rm(), obj=/var/run/.*>, <OP14 act=terminate, obj=/var/run/.lightpid, sent= It terminates and deletes the following processes and files:  /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid    >
 	<OP 6 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
+	<OP 7 act=rm(), obj=/run/.*>, <OP13 act=terminate, obj=/var/run/.lightpid, sent= It terminates and deletes the following processes and files:  /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid    >
 	<OP 5 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
 
 Sample Darlloz-Trendmicro2.csv
@@ -73,20 +75,23 @@ Sample Darlloz-Trendmicro2.csv
 	lenght of ctd's OPset is 18
 	#R_malObj
 	num of ctd objects: 9, num of asg objects: 24. R_malObj is 0.3750
-		ctd_object: {'/var/run/.*', '/.*bin/mii', '/.*bin/pp', '/.*bin/busybox', '/.*bin/mi', '/run/.*', '/.*bin/wget', '/var/tmp/.*', '/.*bin/-wget'}
+		ctd_object: {'/.*bin/pp', '/.*bin/busybox', '/run/.*', '/var/tmp/.*', '/.*bin/-wget', '/.*bin/mii', '/.*bin/mi', '/var/run/.*', '/.*bin/wget'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
 		len(asg_OPset): 37, len(ctd_OPset): 18
 	#R_malOps
-	num of matched asg op: 2, num of asg op: 37. R_malOps is 0.0541
-		refered lifecycle: [5, 4]
+	num of matched asg op: 5, num of asg op: 37. R_malOps is 0.1351
+		refered lifecycle: [7, 5, 6, 4, 14]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP 6 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
-	<OP 5 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
+	<OP 8 act=rm(), obj=/var/run/.*>, <OP15 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
+	<OP 6 act=open(), obj=/var/run/.*>, <OP15 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
+	<OP 7 act=rm(), obj=/run/.*>, <OP14 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
+	<OP 5 act=open(), obj=/run/.*>, <OP14 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
+	<OP15 act=rm(), obj=/.*bin/wget>, <OP17 act=exist, obj=/bin/wget, sent= It deletes the following files if /bin/busybox exists: /bin/wget /sbin/wget /usr/bin/wget /ffp/bin/wget >
 
 Sample Darlloz-cisco.csv
 	num of segment in report: 32
