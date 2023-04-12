@@ -1,0 +1,168 @@
+Number,Content
+Sentence 1,"Multi-exploit IoT/Linux Botnets Mirai and Gafgyt Target Apache Struts, SonicWall
+
+By Ruchna Nigam
+September 9, 2018 at 6:27 PM
+Category: Unit 42
+Tags: Apache Struts, BlackNurse, botnet, CVE-2017-5638, CVE-2018-9866, exploits, Gafgyt, IoT, Linux, Mirai, SonicWall RCE
+
+This post is also available in: 日本語 (Japanese)
+"
+Sentence 2,"
+Executive Summary:
+
+Unit 42 has uncovered new variants of the well-known IoT botnets Mirai and Gafgyt."
+Sentence 3,These are the IoT botnets associated with unprecedented Distributed Denial of Service attacks in November 2016 and since.
+Sentence 4,"
+These variants are notable for two reasons:
+The new Mirai version targets the same Apache Struts vulnerability associated with the Equifax data breach in 2017."
+Sentence 5,"The new Gafgyt version targets a newly disclosed vulnerability affecting older, unsupported versions of SonicWall’s Global Management System (GMS)."
+Sentence 6,These developments suggest these IOT botnets are increasingly targeting enterprise devices with outdated versions.
+Sentence 7,"All organizations should ensure they keep not only their systems up-to-date and patched, but also their IoT devices."
+Sentence 8,"For Palo Alto Networks customers, WidlFire detects all related samples with malicious verdicts."
+Sentence 9,Additional protections are noted in the conclusion below.
+Sentence 10,"
+Research:
+
+On September 7, 2018, Unit 42 found samples of a Mirai variant that incorporates exploits targeting 16 separate vulnerabilities."
+Sentence 11,"While the use of multiple exploits within a single sample of Mirai has been observed in the past, this is the first known instance of Mirai targeting a vulnerability in Apache Struts."
+Sentence 12,"In addition, Unit 42 found the domain that is currently hosting these Mirai samples previously resolved to a different IP address during the month of August."
+Sentence 13,During that time this IP was intermittently hosting samples of Gafgyt that incorporated an exploit against CVE-2018-9866 a SonicWall vulnerability affecting older versions of SonicWall Global Management System (GMS).
+Sentence 14,SonciWall has been notified of this development.
+Sentence 15,The incorporation of exploits targeting Apache Struts and SonicWall by these IoT/Linux botnets could indicate a larger movement from consumer device targets to enterprise targets.
+Sentence 16,"
+Apache Struts exploit in multi-exploit Mirai variant
+
+The exploit targeting Apache Struts in the new variant we found targets CVE-2017-5638, an arbitrary command execution vulnerability via crafted Content-Type, Content-Disposition, or Content-Length HTTP headers."
+Sentence 17,"Its format can be seen in Figure 1, with the payload highlighted."
+Sentence 18,"Figure 1 CVE-2017-5638 exploit format
+
+The other 15 exploits incorporated in this Mirai variant are detailed in Table 2 in the Appendix below."
+Sentence 19,"While these samples are variants of Mirai, they don’t include the bruteforce functionality generally used by Mirai."
+Sentence 20,"They use l.ocalhost.host:47883 as C2, and the same encryption scheme as Mirai with the key 0xdeadf00d."
+Sentence 21,"
+SonicWall GMS exploit in Gafgyt variant
+
+The domain l.ocalhost.host used for C2 and to serve payloads in the Mirai variant discussed above, has also been found associated with other Mirai activity in the past as far back as November 2016."
+Sentence 22,"For part of the month of August 2018, that same domain resolved to a different IP address 185.10.68.127."
+Sentence 23,"At that time we found that IP hosting samples of Gafgyt containing an exploit for a recently disclosed SonicWall vulnerability (CVE-2018-9866) affecting older, unsupported versions of SonicWall Global Management System (GMS) (8.1 and older) that is not present in currently supported versions."
+Sentence 24,The vulnerability CVE-2018-9866 targeted by the exploit stems from the lack of sanitization of XML-RPC requests to the set_time_config method.
+Sentence 25,"Figure 2 shows the exploit used in the sample, with the payload highlighted."
+Sentence 26,"
+Figure 2 SonicWall set_time_config RCE format
+"
+Sentence 27,"
+
+These samples first surfaced on August 5, less than a week after the publication of a Metasploit module for this vulnerability."
+Sentence 28,"The SonicWall public advisory on the issue published on July 17, 2018, can be found here."
+Sentence 29,The samples we found are built using the Gafgyt codebase rather than Mirai.
+Sentence 30,Some of the commands supported are described in the table below.
+Sentence 31,"
+Command	Description
+!"
+Sentence 32,"* SCANNER <HUAWEI/GPON/DLINK/SONICWALL/OFF>	Based on arguments provided, the bot starts sending the associated exploit to devices."
+Sentence 33,"·      HUAWEI: Send CVE-2017-17215 (See previous campaigns)
+
+·      GPON: Same as above
+
+·      DLINK: Send D-Link DSL 2750B OS Command Injection (see Table 2)
+
+·      SONICWALL: Send exploit in Figure 2."
+Sentence 34,"·      OFF: kills the running process associated with the bot
+
+!"
+Sentence 35,"* BIN_UPDATE <HTTP SERVER> <FILE LOCATION>	Fetches an update from <HTTP_SERVER>, saves it to <FILE_LOCATION>, installs update
+!"
+Sentence 36,"* BN <IP> <PORT> <TIME>	Launch a Blacknurse DDoS attack against <IP>:<PORT> for a duration of <TIME> seconds
+Table 3 Some commands supported by variant with SonicWall exploit
+"
+Sentence 37,"
+
+Blacknurse is a low bandwidth DDoS attack involving ICMP Type 3 Code 3 packets causing high CPU loads first discovered in November 2016."
+Sentence 38,The earliest samples we have seen supporting this DDoS method are from September 2017.
+Sentence 39,"
+Conclusion
+The incorporation of exploits targeting Apache Struts and SonicWall by these IoT/Linux botnets could be an indication of a larger movement from consumer device targets to enterprise targets."
+Sentence 40,"
+Palo Alto Networks AutoFocus customers can track these activities using individual exploit tags:
+
+CVE-2017-5638
+CVE-2018-9866
+EnGeniusRCE
+CVE-2017-6884
+DLinkDSL2750BOSCmdInjection
+GPONExploits
+CVE-2017-17215
+DLinkcommandphpRCE
+DLinkOSInjection
+NetgearRCE
+VacronNVRRCE
+AutoFocus customers can also use the following malware family tags:
+
+Gafygt
+ELFMirai
+WildFire detects all related samples with malicious verdicts."
+Sentence 41,"
+Here is a list of other vulnerabilities targeted in the Mirai variant targeting Apache Struts:
+Indicators of Compromise
+"
+Sentence 42,"
+Samples with Apache Struts exploit CVE-2017-5638
+
+d6648a36f55d6b8ffd034df7d04156d31411719ce9bc28e6d30c8427feacb397
+
+710d56a90b5f61c7ae82fcf305d23d48476e4f237ffff9d68b961171f168f255
+
+52274c46933c20aaf64fd4c11557143fcfdc76eef192743fafd1b3a8bed3f4d2
+
+078eef70d754e9b64bc783f085846a2e8ae419653a79ed2386c4ade86fde68cb
+
+ef090093496ccdab506848166a07554bfa74eb98a0546171b84fc73861f67c79
+
+49cdb537f5e4081362545532a623f597212c8cea847cf9f2b2f1fe1f3cd0ec2f
+
+99c22a0c0e252ab123fb3167f49d94dc12960b79565ca6dfd28f2ff5b0346348
+
+ae2354a5d8b84fb6ea6fc4b9ca3060959d5c0c77684cd2100731df2a3c7a204e
+
+1913cf8e65114136cc309e72c384b717f0aeaaeae0c040188648c4afebce1669
+
+"
+Sentence 43,"
+Samples with Sonicwall GMS exploit CVE-2018-9866
+
+1814c010f5e7391c7ea38850f9caf0771866e315f8d0c58c563818e71d30c208
+
+29540468514cd48b6c2571722018dffb49d12f99c95b248a44a1455fff01acfb
+
+39891a1c13e4e6ec9de410201f697d23c05e83a29ec0010c6c62c6829386e6a6
+
+596270e91ccee3ec04a552bafde586af127ecac7141852edb9707ac6c4779a99
+
+68b27935c7d064478339f7d95b57ff06ffa1efbd81009b4a2870c5cf3e0b0b35
+
+92a4c6ae034c3a03c21b74bdc00264192e60a85deedd90b99a3e350758eb85c1
+
+aab0ec600cdf57f28f9480ff3a9d3547f699af005c015b74c5c9e39a992570b6
+
+d8fbf6d68993045b4840729c788665ab10c50c42b27246a290031664f3b956eb
+
+dafe1b513183902692c8ba8b2a95fede7c13937e49bf21294de448df05edff18
+
+f89d742c4d3312ac9bd707a9135235482c554e369cb646dcd97f6a14b4210136
+
+fab034d705b3ad7a10101858daf5da93a88f8bfd509dee9b8072678b27290ed3
+
+ 
+"
+Sentence 44,"
+Infrastructure
+
+l[.]ocalhost[."
+Sentence 45,"]host
+
+185[.]10[.]68[."
+Sentence 46,"]213
+
+185[.]10[.]68[."
+Sentence 47,]127

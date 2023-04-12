@@ -1,0 +1,210 @@
+Number,Content
+Sentence 1,"Overview
+
+Gafgyt malware, also known as Bashlite, is a Trojan horse that attacks *nix systems, targeting IoT devices such as routers and open backdoors into compromised systems, steals information, and enlists infected devices into botnets that provide Distributed Denial of Service (DDoS)."
+Sentence 2,"The Gafgyt malware was first introduced in 2014, when it exploited unknown vulnerabilities in small home and small office routers to launch Distributed Denial of Service (DDoS) attacks, similar to the well-know Mirai botnet."
+Sentence 3,"There have been numerous variants of Gafgyt that have appeared since 2014, also referred to by the names of BASHLITE, Lizkebab, Torlus, and Qbot)."
+Sentence 4,This new variant of Gafgyt malware includes Mirai malware modules and added new modules to launch DDoS attacks against victims.
+Sentence 5,"
+Infection Flow
+
+Gafgyt malware infect most of systems or IoT devices through the bash script which can download the main payload of the malware, Once the Gafgyt malware has been downloaded and the permission for the payload has been changed to executable, this script will run the payload and after the payload has been run, it will delete it from the system."
+Sentence 6,"After infecting the system, it will open the backdoor for the command and control of the malware, through this backdoor attacker can use infected system as a botnet and launch various types of DDoS attacks using infected system resources."
+Sentence 7,"
+Fig 1: Gafgyt Infection Flow
+"
+Sentence 8,"
+
+Technical Analysis
+
+This script downloads the Gafgyt malware payload and execute the malware on system."
+Sentence 9,"To infect Linux-based IoT devices, this script downloads payloads for various Linux architectures."
+Sentence 10,"
+Fig 2: Gafgyt downloader Bash Script."
+Sentence 11,"
+Gafgyt malware get the time of the infected system and Process ID (pid) of itself and checks for the machine IP, MAC address, and system routing table using getOurIP function in the malware."
+Sentence 12,"
+Fig 3: Malware checking machine time, IP and pid of itself."
+Sentence 13,"
+From above image (Figure 4) malware checks for the internet connection, get IP of the machine and open the system routing table (/proc/net/route) to get the list of active network interfaces with their relative configuration."
+Sentence 14,When malware runs with the strace tool to trace system calls and signals then we can see how the malware checks the system information.
+Sentence 15,"
+Fig 5: strace output for malware."
+Sentence 16,Gafgyt malware checks if any debugger is attached to it and if it finds the debugger then it terminates its process.
+Sentence 17,This anti-debug check uses fork call and creates a child process where the malware tries to attach a debugger to the parent process.
+Sentence 18,"If this syscall fails, it probably means a debugger is already attached to the parent process."
+Sentence 19,"To notify the parent process, the developer relies on the exit code."
+Sentence 20,"It's 1 if a debugger is attached, 0 otherwise."
+Sentence 21,"On the parent side, it retrieves the exit code with the macro WEXITSTATUS."
+Sentence 22,"
+Fig 6: Anti-debugging technique."
+Sentence 23,Fig 7: strace out of Anti-debug Technique.
+Sentence 24,"
+Now malware initiates the connection with command-and-control."
+Sentence 25,If malware is able to initiate the connection with C&C then it will send “Device Connected: | Port: | Arch: ” message to C&C.
+Sentence 26,"This message contains infected machine IP, Port, and Architecture to command-and-control."
+Sentence 27,If malware not able to initiate connection with command-and-control then it will sleep for 5 second and try again.
+Sentence 28,"
+Fig 8: Successful connection with C&C."
+Sentence 29,Fig 9: Unsuccessful connection with C&C.
+Sentence 30,"
+The command-and-control IP is hard coded inside this malware."
+Sentence 31,Malware receives the command from this IP on TCP port 606.
+Sentence 32,"
+Fig 10: Hardcoded IP of C&C."
+Sentence 33,"After initiating the connection, the malware checks for the following files on the device."
+Sentence 34,"The getPortz function returns a “22” string if the following four files are found; otherwise, it returns with an “Unknown Port” string."
+Sentence 35,"
+Fig 11: getPortz Function of malware."
+Sentence 36,"Malware collect the IP of the device using getOurIP function, Port (check specific files on device) using the getPortz function and architecture using getArch function and send that information to the command and control."
+Sentence 37,"
+Fig 12: System Information Collection."
+Sentence 38,Malware receive the command from the recvLine function from the command and control.
+Sentence 39,Fig 13: Receive command function.
+Sentence 40,"
+After receiving command from C&C, malware trims the command to perform the action accordingly."
+Sentence 41,Fig 14: Trim command function.
+Sentence 42,"
+Here is the example how malware receive attack command from C&C and how it performs the attack on victim."
+Sentence 43,Malware receives the “!
+Sentence 44,STD 176.32.37.93 7777 50\n” command from the C&C.
+Sentence 45,From the received command there are multiple options present in the command to understand each action malware needs to trim the command received from C&C.
+Sentence 46,"
+Fig 15: Receive DDoS attack command from C&C."
+Sentence 47,"To trim the received command from C&C, malware first copies the command string then starts to trim the command."
+Sentence 48,"
+Fig 16: Copy the command from C&C."
+Sentence 49,"
+Malware trim the commands in separate parts to perform action accordingly i.e., if command is “!"
+Sentence 50,"STD 176.32.37.93 7777 50\n” then malware trims the first part of the command which tells malware to perform specific type of attack, then trim the IP from the command which tells malware to perform attack on which victim then there is the packet size of each packet send to perform DDoS attack."
+Sentence 51,"
+Fig 17: Trim IP from the command received from C&C."
+Sentence 52,"
+Gafgyt malware has DDoS attacks modules from the Mirai malware."
+Sentence 53,Older Gafgyt malware has only few attacking modules now with the latest variant of this malware they added more DDoS attacking modules.
+Sentence 54,Gafgyt malware has the following list of the attacking modules.
+Sentence 55,▪ TCP – TCP SYN flood.
+Sentence 56,▪ UDP - UDP flood.
+Sentence 57,▪ VSE - The Valve Source Engine attack is UDP based attack.
+Sentence 58,Abuses TSOURCE ENGINE QUERY requests send to game servers.
+Sentence 59,Attack is geared specifically to attack game servers.
+Sentence 60,▪ STDHEX – UDP packet with Hex values.
+Sentence 61,▪ STD - STD flood (UDP packet with default packet size 1024).
+Sentence 62,▪ NFODROP – Attack on NFO Servers (UDP based attack).
+Sentence 63,▪ OVHKILL – Attack on OVH Servers (UDP based attack).
+Sentence 64,▪ XMAS - Christmas tree attack (many different TCP flags are enabled).
+Sentence 65,"▪ STOMP - STD + UDP Flood
+▪ STOP - Stop bot operation
+"
+Sentence 66,"
+Fig 18: DDoS attacking modules of malware."
+Sentence 67,Gafgyt malware can perform HTTP floods attack and these bots hide behind the following default user-agents.
+Sentence 68,Fig 19: List of default user-agent used by malware.
+Sentence 69,Malware also have capability to get infected system nameserver and domain name.
+Sentence 70,"
+Network Activity
+
+Malware sending infected system information to command and control (hard coded IP 62.197.136.157)."
+Sentence 71,Malware sending information in “Device Connected: | Port: | Arch:” message format.
+Sentence 72,Malware performs the TCP handshake with C&C when initConnection function (figure 8) is called then it collects information about the system and then send it to C&C using TCP PSH packet.
+Sentence 73,"
+Fig 21: Sending system info to C&C."
+Sentence 74,STOMP attack Command received by malware from C&C and malware start sending packets to the victim IP.
+Sentence 75,"
+Fig 22: Attack command received from C&C."
+Sentence 76,"
+Communication between malware and command and control through backdoor on port 606."
+Sentence 77,"
+Subex Secure Protection
+Subex Secure detects this malware as “SS_Gen_Gafgyt”
+"
+Sentence 78,"
+IOCs
+Malicious IPs and URLs:
+62.197.136.157
+"
+Sentence 79,"
+Host Based IOCs:
+
+File Name
+Md5 Hash
+File Type
+brokeskid.sh
+d54b92f364fafc14696e85f94a36c9f2
+Downloader Shell
+m-i.p-s.Sakura
+ed791ae9ce23f0c6e616baae7413e1cd
+Downloaded Payload
+m-p.s-l.Sakura
+128f8db23313c1a235afdcbe6d48f2b6
+Downloaded Payload
+s-h.4-.Sakura
+d631da4b98ab26d97809916919bb2ea2
+Downloaded Payload
+x-8.6-.Sakura
+fa529519c03d91e1a3dad8c988107559
+Downloaded Payload
+a-r.m-6.Sakura
+bdc90be7d1e8048d54d8d91c73051798
+Downloaded Payload
+x-3.2-.Sakura
+79fa8fb7b375d376176013756c046b26
+Downloaded Payload
+a-r.m-7.Sakura
+850cb3c08f5814d3b6f103aacc88de93
+Downloaded Payload
+p-p.c-.Sakura
+5cade583b82921a1d81185a5916eb6d0
+Downloaded Payload
+i-5.8-6.Sakura
+ea0458e07a7283f6081755772decbe80
+Downloaded Payload
+a-r.m-5.Sakura
+6e84fc3c5279d72216f54950d3e7599c
+Downloaded Payload
+"
+Sentence 80,"
+
+MITRE Techniques:
+
+TACTIC
+ID
+TECHNIQUE
+Discovery
+T1018
+Remote System Discovery
+Command and Control
+T1001
+Data Obfuscation
+Command and Control
+T1573
+Encrypted Channel
+Command and Control
+T1571
+Non-Standard Port
+Command and Control
+T1071
+Application Layer Protocol
+Execution
+T1059.004
+Command and Scripting Interpreter
+"
+Sentence 81,"
+
+Our Honeypot Network
+
+This report has been prepared from threat intelligence gathered by our honeypot network."
+Sentence 82,This honeypot network is today operational in 62 cities across the world.
+Sentence 83,"These cities have at least one of these attributes:
+• Are landing Centers for submarine cables
+• Are internet traffic hotspots
+• House multiple IoT projects with a high number of connected endpoints
+• House multiple connected critical infrastructure projects
+• Have academic and research Centers focusing on IoT
+• Have the potential to host multiple IoT projects across domains in the future
+
+Over 3.5 million attacks a day is being registered across this network of individual honeypots."
+Sentence 84,"These attacks are studied, analyzed, categorized, and marked according to a threat rank index, a priority assessment framework that we have developed within Subex."
+Sentence 85,The honeypot network includes over 4000 physical and virtual devices covering over 400 device architectures and varied connectivity mediums globally.
+Sentence 86,These devices are grouped based on the sectors they belong to for purposes of understanding sectoral attacks.
+Sentence 87,"Thus, a layered flow of threat intelligence is made possible."

@@ -1,0 +1,20 @@
+GAFGYT
+May 03, 2021
+ 
+OVERVIEW
+GAFGYT, also known as BASHLITE, was first discovered in 2014. It is a Linux-based IoT botnet primarily targets any vulnerable IoT devices and uses the device to launch a large-scale distributed denial-of-service attacks. In previous iterations of the malware, it exploited Shellshock (CVE-2014-7169) to provide initial access. It also exploits other vulnerabilities in routers such as CVE-2017-17215 (Huawei), CVE-2017-18368 (ZYXEL), and CVE-2014-8361 (Realtek). Compromised devices are capable of receiving backdoor commands from the C&C server, and can be used to download additional payload.
+
+In one of the recent variants of the malware, it added functionality such as using TOR network to hide its C&C traffic and encrypted strings related to commands to be used, or strings for DDoS attack and scanning. The malware propagates through brute-forcing weak Telnet passwords, and exploits vulnerabilities such as CVE-2019-16920 (D-Link RCE), CVE-2019-19781 (Citrix), and CVE-2020-7961 (Liferay Portal RCE). In another variant of the malware, it added codes or modules derived from MIRAI malware. These includes modules such as HTTP flooding, UDP flooding, TCP flooding, STD flooding, and Telnet Bruteforce. It still has Huawei and Realtek Remote Code Execution (RCE) exploit used to download and execute the payload.
+
+Its behaviors include:
+
+Communicates to a C&C server
+Brute Force
+Exploit vulnerability in IoT devices
+It is capable of the following:
+
+Backdoor commands
+Exploits
+Propagation
+Download Routine
+GAFGYT typically follows the infection chain below:

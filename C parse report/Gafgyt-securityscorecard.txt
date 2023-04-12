@@ -1,0 +1,183 @@
+A Detailed Analysis of the Gafgyt Malware Targeting IoT Devices
+Prepared by: Vlad Pasca, Senior Malware & Threat Analyst
+SecurityScorecard.com
+~~
+Executive summary
+
+Gafgyt malware, also known as Bashlite, along with Mirai, have targeted millions of vulnerable IoT devices in the last few years. The recently compiled sample we’ve analyzed borrowed some code leaked online from the Mirai botnet. The following commands are implemented: ALPHA, GAME, GRE, ICMP, JAIL, KICK, MIX, PLAIN, QUERY, SPEC, and STOP. The purpose of these commands is to perform multiple types of TCP and UDP DoS attacks, to target game servers running Valve’s Source Engine with DoS attacks, to perform “GRE flood” and ”ICMP flood” attacks, to perform HTTP DoS attacks on OVH servers. The last command is used to stop the malicious activity.
+Analysis and findings
+SHA256: 05e278364de2475f93c7db4b286c66ab3b377b092a312aee7048fbe0d3f608aa
+The ELF file is packed with UPX, as highlighted in the figure below.
+~~
+Figure 1
+The malware writes the “14I2I34czY$” string to the standard output:
+Figure 2
+~~
+The current process name is set to “/usr/bin/apt” using the prctl function (0xF = PR_SET_NAME):
+~~
+Figure 3
+The process retrieves the current time in seconds, the process ID of the calling process, performs an XOR operation between the results, and sets the value as the seed for srandom:
+Figure 4
+The XOR operation result between the current time in seconds and the current process ID is passed as a parameter to a function called init_rand. The implementation is identical to the one presented here:
+~~
+The malicious process calls a function called getOurIP. It creates a new socket by calling the socket method (0x2 = AF_UNIX, 0x2 = SOCK_DGRAM):
+Figure 7
+The inet_addr function is utilized to convert the Google DNS server into binary data in network byte order:
+The malware performs a connection to the Google DNS server on port 53 via a function call to connect, as highlighted below:
+~~
+Figure 9
+The ELF binary obtains the current address to which the socket is bound using the getsockname function:
+~~
+The process opens the kernel routing table from “/proc/net/route”:
+~~
+The above file is parsed, and the binary is looking for the “00000000” string:
+The ELF binary extracts the MAC address of the device using the ioctl method (0x8927 = SIOCGIFHWADDR):
+The fork function is utilized to create a new process by duplicating the calling process. The malware ignores the SIGCHLD signal:
+Figure 14
+The binary opens and reads the “/proc” directory using the opendir and readdir functions, as shown in figure 15.
+~~
+The process IDs that can be extracted from the subdirectories of the “/proc” folder are converted from strings to numbers. The malware avoids the current process and its parent process:
+~~
+A function called killer_mirai_exists is implemented by the malware. The command line of the processes is extracted from the “/proc/<Process ID>/cmdline” file:
+~~
+The process uses the isdigit and isalpha functions to verify if a character from the command line is a digit or an alphabetic character, respectively:
+A Mirai process is supposed to contain at least five letters and two digits in its name. If that’s the case, the process is terminated using the kill function
+The current process is daemonized by calling the setsid and fork methods:
+~~
+The ELF binary implements a function called initConnection. It will establish a connection with the C2 server 45.61.186.4 on port 13561 (see figure 21).
+~~
+new socket is created, and the process calls a function named connectTimeout:
+The malware retrieves the file status flag of the socket and modifies it to include SOCK_NONBLOCK by calling the fcntl64 method.
+In the getHost function, the C2 IP address is converted into binary data in network byte order using inet_addr:
+Figure 24
+The connect function is utilized to perform a connection to the C2 server:
+The process extracts information about the error status via a call to getsockopt (0x1 = SOL_SOCKET, 0x4 = SO_ERROR):
+The IP address of the device is converted to a string, and the binary will send a packet containing the string and the architecture that is hard-coded (“x86_64”) to the C2 server:
+Figure 27
+The confirmation message that contains the device’s IP address and the architecture is sent to the C2 server using the send method, as shown in the figure below.
+~~
+The ELF binary flushes the rules of all chains in iptables, stops the iptables and firewalld services, removes the bash history, and clears the history for the current shell:
+Two DNS servers are added to the “/etc/resolv.conf” file:
+~~
+The malicious process implements a function called recvLine, which uses the recv method to read the response from the C2 server, as highlighted below
+The strtok function is utilized to split the response into a series of tokens based on the space delimiter (see figure 33). A function called processCmd implements the received commands
+The following commands are implemented: "ALPHA", "GAME", "GRE", "SPEC2", "SPEC", "JAIL", "MIX", "ICMP", "QUERY2", "PLAIN", "QUERY", "KICK", "STOP", "stop", and "Stop". An example of such a command is shown below:
+In a function called listFork, the binary creates a child process using the fork method and stores its PID in a variabile called “pids”:
+Now we’ll describe the functions that are used in the main commands: ftcp, vseattack1, rand_hex, udppac2, udppac, jailv1, icmpattack, rtcp, sendJUNK, tcpFl00d, ovhl7, udpfl00d, and kickv2.
+~~
+ftcp function
+
+Firstly, the malware expects a port number to be passed as a parameter; otherwise, it generates one using a function called rand_cmwc:
+The function mentioned above implements a Complement Multiply With Carry random number generator and is used to generate a 4-byte pseudo-random value
+The IP address that is transmitted by the C2 server and is supposed to be affected by a DoS attack is converted into binary data using inet_addr
+The malicious binary creates a socket and modifies its type via a function call to setsockopt
+The malware generates a random IP address using a function called getRandomIP, as displayed in figure 40
+The random IP address is converted from host byte order to network byte order using htonl. In a function called makeIPPacket, the binary constructs the IP header (20 bytes) that contains the source IP (= random IP address) and the destination IP that is targeted by the malware
+The ELF binary computes the TCP checksum using the tcpcsum and csum functions that are defined here. Multiple flood attack types were identified: “all”, “xmas”, “syn”, “rst”, “fin”, “ack”, and “psh”
+Finally, the malware sends multiple packets to the target by calling the sendto method. A new random IP is generated, it is converted from host byte order to network byte order, and the algorithm repeats the same steps described above until the target becomes unreachable:
+Figure 43
+~~
+vseattack1 function
+The process expects a port number as a parameter or generates one using the rand_cmwc function. The IP address to be targeted is converted into binary data using inet_addr:
+Figure 44
+The ELF binary creates a raw socket or a datagram socket, as displayed in the figure below.
+A function called makeRandomStr is used to compute a random string
+A function called makevsepacket1 is similar to the function described in the first case; however, the data sent contains a hard-coded buffer (see figure 48). In this case, the targets are game servers running Valve’s Source Engine
+The sendto method is used again to send data to the targeted server, as displayed in figure 49.
+Figure 49
+~~
+rand_hex function
+The process creates a raw socket (0x2 = AF_INET, 0x3 = SOCK_RAW, 0x6 = IPPROTO_TCP):
+~~
+In the function called util_local_addr, the binary creates a datagram socket and performs a connection to the Google DNS server “8.8.8.8” in order to obtain the device’s IP address (see figure 51).
+The inet_addr function is used to convert the targeted IP address into binary data in network byte order. The malware sends hex-generated data to the target via a call to sendto
+~~
+udppac/udppac2 function
+The ELF binary creates a socket and expects a port number as a parameter or generates one using the rand_cmwc function
+The target IP address is converted into binary data in network byte order, and the process generates a random string using a function called rand_str and performs a network connection to the target via a call to connect
+The randomly generated string is sent to the target IP address by calling the send function (0x4000 = MSG_NOSIGNAL):
+~~
+jailv1 function
+A datagram socket is created by the malware, and the system time in seconds is retrieved using the time method (see figure 58).
+The gethostbyname function is utilized to obtain a structure of type hostent for an IP address/domain specified by the C2 server:
+The process sends a hard-coded buffer containing hex values to the target IP address, as highlighted in the figure below.
+Figure 60
+~~
+icmpattack function
+The malware forks the process and creates a new socket:
+The port number specified by the C2 server is converted from host byte order to network byte order using htons, and the process calls the inet_addr function with the target IP as a parameter:
+Figure 62
+In a function called rand, the process uses the random method to generate a pseudo-random number. The binary performs a network connection to the target by calling the connect method
+Finally, the malware sends multiple ICMP echo requests to the target server:
+rtcp function
+The binary calls the getHost function with the target IP as a parameter and then creates a raw socket:
+Figure 65
+A random IP is generated and is included as the source IP in a network packet constructed using the makeIPPacket function, as displayed in figure 66:
+The ELF binary computes the TCP checksum using the tcpcsum and csum functions:
+The sendto function is used to send the network packets to the target server:
+Figure 68
+~~
+sendJUNK function
+The malicious process extracts the file descriptor table size using getdtablesize and converts the target IP address using inet_addr:
+The malware sends 170 bytes to the target server using the send function:
+Figure 70
+In another branch of the function, a new stream socket is created, its file status flag is modified, and the binary connects to the target IP address (see figure 71).
+~~
+tcpFl00d function
+The malicious binary calls the getHost function and creates a raw socket
+A new random IP is generated, and the function called makeIPPacket is utilized to create a network packet that will be sent to the target server. Multiple flood attack types were identified: “all”, "syn", "rst", "fin", "ack", and "psh":
+The TCP checksum is computed, and the process sends multiple requests until the target becomes unreachable using the sendto method
+~~
+ovhl7 function
+The binary randomly selects a user agent from a list and calls the fork function, as shown below.
+Using the sprintf function, the malware constructs a PGET request with the “\x00\x01...\xff” URI. A function called socket_connect is implemented, and the request is sent to the target server using the write method:
+In the socket_connect function, the process calls the gethostbyname method, creates a stream socket, modifies the TCP_NODELAY option, and connects to the target IP address
+udpfl00d function
+A datagram socket or a raw socket is created, depending on the C2 response (see figure 80).
+Figure
+As in the tcpFl00d function, the malicious process calls the findRandIP, makeIPPacket, and makeRandomStr functions. The network packets containing random data are sent to the target server using sendto:
+kickv2 function
+The ELF binary creates a datagram socket and calls the gethostbyname function:
+Figure
+It randomly selects a buffer from the “Trandstrings” array that is sent to a target mentioned by the C2 server:
+Now we’ll describe all commands implemented by Gafgyt that call the functions we already described. It’s important to mention that the 1st parameter of any command is supposed to be an IP address and the 2nd parameter is a port number.
+~~
+ALPHA command
+This command calls the ftcp function that performs multiple types of TCP DoS attacks.
+GAME command
+This command targets the game servers running Valve’s Source Engine with DoS attacks. It calls the vseattack1 function.
+GRE command
+This command targets a server with “GRE flood” attacks. It calls the rand_hex function.
+ICMP command
+This command targets a server with “ICMP flood” attacks. It calls the icmpattack function.
+JAIL command
+This command calls the jailv1 function that performs DoS attacks.
+KICK command
+This command calls the kickv2 function that sends multiple hard-coded buffers to a target.
+MIX command
+This command targets a server with “GRE flood” and “ICMP flood” attacks. It calls the rand_hex and icmpattack functions.
+PLAIN command
+This command calls the udpfl00d function that targets a server with UDP DoS attacks.
+QUERY/QUERY2 command
+This command targets a server with multiple types of TCP DoS attacks and performs HTTP DoS attacks on OVH servers. It calls the rtcp, sendJUNK, tcpFl00d, and ovhl7 functions.
+SPEC/SPEC2 command
+This command calls the udppac/udppac2 function that performs DoS attacks.
+STOP/stop/Stop command
+This command is used to kill all spawned processes using the kill command.
+~~
+Indicators of Compromise
+C2 server
+45.61.186.4:13561
+~~
+SHA256
+05e278364de2475f93c7db4b286c66ab3b377b092a312aee7048fbe0d3f608aa
+~~
+User-Agents used by Gafgyt
+Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/4.0; GTB7.4; InfoPath.2; SV1;.NET CLR 4.4.58799; WOW64; en-US)
+Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; FunWebProducts)
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0
+Mozilla/5.0 (compatible; Konqueror/3.0; i686 Linux; 20021117)
+Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5
