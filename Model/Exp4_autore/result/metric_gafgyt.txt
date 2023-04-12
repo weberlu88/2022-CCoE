@@ -1,0 +1,140 @@
+asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*', '^UID.*', '/.*bin/python', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/.*bin/watchdog'}
+
+Sample Gafgyt-fortinet.csv
+	num of segment in report: 43
+	lenght of ctd's OPset is 3
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 7. R_malObj is 0.1429
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 3
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Gafgyt-nozominetworks.csv
+	num of segment in report: 88
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 2, num of asg objects: 7. R_malObj is 0.2857
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Gafgyt-sectrio.csv
+	num of segment in report: 87
+	lenght of ctd's OPset is 4
+	#R_malObj
+	num of ctd objects: 3, num of asg objects: 7. R_malObj is 0.4286
+		ctd_object: {'/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 4
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 11. R_malOps is 0.1818
+		refered lifecycle: [2, 8]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 3 act=getpid(), obj=^PID.*>, <OP 1 act=check, obj=pid, sent= Fig 3: Malware checking machine time, IP and pid of itself.>
+	<OP 9 act=getppid(), obj=^PID.*>, <OP 1 act=check, obj=pid, sent= Fig 3: Malware checking machine time, IP and pid of itself.>
+
+Sample Gafgyt-securityscorecard.csv
+	num of segment in report: 78
+	lenght of ctd's OPset is 5
+	#R_malObj
+	num of ctd objects: 4, num of asg objects: 7. R_malObj is 0.5714
+		ctd_object: {'/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 5
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 11. R_malOps is 0.0909
+		refered lifecycle: [3]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 4 act=connect(), obj=ip_addr>, <OP 2 act=establish, obj=45.61.186.4, sent=It will establish a connection with the C2 server 45.61.186.4 on port 13561 (see figure 21).>
+
+Sample Gafgyt-trendmicro.csv
+	num of segment in report: 11
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 7. R_malObj is 0.0000
+		ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Gafgyt-unit42-2.csv
+	num of segment in report: 101
+	lenght of ctd's OPset is 6
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 7. R_malObj is 0.1429
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 6
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Gafgyt-unit42.csv
+	num of segment in report: 47
+	lenght of ctd's OPset is 2
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 7. R_malObj is 0.1429
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Gafgyt-wikipedia.csv
+	num of segment in report: 18
+	lenght of ctd's OPset is 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 7. R_malObj is 0.0000
+		ctd_object: set()
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 11, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+
+OperationPair that changes system resources:
+[]
