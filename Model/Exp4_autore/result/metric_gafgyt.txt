@@ -1,7 +1,7 @@
-asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*', '^UID.*', '/.*bin/python', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/.*bin/watchdog'}
+asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^UID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/.*bin/python', '^PID.*', '/.*bin/watchdog', '/proc/net/route'}
 
 Sample Gafgyt-fortinet.csv
-	num of segment in report: 43
+	num of segment in report: 43, 2 of them contain ASG object(s)
 	lenght of ctd's OPset is 3
 	#R_malObj
 	num of ctd objects: 1, num of asg objects: 7. R_malObj is 0.1429
@@ -17,7 +17,7 @@ Sample Gafgyt-fortinet.csv
 		ref-sys lifecycle: []
 
 Sample Gafgyt-nozominetworks.csv
-	num of segment in report: 88
+	num of segment in report: 88, 2 of them contain ASG object(s)
 	lenght of ctd's OPset is 2
 	#R_malObj
 	num of ctd objects: 2, num of asg objects: 7. R_malObj is 0.2857
@@ -33,11 +33,11 @@ Sample Gafgyt-nozominetworks.csv
 		ref-sys lifecycle: []
 
 Sample Gafgyt-sectrio.csv
-	num of segment in report: 87
+	num of segment in report: 87, 6 of them contain ASG object(s)
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 3, num of asg objects: 7. R_malObj is 0.4286
-		ctd_object: {'/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*'}
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/net/route', '^PID.*'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
 		len(asg_OPset): 11, len(ctd_OPset): 4
@@ -53,11 +53,11 @@ Sample Gafgyt-sectrio.csv
 	<OP 9 act=getppid(), obj=^PID.*>, <OP 1 act=check, obj=pid, sent= Fig 3: Malware checking machine time, IP and pid of itself.>
 
 Sample Gafgyt-securityscorecard.csv
-	num of segment in report: 78
+	num of segment in report: 78, 5 of them contain ASG object(s)
 	lenght of ctd's OPset is 5
 	#R_malObj
 	num of ctd objects: 4, num of asg objects: 7. R_malObj is 0.5714
-		ctd_object: {'/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*'}
+		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/net/route', '^PID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
 		len(asg_OPset): 11, len(ctd_OPset): 5
@@ -72,7 +72,7 @@ Sample Gafgyt-securityscorecard.csv
 	<OP 4 act=connect(), obj=ip_addr>, <OP 2 act=establish, obj=45.61.186.4, sent=It will establish a connection with the C2 server 45.61.186.4 on port 13561 (see figure 21).>
 
 Sample Gafgyt-trendmicro.csv
-	num of segment in report: 11
+	num of segment in report: 11, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 7. R_malObj is 0.0000
@@ -88,7 +88,7 @@ Sample Gafgyt-trendmicro.csv
 		ref-sys lifecycle: []
 
 Sample Gafgyt-unit42-2.csv
-	num of segment in report: 101
+	num of segment in report: 101, 9 of them contain ASG object(s)
 	lenght of ctd's OPset is 6
 	#R_malObj
 	num of ctd objects: 1, num of asg objects: 7. R_malObj is 0.1429
@@ -104,7 +104,7 @@ Sample Gafgyt-unit42-2.csv
 		ref-sys lifecycle: []
 
 Sample Gafgyt-unit42.csv
-	num of segment in report: 47
+	num of segment in report: 47, 2 of them contain ASG object(s)
 	lenght of ctd's OPset is 2
 	#R_malObj
 	num of ctd objects: 1, num of asg objects: 7. R_malObj is 0.1429
@@ -120,7 +120,7 @@ Sample Gafgyt-unit42.csv
 		ref-sys lifecycle: []
 
 Sample Gafgyt-wikipedia.csv
-	num of segment in report: 18
+	num of segment in report: 18, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 7. R_malObj is 0.0000
@@ -138,3 +138,16 @@ Sample Gafgyt-wikipedia.csv
 
 OperationPair that changes system resources:
 []
+
+{
+    "/.*bin/python": [
+        "/usr/bin/python"
+    ],
+    "/.*bin/watchdog": [
+        "/bin/watchdog",
+        "/sbin/watchdog"
+    ],
+    "/proc/net/route": [
+        "/proc/net/route"
+    ]
+}

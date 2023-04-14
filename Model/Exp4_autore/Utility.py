@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import ASG
 
 #### 自動化 regex: 建立 dest_object_set ####
 
@@ -520,3 +521,35 @@ def get_step_reduction_statistic(unique_step):
                 step_reduction[step] += reduction_num
                 
     return step_reduction
+
+class Step:
+    '''Store an asg step's data'''
+    def __init__(self, number, subject, syscall, object) -> None:
+        self.num = number
+        self.sub = subject
+        self.obj = object
+        self.call = syscall
+        pass
+    def callb(self) -> str:
+        '''system call with braces'''
+        return f"{self.call}()"
+
+def get_origin_steplist(graph:ASG.AttackGraph, syscall:str, regex:str) -> list[str]:
+    '''Query the origin asg steps (triplet), return in a list of formatted string.\n
+    Input:
+        @graph: ASG.AttackGraph
+        @syscall: system call
+        @regex: the regex of object
+    Ouput example:
+        - query `get_origin_steplist(graph, 'rename', '/etc/rc\.local')` will get:
+        - [`'  95. /etc/sedQUGLbs -> rename()   -> /etc/rc.local'`, `' 216. /etc/sedQhw17q -> rename()   -> /etc/rc.local'`]
+    '''
+    # filter object with input regex
+    steplist = [Step(i, step[0].name, step[2], step[1].name) for i,step in enumerate(graph.step_list) if re.search(regex, step[1].name, re.IGNORECASE)] 
+    steplist = [step for step in steplist if step.call == syscall]
+    steplist = [f"{step.num:4}. {step.sub:<7} -> {step.callb():10} -> {step.obj}" for step in steplist]
+    return steplist
+
+# example call
+# get_origin_steplist(graph, 'rename', '/etc/rc\.local')
+# get_origin_steplist(graph, 'connect', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}') 
