@@ -1,145 +1,145 @@
 Number,Content
-Sentence 1,"xorddos malware information
-product/version includes:deep security 12.0, deep security 20.0, deep security 12.5, view more
+Sentence 1,"XORDDOS Malware Information
+Product/Version includes:Deep Security 12.0, Deep Security 20.0, Deep Security 12.5, View More
 
-summary
-xor ddos is a linux trojan malware with rootkit capabilities that was used to launch large-scale ddos attacks."
-Sentence 2,its name stems from the heavy usage of xor encryption in both malware and network communication to the c&cs.
-Sentence 3,"it is built for multiple linux architectures like arm, x86 and x64."
-Sentence 4,"in 2014, a whitehat security research group detected a one-liner shell script being injected via ssh connection."
-Sentence 5,the hack scheme is to spread a new ddos mechanism using elf to infect linux based computers.
-Sentence 6,a third party av company concluded that the installation is customized to the victim's linux environment for the sake of running an additional rootkit component.
-Sentence 7,"this malware performs c&c communication in both directions using a hard-coded xor key, hence its name xor ddos."
-Sentence 8,"capabilities:
+Summary
+XOR DDoS is a Linux Trojan malware with rootkit capabilities that was used to launch large-scale DDoS attacks."
+Sentence 2,Its name stems from the heavy usage of XOR encryption in both malware and network communication to the C&Cs.
+Sentence 3,"It is built for multiple Linux architectures like ARM, x86 and x64."
+Sentence 4,"In 2014, a whitehat security research group detected a one-liner shell script being injected via ssh connection."
+Sentence 5,The hack scheme is to spread a new DDoS mechanism using ELF to infect Linux based computers.
+Sentence 6,A third party AV company concluded that the installation is customized to the victim's Linux environment for the sake of running an additional rootkit component.
+Sentence 7,"This malware performs C&C communication in both directions using a hard-coded XOR key, hence its name XOR DDoS."
+Sentence 8,"Capabilities:
 
-system changes
-drops copies of itself to multiple directories
-auto-start mechanisms
-payload
-information theft
-backdoor commands
-downloads files
-propagation
-rootkit capability
+System Changes
+Drops copies of itself to multiple directories
+Auto-start mechanisms
+Payload
+Information Theft
+Backdoor Commands
+Downloads Files
+Propagation
+Rootkit Capability
 "
 Sentence 9,"
-impact:
+Impact:
 
-launches dos/ddos attacks
-malware routine can be found on the following virus reports:
+Launches DoS/DDoS attacks
+Malware routine can be found on the following virus reports:
 
-threat encyclopedia: elf_xorddos.sm
-threat encyclopedia: trojan.linux.xorddos.smsh
-threat encyclopedia: elf_xorddos.ap
+Threat Encyclopedia: ELF_XORDDOS.SM
+Threat Encyclopedia: Trojan.Linux.XORDDOS.SMSH
+Threat Encyclopedia: ELF_XORDDOS.AP
 
 "
 Sentence 10,"
-solutions available:
+Solutions Available:
 
-detection	opr
-trojan.linux.xorddos.smsh	15.569.00
-elf_xorddos.sm	16.163.00
-elf_xorddos.ap	16.165.00
+Detection	OPR
+Trojan.Linux.XORDDOS.SMSH	15.569.00
+ELF_XORDDOS.SM	16.163.00
+ELF_XORDDOS.AP	16.165.00
 "
 Sentence 11,"
-identification:
+Identification:
 
-the malware is usually found on linux based servers."
-Sentence 12,"since the malware has a capability to hide itself using its rootkit capabilities and xor encrypted c&c communication, un-monitored and un-protected servers may not report the infection unless an administrator is able to see the unusual processes running or unusual connections to un-familiar ip addresses."
-Sentence 13,"the threat investigator should look for the following visible indicators:
+The malware is usually found on Linux based servers."
+Sentence 12,"Since the malware has a capability to hide itself using its rootkit capabilities and XOR encrypted C&C communication, un-monitored and un-protected servers may not report the infection unless an administrator is able to see the unusual processes running or unusual connections to un-familiar IP addresses."
+Sentence 13,"The threat investigator should look for the following visible indicators:
 
-auto-start mechanisms
-dropped copies of the malware
-unusual network connections to unknown ip addresses
-running processes usually showing as 8-10 random characters
+Auto-start mechanisms
+Dropped copies of the malware
+Unusual network connections to unknown IP addresses
+Running processes usually showing as 8-10 random characters
 "
 Sentence 14,"
-installation:
+Installation:
 
-actions to take:
+Actions to Take:
 
-trend micro deep security for linux should be able to detect and clean this malware."
-Sentence 15,"there are times that the ds agent doesn’t have permission to the locked file, so make sure that there’s no running process or service of xorddos (random characters), to fully clean this infection."
-Sentence 16,"integrity monitoring detection
+Trend Micro Deep Security for Linux should be able to detect and clean this malware."
+Sentence 15,"There are times that the DS agent doesn’t have permission to the locked file, so make sure that there’s no running process or service of XORDDOS (random characters), to fully clean this infection."
+Sentence 16,"Integrity Monitoring Detection
 
-unix - open port monitor (this rule monitors and logs for ports created and deleted in a unix environment.)"
-Sentence 17,"for machines that have recurring detection, you can use attk for linux and submit the logs to us for further analysis."
-Sentence 18,"related blog:
+Unix - Open Port Monitor (This rule monitors and logs for ports Created and Deleted in a Unix environment.)"
+Sentence 17,"For machines that have recurring detection, you can use ATTK for Linux and submit the logs to us for further analysis."
+Sentence 18,"Related Blog:
 
-xorddos, kaiji variants target exposed docker servers
+XORDDoS, Kaiji Variants Target Exposed Docker Servers
 
 
-elf_xorddos.sm
+ELF_XORDDOS.SM
 
-overview
-infection channel: dropped by other malware, downloaded from the internet
-this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-Sentence 19,"it executes commands from a remote malicious user, effectively compromising the affected system."
-Sentence 20,"technical details
-file size: 625,611 bytes
-file type: elf
-memory resident: yes
-initial samples received date: 21 nov 2016
-payload: compromises system security, steals information
-arrival details
+OVERVIEW
+INFECTION CHANNEL: Dropped by other malware, Downloaded from the Internet
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
+Sentence 19,"It executes commands from a remote malicious user, effectively compromising the affected system."
+Sentence 20,"TECHNICAL DETAILS
+FILE SIZE: 625,611 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: Yes
+INITIAL SAMPLES RECEIVED DATE: 21 Nov 2016
+PAYLOAD: Compromises system security, Steals information
+Arrival Details
 
-this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-Sentence 21,"installation
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
+Sentence 21,"Installation
 
-this backdoor drops the following files:
+This Backdoor drops the following files:
 
 /usr/bin/{random 10 characters}
 /bin/{random 10 characters}
 /tmp/{random 10 characters}
-it drops the following copies of itself into the affected system:
+It drops the following copies of itself into the affected system:
 
 /lib/libudev.so
-autostart technique
+Autostart Technique
 "
 Sentence 22,"
-this backdoor drops the following files:
+This Backdoor drops the following files:
 
-/etc/cron.hourly/gcc.sh (cron is a time-based job scheduler in unix-like computer operating systems)
-backdoor routine
+/etc/cron.hourly/gcc.sh (Cron is a time-based job scheduler in Unix-like computer operating systems)
+Backdoor Routine
 "
 Sentence 23,"
-this backdoor executes the following commands from a remote malicious user:
+This Backdoor executes the following commands from a remote malicious user:
 
-execute files
-download files
-update malware
-delete files
-terminate process
-remove services
-remove self
-perform ddos attack
-it posts the following information to its command and control (c&c) server:
+Execute files
+Download files
+Update Malware
+Delete Files
+Terminate Process
+Remove Services
+Remove Self
+Perform DDoS attack
+It posts the following information to its command and control (C&C) server:
 
 http://www1."
-Sentence 24,"{blocked}t456.com/dd.rar:1520
+Sentence 24,"{BLOCKED}t456.com/dd.rar:1520
 "
 Sentence 25,"
-information theft
+Information Theft
 
-this backdoor gathers the following data:
+This Backdoor gathers the following data:
 
-memory information
-cpu information
-network speed
-pid of running process
-md5 of running process
-other details
+Memory Information
+CPU Information
+Network Speed
+PID of Running Process
+MD5 of Running Process
+Other Details
 "
 Sentence 26,"
-this backdoor does the following:
+This Backdoor does the following:
 
-drops a shell script in /etc/init.d folder which setups the auto-start mechanism of the malware."
-Sentence 27,"creates symbolic links which points to the script in /etc/init.d:
-/etc/rc{1-5}.d/s90{random numbers}
-/etc/rc.d/rc{1-5}.d/s90{random numbers}
-get the magic string value from the file /var/run/gcc.pid
-read the following from its configuration file:
+Drops a shell script in /etc/init.d folder which setups the auto-start mechanism of the malware."
+Sentence 27,"Creates symbolic links which points to the script in /etc/init.d:
+/etc/rc{1-5}.d/S90{random numbers}
+/etc/rc.d/rc{1-5}.d/S90{random numbers}
+Get the magic string value from the file /var/run/gcc.pid
+Read the following from its configuration file:
 md5 - checksum of file
-denyip - open communication with an ip
+denyip - open communication with an IP
 filename - list of filename
 rmfile - files to remove"

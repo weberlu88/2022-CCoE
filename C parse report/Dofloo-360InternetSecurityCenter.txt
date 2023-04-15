@@ -1,8 +1,0 @@
-Dofloo’s REGISTER
-• It’s also called Mr. Black
-• It has text format of “VERSONEX:%s|%d|%d|%s”
-– VERSONEX:Linux-3.11.0-12-generic|2|3576
-MHz|2016MB|634MB|Hacker
-– VERSONEX:Windows XP|1|3582|Mr.Black
-– VERSONEX:Windows XP|1|3582
-MHz|1024MB|245MB|Hacker

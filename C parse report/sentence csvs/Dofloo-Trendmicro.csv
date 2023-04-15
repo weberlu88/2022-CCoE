@@ -1,29 +1,28 @@
 Number,Content
-Sentence 1,"backdoor.linux.dofloo.ab
+Sentence 1,"Backdoor.Linux.DOFLOO.AB
 
-aliases:
-backdoor.linux.dofloo.c (kaspersky); elf/dofloo.c!tr(fortinet)
+ALIASES:
+Backdoor.Linux.Dofloo.c (KASPERSKY); ELF/Dofloo.C!tr(FORTINET)
 
-overview
+OVERVIEW
 
-infection channel: dropped by other malware, downloaded from the internet
-this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-Sentence 2,"it executes commands from a remote malicious user, effectively compromising the affected system."
-Sentence 3,"technical details
+INFECTION CHANNEL: Dropped by other malware, Downloaded from the Internet
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
+Sentence 2,"It executes commands from a remote malicious user, effectively compromising the affected system."
+Sentence 3,"TECHNICAL DETAILS
 
-file size: 1,001,465 bytes
-file type: elf
-memory resident: yes
-initial samples received date: 04 jun 2020
-payload: launches dos/ddos attacks, steals information
-arrival details
+FILE SIZE: 1,001,465 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: Yes
+INITIAL SAMPLES RECEIVED DATE: 04 Jun 2020
+PAYLOAD: Launches DoS/DDoS attacks, Steals information
+Arrival Details
 
-this backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
-Sentence 4,
-Sentence 5,"
-installation
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites."
+Sentence 4,"
+Installation
 
-this backdoor adds the following processes:
+This Backdoor adds the following processes:
 
 sed -i -e '/exit/d' /etc/rc.local
 sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
@@ -31,27 +30,27 @@ sed -i -e '/%s/d' /etc/rc.local
 sed -i -e '2 i%s/%s' /etc/rc.local
 sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
 sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
-backdoor routine
+Backdoor Routine
+
+"
+Sentence 5,"
+This Backdoor executes the following commands from a remote malicious user:
+
+Initiate DDoS attacks:
+TCP flood
+Challenge Collapsar (CC) attack
+Stop DDoS attack
+Execute shell commands
+Information Theft
 
 "
 Sentence 6,"
-this backdoor executes the following commands from a remote malicious user:
+This Backdoor gathers the following data:
 
-initiate ddos attacks:
-tcp flood
-challenge collapsar (cc) attack
-stop ddos attack
-execute shell commands
-information theft
-
-"
-Sentence 7,"
-this backdoor gathers the following data:
-
-cpu information
-memory statistics
-ip address of infected machine
-reads the following information from /proc:
+CPU information
+Memory statistics
+IP address of infected machine
+Reads the following information from /proc:
 /proc/stat
 /proc/meminfo
 /proc/cpuinfo
@@ -65,11 +64,11 @@ reads the following information from /proc:
 /proc/self/fd/%d/%s
 /proc/self/fd
 /proc/net
-other details
+Other Details
 
 "
-Sentence 8,"
-this backdoor opens the following files:
+Sentence 7,"
+This Backdoor opens the following files:
 
 /etc/host.conf
 /etc/resolv.conf
@@ -78,17 +77,17 @@ this backdoor opens the following files:
 /etc/ld.so.cache
 
 "
-Sentence 9,"
-solution
+Sentence 8,"
+SOLUTION
 
-minimum scan engine: 9.850
-first vsapi pattern file: 15.910.04
-first vsapi pattern date: 04 jun 2020
-vsapi opr pattern file: 15.911.00
-vsapi opr pattern date: 05 jun 2020
-scan your computer with your trend micro product to delete files detected as backdoor.linux.dofloo.ab if the detected files have already been cleaned, deleted, or quarantined by your trend micro product, no further step is required."
-Sentence 10,you may opt to simply delete the quarantined files.
-Sentence 11,"please check the following trend micro support pages for more information:
+MINIMUM SCAN ENGINE: 9.850
+FIRST VSAPI PATTERN FILE: 15.910.04
+FIRST VSAPI PATTERN DATE: 04 Jun 2020
+VSAPI OPR PATTERN FILE: 15.911.00
+VSAPI OPR PATTERN DATE: 05 Jun 2020
+Scan your computer with your Trend Micro product to delete files detected as Backdoor.Linux.DOFLOO.AB If the detected files have already been cleaned, deleted, or quarantined by your Trend Micro product, no further step is required."
+Sentence 9,You may opt to simply delete the quarantined files.
+Sentence 10,"Please check the following Trend Micro Support pages for more information:
 
-home and home office support
-business support"
+Home and Home Office Support
+Business Support"

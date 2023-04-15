@@ -1,141 +1,142 @@
 Number,Content
-Sentence 1,"[part 1] - analysing the new linux/aes.ddos iot malware
-nov 19, 2017
+Sentence 1,"[Part 1] - Analysing the new Linux/AES.DDoS IoT malware
+Nov 19, 2017
 
-as the title suggests this is a bot which is spread by brute forcing ssh daemons and exploiting iot devices using an array of exploits — this malware is mainly distributed by a chinese actor who is familiar with c++ and c constructs, however the knowledge of c++ by this threat actor only extends to using the std::string class in c++."
-Sentence 2,"this bot was being distributed a few years ago just for x86_64 targets, this has changed along with some key fundementals of the bot."
-Sentence 3,"it's started to target embedded systems, which is why i thought i would cover it again."
-Sentence 4,"linux/aes.ddos is programmed in c++, we can see this due to the fact that all of the symbols are exported and c++ constructs are used."
-Sentence 5,"we are going to be using:
+As the title suggests this is a bot which is spread by brute forcing SSH daemons and exploiting IoT devices using an array of exploits — this malware is mainly distributed by a Chinese actor who is familiar with C++ and C constructs, however the knowledge of C++ by this threat actor only extends to using the std::string class in C++."
+Sentence 2,"This bot was being distributed a few years ago just for x86_64 targets, this has changed along with some key fundementals of the bot."
+Sentence 3,"It's started to target embedded systems, which is why I thought I would cover it again."
+Sentence 4,"Linux/AES.DDoS is programmed in C++, we can see this due to the fact that all of the symbols are exported and C++ constructs are used."
+Sentence 5,"We are going to be using:
 
 gdb-peda: https://github.com/longld/peda
-binaryninja: https://binary.ninja/
+BinaryNinja: https://binary.ninja/
 ltrace: https://linux.die.net/man/1/ltrace
 radare2: http://rada.re/r/
 
-a look at the file..
-if we run ‘file’ on the executable we get:
+A look at the file.."
+Sentence 6,"If we run ‘file’ on the executable we get:
 
-elf 32-bit lsb executable, arm, eabi5 version 1 (sysv), statically linked, for gnu/linux 2.6.14, not stripped."
-Sentence 6,"so, we’re working with an elf (which is the coff for unix systems) and it’s 32 bit."
-Sentence 7,it’s architecture is of type arm and all of the libraries its using are statically linked — this is normal behaviour of an iot bot to have its libc linked as many systems will have incomplete or sometimes even broken libraries.
-Sentence 8,"so, instead of dynamically linking the executable, they are statically linked."
-Sentence 9,"since its not stripped, this means that the analysis will be a lot easier as we have meaningful names in relation to objects in the executable."
-Sentence 10,"for some strange reason, the executable was compiled on a 12 year old version of the linux kernel — this could indicate to us that the malware was compiled on an iot device or just has an extremely old computer."
-Sentence 11,"md5: 125679536fd4dd82106482ea1b4c1726
+ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, for GNU/Linux 2.6.14, not stripped."
+Sentence 7,"So, we’re working with an ELF (which is the COFF for UNIX systems) and it’s 32 bit."
+Sentence 8,It’s architecture is of type ARM and all of the libraries its using are statically linked — this is normal behaviour of an IoT bot to have its libc linked as many systems will have incomplete or sometimes even broken libraries.
+Sentence 9,"So, instead of dynamically linking the executable, they are statically linked."
+Sentence 10,"Since its not stripped, this means that the analysis will be a lot easier as we have meaningful names in relation to objects in the executable."
+Sentence 11,"For some strange reason, the executable was compiled on a 12 year old version of the Linux kernel — this could indicate to us that the malware was compiled on an IoT device or just has an extremely old computer."
+Sentence 12,"MD5: 125679536fd4dd82106482ea1b4c1726
 
-sha1: 6caf6a6cf1bc03a038e878431db54c2127bfc2c1
+SHA1: 6caf6a6cf1bc03a038e878431db54c2127bfc2c1
 
-a quick rundown on arm
-arm is 32 bit by design, so all of our registers are 32 bit wide."
-Sentence 12,"in arm, the standard calling convention is to place the arguments into r0-r3."
-Sentence 13,"that's only four registers though, if there are more than three arguments then we place the rest of the arguments on the stack."
-Sentence 14,"we have 15 registers to play with though, they all serve a special purpose."
-Sentence 15,"r0, r1, r2, r3 are used for passing arguments, r0 usually also holds the return value of routines."
-Sentence 16,"r4, r5, r6, r7, r8, r9 are used internally within routines to store variables."
-Sentence 17,r10 holds the limit for the current stack.
-Sentence 18,r11 holds the stack frame pointer.
-Sentence 19,"r12 can also be used as a variable within routines, however there is no guarantee that this register will remain unchanged by the caller."
-Sentence 20,r13 holds the stack pointer (sp).
-Sentence 21,"r14 is the link register, which points back to the caller."
-Sentence 22,r15 holds the program counter.
-Sentence 23,"nice, so now you're an arm expert we can continue.. ;)
+A quick rundown on ARM
+ARM is 32 bit by design, so all of our registers are 32 bit wide."
+Sentence 13,"In ARM, the standard calling convention is to place the arguments into r0-r3."
+Sentence 14,"That's only four registers though, if there are more than three arguments then we place the rest of the arguments on the stack."
+Sentence 15,"We have 15 registers to play with though, they all serve a special purpose."
+Sentence 16,"r0, r1, r2, r3 are used for passing arguments, r0 usually also holds the return value of routines."
+Sentence 17,"r4, r5, r6, r7, r8, r9 are used internally within routines to store variables."
+Sentence 18,r10 holds the limit for the current stack.
+Sentence 19,r11 holds the stack frame pointer.
+Sentence 20,"r12 can also be used as a variable within routines, however there is no guarantee that this register will remain unchanged by the caller."
+Sentence 21,r13 holds the stack pointer (SP).
+Sentence 22,"r14 is the link register, which points back to the caller."
+Sentence 23,r15 holds the program counter.
+Sentence 24,"Nice, so now you're an ARM expert we can continue.. ;)
 
-dive into main(..)..
-as soon as the malware boots from the original entry-point main which is at 0x13dec."
-Sentence 24,we use rabin2 to find the original entry point by doing rabin2 -s kfts | grep type=func name=main.
-Sentence 25,"which gives us the following output:
+Dive into main(..)..
+As soon as the malware boots from the original entry-point main which is at 0x13DEC."
+Sentence 25,We use rabin2 to find the original entry point by doing rabin2 -s kfts | grep type=FUNC name=main.
+Sentence 26,"Which gives us the following output:
 
-vaddr=0x00013dec paddr=0x0000bdec ord=5366 fwd=none sz=688 bind=global type=func name=main
-nice!"
-Sentence 26,the executable isn't packed.
-Sentence 27,the main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
-Sentence 28,when reading this symlink internally from our process it will return the location from that our executable is running from.
-Sentence 29,we can see from the disassembly that we create a type of std::string and copy from the char array containing the path of the current executable.
-Sentence 30,this is then used and passed into the function used for persistence.
-Sentence 31,we then either check if we’re running or add to startup.
-Sentence 32,in the check_running procedure we do a call to ps -e then sleep for two seconds; we then get the output from the command and check to see if the current executable name exists in the output.
-Sentence 33,"if it does, we continue to branch to exit with an exit code of 0 (which is placed into r0) which will effectively shut-down the process."
-Sentence 34,"if not, we then go onto persistence."
-Sentence 35,"so, if we're already running, we effectively exit the process."
-Sentence 36,"persistence
-persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
-Sentence 37,the /etc/rc.local will execute certain commands after all of the systems' services have started.
-Sentence 38,the way that this is achieved is somewhat amateur as the malware constructs a shell command and then uses the system function to execute them (which in theory just calls the exec and hangs for a return code from the callee).
-Sentence 39,"a string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
-Sentence 40,"this is then passed to system, as described above."
-Sentence 41,the buffer used in all of these formatting operations is at the virtual address 0x9f48 and has a size of 300 bytes.
-Sentence 42,"technically, since the input is un-sanitized we could manipulate the path that the malware resides in and utilise a format string exploit."
-Sentence 43,"we could therefore manipulate the stack; read local variables, overwrite addresses etc."
-Sentence 44,this is the only persistence method used by the bot.
-Sentence 45,"information harvesting
-the process then forks itself and breaks away from its parent by calling setsid(..)."
-Sentence 46,all of the file descriptors are also closed which are inherited from the parent (0-3).
-Sentence 47,a thread is then created to call the sendinfo function which collects information such as the number of cpus in the system; the network speed; the amount of load on the system cpus; the local address of the network adapter.
-Sentence 48,this routine then calls the subroutine get_occupy.
-Sentence 49,we can see that we calculate the load average by iterating over all the cpus in the system.
-Sentence 50,"we can see that r3 is being used for the counter for this loop, then the blt instruction is executed which branches if the first operand is less than the second."
-Sentence 51,"in x86, this is the equivalent of jle."
-Sentence 52,"please note in earlier versions of this malware a thread used to be created to backdoora, however not anymore."
-Sentence 53,the way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
-Sentence 54,it then seeks to the start of the file; and parses it to get the local ip address from the default adapter.
-Sentence 55,"what i found strange about this sample of malware is that it created statistics which had no real meaning, for example it would create a random value and use it as the network speed."
-Sentence 56,"in the subroutine fake_net_speed we can see srandom is seeded with time — we pass the first parameter ‘0’ into time as we have no structure to fill (usually, a pointer to time_t would be passed into this function)."
-Sentence 57,we then move the result of time into r3; then back into r0 to be a parameter for srandom — this is most likely the compiler being strange for some reason or another.
-Sentence 58,the value generated by this call is then used in a sprintf statement to create a string which represents the network speed in mega bytes per second (apparently).
-Sentence 59,"this is super weird, the malware is creating a fake network speed for some reason.. the only conclusion i can come to regarding this is that someone has hired a programmer and they have failed to implement this feature — so they’re faking it to their client/boss etc."
-Sentence 60,"these values are then sent within this subroutine to the main c2..
+vaddr=0x00013dec paddr=0x0000bdec ord=5366 fwd=NONE sz=688 bind=GLOBAL type=FUNC name=main
+Nice!"
+Sentence 27,The executable isn't packed.
+Sentence 28,The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+Sentence 29,When reading this symlink internally from our process it will return the location from that our executable is running from.
+Sentence 30,We can see from the disassembly that we create a type of std::string and copy from the char array containing the path of the current executable.
+Sentence 31,This is then used and passed into the function used for persistence.
+Sentence 32,We then either check if we’re running or add to startup.
+Sentence 33,In the check_running procedure we do a call to ps -e then sleep for two seconds; we then get the output from the command and check to see if the current executable name exists in the output.
+Sentence 34,"If it does, we continue to branch to exit with an exit code of 0 (which is placed into r0) which will effectively shut-down the process."
+Sentence 35,"If not, we then go onto persistence."
+Sentence 36,"So, if we're already running, we effectively exit the process."
+Sentence 37,"Persistence
+Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so."
+Sentence 38,The /etc/rc.local will execute certain commands after all of the systems' services have started.
+Sentence 39,The way that this is achieved is somewhat amateur as the malware constructs a shell command and then uses the system function to execute them (which in theory just calls the exec and hangs for a return code from the callee).
+Sentence 40,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+Sentence 41,"This is then passed to system, as described above."
+Sentence 42,The buffer used in all of these formatting operations is at the virtual address 0x9F48 and has a size of 300 bytes.
+Sentence 43,"Technically, since the input is un-sanitized we could manipulate the path that the malware resides in and utilise a format string exploit."
+Sentence 44,"We could therefore manipulate the stack; read local variables, overwrite addresses etc."
+Sentence 45,This is the only persistence method used by the bot.
+Sentence 46,"Information harvesting
+The process then forks itself and breaks away from its parent by calling setsid(..)."
+Sentence 47,All of the file descriptors are also closed which are inherited from the parent (0-3).
+Sentence 48,A thread is then created to call the SendInfo function which collects information such as the number of CPUs in the system; the network speed; the amount of load on the system CPUs; the local address of the network adapter.
+Sentence 49,This routine then calls the subroutine get_occupy.
+Sentence 50,We can see that we calculate the load average by iterating over all the CPUs in the system.
+Sentence 51,"We can see that r3 is being used for the counter for this loop, then the blt instruction is executed which branches if the first operand is less than the second."
+Sentence 52,"In x86, this is the equivalent of jle."
+Sentence 53,"Please note in earlier versions of this malware a thread used to be created to backdoorA, however not anymore."
+Sentence 54,The way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
+Sentence 55,It then seeks to the start of the file; and parses it to get the local IP address from the default adapter.
+Sentence 56,"What I found strange about this sample of malware is that it created statistics which had no real meaning, for example it would create a random value and use it as the network speed."
+Sentence 57,"In the subroutine fake_net_speed we can see srandom is seeded with time — we pass the first parameter ‘0’ into time as we have no structure to fill (usually, a pointer to time_t would be passed into this function)."
+Sentence 58,We then move the result of time into r3; then back into r0 to be a parameter for srandom — this is most likely the compiler being strange for some reason or another.
+Sentence 59,The value generated by this call is then used in a sprintf statement to create a string which represents the network speed in mega bytes per second (apparently).
+Sentence 60,"This is super weird, the malware is creating a fake network speed for some reason.. the only conclusion I can come to regarding this is that someone has hired a programmer and they have failed to implement this feature — so they’re faking it to their client/boss etc."
+Sentence 61,"These values are then sent within this subroutine to the main C2..
 
-communication initialisation
-after all of these operations we finally come to the main core of the bot; the part where it connects to the c2 and receives commands."
-Sentence 61,"the procedure connectserver (which is at 0xca1c) is called from the main body of the function, this then branches to serverconnectcli (0xb5bc) which returns a socket to the c2 server."
-Sentence 62,the global variable mainsocket is then set to this value.
-Sentence 63,"diving into serverconnectcli..
+Communication Initialisation
+After all of these operations we finally come to the main core of the bot; the part where it connects to the C2 and receives commands."
+Sentence 62,"The procedure ConnectServer (which is at 0xCA1C) is called from the main body of the function, this then branches to ServerConnectCli (0xB5BC) which returns a socket to the C2 server."
+Sentence 63,The global variable MainSocket is then set to this value.
+Sentence 64,"Diving into ServerConnectCli..
 
-serverconnectcli starts by creating a socket of protocol type tcp, if this operation is not successful then the assembly branches off to a subroutine at 0xb654 which displays the error by calling the perror(..) function to display a human readable error."
-Sentence 64,"for those of you familiar with c, this is like doing:
+ServerConnectCli starts by creating a socket of protocol type TCP, if this operation is not successful then the assembly branches off to a subroutine at 0xB654 which displays the error by calling the perror(..) function to display a human readable error."
+Sentence 65,"For those of you familiar with C, this is like doing:
 
-r0 = socket(af_inet, sock_stream, ipproto_tcp);
-the port that we are going to connect to is partly obfuscated by the author."
-Sentence 65,the original number is loaded into the register r3.
-Sentence 66,we then shift this value by 16 bytes (0x10) to the left (we can see this being done in the lsl instruction.
-Sentence 67,we then shift is again to the right by 16 bytes.
-Sentence 68,"then again, this may of have been put in there by the compiler."
-Sentence 69,i've put the assembly down below so you can see clearly whats happening.
-Sentence 70,"mov r3, r0
+r0 = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+The port that we are going to connect to is partly obfuscated by the author."
+Sentence 66,The original number is loaded into the register r3.
+Sentence 67,We then shift this value by 16 bytes (0x10) to the left (we can see this being done in the lsl instruction.
+Sentence 68,We then shift is again to the right by 16 bytes.
+Sentence 69,"Then again, this may of have been put in there by the compiler."
+Sentence 70,I've put the assembly down below so you can see clearly whats happening.
+Sentence 71,"mov r3, r0
 strh r3, [r3, #0x104]
-lsl r3, r3, #0x10 // shift r3 right by 0x10
-lrl r3, r3, #0x10 // shift r3 left by 0x10
+lsl r3, r3, #0x10 // shift r3 RIGHT by 0x10
+lrl r3, r3, #0x10 // shift r3 LEFT by 0x10
 mov r0, r3
 bl htons
-could look at it this way in pseudocode..
+Could look at it this way in pseudocode..
 
 r3 = ((r3 << 0x10) >> 0x10)
-the bot has a symbol named analysisaddress at at 0xb1b8, at first sight one may think this is to divert the attention of researchers — but all this subroutine does is setup a hostent struct (http://man7.org/linux/man-pages/man3/gethostbyname.3.html) which we’ll use later on for the connection."
-Sentence 71,we pass in the first parameter in the register ‘r0’ from the location 0xc1fc8 which has the value of 61.147.91.53. we put the return value os gethostbyname into register r3 then preform some arithmetic on it.
-Sentence 72,"the malware does two calls to setsockopt, passing the ip_drop_source_membership flag and the after the above has completed the the malware does a call to connect to make an initial connection to the c2 server and then does a mixture of select and getsockopt calls on the socket to ensure that the non-blocking socket has successfully connected."
-Sentence 73,if the connection is not successful the malware will close the socket and exit.
-Sentence 74,once we have a working socket returned from serverconnectcli we then set the value of the global variable mainsocket to the return value.
-Sentence 75,the malware then goes on to getting more statistics from the infected box.
-Sentence 76,"first of all, it grabs the username from the user running the executable which is placed into ‘r11’."
-Sentence 77,"we can see that if the ‘uname’ call fails then “unknown” will be copied into the destination buffer which originally resided in r11, else if it is successful, will branch to 0xca8c."
-Sentence 78,more information is gathered about the infected host via the getcpuinfo function.
-Sentence 79,although this is self explanatory i’ll explain it anyways.
-Sentence 80,the virtual file /proc/cpuinfo is opened and read in words until an eof (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
-Sentence 81,the number of cpus is then passed back out from this method and the clock speed in mhz too.
-Sentence 82,the malware then calls sysinfo(..) and reads into the struct (also named sysinfo) which is originally located in r3.
-Sentence 83,"we then read several members of this struct, such as the total amount of swap, total amount of ram etc.. this is all then formatted and output into a string."
-Sentence 84,we can see here that the threat actor seems to be joking about by using the string ‘hacker’.. the string to be format is: versonex:linux-%s|%d|%d mhz|%dmb|%dmb|%s — you’ve spelt 'version' wrong mr threat actor.
-Sentence 85,it’s very strange here that sprintf was used before rather than snprintf (which helps mitigate buffer overflows/format string exploits to an extent as the function knows the length of the buffer).
-Sentence 86,"programmers will usually be inclined to use one naturally over the other, this indicates to myself there may be more than one programmer whom is contributing to this malware."
-Sentence 87,"in the control flow we can then see that we try to then send this information on ‘mainsocket’, if the send is not successful (so, if we send 0) we branch to another subroutine and close the socket."
-Sentence 88,"for those not familiar with arm, the beq instruction basically says if the flag is set that they are equal then jump to address 0xcbd4."
-Sentence 89,"this subroutine simply closes the socket, as said before."
-Sentence 90,"we then move onto select, if this call is successful thence move onto reading data from the c2."
-Sentence 91,"we then read data from the c2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive."
-Sentence 92,"again, if this is not successful it then prints an error message and branches to a subroutine which closes the socket and cleans up."
-Sentence 93,"conclusion, so far..
-it is obvious so far that this malware has been programmed by more than one author."
-Sentence 94,we can also see so far that the author has experience in socket programming.
-Sentence 95,the author is also using pascal case (likethis) and names certain functions such as getcpuinfo -- this could in turn indicate to us that the author is used to programming on windows.
-Sentence 96,"this is the end of this section, we will now move onto the details about the attack methods and what else the bot can be commanded to do."
+The bot has a symbol named AnalysisAddress at at 0xB1B8, at first sight one may think this is to divert the attention of researchers — but all this subroutine does is setup a hostent struct (http://man7.org/linux/man-pages/man3/gethostbyname.3.html) which we’ll use later on for the connection."
+Sentence 72,We pass in the first parameter in the register ‘r0’ from the location 0xC1FC8 which has the value of 61.147.91.53.
+Sentence 73,We put the return value os gethostbyname into register r3 then preform some arithmetic on it.
+Sentence 74,"The malware does two calls to setsockopt, passing the IP_DROP_SOURCE_MEMBERSHIP flag and the After the above has completed the the malware does a call to connect to make an initial connection to the C2 server and then does a mixture of select and getsockopt calls on the socket to ensure that the non-blocking socket has successfully connected."
+Sentence 75,If the connection is not successful the malware will close the socket and exit.
+Sentence 76,Once we have a working socket returned from ServerConnectCli we then set the value of the global variable MainSocket to the return value.
+Sentence 77,The malware then goes on to getting more statistics from the infected box.
+Sentence 78,"First of all, it grabs the username from the user running the executable which is placed into ‘r11’."
+Sentence 79,"We can see that if the ‘uname’ call fails then “Unknown” will be copied into the destination buffer which originally resided in r11, else if it is successful, will branch to 0xCA8C."
+Sentence 80,More information is gathered about the infected host via the GetCpuInfo function.
+Sentence 81,Although this is self explanatory I’ll explain it anyways.
+Sentence 82,The virtual file /proc/cpuinfo is opened and read in WORDs until an EOF (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
+Sentence 83,The number of CPUs is then passed back out from this method and the clock speed in MHz too.
+Sentence 84,The malware then calls sysinfo(..) and reads into the struct (also named sysinfo) which is originally located in r3.
+Sentence 85,"We then read several members of this struct, such as the total amount of swap, total amount of RAM etc.. this is all then formatted and output into a string."
+Sentence 86,We can see here that the threat actor seems to be joking about by using the string ‘Hacker’.. the string to be format is: VERSONEX:Linux-%s|%d|%d MHz|%dMB|%dMB|%s — you’ve spelt 'version' wrong Mr Threat Actor.
+Sentence 87,It’s very strange here that sprintf was used before rather than snprintf (which helps mitigate buffer overflows/format string exploits to an extent as the function knows the length of the buffer).
+Sentence 88,"Programmers will usually be inclined to use one naturally over the other, this indicates to myself there may be more than one programmer whom is contributing to this malware."
+Sentence 89,"In the control flow we can then see that we try to then send this information on ‘MainSocket’, if the send is not successful (so, if we send 0) we branch to another subroutine and close the socket."
+Sentence 90,"For those not familiar with ARM, the beq instruction basically says if the flag is set that they are equal then jump to address 0xCBD4."
+Sentence 91,"This subroutine simply closes the socket, as said before."
+Sentence 92,"We then move onto select, if this call is successful thence move onto reading data from the C2."
+Sentence 93,"We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive."
+Sentence 94,"Again, if this is not successful it then prints an error message and branches to a subroutine which closes the socket and cleans up."
+Sentence 95,"Conclusion, so far.."
+Sentence 96,It is obvious so far that this malware has been programmed by more than one author.
+Sentence 97,We can also see so far that the author has experience in socket programming.
+Sentence 98,The author is also using pascal case (LikeThis) and names certain functions such as GetCpuInfo -- this could in turn indicate to us that the author is used to programming on Windows.
+Sentence 99,"This is the end of this section, we will now move onto the details about the attack methods and what else the bot can be commanded to do."
