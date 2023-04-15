@@ -4,7 +4,7 @@ import ASG
 
 #### 自動化 regex: 建立 dest_object_set ####
 
-# 1. create set of objects (包含只剩下受詞 + type)
+# 1. create set of objects (包含主詞 + 受詞 + type)
 def create_set_of_objects(graph):
     '''return 2 lists seen_node_S, seen_node_O'''
     num_of_step = len(graph.step_list) # num_of_edges
@@ -351,6 +351,28 @@ def get_proc_regex(graph):
     
     return proc_regex
 
+def get_regex_match_proc(graph):
+    regexs = get_proc_regex(graph)
+    regex_match_proc = {}
+
+    seen_node_S, seen_node_O = create_set_of_objects(graph)
+    set_of_objects = get_dest_objects_set(seen_node_O)
+    set_of_proc_O = get_set_of_proc_O(set_of_objects, graph)
+    ignore_name = ['NO_PID', 'malware']
+
+    for proc in set_of_proc_O:
+        if "/" not in proc and proc not in ignore_name: 
+
+            for regex in regexs:
+                if re.search(regex, proc): # match 成功
+
+                    if regex not in regex_match_proc:
+                        regex_match_proc[regex] = [proc]
+                    else:
+                        regex_match_proc[regex].append(proc)
+    
+    return regex_match_proc
+
 def get_net_regex(graph):
     set_of_net_O = get_set_of_dict(graph)["Net"]
 
@@ -375,6 +397,28 @@ def get_net_regex(graph):
 
     return net_regex
 
+def get_regex_match_net(graph):
+    regexs = get_net_regex(graph)
+    regex_match_net = {}
+
+    set_of_net_O = get_set_of_dict(graph)["Net"]
+    # print("set_of_net_O:", set_of_net_O)
+
+    for net_O in set_of_net_O:
+        if net_O == "NIC":
+            if "^eth.*" not in regex_match_net:
+                regex_match_net["^eth.*"] = [net_O]
+
+        for regex in regexs:
+            if re.search(regex, net_O):
+                if regex not in regex_match_net:
+                    regex_match_net[regex] = [net_O]
+                else:
+                    regex_match_net[regex].append(net_O)
+
+    return regex_match_net                
+
+
 def get_mem_regex(graph):
     set_of_mem_O = get_set_of_dict(graph)["Memory"]
     if len(set_of_mem_O) > 0:
@@ -383,6 +427,16 @@ def get_mem_regex(graph):
         mem_regex = []
 
     return mem_regex
+
+def get_regex_match_mem(graph):
+    regexs = get_mem_regex(graph)
+    regex_match_mem = {}
+
+    set_of_mem_O = get_set_of_dict(graph)["Memory"]
+    if len(set_of_mem_O) > 0:
+        regex_match_mem["0x[0-9a-zA-Z]{8}"] = ["Memory Address"]
+
+    return regex_match_mem
 
 def get_ID_regex(graph):
     set_of_other_O = get_set_of_dict(graph)["Other"]
@@ -398,6 +452,25 @@ def get_ID_regex(graph):
 
     return ID_regex
 
+def get_regex_match_ID(graph):
+    regexs = get_ID_regex(graph)
+    regex_match_ID = {}
+
+    set_of_other_O = get_set_of_dict(graph)["Other"]
+    ignore_str = "Shared Memory ID"
+
+    for other_O in set_of_other_O:
+        if ignore_str not in other_O:
+            if "ID" in other_O:
+                for regex in regexs:
+                    if re.search(regex, other_O):
+                        if regex not in regex_match_ID:
+                            regex_match_ID[regex] = [other_O]
+                        else:
+                            regex_match_ID[regex].append(other_O)
+
+    return regex_match_ID
+
 def get_premission_regex(graph):
     set_of_other_O = get_set_of_dict(graph)["Other"]
 
@@ -409,6 +482,23 @@ def get_premission_regex(graph):
             break
     
     return prm_regex
+
+def get_regex_match_permission(graph):
+    regexs = get_premission_regex(graph)
+    regex_match_premission = {}
+
+    set_of_other_O = get_set_of_dict(graph)["Other"]
+
+    for other_O in set_of_other_O:
+        if "Permission" in other_O:
+            for regex in regexs:
+                if re.search(regex, other_O):
+                    if regex not in regex_match_premission:
+                        regex_match_premission[regex] = [other_O]
+                    else:
+                        regex_match_premission[regex].append(other_O)
+
+    return regex_match_premission
 
 def get_reduction_statistic(graph): # the graph is a non-reduciton graph, because we need to calculate the difference bewteen non-reduciton and reduction graph
     # count the reduciton # 要用尚未 reduce 的去計算
@@ -479,7 +569,6 @@ def get_reduction_statistic(graph): # the graph is a non-reduciton graph, becaus
 
 
 def get_uni_step(graph):
-    '''return a list of unique steps in step list'''
     step_set = list(set(graph.step_list))
     step_set_id = {}
     for i in range(len(step_set)):
@@ -522,6 +611,23 @@ def get_step_reduction_statistic(unique_step):
                 
     return step_reduction
 
+def get_sorted_uni_step(graph):
+    '''list of [src_node, dest_node, edge_name]'''
+    index = 1
+    set_of_step_list = list(set(graph.step_list))
+    set_of_step_list.sort(key = graph.step_list.index)
+    sorted_uni_step = []
+    for step in set_of_step_list:
+        src_node = step[0].name
+        dest_node = step[1].name
+        edge_name = step[2]
+        
+        sorted_uni_step.append([src_node, dest_node, edge_name])
+        # print("step", index, ":", src_node, "->", edge_name, "->", dest_node)
+        index += 1
+
+    return sorted_uni_step
+
 class Step:
     '''Store an asg step's data'''
     def __init__(self, number, subject, syscall, object) -> None:
@@ -533,6 +639,13 @@ class Step:
     def callb(self) -> str:
         '''system call with braces'''
         return f"{self.call}()"
+    def __eq__(self, other: object) -> bool:
+        '''note: self.num will not be compare'''
+        if isinstance(other, Step):
+            return self.sub == other.sub and self.obj == other.obj and self.call == other.call
+        return False
+    def __hash__(self):
+        return hash((self.sub, self.obj, self.call))
 
 def get_origin_steplist(graph:ASG.AttackGraph, syscall:str, regex:str) -> list[str]:
     '''Query the origin asg steps (triplet), return in a list of formatted string.\n
@@ -544,9 +657,16 @@ def get_origin_steplist(graph:ASG.AttackGraph, syscall:str, regex:str) -> list[s
         - query `get_origin_steplist(graph, 'rename', '/etc/rc\.local')` will get:
         - [`'  95. /etc/sedQUGLbs -> rename()   -> /etc/rc.local'`, `' 216. /etc/sedQhw17q -> rename()   -> /etc/rc.local'`]
     '''
-    # filter object with input regex
-    steplist = [Step(i, step[0].name, step[2], step[1].name) for i,step in enumerate(graph.step_list) if re.search(regex, step[1].name, re.IGNORECASE)] 
+    # take the first appearence step (unique)
+    steplist = [Step(None, step[0].name, step[2], step[1].name) for i,step in enumerate(graph.step_list)]
+    steplist = list( dict.fromkeys(steplist) )
+    for i in len(steplist):
+        steplist[i].step = i # set the step number
+
+    # filter object and syscall with input regex
+    steplist = [step for step in steplist if re.search(regex, step.obj, re.IGNORECASE)] 
     steplist = [step for step in steplist if step.call == syscall]
+    # turn object in to string
     steplist = [f"{step.num:4}. {step.sub:<7} -> {step.callb():10} -> {step.obj}" for step in steplist]
     return steplist
 

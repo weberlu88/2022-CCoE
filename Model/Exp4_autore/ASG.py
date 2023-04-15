@@ -260,16 +260,22 @@ class SyscallParser:
         
         self.isMemSink = True
         self.isTimeSink = True
-        self.isNICSink = False
+        self.isNICSink = True
         self.isIDSink = False
         self.isSleepSink = True
-        
 
-#         self.isMemSink = False
-#         self.isTimeSink = False
+#         self.isMemSink = True
+#         self.isTimeSink = True
 #         self.isNICSink = False
 #         self.isIDSink = False
-#         self.isSleepSink = False
+#         self.isSleepSink = True
+        
+
+        # self.isMemSink = False
+        # self.isTimeSink = False
+        # self.isNICSink = False
+        # self.isIDSink = False
+        # self.isSleepSink = True
 
 #         self.isMemSink = False
 #         self.isTimeSink = False
@@ -1270,8 +1276,16 @@ class AttackGraph:
                 self.proc_node_map[path] = child_node
             
             self.graph[child_node] = []
-            
-            self._connect_node(from_node, to_node, Edge(edge_name, time)) 
+
+            if not self.isDuplicate :
+                if (from_node, to_node, edge_name) not in self.edges:
+                    self._connect_node(from_node, to_node, Edge(edge_name, time))
+
+            else:
+                self._connect_node(from_node, to_node, Edge(edge_name, time))
+
+            # self._connect_node(from_node, to_node, Edge(edge_name, time)) 
+
         # file node exist
         else:
             if node_typ != 'p':
@@ -2268,8 +2282,9 @@ class AttackGraph:
             if path not in self.file_filter: # if not the specific file that we select to remain, then do nothing
                 return  
             else:
-                self._connect_proc_file(path, edge_name, syscall['time'], from_proc = True, node_typ = 'c')
-        
+                self._connect_proc_file(path, edge_name, syscall['time'], from_proc = True, node_typ = 'p')
+    
+
     def _socket(self, syscall):
         info = sys_parser.parse(syscall)
         fd = info['fd']
@@ -2657,21 +2672,22 @@ class AttackGraph:
             to_node = step[1]
             edge_name = step[2]
             
-            reverse_edge = ["read", "recv"] 
-            if to_node.name not in self.set_of_object and edge_name not in reverse_edge:
+            # reverse_edge = ["read", "recv"] 
+            # if to_node.name not in self.set_of_object and edge_name not in reverse_edge:
+            if to_node.name not in self.set_of_object:
                 trans_dict = {"f":"File", "c":"File", "pipe":"Process", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
 
                 self.set_of_object[to_node.name] = trans_dict[to_node.type]
                 self.set_of_object_summary[trans_dict[to_node.type]] += 1
                 self.set_of_object_summary_list[trans_dict[to_node.type]].append(to_node.name)
 
-            if edge_name in reverse_edge:
-                if from_node.name not in self.set_of_object:
-                    trans_dict = {"f":"File", "c":"File", "pipe":"Process", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
+            # if edge_name in reverse_edge:
+            #     if from_node.name not in self.set_of_object:
+            #         trans_dict = {"f":"File", "c":"File", "pipe":"Process", "p":"Process", "n":"Net", "m_addr":"Memory", "else":"Other"}
 
-                    self.set_of_object[from_node.name] = trans_dict[from_node.type]
-                    self.set_of_object_summary[trans_dict[from_node.type]] += 1
-                    self.set_of_object_summary_list[trans_dict[from_node.type]].append(from_node.name)
+            #         self.set_of_object[from_node.name] = trans_dict[from_node.type]
+            #         self.set_of_object_summary[trans_dict[from_node.type]] += 1
+            #         self.set_of_object_summary_list[trans_dict[from_node.type]].append(from_node.name)
 
     def sort_edges(self, edges, rm_nodes):
         if len(rm_nodes) != 0:
@@ -2885,6 +2901,7 @@ class AttackGraph:
         self.node_seq = []
         
         # draw edge
+        index = 1
         for pair, edge in edges.items():
             from_node, to_node, _ = pair
             
@@ -2896,8 +2913,11 @@ class AttackGraph:
             from_node = node_table[from_node]
             to_node = node_table[to_node]
             
-            edge_name = self._edges_sort_map[edge] + '. ' + edge.name + "()"
+            # edge_name = self._edges_sort_map[edge] + '. ' + edge.name + "()"
+            edge_name = str(index) + '. ' + edge.name + "()"
             dot.edge(from_node, to_node, edge_name, color = edge.color)
+
+            index += 1
         
         # sort node sequence
         self.node_seq = sorted(self.node_seq, key=lambda x: int(x[0]))
