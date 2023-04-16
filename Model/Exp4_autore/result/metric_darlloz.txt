@@ -1,7 +1,7 @@
-asg_object: {'/proc/self', '/sys/module/.*', '/run/.*', '/.*bin/mii', '/.*bin/wget', '^PID.*', '/var/run/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/home/.*', '/.*bin/insmod', '/var/tmp/.*', '^iptables$', '/.*bin/iptables', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/.*bin/pp', '^insmod$', '/.*bin/busybox', '^uname$', '/proc/\\d+/stat', '/.*bin/-wget', '/.*bin/mi', 'uname(.|$)', '/etc/modprobe\\.d', '/proc'}
+asg_object: {'/etc/modprobe\\.d', '^insmod$', '/proc', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^iptables$', '/var/tmp/.*', '/sys/module/.*', '/.*bin/iptables', '/proc/\\d+/stat', '/.*bin/busybox', '/.*bin/wget', '/var/run/.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', 'uname(.|$)', '/.*bin/-wget', '^uname$', '/.*bin/mii', '/home/.*', '/.*bin/insmod', '/run/.*', '/proc/self', '^PID.*', '/.*bin/pp', '/.*bin/mi'}
 
 Sample Darlloz-Broadcom.csv
-	num of segment in report: 48
+	num of segment in report: 48, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 24. R_malObj is 0.0000
@@ -17,7 +17,7 @@ Sample Darlloz-Broadcom.csv
 		ref-sys lifecycle: []
 
 Sample Darlloz-Giac.csv
-	num of segment in report: 154
+	num of segment in report: 154, 3 of them contain ASG object(s)
 	lenght of ctd's OPset is 3
 	#R_malObj
 	num of ctd objects: 2, num of asg objects: 24. R_malObj is 0.0833
@@ -33,7 +33,7 @@ Sample Darlloz-Giac.csv
 		ref-sys lifecycle: []
 
 Sample Darlloz-Icc17.csv
-	num of segment in report: 226
+	num of segment in report: 226, 4 of them contain ASG object(s)
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 3, num of asg objects: 24. R_malObj is 0.1250
@@ -49,52 +49,52 @@ Sample Darlloz-Icc17.csv
 		ref-sys lifecycle: []
 
 Sample Darlloz-Trendmicro.csv
-	num of segment in report: 26
+	num of segment in report: 26, 5 of them contain ASG object(s)
 	lenght of ctd's OPset is 15
 	#R_malObj
 	num of ctd objects: 8, num of asg objects: 24. R_malObj is 0.3333
-		ctd_object: {'/.*bin/pp', '/run/.*', '/var/tmp/.*', '/.*bin/-wget', '/.*bin/mii', '/.*bin/mi', '/var/run/.*', '/.*bin/wget'}
+		ctd_object: {'/run/.*', '/.*bin/wget', '/var/tmp/.*', '/.*bin/-wget', '/.*bin/mii', '/.*bin/pp', '/var/run/.*', '/.*bin/mi'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
 		len(asg_OPset): 37, len(ctd_OPset): 15
 	#R_malOps
 	num of matched asg op: 4, num of asg op: 37. R_malOps is 0.1081
-		refered lifecycle: [7, 5, 6, 4]
+		refered lifecycle: [7, 6, 5, 4]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP 8 act=rm(), obj=/var/run/.*>, <OP14 act=terminate, obj=/var/run/.lightpid, sent= It terminates and deletes the following processes and files:  /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid    >
+	<OP 8 act=rm(), obj=/var/run/.*>, <OP 4 act=delete, obj=/var/run/.lightscan, sent= This worm deletes the following files:  /var/run/.lightscan /var/run/lightscan /var/run/mipsel /var/run/mips /var/run/sh /var/run/arm /var/run/ppc /var/run/m /var/run/mi /var/run/s /var/run/a /var/run/p /var/run/msx /var/run/mx /var/run/sx /var/run/ax /var/run/px /var/run/32 /var/run/sel /var/run/pid /var/run/gcc /var/run/dev /var/run/psx /var/run/mpl /var/run/mps /var/run/sph /var/run/arml /var/run/mips.l /var/run/mipsell /var/run/ppcl /var/run/shl /bin/pp /bin/mi /bin/mii /var/tmp/dreams.install.sh /var/tmp/ep2.ppc /usr/bin/wget /usr/bin/-wget Propagation >
+	<OP 7 act=rm(), obj=/run/.*>, <OP 3 act=delete, obj=/var/run/.lightscan, sent= This worm deletes the following files:  /var/run/.lightscan /var/run/lightscan /var/run/mipsel /var/run/mips /var/run/sh /var/run/arm /var/run/ppc /var/run/m /var/run/mi /var/run/s /var/run/a /var/run/p /var/run/msx /var/run/mx /var/run/sx /var/run/ax /var/run/px /var/run/32 /var/run/sel /var/run/pid /var/run/gcc /var/run/dev /var/run/psx /var/run/mpl /var/run/mps /var/run/sph /var/run/arml /var/run/mips.l /var/run/mipsell /var/run/ppcl /var/run/shl /bin/pp /bin/mi /bin/mii /var/tmp/dreams.install.sh /var/tmp/ep2.ppc /usr/bin/wget /usr/bin/-wget Propagation >
 	<OP 6 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
-	<OP 7 act=rm(), obj=/run/.*>, <OP13 act=terminate, obj=/var/run/.lightpid, sent= It terminates and deletes the following processes and files:  /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid    >
 	<OP 5 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard/, sent= It creates the following folders:  /var/run/.zollard/ Other System Modifications >
 
 Sample Darlloz-Trendmicro2.csv
-	num of segment in report: 18
+	num of segment in report: 18, 5 of them contain ASG object(s)
 	lenght of ctd's OPset is 18
 	#R_malObj
 	num of ctd objects: 9, num of asg objects: 24. R_malObj is 0.3750
-		ctd_object: {'/.*bin/pp', '/.*bin/busybox', '/run/.*', '/var/tmp/.*', '/.*bin/-wget', '/.*bin/mii', '/.*bin/mi', '/var/run/.*', '/.*bin/wget'}
+		ctd_object: {'/run/.*', '/.*bin/wget', '/var/tmp/.*', '/.*bin/-wget', '/.*bin/mii', '/.*bin/pp', '/var/run/.*', '/.*bin/mi', '/.*bin/busybox'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 1. R_malSysObj is 0.0000
 		len(asg_OPset): 37, len(ctd_OPset): 18
 	#R_malOps
 	num of matched asg op: 5, num of asg op: 37. R_malOps is 0.1351
-		refered lifecycle: [7, 5, 6, 4, 14]
+		refered lifecycle: [14, 7, 6, 5, 4]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP 8 act=rm(), obj=/var/run/.*>, <OP15 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
-	<OP 6 act=open(), obj=/var/run/.*>, <OP15 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
-	<OP 7 act=rm(), obj=/run/.*>, <OP14 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
-	<OP 5 act=open(), obj=/run/.*>, <OP14 act=terminate, obj=/var/run/.lightpid, sent= It terminates the following processes if found running in the affected system's memory:  inetd xinetd telnetd utelnetd scfgmgr Other Details  This Worm does the following:  It terminates and deletes the following processes and files: /var/run/.lightpid /var/run/.aidrapid /var/run/lightpid /var/run/.lihtpid /var/run/.lamorte/lamorte.pid /var/run/.daemon.pid >
 	<OP15 act=rm(), obj=/.*bin/wget>, <OP17 act=exist, obj=/bin/wget, sent= It deletes the following files if /bin/busybox exists: /bin/wget /sbin/wget /usr/bin/wget /ffp/bin/wget >
+	<OP 8 act=rm(), obj=/var/run/.*>, <OP 4 act=delete, obj=/var/run/.lightscan, sent=  Other System Modifications  This Worm deletes the following files:  /var/run/.lightscan /var/run/lightscan /var/run/.lihtscan /var/run/mipsel /var/run/mips /var/run/sh /var/run/arm /var/run/ppc /var/run/m /var/run/mi /var/run/s /var/run/a /var/run/p /var/run/msx /var/run/mx /var/run/sx /var/run/ax /var/run/px /var/run/32 /var/run/sel /var/run/pid /var/run/gcc /var/run/dev /var/run/psx /var/run/mpl /var/run/mps /var/run/sph /var/run/arml /var/run/mips.l /var/run/mipsell /var/run/ppcl /var/run/shl /bin/pp /bin/mi /bin/mii /var/run/arm /var/run/mips /var/run/mipsel /var/run/ppc /var/run/sh /var/run/.lamorte/.log /var/run/.lamorte/.out /var/run/.lamorte/lamortee /var/run/ash /var/run/mish /var/run/msh /var/run/psh /var/run/sshd /var/run/telnetd /var/run/.output /var/run/.results /var/run/.logd_a /var/run/.logd_m /var/run/.logd_ms /var/run/.logd_p /var/run/.logd_s /var/tmp/dreams.install.sh /var/tmp/ep2.ppc /var/run/.cmd.run /dev/shm/cmd.so /dev/shm/que /dev/cmd.so /dev/que /var/cmd.so /media/cmd.so /media/http.so /tmp/hi /tmp/http.so /tmp/que /usr/bin/-wget >
+	<OP 7 act=rm(), obj=/run/.*>, <OP 3 act=delete, obj=/var/run/.lightscan, sent=  Other System Modifications  This Worm deletes the following files:  /var/run/.lightscan /var/run/lightscan /var/run/.lihtscan /var/run/mipsel /var/run/mips /var/run/sh /var/run/arm /var/run/ppc /var/run/m /var/run/mi /var/run/s /var/run/a /var/run/p /var/run/msx /var/run/mx /var/run/sx /var/run/ax /var/run/px /var/run/32 /var/run/sel /var/run/pid /var/run/gcc /var/run/dev /var/run/psx /var/run/mpl /var/run/mps /var/run/sph /var/run/arml /var/run/mips.l /var/run/mipsell /var/run/ppcl /var/run/shl /bin/pp /bin/mi /bin/mii /var/run/arm /var/run/mips /var/run/mipsel /var/run/ppc /var/run/sh /var/run/.lamorte/.log /var/run/.lamorte/.out /var/run/.lamorte/lamortee /var/run/ash /var/run/mish /var/run/msh /var/run/psh /var/run/sshd /var/run/telnetd /var/run/.output /var/run/.results /var/run/.logd_a /var/run/.logd_m /var/run/.logd_ms /var/run/.logd_p /var/run/.logd_s /var/tmp/dreams.install.sh /var/tmp/ep2.ppc /var/run/.cmd.run /dev/shm/cmd.so /dev/shm/que /dev/cmd.so /dev/que /var/cmd.so /media/cmd.so /media/http.so /tmp/hi /tmp/http.so /tmp/que /usr/bin/-wget >
+	<OP 6 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
+	<OP 5 act=open(), obj=/run/.*>, <OP 1 act=create, obj=/var/run/.zollard, sent= This Worm creates the following folders:  /var/run/.zollard >
 
 Sample Darlloz-cisco.csv
-	num of segment in report: 32
+	num of segment in report: 32, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 24. R_malObj is 0.0000
@@ -112,3 +112,235 @@ Sample Darlloz-cisco.csv
 
 OperationPair that changes system resources:
 []
+
+{
+    "/.*bin/-wget": [
+        "/usr/bin/-wget"
+    ],
+    "/.*bin/busybox": [
+        "/bin/busybox"
+    ],
+    "/.*bin/insmod": [
+        "/sbin/insmod",
+        "/usr/bin/insmod",
+        "/usr/local/bin/insmod",
+        "/usr/local/sbin/insmod",
+        "/usr/sbin/insmod"
+    ],
+    "/.*bin/iptables": [
+        "/sbin/iptables",
+        "/usr/bin/iptables",
+        "/usr/local/bin/iptables",
+        "/usr/local/sbin/iptables",
+        "/usr/sbin/iptables"
+    ],
+    "/.*bin/mi": [
+        "/bin/mi"
+    ],
+    "/.*bin/mii": [
+        "/bin/mii"
+    ],
+    "/.*bin/pp": [
+        "/bin/pp"
+    ],
+    "/.*bin/uname": [
+        "/bin/uname",
+        "/sbin/uname",
+        "/usr/bin/uname",
+        "/usr/local/bin/uname",
+        "/usr/local/sbin/uname",
+        "/usr/sbin/uname"
+    ],
+    "/.*bin/wget": [
+        "/bin/wget",
+        "/ffp/bin/wget",
+        "/sbin/wget",
+        "/usr/bin/wget"
+    ],
+    "/etc/modprobe\\.d": [
+        "/etc/modprobe.d"
+    ],
+    "/home/.*": [
+        "/home/linaro/malware/",
+        "/home/linaro/malware/.",
+        "/home/linaro/malware/arm",
+        "/home/linaro/malware/armeabi",
+        "/home/linaro/malware/mips",
+        "/home/linaro/malware/mipsel",
+        "/home/linaro/malware/nodes",
+        "/home/linaro/malware/ppc",
+        "/home/linaro/malware/sig",
+        "/home/linaro/malware/x86"
+    ],
+    "/proc": [
+        "/proc"
+    ],
+    "/proc/\\d+/stat": [
+        "/proc/1/stat",
+        "/proc/10/stat",
+        "/proc/1026/stat",
+        "/proc/1089/stat",
+        "/proc/1090/stat",
+        "/proc/11/stat",
+        "/proc/1109/stat",
+        "/proc/12/stat",
+        "/proc/1258/stat",
+        "/proc/1368/stat",
+        "/proc/1381/stat",
+        "/proc/1385/stat",
+        "/proc/1386/stat",
+        "/proc/1400/stat",
+        "/proc/1402/stat",
+        "/proc/1414/stat",
+        "/proc/1415/stat",
+        "/proc/1419/stat",
+        "/proc/1420/stat",
+        "/proc/1425/stat",
+        "/proc/1437/stat",
+        "/proc/1438/stat",
+        "/proc/1440/stat",
+        "/proc/1460/stat",
+        "/proc/1482/stat",
+        "/proc/1488/stat",
+        "/proc/1511/stat",
+        "/proc/1519/stat",
+        "/proc/1775/stat",
+        "/proc/1776/stat",
+        "/proc/1777/stat",
+        "/proc/1778/stat",
+        "/proc/1779/stat",
+        "/proc/1780/stat",
+        "/proc/1781/stat",
+        "/proc/1782/stat",
+        "/proc/1784/stat",
+        "/proc/1785/stat",
+        "/proc/1786/stat",
+        "/proc/1787/stat",
+        "/proc/1788/stat",
+        "/proc/1789/stat",
+        "/proc/1790/stat",
+        "/proc/1791/stat",
+        "/proc/1792/stat",
+        "/proc/1793/stat",
+        "/proc/1795/stat",
+        "/proc/1796/stat",
+        "/proc/1797/stat",
+        "/proc/1798/stat",
+        "/proc/1799/stat",
+        "/proc/1800/stat",
+        "/proc/1801/stat",
+        "/proc/1802/stat",
+        "/proc/1803/stat",
+        "/proc/1806/stat",
+        "/proc/1807/stat",
+        "/proc/1849/stat",
+        "/proc/1863/stat",
+        "/proc/1873/stat",
+        "/proc/1874/stat",
+        "/proc/1875/stat",
+        "/proc/1882/stat",
+        "/proc/2/stat",
+        "/proc/205/stat",
+        "/proc/208/stat",
+        "/proc/209/stat",
+        "/proc/211/stat",
+        "/proc/225/stat",
+        "/proc/3/stat",
+        "/proc/322/stat",
+        "/proc/323/stat",
+        "/proc/334/stat",
+        "/proc/335/stat",
+        "/proc/336/stat",
+        "/proc/337/stat",
+        "/proc/339/stat",
+        "/proc/4/stat",
+        "/proc/5/stat",
+        "/proc/6/stat",
+        "/proc/7/stat",
+        "/proc/8/stat",
+        "/proc/9/stat",
+        "/proc/943/stat",
+        "/proc/945/stat",
+        "/proc/956/stat",
+        "/proc/962/stat",
+        "/proc/997/stat"
+    ],
+    "/proc/self": [
+        "/proc/self/exe"
+    ],
+    "/run/.*": [
+        "/run/modprobe.d"
+    ],
+    "/sys/module/.*": [
+        "/sys/module/ip_tables",
+        "/sys/module/x_tables"
+    ],
+    "/var/run/.*": [
+        "/var/run/.aidrapid",
+        "/var/run/.cmd.run",
+        "/var/run/.daemon.pid",
+        "/var/run/.lamorte",
+        "/var/run/.lamorte/.log",
+        "/var/run/.lamorte/.out",
+        "/var/run/.lamorte/lamorte.pid",
+        "/var/run/.lamorte/lamortee",
+        "/var/run/.lightpid",
+        "/var/run/.lightscan",
+        "/var/run/.lihtpid",
+        "/var/run/.lihtscan",
+        "/var/run/.logd_a",
+        "/var/run/.logd_m",
+        "/var/run/.logd_ms",
+        "/var/run/.logd_p",
+        "/var/run/.logd_s",
+        "/var/run/.output",
+        "/var/run/.results",
+        "/var/run/32",
+        "/var/run/a",
+        "/var/run/a..rm",
+        "/var/run/arm",
+        "/var/run/arml",
+        "/var/run/ash",
+        "/var/run/ax",
+        "/var/run/dev",
+        "/var/run/gcc",
+        "/var/run/lightpid",
+        "/var/run/lightscan",
+        "/var/run/m",
+        "/var/run/m..ips",
+        "/var/run/m..ipsel",
+        "/var/run/mi",
+        "/var/run/mips",
+        "/var/run/mips.l",
+        "/var/run/mipsel",
+        "/var/run/mipsell",
+        "/var/run/mish",
+        "/var/run/mpl",
+        "/var/run/mps",
+        "/var/run/msh",
+        "/var/run/msx",
+        "/var/run/mx",
+        "/var/run/p",
+        "/var/run/pid",
+        "/var/run/pp..c",
+        "/var/run/ppc",
+        "/var/run/ppcl",
+        "/var/run/psh",
+        "/var/run/psx",
+        "/var/run/px",
+        "/var/run/s",
+        "/var/run/s..h",
+        "/var/run/sel",
+        "/var/run/sh",
+        "/var/run/shl",
+        "/var/run/sph",
+        "/var/run/sshd",
+        "/var/run/sx",
+        "/var/run/telnetd",
+        "/var/run/z"
+    ],
+    "/var/tmp/.*": [
+        "/var/tmp/dreams.install.sh",
+        "/var/tmp/ep2.ppc"
+    ]
+}

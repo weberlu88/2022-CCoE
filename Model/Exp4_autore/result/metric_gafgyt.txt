@@ -1,4 +1,4 @@
-asg_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^UID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/.*bin/python', '^PID.*', '/.*bin/watchdog', '/proc/net/route'}
+asg_object: {'/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*', '/.*bin/python', '^UID.*', '/.*bin/watchdog', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
 
 Sample Gafgyt-fortinet.csv
 	num of segment in report: 43, 2 of them contain ASG object(s)
@@ -21,7 +21,7 @@ Sample Gafgyt-nozominetworks.csv
 	lenght of ctd's OPset is 2
 	#R_malObj
 	num of ctd objects: 2, num of asg objects: 7. R_malObj is 0.2857
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*'}
+		ctd_object: {'^PID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
 		len(asg_OPset): 11, len(ctd_OPset): 2
@@ -37,27 +37,27 @@ Sample Gafgyt-sectrio.csv
 	lenght of ctd's OPset is 4
 	#R_malObj
 	num of ctd objects: 3, num of asg objects: 7. R_malObj is 0.4286
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/net/route', '^PID.*'}
+		ctd_object: {'^PID.*', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
 		len(asg_OPset): 11, len(ctd_OPset): 4
 	#R_malOps
 	num of matched asg op: 2, num of asg op: 11. R_malOps is 0.1818
-		refered lifecycle: [2, 8]
+		refered lifecycle: [8, 2]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP 3 act=getpid(), obj=^PID.*>, <OP 1 act=check, obj=pid, sent= Fig 3: Malware checking machine time, IP and pid of itself.>
 	<OP 9 act=getppid(), obj=^PID.*>, <OP 1 act=check, obj=pid, sent= Fig 3: Malware checking machine time, IP and pid of itself.>
+	<OP 3 act=getpid(), obj=^PID.*>, <OP 1 act=check, obj=pid, sent= Fig 3: Malware checking machine time, IP and pid of itself.>
 
 Sample Gafgyt-securityscorecard.csv
 	num of segment in report: 78, 5 of them contain ASG object(s)
 	lenght of ctd's OPset is 5
 	#R_malObj
 	num of ctd objects: 4, num of asg objects: 7. R_malObj is 0.5714
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/proc/net/route', '^PID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
+		ctd_object: {'^PID.*', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+'}
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
 		len(asg_OPset): 11, len(ctd_OPset): 5
