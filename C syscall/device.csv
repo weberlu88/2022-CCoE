@@ -1,0 +1,13 @@
+ActionType,Syscall,EnVerb,Sentence,EntityType
+DEVICE,io_cancel,cancel,cancel an outstanding asynchronous I/O operation,DEVICE
+DEVICE,iopl,change,change I/O privilege level,DEVICE
+DEVICE,pciconfig_read,handle,pci device information handling,DEVICE
+DEVICE,pciconfig_write,handle,pci device information handling,DEVICE
+DEVICE,pciconfig_iobase,handle,pci device information handling,DEVICE
+DEVICE,io_destroy,destroy,destroy an asynchronous I/O context,DEVICE
+DEVICE,ioperm,set,set port input/output permissions,DEVICE
+DEVICE,io_getevents,read,read asynchronous I/O events from the completion queue,DEVICE
+DEVICE,io_setup,create,create an asynchronous I/O context,DEVICE
+DEVICE,swapoff,start,start/stop swapping to file/device,DEVICE
+DEVICE,io_submit,submit,submit asynchronous I/O blocks for processing,DEVICE
+DEVICE,swapon,start,start/stop swapping to file/device,DEVICE

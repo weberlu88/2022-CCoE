@@ -1,0 +1,64 @@
+ActionType,Syscall,EnVerb,Sentence,EntityType
+INFO_GET,oldolduname,get,get name and information about current kernel,DEVICE
+INFO_GET,olduname,get,get name and information about current kernel,DEVICE
+INFO_GET,madvise,give,give advice about use of memory,DEVICE
+INFO_GET,request_key,request,request a key from the kernel's key management facility,DEVICE
+INFO_GET,sched_get_priority_max,get,get static priority range,DEVICE
+INFO_GET,kexec_load,load,load a new kernel for later execution,DEVICE
+ID_SET,setuid,set,set user identity,ID
+ID_GET,geteuid32,get,get user identity,ID
+INFO_GET,ustat,get,get filesystem statistics,DEVICE
+INFO_SET,keyctl,manipulate,manipulate the kernel's key management facility,DEVICE
+ID_SET,setreuid32,set,set real and/or effective user or group ID,ID
+TIME_GET,times,get,get process times,TIME
+INFO_GET,get_kernel_syms,exported,retrieve exported kernel and module symbols,DEVICE
+INFO_SET,_sysctl,read,read/write system parameters,DEVICE
+ID_GET,getpgid,set,set/get process group,ID
+ID_GET,getegid32,get,get group identity,ID
+ID_GET,getuid32,get,get user identity,ID
+ID_GET,getpgrp,set,set/get process group,ID
+ID_SET,setpgid,set,set/get process group,ID
+ID_GET,gettid,get,get thread identification,ID
+TIME_SET,stime,set,set time,TIME
+ID_SET,setregid,set,set real and/or effective user or group ID,ID
+INFO_SET,perf_event_open,set,set up performance monitoring,DEVICE
+ID_SET,setgid32,set,set group identity,ID
+ID_GET,getsid,get,get session ID,ID
+INFO_SET,shmctl,shared,System V shared memory control,DEVICE
+INFO_GET,getrusage,get,get resource usage,DEVICE
+INFO_GET,semget,get,get a System V semaphore set identifier,DEVICE
+INFO_GET,msgget,get,get a System V message queue identifier,DEVICE
+ID_SET,setreuid,set,set real and/or effective user or group ID,ID
+INFO_GET,sched_get_priority_min,get,get static priority range,DEVICE
+INFO_GET,kexec_file_load,load,load a new kernel for later execution,DEVICE
+ID_SET,setregid32,set,set real and/or effective user or group ID,ID
+ID_SET,setgid,set,set group identity,ID
+ID_SET,setuid32,set,set user identity,ID
+INFO_SET,add_key,add,add a key to the kernel's key management facility,DEVICE
+ID_GET,getgid32,get,get group identity,ID
+INFO_GET,ipc,call,System V IPC system calls,DEVICE
+ID_GET,getgroups,get,get/set list of supplementary group IDs,ID
+ID_SET,setfsuid32,set,set user identity used for filesystem checks,ID
+INFO_SET,setdomainname,set,get/set NIS domain name,DEVICE
+ID_SET,setresuid32,set,"set real, effective, and saved user or group ID",ID
+ID_GET,getresgid32,get,"get real, effective, and saved user/group IDs",ID
+ID_SET,setgroups,set,get/set list of supplementary group IDs,ID
+INFO_GET,getcpu,determine,determine CPU and NUMA node on which the calling thread is running,DEVICE
+ID_SET,setresuid,set,"set real, effective, and saved user or group ID",ID
+ID_SET,setfsgid32,set,set group identity used for filesystem checks,ID
+ID_GET,getgroups32,get,get/set list of supplementary group IDs,ID
+INFO_SET,sethostname,set,get/set hostname,DEVICE
+ID_SET,setfsuid,set,set user identity used for filesystem checks,ID
+ID_SET,setresgid,set,"set real, effective, and saved user or group ID",ID
+INFO_SET,setrlimit,set,get/set resource limits,DEVICE
+ID_GET,getresgid,get,"get real, effective, and saved user/group IDs",ID
+INFO_GET,getpriority,get,get/set program scheduling priority,DEVICE
+ID_SET,setfsgid,set,set group identity used for filesystem checks,ID
+INFO_SET,setpriority,set,get/set program scheduling priority,DEVICE
+ID_SET,setgroups32,set,get/set list of supplementary group IDs,ID
+ID_GET,getresuid,get,"get real, effective, and saved user/group IDs",ID
+INFO_GET,syslog,read,read and/or clear kernel message ring buffer; set console_loglevel,DEVICE
+INFO_GET,syslog,clear,read and/or clear kernel message ring buffer; set console_loglevel,DEVICE
+INFO_GET,syslog,set,read and/or clear kernel message ring buffer; set console_loglevel,DEVICE
+ID_SET,setresgid32,set,"set real, effective, and saved user or group ID",ID
+ID_GET,getresuid32,get,"get real, effective, and saved user/group IDs",ID

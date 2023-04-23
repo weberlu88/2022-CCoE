@@ -1,0 +1,274 @@
+Syscall,EnVerb,Sentence
+idle,make,make process 0 idle
+move_pages,move,move individual pages of a process to another node
+timer_gettime,fetch,arm/disarm and fetch state of POSIX per
+timer_delete,delete,delete a POSIX per
+execveat,execute,execute program relative to a directory file descriptor
+mlockall,lock,lock and unlock memory
+pkey_alloc,allocate,allocate or free a protection key
+personality,set,set the process execution domain
+unshare,disassociate,disassociate parts of the process execution context
+process_vm_readv,transfer,transfer data between process address spaces
+mlock,lock,lock and unlock memory
+restart_syscall,restart,restart a system call after interruption by a stop signal
+sched_yield,yield,yield the processor
+setns,reassociate,reassociate thread with a namespace
+init_module,load,load a kernel module
+mlock2,lock,lock and unlock memory
+mbind,set,set memory policy for a memory range
+munlockall,lock,lock and unlock memory
+rt_sigreturn,return,return from signal handler and cleanup stack frame
+pkey_free,allocate,allocate or free a protection key
+getrandom,obtain,obtain a series of random bytes
+pkey_mprotect,set,set protection on a region of memory
+set_mempolicy,set,set default NUMA memory policy for a thread and its children
+migrate_pages,move,move all pages in a process to another set of nodes
+sigreturn,return,return from signal handler and cleanup stack frame
+munlock,lock,lock and unlock memory
+tkill,send,send a signal to a thread
+process_vm_writev,transfer,transfer data between process address spaces
+timer_getoverrun,get,get overrun count for a POSIX per
+rt_sigsuspend,wait,wait for a signal
+bdflush,start,"start, flush, or tune buffer"
+bpf,perform,perform a command on an extended BPF map or program
+exit,terminate,terminate the calling process
+timer_settime,fetch,arm/disarm and fetch state of POSIX per
+sigsuspend,wait,wait for a signal
+finit_module,load,load a kernel module
+create_module,create,create a loadable module entry
+timer_create,create,create a POSIX per
+vm86,enter,enter virtual 8086 mode
+tgkill,send,send a signal to a thread
+delete_module,unload,unload a kernel module
+pause,wait,wait for signal
+seccomp,operate,operate on Secure Computing state of the process
+uselib,shared,load shared library
+alarm,set,set an alarm clock for delivery of a signal
+get_mempolicy,retrieve,retrieve NUMA memory policy for a thread
+_llseek,offset,reposition read/write file offset
+fgetxattr,retrieve,retrieve an extended attribute value
+tee,duplicate,duplicating pipe content
+readdir,read,read directory entry
+timerfd_gettime,notify,timers that notify via file descriptors
+mknod,create,create a special or ordinary file
+copy_file_range,copy,Copy a range of data from one file to another
+acct,switch,switch process accounting on or off
+chown32,change,change ownership of a file
+setxattr,set,set an extended attribute value
+sysfs,get,get filesystem type information
+sendfile64,transfer,transfer data between file descriptors
+truncate,truncate,truncate a file to a specified length
+fremovexattr,remove,remove an extended attribute
+epoll_create,open,open an epoll file descriptor
+utimensat,change,change file timestamps with nanosecond precision
+timerfd_settime,notify,timers that notify via file descriptors
+chroot,change,change root directory
+readlinkat,read,read value of a symbolic link
+fstatfs,get,get filesystem statistics
+lchown32,change,change ownership of a file
+utime,change,change file last access and modification times
+inotify_init1,initialize,initialize an inotify instance
+creat,create,open and possibly create a file
+fchmodat,change,change permissions of a file
+memfd_create,create,create an anonymous file
+lstat64,get,get file status
+lchown,change,change ownership of a file
+lremovexattr,remove,remove an extended attribute
+truncate64,truncate,truncate a file to a specified length
+pivot_root,change,change the root mount
+epoll_create1,open,open an epoll file descriptor
+futimesat,change,change timestamps of a file relative to a directory file descriptor
+timerfd_create,notify,timers that notify via file descriptors
+epoll_wait,wait,wait for an I/O event on an epoll file descriptor
+epoll_pwait,wait,wait for an I/O event on an epoll file descriptor
+statfs64,get,get filesystem statistics
+renameat2,change,change the name or location of a file
+sendfile,transfer,transfer data between file descriptors
+mknodat,create,create a special or ordinary file
+lookup_dcookie,return,return a directory entry's path
+faccessat,check,check user's permissions for a file
+lgetxattr,retrieve,retrieve an extended attribute value
+listxattr,extended,list extended attribute names
+eventfd,create,create a file descriptor for event notification
+oldstat,get,get file status
+inotify_init,initialize,initialize an inotify instance
+sync_file_range,sync,sync a file segment with disk
+oldfstat,get,get file status
+chown,change,change ownership of a file
+mkdirat,create,create a directory
+fstatfs64,get,get filesystem statistics
+llistxattr,list,list extended attribute names
+ftruncate64,truncate,truncate a file to a specified length
+readahead,initiate,initiate file readahead into page cache
+remap_file_pages,create,create a nonlinear file mapping
+flistxattr,list,list extended attribute names
+lsetxattr,set,set an extended attribute value
+ftruncate,truncate,truncate a file to a specified length
+getdents64,get,get directory entries
+dup3,duplicate,duplicate a file descriptor
+removexattr,remove,remove an extended attribute
+fchown32,change,change ownership of a file
+oldlstat,get,get file status
+getxattr,retrieve,retrieve an extended attribute value
+sync_file_range2,sync,sync a file segment with disk
+renameat,change,change the name or location of a file
+fchown,change,change ownership of a file
+eventfd2,create,create a file descriptor for event notification
+fstatat64,get,get file status
+fstat64,get,get file status
+fsetxattr,set,set an extended attribute value
+utimes,change,change file last access and modification times
+msync,synchronize,synchronize a file with a memory map
+fchownat,change,change ownership of a file
+io_cancel,cancel,cancel an outstanding asynchronous I/O operation
+iopl,change,change I/O privilege level
+pciconfig_read,handle,pci device information handling
+pciconfig_write,handle,pci device information handling
+pciconfig_iobase,handle,pci device information handling
+io_destroy,destroy,destroy an asynchronous I/O context
+ioperm,set,set port input/output permissions
+io_getevents,read,read asynchronous I/O events from the completion queue
+io_setup,create,create an asynchronous I/O context
+oldolduname,get,get name and information about current kernel
+olduname,get,get name and information about current kernel
+madvise,give,give advice about use of memory
+request_key,request,request a key from the kernel's key management facility
+sched_get_priority_max,get,get static priority range
+kexec_load,load,load a new kernel for later execution
+setuid,set,set user identity
+geteuid32,get,get user identity
+ustat,get,get filesystem statistics
+keyctl,manipulate,manipulate the kernel's key management facility
+setreuid32,set,set real and/or effective user or group ID
+times,get,get process times
+get_kernel_syms,exported,retrieve exported kernel and module symbols
+_sysctl,read,read/write system parameters
+getpgid,set,set/get process group
+getegid32,get,get group identity
+getuid32,get,get user identity
+getpgrp,set,set/get process group
+setpgid,set,set/get process group
+gettid,get,get thread identification
+stime,set,set time
+setregid,set,set real and/or effective user or group ID
+perf_event_open,set,set up performance monitoring
+setgid32,set,set group identity
+getsid,get,get session ID
+shmctl,shared,System V shared memory control
+getrusage,get,get resource usage
+semget,get,get a System V semaphore set identifier
+msgget,get,get a System V message queue identifier
+setreuid,set,set real and/or effective user or group ID
+sched_get_priority_min,get,get static priority range
+kexec_file_load,load,load a new kernel for later execution
+setregid32,set,set real and/or effective user or group ID
+setgid,set,set group identity
+setuid32,set,set user identity
+add_key,add,add a key to the kernel's key management facility
+getgid32,get,get group identity
+ipc,call,System V IPC system calls
+shutdown,shut,shut down part of a full
+recvmmsg,receive,receive multiple messages on a socket
+sendmmsg,send,send multiple messages on a socket
+pipe2,create,create pipe
+mq_unlink,remove,remove a message queue
+socketpair,create,create a pair of connected sockets
+mq_timedsend,send,send a message to a message queue
+mq_open,open,open a message queue
+accept4,accept,accept a connection on a socket
+mq_timedreceive,receive,receive a message from a message queue
+getpeername,get,get name of connected peer socket
+accept,accept,accept a connection on a socket
+listen,listen,listen for connections on a socket
+sched_setparam,set,set and get scheduling parameters
+sched_getparam,get,set and get scheduling parameters
+sigaltstack,set,set and/or get signal stack context
+sigaltstack,get,set and/or get signal stack context
+capset,set,set/get capabilities of thread(s)
+rt_sigtimedwait,wait,synchronously wait for queued signals
+rt_sigaction,examine,examine and change a signal action
+rt_sigaction,change,examine and change a signal action
+capget,get,set/get capabilities of thread(s)
+sched_setaffinity,set,set and get a thread's CPU affinity mask
+rt_sigprocmask,examine,examine and change blocked signals
+rt_sigprocmask,change,examine and change blocked signals
+sigpending,examine,examine pending signals
+sched_rr_get_interval,get,get the SCHED_RR interval for the named process
+sigprocmask,examine,examine and change blocked signals
+sigprocmask,change,examine and change blocked signals
+waitid,wait,wait for process to change state
+query_module,query,query the kernel for various bits pertaining to modules
+mincore,determine,determine whether pages are resident in memory
+kcmp,compare,compare two processes to determine if they share a kernel resource
+sched_getaffinity,get,set and get a thread's CPU affinity mask
+rt_sigpending,examine,examine pending signals
+sched_setattr,set,set and get scheduling policy and attributes
+ioprio_get,get,get/set I/O scheduling class and priority
+sigaction,examine,examine and change a signal action
+sigaction,change,examine and change a signal action
+setitimer,set,get or set value of an interval timer
+sched_getscheduler,get,set and get scheduling policy/parameters
+ioprio_set,set,get/set I/O scheduling class and priority
+sched_getattr,get,set and get scheduling policy and attributes
+get_robust_list,get,get/set list of robust futexes
+getitimer,get,get or set value of an interval timer
+sched_setscheduler,set,set and get scheduling policy/parameters
+pwritev,read,read or write data into multiple buffers
+inotify_rm_watch,remove,remove an existing watch from an inotify instance
+statx,get,get file status (extended)
+readv,read,read or write data into multiple buffers
+name_to_handle_at,obtain,obtain handle for a pathname and open file via a handle
+name_to_handle_at,open,obtain handle for a pathname and open file via a handle
+pwritev2,read,read or write data into multiple buffers
+flock,apply,apply or remove an advisory lock on an open file
+modify_ldt,get,get or set a per
+preadv2,read,read or write data into multiple buffers
+pread64,read,read from or write to a file descriptor at a given offset
+preadv,read,read or write data into multiple buffers
+signalfd,create,create a file descriptor for accepting signals
+open_by_handle_at,obtain,obtain handle for a pathname and open file via a handle
+open_by_handle_at,open,obtain handle for a pathname and open file via a handle
+writev,read,read or write data into multiple buffers
+sync,commit,commit filesystem caches to disk
+fanotify_mark,add,"add, remove, or modify an fanotify mark on a filesystem object"
+fdatasync,synchronize,synchronize a file's in
+inotify_add_watch,add,add a watch to an initialized inotify instance
+signalfd4,create,create a file descriptor for accepting signals
+pwrite64,read,read from or write to a file descriptor at a given offset
+fsync,synchronize,synchronize a file's in
+userfaultfd,create,create a file descriptor for handling page faults in user space
+userfaultfd,handle,create a file descriptor for handling page faults in user space
+fanotify_init,create,create and initialize fanotify group
+fanotify_init,initialize,create and initialize fanotify group
+syncfs,commit,commit filesystem caches to disk
+swapoff,start,start/stop swapping to file/device
+io_submit,submit,submit asynchronous I/O blocks for processing
+swapon,start,start/stop swapping to file/device
+getgroups,get,get/set list of supplementary group IDs
+setfsuid32,set,set user identity used for filesystem checks
+setdomainname,set,get/set NIS domain name
+setresuid32,set,"set real, effective, and saved user or group ID"
+getresgid32,get,"get real, effective, and saved user/group IDs"
+setgroups,set,get/set list of supplementary group IDs
+getcpu,determine,determine CPU and NUMA node on which the calling thread is running
+setresuid,set,"set real, effective, and saved user or group ID"
+setfsgid32,set,set group identity used for filesystem checks
+getgroups32,get,get/set list of supplementary group IDs
+sethostname,set,get/set hostname
+setfsuid,set,set user identity used for filesystem checks
+setresgid,set,"set real, effective, and saved user or group ID"
+setrlimit,set,get/set resource limits
+getresgid,get,"get real, effective, and saved user/group IDs"
+getpriority,get,get/set program scheduling priority
+setfsgid,set,set group identity used for filesystem checks
+setpriority,set,get/set program scheduling priority
+setgroups32,set,get/set list of supplementary group IDs
+getresuid,get,"get real, effective, and saved user/group IDs"
+syslog,read,read and/or clear kernel message ring buffer; set console_loglevel
+syslog,clear,read and/or clear kernel message ring buffer; set console_loglevel
+syslog,set,read and/or clear kernel message ring buffer; set console_loglevel
+setresgid32,set,"set real, effective, and saved user or group ID"
+getresuid32,get,"get real, effective, and saved user/group IDs"
+mq_getsetattr,get,get/set message queue attributes
+mq_getsetattr,set,get/set message queue attributes
+mq_notify,register,register for notification when a message is available

@@ -1,0 +1,17 @@
+ActionType,Syscall,EnVerb,Sentence,EntityType
+NET_CLOSE,shutdown,shut,shut down part of a full,NET
+NET_TRANSMIT,recvmmsg,receive,receive multiple messages on a socket,NET
+NET_TRANSMIT,sendmmsg,send,send multiple messages on a socket,NET
+NET_CONNECT,pipe2,create,create pipe,NET
+NET_CLOSE,mq_unlink,remove,remove a message queue,NET
+NET_CONNECT,socketpair,create,create a pair of connected sockets,NET
+NET_TRANSMIT,mq_timedsend,send,send a message to a message queue,NET
+NET_CONNECT,mq_open,open,open a message queue,NET
+NET_CONNECT,accept4,accept,accept a connection on a socket,NET
+NET_TRANSMIT,mq_timedreceive,receive,receive a message from a message queue,NET
+NET_OPTION,getpeername,get,get name of connected peer socket,NET
+NET_CONNECT,accept,accept,accept a connection on a socket,NET
+NET_TRANSMIT,listen,listen,listen for connections on a socket,NET
+NET_OPTION,mq_getsetattr,get,get/set message queue attributes,NET
+NET_OPTION,mq_getsetattr,set,get/set message queue attributes,NET
+NET_CONNECT,mq_notify,register,register for notification when a message is available,NET

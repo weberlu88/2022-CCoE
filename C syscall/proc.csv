@@ -1,0 +1,80 @@
+ActionType,Syscall,EnVerb,Sentence,EntityType
+PROC_WAIT,idle,make,make process 0 idle,PROC
+PROC_OTHER,move_pages,move,move individual pages of a process to another node,PROC
+PROC_OTHER,timer_gettime,fetch,arm/disarm and fetch state of POSIX per,PROC
+PROC_OTHER,timer_delete,delete,delete a POSIX per,PROC
+PROC_EXE,execveat,execute,execute program relative to a directory file descriptor,PROC
+PROC_MEM,mlockall,lock,lock and unlock memory,PROC
+PROC_OTHER,pkey_alloc,allocate,allocate or free a protection key,PROC
+PROC_EXE,personality,set,set the process execution domain,PROC
+PROC_EXE,unshare,disassociate,disassociate parts of the process execution context,PROC
+PROC_OTHER,process_vm_readv,transfer,transfer data between process address spaces,PROC
+PROC_MEM,mlock,lock,lock and unlock memory,PROC
+PROC_EXE,restart_syscall,restart,restart a system call after interruption by a stop signal,PROC
+PROC_OTHER,sched_yield,yield,yield the processor,PROC
+PROC_SET,setns,reassociate,reassociate thread with a namespace,PROC
+PROC_LOAD,init_module,load,load a kernel module,PROC
+PROC_MEM,mlock2,lock,lock and unlock memory,PROC
+PROC_MEM,mbind,set,set memory policy for a memory range,PROC
+PROC_MEM,munlockall,lock,lock and unlock memory,PROC
+PROC_GET,rt_sigreturn,return,return from signal handler and cleanup stack frame,PROC
+PROC_OTHER,pkey_free,allocate,allocate or free a protection key,PROC
+PROC_GET,getrandom,obtain,obtain a series of random bytes,PROC
+PROC_MEM,pkey_mprotect,set,set protection on a region of memory,PROC
+PROC_MEM,set_mempolicy,set,set default NUMA memory policy for a thread and its children,PROC
+PROC_OTHER,migrate_pages,move,move all pages in a process to another set of nodes,PROC
+PROC_GET,sigreturn,return,return from signal handler and cleanup stack frame,PROC
+PROC_MEM,munlock,lock,lock and unlock memory,PROC
+PROC_KILL,tkill,send,send a signal to a thread,PROC
+PROC_OTHER,process_vm_writev,transfer,transfer data between process address spaces,PROC
+PROC_GET,timer_getoverrun,get,get overrun count for a POSIX per,PROC
+PROC_WAIT,rt_sigsuspend,wait,wait for a signal,PROC
+PROC_OTHER,bdflush,start,"start, flush, or tune buffer",PROC
+PROC_OTHER,bpf,perform,perform a command on an extended BPF map or program,PROC
+PROC_KILL,exit,terminate,terminate the calling process,PROC
+PROC_SET,timer_settime,fetch,arm/disarm and fetch state of POSIX per,PROC
+PROC_WAIT,sigsuspend,wait,wait for a signal,PROC
+PROC_LOAD,finit_module,load,load a kernel module,PROC
+PROC_OTHER,create_module,create,create a loadable module entry,PROC
+PROC_OTHER,timer_create,create,create a POSIX per,PROC
+PROC_OTHER,vm86,enter,enter virtual 8086 mode,PROC
+PROC_KILL,tgkill,send,send a signal to a thread,PROC
+PROC_LOAD,delete_module,unload,unload a kernel module,PROC
+PROC_WAIT,pause,wait,wait for signal,PROC
+PROC_OTHER,seccomp,operate,operate on Secure Computing state of the process,PROC
+PROC_LOAD,uselib,shared,load shared library,PROC
+PROC_SET,alarm,set,set an alarm clock for delivery of a signal,PROC
+PROC_MEM,get_mempolicy,retrieve,retrieve NUMA memory policy for a thread,PROC
+PROC_SET,sched_setparam,set,set and get scheduling parameters,PROC
+PROC_SET,sched_getparam,get,set and get scheduling parameters,PROC
+PROC_SET,sigaltstack,set,set and/or get signal stack context,PROC
+PROC_SET,sigaltstack,get,set and/or get signal stack context,PROC
+PROC_SET,capset,set,set/get capabilities of thread(s),PROC
+PROC_WAIT,rt_sigtimedwait,wait,synchronously wait for queued signals,PROC
+PROC_EXAM,rt_sigaction,examine,examine and change a signal action,PROC
+PROC_EXAM,rt_sigaction,change,examine and change a signal action,PROC
+PROC_SET,capget,get,set/get capabilities of thread(s),PROC
+PROC_SET,sched_setaffinity,set,set and get a thread's CPU affinity mask,PROC
+PROC_EXAM,rt_sigprocmask,examine,examine and change blocked signals,PROC
+PROC_EXAM,rt_sigprocmask,change,examine and change blocked signals,PROC
+PROC_EXAM,sigpending,examine,examine pending signals,PROC
+PROC_GET,sched_rr_get_interval,get,get the SCHED_RR interval for the named process,PROC
+PROC_EXAM,sigprocmask,examine,examine and change blocked signals,PROC
+PROC_EXAM,sigprocmask,change,examine and change blocked signals,PROC
+PROC_WAIT,waitid,wait,wait for process to change state,PROC
+PROC_GET,query_module,query,query the kernel for various bits pertaining to modules,PROC
+PROC_OTHER,mincore,determine,determine whether pages are resident in memory,PROC
+PROC_OTHER,kcmp,compare,compare two processes to determine if they share a kernel resource,PROC
+PROC_SET,sched_getaffinity,get,set and get a thread's CPU affinity mask,PROC
+PROC_EXAM,rt_sigpending,examine,examine pending signals,PROC
+PROC_SET,sched_setattr,set,set and get scheduling policy and attributes,PROC
+PROC_SET,ioprio_get,get,get/set I/O scheduling class and priority,PROC
+PROC_EXAM,sigaction,examine,examine and change a signal action,PROC
+PROC_EXAM,sigaction,change,examine and change a signal action,PROC
+PROC_SET,setitimer,set,get or set value of an interval timer,PROC
+PROC_SET,sched_getscheduler,get,set and get scheduling policy/parameters,PROC
+PROC_SET,ioprio_set,set,get/set I/O scheduling class and priority,PROC
+PROC_SET,sched_getattr,get,set and get scheduling policy and attributes,PROC
+PROC_SET,get_robust_list,get,get/set list of robust futexes,PROC
+PROC_SET,getitimer,get,get or set value of an interval timer,PROC
+PROC_SET,sched_setscheduler,set,set and get scheduling policy/parameters,PROC
