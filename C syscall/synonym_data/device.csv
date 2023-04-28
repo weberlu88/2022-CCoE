@@ -1,0 +1,13 @@
+Syscall,Sentence,FirstLine,Synonym,SynonymSentence
+io_cancel(),cancel an outstanding asynchronous I/O operation,"<cancel,an outstanding asynchronous I/O operation>","<,>",
+iopl(),change I/O privilege level,"<change,I/O privilege level>","<,>",
+pciconfig_read(),pci device information handling,"<,>","<,>",
+pciconfig_write(),pci device information handling,"<,>","<,>",
+pciconfig_iobase(),pci device information handling,"<,>","<,>",
+io_destroy(),destroy an asynchronous I/O context,"<destroy,an asynchronous I/O context>","<,>",
+ioperm(),set port input/output permissions,"<set,port input/output permissions>","<,>",
+io_getevents(),read asynchronous I/O events from the completion queue,"<read,asynchronous I/O events from the completion queue>","<,>",
+io_setup(),create an asynchronous I/O context,"<create,an asynchronous I/O context>","<,>",
+swapoff(),start/stop swapping to file/device,"<start,swapping to file/device>","<,>",
+io_submit(),submit asynchronous I/O blocks for processing,"<submit,asynchronous I/O blocks for processing>","<,>",
+swapon(),start/stop swapping to file/device,"<start,swapping to file/device>","<,>",
