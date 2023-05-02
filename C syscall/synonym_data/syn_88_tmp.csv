@@ -2,9 +2,7 @@ Syscall,Sentence,FirstLine,Synonym,SynonymSentence
 sgetmask(),manipulation of signal mask (obsolete),"<manipulate,mask>","<,>",
 ssetmask(),manipulation of signal mask (obsolete),"<manipulate,mask>","<set,mask>",sets the signal mask of the calling process
 get_thread_area(),manipulate thread-local storage information,"<manipulate,storage information>","<store,pointer>","allows storing an arbitrary pointer
-
 mount(),mount filesystem,"<mount,filesystem>","<attach,filesystem>",attaches the filesystem specified by source
-
 fadvise64(),predeclare an access pattern for file data,"<predeclare,access pattern for file>","<access,file>",access file data in a specific pattern
 fadvise64_64(),predeclare an access pattern for file data,"<predeclare,access pattern for file>","<access,file>",access file data in a specific pattern
 umount(),unmount filesystem,"<unmount,filesystem>","<remove,attachment>",remove the attachment of the filesystem
@@ -12,7 +10,6 @@ umount2(),unmount filesystem,"<unmount,filesystem>","<remove,attachment>",remove
 pselect6(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
 select(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
 _newselect(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
-
 epoll_ctl(),control interface for an epoll file descriptor,"<control,interface>","<add,entries>|<change,settings>|<remove,file descriptor>","Add an entry to the interest list|Change the settings|Remove the target file descriptor"
 epoll_ctl_old(),,"<,>","<,>",
 epoll_wait_old(),,"<,>","<,>",
@@ -32,8 +29,6 @@ ftime(),return date and time,"<return,date and time>","<,>",
 ulimit(),get and set user limits,"<get,user limits>","<,>",
 ulimit(),get and set user limits,"<set,user limits>","<,>",
 profil(),execution time profile,"<execute,time profile>","<find out,areas>",find out in what areas your program spends most of its time.
-
-(),,"<,>","<,>",
 reboot(),reboot or enable/disable Ctrl-Alt-Del,"<reboot,>","<,>",
 reboot(),reboot or enable/disable Ctrl-Alt-Del,"<enable,>","<,>",
 reboot(),reboot or enable/disable Ctrl-Alt-Del,"<disable,>","<,>",
@@ -47,7 +42,6 @@ syscall(),indirect system call,"<,>","<,>",
 socketcall(),socket system calls,"<,>","<,>",
 semop(),System V semaphore operations,"<operate,>","<perform,semaphores>",performs operations on selected semaphores in the set indicated by semid.
 signal(),ANSI C signal handling,"<handle,signal>","<,>",
-
 cacheflush(),flush contents of instruction and/or data cache,"<flush,contents of instruction>","<,>",
 vmsplice(),splice user pages to/from a pipe,"<splice,user pages>","<,>",
 nfsservctl(),syscall interface to kernel nfs daemon,"<,>","<,>",

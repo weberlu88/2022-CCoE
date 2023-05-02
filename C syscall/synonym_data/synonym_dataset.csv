@@ -1,0 +1,429 @@
+Syscall,Sentence,FirstLine,Synonym,SynonymSentence
+shutdown(),shut down part of a full-duplex connection,"<shut down,part of a full-duplex connection>","<,>",
+recvmmsg(),receive multiple messages on a socket,"<receive,multiple messages>","<,>",
+sendmmsg(),send multiple messages on a socket,"<send,multiple messages>","<transmit,multiple messages>",transmit multiple messages on a socket using a single system call.
+pipe2(),create pipe,"<create,pipe>","<,>",
+mq_unlink(),remove a message queue,"<remove,a message queue>","<,>",
+socketpair(),create a pair of connected sockets,"<create,a pair of connected sockets>","<,>",
+mq_timedsend(),send a message to a message queue,"<send,a message to a message queue>","<,>",
+mq_open(),open a message queue,"<open,a message queue>","<create,a new POSIX message>",creates a new POSIX message queue or opens an existing queue.
+accept4(),accept a connection on a socket,"<accept,a connection on a socket>","<creates,a new connected socket>","creates a new connected socket, and returns a new file descriptor referring to that socket."
+mq_timedreceive(),receive a message from a message queue,"<receive,a message from a message queue>","<,>",
+getpeername(),get name of connected peer socket,"<get,name of connected peer socket>","<,>",
+accept(),accept a connection on a socket,"<accept,a connection on a socket>","<creates,a new connected socket>","creates a new connected socket, and returns a new file descriptor referring to that socket."
+listen(),listen for connections on a socket,"<listen for,connections on a socket>","<,>",
+mq_getsetattr(),get/set message queue attributes,"<get,message queue attributes>","<retrieve, attributes of the message queue>",retrieve attributes of the message queue referred to by the message queue descriptor
+mq_getsetattr(),get/set message queue attributes,"<set,message queue attributes>","<modify, attributes of the message queue>",modify attributes of the message queue referred to by the message queue descriptor
+mq_notify(),register for notification when a message is available,"<register for,notification>","<unregister for,delivery of an asynchronous notification>",register or unregister for delivery of an asynchronous notification
+oldolduname(),get name and information about current kernel,"<get,name and information>","<,>",
+olduname(),get name and information about current kernel,"<get,name and information>","<,>",
+madvise(),give advice about use of memory,"<give,advice>","<,>",
+request_key(),request a key from the kernel's key management facility,"<request,a key>","<find,a key> | <search for,a matching key>",find a key of the given type with a description (name) that matches the specified description. | recursively searches for a matching key in all of the keyrings attached to the calling process.
+sched_get_priority_max(),get static priority range,"<get,static priority range>","<,>",
+kexec_load(),load a new kernel for later execution,"<load,a new kernel>","<,>",
+setuid(),set user identity,"<set,user identity>","<,>",
+geteuid32(),get user identity,"<get,user identity>","<,>",
+ustat(),get filesystem statistics,"<get,filesystem statistics>","<,>",
+keyctl(),manipulate the kernel's key management facility,"<manipulate,the kernel's key management facility>","<,>",
+setreuid32(),set real and/or effective user ID,"<set,real and/or effective user ID>","<,>",
+times(),get process times,"<get,process times>","<,>",
+get_kernel_syms(),retrieve exported kernel and module symbols,"<retrieve,exported kernel and module symbols>","<,>",
+_sysctl(),read system parameters,"<read,system parameters>","<,>",
+_sysctl(),write system parameters,"<write,system parameters>","<,>",
+getpgid(),get process group,"<get,process group>","<,>",
+getegid32(),get group identity,"<get,group identity>","<,>",
+getuid32(),get user identity,"<get,user identity>","<,>",
+getpgrp(),get process group,"<get,process group>","<retrieve,the calling process's PGID>",retrieving the calling process's PGID
+setpgid(),set process group,"<set,process group>","<,>",
+gettid(),get thread identification,"<get,thread identification>","<,>",
+stime(),set time,"<set,time>","<,>",
+setregid(),set real and/or effective group ID,"<set,real and/or effective group ID>","<,>",
+perf_event_open(),set up performance monitoring,"<set up,performance monitoring>","<create,a file descriptor>",creates a file descriptor that allows measuring performance information
+setgid32(),set group identity,"<set,group identity>","<,>",
+getsid(),get session ID,"<get,session ID>","<,>",
+shmctl(),System V shared memory control,"<share,memory control>","<,>",
+getrusage(),get resource usage,"<get,resource usage>","<,>",
+semget(),get a System V semaphore set identifier,"<get,a System V semaphore set identifier>","<obtain,the identifier> | <create,a new set>","It may be used either to obtain the identifier of a previously created semaphore set, or to create a new set"
+msgget(),get a System V message queue identifier,"<get,a System V message queue identifier>","<obtain,the identifier> | <create,a new set>","It may be used either to obtain the identifier of a previously created message queue, or to create a new set."
+setreuid(),set real and/or effective user ID,"<set,real and/or effective user ID>","<,>",
+sched_get_priority_min(),get static priority range,"<get,static priority range>","<,>",
+kexec_file_load(),load a new kernel for later execution,"<load,a new kernel>","<read,the kernel>",It reads the kernel to be loaded from the file referred to by the file descriptor
+setregid32(),set real and/or effective group ID,"<set,real and/or effective group ID>","<,>",
+setgid(),set group identity,"<set,group identity>","<,>",
+setuid32(),set user identity,"<set,user identity>","<,>",
+add_key(),add a key to the kernel's key management facility,"<add,a key>","<create,a key> | <update,a key> | <instantiate,a key> | <attach,a key>","creates or updates a key of the given type and description, instantiates it with the payload of length plen, attaches it to the nominated keyring"
+getgid32(),get group identity,"<get,group identity>","<,>",
+ipc(),System V IPC system calls,"<,>","<,>",
+getgroups(),get list of supplementary group IDs,"<get,list of supplementary group IDs>","<,>",
+setfsuid32(),set user identity used for filesystem checks,"<set,user identity>","<,>",
+setdomainname(),set NIS domain name,"<set,NIS domain name>","<change,the NIS domain name>",change the NIS domain name of the host system.
+setresuid32(),"set real, effective, and saved user ID","<set,real effective and saved user ID>","<,>",
+getresgid32(),"get real, effective, and saved group IDs","<get,real effective and saved group IDs>","<,>",
+setgroups(),set list of supplementary group IDs,"<set,list of supplementary group IDs>","<,>",
+getcpu(),determine CPU and NUMA node on which the calling thread is running,"<determine,CPU and NUMA node>","<identify,the processor and node>",identifies the processor and node on which the calling thread or process is currently running and writes them into the integers pointed to by the cpu and node arguments.
+setresuid(),"set real, effective, and saved user ID","<set,real effective and saved user ID>","<,>",
+setfsgid32(),set group identity used for filesystem checks,"<set,group identity>","<,>",
+getgroups32(),get list of supplementary group IDs,"<get,list of supplementary group IDs>","<,>",
+sethostname(),set hostname,"<set,hostname>","<change,the system hostname>",change the system hostname.
+setfsuid(),set user identity used for filesystem checks,"<set,user identity>","<,>",
+setresgid(),"set real, effective, and saved group ID","<set,real effective and saved group ID>","<,>",
+setrlimit(),set resource limits,"<set,resource limits>","<,>",
+getresgid(),"get real, effective, and saved group IDs","<get,real effective and saved group IDs>","<,>",
+getpriority(),get program scheduling priority,"<get,program scheduling priority>","<,>",
+setfsgid(),set group identity used for filesystem checks,"<set,group identity>","<,>",
+setpriority(),set program scheduling priority,"<set,program scheduling priority>","<,>",
+setgroups32(),set list of supplementary group IDs,"<set,list of supplementary group IDs>","<,>",
+getresuid(),"get real, effective, and saved user IDs","<get,real effective and saved user IDs>","<,>",
+syslog(),read and/or clear kernel message ring buffer; set console_loglevel,"<read,kernel message ring buffer>","<,>",
+syslog(),read and/or clear kernel message ring buffer; set console_loglevel,"<clear,kernel message ring buffer>","<,>",
+syslog(),read and/or clear kernel message ring buffer; set console_loglevel,"<set,console_loglevel>","<,>",
+setresgid32(),"set real, effective, and saved group ID","<set,real effective and saved group ID>","<,>",
+getresuid32(),"get real, effective, and saved user IDs","<get,real effective and saved user IDs>","<,>",
+io_cancel(),cancel an outstanding asynchronous I/O operation,"<cancel,an outstanding asynchronous I/O operation>","<,>",
+iopl(),change I/O privilege level,"<change,I/O privilege level>","<,>",
+pciconfig_read(),pci device information handling,"<,>","<read,to buf>",Reads to buf from device dev at offset off value.
+pciconfig_write(),pci device information handling,"<,>","<write,from buf>",Writes from buf to device dev at offset off value.
+pciconfig_iobase(),pci device information handling,"<,>","<,>",
+io_destroy(),destroy an asynchronous I/O context,"<destroy,an asynchronous I/O context>","<,>",
+ioperm(),set port input/output permissions,"<set,port input/output permissions>","<set,port access permission bits>",ioperm() sets the port access permission bits for the calling thread for num bits starting from port address from.
+io_getevents(),read asynchronous I/O events from the completion queue,"<read,asynchronous I/O events from the completion queue>","<,>",
+io_setup(),create an asynchronous I/O context,"<create,an asynchronous I/O context>","<,>",
+swapoff(),start/stop swapping to file/device,"<stop,swapping to file/device>","<,>",
+io_submit(),submit asynchronous I/O blocks for processing,"<submit,asynchronous I/O blocks for processing>","<,>",
+swapon(),start/stop swapping to file/device,"<start,swapping to file/device>","<set,swap area to file or block device>", swapon() sets the swap area to the file or block device specified by path
+idle(),make process 0 idle,"<make,process 0 idle>","<mark,process's pages as swappable>|<lower,priority>|<enter,main scheduling loop>","It marks the process's pages as swappable, lowers its priority, and enters the main scheduling loop."
+move_pages(),move individual pages of a process to another node,"<move,individual pages of a process to another node>","<,>",
+timer_gettime(),arm/disarm and fetch state of POSIX per-process timer,"<fetch,state of POSIX per>","<,>",
+timer_delete(),delete a per-process timer,"<delete,a per-process timer>","<,>",
+execveat(),execute program relative to a directory file descriptor,"<execute,program relative to a directory file descriptor>","<,>",
+mlockall(),lock and unlock memory,"<lock,memory>","<lock,part or all of the calling process's virtual address space>","mlock(), mlock2(), and mlockall() lock part or all of the calling process's virtual address space into RAM"
+pkey_alloc(),allocate or free a protection key,"<allocate,a protection key>","<,>",
+personality(),set the process execution domain,"<set,the process execution domain>","<,>",
+unshare(),disassociate parts of the process execution context,"<disassociate,parts of the process execution context>","<,>",
+process_vm_readv(),transfer data between process address spaces,"<transfer,data between process address spaces>","<,>",
+mlock(),lock and unlock memory,"<lock,and unlock memory>","<,>",
+restart_syscall(),restart a system call after interruption by a stop signal,"<restart,a system call after interruption by a stop signal>","<,>",
+sched_yield(),yield the processor,"<yield,the processor>","<cause,calling thread to relinquish the CPU>",sched_yield() causes the calling thread to relinquish the CPU.
+setns(),reassociate thread with a namespace,"<reassociate,thread with a namespace>","<,>",
+init_module(),load a kernel module,"<load,a kernel module>","<load,ELF image into kernel space>",init_module() loads an ELF image into kernel space
+mlock2(),lock and unlock memory,"<lock,memory>","<,>",
+mbind(),set memory policy for a memory range,"<set,memory policy>","<,>",
+munlockall(),lock and unlock memory,"<unlock,memory>","<,>",
+rt_sigreturn(),return from signal handler and cleanup stack frame,"<return,from signal handler and cleanup stack frame>","<,>",
+pkey_free(),allocate or free a protection key,"<free,a protection key>","<,>",
+getrandom(),obtain a series of random bytes,"<obtain,a series of random bytes>","<fill,buffer with random bytes>",The getrandom() system call fills the buffer pointed to by buf with up to buflen random bytes.
+pkey_mprotect(),set protection on a region of memory,"<set,protection on a region of memory>","<change,access protection for the calling process's memory pages>",mprotect() changes the access protections for the calling process's memory pages containing any part of the address range in the interval
+set_mempolicy(),set default NUMA memory policy for a thread and its children,"<set,default NUMA memory policy for a thread and its children>","<,>",
+migrate_pages(),move all pages in a process to another set of nodes,"<move,all pages in a process to another set of nodes>","<,>",
+sigreturn(),return from signal handler and cleanup stack frame,"<return,from signal handler and cleanup stack frame>","<,>",
+munlock(),lock and unlock memory,"<unlock,memory>","<,>",
+tkill(),send a signal to a thread,"<send,a signal to a thread>","<,>",
+process_vm_writev(),transfer data between process address spaces,"<transfer,data between process address spaces>","<,>",
+timer_getoverrun(),get overrun count for a POSIX per-process timer,"<get,overrun count for a POSIX per-process timer>","<,>",
+rt_sigsuspend(),wait for a signal,"<wait for,a signal>","<,>",
+bdflush(),"start, flush, or tune buffer","<start,buffer>","<,>",
+bdflush(),"start, flush, or tune buffer","<flush,buffer>","<,>",
+bdflush(),"start, flush, or tune buffer","<tune,buffer>","<,>",
+bpf(),perform a command on an extended BPF map or program,"<perform,a command on an extended BPF map or program>","<,>",
+exit(),terminate the calling process,"<terminate,the calling process>","<,>",
+timer_settime(),arm/disarm and fetch state of POSIX per-process timer,"<arm,state of POSIX per-process timer>","<,>",
+timer_settime(),arm/disarm and fetch state of POSIX per-process timer,"<disarm,state of POSIX per-process timer>","<,>",
+sigsuspend(),wait for a signal,"<wait for,a signal>","<replace,signal mask of the calling thread>|<suspend,thread>",sigsuspend() temporarily replaces the signal mask of the calling thread with the mask given by mask and then suspends the thread
+finit_module(),load a kernel module,"<load,a kernel module>","<load,an ELF image into kernel space>",init_module() loads an ELF image into kernel space
+create_module(),create a loadable module entry,"<create,a loadable module entry>","<,>",
+timer_create(),create a POSIX per-process timer,"<create,a POSIX per-process timer>","<,>",
+vm86(),enter virtual 8086 mode,"<enter,virtual 8086 mode>","<,>",
+tgkill(),send a signal to a thread,"<send,a signal to a thread>","<,>",
+delete_module(),unload a kernel module,"<unload,a kernel module>","<remove,unused loadable module entry>",The delete_module() system call attempts to remove the unused loadable module entry identified by name.
+pause(),wait for signal,"<wait for,signal>","<,>",
+seccomp(),operate on Secure Computing state of the process,"<operate on,Secure Computing state of the process>","<,>",
+uselib(),load shared library,"<load,shared library>","<,>",
+alarm(),set an alarm clock for delivery of a signal,"<set,an alarm clock for delivery of a signal>","<arrange for,a SIGALRM signal>",alarm() arranges for a SIGALRM signal to be delivered to the calling process in seconds seconds.
+get_mempolicy(),retrieve NUMA memory policy for a thread,"<retrieve,NUMA memory policy for a thread>","<,>",
+sched_setparam(),set and get scheduling parameters,"<set,scheduling parameters>","<,>",
+sched_getparam(),set and get scheduling parameters,"<get,scheduling parameters>","<retrieve,scheduling parameters>",sched_getparam() retrieves the scheduling parameters for the thread identified by pid.
+sigaltstack(),set and/or get signal stack context,"<set,signal stack context>","<define,a signal stack>",sigaltstack() allows a thread to define a new alternate signal stack and/or retrieve the state of an existing alternate signal stack.
+sigaltstack(),set and/or get signal stack context,"<get,signal stack context>","<retrieve,state of signal stack>",sigaltstack() allows a thread to define a new alternate signal stack and/or retrieve the state of an existing alternate signal stack.
+capset(),set/get capabilities of thread(s),"<set,capabilities of thread(s)>","<,>",
+rt_sigtimedwait(),synchronously wait for queued signals,"<wait for,queued signals>","<,>",
+rt_sigaction(),examine and change a signal action,"<examine,a signal action>","<,>",
+rt_sigaction(),examine and change a signal action,"<change,a signal action>","<,>",
+capget(),set/get capabilities of thread(s),"<get,capabilities of thread(s)>","<,>",
+sched_setaffinity(),set and get a thread's CPU affinity mask,"<set,thread's CPU affinity mask>","<,>",
+rt_sigprocmask(),examine and change blocked signals,"<examine,blocked signals>","<,>",
+rt_sigprocmask(),examine and change blocked signals,"<change,blocked signals>","<fetch,signal mask of the calling thread>",sigprocmask() is used to fetch and/or change the signal mask of the calling thread.
+sigpending(),examine pending signals,"<examine,pending signals>","<,>",
+sched_rr_get_interval(),get the SCHED_RR interval for the named process,"<get,SCHED_RR interval for the named process>","<write into,the timespec structure>",sched_rr_get_interval() writes into the timespec structure pointed to by tp the round-robin time quantum for the process identified by pid.
+sigprocmask(),examine and change blocked signals,"<examine,blocked signals>","<,>",
+sigprocmask(),examine and change blocked signals,"<change,blocked signals>","<fetch,signal mask of the calling thread>",sigprocmask() is used to fetch and/or change the signal mask of the calling thread.
+waitid(),wait for process to change state,"<wait for,process to change state>","<,>",
+query_module(),query the kernel for various bits pertaining to modules,"<query,the kernel for various bits pertaining to modules>","<request,information about loadable module>",query_module() requests information from the kernel about loadable modules.
+mincore(),determine whether pages are resident in memory,"<determine,whether pages are resident in memory>","<,>",
+kcmp(),compare two processes to determine if they share a kernel resource,"<compare,two processes to determine if they share a kernel resource>","<check,whether two processes share a kernel resource>","The kcmp() system call can be used to check whether the two processes identified by pid1 and pid2 share a kernel resource such as virtual memory, file descriptors, and so on."
+sched_getaffinity(),set and get a thread's CPU affinity mask,"<get,a thread's CPU affinity mask>","<write,affinity mask of the thread into cpu_set_t structure>",sched_getaffinity() writes the affinity mask of the thread whose ID is pid into the cpu_set_t structure pointed to by mask.
+rt_sigpending(),examine pending signals,"<examine,pending signals>","<,>",
+sched_setattr(),set and get scheduling policy and attributes,"<set,scheduling policy and attributes>","<,>",
+ioprio_get(),get/set I/O scheduling class and priority,"<get,I/O scheduling class and priority>","<,>",
+sigaction(),examine and change a signal action,"<examine,a signal action>","<,>",
+sigaction(),examine and change a signal action,"<change,a signal action>","<,>",
+setitimer(),get or set value of an interval timer,"<set,value of an interval timer>","<,>",
+sched_getscheduler(),set and get scheduling policy/parameters,"<get,scheduling policy/parameters>","<,>",
+ioprio_set(),get/set I/O scheduling class and priority,"<set,I/O scheduling class and priority>","<,>",
+sched_getattr(),set and get scheduling policy and attributes,"<get,scheduling policy and attributes>","<fetch,scheduling policy and the associated attributes for the thread>",fetches the scheduling policy and the associated attributes for the thread whose ID is specified in pid.
+get_robust_list(),get/set list of robust futexes,"<get,list of robust futexes>","<,>",
+getitimer(),get or set value of an interval timer,"<get,value of an interval timer>","<place,current value of timer in buffer>",places the current value of the timer specified by which in the buffer pointed to by curr_value.
+sched_setscheduler(),set and get scheduling policy/parameters,"<set,scheduling policy/parameters>","<,>",
+_llseek(),reposition read/write file offset,"<reposition,file offset>","<,>"
+fgetxattr(),retrieve an extended attribute value,"<retrieve,an extended attribute value>","<,>",
+tee(),read from standard input and write to standard output and files,"<read,standard input>","<copy,standard input>","Copy standard input to each FILE, and also to standard output."
+tee(),read from standard input and write to standard output and files,"<write,standard output and file>","<copy,standard input to each FILE and to standard output>","Copy standard input to each FILE, and also to standard output."
+readdir(),read directory entry,"<read,directory entry>","<,>",
+timerfd_gettime(),arm/disarm and fetch state of POSIX per-process timer,"<fetch,state of POSIX per-process timer>","<,>",
+mknod(),create a special or ordinary file,"<create,a special or ordinary file>","<create,a filesystem node>","The system call mknod() creates a filesystem node (file, device, special file, or named pipe) named pathname"
+copy_file_range(),Copy a range of data from one file to another,"<copy,a range of data from one file>","<,>",
+acct(),switch process accounting on or off,"<switch on,process accounting>","<enable,process accounting>",The acct() system call enables or disables process accounting
+acct(),switch process accounting on or off,"<switch off,process accounting>","<disable,process accounting>",The acct() system call enables or disables process accounting
+chown32(),change ownership of a file,"<change,ownership of a file>","<,>",
+setxattr(),set an extended attribute value,"<set,an extended attribute value>","<,>",
+sysfs(),get filesystem type information,"<get,filesystem type information>","<,>",
+sendfile64(),transfer data between file descriptors,"<transfer,data between file descriptors>","<copy,data between one file descriptor and another>",sendfile() copies data between one file descriptor and another.
+truncate(),truncate a file to a specified length,"<truncate,a file to a specified length>","<,>",
+fremovexattr(),remove an extended attribute,"<remove,an extended attribute>","<,>",
+epoll_create(),open an epoll file descriptor,"<open,an epoll file descriptor>","<create,epoll instance>",epoll_create() creates a new epoll(7) instance
+utimensat(),change file timestamps with nanosecond precision,"<change,file timestamps with nanosecond precision>","<,>",
+timerfd_settime(),arm/disarm and fetch state of POSIX per-process timer,"<arm,state of POSIX per-process timer>","<arm,timer identified by timerid>",timer_settime() arms or disarms the timer identified by timerid
+timerfd_settime(),arm/disarm and fetch state of POSIX per-process timer,"<disarm,state of POSIX per-process timer>","<disarm,timer identified by timerid>",timer_settime() arms or disarms the timer identified by timerid
+chroot(),change root directory,"<change,root directory>","<,>",
+readlinkat(),read value of a symbolic link,"<read,value of a symbolic link>","<place,the contents of the symbolic link pathname in the buffer>",places the contents of the symbolic link pathname in the buffer buf
+fstatfs(),get filesystem statistics,"<get,filesystem statistics>","<,>",
+lchown32(),change ownership of a file,"<change,ownership of a file>","<,>",
+utime(),change file last access and modification times,"<change,file last access and modification times>","<,>",
+inotify_init1(),initialize an inotify instance,"<initialize,an inotify instance>","<,>",
+creat(),open and possibly create a file,"<create,a file>","<,>",
+fchmodat(),change permissions of a file,"<change,permissions of a file>","<change,file's mode bits>",change a file's mode bits
+memfd_create(),create an anonymous file,"<create,an anonymous file>","<,>",
+lstat64(),get file status,"<get,file status>","<retrieve,information about the file pointed to by pathname>",retrieve information about the file pointed to by pathname
+lchown(),change ownership of a file,"<change,ownership of a file>","<,>",
+lremovexattr(),remove an extended attribute,"<remove,an extended attribute>","<,>",
+truncate64(),truncate a file to a specified length,"<truncate,a file to a specified length>","<,>",
+pivot_root(),change the root mount,"<change,the root mount>","<,>",
+epoll_create1(),open an epoll file descriptor,"<open,an epoll file descriptor>","<create,epoll instance>",epoll_create() creates a new epoll(7) instance
+futimesat(),change timestamps of a file relative to a directory file descriptor,"<change,timestamps of a file relative to a directory file descriptor>","<,>",
+timerfd_create(),timers that notify via file descriptors,"<,>","<create,a new timer object>",timerfd_create() creates a new timer object
+epoll_wait(),wait for an I/O event on an epoll file descriptor,"<wait,for an I/O event on an epoll file descriptor>","<,>",
+epoll_pwait(),wait for an I/O event on an epoll file descriptor,"<wait,for an I/O event on an epoll file descriptor>","<,>",
+statfs64(),get filesystem statistics,"<get,filesystem statistics>","<,>",
+renameat2(),change the name or location of a file,"<change,the name or location of a file>","<rename,file>|<moving,file between directories>","rename() renames a file, moving it between directories if required"
+sendfile(),transfer data between file descriptors,"<transfer,data between file descriptors>","<copy,data between one file descriptor and another>",sendfile() copies data between one file descriptor and another.
+mknodat(),create a special or ordinary file,"<create,a special or ordinary file>","<creates,a filesystem node>",The system call mknod() creates a filesystem node
+lookup_dcookie(),return a directory entry's path,"<return,a directory entry's path>","<,>",
+faccessat(),check user's permissions for a file,"<check,user's permissions for a file>","<,>",
+lgetxattr(),retrieve an extended attribute value,"<retrieve,an extended attribute value>","<,>",
+listxattr(),list extended attribute names,"<extended,attribute names>","<retrieve,extended attribute names associated with the given path in the filesystem>",retrieves the list of extended attribute names associated with the given path in the filesystem.
+eventfd(),create a file descriptor for event notification,"<create,a file descriptor for event notification>","<,>",
+oldstat(),get file status,"<get,file status>","<retrieve,information about the file pointed to by pathname>",retrieve information about the file pointed to by pathname
+inotify_init(),initialize an inotify instance,"<initialize,an inotify instance>","<,>",
+sync_file_range(),sync a file segment with disk,"<sync,a file segment with disk>","<,>",
+oldfstat(),get file status,"<get,file status>","<retrieve,information about the file pointed to by pathname>",retrieve information about the file pointed to by pathname
+chown(),change ownership of a file,"<change,ownership of a file>","<,>",
+mkdirat(),create a directory,"<create,a directory>","<,>",
+fstatfs64(),get filesystem statistics,"<get,filesystem statistics>","<,>",
+llistxattr(),list extended attribute names,"<list,extended attribute names>","<retrieve,extended attribute names associated with the given path in the filesystem>",retrieves the list of extended attribute names associated with the given path in the filesystem.
+ftruncate64(),truncate a file to a specified length,"<truncate,a file to a specified length>","<,>",
+readahead(),initiate file readahead into page cache,"<initiate,file readahead into page cache>","<,>",
+remap_file_pages(),create a nonlinear file mapping,"<create,a nonlinear file mapping>","<,>",
+flistxattr(),list extended attribute names,"<list,extended attribute names>","<retrieve,extended attribute names associated with the given path in the filesystem>",retrieves the list of extended attribute names associated with the given path in the filesystem.
+lsetxattr(),set an extended attribute value,"<set,an extended attribute value>","<,>",
+ftruncate(),truncate a file to a specified length,"<truncate,a file to a specified length>","<,>",
+getdents64(),get directory entries,"<get,directory entries>","<read,several linux_dirent structures from the directory referred to by the open file descriptor into the buffer>",The system call getdents() reads several linux_dirent structures from the directory referred to by the open file descriptor fd into the buffer pointed to by dirp
+dup3(),duplicate a file descriptor,"<duplicate,a file descriptor>","<allocate,a new file descriptor that refers to the same open file description as the descriptor oldfd>",allocates a new file descriptor that refers to the same open file description as the descriptor oldfd
+removexattr(),remove an extended attribute,"<remove,an extended attribute>","<,>",
+fchown32(),change ownership of a file,"<change,ownership of a file>","<,>",
+oldlstat(),get file status,"<get,file status>","<retrieve,information about the file pointed to by pathname>",retrieve information about the file pointed to by pathname
+getxattr(),retrieve an extended attribute value,"<retrieve,an extended attribute value>","<,>",
+sync_file_range2(),sync a file segment with disk,"<sync,a file segment with disk>","<,>",
+renameat(),change the name or location of a file,"<change,the name or location of a file>","<rename,file>|<moving,file between directories>","rename() renames a file, moving it between directories if required"
+fchown(),change ownership of a file,"<change,ownership of a file>","<,>",
+eventfd2(),create a file descriptor for event notification,"<create,a file descriptor for event notification>","<,>",
+fstatat64(),get file status,"<get,file status>","<retrieve,information about the file pointed to by pathname>",retrieve information about the file pointed to by pathname
+fstat64(),get file status,"<get,file status>","<retrieve,information about the file pointed to by pathname>",retrieve information about the file pointed to by pathname
+fsetxattr(),set an extended attribute value,"<set,an extended attribute value>","<,>",
+utimes(),change file last access and modification times,"<change,file last access and modification times>","<,>",
+msync(),synchronize a file with a memory map,"<synchronize,a file with a memory map>","<,>",
+fchownat(),change ownership of a file,"<change,ownership of a file>","<,>",
+pwritev(),read or write data into multiple buffers,"<write,data into multiple buffers>","<,>",
+inotify_rm_watch(),remove an existing watch from an inotify instance,"<remove,an existing watch from an inotify instance>","<,>",
+statx(),get file status (extended),"<get,file status>","<,>",
+readv(),read or write data into multiple buffers,"<read,data into multiple buffers>","<,>",
+name_to_handle_at(),obtain handle for a pathname and open file via a handle,"<obtain,handle for a pathname>","<,>",
+name_to_handle_at(),obtain handle for a pathname and open file via a handle,"<open,file via a handle>","<,>",
+pwritev2(),read or write data into multiple buffers,"<write,data into multiple buffers>","<,>",
+flock(),apply or remove an advisory lock on an open file,"<apply,an advisory lock on an open file>","<,>",
+flock(),apply or remove an advisory lock on an open file,"<remove,an advisory lock on an open file>","<,>",
+modify_ldt(),get or set a per-process LDT entry,"<get,per-process LDT entry>","<read,the local descriptor table (LDT) for a process.>",reads or writes the local descriptor table (LDT) for a process.
+modify_ldt(),get or set a per-process LDT entry,"<set,per-process LDT entry>","<write,the local descriptor table (LDT) for a process.>",reads or writes the local descriptor table (LDT) for a process.
+preadv2(),read or write data into multiple buffers,"<read,data into multiple buffers>","<,>",
+pread64(),read from or write to a file descriptor at a given offset,"<read,from file descriptor at a given offset>","<,>",
+preadv(),read or write data into multiple buffers,"<read,data into multiple buffers>","<,>",
+signalfd(),create a file descriptor for accepting signals,"<create,a file descriptor for accepting signals>","<,>",
+open_by_handle_at(),obtain handle for a pathname and open file via a handle,"<obtain,handle for a pathname and open file via a handle>","<,>",
+open_by_handle_at(),obtain handle for a pathname and open file via a handle,"<open,file via a handle>","<open,file referred to by handle>",opens the file referred to by handle
+writev(),read or write data into multiple buffers,"<write,data into multiple buffers>","<,>",
+sync(),commit filesystem caches to disk,"<commit,filesystem caches to disk>","<,>",
+fanotify_mark(),"add, remove, or modify an fanotify mark on a filesystem object","<add,an fanotify mark on a filesystem object>","<,>",
+fanotify_mark(),"add, remove, or modify an fanotify mark on a filesystem object","<remove,an fanotify mark on a filesystem object>","<,>",
+fanotify_mark(),"add, remove, or modify an fanotify mark on a filesystem object","<modify,an fanotify mark on a filesystem object>","<,>",
+fdatasync(),synchronize a file's in-core state with storage device,"<synchronize,a file's in-core state with storage device>","<,>",
+inotify_add_watch(),add a watch to an initialized inotify instance,"<add,watch>","<modifies,an existing watch>","inotify_add_watch() adds a new watch, or modifies an existing watch"
+signalfd4(),create a file descriptor for accepting signals,"<create,a file descriptor for accepting signals>","<,>",
+pwrite64(),read from or write to a file descriptor at a given offset,"<write,a file descriptor at a given offset>","<,>",
+fsync(),synchronize a file's in-core state with storage device,"<synchronize,a file's in-core state with storage device>","<,>",
+userfaultfd(),create a file descriptor for handling page faults in user space,"<create,a file descriptor for handling page faults in user space>","<create,a new userfaultfd object>",userfaultfd() creates a new userfaultfd object
+fanotify_init(),create and initialize fanotify group,"<create,fanotify group>","<,>",
+fanotify_init(),create and initialize fanotify group,"<initialize,fanotify group>","<,>",
+syncfs(),commit filesystem caches to disk,"<commit,filesystem caches to disk>","<,>",
+sgetmask(),manipulation of signal mask (obsolete),"<manipulate,mask>","<,>",
+ssetmask(),manipulation of signal mask (obsolete),"<manipulate,mask>","<set,mask>",sets the signal mask of the calling process
+get_thread_area(),manipulate thread-local storage information,"<manipulate,storage information>","<store,pointer>","allows storing an arbitrary pointe"
+mount(),mount filesystem,"<mount,filesystem>","<attach,filesystem>",attaches the filesystem specified by source
+fadvise64(),predeclare an access pattern for file data,"<predeclare,access pattern for file>","<access,file>",access file data in a specific pattern
+fadvise64_64(),predeclare an access pattern for file data,"<predeclare,access pattern for file>","<access,file>",access file data in a specific pattern
+umount(),unmount filesystem,"<unmount,filesystem>","<remove,attachment>",remove the attachment of the filesystem
+umount2(),unmount filesystem,"<unmount,filesystem>","<remove,attachment>",remove the attachment of the filesystem
+pselect6(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
+select(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
+_newselect(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
+epoll_ctl(),control interface for an epoll file descriptor,"<control,interface>","<add,entries>|<change,settings>|<remove,file descriptor>","Add an entry to the interest list|Change the settings|Remove the target file descriptor"
+clock_settime(),clock and time functions,"<,>","<retrieve,time>",retrieve and set the time of the specified clock clockid.
+clock_gettime(),clock and time functions,"<,>","<set,time>",retrieve and set the time of the specified clock clockid.
+clock_nanosleep(),high-resolution sleep with specifiable clock,"<sleep,>","<suspend,execution>",suspends the execution of the calling thread
+msgrcv(),System V message queue operations,"<operate,message queue>","<send,messages>",send messages to a System V message queue.
+msgsnd(),System V message queue operations,"<operate,message queue>","<receive,messages>",receive messages from a System V message queue.
+rt_sigqueueinfo(),queue a signal and data,"<queue,signal>","<send,signal>",send a signal plus data to a process or thread.
+rt_tgsigqueueinfo(),queue a signal and data,"<queue,signal>","<send,signal>",send a signal plus data to a process or thread.
+nice(),change process priority,"<change,process priority>","<,>",
+fallocate(),manipulate file space,"<manipulate,file>","<,>",
+splice(),splice data to/from a pipe,"<splice,data>","<move,data>",moves data between two file descriptors without copying between kernel address space and user address space.
+lchmod(),change mode of file,"<change,mode of file>","<,>",
+remove(),remove a file or directory,"<remove,file or directory>","<delete,name>",deletes a name from the filesystem.
+ftime(),return date and time,"<return,date and time>","<,>",
+ulimit(),get and set user limits,"<get,user limits>","<,>",
+ulimit(),get and set user limits,"<set,user limits>","<,>",
+profil(),execution time profile,"<execute,time profile>","<find out,areas>",find out in what areas your program spends most of its time.
+reboot(),reboot or enable/disable Ctrl-Alt-Del,"<reboot,>","<,>",
+reboot(),reboot or enable/disable Ctrl-Alt-Del,"<enable,>","<,>",
+reboot(),reboot or enable/disable Ctrl-Alt-Del,"<disable,>","<,>",
+semtimedop(),clock and time functions,"<,>","<,>",
+adjtimex(),tune kernel clock,"<tune,clock>","<,>",
+clock_adjtime(),tune kernel clock,"<tune,clock>","<,>",
+clock_getres(),clock and time functions,"<,>","<,>",
+membarrier(),issue memory barriers on a set of threads,"<issue,memory barriers>","<,>",
+prctl(),operations on a process or thread,"<operate,process or thread>","<,>",
+syscall(),indirect system call,"<,>","<,>",
+socketcall(),socket system calls,"<,>","<,>",
+semop(),System V semaphore operations,"<operate,>","<perform,semaphores>",performs operations on selected semaphores in the set indicated by semid.
+signal(),ANSI C signal handling,"<handle,signal>","<,>",
+cacheflush(),flush contents of instruction and/or data cache,"<flush,contents of instruction>","<,>",
+vmsplice(),splice user pages to/from a pipe,"<splice,user pages>","<,>",
+nfsservctl(),syscall interface to kernel nfs daemon,"<,>","<,>",
+msgctl(),System V message control operations,"<,>","<control,operation>",control operation specified by cmd
+semctl(),System V semaphore control operations,"<control,operation>","<,>",
+vhangup(),virtually hangup the current terminal,"<hangup,current terminal>","<arrange,user>",arranges for other users to have a “clean” terminal at login time.
+read(),read from a file descriptor,"<read,file descriptor>","<seek,file>",On files that support seeking
+readlink(),read value of a symbolic link,"<read,symbolic link>","<place,contents>|<truncate,contents>",readlink() places the contents of the symbolic link path in the buffer buf|It will (silently) truncate the contents
+access(),check user's permissions for a file,"<check,user permissions>","<access,file>",access() checks whether the calling process can access the file pathname.
+statfs(),get file system statistics,"<get,file system statistics>","<,>",
+stat(),get file status,"<get,file status>","<retrieve, information>",retrieve information about the file pointed to by pathname
+stat64(),get file status,"<get,file status>","<retrieve, information>",retrieve information about the file pointed to by pathname
+fstat(),get file status,"<get,file status>","<retrieve, information>",retrieve information about the file pointed to by pathname
+newfstatat(),get file status,"<get,file status>","<retrieve, information>",retrieve information about the file pointed to by pathname
+lstat(),get file status,"<get,file status>","<retrieve, information>",retrieve information about the file pointed to by pathname
+getcwd(),get current working directory,"<get,current working directory>","<,>",
+getdents(),get directory entries,"<get,directory entries>","<,>",
+poll(),wait for some event on a file descriptor,"<wait for,event>","<monitor,file descriptor>|<block,file descriptor>",The set of file descriptors to be monitored is specified in the fds argument|should block waiting for a file descriptor to become ready
+ppoll(),wait for some event on a file descriptor,"<wait for,event>","<monitor,file descriptor>|<block,file descriptor>",The set of file descriptors to be monitored is specified in the fds argument|should block waiting for a file descriptor to become ready
+dup(),duplicate a file descriptor,"<duplicate, file descriptor>","<allocate, file descriptor>|<create,a copy>|<share,file offset and file status flags>",allocates a new file descriptor|These system calls create a copy of the file descriptor oldfd|share file offset and file status flags
+dup2(),duplicate a file descriptor,"<duplicate, file descriptor>","<allocate, file descriptor>|<create,a copy>|<share,file offset and file status flags>",allocates a new file descriptor|These system calls create a copy of the file descriptor oldfd|share file offset and file status flags
+fcntl(),manipulate file descriptor,"<manipulate,file descriptor>","<find,file descriptor>|<get,file descriptor>|<set,lock>",find the lowest numbered available file descriptor|get a new file descriptor or the file status flags|set or clear a file segment lock
+fcntl64(),manipulate file descriptor,"<manipulate,file descriptor>","<find,file descriptor>|<get,file descriptor>|<set,lock>",find the lowest numbered available file descriptor|get a new file descriptor or the file status flags|set or clear a file segment lock
+mkdir(),create a directory,"<create,directory>","<,>",
+open(),open and possibly create a file or device,"<open,file or device>","<,>",
+open(),open and possibly create a file or device,"<create,file or device>","<,>",
+openat(),open a file relative to a directory file descriptor,"<open,file>","<,>",
+mmap(),map or unmap files or devices into memory,"<map,files or devices into memory>","<create,new mapping>",creates a new mapping in the virtual address space of the calling process.
+mmap(),map or unmap files or devices into memory,"<unmap,files or devices into memory>","<create,new mapping>",creates a new mapping in the virtual address space of the calling process.
+mmap2(),map files or devices into memory,"<map,files or devices>","<,>",
+umask(),set file mode creation mask,"<set,mask>","<,>",
+link(),make a new name for a file,"<make,new name>","<create,new link>",creates a new link (also known as a hard link) to an existing file.
+linkat(),create a file link relative to directory file descriptors,"<create,file link>","<,>",
+symlinkat(),create a symbolic link relative to a directory file descriptor,"<create,symbolic link>","<,>",
+symlink(),make a new name for a file,"<make,new name>","<create,symbolic link>",creates a symbolic link named newpath which contains the string oldpath.
+fchdir(),change working directory,"<change,working directory>","<,>",
+chdir(),changes the current working directory,"<change,current working directory>","<,>",
+write(),write to a file descriptor,"<write,file descriptor>","<,>",
+rename(),change the name or location of a file,"<change,name or location>","<rename,file>","renames a file, moving it between directories if required."
+fchmod(),change permissions of a file,"<change,permissions of file>","<,>",
+chmod(),change permissions of a file,"<change,permissions of file>","<,>",
+lchmod(),change permissions of a file,"<change,permissions of file>","<,>",
+rm(),removes each specified file,"<remove,file>","<,>",
+rmdir(),delete a directory,"<delete,directory>","<,>",
+munmap(),unmap files or devices into memory,"<unmap,files or devices>","<,>",
+unlink(),delete a name and possibly the file it refers to,"<delete,file>","<,>",
+unlinkat(),remove a directory entry relative to a directory file descriptor,"<remove,directory\>","<,>",
+remove(),remove a file or directory,"<remove,file or directory>","<,>",
+close(),close a file descriptor,"<close,file descriptor>","<free,resources>",the resources associated with the open file description are freed
+lseek(),reposition read/write file offset,"<reposition,file offset>","<,>",
+execve(),execute program,"<execute,program>","<,>",
+exec(),executes the program referred to by pathname,"<execute,program>","<replace,process image>",replaces the current process image with a new process image.
+clone(),create a child process,"<create,child process>","<,>",
+fork(),create a child process,"<create,child process>","<,>",
+vfork(),create a child process and block parent,"<create,child process>","<,>",
+vfork(),create a child process and block parent,"<block,parent>","<,>",
+kill(),send signal to a process,"<send signal,process>","<,>",
+exit_group(),exit all threads in a process,"<exit,all threads in a process>","<,>",
+ptrace(),process trace,"<trace,process>","<observe,execution of another process>|<control,execution of another process>|<examine,memory and registers.>|<change,memory and registers.>","provides a means by which one process (the ""tracer"") may observe and control the execution of another process|provides a means by which one process (the ""tracer"") may observe and control the execution of another process|examine and change the tracee's memory and registers.|examine and change the tracee's memory and registers."
+shmdt(),XSI shared memory detach operation,"<detach,shared memory>","<,>",
+shmat(),XSI shared memory attach operation,"<attach,shared memory>","<,>",
+shmget(),allocates a System V shared memory segment,"<allocate,shared memory>","<,>",
+waitpid(),wait for a child process to stop or terminate,"<wait for,process>","<,>",
+wait4(),"wait for process to change state, BSD style","<wait for,process>","<,>",
+mremap(),remap a virtual memory address,"<remap,memory>","<expand,memory>",expands an existing memory mapping
+mprotect(),set protection on a region of memory,"<set,region of memory>","<,>",
+set_tid_address(),set pointer to thread ID,"<set,pointer to thread ID>","<,>",
+arch_prctl(),set architecture-specific thread state,"<set,thread state>","<,>",
+set_thread_area(),set a thread local storage (TLS) area,"<set,thread local storage area>","<,>",
+nanosleep(),high-resolution sleep,"<sleep,>","<suspend,execution>",suspends the execution
+set_robust_list(),set list of robust futexes,"<set,futexes>","<,>",
+futex(),"fast user-space locking","<lock,>","<wait,condition>|<wake,processes or threads>",waiting until a certain condition becomes true|can be used to wake any processes or threads
+brk(),change data segment size,"<change,data segment size>","<set,end of data segment>",sets the end of the data segment to the value
+ioctl(),control device,"<control,device>","<manipulate,device parameters>",manipulates the underlying device parameters of special files.
+setsid(),creates a session and sets the process group ID,"<set,process group ID>","<,>",
+setsid(),creates a session and sets the process group ID,"<create,session>","<,>",
+getppid(),get process identification,"<get,process identification>","<,>",
+getpid(),get process identification,"<get,process identification>","<,>",
+getgid(),get group identity,"<get,group identity>","<,>",
+getegid(),get group identity,"<get,group identity>","<,>",
+geteuid(),get user identity,"<get,user identity>","<,>",
+getuid(),get user identity,"<get,user identity>","<,>",
+settimeofday(),get / set time,"<set,time>","<,>",
+time(),get time in seconds,"<get,time>","<,>",
+gettimeofday(),get / set time,"<get,time>","<,>",
+prlimit64(),get/set resource limits,"<get,resource limits>","<,>",
+getrlimit(),get/set resource limits,"<get,resource limits>","<,>",
+ugetrlimit(),get/set resource limits,"<get,resource limits>","<,>",
+sysinfo(),return system information,"<return,system statistics>","<,>",
+uname(),get name and information about current kernel,"<get,name and information about current kernel>","<,>",
+connect(),initiate a connection on a socket,"<initiate,connection on a socket>","<connect,socket>",connects the socket
+pipe(),create pipe,"<create,pipe>","<,>",
+bind(),bind a name to a socket,"<bind,name to socket>","<assign,address>",assigns the address specified by addr to the socket
+socket(),create an endpoint for communication,"<create,endpoint for communication>","<,>",
+setsockopt(),get and set options on sockets,"<set,options on sockets>","<manipulate,options>",manipulate options for the socket
+getsockopt(),get and set options on sockets,"<get,options on sockets>","<manipulate,options>",manipulate options for the socket
+getsockname(),get socket name,"<get,socket name>","<,>",
+recv(),receive a message from a socket,"<receive,message from socket>","<,>",
+recvmsg(),receive a message from a socket,"<receive,message from socket>","<,>",
+recvfrom(),receive a message from a socket,"<receive,message from socket>","<,>",
+send(),send a message on a socket,"<send,message on socket>","<,>",
+sendto(),send a message on a socket,"<send,message on socket>","<,>",
+sendmsg(),send a message on a socket,"<send,message on socket>","<,>",
+quotactl(),manipulate disk quotas,"<manipulate,disk quotas>","<,>",
