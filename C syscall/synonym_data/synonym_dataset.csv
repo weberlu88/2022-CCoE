@@ -53,7 +53,7 @@ setgid(),set group identity,"<set,group identity>","<,>",
 setuid32(),set user identity,"<set,user identity>","<,>",
 add_key(),add a key to the kernel's key management facility,"<add,a key>","<create,a key> | <update,a key> | <instantiate,a key> | <attach,a key>","creates or updates a key of the given type and description, instantiates it with the payload of length plen, attaches it to the nominated keyring"
 getgid32(),get group identity,"<get,group identity>","<,>",
-ipc(),System V IPC system calls,"<,>","<,>",
+ipc(),System V IPC system calls,"<communicate with,process>","<,>",
 getgroups(),get list of supplementary group IDs,"<get,list of supplementary group IDs>","<,>",
 setfsuid32(),set user identity used for filesystem checks,"<set,user identity>","<,>",
 setdomainname(),set NIS domain name,"<set,NIS domain name>","<change,the NIS domain name>",change the NIS domain name of the host system.
@@ -81,9 +81,9 @@ setresgid32(),"set real, effective, and saved group ID","<set,real effective and
 getresuid32(),"get real, effective, and saved user IDs","<get,real effective and saved user IDs>","<,>",
 io_cancel(),cancel an outstanding asynchronous I/O operation,"<cancel,an outstanding asynchronous I/O operation>","<,>",
 iopl(),change I/O privilege level,"<change,I/O privilege level>","<,>",
-pciconfig_read(),pci device information handling,"<,>","<read,to buf>",Reads to buf from device dev at offset off value.
-pciconfig_write(),pci device information handling,"<,>","<write,from buf>",Writes from buf to device dev at offset off value.
-pciconfig_iobase(),pci device information handling,"<,>","<,>",
+pciconfig_read(),pci device information handling,"<handle,pci device information>","<read,to buf>",Reads to buf from device dev at offset off value.
+pciconfig_write(),pci device information handling,"<handle,pci device information>","<write,from buf>",Writes from buf to device dev at offset off value.
+pciconfig_iobase(),pci device information handling,"<handle,pci device information>","<,>",
 io_destroy(),destroy an asynchronous I/O context,"<destroy,an asynchronous I/O context>","<,>",
 ioperm(),set port input/output permissions,"<set,port input/output permissions>","<set,port access permission bits>",ioperm() sets the port access permission bits for the calling thread for num bits starting from port address from.
 io_getevents(),read asynchronous I/O events from the completion queue,"<read,asynchronous I/O events from the completion queue>","<,>",
@@ -209,7 +209,7 @@ truncate64(),truncate a file to a specified length,"<truncate,a file to a specif
 pivot_root(),change the root mount,"<change,the root mount>","<,>",
 epoll_create1(),open an epoll file descriptor,"<open,an epoll file descriptor>","<create,epoll instance>",epoll_create() creates a new epoll(7) instance
 futimesat(),change timestamps of a file relative to a directory file descriptor,"<change,timestamps of a file relative to a directory file descriptor>","<,>",
-timerfd_create(),timers that notify via file descriptors,"<,>","<create,a new timer object>",timerfd_create() creates a new timer object
+timerfd_create(),timers that notify via file descriptors,"<create,timer>","<create,a new timer object>",timerfd_create() creates a new timer object
 epoll_wait(),wait for an I/O event on an epoll file descriptor,"<wait,for an I/O event on an epoll file descriptor>","<,>",
 epoll_pwait(),wait for an I/O event on an epoll file descriptor,"<wait,for an I/O event on an epoll file descriptor>","<,>",
 statfs64(),get filesystem statistics,"<get,filesystem statistics>","<,>",
@@ -294,8 +294,8 @@ pselect6(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descrip
 select(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
 _newselect(),synchronous I/O multiplexing,"<multiplex,I/O>","<monitor,file descriptor>",monitor only file descriptors
 epoll_ctl(),control interface for an epoll file descriptor,"<control,interface>","<add,entries>|<change,settings>|<remove,file descriptor>","Add an entry to the interest list|Change the settings|Remove the target file descriptor"
-clock_settime(),clock and time functions,"<,>","<retrieve,time>",retrieve and set the time of the specified clock clockid.
-clock_gettime(),clock and time functions,"<,>","<set,time>",retrieve and set the time of the specified clock clockid.
+clock_settime(),clock and time functions,"<set,time>","<retrieve,time>",retrieve and set the time of the specified clock clockid.
+clock_gettime(),clock and time functions,"<get,time>","<set,time>",retrieve and set the time of the specified clock clockid.
 clock_nanosleep(),high-resolution sleep with specifiable clock,"<sleep,>","<suspend,execution>",suspends the execution of the calling thread
 msgrcv(),System V message queue operations,"<operate,message queue>","<send,messages>",send messages to a System V message queue.
 msgsnd(),System V message queue operations,"<operate,message queue>","<receive,messages>",receive messages from a System V message queue.
@@ -313,20 +313,20 @@ profil(),execution time profile,"<execute,time profile>","<find out,areas>",find
 reboot(),reboot or enable/disable Ctrl-Alt-Del,"<reboot,>","<,>",
 reboot(),reboot or enable/disable Ctrl-Alt-Del,"<enable,>","<,>",
 reboot(),reboot or enable/disable Ctrl-Alt-Del,"<disable,>","<,>",
-semtimedop(),clock and time functions,"<,>","<,>",
 adjtimex(),tune kernel clock,"<tune,clock>","<,>",
 clock_adjtime(),tune kernel clock,"<tune,clock>","<,>",
-clock_getres(),clock and time functions,"<,>","<,>",
+clock_getres(),clock and time functions,"<get,resolution>","<,>",
 membarrier(),issue memory barriers on a set of threads,"<issue,memory barriers>","<,>",
 prctl(),operations on a process or thread,"<operate,process or thread>","<,>",
-syscall(),indirect system call,"<,>","<,>",
-socketcall(),socket system calls,"<,>","<,>",
+syscall(),indirect system call,"<invoke,system call>","<,>",
+socketcall(),socket system calls,"<provide,socket>","<,>",
+semtimedop(),System V semaphore operations,"<operate,>","<perform,semaphores>",performs operations on selected semaphores in the set indicated by semid.
 semop(),System V semaphore operations,"<operate,>","<perform,semaphores>",performs operations on selected semaphores in the set indicated by semid.
 signal(),ANSI C signal handling,"<handle,signal>","<,>",
 cacheflush(),flush contents of instruction and/or data cache,"<flush,contents of instruction>","<,>",
 vmsplice(),splice user pages to/from a pipe,"<splice,user pages>","<,>",
-nfsservctl(),syscall interface to kernel nfs daemon,"<,>","<,>",
-msgctl(),System V message control operations,"<,>","<control,operation>",control operation specified by cmd
+nfsservctl(),syscall interface to kernel nfs daemon,"<provide,interface>","<,>",
+msgctl(),System V message control operations,"<control,operation>","<,>",
 semctl(),System V semaphore control operations,"<control,operation>","<,>",
 vhangup(),virtually hangup the current terminal,"<hangup,current terminal>","<arrange,user>",arranges for other users to have a “clean” terminal at login time.
 read(),read from a file descriptor,"<read,file descriptor>","<seek,file>",On files that support seeking
