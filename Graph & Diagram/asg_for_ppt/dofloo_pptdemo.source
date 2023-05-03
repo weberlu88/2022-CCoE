@@ -2,7 +2,6 @@ digraph {
 	0	[label=malware,
 		style=filled];
 	1	[label=uname,
-		shape=rectangle,
 		style=filled];
 	0 -> 1	[label="1. exec()",
 		minlen=1];
