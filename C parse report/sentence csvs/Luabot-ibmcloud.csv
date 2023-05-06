@@ -1,0 +1,52 @@
+Number,Content
+Sentence 1,"LuaBot Linux/IoT Malware
+
+Timeframe
+Researchers discovered this malware at the end of August, 2016."
+Sentence 2,"Attacks continue in September, 2016."
+Sentence 3,"This malware breaks new ground, using Lua compiled to ELF binaries as its development platform."
+Sentence 4,"When originally disclosed on 5 September 2016, virtually no anti-virus software detected it, though that situation improved quickly once the malware was publicized."
+Sentence 5,LuaBot was discovered quite recently and appears to be in relatively early stages of development.
+Sentence 6,"It is very modular, and researchers have only disclosed analyses of the base malware and one module."
+Sentence 7,"That module focuses on Layer 7 flood DDoS attacks, but other modules could exist or be created."
+Sentence 8,"The binaries identified so far are compiled for 32-bit ARM platforms, targeting Linux servers and IoT devices."
+Sentence 9,The base malware creates a SOCKS proxy on the victim.
+Sentence 10,The creator and operator of LuaBot appears to offer the SOCKS proxies of this botnet for sale to help other malware operations shield the origins of their attacks.
+Sentence 11,The initial infection vector for LuaBot is currently unknown.
+Sentence 12,"
+Identifiers
+LuaBot
+Linux/LuaBot
+"
+Sentence 13,"
+Known Campaigns
+Unidentified."
+Sentence 14,"
+Behaviors
+Implements a Lua scripting environment, including statically linked libraries for networking and cryptography."
+Sentence 15,Provides a modular platform that allows creation and deployment of new functionality with relative ease.
+Sentence 16,The only known module performs Layer 7 DDoS attacks.
+Sentence 17,Acts as a SOCKS proxy.
+Sentence 18,Signed by an example certificate from the library it uses for SSL communications (MatrixSSL).
+Sentence 19,Command and Control traffic is encrypted and signed to discourage both detection and hijacking.
+Sentence 20,Looks up well known sites like amazon[.
+Sentence 21,"]com, facebook[."
+Sentence 22,"]com, google[."
+Sentence 23,"]com, and baidu[."
+Sentence 24,]com to determine whether it can connect to the Internet.
+Sentence 25,"
+Certificates
+Certificate Title
+Sample Matrix RSA-4096 Certificate
+Sample Matrix RSA-4096 Certificate Authorit
+INSIDE Secure Corporation, Seattle, WA, USA
+Valid from 2014-03-24 @ 164110Z through 2017-03-23 @ 164110Z."
+Sentence 26,"
+References
+MMD-0057-2016 - New ELF botnet: Linux/LuaBot (HTML, MalwareMustDie Blog)
+"
+Sentence 27,"
+Reports
+MAL	8E7637D72E522CB52012C02EB8DDFDBE	Doug Franklin	
+MAL	a220940db4be6878e47b74403a8079a1	Doug Franklin	
+IP	217.23.3.47	Doug Franklin"

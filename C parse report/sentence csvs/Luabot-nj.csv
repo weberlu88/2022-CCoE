@@ -1,0 +1,20 @@
+Number,Content
+Sentence 1,"LuaBot
+NJCCIC Threat Profile
+Original Release Date: 2016-09-21
+"
+Sentence 2,"
+LuaBot, similar to Mirai, is a trojan that targets Linux systems, loT devices, and web servers, turning infected systems into bots within a larger botnet controlled by the attacker."
+Sentence 3,"This malware appears as an ELF binary targeting ARM platforms, found typically in embedded loT devices."
+Sentence 4,"Initially, no malicious functions were found in LuaBot, besides adding devices to a botnet."
+Sentence 5,"Then, researchers discovered that a LuaBot module on one device allowed this trojan to perform Layer 7 DDoS attacks."
+Sentence 6,Reverse-engineering the code of this malware reveals that the bot communicates with a C2 server hosted in the Netherlands on the infrastructure of WorldStream.NL.
+Sentence 7,"Code was also discovered in LuaBot stating penetrate_sucuri, which hints at features capable of penetrating Sucuri's Web Application Firewall."
+Sentence 8,Analysis revealed this malware allows the coder to use routers as proxies in order to relay malicious traffic.
+Sentence 9,"
+Reporting
+
+September 2016: LuaBot discovered as the first DDoS-capable trojan coded in the Lua scripting language."
+Sentence 10,"(Softpedia)
+September 2016: An interview with the LuaBot malware author is conducted and released."
+Sentence 11,(Medium)

@@ -1,0 +1,36 @@
+Number,Content
+Sentence 1,"LuaBot Is the First DDoS Malware Coded in Lua Targeting Linux Platforms
+Search...
+
+LuaBot is the latest addition to the Linux malware scene
+
+Sep 5, 2016 21:20 GMT  ·  By Catalin Cimpanu
+"
+Sentence 2,"                
+A trojan coded in Lua is targeting Linux platforms with the goal of adding them to a global botnet with the purpose of carrying out DDoS attacks, security researcher MalwareMustDie!"
+Sentence 3,has reported today.
+Sentence 4,"For an operating system with a minuscule 2.11 percent market share, this is our third story on Linux malware in the past 24 hours, after previously reporting on the Mirai DDoS trojan and the Umbreon rootkit."
+Sentence 5,"LuaBot falls into the same category as Mirai because its primary purpose is to compromise Linux systems, IoT devices or web servers, and add them as bots inside a bigger botnet controlled by the attacker."
+Sentence 6,"LuaBot most likely used for DDoS attacks
+At the moment, the LuaBot trojan is packed as an ELF binary that targets ARM platforms, usually found in embedded (IoT) devices."
+Sentence 7,"Based on MalwareMustDie's experience, this seems to be the first Lua-based malware family packed as an ELF binary spreading to Linux platforms."
+Sentence 8,An initial analysis by MalwareMustDie didn't uncover any malicious functionality outside the capabilities of adding devices to a centrally controlled botnet.
+Sentence 9,"One day after publishing his research on LuaBot, MalwareMustDie received an extra sample, a LuaBot module, which when installed, granted LauBot the ability to carry out Layer 7 DDoS attacks."
+Sentence 10,"Unlike Mirai, which is the fruit of a two-year-long coding frenzy, LuaBot is in its early stages of development, with the first detection being reported only a week ago and a zero detection rate on VirusTotal for current samples."
+Sentence 11,"Since it's only a one-week-old malware strain, details are scarce about its distribution and infection mechanism."
+Sentence 12,"LuaBot author challenges security researchers
+MalwareMustDie has managed to reverse-engineer some of the trojan's code and discovered that the bot communicates with a C&C server hosted in the Netherlands on the infrastructure of dedicated server hosting service WorldStream.NL."
+Sentence 13,The researcher also found that LuaBot's brazen developer left a message behind for all the infosec professionals trying to deconstruct his code.
+Sentence 14,"The message reads, Hi."
+Sentence 15,"Happy reversing, you can mail me: [REDACTED .ru email address]."
+Sentence 16,"Additionally, MalwareMustDie also discovered code labeled as penetrate_sucuri, alluding to features capable of skirting Sucuri's infamous Web Application Firewall, a cyber-security product that has stopped many web threats in the past."
+Sentence 17,"MalwareMustDie told Softpedia that it seems the function is there [...] coded with that purpose, but the researcher later admitted that I don't know the Sucuri WAF much, so I can not test it."
+Sentence 18,"Softpedia has reached out to Sucuri, and we'll update the article if this function proves to be a successful firewall bypass or just a piece of unfinished code."
+Sentence 19,"UPDATE [September 6, 2016]: Article was updated to include later analysis of the LuaBot DDoS module."
+Sentence 20,"UPDATE [September 19, 2016]: More analysis from MalwareMustDie revealed the true purpose of this malware."
+Sentence 21,"Exploitation of vulnerable routers for botnet for selling socks to cyber crime, MalwareMustDie told Softpedia."
+Sentence 22,"Using DDoS, not main function, mostly for personal use."
+Sentence 23,"So basically, the malware coder is using your routers as proxies to relay malicious traffic, whatever that may be."
+Sentence 24,"Function suspected of being able to bypass Sucuri's firewall
+
+#Linux#botnet#Linux malware#Lua#DDoS"

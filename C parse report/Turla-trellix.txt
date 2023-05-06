@@ -1,0 +1,152 @@
+
+Trellix Insights: The Penquin Turla
+Technical Articles ID:   KB93942
+Last Modified:  2022-08-29 15:16:15 Etc/GMT
+~~
+Environment
+IMPORTANT: This Knowledge Base article discusses a specific threat that is being automatically tracked by Trellix Insights technology. The content is intended for use by Trellix Insights users, but is provided for general knowledge to all customers. Contact us for more information about Trellix Insights.
+~~
+Summary
+Description of Campaign
+Turla is a backdoor tool used by the Turla Group. So far, every single Turla sample encountered was designed for Microsoft Windows. After analyzing this Turla variant and the backdoor used in the Moonlight Maze attacks, it was found that both samples use the same LOKI2 program released in Phrack magazine in 1996.
+~~
+How to use this article:
+If a Threat Hunting table has been created, use the rules contained to search for malware related to this campaign. 
+Review the product detection table and confirm that your environment is at least on the specified content version.
+To download the latest content versions, go to the Security Updates page.
+Scroll down and review the "Product Countermeasures" section of this article. Consider implementing them if they are not already in place.
+Review KB91836 - Countermeasures for entry vector threats.
+Review KB87843 - Dynamic Application Containment rules and best practices.
+Review KB82925 - Identify what rule corresponds to an Adaptive Threat Protection and Threat Intelligence Exchange event.
+~~
+Threat Hunting:
+YARA	rule APT_MAL_LNX_Turla_Apr202004_1 {
+meta:
+description = "Detects Turla Linux malware x64 x32"
+date = "2020-04-24"
+hash1 = "67d9556c695ef6c51abf6fbab17acb3466e3149cf4d20cb64d6d34dc969b6502"
+hash2 = "8ccc081d4940c5d8aa6b782c16ed82528c0885bbb08210a8d0a8c519c54215bc"
+hash3 = "8856a68d95e4e79301779770a83e3fad8f122b849a9e9e31cfe06bf3418fa667"
+hash4 = "1d5e4466a6c5723cd30caf8b1c3d33d1a3d4c94c25e2ebe186c02b8b41daf905"
+hash5 = "2dabb2c5c04da560a6b56dbaa565d1eab8189d1fa4a85557a22157877065ea08"
+hash6 = "3e138e4e34c6eed3506efc7c805fce19af13bd62aeb35544f81f111e83b5d0d4"
+hash7 = "5a204263cac112318cd162f1c372437abf7f2092902b05e943e8784869629dd8"
+hash8 = "8856a68d95e4e79301779770a83e3fad8f122b849a9e9e31cfe06bf3418fa667"
+hash9 = "d49690ccb82ff9d42d3ee9d7da693fd7d302734562de088e9298413d56b86ed0"
+
+strings:
+$s1 = "/root/.hsperfdata" ascii fullword
+$s2 = "Desc| Filename | size |state|" ascii fullword
+$s3 = "VS filesystem: %s" ascii fullword
+$s4 = "File already exist on remote filesystem !" ascii fullword
+$s5 = "/tmp/.sync.pid" ascii fullword
+$s6 = "rem_fd: ssl " ascii fullword
+$s7 = "TREX_PID=%u" ascii fullword
+$s8 = "/tmp/.xdfg" ascii fullword
+$s9 = "__we_are_happy__" ascii fullword
+$s10 = "/root/.sess" ascii fullword
+$s11 = "ZYSZLRTS^Z@@NM@@G_Y_FE" ascii fullword
+condition:
+uint16(0) == 0x457f and
+filesize < 5000KB and
+4 of them
+}
+~~
+YARA	rule APT_MAL_LNX_Turla_Apr202004_1_opcode {
+meta:
+description = "Detects Turla Linux malware x64 x32"
+date = "2020-04-24"
+hash1 = "67d9556c695ef6c51abf6fbab17acb3466e3149cf4d20cb64d6d34dc969b6502"
+hash2 = "8ccc081d4940c5d8aa6b782c16ed82528c0885bbb08210a8d0a8c519c54215bc"
+hash3 = "8856a68d95e4e79301779770a83e3fad8f122b849a9e9e31cfe06bf3418fa667"
+hash4 = "1d5e4466a6c5723cd30caf8b1c3d33d1a3d4c94c25e2ebe186c02b8b41daf905"
+hash5 = "2dabb2c5c04da560a6b56dbaa565d1eab8189d1fa4a85557a22157877065ea08"
+hash6 = "3e138e4e34c6eed3506efc7c805fce19af13bd62aeb35544f81f111e83b5d0d4"
+hash7 = "5a204263cac112318cd162f1c372437abf7f2092902b05e943e8784869629dd8"
+hash8 = "8856a68d95e4e79301779770a83e3fad8f122b849a9e9e31cfe06bf3418fa667"
+hash9 = "d49690ccb82ff9d42d3ee9d7da693fd7d302734562de088e9298413d56b86ed0"
+
+strings:
+$op0 = { 8D 41 05 32 06 48 FF C6 88 81 E0 80 69 00 } /* Xor string loop_p1 x32*/
+$op1 = { 48 FF C1 48 83 F9 49 75 E9 } /* Xor string loop_p2 x32*/
+$op2 = { C7 05 9B 7D 29 00 1D 00 00 00 C7 05 2D 7B 29 00 65 74 68 30 C6 05 2A 7B 29 00 00 E8 }
+/* Load eth0 interface*/
+$op3 = { BF FF FF FF FF E8 96 9D 0A 00 90 90 90 90 90 90 90 90 90 90 89 F0}
+/* Opcode exceptions*/
+$op4 = { 88 D3 80 C3 05 32 9A C1 D6 0C 08 88 9A 60 A1 0F 08 42 83 FA 08 76 E9 }
+/* Xor string loop x64*/
+$op5 = { 8B 8D 50 DF FF FF B8 09 00 00 00 89 44 24 04 89 0C 24 E8 DD E5 02 00 } /* Kill call x32 */
+$op6 = { 8D 5A 05 32 9A 60 26 0C 08 88 9A 20 F4 0E 08 42 83 FA 48 76 EB } /* Decrypt init str */
+$op7 = { 8D 4A 05 32 8A 25 26 0C 08 88 8A 20 F4 0E 08 42 83 FA 08 76 EB} /* Decrypt init str */
+condition:
+uint16(0) == 0x457f and
+filesize < 5000KB and
+2 of them
+}
+~~
+YARA	/*Moonlight Maze Yara rules - TLP_GREENAuthor: Kaspersky Lab, 2017Version: 1.0Date: 2017-03-28*/rule apt_RU_MoonlightMaze_customlokitools {meta: author = "Kaspersky Lab" date = "2017-03-15" version = "1.1" last_modified = "2017-03-22" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Moonlight Maze Loki samples by custom attacker-authored strings" hash = "14cce7e641d308c3a177a8abb5457019" hash = "a3164d2bbc45fb1eef5fde7eb8b245ea" hash = "dabee9a7ea0ddaf900ef1e3e166ffe8a" hash = "1980958afffb6a9d5a6c73fc1e2795c2" hash = "e59f92aadb6505f29a9f368ab803082e"strings: $a1="Write file Ok..." ascii wide $a2="ERROR: Can not open socket...." ascii wide $a3="Error in parametrs:" ascii wide $a4="Usage: @ " ascii wide $a5="ERROR: Not connect..." ascii wide $a6="Connect successful...." ascii wide $a7="clnt <%d> rqstd n ll kll" ascii wide $a8="clnt <%d> rqstd swap" ascii wide $a9="cld nt sgnl prcs grp" ascii wide $a10="cld nt sgnl prnt" ascii wide //keeping only ascii version of string -> $a11="ork error" ascii fullwordcondition: ((any of ($a*)))}rule apt_RU_MoonlightMaze_customsniffer {meta: author = "Kaspersky Lab" date = "2017-03-15" version = "1.1" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Moonlight Maze sniffer tools" hash = "7b86f40e861705d59f5206c482e1f2a5" hash = "927426b558888ad680829bd34b0ad0e7" original_filename = "ora;tdn" strings: //strings from ora -> $a1="/var/tmp/gogo" fullword $a2="myfilename= |%s|" fullword $a3="mypid,mygid=" fullword $a4="mypid=|%d| mygid=|%d|" fullword //strings from tdn -> $a5="/var/tmp/task" fullword $a6="mydevname= |%s|" fullwordcondition: ((any of ($a*)))}rule loki2crypto {meta: author = "Costin Raiu, Kaspersky Lab" date = "2017-03-21" version = "1.0" description = "Rule to detect hardcoded DH modulus used in 1996/1997 Loki2 sourcecode; #ifdef STRONG_CRYPTO /* 384-bit strong prime */" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" hash = "19fbd8cbfb12482e8020a887d6427315" hash = "ea06b213d5924de65407e8931b1e4326" hash = "14ecd5e6fc8e501037b54ca263896a11" hash = "e079ec947d3d4dacb21e993b760a65dc" hash = "edf900cebb70c6d1fcab0234062bfc28"strings: $modulus={DA E1 01 CD D8 C9 70 AF C2 E4 F2 7A 41 8B 43 39 52 9B 4B 4D E5 85 F8 49}condition: (any of them)}rule apt_RU_MoonlightMaze_de_tool {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Moonlight Maze 'de' and 'deg' tunnel tool" hash = "4bc7ed168fb78f0dc688ee2be20c9703" hash = "8b56e8552a74133da4bc5939b5f74243"strings: $a1="Vnuk: %d" ascii fullword $a2="Syn: %d" ascii fullword //%s\r%s\r%s\r%s\r -> $a3={25 73 0A 25 73 0A 25 73 0A 25 73 0A}condition: ((2 of ($a*)))}rule apt_RU_MoonlightMaze_cle_tool {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Moonlight Maze 'cle' log cleaning tool" hash = "647d7b711f7b4434145ea30d0ef207b0" strings: $a1="./a filename template_file" ascii wide $a2="May be %s is empty?" ascii wide $a3="template string = |%s|" ascii wide $a4="No blocks !!!" $a5="No data in this block !!!!!!" ascii wide $a6="No good line"condition: ((3 of ($a*)))}rule apt_RU_MoonlightMaze_xk_keylogger {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Moonlight Maze 'xk' keylogger"strings: $a1="Log ended at => %s" $a2="Log started at => %s [pid %d]" $a3="/var/tmp/task" fullword $a4="/var/tmp/taskhost" fullword $a5="my hostname: %s" $a6="/var/tmp/tasklog" $a7="/var/tmp/.Xtmp01" fullword $a8="myfilename=-%s-" $a9="/var/tmp/taskpid" $a10="mypid=-%d-" fullword $a11="/var/tmp/taskgid" fullword $a12="mygid=-%d-" fullwordcondition: ((3 of ($a*)))}rule apt_RU_MoonlightMaze_encrypted_keylog {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Moonlight Maze encrypted keylogger logs"strings: $a1={47 01 22 2A 6D 3E 39 2C}condition: ($a1 at 0)}rule apt_RU_MoonlightMaze_IRIX_exploit_GEN {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect Irix exploits from David Hedley used by Moonlight Maze hackers" reference2 = "https://www.exploit-db.com/exploits/19274/" hash = "008ea82f31f585622353bd47fa1d84be" //df3 hash = "a26bad2b79075f454c83203fa00ed50c" //log hash = "f67fc6e90f05ba13f207c7fdaa8c2cab" //xconsole hash = "5937db3896cdd8b0beb3df44e509e136" //xlock hash = "f4ed5170dcea7e5ba62537d84392b280" //xtermstrings: $a1="stack = 0x%x, targ_addr = 0x%x" $a2="execl failed"condition: (uint32(0)==0x464c457f) and (all of them)}rule apt_RU_MoonlightMaze_u_logcleaner {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect log cleaners based on utclean.c" reference2 = "http://cd.textfiles.com/cuteskunk/Unix-Hacking-Exploits/utclean.c" hash = "d98796dcda1443a37b124dbdc041fe3b" hash = "73a518f0a73ab77033121d4191172820"strings: $a1="Hiding complit...n" $a2="usage: %s [hostname]" $a3="ls -la %s* ; /bin/cp ./wtmp.tmp %s; rm ./wtmp.tmp"condition: (uint32(0)==0x464c457f) and (any of them)}rule apt_RU_MoonlightMaze_wipe {meta: author = "Kaspersky Lab" date = "2017-03-27" version = "1.0" last_modified = "2017-03-27" reference = "https://en.wikipedia.org/wiki/Moonlight_Maze" description = "Rule to detect log cleaner based on wipe.c" reference2 = "http://www.afn.org/~afn28925/wipe.c" hash = "e69efc504934551c6a77b525d5343241"strings: $a1="ERROR: Unlinking tmp WTMP file." $a2="USAGE: wipe [ u|w|l|a ] ...options..." $a3="Erase acct entries on tty : wipe a [username] [tty]" $a4="Alter lastlog entry : wipe l [username] [tty] [time] [host]"condition: (uint32(0)==0x464c457f) and (2 of them)}
+~~
+Campaign IOC
+Type	Value
+SHA256	D9F2467FF11EFAE921EC83E074E4F8D2EAC7881D76BFF60A872A801BD45CE3D5
+SHA256	8CCC081D4940C5D8AA6B782C16ED82528C0885BBB08210A8D0A8C519C54215BC
+SHA256	67D9556C695EF6C51ABF6FBAB17ACB3466E3149CF4D20CB64D6D34DC969B6502
+SHA256	5A204263CAC112318CD162F1C372437ABF7F2092902B05E943E8784869629DD8
+SHA256	2DABB2C5C04DA560A6B56DBAA565D1EAB8189D1FA4A85557A22157877065EA08
+~~
+Minimum Content Versions:
+Content Type	Version
+V2 DAT (VirusScan Enterprise)	9639
+V3 DAT (Endpoint Security)	4091
+~~
+Detection Summary                               
+IOC	Scanner	Detection
+D9F2467FF11EFAE921EC83E074E4F8D2EAC7881D76BFF60A872A801BD45CE3D5	AVEngine V2	Linux/Turla.a
+AVEngine V3	Linux/Turla.a
+JTI (ATP Rules)	-
+RP Static	-
+RP Dynamic	-
+~~
+IOC	Scanner	Detection
+8CCC081D4940C5D8AA6B782C16ED82528C0885BBB08210A8D0A8C519C54215BC	AVEngine V2	Linux/Turla.a
+AVEngine V3	Linux/Turla.a
+JTI (ATP Rules)	-
+RP Static	-
+RP Dynamic	-
+~~
+IOC	Scanner	Detection
+67D9556C695EF6C51ABF6FBAB17ACB3466E3149CF4D20CB64D6D34DC969B6502	AVEngine V2	LINUX/Turla.b
+AVEngine V3	LINUX/Turla.b
+JTI (ATP Rules)	-
+RP Static	-
+RP Dynamic	- 
+~~
+IOC	Scanner	Detection
+5A204263CAC112318CD162F1C372437ABF7F2092902B05E943E8784869629DD8	AVEngine V2	Linux/Turla
+AVEngine V3	Linux/Turla
+JTI (ATP Rules)	-
+RP Static	-
+RP Dynamic	- 
+~~
+IOC	Scanner	Detection
+2DABB2C5C04DA560A6B56DBAA565D1EAB8189D1FA4A85557A22157877065EA08	AVEngine V2	Linux/Turla
+AVEngine V3	Linux/Turla
+JTI (ATP Rules)	-
+RP Static	-
+RP Dynamic	-
+~~
+Aggressive set of Manual Rules to improve protection to block this campaign
+IMPORTANT: Always follow best practices when you enable new rules and signatures.
+
+When you implement new rules or signatures, always set them to Report mode first and check the alerts generated. Resolve any issues that arise and then set the rules to Block. This step mitigates against triggering false positives and allows you to refine your configuration.
+
+For more information, see KB87843 - List of and best practices for Endpoint Security Dynamic Application Containment rules.
+
+Virusscan Enterprise - Access Protection Rules:
+Prevent programs registering as a service
+
+Host Intrusion Prevention:
+Rule ID: 6010 Generic Application Hooking Protection
+Rule ID: 1148 CMD Tool Access by a Network Aware Application
+Rule ID: 6011 Generic Application Invocation Protection
+Rule ID: 412 Double File Extension Execution

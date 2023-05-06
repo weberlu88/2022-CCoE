@@ -1,0 +1,27 @@
+Number,Content
+Sentence 1,"Backdoor:OSX/Tsunami.A
+Classification
+Category : MalwareType : BackdoorPlatform : OSXAliases : Backdoor:OSX/Tsunami.A
+"
+Sentence 2,"
+Summary
+Backdoor:OSX/Tsunami.A is a distributed denial-of-service (DDoS) flooder that is also capable of downloading files and executing shell commands in an infected system."
+Sentence 3,"
+Technical Details
+Backdoor:OSX/Tsunami.A is an OS X platform ported version of the IRC bot for Linux called Kaiten wa goraku."
+Sentence 4,"Upon execution, it connects to an IRC server and then joins a password protected channel where it waits for further commands."
+Sentence 5,"It is mainly a distributed denial-of-service (DDos) flooder, hence the name Tsunami."
+Sentence 6,"However, it is also capable of performing other actions such as downloading additional files and executing shell commands in an infected system."
+Sentence 7,These actions could grant the bot master almost a full control of the infected system.
+Sentence 8,"The IRC parameters, drop files and launch points differ between variants."
+Sentence 9,"As of this writing, two variants have been found."
+Sentence 10,The table below describes the characteristics of the two variants.
+Sentence 11,"
+
+IRC Server:Port	Channel	Drop Files and Launch Points
+pingu.anonops.li:6667	#tarapia	None."
+Sentence 12,"It must be installed manually by the user or an attacker who has access to the system
+x.lisp.su:6667	#harbour	-
+/System/Library/LaunchDaemons/com.apple.logind.plist	-	launch point
+/usr/sbin/logind	-	copy of the malware
+As of this writing, both servers are not accessible"

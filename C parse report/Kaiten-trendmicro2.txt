@@ -1,0 +1,79 @@
+Backdoor.Linux.KAITEN.AMV
+September 10, 2020
+~~
+Analysis by: Karen Ivy Titiwa
+  ALIASES:
+Backdoor.Linux.Tsunami.gen(KASPERSKY); Backdoor.Linux.Tsunami.A(QUICKHEAL)
+~~
+TECHNICAL DETAILS
+File Size:
+179,108 bytes
+
+File Type:
+ELF
+
+Memory Resident:
+Yes
+
+Initial Samples Received Date:
+10 Jul 2020
+
+Payload:
+Connects to URLs/IPs
+~~
+Arrival Details
+
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+~~
+Backdoor Routine
+
+This Backdoor joins any of the following Internet Relay Chat (IRC) channels:
+#xxx
+~~
+It posts the following information to its command and control (C&C) server:
+
+c4k.xpl.{BLOCKED}s.pw
+{BLOCKED}.{BLOCKED}.75.25
+{BLOCKED}.{BLOCKED}.11.170
+~~
+It accesses a remote Internet Relay Chat (IRC) server where it receives the following commands from a remote malicious user:
+
+352 - used to send spoof request
+376 - used to execute the following commands: Mode, Join, Who
+433 - used to set nickname
+PRIVMSG:
+TSUNAMI - DDOS
+PAN - SYN flood
+UDP - UDP flood
+UNKNOWN - Another non-spoof UDP flood
+NICK - Changes the nick of the client
+SERVER - Changes servers
+GETSPOOFS- Gets the current spoofing
+SPOOFS - Changes spoofing to a subnet
+DISABLE- Disables all packeting from this client
+ENABLE - Enables all packeting from this client
+KILL - Kills the client
+GET - Downloads a file off the web and saves it onto the hd
+VERSION - Requests version of client
+KILLALL - Kills all current packeting
+HELP - Displays the list of command
+IRC - Sends this command to the server
+SH - Executes a command
+PING - used to get Pong
+JOIN - used to give channels or nickname operators control
+KICK - used to join a specified channel
+NICK - used to get the nickname
+~~
+Other Details
+~~
+This Backdoor does the following:
+
+It reads the contents of the following files:
+/etc/hosts
+/etc/resolv.conf
+~~
+SOLUTION
+Scan your computer with your Trend Micro product to delete files detected as Backdoor.Linux.KAITEN.AMV. If the detected files have already been cleaned, deleted, or quarantined by your Trend Micro product, no further step is required. You may opt to simply delete the quarantined files. Please check the following Trend Micro Support pages for more information:
+
+Home and Home Office Support
+Business Support

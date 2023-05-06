@@ -1,0 +1,34 @@
+BKDR_TURLA.YKX
+July 06, 2017
+Analysis by: Cris Nowell Pantanilla
+~~
+TECHNICAL DETAILS
+FILE SIZE: 801561 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: Yes
+INITIAL SAMPLES RECEIVED DATE: 09 Dec 2014
+PAYLOAD: Compromises system security
+~~
+Arrival Details
+
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+~~
+Backdoor Routine
+
+This Backdoor connects to the following URL(s) to send and receive commands from a remote malicious user:
+
+news-bbc.{BLOCKED}e.org
+{BLOCKED}.{BLOCKED}.65.183
+~~
+NOTES:
+
+This backdoor downloads and executes the following file:
+/tmp/.xdfg
+It then deletes the file after execution.
+~~
+It is capable of the following actions:
+Connect to a remote host
+Sync files from a remote host
+Upload files
+Download and execute files
+Set the environment variable
