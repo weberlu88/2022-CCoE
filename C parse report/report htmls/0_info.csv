@@ -1,0 +1,47 @@
+Family,DocId,Genre,Txtname,Source,Title
+dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS 
+dofloo,"D1,2",analysis,Dofloo-MalwareMustDie,blog.malwaremustdie.org , Reversing an ARM arch ELF 
+dofloo,"D1,4",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware 
+dofloo,"D1,3",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw 
+dofloo,"D1,5",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia 
+xorddos,"D2,1",tech,Xorddos-Cdnetworks,cdnetworks.com, Understanding a XOR.DDoS Attack 
+xorddos,"D2,2",news,Xorddos-Crowdstrike,crowdstrike.com , LinuxTargeted Malware Increases by 35p in 2021 
+xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState 
+xorddos,"D2,4",analysis,Xorddos-Microsoft,microsoft.com , A deeper look at the stealthy DDoS malware targeting Linux devices 
+xorddos,"D2,5",tech,Xorddos-Trendmicro,trendmicro.com , Threat Encyclopedia 
+xorddos,"D2,6",analysis,Xorddos-Trendmicro2,trendmicro.com ," XORDDoS, Kaiji Variants Target Exposed Docker Servers "
+Darlloz,"D3,6",analysis,Darlloz-cisco,blogs.cisco.com , Including Malware 
+Darlloz,"D3,1",news,Darlloz-Broadcom,community.broadcom.com , Endpoint Protection Symantec Enterprise 
+Darlloz,"D3,2",tech,Darlloz-Giac,giac.org , introduction linux based malware 
+Darlloz,"D3,3",analysis,Darlloz-Icc17,icc17 , IoT Sandbox To Analysis IoT malware Zollard 
+Darlloz,"D3,4",tech,Darlloz-Trendmicro,trendmicro.com , UNIX_DARLLOZ.A 
+Darlloz,"D3,5",tech,Darlloz-Trendmicro2,trendmicro.com , Worm_Linux_DARLLOZ.AA 
+lupper,"D8,1",news,,securelist.com , Linux.Lupper reports 
+lupper,"D8,2",analysis,,spamlaws.com ,  Lupper Worm 
+lupper,"D8,3",tech,,trendmicro.com , Lupil_Lupper Worm Vulnerability  Threat Encyclopedia 
+lupper,"D8,4",tech,,web.archive.org , Linux_Lupper.worm 
+Gafgyt,"D4,1",analysis,Gafgyt-fortinet,fortinet.com , Linux Gafgyt.B!tr Exploits Netcore Vulnerability 
+Gafgyt,"D4,2",analysis,Gafgyt-nozominetworks,nozominetworks.com , Could Threat Actors Be Downgrading Their Malware to Evade Detection 
+Gafgyt,"D4,4",analysis,Gafgyt-securityscorecard,resources.securityscorecard.com , A Detailed Analysis Of The Gafgyt Malware Targeting IoT Devices 
+Gafgyt,"D4,3",analysis,Gafgyt-sectrio,sectrio.com , Gafgyt Backdoor Malware report 
+Gafgyt,"D4,5",tech,Gafgyt-trendmicro,trendmicro.com , GAFGYT Threat Encyclopedia 
+Gafgyt,"D4,6",analysis,Gafgyt-unit42,unit42.paloaltonetworks.com , Multiexploit IoT_Linux Botnets Mirai and Gafgyt Target Apache Struts 
+Gafgyt,"D4,7",analysis,Gafgyt-unit42-2,unit42.paloaltonetworks.com , Unit 42 Finds New Mirai and Gafgyt IoT_Linux Botnet Campaigns 
+Gafgyt,"D4,8",tech,Gafgyt-wikipedia,wikipedia.org , Wikipedia BASHLITE 
+Luabot,"D5,1",news,Luabot-nj.gov,cyber.nj.gov , NJCCIC Threat Profile LuaBot 
+Luabot,"D5,2",analysis,Luabot-malwaremustdie,malwaremustdie.org , 2016 Linux_LuaBot IoT botnet as service 
+Luabot,"D5,3",tech,Luabot-microsoft,microsoft.com , Backdoor_Linux_Luabot.A threat description 
+Luabot,"D5,4",news,Luabot-softpedia,news.softpedia.com , LuaBot Is the First DDoS Malware Coded in Lua Targeting Linux Platforms 
+Luabot,"D5,5",analysis,Luabot-securityaffairs,securityaffairs.co , LuaBot is the first Linux DDoS botnet written in Lua Language 
+Luabot,"D5,6",tech,Luabot-trendmicro,trendmicro.com , New Linux Malware Exploits CGI Vulnerability 
+Luabot,"D5,7",analysis,Luabot-w00tsec,w00tsec.blogspot , LuaBot Malware targeting cable modems 
+Luabot,"D5,8",tech,Luabot-ibmcloud,xforce.ibmcloud.com , LuaBot Linux_IoT Malware 
+Kaiten,"D6,1",tech,Kaiten-fsecure,fsecure.com , Backdoor OSX Tsunami.A 
+Kaiten,"D6,2",tech,Kaiten-lacework,lacework.com , The Kek Security Network 
+Kaiten,"D6,3",analysis,Kaiten-tarlogic,tarlogic.com , Attackers Abuse MobileIron’s RCE to deliver Kaiten 
+Kaiten,"D6,4",campaign,Kaiten-trendmicro,trendmicro.com , Exposed Docker Server Abused to Drop Cryptominer DDoS Bot
+Kaiten,"D6,5",tech,Kaiten-trendmicro2,trendmicro.com2 , Backdoor.Linux.KAITEN.AMV Threat Encyclopedia 
+Turla,"D7,1",tech,Turla-trellix,kcm.trellix.com , Trellix Insights The Penquin Turla 
+Turla,"D7,2",analysis,Turla-leonardo,leonardo.com , Malware Technical Insight Turla Penquin_x64 
+Turla,"D7,3",analysis,Turla-securelist,securelist.com , The Penquin Turla 
+Turla,"D7,4",tech,Turla-trendmicro,trendmicro.com , BKDR_TURLA.YKX Threat Encyclopedia 
