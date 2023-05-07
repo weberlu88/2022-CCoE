@@ -611,8 +611,17 @@ def get_step_reduction_statistic(unique_step):
                 
     return step_reduction
 
+cache_unique_steplist = []
+cache_nodecount:int = 0
+cache_stepcount:int = 0
+
 def get_sorted_uni_step(graph):
     '''list of [src_node, dest_node, edge_name]'''
+    # return cache result if for same asg
+    global cache_unique_steplist, cache_nodecount, cache_stepcount
+    if len(graph.set_of_object) == cache_nodecount and len(graph.step_list) == cache_stepcount:
+        return cache_unique_steplist
+    
     index = 1
     set_of_step_list = list(set(graph.step_list))
     set_of_step_list.sort(key = graph.step_list.index)
@@ -625,6 +634,10 @@ def get_sorted_uni_step(graph):
         sorted_uni_step.append([src_node, dest_node, edge_name])
         # print("step", index, ":", src_node, "->", edge_name, "->", dest_node)
         index += 1
+
+    # store chche result
+    cache_unique_steplist = sorted_uni_step
+    cache_nodecount, cache_stepcount = len(graph.set_of_object), len(graph.step_list)
 
     return sorted_uni_step
 
