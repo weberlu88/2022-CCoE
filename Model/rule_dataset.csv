@@ -152,22 +152,22 @@ PROC,PROC_TRACE,man,ptrace(),observe,"The ptrace() system call provides a means 
 PROC,PROC_TRACE,man,ptrace(),control,"The ptrace() system call provides a means by which one process (the ""tracer"") may observe and control the execution of another process"
 PROC,PROC_TRACE,man,ptrace(),examine,examine and change the tracee's memory and registers.
 PROC,PROC_TRACE,man,ptrace(),change,examine and change the tracee's memory and registers.
-PROC,PROC_MEM,man,shmdt(),attach,shmat() attaches the shared memory segment identified by shmid to the address space of the calling process.
-PROC,PROC_MEM,man,shmat(),attach,shmat() attaches the shared memory segment identified by shmid to the address space of the calling process.
-PROC,PROC_MEM,man,shmget(),allocate,allocates a shared memory segment
+MEM,PROC_MEM,man,shmdt(),attach,shmat() attaches the shared memory segment identified by shmid to the address space of the calling process.
+MEM,PROC_MEM,man,shmat(),attach,shmat() attaches the shared memory segment identified by shmid to the address space of the calling process.
+MEM,PROC_MEM,man,shmget(),allocate,allocates a shared memory segment
 PROC,PROC_WAIT,man,waitpid(),wait,wait for process to change state
 PROC,PROC_WAIT,man,wait4(),wait,"wait for process to change state, BSD style"
-PROC,PROC_OTHER,man,mremap(),remap,remap a virtual memory address
-PROC,PROC_OTHER,man,mprotect(),set,set protection on a region of memory
-PROC,PROC_OTHER,man,set_tid_address(),set,set pointer to thread ID
-PROC,PROC_OTHER,man,arch_prctl(),set,set architecture-specific thread state
-PROC,PROC_OTHER,man,set_thread_area(),set,set a thread local storage (TLS) area
+MEM,PROC_OTHER,man,mremap(),remap,remap a virtual memory address
+MEM,PROC_OTHER,man,mprotect(),set,set protection on a region of memory
+MEM,PROC_OTHER,man,set_tid_address(),set,set pointer to thread ID
+MEM,PROC_OTHER,man,arch_prctl(),set,set architecture-specific thread state
+MEM,PROC_OTHER,man,set_thread_area(),set,set a thread local storage (TLS) area
 PROC,PROC_OTHER,man,nanosleep(),suspend,nanosleep() suspends the execution
 PROC,PROC_OTHER,Xorddos.Intezer,nanosleep(),sleep,The malware sleeps and tries to obtain the lock on the file again when it wakes up.
-PROC,PROC_OTHER,man,set_robust_list(),set,set list of robust futexes
-PROC,PROC_OTHER,man,futex(),wait,"The futex() system call provides a method for a program to wait for a value at a given address to change, and a method to wake up anyone waiting on a particular address"
-PROC,PROC_OTHER,man,futex(),wake,"The futex() system call provides a method for a program to wait for a value at a given address to change, and a method to wake up anyone waiting on a particular address"
-PROC,PROC_OTHER,man,brk(),change,change data segment size
+MEM,PROC_OTHER,man,set_robust_list(),set,set list of robust futexes
+MEM,PROC_OTHER,man,futex(),wait,"The futex() system call provides a method for a program to wait for a value at a given address to change, and a method to wake up anyone waiting on a particular address"
+MEM,PROC_OTHER,man,futex(),wake,"The futex() system call provides a method for a program to wait for a value at a given address to change, and a method to wake up anyone waiting on a particular address"
+MEM,PROC_OTHER,man,brk(),change,change data segment size
 DEVICE,DEVICE,man,ioctl(),control,control device
 DEVICE,DEVICE,man,ioctl(),manipulate,The ioctl() function manipulates the underlying device parameters of special files.
 ID,ID_SET,man,setsid(),set,creates a session and sets the process group ID
