@@ -1,15 +1,15 @@
 Family,DocId,Genre,Txtname,Source,Title,objN,objD,objSysN,objSysD,opN,opD,opSysN,opSysD,obj,objSys,op,opSys
 dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS ,0.0,55.0,0.0,6.0,0.0,284.0,0.0,9.0,0.0,0.0,0.0,0.0
-dofloo,"D1,2",analysis,Dofloo-MalwareMustDie,blog.malwaremustdie.org , Reversing an ARM arch ELF ,2.0,55.0,0.0,6.0,0.0,284.0,0.0,9.0,0.0363636363636363,0.0,0.0,0.0363636363636363
-dofloo,"D1,4",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,6.0,55.0,2.0,6.0,8.0,284.0,3.0,9.0,0.109090909090909,0.3333333333333333,0.028169014084507,0.109090909090909
-dofloo,"D1,3",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,4.0,55.0,2.0,6.0,4.0,284.0,3.0,9.0,0.0727272727272727,0.3333333333333333,0.0140845070422535,0.0727272727272727
-dofloo,"D1,5",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,7.0,55.0,3.0,6.0,1.0,284.0,0.0,9.0,0.1272727272727272,0.5,0.0035211267605633,0.1272727272727272
+dofloo,"D1,2",analysis,Dofloo-MalwareMustDie,blog.malwaremustdie.org , Reversing an ARM arch ELF ,2.0,55.0,0.0,6.0,0.0,284.0,0.0,9.0,0.03636363636363636,0.0,0.0,0.03636363636363636
+dofloo,"D1,4",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,6.0,55.0,2.0,6.0,8.0,284.0,3.0,9.0,0.10909090909090909,0.3333333333333333,0.028169014084507043,0.10909090909090909
+dofloo,"D1,3",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,4.0,55.0,2.0,6.0,4.0,284.0,3.0,9.0,0.07272727272727272,0.3333333333333333,0.014084507042253521,0.07272727272727272
+dofloo,"D1,5",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,7.0,55.0,3.0,6.0,1.0,284.0,0.0,9.0,0.12727272727272726,0.5,0.0035211267605633804,0.12727272727272726
 xorddos,"D2,1",tech,Xorddos-Cdnetworks,cdnetworks.com, Understanding a XOR.DDoS Attack ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0
 xorddos,"D2,2",news,Xorddos-Crowdstrike,crowdstrike.com , LinuxTargeted Malware Increases by 35p in 2021 ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0
-xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState ,22.0,815.0,11.0,14.0,4.0,7469.0,0.0,77.0,0.026993865030674847,0.7857142857142857,0.0005355469272995046,0.026993865030674847
-xorddos,"D2,4",analysis,Xorddos-Ms,microsoft.com , A deeper look at the stealthy DDoS malware targeting Linux devices ,28.0,815.0,13.0,14.0,658.0,7469.0,62.0,77.0,0.0343558282208589,0.9285714285714286,0.08809746954076851,0.0343558282208589
-xorddos,"D2,5",tech,Xorddos-Trendmicro,trendmicro.com , Threat Encyclopedia ,20.0,815.0,11.0,14.0,5.0,7469.0,0.0,77.0,0.024539877300613498,0.7857142857142857,0.0006694336591243808,0.024539877300613498
-xorddos,"D2,6",analysis,Xorddos-Trendmicro2,trendmicro.com ," XORDDoS, Kaiji Variants Target Exposed Docker Servers ",18.0,815.0,0.0,14.0,8.0,7469.0,0.0,77.0,0.022085889570552148,0.0,0.0010710938545990091,0.022085889570552148
+xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState ,22.0,815.0,11.0,14.0,4.0,7469.0,0.0,77.0,0.0269938650306748,0.7857142857142857,0.0005355469272995,0.0269938650306748
+xorddos,"D2,4",analysis,Xorddos-Ms,microsoft.com , A deeper look at the stealthy DDoS malware targeting Linux devices ,28.0,815.0,13.0,14.0,658.0,7469.0,62.0,77.0,0.0343558282208589,0.9285714285714286,0.0880974695407685,0.0343558282208589
+xorddos,"D2,5",tech,Xorddos-Trendmicro,trendmicro.com , Threat Encyclopedia ,20.0,815.0,11.0,14.0,5.0,7469.0,0.0,77.0,0.0245398773006134,0.7857142857142857,0.0006694336591243,0.0245398773006134
+xorddos,"D2,6",analysis,Xorddos-Trendmicro2,trendmicro.com ," XORDDoS, Kaiji Variants Target Exposed Docker Servers ",18.0,815.0,0.0,14.0,8.0,7469.0,0.0,77.0,0.0220858895705521,0.0,0.001071093854599,0.0220858895705521
 Darlloz,"D3,6",analysis,Darlloz-cisco,blogs.cisco.com , Including Malware ,,,,,,,,,,,,
 Darlloz,"D3,1",news,Darlloz-Broadcom,community.broadcom.com , Endpoint Protection Symantec Enterprise ,,,,,,,,,,,,
 Darlloz,"D3,2",tech,Darlloz-Giac,giac.org , introduction linux based malware ,,,,,,,,,,,,
