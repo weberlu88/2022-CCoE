@@ -149,12 +149,20 @@ def prun_set_of_file_O(set_of_file_O):
     return set_of_objects_file
 
 def get_set_of_objects_file(graph):
-    seen_node_S, seen_node_O = create_set_of_objects(graph)
-    set_of_objects = get_dest_objects_set(seen_node_O)
-    set_of_file_O = get_set_of_file_O(set_of_objects, graph)
+
+    set_of_file_O = graph.set_of_object_summary_list["File"]
     set_of_objects_file = prun_set_of_file_O(set_of_file_O)
     
-    return set_of_objects_file
+    return set_of_objects_file  
+
+    # # return graph.set_of_object_summary_list["File"]
+
+    # seen_node_S, seen_node_O = create_set_of_objects(graph)
+    # set_of_objects = get_dest_objects_set(seen_node_O)
+    # set_of_file_O = get_set_of_file_O(set_of_objects, graph)
+    # set_of_objects_file = prun_set_of_file_O(set_of_file_O)
+    
+    # return set_of_objects_file
 
 #### 自動化 regex: 建立 rule base ####
 def rule_to_regex(rule):
@@ -222,7 +230,7 @@ def build_RULES_DICT(path="Basic Search Rule.xlsx"):
     return RULES_DICT
 
 def special_case_handler(dest_object):
-    special_case_list = ["/dict/words", ".*/selinux", ".*/perl/.*"]
+    special_case_list = ["/dict/words", ".*/selinux", ".*/perl/.*", "listen.log"]
 
     for rule in special_case_list:
         if re.search(rule, dest_object):
@@ -293,6 +301,10 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
     
     for file_name in set_of_objects_file:
 
+        ### 不用產生 malware 自身的 regex ###
+        if file_name == "malware":
+            continue
+
         ### handling special case
         if special_case_handler(file_name):
             if special_case_handler(file_name) not in regex_match_file:
@@ -305,10 +317,15 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
         #     print("Err:", file_name)
         #     break
 
+        if len(file_name.split("/")) <= 1:
+            print("Err file_name:", file_name)
+            regex_non_match_file.append(file_name)
+            continue
 
-        prefix = file_name.split("/")[1]
-        regex = match_search_rule(file_name, RULES_DICT)
-        
+        else:
+            prefix = file_name.split("/")[1]
+            regex = match_search_rule(file_name, RULES_DICT)
+            
         if regex != False:
             if regex not in regex_match_file:    
                 regex_match_file[regex] = [file_name]
@@ -322,6 +339,7 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
             else:
                 regex_non_match_file.append(file_name)
     
+    # combine /perl/ and /perl5/
     if ".*/perl5/.*" in regex_match_file:
         regex_match_file[".*/perl/.*"] += regex_match_file[".*/perl5/.*"]
         regex_match_file.pop(".*/perl5/.*", None)
@@ -382,6 +400,7 @@ def get_net_regex(graph):
     nic_regex = ["^eth.*"]
 
     for net_O in set_of_net_O:
+
         if re.search(ip_regex[0], net_O):
             if ("port \d+" not in net_regex):
                 net_regex += ip_regex
@@ -422,7 +441,8 @@ def get_regex_match_net(graph):
 def get_mem_regex(graph):
     set_of_mem_O = get_set_of_dict(graph)["Memory"]
     if len(set_of_mem_O) > 0:
-        mem_regex = ["0x[0-9a-zA-Z]{8}"]
+        # mem_regex = ["0x[0-9a-zA-Z]{8}"]
+        mem_regex = ["0x[0-9a-zA-Z]{1,16}"]
     else:
         mem_regex = []
 
@@ -434,7 +454,7 @@ def get_regex_match_mem(graph):
 
     set_of_mem_O = get_set_of_dict(graph)["Memory"]
     if len(set_of_mem_O) > 0:
-        regex_match_mem["0x[0-9a-zA-Z]{8}"] = ["Memory Address"]
+        regex_match_mem["0x[0-9a-zA-Z]{1,16}"] = ["Memory Address"]
 
     return regex_match_mem
 
@@ -611,17 +631,8 @@ def get_step_reduction_statistic(unique_step):
                 
     return step_reduction
 
-cache_unique_steplist = []
-cache_nodecount:int = 0
-cache_stepcount:int = 0
-
 def get_sorted_uni_step(graph):
     '''list of [src_node, dest_node, edge_name]'''
-    # return cache result if for same asg
-    global cache_unique_steplist, cache_nodecount, cache_stepcount
-    if len(graph.set_of_object) == cache_nodecount and len(graph.step_list) == cache_stepcount:
-        return cache_unique_steplist
-    
     index = 1
     set_of_step_list = list(set(graph.step_list))
     set_of_step_list.sort(key = graph.step_list.index)
@@ -635,9 +646,21 @@ def get_sorted_uni_step(graph):
         # print("step", index, ":", src_node, "->", edge_name, "->", dest_node)
         index += 1
 
-    # store chche result
-    cache_unique_steplist = sorted_uni_step
-    cache_nodecount, cache_stepcount = len(graph.set_of_object), len(graph.step_list)
+    return sorted_uni_step
+
+def get_sorted_raw_uni_step(graph):
+    index = 1
+    set_of_step_list = list(set(graph.step_list))
+    set_of_step_list.sort(key = graph.step_list.index)
+    sorted_uni_step = []
+    for step in set_of_step_list:
+        src_node = step[0]
+        dest_node = step[1]
+        edge_name = step[2]
+        
+        sorted_uni_step.append([src_node, dest_node, edge_name])
+        # print("step", index, ":", src_node, "->", edge_name, "->", dest_node)
+        index += 1
 
     return sorted_uni_step
 
@@ -676,6 +699,8 @@ def query_origin_steplist(graph:ASG.AttackGraph, syscall:str, regex:str) -> list
     # print('total len of steplist:', len(steplist)) #  284 for dofloo
 
     # filter object and syscall with input regex
+    if regex == r"0x[0-9a-zA-Z]{1,16}":
+        regex = 'Memory Address'
     steplist = [step for step in steplist if re.search(regex, step.obj, re.IGNORECASE)] 
     steplist = [step for step in steplist if step.call == syscall]
     # turn object in to string

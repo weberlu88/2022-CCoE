@@ -47,7 +47,9 @@ We then either check if we’re running or add to startup. In the check_running 
 Persistence
 Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so. The /etc/rc.local will execute certain commands after all of the systems' services have started. The way that this is achieved is somewhat amateur as the malware constructs a shell command and then uses the system function to execute them (which in theory just calls the exec and hangs for a return code from the callee).
 
-A string is formatted and the sed program is called which writes to the file in question (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example). This is then passed to system, as described above. The buffer used in all of these formatting operations is at the virtual address 0x9F48 and has a size of 300 bytes. Technically, since the input is un-sanitized we could manipulate the path that the malware resides in and utilise a format string exploit. We could therefore manipulate the stack; read local variables, overwrite addresses etc. This is the only persistence method used by the bot.
+A string is formatted and the sed program is called which writes to the file in question 
+~~
+(there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example). This is then passed to system, as described above. The buffer used in all of these formatting operations is at the virtual address 0x9F48 and has a size of 300 bytes. Technically, since the input is un-sanitized we could manipulate the path that the malware resides in and utilise a format string exploit. We could therefore manipulate the stack; read local variables, overwrite addresses etc. This is the only persistence method used by the bot.
 
 
 Information harvesting
