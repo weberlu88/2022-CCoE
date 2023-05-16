@@ -1,9 +1,8 @@
 Family,DocId,Genre,Txtname,Source,Title
 dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS 
-dofloo,"D1,2",analysis,Dofloo-MalwareMustDie,blog.malwaremustdie.org , Reversing an ARM arch ELF 
-dofloo,"D1,4",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware 
-dofloo,"D1,3",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw 
-dofloo,"D1,5",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia 
+dofloo,"D1,2",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw 
+dofloo,"D1,3",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware 
+dofloo,"D1,4",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia 
 xorddos,"D2,1",tech,Xorddos-Cdnetworks,cdnetworks.com, Understanding a XOR.DDoS Attack 
 xorddos,"D2,2",news,Xorddos-Crowdstrike,crowdstrike.com , LinuxTargeted Malware Increases by 35p in 2021 
 xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState 
