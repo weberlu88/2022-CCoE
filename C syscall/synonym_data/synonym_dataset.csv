@@ -304,7 +304,6 @@ rt_tgsigqueueinfo(),queue a signal and data,"<queue,signal>","<send,signal>",sen
 nice(),change process priority,"<change,process priority>","<,>",
 fallocate(),manipulate file space,"<manipulate,file>","<,>",
 splice(),splice data to/from a pipe,"<splice,data>","<move,data>",moves data between two file descriptors without copying between kernel address space and user address space.
-lchmod(),change mode of file,"<change,mode of file>","<,>",
 remove(),remove a file or directory,"<remove,file or directory>","<delete,name>",deletes a name from the filesystem.
 ftime(),return date and time,"<return,date and time>","<,>",
 ulimit(),get and set user limits,"<get,user limits>","<,>",
@@ -370,7 +369,6 @@ rmdir(),delete a directory,"<delete,directory>","<,>",
 munmap(),unmap files or devices into memory,"<unmap,files or devices>","<,>",
 unlink(),delete a name and possibly the file it refers to,"<delete,file>","<,>",
 unlinkat(),remove a directory entry relative to a directory file descriptor,"<remove,directory\>","<,>",
-remove(),remove a file or directory,"<remove,file or directory>","<,>",
 close(),close a file descriptor,"<close,file descriptor>","<free,resources>",the resources associated with the open file description are freed
 lseek(),reposition read/write file offset,"<reposition,file offset>","<,>",
 execve(),execute program,"<execute,program>","<,>",
