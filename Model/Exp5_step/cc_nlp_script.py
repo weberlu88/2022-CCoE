@@ -47,8 +47,31 @@ def prepare_nlp() -> Callable:
 # a global funciton
 customized_nlp = prepare_nlp()
 
+def make_slash_to_underline(sentence: str, target_word: str) -> tuple[str, str]:
+    ''' return sentence, target_word\n 
+    將含有斜線 Special token 的置換成 token? 的單字，讓 Special token 能被識別成名詞(原本是punct)，也回傳置換過的 target_word '''
+    ''' 將 Special token 中的斜線轉成底線，並去掉第一個斜線，試圖讓 spacy tagger & parser 讓 target_word 識別成名詞(原本是punct)。/proc/self/exe -> proc_self_exe '''
+    # target_word = target_word.replace('/','_')
+    # target_word = target_word.strip('_')
+    # sentence = sentence.replace('/','_')
+    # new_sent = [token.strip('_') for token in sentence.split()]
+    # sentence = ' '.join(new_sent)
+    new_sent = []
+    cnt = 1
+    for token in sentence.split():
+        if '/' in token:
+            new_sent.append(f"file_{cnt}")
+            if target_word == token:
+                target_word = f"file_{cnt}"
+            cnt += 1
+        else:
+            new_sent.append(token)
+    sentence = ' '.join(new_sent)
+    return sentence, target_word
+
 def find_verb_of_vocab(sentence: str, target_word: str, lemma=True):
     'Pass a sentence and a target_word, return the verb operates on the target_word or None. Lemmatization applied at default.'
+    sentence, target_word = make_slash_to_underline(sentence, target_word)
     doc = customized_nlp(sentence)
     # find the target_word element (excat match)
     target_elem = None
