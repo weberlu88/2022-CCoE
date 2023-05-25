@@ -1,0 +1,182 @@
+{
+    "T1059": {
+        "32": {
+            "type": "network",
+            "nlp": [
+                "rootkit"
+            ],
+            "ioc": []
+        },
+        "38": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "28": {
+            "type": "executable",
+            "nlp": [
+                "malware"
+            ],
+            "ioc": []
+        },
+        "22": {
+            "type": "file",
+            "nlp": [
+                "rootkits"
+            ],
+            "ioc": []
+        }
+    },
+    "T1072": {
+        "32": {
+            "type": "network",
+            "nlp": [
+                "rootkit"
+            ],
+            "ioc": []
+        },
+        "38": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "28": {
+            "type": "executable",
+            "nlp": [
+                "malware"
+            ],
+            "ioc": []
+        },
+        "22": {
+            "type": "file",
+            "nlp": [
+                "rootkits"
+            ],
+            "ioc": []
+        }
+    },
+    "T1098": {
+        "32": {
+            "type": "network",
+            "nlp": [
+                "rootkit"
+            ],
+            "ioc": []
+        },
+        "38": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "28": {
+            "type": "executable",
+            "nlp": [
+                "malware"
+            ],
+            "ioc": []
+        },
+        "22": {
+            "type": "file",
+            "nlp": [
+                "rootkits"
+            ],
+            "ioc": []
+        }
+    },
+    "T1195": {
+        "32": {
+            "type": "network",
+            "nlp": [
+                "rootkit"
+            ],
+            "ioc": []
+        },
+        "38": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "28": {
+            "type": "executable",
+            "nlp": [
+                "malware"
+            ],
+            "ioc": []
+        },
+        "22": {
+            "type": "file",
+            "nlp": [
+                "rootkits"
+            ],
+            "ioc": []
+        }
+    },
+    "T1480": {
+        "32": {
+            "type": "network",
+            "nlp": [
+                "rootkit"
+            ],
+            "ioc": []
+        },
+        "38": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "28": {
+            "type": "executable",
+            "nlp": [
+                "malware"
+            ],
+            "ioc": []
+        },
+        "22": {
+            "type": "file",
+            "nlp": [
+                "rootkits"
+            ],
+            "ioc": []
+        }
+    },
+    "T1566": {
+        "32": {
+            "type": "network",
+            "nlp": [
+                "rootkit"
+            ],
+            "ioc": []
+        },
+        "38": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "28": {
+            "type": "executable",
+            "nlp": [
+                "malware"
+            ],
+            "ioc": []
+        },
+        "22": {
+            "type": "file",
+            "nlp": [
+                "rootkits"
+            ],
+            "ioc": []
+        }
+    }
+}

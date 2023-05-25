@@ -1,0 +1,415 @@
+{
+    "T1059": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    },
+    "T1072": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    },
+    "T1080": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    },
+    "T1098": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    },
+    "T1195": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    },
+    "T1222": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    },
+    "T1480": {
+        "97": {
+            "type": "file",
+            "nlp": [
+                "file"
+            ],
+            "ioc": []
+        },
+        "66": {
+            "type": "executable",
+            "nlp": [
+                "sending input",
+                "provision for communicating",
+                "script",
+                "malware",
+                "host",
+                "information"
+            ],
+            "ioc": [
+                "gcc.sh"
+            ]
+        },
+        "35": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "33": {
+            "type": "network",
+            "nlp": [
+                "/proc/rs_dev"
+            ],
+            "ioc": []
+        },
+        "37": {
+            "type": "file",
+            "nlp": [
+                "provision for communicating",
+                "sending input"
+            ],
+            "ioc": []
+        },
+        "102": {
+            "type": "network",
+            "nlp": [
+                "cron.hourly/"
+            ],
+            "ioc": []
+        },
+        "41": {
+            "type": "network",
+            "nlp": [
+                "control"
+            ],
+            "ioc": []
+        }
+    }
+}

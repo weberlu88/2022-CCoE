@@ -1,0 +1,73 @@
+{
+    "5": {
+        "type": "executable",
+        "nlp": [
+            "kernel"
+        ],
+        "ioc": []
+    },
+    "35": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev"
+        ],
+        "ioc": []
+    },
+    "33": {
+        "type": "network",
+        "nlp": [
+            "/proc/rs_dev"
+        ],
+        "ioc": []
+    },
+    "37": {
+        "type": "file",
+        "nlp": [
+            "sending input",
+            "provision for communicating"
+        ],
+        "ioc": []
+    },
+    "41": {
+        "type": "network",
+        "nlp": [
+            "control"
+        ],
+        "ioc": []
+    },
+    "60": {
+        "type": "network",
+        "nlp": [
+            "support different"
+        ],
+        "ioc": []
+    },
+    "66": {
+        "type": "executable",
+        "nlp": [
+            "sending input",
+            "host",
+            "script",
+            "provision for communicating",
+            "information",
+            "malware"
+        ],
+        "ioc": [
+            "gcc.sh"
+        ]
+    },
+    "97": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "102": {
+        "type": "network",
+        "nlp": [
+            "cron.hourly/"
+        ],
+        "ioc": []
+    }
+}

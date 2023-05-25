@@ -1,0 +1,55 @@
+digraph "DATA_EXEC/report1_intezer.dot" {
+rankdir="LR"
+size="9"
+fixedsize="false"
+splines="true"
+nodesep=0.3
+ranksep=0
+fontsize=10
+overlap="scalexy"
+engine= "neato"
+	"'*'" [node_type=Process shape=box]
+	"'*'" [node_type=Process shape=box]
+	
+	"'*'" [node_type=Process shape=box]
+	".*\*" [node_type=File shape=ellipse]
+	"'*'" -> ".*\*" [label="1: exec"]
+	"'*'" [node_type=Process shape=box]
+	"'*'" [node_type=Process shape=box]
+
+	"'*'" [node_type=Process shape=box]
+	".*\*" [node_type=File shape=ellipse]
+
+	"'*'" [node_type=Process shape=box]
+	"'*'" [node_type=Process shape=box]
+
+	"'*'" [node_type=Process shape=box]
+	".*\*" [node_type=File shape=ellipse]
+
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=file shape=ellipse]
+	"*" -> "*" [label="1: hide\n" concentrate=true]
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=file shape=ellipse]
+	"*" -> "*" [label="2: be\n" concentrate=true]
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=file shape=ellipse]
+
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=Process shape=box]
+	
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=file shape=ellipse]
+
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=file shape=ellipse]
+	"*" -> "*" [label="3: compare\n" concentrate=true]
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=file shape=ellipse]
+	"*" -> "*" [label="4: donâ\x80\x99t\n" concentrate=true]
+	"'*'" [node_type=file shape=ellipse]
+	"'*'" [node_type=Process shape=box]
+	"'*'" -> "'*'" [label="1: fork"]
+	"'*'" -> "'*'" [label="2: unlink"]
+	"'*'" -> "'*'" [label="3: write"]
+}

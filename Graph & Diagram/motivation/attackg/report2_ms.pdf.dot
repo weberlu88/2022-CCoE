@@ -1,0 +1,19 @@
+strict digraph  {
+5;
+35;
+33 [contraction="{34: {}}"];
+37 [contraction="{28: {'contraction': {38: {}}}}"];
+41;
+60 [contraction="{61: {}}"];
+66 [contraction="{70: {}, 78: {'contraction': {82: {'contraction': {103: {'contraction': {89: {}}}}}}}, 48: {'contraction': {30: {}}}, 23: {'contraction': {26: {}}}, 27: {}}"];
+97;
+102 [contraction="{88: {}}"];
+35 -> 66  [action=""];
+33 -> 37  [action=""];
+37 -> 41  [action=""];
+41 -> 66  [action=""];
+66 -> 97  [action=""];
+66 -> 35  [action=""];
+66 -> 33  [action=""];
+97 -> 102  [action=""];
+}

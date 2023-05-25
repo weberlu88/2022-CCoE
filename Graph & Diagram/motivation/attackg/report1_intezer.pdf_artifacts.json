@@ -1,0 +1,88 @@
+{
+    "7": {
+        "type": "network",
+        "nlp": [
+            "rootkit"
+        ],
+        "ioc": []
+    },
+    "22": {
+        "type": "file",
+        "nlp": [
+            "rootkits"
+        ],
+        "ioc": []
+    },
+    "28": {
+        "type": "executable",
+        "nlp": [
+            "malware"
+        ],
+        "ioc": []
+    },
+    "38": {
+        "type": "file",
+        "nlp": [
+            "file"
+        ],
+        "ioc": []
+    },
+    "46": {
+        "type": "executable",
+        "nlp": [
+            "malware",
+            "match"
+        ],
+        "ioc": []
+    },
+    "82": {
+        "type": "file",
+        "nlp": [
+            "attempts"
+        ],
+        "ioc": []
+    },
+    "86": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "99": {
+        "type": "system",
+        "nlp": [
+            "service"
+        ],
+        "ioc": []
+    },
+    "103": {
+        "type": "executable",
+        "nlp": [
+            "priority"
+        ],
+        "ioc": []
+    },
+    "108": {
+        "type": "file",
+        "nlp": [
+            "system",
+            "last"
+        ],
+        "ioc": []
+    },
+    "32": {
+        "type": "network",
+        "nlp": [
+            "rootkit"
+        ],
+        "ioc": []
+    },
+    "70": {
+        "type": "network",
+        "nlp": [
+            "rootkit"
+        ],
+        "ioc": []
+    }
+}
