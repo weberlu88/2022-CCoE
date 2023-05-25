@@ -50,8 +50,8 @@ Sample Dofloo-SyscallParty.csv
 	num of ctd objects: 2, num of asg objects: 6. R_malSysObj is 0.3333
 		len(asg_OPset): 52, len(ctd_OPset): 15
 	#R_malOps
-	num of matched asg op: 53, num of asg op: 284. R_malOps is 0.1866
-		refered lifecycle: [2, 3, 4, 9, 10, 22, 30, 32, 46]
+	num of matched asg op: 54, num of asg op: 284. R_malOps is 0.1901
+		refered lifecycle: [2, 3, 4, 6, 9, 10, 22, 30, 32, 46]
 	#R_malChangeOps
 	num of matched asg op: 3, num of asg op: 9. R_malChangeOps is 0.3333
 		ref-sys lifecycle: [30]
@@ -60,6 +60,7 @@ Sample Dofloo-SyscallParty.csv
 	<OP 3 act=set_thread_area(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
 	<OP 4 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
 	<OP 5 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
+	<OP 7 act=readlink(), obj=/proc/self>, <OP 3 act=read, obj=/proc/self/exe, sent=The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).>
 	<OP10 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
 	<OP11 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
 	<OP23 act=open(), obj=/etc/rc\.local>, <OP 4 act=add, obj=/etc/rc.local, sent=Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
@@ -72,26 +73,29 @@ Sample Dofloo-SyscallParty.csv
 
 Sample Dofloo-Trendmicro.csv
 	num of segment in report: 10, 2 of them contain ASG object(s)
-	lenght of ctd's OPset is 7
+	lenght of ctd's OPset is 8
 	#R_malObj
 	num of ctd objects: 7, num of asg objects: 55. R_malObj is 0.1273
 		ctd_object: ['/etc/init\\.d/.*', '/etc/rc.*\\.d/.*', '/etc/rc\\.local', '/proc/net/dev', '/proc/self', '/proc/stat', '^sed$']
 	#R_malSysObj
 	num of ctd objects: 3, num of asg objects: 6. R_malSysObj is 0.5000
-		len(asg_OPset): 52, len(ctd_OPset): 7
+		len(asg_OPset): 52, len(ctd_OPset): 8
 	#R_malOps
-	num of matched asg op: 1, num of asg op: 284. R_malOps is 0.0035
-		refered lifecycle: [51]
+	num of matched asg op: 6, num of asg op: 284. R_malOps is 0.0211
+		refered lifecycle: [6, 22, 46, 51]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 9. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP52 act=read(), obj=/proc/stat>, <OP 5 act=gather, obj=/proc/stat, sent= This Backdoor gathers the following data:  CPU information Memory statistics IP address of infected machine Reads the following information from /proc: /proc/stat /proc/meminfo /proc/cpuinfo /proc/net/dev /proc/self/exe /proc/self/maps /proc/sys/vm/overcommit_memory /proc/sys/kernel/rtsig-max /proc/sys/kernel/ngroups_max /proc/sys/kernel/osrelease /proc/self/fd/%d/%s /proc/self/fd /proc/net Other Details >
+	<OP 7 act=readlink(), obj=/proc/self>, <OP 7 act=read, obj=/proc/self/exe, sent= This Backdoor gathers the following data:  CPU information Memory statistics IP address of infected machine Reads the following information from /proc: /proc/stat /proc/meminfo /proc/cpuinfo /proc/net/dev /proc/self/exe /proc/self/maps /proc/sys/vm/overcommit_memory /proc/sys/kernel/rtsig-max /proc/sys/kernel/ngroups_max /proc/sys/kernel/osrelease /proc/self/fd/%d/%s /proc/self/fd /proc/net Other Details >
+	<OP23 act=open(), obj=/etc/rc\.local>, <OP 2 act=add, obj=/etc/rc.local, sent= Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine >
+	<OP47 act=read(), obj=/proc/net/dev>, <OP 6 act=read, obj=/proc/net/dev, sent= This Backdoor gathers the following data:  CPU information Memory statistics IP address of infected machine Reads the following information from /proc: /proc/stat /proc/meminfo /proc/cpuinfo /proc/net/dev /proc/self/exe /proc/self/maps /proc/sys/vm/overcommit_memory /proc/sys/kernel/rtsig-max /proc/sys/kernel/ngroups_max /proc/sys/kernel/osrelease /proc/self/fd/%d/%s /proc/self/fd /proc/net Other Details >
+	<OP52 act=read(), obj=/proc/stat>, <OP 5 act=read, obj=/proc/stat, sent= This Backdoor gathers the following data:  CPU information Memory statistics IP address of infected machine Reads the following information from /proc: /proc/stat /proc/meminfo /proc/cpuinfo /proc/net/dev /proc/self/exe /proc/self/maps /proc/sys/vm/overcommit_memory /proc/sys/kernel/rtsig-max /proc/sys/kernel/ngroups_max /proc/sys/kernel/osrelease /proc/self/fd/%d/%s /proc/self/fd /proc/net Other Details >
 
 
 OperationPair that changes system resources:
-[<OP31 act=rename(), obj=/etc/rc\.local>, <OP28 act=write(), obj=/etc/sed[0-9a-zA-Z]{6}>, <OP30 act=fchmod(), obj=/etc/sed[0-9a-zA-Z]{6}>]
+[<OP31 act=rename(), obj=/etc/rc\.local>, <OP30 act=fchmod(), obj=/etc/sed[0-9a-zA-Z]{6}>, <OP28 act=write(), obj=/etc/sed[0-9a-zA-Z]{6}>]
 
 {
     ".*/selinux": [
