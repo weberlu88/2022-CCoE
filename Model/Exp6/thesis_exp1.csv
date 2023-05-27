@@ -10,19 +10,19 @@ rid,STobj,TrueAns,Extracted,sentence
 "D1,3",http://rada.re/r/,0,0,We are going to be using:  gdb-peda: https://github.com/longld/peda BinaryNinja: https://binary.ninja/ ltrace: https://linux.die.net/man/1/ltrace radare2: http://rada.re/r/  A look at the file..
 "1,3",main(..)..,0,0,"Nice, so now you're an ARM expert we can continue.. ;)  Dive into main(..).. As soon as the malware boots from the original entry-point main which is at 0x13DEC."
 "D1,3",/proc/self/exe,1,1,The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
-"D1,3",readlink(..).,1,0,The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
+"D1,3",readlink(..).,1,1,The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).
 "D1,3",/etc/rc.local,1,1,Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
 "D1,3",/etc/init.d/boot.local,1,1,Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.
 "D1,3",/etc/rc.local,1,1,The /etc/rc.local will execute certain commands after all of the systems' services have started.
 "D1,3",i%s/%s',0,0," (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
 "D1,3",/etc/rc.local,1,1," (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)."
-"D1,3",setsid(..).,1,0,Information harvesting The process then forks itself and breaks away from its parent by calling setsid(..).
+"D1,3",setsid(..).,1,1,Information harvesting The process then forks itself and breaks away from its parent by calling setsid(..).
 "D1,3",/proc/net/dev,1,1,The way the malware gets information regarding the network adapter is reading the /proc/net/dev file.
 "D1,3",client/boss,0,0,"This is super weird, the malware is creating a fake network speed for some reason.. the only conclusion I can come to regarding this is that someone has hired a programmer and they have failed to implement this feature — so they’re faking it to their client/boss etc."
 "D1,3",(http://man7.org/linux/man-pages/man3/gethostbyname.3.html),0,0,"mov r3, r0 strh r3, [r3, #0x104] lsl r3, r3, #0x10 // shift r3 RIGHT by 0x10 lrl r3, r3, #0x10 // shift r3 LEFT by 0x10 mov r0, r3 bl htons Could look at it this way in pseudocode..  r3 = ((r3 << 0x10) >> 0x10) The bot has a symbol named AnalysisAddress at at 0xB1B8, at first sight one may think this is to divert the attention of researchers — but all this subroutine does is setup a hostent struct (http://man7.org/linux/man-pages/man3/gethostbyname.3.html) which we’ll use later on for the connection."
 "D1,3",61.147.91.53.,1,1,We pass in the first parameter in the register ‘r0’ from the location 0xC1FC8 which has the value of 61.147.91.53.
 "D1,3",/proc/cpuinfo,1,0,The virtual file /proc/cpuinfo is opened and read in WORDs until an EOF (-1) is hit whilst reading the file chunk by chunk — then fclose is called to free up the opened file.
-"D1,3",sysinfo(..),1,0,The malware then calls sysinfo(..) and reads into the struct (also named sysinfo) which is originally located in r3.
+"D1,3",sysinfo(..),1,1,The malware then calls sysinfo(..) and reads into the struct (also named sysinfo) which is originally located in r3.
 "D1,3",0x13DEC,1,1,
 "D1,3",0x00013dec,1,1,
 "D1,3",0x0000bdec,1,1,
@@ -44,7 +44,7 @@ rid,STobj,TrueAns,Extracted,sentence
 "D1,3",0xCBD4,1,1,
 "D1,3",0x1380,1,1,
 "D1,4",'/exit/d',0,0, Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine  
-"D1,4",/etc/rc.local,1,0, Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine  
+"D1,4",/etc/rc.local,1,1, Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine  
 "D1,4",'/^\r\n|\r|\n$/d',0,0, Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine  
 "D1,4",/etc/rc.local,1,1, Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine  
 "D1,4",'/%s/d',0,0, Installation  This Backdoor adds the following processes:  sed -i -e '/exit/d' /etc/rc.local sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local sed -i -e '/%s/d' /etc/rc.local sed -i -e '2 i%s/%s' /etc/rc.local sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local sed -i -e '2 i%s/%s start' /etc/init.d/boot.local Backdoor Routine  

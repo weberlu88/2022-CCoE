@@ -1,0 +1,45 @@
+rid,STobj,regex
+"D1,2","/etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.",/etc/rc.*\.d/.*
+"D1,2",/etc/rc.local,/etc/rc\.local
+"D1,2",23.224.59.34,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+"D1,2",23.224.59.34:48080,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"
+"D1,3",/etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so. The /etc/rc.local will execute certain commands after all of the systems' services have started. The way that this is achieved is somewhat amateur as the malware constructs a shell command and then uses the system function to execute them (which in theory just calls the exec and hangs for a return code from the callee).,/etc/init\.d/.*
+"D1,3",/etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so. The /etc/rc.local will execute certain commands after all of the systems' services have started. The way that this is achieved is somewhat amateur as the malware constructs a shell command and then uses the system function to execute them (which in theory just calls the exec and hangs for a return code from the callee).,/etc/rc.*\.d/.*
+"D1,3",/etc/rc.local,/etc/rc\.local
+"D1,3",/etc/rc.local,/etc/rc\.local
+"D1,3",/etc/rc.local,/etc/rc\.local
+"D1,3",/proc/net/dev,/proc/net/dev
+"D1,3",/proc/self,/proc/self
+"D1,3",0x13DEC,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x00013dec,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x0000bdec,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x9F48,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xCA1C,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xB5BC,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xB654,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x104,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x10,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xB1B8,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xC1FC8,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xCA8C,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0xCBD4,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",0x1380,"0x[0-9a-zA-Z]{1,16}"
+"D1,3",61.147.91.53,"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+"D1,4",/etc/init.d/boot.local,/etc/init\.d/.*
+"D1,4",/etc/rc.d/rc.local,/etc/rc.*\.d/.*
+"D1,4",/etc/rc.local,/etc/rc\.local
+"D1,4",/etc/rc.local,/etc/rc\.local
+"D1,4",/etc/rc.local,/etc/rc\.local
+"D1,4",/etc/rc.local,/etc/rc\.local
+"D1,4",/proc/net/dev,/proc/net/dev
+"D1,4",/proc/self,/proc/self
+"D1,4",/proc/self,/proc/self
+"D1,4",/proc/self,/proc/self
+"D1,4",/proc/self,/proc/self
+"D1,4",/proc/stat,/proc/stat
