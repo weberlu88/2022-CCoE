@@ -1,14 +1,14 @@
 Family,DocId,Genre,Txtname,Source,Title,objN,objD,objSysN,objSysD,opN,opD,opSysN,opSysD,obj,objSys,op,opSys
-dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS ,0.0,55.0,0.0,6.0,0.0,284.0,0.0,9.0,0.0,0.0,0.0,0.0
-dofloo,"D1,2",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,4.0,55.0,2.0,6.0,4.0,284.0,3.0,9.0,0.0727272727272727,0.3333333333333333,0.0140845070422535,0.0727272727272727
-dofloo,"D1,3",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,7.0,55.0,2.0,6.0,54.0,284.0,3.0,9.0,0.1272727272727272,0.3333333333333333,0.1901408450704225,0.1272727272727272
-dofloo,"D1,4",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,7.0,55.0,3.0,6.0,6.0,284.0,0.0,9.0,0.1272727272727272,0.5,0.0211267605633802,0.1272727272727272
+dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS ,0.0,69.0,0.0,10.0,0.0,371.0,0.0,9.0,0.0,0.0,0.0,0.0
+dofloo,"D1,2",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,8.0,69.0,2.0,10.0,7.0,371.0,3.0,9.0,0.11594202898550725,0.2,0.018867924528301886,0.11594202898550725
+dofloo,"D1,3",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,9.0,69.0,2.0,10.0,64.0,371.0,3.0,9.0,0.13043478260869565,0.2,0.1725067385444744,0.13043478260869565
+dofloo,"D1,4",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,10.0,69.0,6.0,10.0,10.0,371.0,0.0,9.0,0.14492753623188406,0.6,0.026954177897574125,0.14492753623188406
 xorddos,"D2,1",tech,Xorddos-Cdnetworks,cdnetworks.com, Understanding a XOR.DDoS Attack ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0
 xorddos,"D2,2",news,Xorddos-Crowdstrike,crowdstrike.com , LinuxTargeted Malware Increases by 35p in 2021 ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0
-xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState ,23.0,815.0,11.0,14.0,901.0,7469.0,0.0,77.0,0.02822085889570552,0.7857142857142857,0.12063194537421341,0.02822085889570552
-xorddos,"D2,4",analysis,Xorddos-Ms,microsoft.com , A deeper look at the stealthy DDoS malware targeting Linux devices ,29.0,815.0,13.0,14.0,673.0,7469.0,64.0,77.0,0.03558282208588957,0.9285714285714286,0.09010577051814166,0.03558282208588957
-xorddos,"D2,5",tech,Xorddos-Trendmicro,trendmicro.com , Threat Encyclopedia ,20.0,815.0,11.0,14.0,5.0,7469.0,0.0,77.0,0.024539877300613498,0.7857142857142857,0.0006694336591243808,0.024539877300613498
-xorddos,"D2,6",analysis,Xorddos-Trendmicro2,trendmicro.com ," XORDDoS, Kaiji Variants Target Exposed Docker Servers ",18.0,815.0,0.0,14.0,4.0,7469.0,0.0,77.0,0.022085889570552148,0.0,0.0005355469272995046,0.022085889570552148
+xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState ,23.0,815.0,11.0,14.0,901.0,7469.0,0.0,77.0,0.0282208588957055,0.7857142857142857,0.1206319453742134,0.0282208588957055
+xorddos,"D2,4",analysis,Xorddos-Ms,microsoft.com , A deeper look at the stealthy DDoS malware targeting Linux devices ,29.0,815.0,13.0,14.0,673.0,7469.0,64.0,77.0,0.0355828220858895,0.9285714285714286,0.0901057705181416,0.0355828220858895
+xorddos,"D2,5",tech,Xorddos-Trendmicro,trendmicro.com , Threat Encyclopedia ,20.0,815.0,11.0,14.0,5.0,7469.0,0.0,77.0,0.0245398773006134,0.7857142857142857,0.0006694336591243,0.0245398773006134
+xorddos,"D2,6",analysis,Xorddos-Trendmicro2,trendmicro.com ," XORDDoS, Kaiji Variants Target Exposed Docker Servers ",18.0,815.0,0.0,14.0,4.0,7469.0,0.0,77.0,0.0220858895705521,0.0,0.0005355469272995,0.0220858895705521
 Darlloz,"D3,6",analysis,Darlloz-cisco,blogs.cisco.com , Including Malware ,,,,,,,,,,,,
 Darlloz,"D3,1",news,Darlloz-Broadcom,community.broadcom.com , Endpoint Protection Symantec Enterprise ,,,,,,,,,,,,
 Darlloz,"D3,2",tech,Darlloz-Giac,giac.org , introduction linux based malware ,,,,,,,,,,,,
