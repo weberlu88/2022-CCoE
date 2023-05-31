@@ -1,0 +1,8 @@
+https://corenlp.run/
+
+=== POS ===
+Hardcoded C&C, known Turla activity: news-bbc.podzone.org
+
+Presence of one or more the following files:
+/tmp/lupii
+/tmp/listen
