@@ -87,6 +87,93 @@
 % ------------------
 % Chapter Background
 
+% MITRE ATTACK overview
+@misc{mitre_mitre,
+  author = {MITRE},
+  title = {MITRE ATT&CK™},
+  url = {https://attack.mitre.org/},
+  organization = {Mitre.org}
+}
+
+% Cyber Attacks and CTI Documents
+  % NER - cai_2022_neural a2023_iocextract
+  % DP - CoreNLP spaCy_linguistic spaCy_language
+
+% Provenance Graph
+  % a provenance graph: tudordumitras_2011_experimental leeper_2011_microrna
+  % different sources of data: zipperle_2022_provenancebased
+  % (IDS) as event audit logs: hassan_2020_tactical milajerdi_2019_holmes mccammon_2022_evaluating
+
+% System Call
+  % chromiumos syscalls2 a2023_strace 
+  % The trap handler: nguyen_2022_live
+
+% ------------------
+% Chapter Related works
+% Report Extraction state-of-the-art
+  % The Extractor: satvat_2021_extractor devlin_2018_bert 
+  % Md et al. present LADDER: alam_2022_looking
+  % Transformer-based: vaswani_2017_attention balazevic_2019_tucker
+
+% Provenance Graph Application state-of-the-art
+  % Tactical Provenance Analysis W. U. Hassan: hassan_2020_tactical
+  % log reduction technique: liu_2018_towards xu_2016_high
+
+% Holmes 
+  % HOLMES: milajerdi_2019_holmes
+  % Linux auditd: Auditd, ETW: domars_2021_event
+  % CDR: gokhale_1998_principles, Kafka streaming server: wang_2015_building
+
+% ------------------
+% Chapter 
+
+@misc{cai_2022_neural,
+  author = {Cai, Zhiqiang and Marquart, Cody and Shaffer, David W.},
+  title = {Neural Recall Network: A Neural Network Solution to Low Recall Problem in Regex-Based Qualitative Coding},
+  url = {https://eric.ed.gov/?id=ED624125},
+  urldate = {2023-06-02},
+  year = {2022},
+  organization = {ERIC}
+}
+
+@misc{a2023_iocextract,
+  month = {05},
+  title = {iocextract},
+  url = {https://github.com/InQuest/iocextract},
+  urldate = {2023-06-02},
+  year = {2023},
+  organization = {GitHub}
+}
+
+@misc{CoreNLP,
+  author = {, Stanford NLP Group},
+  url = {https://stanfordnlp.github.io/CoreNLP/index.html},
+  urldate = {2023-06-02},
+  organization = {CoreNLP}
+}
+
+@misc{spaCy_linguistic,
+  title = {Linguistic Features},
+  url = {https://spacy.io/usage/linguistic-features},
+  organization = {spaCy}
+}
+
+@misc{spaCy_language,
+  title = {Language Processing Pipelines},
+  url = {https://spacy.io/usage/processing-pipelines},
+  organization = {spaCy }
+}
+
+@misc{mccammon_2022_evaluating,
+  author = {McCammon, Keith},
+  month = {06},
+  title = {Evaluating Endpoint Security Products: Visibility vs Protection},
+  url = {https://redcanary.com/blog/evaluating-endpoint-products-in-a-crowded-confusing-market/},
+  urldate = {2023-06-02},
+  year = {2022},
+  organization = {Red Canary}
+}
+
 @article{you_2022_tim,
   author = {You, Yizhe and Jiang, Jun and Jiang, Zhengwei and Yang, Peian and Liu, Baoxu and Feng, Huamin and Wang, Xuren and Li, Ning},
   month = {02},
@@ -374,4 +461,190 @@
   urldate = {2023-03-14},
   year = {2017},
   journal = {Proceedings of the 33rd Annual Computer Security Applications Conference}
+}
+
+@misc{chromiumos,
+  title = {ChromiumOS Docs - Linux System Call Table},
+  url = {https://chromium.googlesource.com/chromiumos/docs/+/HEAD/constants/syscalls.md},
+  organization = {googlesource.com}
+}
+
+@misc{syscalls2,
+  title = {syscalls(2) - Linux manual page},
+  url = {https://man7.org/linux/man-pages/man2/syscalls.2.html},
+  urldate = {2023-06-02},
+  organization = {man7.org}
+}
+
+@misc{a2023_strace,
+  month = {06},
+  title = {strace: the linux syscall tracer},
+  url = {https://github.com/strace/strace/blob/master/src/linux/arm/syscallent.h},
+  urldate = {2023-06-02},
+  year = {2023},
+  organization = {GitHub}
+}
+
+@misc{devlin_2018_bert,
+  author = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  month = {10},
+  title = {BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  url = {https://arxiv.org/abs/1810.04805},
+  year = {2018},
+  organization = {arXiv.org}
+}
+
+@misc{alam_2022_looking,
+  author = {Alam, Md Tanvirul and Bhusal, Dipkamal and Park, Youngja and Rastogi, Nidhi},
+  month = {11},
+  title = {Looking Beyond IoCs: Automatically Extracting Attack Patterns from External CTI},
+  doi = {10.48550/arXiv.2211.01753},
+  url = {https://arxiv.org/abs/2211.01753},
+  year = {2022},
+  organization = {arXiv.org}
+}
+
+@misc{vaswani_2017_attention,
+  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, Lukasz and Polosukhin, Illia},
+  title = {Attention Is All You Need},
+  url = {https://arxiv.org/abs/1706.03762},
+  year = {2017},
+  organization = {arXiv.org}
+}
+
+@article{tucker_1966_some,
+  author = {Tucker, Ledyard R},
+  month = {09},
+  pages = {279-311},
+  title = {Some mathematical notes on three-mode factor analysis},
+  doi = {10.1007/bf02289464},
+  volume = {31},
+  year = {1966},
+  journal = {Psychometrika}
+}
+
+@misc{balazevic_2019_tucker,
+  author = {Balazevic, Ivana and Allen, Carl and Hospedales, Timothy},
+  month = {11},
+  pages = {5185–5194},
+  publisher = {Association for Computational Linguistics},
+  title = {TuckER: Tensor Factorization for Knowledge Graph Completion},
+  doi = {10.18653/v1/D19-1522},
+  url = {https://aclanthology.org/D19-1522/},
+  year = {2019},
+  organization = {ACLWeb}
+}
+
+@article{zipperle_2022_provenancebased,
+  author = {Zipperle, Michael and Gottwalt, Florian and Chang, Elizabeth and Dillon, Tharam},
+  month = {12},
+  pages = {1-36},
+  title = {Provenance-based Intrusion Detection Systems: A Survey},
+  doi = {10.1145/3539605},
+  volume = {55},
+  year = {2022},
+  journal = {ACM Computing Surveys}
+}
+
+@article{li_2021_threat,
+  author = {Li, Zhenyuan and Chen, Qi Alfred and Yang, Runqing and Chen, Yan and Ruan, Wei},
+  month = {07},
+  pages = {102282},
+  title = {Threat detection and investigation with system-level provenance graphs: A survey},
+  doi = {10.1016/j.cose.2021.102282},
+  urldate = {2021-12-06},
+  volume = {106},
+  year = {2021},
+  journal = {Computers & Security}
+}
+
+@article{nguyen_2022_live,
+  author = {Nguyen, Thanh and Orenbach, Meni and Atamli, Ahmad},
+  month = {07},
+  pages = {301398},
+  title = {Live system call trace reconstruction on Linux},
+  doi = {10.1016/j.fsidi.2022.301398},
+  urldate = {2022-09-16},
+  volume = {42},
+  year = {2022},
+  journal = {Forensic Science International: Digital Investigation}
+}
+
+@misc{Auditd,
+  title = {Chapter 13. Auditing the system Red Hat Enterprise Linux 8},
+  url = {https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/security_hardening/auditing-the-system_security-hardening},
+  urldate = {2023-06-02},
+  organization = {access.redhat.com}
+}
+
+@misc{domars_2021_event,
+  author = {DOMARS},
+  month = {12},
+  title = {Event Tracing for Windows (ETW)},
+  url = {https://learn.microsoft.com/en-us/windows-hardware/drivers/devtest/event-tracing-for-windows--etw-},
+  urldate = {2023-06-02},
+  year = {2021},
+  organization = {learn.microsoft.com}
+}
+
+@article{gokhale_1998_principles,
+  author = {Gokhale, Aniruddha and Schmidt, Douglas C},
+  month = {01},
+  title = {Principles for optimizing CORBA Internet Inter-ORB Protocol performance},
+  doi = {10.1109/hicss.1998.649232},
+  urldate = {2023-06-02},
+  year = {1998},
+  journal = {}
+}
+
+@article{wang_2015_building,
+  author = {Wang, Guozhang and Koshy, Joel and Subramanian, Sriram and Paramasivam, Kartik and Zadeh, Mammad and Narkhede, Neha and Rao, Jun and Kreps, Jay and Stein, Joe},
+  month = {08},
+  pages = {1654-1655},
+  title = {Building a replicated logging system with Apache Kafka},
+  doi = {10.14778/2824032.2824063},
+  urldate = {2020-06-28},
+  volume = {8},
+  year = {2015},
+  journal = {Proceedings of the VLDB Endowment}
+}
+
+@article{tudordumitras_2011_experimental,
+  author = {Tudor Dumitras and Iulian Neamtiu},
+  month = {08},
+  pages = {9-9},
+  title = {Experimental challenges in cyber security: a story of provenance and lineage for malware},
+  urldate = {2023-06-02},
+  year = {2011},
+  journal = {}
+}
+
+@article{leeper_2011_microrna,
+  author = {Leeper, Nicholas J. and Cooke, John P.},
+  month = {01},
+  pages = {236-238},
+  title = {MicroRNA and Mechanisms of Impaired Angiogenesis in Diabetes Mellitus},
+  doi = {10.1161/circulationaha.110.003855},
+  urldate = {2019-07-31},
+  volume = {123},
+  year = {2011},
+  journal = {Circulation}
+}
+
+@article{liu_2018_towards,
+  author = {Liu, Yushan and Zhang, Mu and Li, Ding and Jee, Kangkook and Li, Zhichun and Wu, Zhenyu and Rhee, Junghwan and Mittal, Prateek},
+  title = {Towards a Timely Causality Analysis for Enterprise Security},
+  doi = {10.14722/ndss.2018.23254},
+  urldate = {2022-11-20},
+  year = {2018},
+  journal = {Proceedings 2018 Network and Distributed System Security Symposium}
+}
+
+@article{xu_2016_high,
+  author = {Xu, Zhang and Wu, Zhenyu and Li, Zhi-Chun and Jee, Kangkook and Rhee, Junghwan and Xiao, Xusheng and Xu, Fengyuan and Wang, Haining and Jiang, Guofei},
+  month = {10},
+  title = {High Fidelity Data Reduction for Big Data Security Dependency Analyses},
+  doi = {10.1145/2976749.2978378},
+  year = {2016},
+  journal = {Computer and Communications Security}
 }
