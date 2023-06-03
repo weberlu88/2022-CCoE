@@ -1,0 +1,13 @@
+digraph {
+    ratio = 0.15
+    node [style=filled]
+    "/proc/rs_dev" [shape=box]
+    "/etc/init.d"  [shape=box]
+    "/etc/cron.hourly/gcc.sh" [shape=box]
+    "/etc/crontab" [shape=box]
+    malware -> "/proc/rs_dev" [label="1.communicate with"]
+    malware -> "/etc/init.d"  [label="2.drop"]
+    malware -> "/etc/cron.hourly/gcc.sh" [label="3.create"]
+    malware -> "/etc/cron.hourly/gcc.sh" [label="5.run"]
+    malware -> "/etc/crontab" [label="4.create"]
+}
