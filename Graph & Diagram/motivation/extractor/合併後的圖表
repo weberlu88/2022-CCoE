@@ -1,0 +1,82 @@
+digraph G {
+    
+  // rankdir="LR"
+  size="9"
+  fixedsize="false"
+  splines="true"
+  nodesep=0.3
+  ranksep=0
+  // fontsize=10
+  overlap="scalexy"
+  engine= "neato"
+  node [style=filled]
+  
+   subgraph cluster_A {
+      "'*'" [node_type=Process shape=box]
+    
+    "'*'" [node_type=Process shape=box]
+    ".*\*" [node_type=File shape=ellipse]
+    "'*'" -> ".*\*" [label="1: exec"]
+  
+    "'*'" [node_type=Process shape=box]
+    ".*\*" [node_type=File shape=ellipse]
+  
+    "'*'" [node_type=Process shape=box]
+  
+    "'*'" [node_type=Process shape=box]
+    ".*\*" [node_type=File shape=ellipse]
+  
+    "'*'" [node_type=file shape=ellipse]
+    "'*'" [node_type=file shape=ellipse]
+    "*" -> "*" [label="\n\n1: hide" concentrate=true]
+    "*" -> "*" [label="2: be\n\n\n" concentrate=true]
+    "'*'" [node_type=file shape=ellipse]
+    "'*'" [node_type=file shape=ellipse]
+  
+    "'*'" [node_type=file shape=ellipse]
+    "'*'" [node_type=Process shape=box]
+  
+    "'*'" [node_type=file shape=ellipse]
+    "'*'" [node_type=file shape=ellipse]
+    "*" -> "*" [label="\n\n3: compare" concentrate=true]
+    "'*'" [node_type=file shape=ellipse]
+    "'*'" [node_type=file shape=ellipse]
+    "*" -> "*" [label="4: donâ\x80\x99t\n" concentrate=true]
+    "'*'" [node_type=file shape=ellipse]
+    "'*'" [node_type=Process shape=box]
+    "'*'" -> "'*'" [label="\n\n1: fork"]
+    "'*'" -> "'*'" [label="2: unlink\n\n\n"]
+    "'*'" -> "'*'" [label="3: write"]
+      fontsize = 20
+      label = "(A) EXTRACTOR on report #1";
+  }
+  
+   subgraph cluster_B {
+    star_q [node_type=Process shape=ellipse label="'*'"]
+    star   [node_type=File shape=box label="*"]
+    dotstar  [node_type=File shape=box label=".*\*"]
+    
+    
+  
+    star_q -> star_q [label="\n\n1: write"]
+    star_q -> star_q [label="4: fork\n\n\n"]
+    star_q -> star_q [label="7: write"]
+  
+    star -> star [label="\n\n2: embed"]
+    star -> star [label="3: have\n\n\n"]
+    star -> star [label="6: support"]
+  
+    star_q -> dotstar [label="5: exec"]
+  
+    
+    "'gcc.sh'" [node_type=file shape=box]
+    star_q -> "'gcc.sh'" [label="8: write"]
+    "'cron.h'" [node_type=file shape=box]
+    star_q -> "'cron.h'" [label="9: write"]
+    "'gcc.sh'" [node_type=file shape=box]
+    
+    fontsize = 20
+      label = "(C) EXTRACTOR on report #2";
+  }
+  
+  }

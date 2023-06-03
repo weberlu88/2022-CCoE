@@ -8,23 +8,24 @@ ranksep=0
 fontsize=10
 overlap="scalexy"
 engine= "neato"
+	star_q [node_type=file shape=ellipse label="'*'"]
 	"'*'" [node_type=file shape=ellipse]
 	"'*'" [node_type=Process shape=box]
 	
-	"'*'" [node_type=file shape=ellipse]
+	
 	"'*'" [node_type=Process shape=box]
 
-	"'*'" [node_type=file shape=ellipse]
-	"'*'" [node_type=file shape=ellipse]
-
-	"'*'" [node_type=file shape=ellipse]
-	"'*'" [node_type=file shape=ellipse]
-
-	"'*'" [node_type=file shape=ellipse]
-	"'*'" [node_type=file shape=ellipse]
 	
-	"'*'" [node_type=file shape=ellipse]
-	"'*'" [node_type=file shape=ellipse]
+	
+
+	
+	
+
+	
+	
+	
+	
+	
 
 	"'*'" [node_type=Process shape=box]
 	"'*'" [node_type=Process shape=box]
@@ -39,12 +40,12 @@ engine= "neato"
 
 	"'*'" [node_type=Process shape=box]
 	".*\*" [node_type=File shape=ellipse]
-	"'*'" [node_type=file shape=ellipse]
-	"'*'" [node_type=file shape=ellipse]
+	
+	
 	"*" -> "*" [label="2: embed"]
 	"*" -> "*" [label="3: have"]
 	"*" -> "*" [label="6: support"]
-	"'*'" [node_type=file shape=ellipse]
+	
 	"'*'" [node_type=Process shape=box]
 	
 	"'gcc.sh'" [node_type=file shape=ellipse]

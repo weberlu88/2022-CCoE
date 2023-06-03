@@ -1,0 +1,47 @@
+digraph G {
+
+subgraph cluster_1 {
+  priority [style=filled]
+  Service [shape=triangle, style=filled]
+  last [shape=rect, style=filled label="last system"]
+  priority -> Service
+  Service -> last
+  
+  rookit  [style=filled, shape=diamond]
+  malware [style=filled]
+  malware -> rookit [label="match"]
+  
+  rookits  [style=filled, shape=rect]
+  malware2 [style=filled, label="malware"]
+  rookit2  [style=filled, shape=diamond, label="rookit"]
+  File     [style=filled, shape=rect]
+  rookits -> malware2 -> rookit2 -> File
+  
+  File2    [style=filled, shape=rect, label="File"]
+  Service2 [shape=triangle, style=filled, label="system\nservice"]
+  File2 -> Service2
+  fontsize = 20
+  label = "(C) AttackG on report #1";
+}
+
+subgraph cluster_2 {
+  node [style=filled]
+  kernel
+  gcc [style=filled label="gcc.sh"]
+  File9  [shape=rect label="File"]
+  cron  [shape=diamond, label="cron.hourly"]
+  gcc -> File9  -> cron
+  
+  File8  [shape=rect label="File"]
+  control  [style=filled, shape=diamond]
+  File8 -> control
+  
+  rs  [style=filled, shape=diamond label="/proc/rs_dev"]
+  rs -> File8 [label="sending input"]
+  control -> gcc [label=" information"]
+  gcc -> rs [label="provision\nfor\ncommunicating"]
+  rs -> gcc
+  fontsize = 20
+  label = "(D) AttackG on report #2";
+}
+}
