@@ -1,0 +1,46 @@
+digraph "DATA_EXEC/report1_intezer.dot" {
+rankdir="LR"
+size="9"
+fixedsize="false"
+splines="true"
+nodesep=0.3
+ranksep=0
+fontsize=10
+overlap="scalexy"
+engine= "neato"
+
+//   subgraph cluster_0 {
+//     style=filled;
+//     color=lightgrey;
+//     node [style=filled,color=white];
+//     a0 -> a1 -> a2 -> a3;
+//     label = "process #1";
+//   }
+
+//   subgraph cluster_1 {
+//     node [style=filled];
+//     b0 -> b1 -> b2 -> b3;
+//     label = "process #2";
+//     color=blue
+//   }
+
+  priority [style=filled]
+  Service [shape=triangle, style=filled]
+  last [shape=rect, style=filled label="last system"]
+  priority -> Service
+  Service -> last
+  
+  rookit  [style=filled, shape=diamond]
+  malware [style=filled]
+  malware -> rookit [label="match"]
+  
+  rookits  [style=filled, shape=rect]
+  malware2 [style=filled, label="malware"]
+  rookit2  [style=filled, shape=diamond, label="rookit"]
+  File     [style=filled, shape=rect]
+  rookits -> malware2 -> rookit2 -> File
+  
+  File2    [style=filled, shape=rect, label="File"]
+  Service2 [shape=triangle, style=filled, label="system\nservice"]
+  File2 -> Service2
+}
