@@ -8,7 +8,9 @@ ranksep=0
 fontsize=10
 overlap="scalexy"
 engine= "neato"
-	star_q [node_type=file shape=ellipse label="'*'"]
+	star_q [node_type=Process shape=ellipse label="'*'"]
+	star   [node_type=File shape=box label="*"]
+	dotstar  [node_type=File shape=box label=".*\*"]
 	"'*'" [node_type=file shape=ellipse]
 	"'*'" [node_type=Process shape=box]
 	
@@ -18,42 +20,20 @@ engine= "neato"
 	
 	
 
-	
-	
+	star_q -> star_q [label="1: write"]
+	star_q -> star_q [label="4: fork"]
+	star_q -> star_q [label="7: write"]
+
+	star -> star [label="2: embed"]
+	star -> star [label="3: have"]
+	star -> star [label="6: support"]
+
+	star_q -> dotstar [label="5: exec"]
 
 	
-	
-	
-	
-	
-
-	"'*'" [node_type=Process shape=box]
-	"'*'" [node_type=Process shape=box]
-	"'*'" -> "'*'" [label="1: write"]
-	"'*'" -> "'*'" [label="4: fork"]
-	"'*'" -> "'*'" [label="7: write"]
-	"'*'" [node_type=Process shape=box]
-	".*\*" [node_type=File shape=ellipse]
-	"'*'" -> ".*\*" [label="5: exec"]
-	"'*'" [node_type=Process shape=box]
-	"'*'" [node_type=Process shape=box]
-
-	"'*'" [node_type=Process shape=box]
-	".*\*" [node_type=File shape=ellipse]
-	
-	
-	"*" -> "*" [label="2: embed"]
-	"*" -> "*" [label="3: have"]
-	"*" -> "*" [label="6: support"]
-	
-	"'*'" [node_type=Process shape=box]
-	
-	"'gcc.sh'" [node_type=file shape=ellipse]
-	"'*'" [node_type=Process shape=box]
+	"'gcc.sh'" [node_type=file shape=box]
 	"'*'" -> "'gcc.sh'" [label="11: write"]
-	"'cron.h'" [node_type=file shape=ellipse]
-	"'*'" [node_type=Process shape=box]
+	"'cron.h'" [node_type=file shape=box]
 	"'*'" -> "'cron.h'" [label="12: write"]
-	"'gcc.sh'" [node_type=file shape=ellipse]
-	"'*'" [node_type=Process shape=box]
+	"'gcc.sh'" [node_type=file shape=box]
 }
