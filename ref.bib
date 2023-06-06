@@ -127,19 +127,19 @@
 % ------------------
 % Chapter Problem Statement
 % Motivating Example
-  % family called Xorddos
-  % found at intezer.com, report on microsoft.com
-  % using EXTRACTOR \cite{} and AttacKG \cite{}
+  % family called Xorddos \cite{xorddos}
+  % found at intezer.com \cite{kennedy_2021_linux}, report on microsoft.com \cite{_2022_rise}
+  % using EXTRACTOR \cite{satvat_2021_extractor} and AttacKG \cite{li_2022_attackg}
 
 % ------------------
 % Chapter Solution Approach
 % (3) Constructing ASG as the Baseline Reference
-  % three hardware architectures \cite{}, toolkit provided by Linaro \cite{}
-  % "everything is a file" \cite{}, graph reduction \cite{}
-  % to the TLDP \cite{}, and man7 \cite{}
+  % three hardware architectures \cite{he_2020_attack}, toolkit provided by Linaro \cite{accelerating}
+  % "everything is a file" \cite{every_thing_file}, graph reduction \cite{loukas_2019_graph}
+  % to the TLDP \cite{the}, and man7 \cite{kerrisk}
 
 % (4) Extracting Attack Activity Description from CTI Document
-  % Leonardo's analysis report \cite{}
+  % Leonardo's analysis report \cite{a2020_malware}
 
 @misc{cai_2022_neural,
   author = {Cai, Zhiqiang and Marquart, Cody and Shaffer, David W.},
@@ -315,7 +315,7 @@
   url = {https://ieeexplore.ieee.org/document/9581182},
   urldate = {2022-09-21},
   year = {2021},
-  journal = {2021 IEEE EuroS&P}
+  journal = {2021 IEEE EuroS\&P}
 }
 
 @article{liao_2016_acing,
@@ -569,7 +569,7 @@
   urldate = {2021-12-06},
   volume = {106},
   year = {2021},
-  journal = {Computers & Security}
+  journal = {Computers \& Security}
 }
 
 @article{nguyen_2022_live,
@@ -661,4 +661,80 @@
   doi = {10.1145/2976749.2978378},
   year = {2016},
   journal = {Computer and Communications Security}
+}
+
+@misc{xorddos,
+  title = {XORDDOS Malware Information},
+  url = {https://success.trendmicro.com/tw/solution/000278087},
+  urldate = {2023-06-05},
+  organization = {success.trendmicro.com}
+}
+
+@misc{kennedy_2021_linux,
+  author = {Kennedy, Joakim},
+  month = {03},
+  title = {Linux Backdoor RedXOR Likely Operated by Chinese Nation-State},
+  url = {https://www.intezer.com/blog/malware-analysis/new-linux-backdoor-redxor-likely-operated-by-chinese-nation-state-actor/},
+  year = {2021},
+  organization = {Intezer}
+}
+
+@misc{_2022_rise,
+  author = {, Microsoft Threat Intelligence},
+  month = {05},
+  title = {Rise in XorDdos: A deeper look at the stealthy DDoS malware targeting Linux devices},
+  url = {https://www.microsoft.com/security/blog/2022/05/19/rise-in-xorddos-a-deeper-look-at-the-stealthy-ddos-malware-targeting-linux-devices/},
+  urldate = {2023-06-05},
+  year = {2022},
+  organization = {Microsoft Security Blog}
+}
+
+@misc{he_2020_attack,
+  author = {HE, JHIH CHENG},
+  month = {08},
+  title = {Attack Scenario Analysis for Linux-based Malware},
+  year = {2020}
+}
+
+@misc{accelerating,
+  title = {Accelerating deployment of Arm-based solutions},
+  url = {https://www.linaro.org},
+  urldate = {2023-06-05},
+  organization = {Linaro}
+}
+
+@article{loukas_2019_graph,
+  author = {Loukas, Andreas},
+  pages = {1–42},
+  title = {Graph Reduction with Spectral and Cut Guarantees},
+  url = {https://jmlr.org/papers/v20/18-680.html},
+  urldate = {2023-06-05},
+  volume = {20},
+  year = {2019},
+  journal = {Journal of Machine Learning Research}
+}
+
+@misc{the,
+  title = {The Linux Documentation Project},
+  url = {https://tldp.org/},
+  organization = {tldp.org}
+}
+
+@misc{kerrisk,
+  author = {Kerrisk, Michael},
+  url = {https://man7.org/},
+  organization = {man7.org}
+}
+
+@misc{a2020_malware,
+  month = {05},
+  title = {Malware Technical Insight Turla Penquin_x64},
+  url = {https://www.leonardo.com/documents/20142/10868623/Malware+Technical+Insight+_Turla+“Penquin_x64”.pdf},
+  year = {2020}
+}
+
+@misc{every_thing_file,
+  title = {General overview of the Linux file system},
+  url = {https://tldp.org/LDP/intro-linux/html/sect_03_01.html},
+  organization = {tldp.org}
 }
