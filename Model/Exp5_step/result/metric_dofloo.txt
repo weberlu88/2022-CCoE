@@ -33,24 +33,24 @@ Sample Dofloo-Securityaffairs.csv
 		ref-sys lifecycle: [29]
 
 	hits
-	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 3 act=modify, obj=/etc/rc.local, sent=Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
-	<OP41 act=connect(), obj=ip_addr/ip_addr:port/port>, <OP 1 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
-	<OP42 act=connect(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
-	<OP67 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 1 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
-	<OP68 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker.>
+	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 3 act=modify, obj=/etc/rc.local, sent=Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command>
+	<OP41 act=connect(), obj=ip_addr/ip_addr:port/port>, <OP 1 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker>
+	<OP42 act=connect(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker>
+	<OP67 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 1 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker>
+	<OP68 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=connect, obj=23.224.59.34:48080, sent=The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker>
 
 	sys_hits
-	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 3 act=modify, obj=/etc/rc.local, sent=Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command.>
+	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 3 act=modify, obj=/etc/rc.local, sent=Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command>
 
 Sample Dofloo-SyscallParty.csv
 	num of segment in report: 100, 17 of them contain ASG object(s)
-	lenght of ctd's OPset is 15
+	lenght of ctd's OPset is 16
 	#R_malObj
 	num of ctd objects: 9, num of asg objects: 69. R_malObj is 0.1304
 		ctd_object: ['/etc/init\\.d/.*', '/etc/rc\\.local', '/proc/net/dev', '/proc/self', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^sed$']
 	#R_malSysObj
 	num of ctd objects: 2, num of asg objects: 10. R_malSysObj is 0.2000
-		len(asg_OPset): 68, len(ctd_OPset): 15
+		len(asg_OPset): 68, len(ctd_OPset): 16
 	#R_malOps
 	num of matched asg op: 64, num of asg op: 371. R_malOps is 0.1725
 		refered lifecycle: [0, 1, 5, 6, 7, 21, 29, 31, 49]
@@ -59,18 +59,18 @@ Sample Dofloo-SyscallParty.csv
 		ref-sys lifecycle: [29]
 
 	hits
-	<OP 1 act=readlink(), obj=/proc/self>, <OP 3 act=read, obj=/proc/self/exe, sent=The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..).>
-	<OP 2 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
-	<OP 6 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
-	<OP 7 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
-	<OP 8 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP15 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive.>
-	<OP22 act=open(), obj=/etc/rc\.local>, <OP 4 act=add, obj=/etc/rc.local, sent=Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
-	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 9 act=format, obj=/etc/rc.local, sent= (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
-	<OP32 act=open(), obj=/etc/init\.d/.*>, <OP 5 act=add, obj=/etc/init.d/boot.local, sent=Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so.>
-	<OP50 act=read(), obj=/proc/net/dev>, <OP11 act=read, obj=/proc/net/dev, sent=The way the malware gets information regarding the network adapter is reading the /proc/net/dev file.>
+	<OP 1 act=readlink(), obj=/proc/self>, <OP 3 act=read, obj=/proc/self/exe, sent=The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..)>
+	<OP 2 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP16 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive>
+	<OP 6 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP16 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive>
+	<OP 7 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP16 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive>
+	<OP 8 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP16 act=have, obj=0x1380, sent=We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive>
+	<OP22 act=open(), obj=/etc/rc\.local>, <OP 4 act=add, obj=/etc/rc.local, sent=Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so>
+	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 9 act=format, obj=/etc/rc.local, sent= (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)>
+	<OP32 act=open(), obj=/etc/init\.d/.*>, <OP 5 act=add, obj=/etc/init.d/boot.local, sent=Persistence Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so>
+	<OP50 act=read(), obj=/proc/net/dev>, <OP10 act=read, obj=/proc/net/dev, sent=The way the malware gets information regarding the network adapter is reading the /proc/net/dev file>
 
 	sys_hits
-	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 9 act=format, obj=/etc/rc.local, sent= (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example).>
+	<OP30 act=rename(), obj=/etc/rc\.local>, <OP 9 act=format, obj=/etc/rc.local, sent= (there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)>
 
 Sample Dofloo-Trendmicro.csv
 	num of segment in report: 10, 3 of them contain ASG object(s)
@@ -99,7 +99,7 @@ Sample Dofloo-Trendmicro.csv
 
 
 OperationPair that changes system resources:
-[<OP27 act=write(), obj=/etc/sed[0-9a-zA-Z]{6}>, <OP29 act=fchmod(), obj=/etc/sed[0-9a-zA-Z]{6}>, <OP30 act=rename(), obj=/etc/rc\.local>]
+[<OP30 act=rename(), obj=/etc/rc\.local>, <OP27 act=write(), obj=/etc/sed[0-9a-zA-Z]{6}>, <OP29 act=fchmod(), obj=/etc/sed[0-9a-zA-Z]{6}>]
 
 {
     ".*/selinux": [
