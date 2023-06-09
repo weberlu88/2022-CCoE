@@ -15,10 +15,10 @@ Darlloz,"D3,2",tech,Darlloz-Giac,giac.org , introduction linux based malware
 Darlloz,"D3,3",analysis,Darlloz-Icc17,icc17 , IoT Sandbox To Analysis IoT malware Zollard 
 Darlloz,"D3,4",tech,Darlloz-Trendmicro,trendmicro.com , UNIX_DARLLOZ.A 
 Darlloz,"D3,5",tech,Darlloz-Trendmicro2,trendmicro.com , Worm_Linux_DARLLOZ.AA 
-lupper,"D8,1",news,,securelist.com , Linux.Lupper reports 
-lupper,"D8,2",analysis,,spamlaws.com ,  Lupper Worm 
-lupper,"D8,3",tech,,trendmicro.com , Lupil_Lupper Worm Vulnerability  Threat Encyclopedia 
-lupper,"D8,4",tech,,web.archive.org , Linux_Lupper.worm 
+lupper,"D8,1",news,Lupper-securelist,securelist.com , Linux.Lupper reports 
+lupper,"D8,2",analysis,Lupper-spamlaws,spamlaws.com ,  Lupper Worm 
+lupper,"D8,3",tech,Lupper-trendmicro,trendmicro.com , Lupil_Lupper Worm Vulnerability  Threat Encyclopedia 
+lupper,"D8,4",tech,Lupper-archive,web.archive.org , Linux_Lupper.worm 
 Gafgyt,"D4,1",analysis,Gafgyt-fortinet,fortinet.com , Linux Gafgyt.B!tr Exploits Netcore Vulnerability 
 Gafgyt,"D4,2",analysis,Gafgyt-nozominetworks,nozominetworks.com , Could Threat Actors Be Downgrading Their Malware to Evade Detection 
 Gafgyt,"D4,4",analysis,Gafgyt-securityscorecard,resources.securityscorecard.com , A Detailed Analysis Of The Gafgyt Malware Targeting IoT Devices 

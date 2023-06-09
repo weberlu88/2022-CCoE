@@ -1,0 +1,16 @@
+Lupil/Lupper Worm Vulnerability
+Publish date: February 10, 2011
+~~
+DESCRIPTION
+awstats.pl in AWStats 6.3 and 6.4 allows remote attackers to read server web logs by setting the loadplugin and pluginmode parameters to rawlog.
+~~
+TREND MICRO PROTECTION INFORMATION
+Trend Micro Deep Security shields networks through Deep Packet Inspection (DPI) rules. Trend Micro customers using OfficeScan with Intrusion Defense Firewall (IDF) plugin are also protected from attacks using these vulnerabilities. Please refer to the filter number and filter name when applying appropriate DPI and/or IDF rules.
+~~
+SOLUTION
+   Trend Micro Deep Security DPI Rule Number: 1000095
+   Trend Micro Deep Security DPI Rule Name: 1000095 - Lupii/Lupper Worm Vulnerabilities (AwStats)
+~~
+AFFECTED SOFTWARE AND VERSION
+AWStats AWStats 6.3
+AWStats AWStats 6.4

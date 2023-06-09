@@ -1,0 +1,14 @@
+Linux.Lupper reports
+09 NOV 2005
+~~
+Years ago, I attended a Linux conference. It was the first Linux conference for me, and compared to other similar events, the first thing I noticed was that the atmosphere was pretty relaxed. People were chatting during presentations, drinking beer and hacking the presenter’s laptop using a three-day old vulnerability in SSH over WiFi. I’ve later learned this was your regular Linux/Unix conference, but it looked pretty exotic to a newbie.
+
+One of the presentations was about Unix malware in general, Linux malware in particular. The presenter examined some common Linux rootkits and backdoors, and a Linux virus – but no worms. At the end of the presentation, he pointed out that despite the lack of cases, Linux worms are not only possible but very likely to appear in the future and become as common as, for example, CodeRed. This last statement was received with general (for ‘general’, read ‘loud’) disagreement from the audience who pointed out that Linux is more secure than Windows and things like CodeRed can’t and will never happen. The speaker sighed but didn’t comment – he probably knew better.
+
+Several days ago, we started receiving a flood of packets over port 80 through our honeypot network codenamed “Smallpot”. Plain text, no buffer overflow or shellcode involved, they were flagged “low importance” by the automatic analysis system and stayed in the queue for a while until we noticed something was not quite right about them. Generally, we receive tons of port 80 packets containing simple HTTP requests – spammers looking for open proxies or other ways to deliver their messages; it is not that usual to have a worm which is replicating over a port 80 (HTTP) exploit without using a buffer overflow.
+
+Well, Net-Worm.Linux.Lupper is just that. The worm itself is an ELF binary, statically compiled so it runs on most systems and packed with a set of exploits which target vulnerable versions of ‘xmlrpc.php’ and ‘awstats.pl’. These can be found in various Linux distributions (including but not limited to: Gentoo, Mandriva, Slackware, Debian, Ubuntu), but also in older distributions of WordPress, a very popular blogging package.
+
+Another notable thing is that hardware buffer overflow protection such as that built into most recent CPUs from AMD and Intel (using the NX / XD bit) is helpless against such attacks and will not prevent infection with Lupper. Which proves once again that the above solutions, aggressively marketed as “the end to all virus problems”, are not quite there yet.
+
+Detection for Lupper.A was added to the antivirus databases on November 6th, the .B variant was added earlier today. Of course, KAV for Linux File Servers with on-access protection enabled prevents infections with Lupper.

@@ -1,0 +1,115 @@
+Number,Content
+Sentence 1,"Virus Name	Risk Assessment
+Linux/Lupper.worm	
+Corporate User	:	Low
+Home User	:	Low
+Virus Information
+Discovery Date:	11/06/2005
+Origin:	Unknown
+Length:	Varies
+Type:	Virus
+SubType:	Internet Worm
+Minimum DAT:	4622 (11/07/2005)
+Updated DAT:	4622 (11/07/2005)
+Minimum Engine:	4.4.00
+Description Added:	11/06/2005
+Description Modified:	11/09/2005 10:39 PM (PT)
+
+Virus Characteristics:
+--- Update November 9, 2005
+
+This variant is now being detected as Linux/Lupper.worm.a ."
+Sentence 2,A separate strand of the worm exhibiting identical behavior has been detected as Linux/Lupper.worm.b .
+Sentence 3,The Lupper worm variants spreads by exploiting web servers hosting vulnerable PHP/CGI scripts.
+Sentence 4,At least one variant has been identified as a modified derivative of the Linux/Slapper  and BSD/Scalper worms from which it inherits the propagation strategy.
+Sentence 5,The worm blindly attacks web servers by sending malicious http requests on port 80.
+Sentence 6,"If the target server is running one of the vulnerable scripts at specific URLs and is configured to permit external shell commands and remote file download in the PHP/CGI environment, a copy of the worm could be downloaded and executed."
+Sentence 7,"Symptoms
+Presence of one or more the following files:
+
+/tmp/lupii
+/tmp/listen
+/tmp/update.listen
+/tmp/listen.log
+One or more of the following ports are listening/sending:
+
+UDP 7111
+UDP 7222
+UDP 27015
+UDP 25555
+
+
+Method Of Infection
+This worm spreads by exploiting specific PHP/CGI script vulnerabilities that could be hosted on the following URLs:
+
+http://[website]/cgi-bin/
+http://[website]/scgi-bin/
+http://[website]/cgi-bin/awstats/
+http://[website]/scgi-bin/awstats/
+http://[website]/cgi/awstats/
+http://[website]/scgi/awstats/
+http://[website]/scripts/
+http://[website]/cgi-bin/stats/
+http://[website]/scgi-bin/stats/
+http://[website]/stats/
+http://[website]/xmlrpc.php
+http://[website]/xmlrpc/xmlrpc.php
+http://[website]/xmlsrv/xmlrpc.php
+http://[website]/blog/xmlrpc.php
+http://[website]/drupal/xmlrpc.php
+http://[website]/community/xmlrpc.php
+http://[website]/blogs/xmlrpc.php
+http://[website]/blogs/xmlsrv/xmlrpc.php
+http://[website]/blog/xmlsrv/xmlrpc.php
+http://[website]/blogtest/xmlsrv/xmlrpc.php
+http://[website]/b2/xmlsrv/xmlrpc.php
+http://[website]/b2evo/xmlsrv/xmlrpc.php
+http://[website]/wordpress/xmlrpc.php
+http://[website]/phpgroupware/xmlrpc.php
+http://[website]/cgi-bin/includer.cgi
+http://[website]/sgi-cgi/includer.cgi
+http://[website]/includer/cgi
+http://[website]/cgi-bin/include/includer.cgi
+http://[website]/scgi-bin/include/includer.cgi
+http://[website]/cgi-bin/inc/includer.cgi
+http://[website]/scgi-bin/inc/includer.cgi
+http://[website]/cgi-local/includer.cgi
+http://[website]/scgi-local/includer.cgi
+http://[website]/cgi/includer.cgi
+http://[website]/scgi/includer.cgi
+http://[website]/hints.pl
+http://[website]/cgi/hints.pl
+http://[website]/scgi/hints.pl
+http://[website]/cgi-bin/hints.pl
+http://[website]/scgi-bin/hints.pl
+http://[website]/hints/hints.pl
+http://[website]/cgi-bin/webhints/hints.pl
+http://[website]/scgi-bin/webhints/hints.pl
+http://[website]/hints.cgi
+http://[website]http://[website]/cgi/hints.cgi
+http://[website]/scgi/hints.cgi
+http://[website]/cgi-bin/hints.cgi
+http://[website]/scgi-bin/hints.cgi
+http://[website]/hints/hints.cgi
+http://[website]/cgi-bin/hints/hints.cgi
+http://[website]/scgi-bin/hints/hints.cgi
+http://[website]/webhints/hints.cgi
+http://[website]/cgi-bin/webhints/hints.cgi
+http://[website]/scgi-bin/webhints/hints.cgi
+http://[website]/wordpress/xmlrpc.php
+http://[website]/phpgroupware/xmlrpc.php
+http://[website]/drupal/xmlrpc.php
+
+These URLs are related to these vulnerabilities:
+
+XML-RPC for PHP parseRequest() Function Arbitrary PHP Code Execution (CVE-2005-1921)
+AWStats CONFIGDIR Parameter Arbitrary Command Execution   (CVE-2005-0116)
+WebHints Shell Command Injection Vulnerability (CVE ID 2005-1950)
+Users of these products are advised to contact the respective vendors for the updated patch information."
+Sentence 8,Other malwares have reportedly been detected in recent penetration incidents concerning these vulnerabilities.
+Sentence 9,They are Perl/Shellbot and Linux/BackDoor-Rev.b .
+Sentence 10,"Both threats can be detected since DAT versions 4417 (December 29, 2004) and 4604 (October 13, 2005) respectively."
+Sentence 11,"Removal Instructions
+AVERT recommends to always use latest DATs and engine ."
+Sentence 12,This threat will be cleaned if you have this combination.
+Sentence 13,Additional Windows ME/XP removal considerations
