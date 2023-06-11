@@ -74,7 +74,7 @@ class RegexMaster:
         try:
             return self.regex_match_objects[reg]
         except:
-            return None
+            return [] # None (return [] 好做加總)
 
     def get_used_regex(self) -> set:
         return set(self.all_regex_list)

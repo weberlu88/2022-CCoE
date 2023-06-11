@@ -1,0 +1,81 @@
+asg_object: ['0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*', '^uname$', 'port \\d+']
+
+Sample Turla-leonardo.csv
+	num of segment in report: 281, 19 of them contain ASG object(s)
+	lenght of ctd's OPset is 12
+	#numofSTobject: 3, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 4, num of asg objects: 13. R_malObj is 0.3077
+		ctd_object: ['0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 6, len(ctd_OPset): 12
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 20. R_malOps is 0.0500
+		refered lifecycle: [4]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 5 act=connect(), obj=ip_addr/ip_addr:port/port>, <OP 9 act=send, obj=192.168.202.1, sent=import socket tc_remote_port = 0x9999 outgoing_if = 192.168.202.1 # local IP remote_tc_host = 192.168.202.130 # potentially infected machine IP #send UDP packet with final_check2 equal to 2 and callback IP address equal to 10.11.60.129 tc_local_port = 65105 tc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) tc_sock.bind((outgoing_if, tc_local_port)) tc_sock.sendto(b\x4a\x0a\x3c\x83\x60\x95\xbd\xbd, (remote_tc_host,tc_remote_port)) #send UDP packet with final_check2 equal to 0 and callback IP address equal to 10.188.60.129 tc_local_port = 30846 tc_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) tc_sock.bind((outgoing_if, tc_local_port)) tc_sock.sendto(b\x0a\xbc\x3c\x80\x62\x85\xbd\xbd, (remote_tc_host,tc_remote_port)) The variables that can be freely configured are: tc_remote_port, outgoing_if and remote_tc_host>
+
+Sample Turla-securelist.csv
+	num of segment in report: 46, 4 of them contain ASG object(s)
+	lenght of ctd's OPset is 5
+	#numofSTobject: 2, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 3, num of asg objects: 13. R_malObj is 0.2308
+		ctd_object: ['0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 6, len(ctd_OPset): 5
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 20. R_malOps is 0.0500
+		refered lifecycle: [3]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 4 act=getpid(), obj=^PID.*>, <OP 5 act=report, obj=PID, sent=Then it reports its own PID and IP to the remote address, and starts an endless loop for receiving remote commands>
+
+Sample Turla-trellix.csv
+	num of segment in report: 36, 4 of them contain ASG object(s)
+	lenght of ctd's OPset is 2
+	#numofSTobject: 1, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 13. R_malObj is 0.0769
+		ctd_object: ['0x[0-9a-zA-Z]{1,16}']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 6, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 20. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Turla-trendmicro.csv
+	num of segment in report: 8, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 13. R_malObj is 0.0000
+		ctd_object: []
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 6, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 20. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+
+OperationPair that changes system resources:
+[]
+
+{}

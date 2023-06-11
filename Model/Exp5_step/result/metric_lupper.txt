@@ -1,0 +1,79 @@
+asg_object: ['0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*', '^uname$', 'listen.log', 'port \\d+']
+
+Sample Lupper-archive.csv
+	num of segment in report: 13, 1 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 72329. R_malObj is 0.0000
+		ctd_object: ['listen.log']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 16, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 144148. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 2. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Lupper-securelist.csv
+	num of segment in report: 20, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 72329. R_malObj is 0.0000
+		ctd_object: []
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 16, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 144148. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 2. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Lupper-spamlaws.csv
+	num of segment in report: 25, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 72329. R_malObj is 0.0000
+		ctd_object: []
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 16, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 144148. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 2. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample Lupper-trendmicro.csv
+	num of segment in report: 7, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 72329. R_malObj is 0.0000
+		ctd_object: []
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 16, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 144148. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 2. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+
+OperationPair that changes system resources:
+[<OP 8 act=write(), obj=listen.log>]
+
+{
+    "listen.log": [
+        "listen.log"
+    ]
+}

