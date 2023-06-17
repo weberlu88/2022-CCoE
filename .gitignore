@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 C ASG/output/*
 C ASG/trace/*
+C ASG/trace_iii/*
 C log/trace/*
 惡意程式樣本與清冊/202207_malware_sample.zip
 惡意程式樣本與清冊/202207_malware_sample/*
