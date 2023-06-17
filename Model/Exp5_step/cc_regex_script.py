@@ -1,3 +1,4 @@
+from __future__ import annotations # for python 3.8~ no need if 3.10
 import re
 import ASG
 import Utility

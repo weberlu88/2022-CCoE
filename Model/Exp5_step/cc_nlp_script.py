@@ -4,6 +4,7 @@
 # from os.path import isfile, join
 # from pathlib import Path
 # import pandas as pd
+from __future__ import annotations # for python 3.8~ no need if 3.10
 from typing import Callable, Dict, List, get_type_hints
 import pandas as pd
 import numpy as np
