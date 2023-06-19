@@ -2628,7 +2628,10 @@ class AttackGraph:
                 self.proc_node_map[proc_id] = Node('malware')
             
             # current process node for this trace
-            self.current_node = self.proc_node_map[proc_id]
+            try:
+                self.current_node = self.proc_node_map[proc_id]
+            except KeyError:
+                continue
             self.graph[self.current_node] = []
             self._inside_execve = False
             self.exec = False
