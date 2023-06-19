@@ -1,0 +1,153 @@
+
+document name: Dofloo-BleepingComputer.csv
+match: port 2375 , pattern: port \d+
+match: port 2375 , pattern: port \d+
+
+document name: Dofloo-Securityaffairs.csv
+match: 23.224.59.34, pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match: 23.224.59.34:48080, pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+
+match: /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command, pattern: /etc/rc.*\.d/.*
+match: /etc/rc.local, pattern: /etc/rc\.local
+
+document name: Dofloo-SyscallParty.csv
+
+match: /proc/self, pattern: /proc/self
+match: /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so, pattern: /etc/rc.*\.d/.*
+match: /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so, pattern: /etc/init\.d/.*
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /proc/net/dev, pattern: /proc/net/dev
+match: 61.147.91.53, pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match: 0x9F48    , pattern: 0x[0-9a-zA-Z]{1,16}
+
+# 以下不計算次數
+match: 0x13DEC   , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x00013dec, pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x0000bdec, pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xCA1C    , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xB5BC    , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xB654    , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x104     , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x10      , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xB1B8    , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xC1FC8   , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xCA8C    , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0xCBD4    , pattern: 0x[0-9a-zA-Z]{1,16}
+match: 0x1380    , pattern: 0x[0-9a-zA-Z]{1,16}
+
+document name: Dofloo-Trendmicro.csv
+match: /etc/rc.d/rc.local, pattern: /etc/rc.*\.d/.*
+match: /etc/init.d/boot.local, pattern: /etc/init\.d/.*
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /etc/rc.local, pattern: /etc/rc\.local
+match: /proc/stat, pattern: /proc/stat
+match: /proc/net/dev, pattern: /proc/net/dev
+match: /proc/self, pattern: /proc/self
+match: /proc/self, pattern: /proc/self
+match: /proc/self, pattern: /proc/self
+match: /proc/self, pattern: /proc/self
+match: /etc/nsswitch.conf, pattern: /etc/nsswitch\.conf
+match: /etc/host.conf, pattern: /etc/host\.conf
+match: /etc/resolv.conf, pattern: /etc/resolv\.conf
+=== mem_usage: 779.77 MB ===
+Document Dofloo-BleepingComputer.csv    metrics calculating...
+Document Dofloo-Securityaffairs.csv     metrics calculating...
+Document Dofloo-SyscallParty.csv        metrics calculating...
+asg_object => {'^rm$', '.*/selinux', 'port \\d+', '0x[0-9a-zA-Z]{1,16}', '/etc/rc.*\\.d/.*', '^sh$', '^sed$', '/etc/nsswitch\\.conf', '/.*bin/rm', '/dev/urandom', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/host\\.conf', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '/proc/stat', 'Permission', 'Permission:[0-9]{3}', '/proc/net/dev', '/.*bin/sed', '^GID.*', '/etc/init\\.d/.*', '/etc/rc\\.local', '/etc/sed[0-9a-zA-Z]{6}', '^eth.*', '/etc/resolv\\.conf', '^PID.*', '/etc/hosts', '^UID.*', '^uname$', '/sys/devices/.*', '/proc/self'}
+ctd_object => {'^sed$', '/proc/net/dev', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '/etc/init\\.d/.*', '/proc/self', '/etc/rc\\.local'} 
+
+regex => objects mapping
+/etc/rc\.local => ['/etc/rc.local']
+/proc/net/dev => ['/proc/net/dev']
+0x[0-9a-zA-Z]{1,16} => ['Memory Address']
+\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} => ['218.60.25.91:10210', '127.0.0.53:53', '0.0.0.0:1020']
+/etc/init\.d/.* => ['/etc/init.d/boot.local']
+/proc/self => ['/proc/self/exe']
+^sed$ => ['sed']
+
+==== R_malOps ====
+   1. malware -> readlink() -> /proc/self/exe
+   2. malware -> mprotect() -> Memory Address
+   6. malware -> arch_prctl() -> Memory Address
+   7. malware -> set_tid_address() -> Memory Address
+   8. malware -> set_robust_list() -> Memory Address
+  29. sh      -> mprotect() -> Memory Address
+  30. sh      -> arch_prctl() -> Memory Address
+  50. sed     -> mprotect() -> Memory Address
+  51. sed     -> arch_prctl() -> Memory Address
+  53. sed     -> set_tid_address() -> Memory Address
+  54. sed     -> set_robust_list() -> Memory Address
+  60. sed     -> open()     -> /etc/rc.local
+  69. /etc/sedRrSM8d -> rename()   -> /etc/rc.local
+  72. sh      -> mprotect() -> Memory Address
+  73. sh      -> arch_prctl() -> Memory Address
+  93. sed     -> mprotect() -> Memory Address
+  94. sed     -> arch_prctl() -> Memory Address
+  96. sed     -> set_tid_address() -> Memory Address
+  97. sed     -> set_robust_list() -> Memory Address
+ 105. sh      -> mprotect() -> Memory Address
+ 106. sh      -> arch_prctl() -> Memory Address
+ 126. sed     -> mprotect() -> Memory Address
+ 127. sed     -> arch_prctl() -> Memory Address
+ 129. sed     -> set_tid_address() -> Memory Address
+ 130. sed     -> set_robust_list() -> Memory Address
+ 136. sed     -> open()     -> /etc/rc.local
+ 145. /etc/sed7WeJOi -> rename()   -> /etc/rc.local
+ 148. sh      -> mprotect() -> Memory Address
+ 149. sh      -> arch_prctl() -> Memory Address
+ 169. sed     -> mprotect() -> Memory Address
+ 170. sed     -> arch_prctl() -> Memory Address
+ 172. sed     -> set_tid_address() -> Memory Address
+ 173. sed     -> set_robust_list() -> Memory Address
+ 179. sed     -> open()     -> /etc/rc.local
+ 188. /etc/sedSQpmdi -> rename()   -> /etc/rc.local
+ 191. sh      -> mprotect() -> Memory Address
+ 192. sh      -> arch_prctl() -> Memory Address
+ 212. sed     -> mprotect() -> Memory Address
+ 213. sed     -> arch_prctl() -> Memory Address
+ 215. sed     -> set_tid_address() -> Memory Address
+ 216. sed     -> set_robust_list() -> Memory Address
+ 225. sh      -> mprotect() -> Memory Address
+ 226. sh      -> arch_prctl() -> Memory Address
+ 246. sed     -> mprotect() -> Memory Address
+ 247. sed     -> arch_prctl() -> Memory Address
+ 249. sed     -> set_tid_address() -> Memory Address
+ 250. sed     -> set_robust_list() -> Memory Address
+ 256. sed     -> open()     -> /etc/init.d/boot.local
+ 259. sh      -> mprotect() -> Memory Address
+ 260. sh      -> arch_prctl() -> Memory Address
+ 280. rm      -> mprotect() -> Memory Address
+ 281. rm      -> arch_prctl() -> Memory Address
+ 285. sh      -> mprotect() -> Memory Address
+ 286. sh      -> arch_prctl() -> Memory Address
+ 306. rm      -> mprotect() -> Memory Address
+ 307. rm      -> arch_prctl() -> Memory Address
+ 310. 1531    -> set_robust_list() -> Memory Address
+ 311. 1531    -> mprotect() -> Memory Address
+ 329. 1532    -> set_robust_list() -> Memory Address
+ 332. 1532    -> read()     -> /proc/net/dev
+ 339. 1532    -> mprotect() -> Memory Address
+ 344. 1533    -> set_robust_list() -> Memory Address
+ 348. 1533    -> mprotect() -> Memory Address
+ 369. 1533    -> set_tid_address() -> Memory Address
+
+==== R_malChangeOps ====
+  66. sed     -> write()    -> /etc/sedRrSM8d
+  68. sed     -> fchmod()   -> /etc/sedRrSM8d
+  69. /etc/sedRrSM8d -> rename()   -> /etc/rc.local v
+ 142. sed     -> write()    -> /etc/sed7WeJOi
+ 144. sed     -> fchmod()   -> /etc/sed7WeJOi
+ 145. /etc/sed7WeJOi -> rename()   -> /etc/rc.local v
+ 185. sed     -> write()    -> /etc/sedSQpmdi
+ 187. sed     -> fchmod()   -> /etc/sedSQpmdi
+ 188. /etc/sedSQpmdi -> rename()   -> /etc/rc.local v
+Document Dofloo-Trendmicro.csv          metrics calculating...

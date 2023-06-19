@@ -1,0 +1,331 @@
+
+D3,1 document name: Darlloz-Broadcom.csv
+match: port 58455, pattern: port \d+
+match: port 23   , pattern: port \d+
+
+D3,2 document name: Darlloz-Giac.csv
+match: 67.174.125.223, pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match: 8.8.8.8   , pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match: 8.8.4.4   , pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match: 8.8.8.8   , pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match: 127.0.0.1 , pattern: \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+match:           , pattern: uname(.|$)
+
+D3,3 document name: Darlloz-Icc17.csv
+match: port 9    , pattern: port \d+
+match: port 26   , pattern: port \d+
+match: port 23   , pattern: port \d+
+match: port 32764, pattern: port \d+
+match: port 23   , pattern: port \d+
+match: port 32764, pattern: port \d+
+match: port 32764, pattern: port \d+
+match: port 58455, pattern: port \d+
+match: /run/  folder  classification efficiency, pattern: /run/.*
+match: /var/run/  folder  classification efficiency, pattern: /var/run/.*
+
+D3,4 document name: Darlloz-Trendmicro.csv
+match: /run/.zollard/, pattern: /run/.*
+match: /var/run/.zollard/, pattern: /var/run/.*
+match: /bin/mi   , pattern: /.*bin/mi
+match: /bin/mi   , pattern: /.*bin/mi
+match: /usr/bin/wget, pattern: /.*bin/wget
+match: /var/tmp/dreams.install.sh, pattern: /var/tmp/.*
+match: /var/tmp/ep2.ppc, pattern: /var/tmp/.*
+match: /usr/bin/-wget, pattern: /.*bin/-wget
+match: /bin/mii  , pattern: /.*bin/mii
+match: /run/.lightscan, pattern: /run/.*
+match: /run/lightscan, pattern: /run/.*
+match: /run/mipsel, pattern: /run/.*
+match: /run/mips , pattern: /run/.*
+match: /run/sh   , pattern: /run/.*
+match: /run/arm  , pattern: /run/.*
+match: /run/ppc  , pattern: /run/.*
+match: /run/m    , pattern: /run/.*
+match: /run/mi   , pattern: /run/.*
+match: /run/s    , pattern: /run/.*
+match: /run/a    , pattern: /run/.*
+match: /run/p    , pattern: /run/.*
+match: /run/msx  , pattern: /run/.*
+match: /run/mx   , pattern: /run/.*
+match: /run/sx   , pattern: /run/.*
+match: /run/ax   , pattern: /run/.*
+match: /run/px   , pattern: /run/.*
+match: /run/32   , pattern: /run/.*
+match: /run/sel  , pattern: /run/.*
+match: /run/pid  , pattern: /run/.*
+match: /run/gcc  , pattern: /run/.*
+match: /run/dev  , pattern: /run/.*
+match: /run/psx  , pattern: /run/.*
+match: /run/mpl  , pattern: /run/.*
+match: /run/mps  , pattern: /run/.*
+match: /run/sph  , pattern: /run/.*
+match: /run/arml , pattern: /run/.*
+match: /run/mips.l, pattern: /run/.*
+match: /run/mipsell, pattern: /run/.*
+match: /run/ppcl , pattern: /run/.*
+match: /run/shl  , pattern: /run/.*
+match: /bin/pp   , pattern: /.*bin/pp
+match: /var/run/.lightscan, pattern: /var/run/.*
+match: /var/run/lightscan, pattern: /var/run/.*
+match: /var/run/mipsel, pattern: /var/run/.*
+match: /var/run/mips, pattern: /var/run/.*
+match: /var/run/sh, pattern: /var/run/.*
+match: /var/run/arm, pattern: /var/run/.*
+match: /var/run/ppc, pattern: /var/run/.*
+match: /var/run/m, pattern: /var/run/.*
+match: /var/run/mi, pattern: /var/run/.*
+match: /var/run/s, pattern: /var/run/.*
+match: /var/run/a, pattern: /var/run/.*
+match: /var/run/p, pattern: /var/run/.*
+match: /var/run/msx, pattern: /var/run/.*
+match: /var/run/mx, pattern: /var/run/.*
+match: /var/run/sx, pattern: /var/run/.*
+match: /var/run/ax, pattern: /var/run/.*
+match: /var/run/px, pattern: /var/run/.*
+match: /var/run/32, pattern: /var/run/.*
+match: /var/run/sel, pattern: /var/run/.*
+match: /var/run/pid, pattern: /var/run/.*
+match: /var/run/gcc, pattern: /var/run/.*
+match: /var/run/dev, pattern: /var/run/.*
+match: /var/run/psx, pattern: /var/run/.*
+match: /var/run/mpl, pattern: /var/run/.*
+match: /var/run/mps, pattern: /var/run/.*
+match: /var/run/sph, pattern: /var/run/.*
+match: /var/run/arml, pattern: /var/run/.*
+match: /var/run/mips.l, pattern: /var/run/.*
+match: /var/run/mipsell, pattern: /var/run/.*
+match: /var/run/ppcl, pattern: /var/run/.*
+match: /var/run/shl, pattern: /var/run/.*
+match: port 23   , pattern: port \d+
+match: /run/.lightpid, pattern: /run/.*
+match: /run/.aidrapid, pattern: /run/.*
+match: /run/lightpid, pattern: /run/.*
+match: /var/run/.lightpid, pattern: /var/run/.*
+match: /var/run/.aidrapid, pattern: /var/run/.*
+match: /var/run/lightpid, pattern: /var/run/.*
+match: /run/.zollard/, pattern: /run/.*
+match: /bin/mi   , pattern: /.*bin/mi
+match: /bin/mi   , pattern: /.*bin/mi
+match: /usr/bin/wget, pattern: /.*bin/wget
+match: /var/tmp/dreams.install.sh, pattern: /var/tmp/.*
+match: /var/tmp/ep2.ppc, pattern: /var/tmp/.*
+match: /usr/bin/-wget, pattern: /.*bin/-wget
+match: /bin/mii  , pattern: /.*bin/mii
+match: /run/.lightpid, pattern: /run/.*
+match: /run/.aidrapid, pattern: /run/.*
+match: /run/lightpid, pattern: /run/.*
+match: /run/.lightscan, pattern: /run/.*
+match: /run/lightscan, pattern: /run/.*
+match: /run/mipsel, pattern: /run/.*
+match: /run/mips , pattern: /run/.*
+match: /run/sh   , pattern: /run/.*
+match: /run/arm  , pattern: /run/.*
+match: /run/ppc  , pattern: /run/.*
+match: /run/m    , pattern: /run/.*
+match: /run/mi   , pattern: /run/.*
+match: /run/s    , pattern: /run/.*
+match: /run/a    , pattern: /run/.*
+match: /run/p    , pattern: /run/.*
+match: /run/msx  , pattern: /run/.*
+match: /run/mx   , pattern: /run/.*
+match: /run/sx   , pattern: /run/.*
+match: /run/ax   , pattern: /run/.*
+match: /run/px   , pattern: /run/.*
+match: /run/32   , pattern: /run/.*
+match: /run/sel  , pattern: /run/.*
+match: /run/pid  , pattern: /run/.*
+match: /run/gcc  , pattern: /run/.*
+match: /run/dev  , pattern: /run/.*
+match: /run/psx  , pattern: /run/.*
+match: /run/mpl  , pattern: /run/.*
+match: /run/mps  , pattern: /run/.*
+match: /run/sph  , pattern: /run/.*
+match: /run/arml , pattern: /run/.*
+match: /run/mips.l, pattern: /run/.*
+match: /run/mipsell, pattern: /run/.*
+match: /run/ppcl , pattern: /run/.*
+match: /run/shl  , pattern: /run/.*
+match: /bin/pp   , pattern: /.*bin/pp
+match: /var/run/.lightpid, pattern: /var/run/.*
+match: /var/run/.aidrapid, pattern: /var/run/.*
+match: /var/run/lightpid, pattern: /var/run/.*
+match: /var/run/.lightscan, pattern: /var/run/.*
+match: /var/run/lightscan, pattern: /var/run/.*
+match: /var/run/mipsel, pattern: /var/run/.*
+match: /var/run/mips, pattern: /var/run/.*
+match: /var/run/sh, pattern: /var/run/.*
+match: /var/run/arm, pattern: /var/run/.*
+match: /var/run/ppc, pattern: /var/run/.*
+match: /var/run/m, pattern: /var/run/.*
+match: /var/run/mi, pattern: /var/run/.*
+match: /var/run/s, pattern: /var/run/.*
+match: /var/run/a, pattern: /var/run/.*
+match: /var/run/p, pattern: /var/run/.*
+match: /var/run/msx, pattern: /var/run/.*
+match: /var/run/mx, pattern: /var/run/.*
+match: /var/run/sx, pattern: /var/run/.*
+match: /var/run/ax, pattern: /var/run/.*
+match: /var/run/px, pattern: /var/run/.*
+match: /var/run/32, pattern: /var/run/.*
+match: /var/run/sel, pattern: /var/run/.*
+match: /var/run/pid, pattern: /var/run/.*
+match: /var/run/gcc, pattern: /var/run/.*
+match: /var/run/dev, pattern: /var/run/.*
+match: /var/run/psx, pattern: /var/run/.*
+match: /var/run/mpl, pattern: /var/run/.*
+match: /var/run/mps, pattern: /var/run/.*
+match: /var/run/sph, pattern: /var/run/.*
+match: /var/run/arml, pattern: /var/run/.*
+match: /var/run/mips.l, pattern: /var/run/.*
+match: /var/run/mipsell, pattern: /var/run/.*
+match: /var/run/ppcl, pattern: /var/run/.*
+match: /var/run/shl, pattern: /var/run/.*
+
+D3,5 document name: Darlloz-Trendmicro2.csv
+match: /run/.zollard, pattern: /run/.*
+match: /var/run/.zollard, pattern: /var/run/.*
+match: /bin/mi   , pattern: /.*bin/mi
+match: /bin/mi   , pattern: /.*bin/mi
+match: /var/tmp/dreams.install.sh, pattern: /var/tmp/.*
+match: /var/tmp/ep2.ppc, pattern: /var/tmp/.*
+match: /usr/bin/-wget, pattern: /.*bin/-wget
+match: /bin/mii  , pattern: /.*bin/mii
+match: /run/.lightscan, pattern: /run/.*
+match: /run/lightscan, pattern: /run/.*
+match: /run/.lihtscan, pattern: /run/.*
+match: /run/mipsel, pattern: /run/.*
+match: /run/mips , pattern: /run/.*
+match: /run/sh   , pattern: /run/.*
+match: /run/arm  , pattern: /run/.*
+match: /run/ppc  , pattern: /run/.*
+match: /run/m    , pattern: /run/.*
+match: /run/mi   , pattern: /run/.*
+match: /run/s    , pattern: /run/.*
+match: /run/a    , pattern: /run/.*
+match: /run/p    , pattern: /run/.*
+match: /run/msx  , pattern: /run/.*
+match: /run/mx   , pattern: /run/.*
+match: /run/sx   , pattern: /run/.*
+match: /run/ax   , pattern: /run/.*
+match: /run/px   , pattern: /run/.*
+match: /run/32   , pattern: /run/.*
+match: /run/sel  , pattern: /run/.*
+match: /run/pid  , pattern: /run/.*
+match: /run/gcc  , pattern: /run/.*
+match: /run/dev  , pattern: /run/.*
+match: /run/psx  , pattern: /run/.*
+match: /run/mpl  , pattern: /run/.*
+match: /run/mps  , pattern: /run/.*
+match: /run/sph  , pattern: /run/.*
+match: /run/arml , pattern: /run/.*
+match: /run/mips.l, pattern: /run/.*
+match: /run/mipsell, pattern: /run/.*
+match: /run/ppcl , pattern: /run/.*
+match: /run/shl  , pattern: /run/.*
+match: /run/arm  , pattern: /run/.*
+match: /run/mips , pattern: /run/.*
+match: /run/mipsel, pattern: /run/.*
+match: /run/ppc  , pattern: /run/.*
+match: /run/sh   , pattern: /run/.*
+match: /run/.lamorte/.log, pattern: /run/.*
+match: /run/.lamorte/.out, pattern: /run/.*
+match: /run/.lamorte/lamortee, pattern: /run/.*
+match: /run/ash  , pattern: /run/.*
+match: /run/mish , pattern: /run/.*
+match: /run/msh  , pattern: /run/.*
+match: /run/psh  , pattern: /run/.*
+match: /run/sshd , pattern: /run/.*
+match: /run/telnetd, pattern: /run/.*
+match: /run/.output, pattern: /run/.*
+match: /run/.results, pattern: /run/.*
+match: /run/.logd_a, pattern: /run/.*
+match: /run/.logd_m, pattern: /run/.*
+match: /run/.logd_ms, pattern: /run/.*
+match: /run/.logd_p, pattern: /run/.*
+match: /run/.logd_s, pattern: /run/.*
+match: /run/.cmd.run, pattern: /run/.*
+match: /bin/pp   , pattern: /.*bin/pp
+match: /var/run/.lightscan, pattern: /var/run/.*
+match: /var/run/lightscan, pattern: /var/run/.*
+match: /var/run/.lihtscan, pattern: /var/run/.*
+match: /var/run/mipsel, pattern: /var/run/.*
+match: /var/run/mips, pattern: /var/run/.*
+match: /var/run/sh, pattern: /var/run/.*
+match: /var/run/arm, pattern: /var/run/.*
+match: /var/run/ppc, pattern: /var/run/.*
+match: /var/run/m, pattern: /var/run/.*
+match: /var/run/mi, pattern: /var/run/.*
+match: /var/run/s, pattern: /var/run/.*
+match: /var/run/a, pattern: /var/run/.*
+match: /var/run/p, pattern: /var/run/.*
+match: /var/run/msx, pattern: /var/run/.*
+match: /var/run/mx, pattern: /var/run/.*
+match: /var/run/sx, pattern: /var/run/.*
+match: /var/run/ax, pattern: /var/run/.*
+match: /var/run/px, pattern: /var/run/.*
+match: /var/run/32, pattern: /var/run/.*
+match: /var/run/sel, pattern: /var/run/.*
+match: /var/run/pid, pattern: /var/run/.*
+match: /var/run/gcc, pattern: /var/run/.*
+match: /var/run/dev, pattern: /var/run/.*
+match: /var/run/psx, pattern: /var/run/.*
+match: /var/run/mpl, pattern: /var/run/.*
+match: /var/run/mps, pattern: /var/run/.*
+match: /var/run/sph, pattern: /var/run/.*
+match: /var/run/arml, pattern: /var/run/.*
+match: /var/run/mips.l, pattern: /var/run/.*
+match: /var/run/mipsell, pattern: /var/run/.*
+match: /var/run/ppcl, pattern: /var/run/.*
+match: /var/run/shl, pattern: /var/run/.*
+match: /var/run/arm, pattern: /var/run/.*
+match: /var/run/mips, pattern: /var/run/.*
+match: /var/run/mipsel, pattern: /var/run/.*
+match: /var/run/ppc, pattern: /var/run/.*
+match: /var/run/sh, pattern: /var/run/.*
+match: /var/run/.lamorte/.log, pattern: /var/run/.*
+match: /var/run/.lamorte/.out, pattern: /var/run/.*
+match: /var/run/.lamorte/lamortee, pattern: /var/run/.*
+match: /var/run/ash, pattern: /var/run/.*
+match: /var/run/mish, pattern: /var/run/.*
+match: /var/run/msh, pattern: /var/run/.*
+match: /var/run/psh, pattern: /var/run/.*
+match: /var/run/sshd, pattern: /var/run/.*
+match: /var/run/telnetd, pattern: /var/run/.*
+match: /var/run/.output, pattern: /var/run/.*
+match: /var/run/.results, pattern: /var/run/.*
+match: /var/run/.logd_a, pattern: /var/run/.*
+match: /var/run/.logd_m, pattern: /var/run/.*
+match: /var/run/.logd_ms, pattern: /var/run/.*
+match: /var/run/.logd_p, pattern: /var/run/.*
+match: /var/run/.logd_s, pattern: /var/run/.*
+match: /var/run/.cmd.run, pattern: /var/run/.*
+match: /run/.lamorte, pattern: /run/.*
+match: /var/run/.lamorte, pattern: /var/run/.*
+match: /run/.lightpid, pattern: /run/.*
+match: /run/.aidrapid, pattern: /run/.*
+match: /run/lightpid, pattern: /run/.*
+match: /run/.lihtpid, pattern: /run/.*
+match: /run/.lamorte/lamorte.pid, pattern: /run/.*
+match: /run/.daemon.pid, pattern: /run/.*
+match: /var/run/.lightpid, pattern: /var/run/.*
+match: /var/run/.aidrapid, pattern: /var/run/.*
+match: /var/run/lightpid, pattern: /var/run/.*
+match: /var/run/.lihtpid, pattern: /var/run/.*
+match: /var/run/.lamorte/lamorte.pid, pattern: /var/run/.*
+match: /var/run/.daemon.pid, pattern: /var/run/.*
+match: /bin/wget , pattern: /.*bin/wget
+match: /sbin/wget, pattern: /.*bin/wget
+match: /usr/bin/wget, pattern: /.*bin/wget
+match: /ffp/bin/wget, pattern: /.*bin/wget
+match: /bin/busybox, pattern: /.*bin/busybox
+match: port 58455, pattern: port \d+
+
+D3,6 document name: Darlloz-cisco.csv
+
+=== mem_usage: 791.95 MB ===
+Document Darlloz-Broadcom.csv           metrics calculating...
+Document Darlloz-Giac.csv               metrics calculating...
+Document Darlloz-Icc17.csv              metrics calculating...
+Document Darlloz-Trendmicro.csv         metrics calculating...
+Document Darlloz-Trendmicro2.csv        metrics calculating...
+Document Darlloz-cisco.csv              metrics calculating...
