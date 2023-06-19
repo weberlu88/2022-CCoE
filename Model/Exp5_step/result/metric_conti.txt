@@ -1,0 +1,28 @@
+asg_object: ['.*/dracut/.*', '0x[0-9a-zA-Z]{1,16}']
+
+Sample Conti.csv
+	num of segment in report: 93, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 6. R_malObj is 0.0000
+		ctd_object: []
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 8, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 11. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+
+OperationPair that changes system resources:
+[]
+
+{
+    ".*/dracut/.*": [
+        "/usr/share/dracut/modules.d/01fips"
+    ]
+}

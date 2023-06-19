@@ -1,0 +1,39 @@
+asg_object: ['/.*bin/chkconfig', '/.*bin/whoami', '/etc/rc.*\\.d/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^sh$']
+
+Sample Lightning.csv
+	num of segment in report: 75, 5 of them contain ASG object(s)
+	lenght of ctd's OPset is 4
+	#numofSTobject: 1, numofSTobject sysRrc: 1
+	#R_malObj
+	num of ctd objects: 3, num of asg objects: 23. R_malObj is 0.1304
+		ctd_object: ['/etc/rc.*\\.d/.*', '^PID.*']
+	#R_malSysObj
+	num of ctd objects: 1, num of asg objects: 1. R_malSysObj is 1.0000
+		len(asg_OPset): 20, len(ctd_OPset): 4
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 36. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+
+OperationPair that changes system resources:
+[]
+
+{
+    "/.*bin/chkconfig": [
+        "/bin/chkconfig",
+        "/sbin/chkconfig",
+        "/usr/bin/chkconfig",
+        "/usr/local/bin/chkconfig",
+        "/usr/local/sbin/chkconfig",
+        "/usr/sbin/chkconfig"
+    ],
+    "/.*bin/whoami": [
+        "/usr/bin/whoami"
+    ],
+    "/etc/rc.*\\.d/.*": [
+        "/etc/rc.d/init.d/elastisearch"
+    ]
+}

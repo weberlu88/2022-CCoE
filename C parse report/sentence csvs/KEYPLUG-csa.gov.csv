@@ -1,0 +1,97 @@
+Number,Content
+Sentence 1,"New Indicators of Compromise (IOCs) Discovered for Windows and Linux-based Backdoor Malware KEYPLUG
+
+Published on 03 Apr 2023 | Updated on 03 Apr 2023
+
+Security researchers have identified a cluster of new infrastructure associated with the custom Windows and Linux backdoor malware KEYPLUG."
+Sentence 2,The KEYPLUG malware is reportedly being used to target organisations in various sectors.
+Sentence 3,A malware with a backdoor capability is able to bypass normal authentication procedures and gain access to a system.
+Sentence 4,"Once the malware is installed, it provides attackers with remote control over the victim's machines, which may lead to further malicious activity such as data exfiltration."
+Sentence 5,KEYPLUG is a versatile and modular backdoor that supports multiple network protocols for command-and-control (C2) traffic.
+Sentence 6,Users and administrators are advised to promptly update their software/firmware whenever updates are released.
+Sentence 7,"Should you suspect that your device is compromised, you may wish to perform an anti-virus scan using an updated anti-virus application."
+Sentence 8,"Administrators may also wish to consider tracking and blocking IOCs associated with the KEYPLUG malware, such as C2 services and malware hashes."
+Sentence 9,"Possible IOCs associated with KEYPLUG are shown in the table below:
+
+Malware Variant	SHA256	Filename	Network Indicators
+KEYPLUG.LINUX	e024ccc4c72eb
+5813cc2b6db79
+75e4750337a1c
+c619d7339b21f
+dbb32d93fd85	kernel	linux.down-flash.com
+ 
+103.226.155[."
+Sentence 10,"]96:1443
+Bash Script	39c8a31dee110
+93810c7b142b4
+fe8770e8c8d1b
+3c09749a2888e
+cc32d24f4d09	update.sh	Downloads KEYPLUG
+‘update.so’ from
+103.226.155[."
+Sentence 11,"]96
+KEYPLUG.LINUX	006e096f82e9f
+2bb3bb3f4fd48
+85a81b426b425
+b2b7a7bfd90b4
+b65d44ab5e7e	update.so	WSS[:]//chrome.down-flash."
+Sentence 12,"com:443
+ 
+103.226.155[."
+Sentence 13,"]96
+KEYPLUG.LINUX	9a94070f547f8
+e517bcf4dabfd
+36a7f2b83bb9e
+0eae6e4685cc2
+33b07b0a2897	update	chrome.down-flash.com
+ 
+103.226.155[."
+Sentence 14,"]96
+KEYPLUG	2345c426c584e
+c12f7a2106a52
+ce8ac4aeb1444
+76d1a4e4b78c1
+0addfddef920	alibaba.exe	WSS[:]//chrome.down-flash."
+Sentence 15,"com:443
+KEYPLUG.LINUX	f4474dcbfaf85
+70fa4bcdd4151
+d53516664ef5c
+b7f21f3b4520f
+791626fdc441	dns_x64.old	TCP[:]//linux.down-flash.com
+:1443
+KEYPLUG.LINUX	a1398dd8cec06
+c07a33b94e9d5
+9d38313efcce9
+27cc27425ade4
+8dba48c3345f	nac	TCP[:]//193.200.149.195:80
+KEYPLUG.LINUX	a6ead353dd733
+8b7ae51825528
+9993f7cca70bd
+eceaf31004ec0
+b8a1036378d3	logo.png	TCP[:]//202.79.173.228:8081
+KEYPLUG	5921d1686f9f4
+b6d26ac353cfc
+e3e85e5790631
+1a80806903c9b
+40f85429b225	svchost.exe	TCP[:]//43.229.155.38:8443
+HTTPS[:]//cdn.google-au.ga:
+8443
+KEYPLUG	83ef976a3c3ca
+9fcd438eabc9b
+935ca5d46a3fb
+00e2276ce4061
+908339de43ec	host_UDP_53
+_win_x64.dll	UDP://fonts.google-au.ga:53
+KEYPLUG	4ffc7f65e16ce
+59ff9e6a504f8
+8e0cf56b225c0
+eb2cf8ec578b3
+e9d40d9bd898	Decrypted
+from
+config.dat	HTTPS://static.tcplog.com:
+443
+Source: RecordedFuture
+
+If your organisation discovers any of these IOCs present in your network, please report it to SingCERT at https://www.csa.gov.sg/singcert/reporting."
+Sentence 16,"More information is available here:
+https://go.recordedfuture.com/hubfs/reports/cta-2023-0330.pdf"

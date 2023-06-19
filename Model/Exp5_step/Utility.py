@@ -359,13 +359,17 @@ def get_proc_regex(graph):
     set_of_proc_O = get_set_of_proc_O(set_of_objects, graph)
     
 
-    ignore_name = ['NO_PID', 'malware']
+    ignore_name = ['NO_PID', 'malware', 'PID:']
     
     proc_regex = []
     for proc in set_of_proc_O:
-        if "/" not in proc: # 不用處理 malware 自行創建的執行檔，因為在File那邊已經處理了
-            if (not proc.isnumeric()) and proc not in ignore_name:
-                proc_regex.append("^" + proc + "$")
+        if "bin" in proc:
+            cmd_name = proc.split("/")[-1]
+            proc_regex.append("^" + cmd_name + "$")
+        else:
+            if "/" not in proc and "PID" not in proc: # 不用處理 malware 自行創建的執行檔，因為在File那邊已經處理了
+                if (not proc.isnumeric()) and proc not in ignore_name:
+                    proc_regex.append("^" + proc + "$")
     
     return proc_regex
 

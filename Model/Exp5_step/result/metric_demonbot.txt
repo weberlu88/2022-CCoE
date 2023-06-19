@@ -1,0 +1,252 @@
+asg_object: ['.*/selinux', '/.*bin/.locationesclipiciu', '/.*bin/.pidsclip', '/.*bin/bash', '/.*bin/cat', '/.*bin/chattr', '/.*bin/chmod', '/.*bin/cp', '/.*bin/crontab', '/.*bin/curl', '/.*bin/date', '/.*bin/grep', '/.*bin/id', '/.*bin/mkdir', '/.*bin/pam_tally2', '/.*bin/passwd', '/.*bin/pgrep', '/.*bin/rm', '/.*bin/sleep', '/.*bin/sshd', '/.*bin/systemctl', '/.*bin/usermod', '/.*bin/whoami', '/.*bin/yes', '/.*bin/yum', '/etc/group[-]{0,1}', '/etc/gshadow[-]{0,1}', '/etc/init\\.d/.*', '/etc/passwd[-]{0,1}', '/etc/shadow[-]{0,1}', '/proc/self', '/proc/uptime', '/proc/vz', '/run/systemd/.*', '/var/log/.*', '/var/spool/.*', '/var/tmp/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^bash$', '^cat$', '^chattr$', '^chmod$', '^cp$', '^crontab$', '^curl$', '^date$', '^grep$', '^id$', '^mkdir$', '^nscd$', '^pam_tally2$', '^passwd$', '^pgrep$', '^rm$', '^sleep$', '^sshd$', '^systemctl$', '^uname$', '^useradd$', '^usermod$', '^whoami$', '^yes$', 'uname(.|$)']
+
+Sample Demonbot.csv
+	num of segment in report: 97, 11 of them contain ASG object(s)
+	lenght of ctd's OPset is 18
+	#numofSTobject: 9, numofSTobject sysRrc: 1
+	#R_malObj
+	num of ctd objects: 15, num of asg objects: 542. R_malObj is 0.0277
+		ctd_object: ['/.*bin/.locationesclipiciu', '/.*bin/.pidsclip', '/.*bin/sshd', '/etc/passwd[-]{0,1}', '/var/tmp/.*', '^bash$', '^chmod$', '^crontab$', '^curl$', '^grep$', '^rm$', '^uname$', 'uname(.|$)']
+	#R_malSysObj
+	num of ctd objects: 4, num of asg objects: 17. R_malSysObj is 0.2353
+		len(asg_OPset): 132, len(ctd_OPset): 18
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 1436. R_malOps is 0.0014
+		refered lifecycle: [44, 76]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 15. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP45 act=exec(), obj=^bash$>, <OP11 act=execute, obj=bash, sent= After a successful authentication, the following bash commands are executed in the session with the purpose of collecting system information: uname -s -v -n -r -m uptime | grep -ohe 'up >
+	<OP77 act=open(), obj=/etc/passwd[-]{0,1}>, <OP15 act=intend, obj=/etc/passwd, sent=*/\\1/p' nproc --all nvidia-smi -q | grep \Product Name\ lspci cut -d: -f6 /etc/passwd | grep \/home/\ Notably, one of the commands intends to discover the GPU model, which would be useful to judge the victim's potential in a cryptojacking scheme>
+
+
+OperationPair that changes system resources:
+[<OP89 act=write(), obj=/etc/gshadow[-]{0,1}>, <OP86 act=write(), obj=/etc/group[-]{0,1}>, <OP107 act=rename(), obj=/etc/group[-]{0,1}>, <OP119 act=chdir(), obj=/var/spool/.*>, <OP98 act=rename(), obj=/etc/shadow[-]{0,1}>, <OP92 act=write(), obj=/etc/shadow[-]{0,1}>, <OP109 act=rename(), obj=/etc/gshadow[-]{0,1}>, <OP83 act=write(), obj=/etc/passwd[-]{0,1}>, <OP96 act=rename(), obj=/etc/passwd[-]{0,1}>]
+
+{
+    ".*/selinux": [
+        "/etc/selinux/config",
+        "/selinux",
+        "/sys/fs/selinux"
+    ],
+    "/.*bin/.locationesclipiciu": [
+        "/usr/bin/.locationesclipiciu"
+    ],
+    "/.*bin/.pidsclip": [
+        "/usr/bin/.pidsclip"
+    ],
+    "/.*bin/bash": [
+        "/bin/bash",
+        "/sbin/bash",
+        "/usr/bin/bash",
+        "/usr/local/bin/bash",
+        "/usr/local/sbin/bash",
+        "/usr/sbin/bash"
+    ],
+    "/.*bin/cat": [
+        "/bin/cat",
+        "/sbin/cat",
+        "/usr/bin/cat",
+        "/usr/local/bin/cat",
+        "/usr/local/sbin/cat",
+        "/usr/sbin/cat"
+    ],
+    "/.*bin/chattr": [
+        "/usr/bin/chattr",
+        "/usr/local/bin/chattr",
+        "/usr/local/sbin/chattr",
+        "/usr/sbin/chattr"
+    ],
+    "/.*bin/chmod": [
+        "/bin/chmod",
+        "/sbin/chmod",
+        "/usr/bin/chmod",
+        "/usr/local/bin/chmod",
+        "/usr/local/sbin/chmod",
+        "/usr/sbin/chmod"
+    ],
+    "/.*bin/cp": [
+        "/bin/cp",
+        "/sbin/cp",
+        "/usr/bin/cp",
+        "/usr/local/bin/cp",
+        "/usr/local/sbin/cp",
+        "/usr/sbin/cp"
+    ],
+    "/.*bin/crontab": [
+        "/usr/bin/crontab",
+        "/usr/local/bin/crontab",
+        "/usr/local/sbin/crontab",
+        "/usr/sbin/crontab"
+    ],
+    "/.*bin/curl": [
+        "/bin/curl",
+        "/sbin/curl",
+        "/usr/bin/curl",
+        "/usr/local/bin/curl",
+        "/usr/local/sbin/curl",
+        "/usr/sbin/curl"
+    ],
+    "/.*bin/date": [
+        "/bin/date",
+        "/sbin/date",
+        "/usr/bin/date",
+        "/usr/local/bin/date",
+        "/usr/local/sbin/date",
+        "/usr/sbin/date"
+    ],
+    "/.*bin/grep": [
+        "/bin/grep",
+        "/sbin/grep",
+        "/usr/bin/grep",
+        "/usr/local/bin/grep",
+        "/usr/local/sbin/grep",
+        "/usr/sbin/grep"
+    ],
+    "/.*bin/id": [
+        "/usr/bin/id",
+        "/usr/local/bin/id",
+        "/usr/local/sbin/id",
+        "/usr/sbin/id"
+    ],
+    "/.*bin/mkdir": [
+        "/bin/mkdir",
+        "/sbin/mkdir",
+        "/usr/bin/mkdir",
+        "/usr/local/bin/mkdir",
+        "/usr/local/sbin/mkdir",
+        "/usr/sbin/mkdir"
+    ],
+    "/.*bin/pam_tally2": [
+        "/sbin/pam_tally2"
+    ],
+    "/.*bin/passwd": [
+        "/usr/bin/passwd",
+        "/usr/local/bin/passwd",
+        "/usr/local/sbin/passwd",
+        "/usr/sbin/passwd"
+    ],
+    "/.*bin/pgrep": [
+        "/usr/bin/pgrep",
+        "/usr/local/bin/pgrep",
+        "/usr/local/sbin/pgrep",
+        "/usr/sbin/pgrep"
+    ],
+    "/.*bin/rm": [
+        "/bin/rm",
+        "/sbin/rm",
+        "/usr/bin/rm",
+        "/usr/local/bin/rm",
+        "/usr/local/sbin/rm",
+        "/usr/sbin/rm"
+    ],
+    "/.*bin/sleep": [
+        "/bin/sleep",
+        "/sbin/sleep",
+        "/usr/bin/sleep",
+        "/usr/local/bin/sleep",
+        "/usr/local/sbin/sleep",
+        "/usr/sbin/sleep"
+    ],
+    "/.*bin/sshd": [
+        "/usr/bin/sshd"
+    ],
+    "/.*bin/systemctl": [
+        "/bin/systemctl",
+        "/sbin/systemctl",
+        "/usr/bin/systemctl",
+        "/usr/local/bin/systemctl",
+        "/usr/local/sbin/systemctl",
+        "/usr/sbin/systemctl"
+    ],
+    "/.*bin/uname": [
+        "/bin/uname",
+        "/sbin/uname",
+        "/usr/bin/uname",
+        "/usr/local/bin/uname",
+        "/usr/local/sbin/uname",
+        "/usr/sbin/uname"
+    ],
+    "/.*bin/usermod": [
+        "/usr/local/bin/usermod",
+        "/usr/local/sbin/usermod",
+        "/usr/sbin/usermod"
+    ],
+    "/.*bin/whoami": [
+        "/usr/bin/whoami",
+        "/usr/local/bin/whoami",
+        "/usr/local/sbin/whoami",
+        "/usr/sbin/whoami"
+    ],
+    "/.*bin/yes": [
+        "/usr/bin/yes",
+        "/usr/local/bin/yes",
+        "/usr/local/sbin/yes",
+        "/usr/sbin/yes"
+    ],
+    "/.*bin/yum": [
+        "/bin/yum",
+        "/sbin/yum",
+        "/usr/bin/yum",
+        "/usr/local/bin/yum",
+        "/usr/local/sbin/yum",
+        "/usr/sbin/yum"
+    ],
+    "/etc/group[-]{0,1}": [
+        "/etc/group",
+        "/etc/group.1541",
+        "/etc/group.1549",
+        "/etc/group.lock"
+    ],
+    "/etc/gshadow[-]{0,1}": [
+        "/etc/gshadow",
+        "/etc/gshadow.1541",
+        "/etc/gshadow.1549",
+        "/etc/gshadow.lock"
+    ],
+    "/etc/init\\.d/.*": [
+        "/etc/init.d/myservice"
+    ],
+    "/etc/passwd[-]{0,1}": [
+        "/etc/passwd",
+        "/etc/passwd.1541",
+        "/etc/passwd.1549",
+        "/etc/passwd.lock"
+    ],
+    "/etc/shadow[-]{0,1}": [
+        "/etc/shadow",
+        "/etc/shadow.1541",
+        "/etc/shadow.1549",
+        "/etc/shadow.lock"
+    ],
+    "/proc/self": [
+        "/proc/self/exe",
+        "/proc/self/task"
+    ],
+    "/proc/uptime": [
+        "/proc/uptime"
+    ],
+    "/proc/vz": [
+        "/proc/vz"
+    ],
+    "/run/systemd/.*": [
+        "/run/systemd/system.control/myservice.service",
+        "/run/systemd/system/myservice.service",
+        "/run/systemd/transient/myservice.service"
+    ],
+    "/var/log/.*": [
+        "/var/log/tallylog"
+    ],
+    "/var/spool/.*": [
+        "/var/spool/cron",
+        "/var/spool/cron/.",
+        "/var/spool/cron/Pipe 3 : read end from Pipe 4",
+        "/var/spool/cron/crontabs"
+    ],
+    "/var/tmp/.*": [
+        "/var/tmp/.ladyg0g0/",
+        "/var/tmp/.ladyg0g0/.pr1nc35"
+    ]
+}
