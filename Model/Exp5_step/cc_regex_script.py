@@ -32,16 +32,16 @@ class RegexMaster:
         self.ID_regex:list[str]   = Utility.get_ID_regex(graph)   # type 'ID'
         permission_regex:list[str] = Utility.get_premission_regex(graph)
         self.info_regex:list[str] = []
-        infos = ['uname(.|$)','sysinfo']
-        for info in infos:
-            exit = False
-            for x in self.file_regex:
-                if re.search(info, x, re.IGNORECASE):
-                    exit = True
-                    break
-            if exit:
-                self.info_regex.append(info)
-            self.file_regex = [ x for x in self.file_regex if re.search(info, x, re.IGNORECASE) is None ] # 從file裡抓出info的re
+        # infos = ['uname(.|$)','sysinfo']
+        # for info in infos:
+        #     exit = False
+        #     for x in self.file_regex:
+        #         if re.search(info, x, re.IGNORECASE):
+        #             exit = True
+        #             break
+        #     if exit:
+        #         self.info_regex.append(info)
+        #     self.file_regex = [ x for x in self.file_regex if re.search(info, x, re.IGNORECASE) is None ] # 從file裡抓出info的re
         self.file_regex.extend(permission_regex) # 把umask的檔案權限歸類為file
         
         # 合併 regex rules，其實是 used regex，無法取得所有的 regex
