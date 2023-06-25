@@ -230,7 +230,8 @@ def build_RULES_DICT(path="Basic Search Rule.xlsx"):
     return RULES_DICT
 
 def special_case_handler(dest_object):
-    special_case_list = ["/dict/words", ".*/selinux", ".*/perl/.*", "listen.log"]
+    special_case_list = ["/dict/words", ".*/selinux", ".*/perl/.*", "listen.log", "/tmp.*", "/vmfs/volumes/.*", "/usr/.SQL-Unix/.*",
+                         "/root/.ssh.*", "/root/.config/.*", "/root/.xmrig.json"]
 
     for rule in special_case_list:
         if re.search(rule, dest_object):
@@ -337,7 +338,23 @@ def build_file_regex(set_of_objects_file, RULES_DICT):
                 regex = "/" + prefix
                 regex_match_file[regex] = [file_name]
             else:
-                regex_non_match_file.append(file_name)
+                if "./malware/" in file_name:
+                    s_len = len("./malware/")
+                    regex = file_name[s_len:]
+                    if len(regex ) != 0:
+                        regex_match_file[regex] = file_name
+                elif "./trace/" in file_name:
+                    s_len = len("./trace/")
+                    regex = file_name[s_len:]
+                    if len(regex ) != 0:
+                        regex_match_file[regex] = file_name
+                elif "/prober/" in  file_name:
+                    s_len = len("/prober/")
+                    regex = file_name[s_len:]
+                    if len(regex ) != 0:
+                        regex_match_file[regex] = file_name                 
+                else:
+                    regex_non_match_file.append(file_name)
     
     # combine /perl/ and /perl5/
     if ".*/perl5/.*" in regex_match_file:
@@ -364,6 +381,9 @@ def get_proc_regex(graph):
     proc_regex = []
     for proc in set_of_proc_O:
         if "bin" in proc:
+            cmd_name = proc.split("/")[-1]
+            proc_regex.append("^" + cmd_name + "$")
+        elif "prober" in proc:
             cmd_name = proc.split("/")[-1]
             proc_regex.append("^" + cmd_name + "$")
         else:
