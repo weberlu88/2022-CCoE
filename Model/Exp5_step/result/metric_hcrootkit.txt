@@ -1,24 +1,40 @@
-asg_object: ['0x[0-9a-zA-Z]{1,16}', '^GID.*', '^PID.*', '^UID.*', '^dmesg$', '^insmod$', '^sh$']
+asg_object: ['/proc/\\.inl', '/tmp.*', '0x[0-9a-zA-Z]{1,16}', '^GID.*', '^PID.*', '^UID.*', '^dmesg$', '^insmod$', '^sh$']
 
-Sample HCRootkit.csv
-	num of segment in report: 64, 6 of them contain ASG object(s)
-	lenght of ctd's OPset is 6
-	#numofSTobject: 1, numofSTobject sysRrc: 0
+Sample HCRootkit-lacework.csv
+	num of segment in report: 64, 7 of them contain ASG object(s)
+	lenght of ctd's OPset is 10
+	#numofSTobject: 6, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 6, num of asg objects: 22. R_malObj is 0.2727
-		ctd_object: ['0x[0-9a-zA-Z]{1,16}', '^PID.*', '^UID.*', '^dmesg$', '^insmod$']
+	num of ctd objects: 9, num of asg objects: 22. R_malObj is 0.4091
+		ctd_object: ['/proc/\\.inl', '/tmp.*', '0x[0-9a-zA-Z]{1,16}', '^PID.*', '^UID.*', '^dmesg$', '^insmod$']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 15, len(ctd_OPset): 6
+		len(asg_OPset): 21, len(ctd_OPset): 10
 	#R_malOps
-	num of matched asg op: 0, num of asg op: 73. R_malOps is 0.0000
-		refered lifecycle: []
+	num of matched asg op: 4, num of asg op: 73. R_malOps is 0.0548
+		refered lifecycle: [4, 7, 8]
 	#R_malChangeOps
-	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
-		ref-sys lifecycle: []
+	num of matched asg op: 1, num of asg op: 1. R_malChangeOps is 1.0000
+		ref-sys lifecycle: [8]
+
+	hits
+	<OP 5 act=open(), obj=/proc/\.inl>, <OP 5 act=write, obj=/proc/.inl, sent=Figure 2 – Kernel Module Written to Disk   After writing the kernel module to disk, the embedded userland component is written to either /proc/.inl or /tmp/.tmp_XXXXXX depending on whether or not the open command succeeded for /proc/.inl>
+	<OP 8 act=open(), obj=/tmp.*>, <OP 6 act=write, obj=/tmp/.tmp_XXXXXX, sent=Figure 2 – Kernel Module Written to Disk   After writing the kernel module to disk, the embedded userland component is written to either /proc/.inl or /tmp/.tmp_XXXXXX depending on whether or not the open command succeeded for /proc/.inl>
+	<OP 9 act=write(), obj=/tmp.*>, <OP 6 act=write, obj=/tmp/.tmp_XXXXXX, sent=Figure 2 – Kernel Module Written to Disk   After writing the kernel module to disk, the embedded userland component is written to either /proc/.inl or /tmp/.tmp_XXXXXX depending on whether or not the open command succeeded for /proc/.inl>
+
+	sys_hits
+	<OP 9 act=write(), obj=/tmp.*>, <OP 6 act=write, obj=/tmp/.tmp_XXXXXX, sent=Figure 2 – Kernel Module Written to Disk   After writing the kernel module to disk, the embedded userland component is written to either /proc/.inl or /tmp/.tmp_XXXXXX depending on whether or not the open command succeeded for /proc/.inl>
 
 
 OperationPair that changes system resources:
-[]
+[<OP 9 act=write(), obj=/tmp.*>]
 
-{}
+{
+    "/proc/\\.inl": [
+        "/proc/.inl"
+    ],
+    "/tmp.*": [
+        "/tmp/.tmp_9SEtfj",
+        "/tmp/.tmp_k4jzVl"
+    ]
+}

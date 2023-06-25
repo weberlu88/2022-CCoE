@@ -1,0 +1,3 @@
+report,word,verb,objectType,prettyReg,match,label,asgSyscall,sentence
+Defray777-Medium.csv,"/tmp/,",write,FILE,/tmp.*,1,1,write()," ESXi Encryption While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  Defray777, on ESXi, the adversary typically writes the Linux version of Defray777 to /tmp/, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new)"
+Defray777-crowdstrike.csv,"/tmp/,",write,FILE,/tmp.*,1,1,write()," ESXi Encryption While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  Defray777, on ESXi, the adversary typically writes the Linux version of Defray777 to /tmp/, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new)"

@@ -1,7 +1,7 @@
 asg_object: ['/.*bin/chkconfig', '/.*bin/whoami', '/etc/rc.*\\.d/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^sh$']
 
-Sample Lightning.csv
-	num of segment in report: 75, 5 of them contain ASG object(s)
+Sample Lightning-intezer.csv
+	num of segment in report: 74, 5 of them contain ASG object(s)
 	lenght of ctd's OPset is 4
 	#numofSTobject: 1, numofSTobject sysRrc: 1
 	#R_malObj

@@ -1,29 +1,78 @@
-asg_object: ['/dev/urandom', '/etc/nsswitch\\.conf', '/etc/passwd[-]{0,1}', '/proc/self', '/sys/devices/.*', '0x[0-9a-zA-Z]{1,16}', '^PID.*', '^UID.*', '^uname$']
+asg_object: ['/dev/urandom', '/etc/localtime', '/etc/nsswitch\\.conf', '/etc/passwd[-]{0,1}', '/proc/self', '/sys/devices/.*', '/tmp.*', '/vmfs/volumes/.*', '0x[0-9a-zA-Z]{1,16}', '^PID.*', '^UID.*', '^uname$']
 
-Sample Defray777.csv
-	num of segment in report: 80, 0 of them contain ASG object(s)
+Sample Defray777-Medium.csv
+	num of segment in report: 80, 2 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 2, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 2, num of asg objects: 18. R_malObj is 0.1111
+		ctd_object: ['/tmp.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 3. R_malSysObj is 0.0000
+		len(asg_OPset): 31, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 40. R_malOps is 0.0250
+		refered lifecycle: [21]
+	#R_malChangeOps
+	num of matched asg op: 1, num of asg op: 1. R_malChangeOps is 1.0000
+		ref-sys lifecycle: [21]
+
+	hits
+	<OP22 act=write(), obj=/tmp.*>, <OP 1 act=write, obj=/tmp/,, sent= ESXi Encryption While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  Defray777, on ESXi, the adversary typically writes the Linux version of Defray777 to /tmp/, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new)>
+
+	sys_hits
+	<OP22 act=write(), obj=/tmp.*>, <OP 1 act=write, obj=/tmp/,, sent= ESXi Encryption While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  Defray777, on ESXi, the adversary typically writes the Linux version of Defray777 to /tmp/, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new)>
+
+Sample Defray777-crowdstrike.csv
+	num of segment in report: 80, 2 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 2, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 2, num of asg objects: 18. R_malObj is 0.1111
+		ctd_object: ['/tmp.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 3. R_malSysObj is 0.0000
+		len(asg_OPset): 31, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 40. R_malOps is 0.0250
+		refered lifecycle: [21]
+	#R_malChangeOps
+	num of matched asg op: 1, num of asg op: 1. R_malChangeOps is 1.0000
+		ref-sys lifecycle: [21]
+
+	hits
+	<OP22 act=write(), obj=/tmp.*>, <OP 1 act=write, obj=/tmp/,, sent= ESXi Encryption While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  Defray777, on ESXi, the adversary typically writes the Linux version of Defray777 to /tmp/, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new)>
+
+	sys_hits
+	<OP22 act=write(), obj=/tmp.*>, <OP 1 act=write, obj=/tmp/,, sent= ESXi Encryption While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  Defray777, on ESXi, the adversary typically writes the Linux version of Defray777 to /tmp/, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new)>
+
+Sample Defray777-securelist.csv
+	num of segment in report: 71, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
 	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
 	num of ctd objects: 0, num of asg objects: 18. R_malObj is 0.0000
 		ctd_object: []
 	#R_malSysObj
-	num of ctd objects: 0, num of asg objects: 2. R_malSysObj is 0.0000
-		len(asg_OPset): 22, len(ctd_OPset): 0
+	num of ctd objects: 0, num of asg objects: 3. R_malSysObj is 0.0000
+		len(asg_OPset): 31, len(ctd_OPset): 0
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 40. R_malOps is 0.0000
 		refered lifecycle: []
 	#R_malChangeOps
-	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+	num of matched asg op: 0, num of asg op: 1. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 
 OperationPair that changes system resources:
-[]
+[<OP22 act=write(), obj=/tmp.*>]
 
 {
     "/dev/urandom": [
         "/dev/urandom"
+    ],
+    "/etc/localtime": [
+        "/etc/localtime"
     ],
     "/etc/nsswitch\\.conf": [
         "/etc/nsswitch.conf"
@@ -36,5 +85,12 @@ OperationPair that changes system resources:
     ],
     "/sys/devices/.*": [
         "/sys/devices/system/cpu/online"
+    ],
+    "/tmp.*": [
+        "/tmp",
+        "/tmp/software.log"
+    ],
+    "/vmfs/volumes/.*": [
+        "/vmfs/volumes/"
     ]
 }

@@ -1,21 +1,178 @@
-asg_object: ['.*/selinux', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^chmod$', '^cp$', '^rm$', '^sh$']
+asg_object: ['.*/selinux', '/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^chmod$', '^cp$', '^rm$', '^sh$']
 
-Sample BPFDoor.csv
-	num of segment in report: 23, 0 of them contain ASG object(s)
-	lenght of ctd's OPset is 0
-	#numofSTobject: 0, numofSTobject sysRrc: 0
+Sample BPFDoor-CrowdStrike.csv
+	num of segment in report: 59, 2 of them contain ASG object(s)
+	lenght of ctd's OPset is 4
+	#numofSTobject: 6, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 0, num of asg objects: 27. R_malObj is 0.0000
-		ctd_object: []
+	num of ctd objects: 3, num of asg objects: 27. R_malObj is 0.1111
+		ctd_object: ['/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 20, len(ctd_OPset): 0
+		len(asg_OPset): 24, len(ctd_OPset): 4
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 74. R_malOps is 0.0000
 		refered lifecycle: []
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
+
+Sample BPFDoor-Qualys.csv
+	num of segment in report: 62, 7 of them contain ASG object(s)
+	lenght of ctd's OPset is 8
+	#numofSTobject: 12, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 5, num of asg objects: 27. R_malObj is 0.1852
+		ctd_object: ['/dev/shm/.*', '/var/run/.*', '^PID.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 8
+	#R_malOps
+	num of matched asg op: 7, num of asg op: 74. R_malOps is 0.0946
+		refered lifecycle: [9, 11, 14, 20, 23]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP10 act=getpid(), obj=^PID.*>, <OP 4 act=figure, obj=PID, sent=Figure 11: Creation of PID file by BPFdoor>
+	<OP12 act=getppid(), obj=^PID.*>, <OP 4 act=figure, obj=PID, sent=Figure 11: Creation of PID file by BPFdoor>
+	<OP15 act=rm(), obj=/dev/shm/.*>, <OP 5 act=delete, obj=/dev/shm/kdmtmpflush, sent= As shown in figure 12, The original execution process deletes /dev/shm/kdmtmpflush with the following command: /bin/rm -f /dev/sfm/kdmtmpflush Figure 12: Deletion of /dev/shm/kdmtmpflush directory>
+	<OP21 act=open(), obj=/dev/shm/.*>, <OP 3 act=run, obj=/dev/shm/kdmtmpflush, sent=The renamed binary is dropped to the /dev/shm directory and runs itself as /dev/shm/kdmtmpflush (Figs>
+	<OP24 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/haldrund.pid, sent= PID File The implant creates a zero-byte PID file at /var/run/haldrund.pid (Fig>
+
+Sample BPFDoor-deepinstinct.csv
+	num of segment in report: 48, 2 of them contain ASG object(s)
+	lenght of ctd's OPset is 2
+	#numofSTobject: 2, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 27. R_malObj is 0.0370
+		ctd_object: ['/var/run/.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 2
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 74. R_malOps is 0.0135
+		refered lifecycle: [23]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP24 act=open(), obj=/var/run/.*>, <OP 2 act=employ, obj=/var/run/initd.lock, sent=IOCs afa8a32ec29a31f152ba20a30eb483520fe50f2dce6c9aa9135d88f7c9c511d7 – BPFDoor ELF SHA256 /var/run/initd.lock – BPFDoor mutex” MITRE ATT&CK: Tactic	Technique	Description	Observable Command and Control Defense Evasion Persistence T1205 - Traffic Signaling Attacker employs “magic” values to trigger response>
+
+Sample BPFDoor-exatrack.csv
+	num of segment in report: 78, 8 of them contain ASG object(s)
+	lenght of ctd's OPset is 8
+	#numofSTobject: 12, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 3, num of asg objects: 27. R_malObj is 0.1111
+		ctd_object: ['/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 8
+	#R_malOps
+	num of matched asg op: 16, num of asg op: 74. R_malOps is 0.2162
+		refered lifecycle: [1, 2, 15, 16]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 2 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 2 act=create, obj=0x1e, sent=The pseudo-code of the filter installation and packet parsing loop look like this: sock_fprog fprog;  [...]  // Simplified copy loop  memcpy(&stored_data, &filter_bytecode, 0x1e * 8);  [...]  fprog.len = 0x1e;  fprog.filter = &stored_data;   // Create a raw socket  hSocket = socket(AF_PACKET,SOCK_RAW,(uint)uVar1);  if ((hSocket < 1) || (iVar2 = setsockopt(hSocket, 1, SO_ATTACH_FILTER, &fprog, sizeof(sock_fprog)), iVar2 == -1)) {  return;  }  while( true ) {  do {  do {  memset(received_buffer,0,0x200);  recvfrom(dwCMD,received_buffer,0x200,0,(sockaddr *)0x0,(socklen_t *)0x0);   // Now, parse the packet  [...]  We chose to dump it from the sample, and developed a BPF processor for Ghidra [7] to disassemble it>
+	<OP 3 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 2 act=create, obj=0x1e, sent=The pseudo-code of the filter installation and packet parsing loop look like this: sock_fprog fprog;  [...]  // Simplified copy loop  memcpy(&stored_data, &filter_bytecode, 0x1e * 8);  [...]  fprog.len = 0x1e;  fprog.filter = &stored_data;   // Create a raw socket  hSocket = socket(AF_PACKET,SOCK_RAW,(uint)uVar1);  if ((hSocket < 1) || (iVar2 = setsockopt(hSocket, 1, SO_ATTACH_FILTER, &fprog, sizeof(sock_fprog)), iVar2 == -1)) {  return;  }  while( true ) {  do {  do {  memset(received_buffer,0,0x200);  recvfrom(dwCMD,received_buffer,0x200,0,(sockaddr *)0x0,(socklen_t *)0x0);   // Now, parse the packet  [...]  We chose to dump it from the sample, and developed a BPF processor for Ghidra [7] to disassemble it>
+	<OP16 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 2 act=create, obj=0x1e, sent=The pseudo-code of the filter installation and packet parsing loop look like this: sock_fprog fprog;  [...]  // Simplified copy loop  memcpy(&stored_data, &filter_bytecode, 0x1e * 8);  [...]  fprog.len = 0x1e;  fprog.filter = &stored_data;   // Create a raw socket  hSocket = socket(AF_PACKET,SOCK_RAW,(uint)uVar1);  if ((hSocket < 1) || (iVar2 = setsockopt(hSocket, 1, SO_ATTACH_FILTER, &fprog, sizeof(sock_fprog)), iVar2 == -1)) {  return;  }  while( true ) {  do {  do {  memset(received_buffer,0,0x200);  recvfrom(dwCMD,received_buffer,0x200,0,(sockaddr *)0x0,(socklen_t *)0x0);   // Now, parse the packet  [...]  We chose to dump it from the sample, and developed a BPF processor for Ghidra [7] to disassemble it>
+	<OP17 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 2 act=create, obj=0x1e, sent=The pseudo-code of the filter installation and packet parsing loop look like this: sock_fprog fprog;  [...]  // Simplified copy loop  memcpy(&stored_data, &filter_bytecode, 0x1e * 8);  [...]  fprog.len = 0x1e;  fprog.filter = &stored_data;   // Create a raw socket  hSocket = socket(AF_PACKET,SOCK_RAW,(uint)uVar1);  if ((hSocket < 1) || (iVar2 = setsockopt(hSocket, 1, SO_ATTACH_FILTER, &fprog, sizeof(sock_fprog)), iVar2 == -1)) {  return;  }  while( true ) {  do {  do {  memset(received_buffer,0,0x200);  recvfrom(dwCMD,received_buffer,0x200,0,(sockaddr *)0x0,(socklen_t *)0x0);   // Now, parse the packet  [...]  We chose to dump it from the sample, and developed a BPF processor for Ghidra [7] to disassemble it>
+
+Sample BPFDoor-github.csv
+	num of segment in report: 76, 16 of them contain ASG object(s)
+	lenght of ctd's OPset is 8
+	#numofSTobject: 1, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 27. R_malObj is 0.0370
+		ctd_object: ['0x[0-9a-zA-Z]{1,16}']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 8
+	#R_malOps
+	num of matched asg op: 23, num of asg op: 74. R_malOps is 0.3108
+		refered lifecycle: [1, 2, 3, 15, 16]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 2 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 4 act=fail, obj=+0xd, sent=In [1]: from capstone import *  In [2]: md = Cs(CS_ARCH_BPF, CS_MODE_BPF_CLASSIC)  In [3]: with open(bpf.o, rb) as ff:    ...:     data = ff.read()    ...: linenum = 0    ...: for i in md.disasm(data, 0):    ...:     print(f{j}: {i.mnemonic} {i.op_str})    ...:     linenum += 1  0: ldh [0xc] 1: jeq 0x86dd, +0x0, +0x9 2: ldb [0x14] 3: jeq 0x6, +0x0, +0x2 4: ldh [0x38] 5: jeq 0x50, +0x16, +0xd 6: jeq 0x2c, +0x16, +0x0 7: jeq 0x84, +0x1, +0x0 8: jeq 0x11, +0x0, +0x14 9: ldh [0x38] 10: jeq 0x1bb, +0x11, +0x10 11: jeq 0x800, +0x0, +0x11 12: ldb [0x17] 13: jeq 0x6, +0x0, +0x6 14: ldh [0x14] 15: jset 0x1fff, +0xd, +0x0 capstone failed to disassemble the 17th instruction>
+	<OP 3 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 4 act=fail, obj=+0xd, sent=In [1]: from capstone import *  In [2]: md = Cs(CS_ARCH_BPF, CS_MODE_BPF_CLASSIC)  In [3]: with open(bpf.o, rb) as ff:    ...:     data = ff.read()    ...: linenum = 0    ...: for i in md.disasm(data, 0):    ...:     print(f{j}: {i.mnemonic} {i.op_str})    ...:     linenum += 1  0: ldh [0xc] 1: jeq 0x86dd, +0x0, +0x9 2: ldb [0x14] 3: jeq 0x6, +0x0, +0x2 4: ldh [0x38] 5: jeq 0x50, +0x16, +0xd 6: jeq 0x2c, +0x16, +0x0 7: jeq 0x84, +0x1, +0x0 8: jeq 0x11, +0x0, +0x14 9: ldh [0x38] 10: jeq 0x1bb, +0x11, +0x10 11: jeq 0x800, +0x0, +0x11 12: ldb [0x17] 13: jeq 0x6, +0x0, +0x6 14: ldh [0x14] 15: jset 0x1fff, +0xd, +0x0 capstone failed to disassemble the 17th instruction>
+	<OP 4 act=munmap(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 6 act=jump, obj=+0xd, sent=0: ldh [0xc] Line 0 Instruction  1: jeq 0x86dd, +0x0, +0x9 Line 1 Instruction  2: ldb [0x14] Line 2 Instruction  3: jeq 0x6 , +0x0, +0x2 Line 3 Instruction  4: ldh [0x38] Line 4 Instruction  5: jeq 0x50, +0x16, +0xd If the previously loaded value at line 4 matches 0x50, control jumps to line 28 (relative offset 0x16) else it jumps to line 19 (relative offset 0xd)>
+	<OP16 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 4 act=fail, obj=+0xd, sent=In [1]: from capstone import *  In [2]: md = Cs(CS_ARCH_BPF, CS_MODE_BPF_CLASSIC)  In [3]: with open(bpf.o, rb) as ff:    ...:     data = ff.read()    ...: linenum = 0    ...: for i in md.disasm(data, 0):    ...:     print(f{j}: {i.mnemonic} {i.op_str})    ...:     linenum += 1  0: ldh [0xc] 1: jeq 0x86dd, +0x0, +0x9 2: ldb [0x14] 3: jeq 0x6, +0x0, +0x2 4: ldh [0x38] 5: jeq 0x50, +0x16, +0xd 6: jeq 0x2c, +0x16, +0x0 7: jeq 0x84, +0x1, +0x0 8: jeq 0x11, +0x0, +0x14 9: ldh [0x38] 10: jeq 0x1bb, +0x11, +0x10 11: jeq 0x800, +0x0, +0x11 12: ldb [0x17] 13: jeq 0x6, +0x0, +0x6 14: ldh [0x14] 15: jset 0x1fff, +0xd, +0x0 capstone failed to disassemble the 17th instruction>
+	<OP17 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 4 act=fail, obj=+0xd, sent=In [1]: from capstone import *  In [2]: md = Cs(CS_ARCH_BPF, CS_MODE_BPF_CLASSIC)  In [3]: with open(bpf.o, rb) as ff:    ...:     data = ff.read()    ...: linenum = 0    ...: for i in md.disasm(data, 0):    ...:     print(f{j}: {i.mnemonic} {i.op_str})    ...:     linenum += 1  0: ldh [0xc] 1: jeq 0x86dd, +0x0, +0x9 2: ldb [0x14] 3: jeq 0x6, +0x0, +0x2 4: ldh [0x38] 5: jeq 0x50, +0x16, +0xd 6: jeq 0x2c, +0x16, +0x0 7: jeq 0x84, +0x1, +0x0 8: jeq 0x11, +0x0, +0x14 9: ldh [0x38] 10: jeq 0x1bb, +0x11, +0x10 11: jeq 0x800, +0x0, +0x11 12: ldb [0x17] 13: jeq 0x6, +0x0, +0x6 14: ldh [0x14] 15: jset 0x1fff, +0xd, +0x0 capstone failed to disassemble the 17th instruction>
+
+Sample BPFDoor-medium.csv
+	num of segment in report: 23, 1 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 27. R_malObj is 0.0370
+		ctd_object: ['/dev/shm/.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 74. R_malOps is 0.0135
+		refered lifecycle: [20]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP21 act=open(), obj=/dev/shm/.*>, <OP 1 act=include, obj=/dev/shm/kdmtmpflush, sent=VirusTotal — Collections — BPFDoor YARA rules: signature-base/mal_lnx_implant_may22.yar at master · Neo23x0/signature-base (github.com) ThreatHunting/BPFDoor-Unknown.yar at master · GossiTheDog/ThreatHunting (github.com) Files in /dev/shm such as /dev/shm/kdmtmpflush Sandbox report from 2019 — includes useful commands; Automated Malware Analysis Report for m8XMnec4Vb.elf — Generated by Joe Sandbox>
+
+Sample BPFDoor-sandflysecurity.csv
+	num of segment in report: 215, 16 of them contain ASG object(s)
+	lenght of ctd's OPset is 15
+	#numofSTobject: 11, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 7, num of asg objects: 27. R_malObj is 0.2593
+		ctd_object: ['/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', '^PID.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 15
+	#R_malOps
+	num of matched asg op: 4, num of asg op: 74. R_malOps is 0.0541
+		refered lifecycle: [14, 20, 23]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP15 act=rm(), obj=/dev/shm/.*>, <OP 5 act=delete, obj=/dev/shm/kdmtmpflush, sent=6) The original execution process deletes the timestomped /dev/shm/kdmtmpflush and exits>
+	<OP21 act=open(), obj=/dev/shm/.*>, <OP14 act=leave, obj=/dev/shm/kdmtmpflush, sent=Hunting Tactics Possible binary left behind if implant fails to load: /dev/shm/kdmtmpflush >
+	<OP24 act=open(), obj=/var/run/.*>, <OP 4 act=create, obj=/var/run/haldrund.pid, sent=5) The forked version creates a dropper at /var/run/haldrund.pid to mark it is resident and prevent multiple starts>
+
+Sample BPFDoor-unfinished.bike.csv
+	num of segment in report: 46, 10 of them contain ASG object(s)
+	lenght of ctd's OPset is 13
+	#numofSTobject: 6, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 7, num of asg objects: 27. R_malObj is 0.2593
+		ctd_object: ['/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', '^PID.*', '^UID.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
+		len(asg_OPset): 24, len(ctd_OPset): 13
+	#R_malOps
+	num of matched asg op: 9, num of asg op: 74. R_malOps is 0.1216
+		refered lifecycle: [5, 9, 10, 11, 23]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 6 act=getuid(), obj=^UID.*>, <OP10 act=continue, obj=Uid, sent=-f ${pid}/exe || ${pid} =~ self ]] && continue      euid=$(grep Uid /proc/${pid}/status | awk '{ print $2 }')     [[ ${euid} != 0 ]] && continue      sockets=$(sudo find /proc/${pid}/fd -lname socket:* | wc -l)     [[ ${sockets} == 0 ]] && continue      libs=$(sudo find /proc/${pid}/map_files/ -type l -lname *.so>
+	<OP10 act=getpid(), obj=^PID.*>, <OP 9 act=file_6, obj=pid, sent=Here is another osquery and shell pair:  SELECT p.*,     COUNT(DISTINCT pmm.path) AS pmm_count FROM processes p     JOIN process_open_sockets pos ON p.pid = pos.pid     LEFT JOIN process_memory_map pmm ON p.pid = pmm.pid     AND pmm.path LIKE %.so.%     -- Yes, this is a weird performance optimization WHERE p.pid IN (         SELECT pid         FROM processes         WHERE p.euid = 0             AND p.path NOT IN (                 '/usr/bin/containerd',                 '/usr/bin/fusermount3',                 '/usr/sbin/acpid',                 '/usr/sbin/mcelog',                 '/usr/bin/docker-proxy'             )     ) GROUP BY pos.pid -- libc.so, ld-linux HAVING pmm_count = 2;   cd /proc || exit  for pid in *; do     [[ !>
+	<OP11 act=geteuid(), obj=^UID.*>, <OP10 act=continue, obj=Uid, sent=-f ${pid}/exe || ${pid} =~ self ]] && continue      euid=$(grep Uid /proc/${pid}/status | awk '{ print $2 }')     [[ ${euid} != 0 ]] && continue      sockets=$(sudo find /proc/${pid}/fd -lname socket:* | wc -l)     [[ ${sockets} == 0 ]] && continue      libs=$(sudo find /proc/${pid}/map_files/ -type l -lname *.so>
+	<OP12 act=getppid(), obj=^PID.*>, <OP 9 act=file_6, obj=pid, sent=Here is another osquery and shell pair:  SELECT p.*,     COUNT(DISTINCT pmm.path) AS pmm_count FROM processes p     JOIN process_open_sockets pos ON p.pid = pos.pid     LEFT JOIN process_memory_map pmm ON p.pid = pmm.pid     AND pmm.path LIKE %.so.%     -- Yes, this is a weird performance optimization WHERE p.pid IN (         SELECT pid         FROM processes         WHERE p.euid = 0             AND p.path NOT IN (                 '/usr/bin/containerd',                 '/usr/bin/fusermount3',                 '/usr/sbin/acpid',                 '/usr/sbin/mcelog',                 '/usr/bin/docker-proxy'             )     ) GROUP BY pos.pid -- libc.so, ld-linux HAVING pmm_count = 2;   cd /proc || exit  for pid in *; do     [[ !>
+	<OP24 act=open(), obj=/var/run/.*>, <OP 5 act=create, obj=/var/run/initd.lock, sent=2656  +++ exited with 0 +++   The only noteworthy things here are: It tries to create /var/run/initd.lock but fails because it requires root  It tries to set up a raw socket to listen to all protocols but fails because it requires root>
 
 
 OperationPair that changes system resources:
@@ -26,6 +183,9 @@ OperationPair that changes system resources:
         "/etc/selinux/config",
         "/selinux",
         "/sys/fs/selinux"
+    ],
+    "/dev/shm/.*": [
+        "/dev/shm/kdmtmpflu"
     ],
     "/var/run/.*": [
         "/var/run/haldrund.pid"

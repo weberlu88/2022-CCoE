@@ -1,7 +1,24 @@
-asg_object: ['/etc/host\\.conf', '/etc/resolv\\.conf', '/proc/self', '0x[0-9a-zA-Z]{1,16}', '^uname$']
+asg_object: ['/etc/host\\.conf', '/etc/resolv\\.conf', '/proc/self', '0x[0-9a-zA-Z]{1,16}', '99b36963f0e93a5c59cbd205d102f6b850f02f5e74ac4f66257b6f38d9c9ef5a', '^uname$']
+
+Sample KEYPLUG-Mandiant.csv
+	num of segment in report: 140, 2 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 10. R_malObj is 0.1000
+		ctd_object: ['0x[0-9a-zA-Z]{1,16}']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 2. R_malSysObj is 0.0000
+		len(asg_OPset): 22, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 28. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
 
 Sample KEYPLUG-csa.gov.csv
-	num of segment in report: 16, 0 of them contain ASG object(s)
+	num of segment in report: 12, 0 of them contain ASG object(s)
 	lenght of ctd's OPset is 0
 	#numofSTobject: 0, numofSTobject sysRrc: 0
 	#R_malObj
@@ -9,7 +26,7 @@ Sample KEYPLUG-csa.gov.csv
 		ctd_object: []
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 2. R_malSysObj is 0.0000
-		len(asg_OPset): 18, len(ctd_OPset): 0
+		len(asg_OPset): 22, len(ctd_OPset): 0
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 28. R_malOps is 0.0000
 		refered lifecycle: []
@@ -18,15 +35,15 @@ Sample KEYPLUG-csa.gov.csv
 		ref-sys lifecycle: []
 
 Sample KEYPLUG-cta.csv
-	num of segment in report: 73, 0 of them contain ASG object(s)
-	lenght of ctd's OPset is 0
-	#numofSTobject: 0, numofSTobject sysRrc: 0
+	num of segment in report: 73, 1 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 0, num of asg objects: 10. R_malObj is 0.0000
-		ctd_object: []
+	num of ctd objects: 74, num of asg objects: 10. R_malObj is 7.4000
+		ctd_object: ['99b36963f0e93a5c59cbd205d102f6b850f02f5e74ac4f66257b6f38d9c9ef5a']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 2. R_malSysObj is 0.0000
-		len(asg_OPset): 18, len(ctd_OPset): 0
+		len(asg_OPset): 22, len(ctd_OPset): 1
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 28. R_malOps is 0.0000
 		refered lifecycle: []
@@ -47,5 +64,6 @@ OperationPair that changes system resources:
     ],
     "/proc/self": [
         "/proc/self/exe"
-    ]
+    ],
+    "99b36963f0e93a5c59cbd205d102f6b850f02f5e74ac4f66257b6f38d9c9ef5a": "./malware/99b36963f0e93a5c59cbd205d102f6b850f02f5e74ac4f66257b6f38d9c9ef5a"
 }

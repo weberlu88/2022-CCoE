@@ -1,15 +1,53 @@
-asg_object: ['/etc/host\\.conf', '/etc/hosts', '/etc/nsswitch\\.conf', '/etc/passwd[-]{0,1}', '/etc/resolv\\.conf', '/proc/cpuinfo', '/proc/driver', '/proc/meminfo', '/proc/mounts', '/proc/self', '/sys/devices/.*', '/sys/firmware/.*', '/sys/fs/cgroup/.*', '/sys/kernel/mm/.*', '/sys/kernel/mm/hugepages/.*', '/usr/local/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^sysinfo$', '^uname$', 'port \\d+']
+asg_object: ['/etc/host\\.conf', '/etc/hosts', '/etc/localtime', '/etc/nsswitch\\.conf', '/etc/passwd[-]{0,1}', '/etc/resolv\\.conf', '/proc/cpuinfo', '/proc/driver', '/proc/meminfo', '/proc/mounts', '/proc/self', '/root/.config/.*', '/root/.xmrig.json', '/sys/bus/.*', '/sys/devices/.*', '/sys/firmware/.*', '/sys/fs/cgroup/.*', '/sys/kernel/mm/.*', '/sys/kernel/mm/hugepages/.*', '/usr/local/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}:\\d+', '^GID.*', '^PID.*', '^UID.*', '^sysinfo$', '^uname$', 'config.json', 'port \\d+']
 
-Sample XMRigMiner.csv
-	num of segment in report: 560, 12 of them contain ASG object(s)
-	lenght of ctd's OPset is 14
-	#numofSTobject: 3, numofSTobject sysRrc: 0
+Sample XMRigMiner-intezer.newgolan.csv
+	num of segment in report: 60, 1 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 19, num of asg objects: 252. R_malObj is 0.0754
-		ctd_object: ['/usr/local/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*', '^sysinfo$']
+	num of ctd objects: 15, num of asg objects: 252. R_malObj is 0.0595
+		ctd_object: ['\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}']
 	#R_malSysObj
-	num of ctd objects: 0, num of asg objects: 5. R_malSysObj is 0.0000
-		len(asg_OPset): 65, len(ctd_OPset): 14
+	num of ctd objects: 0, num of asg objects: 6. R_malSysObj is 0.0000
+		len(asg_OPset): 77, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 0, num of asg op: 494. R_malOps is 0.0000
+		refered lifecycle: []
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+Sample XMRigMiner-intezer.rockegroup.csv
+	num of segment in report: 71, 3 of them contain ASG object(s)
+	lenght of ctd's OPset is 3
+	#numofSTobject: 2, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 2, num of asg objects: 252. R_malObj is 0.0079
+		ctd_object: ['/usr/local/.*', '^PID.*']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 6. R_malSysObj is 0.0000
+		len(asg_OPset): 77, len(ctd_OPset): 3
+	#R_malOps
+	num of matched asg op: 2, num of asg op: 494. R_malOps is 0.0040
+		refered lifecycle: [58, 64]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP59 act=open(), obj=/usr/local/.*>, <OP 1 act=create, obj=/usr/local/sbin, sent=Detection and Response Detect if a machine in your system has been compromised by following all of these steps: The malware creates files in the following directories: /usr/local/sbin /usr/local/bin /usr/bin /usr/libexec /tmp Check if there are suspicious files in these locations>
+	<OP65 act=getpid(), obj=^PID.*>, <OP 2 act=find, obj=PID, sent=Use the command: netstat -tupln Response: Find the PID of the process and kill it>
+
+Sample XMRigMiner-intezer.teamTNT.csv
+	num of segment in report: 560, 12 of them contain ASG object(s)
+	lenght of ctd's OPset is 15
+	#numofSTobject: 5, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 40, num of asg objects: 252. R_malObj is 0.1587
+		ctd_object: ['/usr/local/.*', '0x[0-9a-zA-Z]{1,16}', '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}', '^PID.*', '^sysinfo$', 'config.json']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 6. R_malSysObj is 0.0000
+		len(asg_OPset): 77, len(ctd_OPset): 15
 	#R_malOps
 	num of matched asg op: 13, num of asg op: 494. R_malOps is 0.0263
 		refered lifecycle: [1, 2, 4, 5]
@@ -23,6 +61,26 @@ Sample XMRigMiner.csv
 	<OP 5 act=set_tid_address(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 8 act=figure, obj=WinRing0x64, sent=Figure 50: Analysis of WinRing0x64 driver installed by the XMRig Miner>
 	<OP 6 act=set_robust_list(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 8 act=figure, obj=WinRing0x64, sent=Figure 50: Analysis of WinRing0x64 driver installed by the XMRig Miner>
 
+Sample XMRigMiner-securelist.csv
+	num of segment in report: 26, 1 of them contain ASG object(s)
+	lenght of ctd's OPset is 1
+	#numofSTobject: 1, numofSTobject sysRrc: 0
+	#R_malObj
+	num of ctd objects: 1, num of asg objects: 252. R_malObj is 0.0040
+		ctd_object: ['0x[0-9a-zA-Z]{1,16}']
+	#R_malSysObj
+	num of ctd objects: 0, num of asg objects: 6. R_malSysObj is 0.0000
+		len(asg_OPset): 77, len(ctd_OPset): 1
+	#R_malOps
+	num of matched asg op: 1, num of asg op: 494. R_malOps is 0.0020
+		refered lifecycle: [0]
+	#R_malChangeOps
+	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
+		ref-sys lifecycle: []
+
+	hits
+	<OP 1 act=brk(), obj=0x[0-9a-zA-Z]{1,16} (mem)>, <OP 1 act=use, obj=0x795957d9753e854b62C64cF880Ae22c8Ab14991b, sent=Substituting cryptowallets in the clipboard Kaspersky security solutions detect the above malicious programs with the following verdicts: HEUR:Trojan.MSIL.Prometei.gen, HEUR:Trojan.Script.Cliptomaner.gen, HEUR:Trojan-Downloader.Win32.Generic, Trojan-Ransom.Win32.Crusis, Trojan.Win64.Agentb, not-a-virus:RiskTool.Win64.XMRigMiner Indicators of compromise (IoC) Domains taskhostw.com svchost.xyz sihost.xyz srhost.xyz 2fsdfsdgvsdvzxcwwef-defender.xyz Cryptowallets used for substitution LTC: LPor3PrQHcQv4obYKEZpnbqQEr8LMZoUuX BTC: 33yPjjSMGHPp8zj1ZXySNJzSUfVSbpXEuL ETH: 0x795957d9753e854b62C64cF880Ae22c8Ab14991b ZEC: t1ZbJBqHQyytNYtCpDWFQzqPQ5xKftePPt8 DODGE: DEUjj7mi5N67b6LYZPApyoV8Ek8hdNL1Vy MD5 1273d0062a9c0a87e2b53e841b261976 16b9c67bc36957062c17c0eff03b48f3 d202d4a3f832a08cb8122d0154712dd1 6ca170ece252721ed6cc3cfa3302d6f0 1357b42546dc1d202aa9712f7b29aa0d 78f5094fa66a9aa4dc10470d5c3e3155>
+
 
 OperationPair that changes system resources:
 []
@@ -33,6 +91,9 @@ OperationPair that changes system resources:
     ],
     "/etc/hosts": [
         "/etc/hosts"
+    ],
+    "/etc/localtime": [
+        "/etc/localtime"
     ],
     "/etc/nsswitch\\.conf": [
         "/etc/nsswitch.conf"
@@ -58,6 +119,192 @@ OperationPair that changes system resources:
     "/proc/self": [
         "/proc/self/cpuset",
         "/proc/self/exe"
+    ],
+    "/root/.config/.*": [
+        "/root/.config/xmrig.json"
+    ],
+    "/root/.xmrig.json": [
+        "/root/.xmrig.json"
+    ],
+    "/sys/bus/.*": [
+        "/sys/bus/cpu/devices",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/id",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/level",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/number_of_sets",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/size",
+        "/sys/bus/cpu/devices/cpu0/cache/index0/type",
+        "/sys/bus/cpu/devices/cpu0/cache/index1/id",
+        "/sys/bus/cpu/devices/cpu0/cache/index1/level",
+        "/sys/bus/cpu/devices/cpu0/cache/index1/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index1/type",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/id",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/level",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/number_of_sets",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/size",
+        "/sys/bus/cpu/devices/cpu0/cache/index2/type",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/id",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/level",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/number_of_sets",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/size",
+        "/sys/bus/cpu/devices/cpu0/cache/index3/type",
+        "/sys/bus/cpu/devices/cpu0/cache/index4/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index5/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index6/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index7/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index8/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cache/index9/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu0/cpu_capacity",
+        "/sys/bus/cpu/devices/cpu0/cpufreq/base_frequency",
+        "/sys/bus/cpu/devices/cpu0/cpufreq/cpuinfo_max_freq",
+        "/sys/bus/cpu/devices/cpu0/topology/cluster_cpus",
+        "/sys/bus/cpu/devices/cpu0/topology/core_cpus",
+        "/sys/bus/cpu/devices/cpu0/topology/core_id",
+        "/sys/bus/cpu/devices/cpu0/topology/die_cpus",
+        "/sys/bus/cpu/devices/cpu0/topology/package_cpus",
+        "/sys/bus/cpu/devices/cpu0/topology/physical_package_id",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/id",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/level",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/number_of_sets",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/size",
+        "/sys/bus/cpu/devices/cpu1/cache/index0/type",
+        "/sys/bus/cpu/devices/cpu1/cache/index1/id",
+        "/sys/bus/cpu/devices/cpu1/cache/index1/level",
+        "/sys/bus/cpu/devices/cpu1/cache/index1/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index1/type",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/id",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/level",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/number_of_sets",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/size",
+        "/sys/bus/cpu/devices/cpu1/cache/index2/type",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/id",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/level",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/number_of_sets",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/size",
+        "/sys/bus/cpu/devices/cpu1/cache/index3/type",
+        "/sys/bus/cpu/devices/cpu1/cache/index4/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index5/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index6/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index7/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index8/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cache/index9/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu1/cpu_capacity",
+        "/sys/bus/cpu/devices/cpu1/cpufreq/base_frequency",
+        "/sys/bus/cpu/devices/cpu1/cpufreq/cpuinfo_max_freq",
+        "/sys/bus/cpu/devices/cpu1/topology/cluster_cpus",
+        "/sys/bus/cpu/devices/cpu1/topology/core_cpus",
+        "/sys/bus/cpu/devices/cpu1/topology/core_id",
+        "/sys/bus/cpu/devices/cpu1/topology/die_cpus",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/id",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/level",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/number_of_sets",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/size",
+        "/sys/bus/cpu/devices/cpu2/cache/index0/type",
+        "/sys/bus/cpu/devices/cpu2/cache/index1/id",
+        "/sys/bus/cpu/devices/cpu2/cache/index1/level",
+        "/sys/bus/cpu/devices/cpu2/cache/index1/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index1/type",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/id",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/level",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/number_of_sets",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/size",
+        "/sys/bus/cpu/devices/cpu2/cache/index2/type",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/id",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/level",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/number_of_sets",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/size",
+        "/sys/bus/cpu/devices/cpu2/cache/index3/type",
+        "/sys/bus/cpu/devices/cpu2/cache/index4/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index5/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index6/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index7/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index8/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cache/index9/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu2/cpu_capacity",
+        "/sys/bus/cpu/devices/cpu2/cpufreq/base_frequency",
+        "/sys/bus/cpu/devices/cpu2/cpufreq/cpuinfo_max_freq",
+        "/sys/bus/cpu/devices/cpu2/topology/cluster_cpus",
+        "/sys/bus/cpu/devices/cpu2/topology/core_cpus",
+        "/sys/bus/cpu/devices/cpu2/topology/core_id",
+        "/sys/bus/cpu/devices/cpu2/topology/die_cpus",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/id",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/level",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/number_of_sets",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/size",
+        "/sys/bus/cpu/devices/cpu3/cache/index0/type",
+        "/sys/bus/cpu/devices/cpu3/cache/index1/id",
+        "/sys/bus/cpu/devices/cpu3/cache/index1/level",
+        "/sys/bus/cpu/devices/cpu3/cache/index1/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index1/type",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/id",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/level",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/number_of_sets",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/size",
+        "/sys/bus/cpu/devices/cpu3/cache/index2/type",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/coherency_line_size",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/id",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/level",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/number_of_sets",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/physical_line_partition",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/size",
+        "/sys/bus/cpu/devices/cpu3/cache/index3/type",
+        "/sys/bus/cpu/devices/cpu3/cache/index4/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index5/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index6/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index7/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index8/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cache/index9/shared_cpu_map",
+        "/sys/bus/cpu/devices/cpu3/cpu_capacity",
+        "/sys/bus/cpu/devices/cpu3/cpufreq/base_frequency",
+        "/sys/bus/cpu/devices/cpu3/cpufreq/cpuinfo_max_freq",
+        "/sys/bus/cpu/devices/cpu3/topology/cluster_cpus",
+        "/sys/bus/cpu/devices/cpu3/topology/core_cpus",
+        "/sys/bus/cpu/devices/cpu3/topology/core_id",
+        "/sys/bus/cpu/devices/cpu3/topology/die_cpus",
+        "/sys/bus/dax/devices/",
+        "/sys/bus/dax/devices/../target_node",
+        "/sys/bus/dax/devices/./target_node",
+        "/sys/bus/node/devices/node0/access0/initiators",
+        "/sys/bus/node/devices/node0/access0/initiators/read_bandwidth",
+        "/sys/bus/node/devices/node0/access0/initiators/read_latency",
+        "/sys/bus/node/devices/node0/access1/initiators",
+        "/sys/bus/node/devices/node0/cpumap",
+        "/sys/bus/node/devices/node0/hugepages",
+        "/sys/bus/node/devices/node0/hugepages/hugepages-2048kB/nr_hugepages",
+        "/sys/bus/node/devices/node0/meminfo"
     ],
     "/sys/devices/.*": [
         "/sys/devices/system/cpu",
@@ -101,5 +348,6 @@ OperationPair that changes system resources:
     ],
     "/usr/local/.*": [
         "/usr/local/ssl/openssl.cnf"
-    ]
+    ],
+    "config.json": "./malware/config.json"
 }
