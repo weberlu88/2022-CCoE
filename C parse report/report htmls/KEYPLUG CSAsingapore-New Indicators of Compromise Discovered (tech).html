@@ -1,0 +1,1241 @@
+ <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="HandheldFriendly" content="true"> <meta name="MobileOptimized" content="360"> <meta http-equiv="X-UA-Compatible" content="ie=edge"> <title>
+	New Indicators of Compromise (IOCs) Discovered for Windows and Linux-based Backdoor Malware KEYPLUG
+</title> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/styles/main.css?v=638136642040000000" as="style"> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/fonts/icomoon.ttf" as="font" crossorigin> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/fonts/Roboto-Regular.ttf" as="font" crossorigin> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/fonts/Roboto-Medium.ttf" as="font" crossorigin> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/fonts/Roboto-Light.ttf" as="font" crossorigin> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/fonts/Roboto-Bold.ttf" as="font" crossorigin> <link rel="preload" href="/ResourcePackages/CsaResources/assets/dist/fonts/Roboto-Black.ttf" as="font" crossorigin> <link rel="apple-touch-icon" href="/ResourcePackages/CsaResources/assets/dist/images/favicon.ico"> <link rel="icon" href="/ResourcePackages/CsaResources/assets/dist/images/favicon.ico" type="image/x-icon" /> <link href="/ResourcePackages/CsaResources/assets/dist/styles/critical.css?v=638064042400000000" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/CsaResources/assets/dist/styles/main.css?v=638136642040000000" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/CsaResources/assets/dist/styles/extensions.css?v=638187841560000000" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/CsaResources/assets/dist/styles/ihp-page.css?v=638187841600000000" rel="stylesheet" type="text/css" /><link href="/ResourcePackages/CsaResources/assets/dist/styles/ReadSpeaker.Styles.css?v=638058046700000000" rel="stylesheet" type="text/css" /> <script type="module" src="/ResourcePackages/CsaResources/assets/dist/scripts/Masthead/index.js"></script> <script src="https://cdn1.readspeaker.com/script/7942/webReader/webReader.js?pids=wr" type="text/javascript"></script> <meta property="og:title" content="New Indicators of Compromise (IOCs) Discovered for Windows and Linux-based Backdoor Malware KEYPLUG" /><meta property="og:url" content="https://www.csa.gov.sg/alerts-advisories/alerts/2023/al-2023-042" /><meta property="og:type" content="website" /><meta property="og:site_name" content="Default" /><link href="https://cdn1.readspeaker.com/script/7942/webReader/r/r2218/ReadSpeaker.Styles.css?v=3.7.0.2218" media="all" rel="stylesheet" type="text/css" /><script type="text/javascript">
+ window.CSA = window.CSA || {};
+      window.CSA.rspeaker = { customerId: 7942 };
+</script><script type="text/javascript">
+window.rsConf = {
+  general: { usePost: true },
+  params:
+    "https://cdn1.readspeaker.com/script/7942/webReader/webReader.js?pids=wr",
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  var xssOptions = {
+    whiteList: [],
+    stripIgnoreTag: true,
+  };
+  var read_speaker_url =
+    "https://app-eas.readspeaker.com/cgi-bin/rsent?customerid=7942&lang=en_au&readid=readable&url=" +
+    filterXSS(window.location.href, xssOptions);
+  if (document.querySelector(".rsbtn_play") !== null) {
+    document
+      .querySelector(".rsbtn_play")
+      .setAttribute("href", read_speaker_url);
+  }
+});
+</script><script type="text/javascript">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K2DXSBF');
+</script><script type="text/javascript" src="https://assets.wogaa.sg/scripts/wogaa.js"></script><link rel="canonical" href="https://www.csa.gov.sg/alerts-advisories/alerts/2023/al-2023-042" /><meta property="og:image" content="https://www.csa.gov.sg/images/default-source/alert-and-advisory/alert.jpg?sfvrsn=5fd71d1_1" /></head> <body id="main" class="" data-application-path="/"> <script src="/ScriptResource.axd?d=okuX3IVIBwfJlfEQK32K3gZtCLIikjbL1MUIQdxV3WKoGTSEgWKkN0aLb_ViuWyBrXqZWx_V0KTtOdart4_hMPg2OJGwrdJGuy78x64lyJweLY4pbEzCDvHaW-2nsbEcbiQmsc5EvY8dyMVmLZqx625elBmFXbPakl1_Q1LXHTTvbcACNLmjNOSdDqvSW9Ke0&amp;t=4c64f908" type="text/javascript"></script><script src="/ScriptResource.axd?d=ePnjFy9PuY6CB3GWMX-b_xX0rm8f-IlVDeW4kfpu3DaSLMlTrEWT_zkevMpiEvWcd9PrEp27TkFiOs39HTvTMCimzGc90F4ZkdsbvcAJITCszrBcoCNLT3iBVbQKzYqMOGDwb8o0iIpc9YEwFMRagHStIXy5w9qBF3N76jv4HJzF3SR_c8SIzuyg6xiAxK2K0&amp;t=4c64f908" type="text/javascript"></script><script src="/ScriptResource.axd?d=2z9h4-hKx8Yk1hygmet7ppT50xdwnkv4yvb8PgpfyYU7v9z1m2RI2XP2ZZzAwhkGRxAhDjmSuagM0QBF3dr4zmeKLa8cdRZESvNOKlyaPRu-fhClX6fudTdMvWYT34583LCnMuEi51BJC62tvtIOpcDNGI-ftRRwHyc_5lkP31ZU8TxvPLtyGyasArqsoPEa0&amp;t=4c64f908" type="text/javascript"></script> <!-- notice --> 
+
+
+
+
+<sgds-masthead></sgds-masthead>
+
+ <!-- end of notice --> <div class="o-site-header__dimmed" aria-hidden="true"></div> <header class="o-site-header"> <div class="o-site-header__inner"> <nav class="navbar"> <!-- header --> 
+<div class="container-fluid">
+    <a href="/" class="navbar-brand" title="Cyber Security Agency of Singapore" aria-label="Cyber Security Agency of Singapore">
+        <img src="/images/default-source/logo/csa-logo.jpg?sfvrsn=f0cc5399_0" alt="Cyber Security Agency of Singapore" title="Cyber Security Agency of Singapore" class="" />
+    </a>
+
+    <div class="navbar-right">
+        <ul class="m-nav-basic  ">
+            <li class="m-nav-basic__item">
+                <a href="/reporting" aria-label="Report an Incident" class="m-nav-basic__link">
+                    <span>Report an Incident</span>
+                </a>
+            </li>
+            <li class="m-nav-basic__item">
+                <a href="/Explore/contact-us" aria-label="Report an Incident" class="m-nav-basic__link">
+                    <span>Contact Us</span>
+                </a>
+            </li>
+        </ul>
+        <div class="navbar-mobile">
+            <button class="navbar-search-toggler" type="button" data-toggle="modal" data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Search">
+                <span class="navbar-search-toggler-icon"></span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</div> <!-- end of header --> <!-- Menu --> 
+
+<div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav container-fluid">
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--explore" id="w-dropdown-toggle-0" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">Explore CSA</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-0" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">Explore CSA</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/Explore/who-we-are" aria-label="Who We Are" class="menu-group__link active" tabindex="0">Who We Are</a>
+                                <a href="/Explore/what-we-do" aria-label="What We Do" class="menu-group__link " tabindex="0">What We Do</a>
+                                <a href="/Explore/careers" aria-label="Careers" class="menu-group__link " tabindex="0">Careers</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/who-we-are/mission-vision-and-values" aria-label="Mission, Vision and Values" class="menu-child__link" tabindex="0">
+                                                <span>Mission, Vision and Values</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/who-we-are/our-identity" aria-label="Our Identity" class="menu-child__link" tabindex="0">
+                                                <span>Our Identity</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/who-we-are/our-identity/about-singcert" aria-label="About SingCERT" class="menu-child__link" tabindex="0">
+                                                <span>About SingCERT</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/who-we-are/committees-and-panels" aria-label="Committees and Panels" class="menu-child__link" tabindex="0">
+                                                <span>Committees and Panels</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/careers/working-in-csa" aria-label="Working in CSA" class="menu-child__link" tabindex="0">
+                                                <span>Working in CSA</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/careers/how-we-recruit" aria-label="How We Recruit" class="menu-child__link" tabindex="0">
+                                                <span>How We Recruit</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/careers/job-opportunities" aria-label="Job Opportunities" class="menu-child__link" tabindex="0">
+                                                <span>Job Opportunities</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/careers/cybersecurity-development-programme-(csdp)" aria-label="Cybersecurity Development
+Programme (CSDP)" class="menu-child__link" tabindex="0">
+                                                <span>Cybersecurity Development
+Programme (CSDP)</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/careers/internships" aria-label="Internships" class="menu-child__link" tabindex="0">
+                                                <span>Internships</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Explore/careers/scholarships" aria-label="Scholarships" class="menu-child__link" tabindex="0">
+                                                <span>Scholarships</span>
+                                            </a>
+                                        </div>
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--information" id="w-dropdown-toggle-1" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">Information For</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-1" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">Information For</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/information-for/cii-sectors" aria-label="CII Sectors" class="menu-group__link active" tabindex="0">CII Sectors</a>
+                                <a href="/information-for/enterprise" aria-label="Enterprises" class="menu-group__link " tabindex="0">Enterprises</a>
+                                <a href="/information-for/security-it-pofessionals" aria-label="Security &amp; IT Professionals" class="menu-group__link " tabindex="0">Security &amp; IT Professionals</a>
+                                <a href="/information-for/general-public" aria-label="General Public" class="menu-group__link " tabindex="0">General Public</a>
+                                <a href="/information-for/parents-educators" aria-label="Parents &amp; Educators" class="menu-group__link " tabindex="0">Parents &amp; Educators</a>
+                                <a href="/information-for/students" aria-label="Students" class="menu-group__link " tabindex="0">Students</a>
+                                <a href="/information-for/seniors" aria-label="Seniors" class="menu-group__link " tabindex="0">Seniors</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--explore" id="w-dropdown-toggle-2" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">Alerts &amp; Advisories</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-2" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">Alerts &amp; Advisories</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/alerts-advisories/alerts" aria-label="Alerts" class="menu-group__link active" tabindex="0">Alerts</a>
+                                <a href="/alerts-advisories/Advisories" aria-label="Advisories" class="menu-group__link " tabindex="0">Advisories</a>
+                                <a href="/alerts-advisories/security-bulletins" aria-label="Bulletins" class="menu-group__link " tabindex="0">Bulletins</a>
+                                <a href="/subscribe-to-singcert" aria-label="Subscribe for Updates" class="menu-group__link " tabindex="0">Subscribe for Updates</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--news" id="w-dropdown-toggle-3" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">News &amp; Events</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-3" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">News &amp; Events</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/News-Events/events" aria-label="Events" class="menu-group__link active" tabindex="0">Events</a>
+                                <a href="/News-Events/Press-Releases" aria-label="Press Releases" class="menu-group__link " tabindex="0">Press Releases</a>
+                                <a href="/News-Events/speeches" aria-label="Speeches" class="menu-group__link " tabindex="0">Speeches</a>
+                                <a href="/News-Events/News-Articles" aria-label="News Articles" class="menu-group__link " tabindex="0">News Articles</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/News-Events/events/upcoming-events" aria-label="Upcoming Events" class="menu-child__link" tabindex="0">
+                                                <span>Upcoming Events</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/News-Events/events/past-events" aria-label="Past Events" class="menu-child__link" tabindex="0">
+                                                <span>Past Events</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--legislation" id="w-dropdown-toggle-4" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">Legislation</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-4" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">Legislation</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/legislation/Cybersecurity-Act" aria-label="Cybersecurity Act" class="menu-group__link active" tabindex="0">Cybersecurity Act</a>
+                                <a href="/legislation/Codes-of-Practice" aria-label="Codes of Practice" class="menu-group__link " tabindex="0">Codes of Practice</a>
+                                <a href="/legislation/Forms" aria-label="Forms" class="menu-group__link " tabindex="0">Forms</a>
+                                <a href="/legislation/handbook" aria-label="Handbook" class="menu-group__link " tabindex="0">Handbook</a>
+                                <a href="/legislation/Notices" aria-label="Notices" class="menu-group__link " tabindex="0">Notices</a>
+                                <a href="/legislation/industry-consultation" aria-label="Industry Consultation" class="menu-group__link " tabindex="0">Industry Consultation</a>
+                                <a href="/legislation/supplementary-references" aria-label="Supplementary References" class="menu-group__link " tabindex="0">Supplementary References</a>
+                                <a href="/legislation/whistleblowing" aria-label="Whistleblowing" class="menu-group__link " tabindex="0">Whistleblowing</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--programme" id="w-dropdown-toggle-5" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">Our Programmes</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-5" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">Our Programmes</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/our-programmes/talents-skills-development" aria-label="Talent &amp; Skills Development" class="menu-group__link active" tabindex="0">Talent &amp; Skills Development</a>
+                                <a href="/our-programmes/support-for-enterprises" aria-label="Support for Enterprises" class="menu-group__link " tabindex="0">Support for Enterprises</a>
+                                <a href="/our-programmes/innovation-schemes" aria-label="Innovation Schemes" class="menu-group__link " tabindex="0">Innovation Schemes</a>
+                                <a href="/our-programmes/certification-and-labelling-schemes" aria-label="Certification and Labelling Schemes" class="menu-group__link " tabindex="0">Certification and Labelling Schemes</a>
+                                <a href="/our-programmes/cybersecurity-outreach" aria-label="Cybersecurity Outreach" class="menu-group__link " tabindex="0">Cybersecurity Outreach</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/talents-skills-development/cybersecurity-career-mentoring-programme" aria-label="Cybersecurity Career Mentoring Programme" class="menu-child__link" tabindex="0">
+                                                <span>Cybersecurity Career Mentoring Programme</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/talents-skills-development/sg-cyber-talent" aria-label="SG Cyber Talent" class="menu-child__link" tabindex="0">
+                                                <span>SG Cyber Talent</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/talents-skills-development/csat-programme" aria-label="CSAT Programme" class="menu-child__link" tabindex="0">
+                                                <span>CSAT Programme</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/support-for-enterprises/sg-cyber-safe-programme" aria-label="SG Cyber Safe Programme" class="menu-child__link" tabindex="0">
+                                                <span>SG Cyber Safe Programme</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/support-for-enterprises/psg-cybersecurity-solutions" aria-label="PSG Cybersecurity Solutions" class="menu-child__link" tabindex="0">
+                                                <span>PSG Cybersecurity Solutions</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/innovation-schemes/csa-cybersecurity-co-innovation-and-development-fund" aria-label="CSA Cybersecurity Co-Innovation and Development Fund (CCDF)" class="menu-child__link" tabindex="0">
+                                                <span>CSA Cybersecurity Co-Innovation and Development Fund (CCDF)</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/innovation-schemes/ice71" aria-label="ICE71" class="menu-child__link" tabindex="0">
+                                                <span>ICE71</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/certification-and-labelling-schemes/singapore-common-criteria-scheme" aria-label="CSA Common Criteria" class="menu-child__link" tabindex="0">
+                                                <span>CSA Common Criteria</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/certification-and-labelling-schemes/cybersecurity-labelling-scheme" aria-label="Cybersecurity Labelling Scheme (CLS)" class="menu-child__link" tabindex="0">
+                                                <span>Cybersecurity Labelling Scheme (CLS)</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/certification-and-labelling-schemes/cls(md)-consultation" aria-label="CLS(MD) Consultation" class="menu-child__link" tabindex="0">
+                                                <span>CLS(MD) Consultation</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/certification-and-labelling-schemes/cls-ready" aria-label="CLS-Ready" class="menu-child__link" tabindex="0">
+                                                <span>CLS-Ready</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/certification-and-labelling-schemes/national-it-evaluation-scheme-(nites)" aria-label="National IT Evaluation Scheme (NITES)" class="menu-child__link" tabindex="0">
+                                                <span>National IT Evaluation Scheme (NITES)</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/cybersecurity-outreach/sg-cyber-safe-seniors" aria-label="SG Cyber Safe Seniors" class="menu-child__link" tabindex="0">
+                                                <span>SG Cyber Safe Seniors</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/our-programmes/cybersecurity-outreach/sg-cyber-safe-students" aria-label="SG Cyber Safe Students" class="menu-child__link" tabindex="0">
+                                                <span>SG Cyber Safe Students</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Tips-Resource/Resources/gosafeonline/2021/bettercybersafethansorry" aria-label="Better Cyber Safe Than Sorry Campaign" class="menu-child__link" tabindex="0">
+                                                <span>Better Cyber Safe Than Sorry Campaign</span>
+                                            </a>
+                                        </div>
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="nav-dropdown">
+        <div class="nav-dropdown-toggle theme--tips" id="w-dropdown-toggle-6" aria-controls="w-dropdown-list-0" aria-haspopup="menu" aria-expanded="false" role="button" tabindex="0">
+            <div class="o-site-header__nav-text">Tips &amp; Resources</div>
+        </div>
+        <nav class="nav-dropdown-list" id="w-dropdown-list-6" aria-labelledby="w-dropdown-toggle-0">
+            <div class="container-fluid">
+                <div class="menu-wrapper">
+                    <div class="menu-group__header">Tips &amp; Resources</div>
+                    <div class="menu-group__body">
+                        <div class="menu-group__links">
+                                <a href="/Tips-Resource/Resources/singcert" aria-label="SingCERT" class="menu-group__link active" tabindex="0">SingCERT</a>
+                                <a href="/Tips-Resource/internet-hygiene-portal" aria-label="Internet Hygiene Portal" class="menu-group__link " tabindex="0">Internet Hygiene Portal</a>
+                                <a href="/Tips-Resource/Interactive-Tools" aria-label="Interactive Tools" class="menu-group__link " tabindex="0">Interactive Tools</a>
+                                <a href="/Tips-Resource/publications" aria-label="Publications" class="menu-group__link " tabindex="0">Publications</a>
+                                <a href="/Tips-Resource/Resources" aria-label="Resources" class="menu-group__link " tabindex="0">Resources</a>
+                                <a href="/Tips-Resource/forms-and-documents" aria-label="Forms and Documents" class="menu-group__link " tabindex="0">Forms and Documents</a>
+                                <a href="/Tips-Resource/videos" aria-label="Videos" class="menu-group__link " tabindex="0">Videos</a>
+                                <a href="/Tips-Resource/infographics-and-posters" aria-label="Infographics and Posters" class="menu-group__link " tabindex="0">Infographics and Posters</a>
+                        </div>
+                        <div class="menu-group__childs">
+                                <div class="menu-child active">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Tips-Resource/internet-hygiene-portal/ihp" aria-label="IHP Cyber Health Lookup Tool" class="menu-child__link" tabindex="0">
+                                                <span>IHP Cyber Health Lookup Tool</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/programmes/sg-cyber-safe-students/games" aria-label="Games" class="menu-child__link" tabindex="0">
+                                                <span>Games</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Tips-Resource/Interactive-Tools/Password-Checker" aria-label="Password Checker" class="menu-child__link" tabindex="0">
+                                                <span>Password Checker</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Tips-Resource/Interactive-Tools" aria-label="View all &gt;" class="menu-child__link" tabindex="0">
+                                                <span>View all &gt;</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Tips-Resource/Resources/gosafeonline" aria-label="GoSafeOnline" class="menu-child__link" tabindex="0">
+                                                <span>GoSafeOnline</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-child__link_wrapper">
+                                            <a href="/Tips-Resource/Resources" aria-label="View all &gt;" class="menu-child__link" tabindex="0">
+                                                <span>View all &gt;</span>
+                                            </a>
+                                        </div>
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                                <div class="menu-child ">
+                                </div>
+                        </div>
+
+                            <div class="menu-group__highlights">
+            <div class="menu-group__highlight_wrapper active">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+                    <div class="menu-group__highlight active">
+                    </div>
+                    <div class="menu-group__highlight ">
+                    </div>
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+            <div class="menu-group__highlight_wrapper ">
+
+            </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+        <button class="navbar-search-toggler" type="button" data-toggle="modal" data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Search">
+            <span class="navbar-search-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+
+ <!-- end of Menu --> </nav> </div> </header> <!-- Page banner --> 
+
+
+<div>
+
+<div class="o-site-header__search"></div>
+<div class="modal fade m-search-modal o-searching" id="navbarSearch" tabindex="-1" role="dialog" aria-hidden="true" data-suggest-url="/api/Search/Autocomplete" data-search-url="/api/Search/GetSearchResult">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="m-search-modal__search container-fluid pt-3 mt-0">
+                    <div class="d-flex gap-3" role="search">
+                        <input type="search"
+                               class="m-search-modal__select js-input-search-modal inp"
+                               title="Search input"
+                               placeholder="Search"
+                               id="e84e0307-3d6e-4ec2-a73b-bfcefb29ff49"
+                               value=""
+                               aria-autocomplete="both"
+                               aria-describedby='SearchInfo-1'
+                               name="searchText"
+                               data-tooshort="Enter minimum 3 characters to search"
+                               data-placeholder="Enter keyword"
+                               data-mintextlength="3">
+                        <span id='SearchInfo-1' aria-hidden="true" hidden>When autocomplete results are available use up and down arrows to review and enter to select.</span>
+                        <input type="hidden" data-sf-role="resultsUrl" value="/search-result-page" />
+                        <input type="hidden" data-sf-role="indexCatalogue" value="csa-pro-aws-open-search" />
+                        <input type="hidden" data-sf-role="disableSuggestions" value='false' />
+                        <input type="hidden" data-sf-role="minSuggestionLength" value="3" />
+                        <input type="hidden" data-sf-role="suggestionFields" value="Title,Content" />
+                        <input type="hidden" data-sf-role="language" />
+                        <input type="hidden" data-sf-role="siteId" value="6bcb78da-a89d-44da-b90d-548479b4da17" />
+                        <input type="hidden" data-sf-role="suggestionsRoute" value="/restapi/search/suggestions" />
+                        <input type="hidden" data-sf-role="searchTextBoxId" value='#e84e0307-3d6e-4ec2-a73b-bfcefb29ff49' />
+                        <input type="hidden" data-sf-role="searchButtonId" value='#ddff0e51-1ca8-4e78-bce5-5bf989c662d2' />
+                        <input type="hidden" data-sf-role="scoringSettings" value='' />
+                        <input type="hidden" data-sf-role="SearchInAllSitesInTheIndex" value='' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  <!-- end of Page banner --> <!-- Page header --> 
+ <!-- end of Page header --> <!-- content --> 
+<div class="o-section-container">
+    <div class="container-fluid">
+        <div class="row" data-sf-element="Row">
+            <div id="Content_T2558C960001_Col00" class="sf_colsIn col col-12" data-sf-element="Column data" data-placeholder-label="Column data">
+<div>
+    <nav aria-label="Full path to the current page">
+        <div class="m-breadcrumb">
+                        <span class="m-breadcrumb__item"><a href="/">Home</a></span>
+                        <span class="m-breadcrumb__item"><a href="/alerts-advisories">Alerts &amp; Advisories</a></span>
+                        <span class="m-breadcrumb__item"><a href="/alerts-advisories/alerts">Alerts</a></span>
+                        <span class="m-breadcrumb__item"><a href="/alerts-advisories/alerts/2023">2023</a></span>
+                    <span class="m-breadcrumb__item" aria-current="page">New Indicators of Compromise (IOCs) Discovered for Windows and Linux-based Backdoor Malware KEYPLUG</span>
+        </div>
+    </nav>
+</div><div class="rs-container">
+    <div id="readspeaker_button_common" class="rs_skip rsbtn rs_preserve">
+        <a rel="nofollow" class="rsbtn_play" accesskey="L" title="Listen to this page using ReadSpeaker">
+            <span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Listen</span></span></span>
+            <span class="rsbtn_right rsimg rsplay rspart"></span>
+        </a>
+    </div>
+</div>
+    <div id="page-overview" class="m-page-heading-wrapper readable ">
+        <div class="m-page-heading">
+            <div class="m-page-heading__content with-line">
+                <h1 class="m-page-heading__title">New Indicators of Compromise (IOCs) Discovered for Windows and Linux-based Backdoor Malware KEYPLUG</h1>
+                    <div class="m-page-heading__line theme--advisory"></div>
+            </div>
+        </div>
+
+        <div class="m-page-heading__description">
+                <p class="m-card-article__note">Published on 03 Apr 2023 | Updated on 03 Apr 2023</p>
+            <div class="a-rich-text ">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="o-section-container pb-component pb-section rs_readable bg-white">
+    <div class="container-fluid">
+        <div class="row" data-sf-element="Row">
+            <div id="Content_T4DCB001C015_Col00" class="sf_colsIn col col-12 col-lg-12" data-sf-element="section container read speaker with no spacing" data-placeholder-label="section container read speaker with no spacing">
+<div >
+    <div class="sfContentBlock sf-Long-text a-rich-text" ><p>Security researchers have identified a cluster of new infrastructure associated with the custom Windows and Linux backdoor malware KEYPLUG. The KEYPLUG malware is reportedly being used to target organisations in various sectors.</p><p>A malware with a backdoor capability is able to bypass normal authentication procedures and gain access to a system. Once the malware is installed, it provides attackers with remote control over the victim's machines, which may lead to further malicious activity such as data exfiltration. KEYPLUG is a versatile and modular backdoor that supports multiple network protocols for command-and-control (C2) traffic. </p><p>Users and administrators are advised to promptly update their software/firmware whenever updates are released. Should you suspect that your device is compromised, you may wish to perform an anti-virus scan using an updated anti-virus application.</p><p>Administrators may also wish to consider tracking and blocking IOCs associated with the KEYPLUG malware, such as C2 services and malware hashes. Possible IOCs associated with KEYPLUG are shown in the table below:</p><table><colgroup><col><col><col><col></colgroup>
+ <thead><tr><th>Malware Variant </th><th>SHA256 </th><th>Filename </th><th>Network Indicators </th></tr></thead><tbody><tr><td>KEYPLUG.LINUX </td><td>e024ccc4c72eb<br>5813cc2b6db79<br>75e4750337a1c<br>c619d7339b21f<br>dbb32d93fd85 </td><td>kernel </td><td>linux.down-flash[.]com<br>&nbsp;<br>103.226.155[.]96:1443 </td></tr><tr><td>Bash Script </td><td>39c8a31dee110<br>93810c7b142b4<br>fe8770e8c8d1b<br>3c09749a2888e<br>cc32d24f4d09 </td><td>update.sh </td><td>Downloads KEYPLUG<br>‘update.so’ from<br>103.226.155[.]96 </td></tr><tr><td>KEYPLUG.LINUX </td><td>006e096f82e9f<br>2bb3bb3f4fd48<br>85a81b426b425<br>b2b7a7bfd90b4<br>b65d44ab5e7e </td><td>update.so </td><td>WSS[:]//chrome.down-flash[.]<br>com:443<br>&nbsp;<br>103.226.155[.]96 </td></tr><tr><td>KEYPLUG.LINUX </td><td>9a94070f547f8<br>e517bcf4dabfd<br>36a7f2b83bb9e<br>0eae6e4685cc2<br>33b07b0a2897 </td><td>update </td><td>chrome.down-flash[.]com<br>&nbsp;<br>103.226.155[.]96 </td></tr><tr><td>KEYPLUG </td><td>2345c426c584e<br>c12f7a2106a52<br>ce8ac4aeb1444<br>76d1a4e4b78c1<br>0addfddef920 </td><td>alibaba.exe </td><td>WSS[:]//chrome.down-flash[.]<br>&nbsp;<br>com:443 </td></tr><tr><td>KEYPLUG.LINUX </td><td>f4474dcbfaf85<br>70fa4bcdd4151<br>d53516664ef5c<br>b7f21f3b4520f<br>791626fdc441 </td><td>dns_x64.old </td><td>TCP[:]//linux.down-flash[.]com<br>:1443 </td></tr><tr><td>KEYPLUG.LINUX </td><td>a1398dd8cec06<br>c07a33b94e9d5<br>9d38313efcce9<br>27cc27425ade4<br>8dba48c3345f </td><td>nac </td><td>TCP[:]//193.200.149[.]195:80 </td></tr><tr><td>KEYPLUG.LINUX </td><td>a6ead353dd733<br>8b7ae51825528<br>9993f7cca70bd<br>eceaf31004ec0<br>b8a1036378d3 </td><td>logo.png </td><td>TCP[:]//202.79.173[.]228:8081 </td></tr><tr><td>KEYPLUG </td><td>5921d1686f9f4<br>b6d26ac353cfc<br>e3e85e5790631<br>1a80806903c9b<br>40f85429b225 </td><td>svchost.exe </td><td>TCP[:]//43.229.155[.]38:8443<br>HTTPS[:]//cdn.google-au[.]ga:<br>8443 </td></tr><tr><td>KEYPLUG </td><td>83ef976a3c3ca<br>9fcd438eabc9b<br>935ca5d46a3fb<br>00e2276ce4061<br>908339de43ec </td><td>host_UDP_53<br>_win_x64.dll </td><td>UDP[:]//fonts.google-au[.]ga:53 </td></tr><tr><td>KEYPLUG </td><td>4ffc7f65e16ce<br>59ff9e6a504f8<br>8e0cf56b225c0<br>eb2cf8ec578b3<br>e9d40d9bd898 </td><td>Decrypted<br>from<br>config.dat </td><td>HTTPS[:]//static.tcplog[.]com:<br>443 </td></tr></tbody></table><p><i>Source: RecordedFuture</i></p><p>If your organisation discovers any of these IOCs present in your network, please report it to SingCERT at <a href="/reporting">https://www.csa.gov.sg/singcert/reporting</a>.</p><p>More information is available here:<a href="https://go.recordedfuture.com/hubfs/reports/cta-2023-0330.pdf" data-sf-ec-immutable=""><br>https://go.recordedfuture.com/hubfs/reports/cta-2023-0330.pdf
+ </a></p></div>    
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="o-section-container pt-section pb-section">
+    <div class="container-fluid">
+        <div class="row" data-sf-element="Row">
+            <div id="Content_T4DCB001C006_Col00" class="sf_colsIn col col-12" data-sf-element="section container with spacing" data-placeholder-label="section container with spacing">
+
+
+<div id="tags" class="m-page-tag">
+    <div class="m-page-tag__label"> Tags</div>
+    <div class="m-page-tag__links">
+            <a href="alerts" class="a-tag theme--advisory">Alerts</a>
+            <a href="alerts-advisories" class="a-tag theme--advisory">Alerts &amp; Advisories</a>
+    </div>
+</div><div id="share-content" class="m-page-share">
+    <div class="m-page-share__label">Share</div>
+    <div class="m-page-share__links">
+        <a href="javascript:void(0)"
+           aria-labelledby="Facebook"
+           class="js-social-share"
+           data-template="https://www.facebook.com/sharer.php?u={url:encoded}"
+           data-network="social">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" /></svg><span>Facebook</span>
+        </a>
+        <a href="javascript:void(0)"
+           aria-labelledby="Twitter"
+           class="js-social-share"
+           data-template="https://twitter.com/intent/tweet?url={url:encoded}"
+           data-network="social">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" /></svg><span>Twitter</span>
+        </a>
+        <a href="javascript:void(0)"
+           aria-labelledby="Linkedin"
+           class="js-social-share"
+           data-template="https://www.linkedin.com/shareArticle/?url={url:encoded}"
+           data-network="social">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" /></svg><span>Linkedin</span>
+        </a>
+        <a href="javascript:void(0)"
+           aria-labelledby="WhatsApp"
+           class="js-social-share"
+           data-mobile-template="whatsapp://send?text={url}"
+           data-template="https://web.whatsapp.com/send?text={url}"
+           data-network="social">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" /></svg><span>WhatsApp</span>
+        </a>
+        <a href="javascript:void(0)"
+           aria-labelledby="Email"
+           class="js-social-share"
+           data-template="mailto:?to=&subject=I'd%20like%20to%20share%20a%20link%20with%20you&body= {url:encoded}"
+           data-network="email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="21" viewBox="0 0 26 21" fill="none"><path d="M13,12.1244.4245,1.8823c0,.0177-.0051.0345-.0051.0521V19.0662a1.6837,1.6837,0,0,0,1.6774,1.68H23.9033a1.6836,1.6836,0,0,0,1.6774-1.68V1.9344c0-.0176-.005-.0344-.005-.0512Z" /><path d="M23.5865.2544H2.4141L13,8.8753Z" /></svg>
+            <span>Email</span>
+        </a>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- end of content --> <!-- footer --> 
+
+<footer class="o-site-footer">
+    <section class="o-site-footer__main-wrapper">
+        <div class="container-fluid">
+            <div class="o-site-footer__main">
+                <div class="o-site-footer__info">
+                    <p>
+                        <img src="/images/default-source/logo/logoc9c46ef24db94f75a6c90328d075495b.svg?sfvrsn=2c76e524_0"
+                             alt="logoc9c46ef24db94f75a6c90328d075495b"
+                             title="logoc9c46ef24db94f75a6c90328d075495b" />
+                    </p>
+                    <p>
+                        <strong>Cyber Security Agency of Singapore</strong>
+                    </p>
+                    <address>5 Maxwell Road #03-00 Tower Block, MND Complex Singapore 069110</address>
+                </div>
+                <div class="o-site-footer__main-nav">
+                    <ul class="m-nav-list">
+                        <li class="m-nav-list__group--sizer"></li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">Explore CSA</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/Explore/who-we-are" aria-label="Who We Are" class="m-nav-list__link">
+                                                <span>Who We Are</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Explore/what-we-do" aria-label="What We Do" class="m-nav-list__link">
+                                                <span>What We Do</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Explore/careers" aria-label="Careers" class="m-nav-list__link">
+                                                <span>Careers</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">Information For</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/cii-sectors" aria-label="CII Sectors" class="m-nav-list__link">
+                                                <span>CII Sectors</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/enterprise" aria-label="Enterprises" class="m-nav-list__link">
+                                                <span>Enterprises</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/security-it-pofessionals" aria-label="Security &amp; IT Professionals" class="m-nav-list__link">
+                                                <span>Security &amp; IT Professionals</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/general-public" aria-label="General Public" class="m-nav-list__link">
+                                                <span>General Public</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/parents-educators" aria-label="Parents &amp; Educators" class="m-nav-list__link">
+                                                <span>Parents &amp; Educators</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/students" aria-label="Students" class="m-nav-list__link">
+                                                <span>Students</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/information-for/seniors" aria-label="Seniors" class="m-nav-list__link">
+                                                <span>Seniors</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">Alerts &amp; Advisories</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/alerts-advisories/alerts" aria-label="Alerts" class="m-nav-list__link">
+                                                <span>Alerts</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/alerts-advisories/Advisories" aria-label="Advisories" class="m-nav-list__link">
+                                                <span>Advisories</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/alerts-advisories/security-bulletins" aria-label="Bulletins" class="m-nav-list__link">
+                                                <span>Bulletins</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/subscribe-to-singcert" aria-label="Subscribe for Updates" class="m-nav-list__link">
+                                                <span>Subscribe for Updates</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">News &amp; Events</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/News-Events/events" aria-label="Events" class="m-nav-list__link">
+                                                <span>Events</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/News-Events/Press-Releases" aria-label="Press Releases" class="m-nav-list__link">
+                                                <span>Press Releases</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/News-Events/speeches" aria-label="Speeches" class="m-nav-list__link">
+                                                <span>Speeches</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/News-Events/News-Articles" aria-label="News Articles" class="m-nav-list__link">
+                                                <span>News Articles</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">Legislation</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/Cybersecurity-Act" aria-label="Cybersecurity Act" class="m-nav-list__link">
+                                                <span>Cybersecurity Act</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/Codes-of-Practice" aria-label="Codes of Practice" class="m-nav-list__link">
+                                                <span>Codes of Practice</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/Forms" aria-label="Forms" class="m-nav-list__link">
+                                                <span>Forms</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/handbook" aria-label="Handbook" class="m-nav-list__link">
+                                                <span>Handbook</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/Notices" aria-label="Notices" class="m-nav-list__link">
+                                                <span>Notices</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/supplementary-references" aria-label="Supplementary References" class="m-nav-list__link">
+                                                <span>Supplementary References</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/legislation/whistleblowing" aria-label="Whistleblowing" class="m-nav-list__link">
+                                                <span>Whistleblowing</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">Our Programmes</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/our-programmes/talents-skills-development" aria-label="Talent &amp; Skills Development" class="m-nav-list__link">
+                                                <span>Talent &amp; Skills Development</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/our-programmes/support-for-enterprises" aria-label="Support for Enterprises" class="m-nav-list__link">
+                                                <span>Support for Enterprises</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/our-programmes/innovation-schemes" aria-label="Innovation Schemes" class="m-nav-list__link">
+                                                <span>Innovation Schemes</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/our-programmes/certification-and-labelling-schemes" aria-label="Certification and Labelling Schemes" class="m-nav-list__link">
+                                                <span>Certification and Labelling Schemes</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/our-programmes/cybersecurity-outreach" aria-label="Cybersecurity Outreach" class="m-nav-list__link">
+                                                <span>Cybersecurity Outreach</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="m-nav-list__group">
+                                <div class="m-nav-list__group-name">Tips &amp; Resources</div>
+                                <ul class="m-nav-list__links">
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/Resources/singcert" aria-label="SingCERT" class="m-nav-list__link">
+                                                <span>SingCERT</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/internet-hygiene-portal" aria-label="Internet Hygiene Portal" class="m-nav-list__link">
+                                                <span>Internet Hygiene Portal</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/Interactive-Tools" aria-label="Interactive Tools" class="m-nav-list__link">
+                                                <span>Interactive Tools</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/publications" aria-label="Publications" class="m-nav-list__link">
+                                                <span>Publications</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/Resources" aria-label="Resources" class="m-nav-list__link">
+                                                <span>Resources</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/forms-and-documents" aria-label="Forms and Documents" class="m-nav-list__link">
+                                                <span>Forms and Documents</span>
+                                            </a>
+                                        </li>
+                                        <li class="m-nav-list__item">
+                                            <a href="/Tips-Resource/videos" aria-label="Videos" class="m-nav-list__link">
+                                                <span>Videos</span>
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="o-site-footer__follow-wrapper">
+        <div class="container-fluid">
+            <div class="o-site-footer__follow">
+                <div>Follow Us On Social Media</div>
+                <ul>
+                                                                        <li>
+                                <a href="https://www.facebook.com/CSAsingapore"
+                                   target="_blank"
+                                   title="Facebook"
+                                   aria-label="Facebook"
+                                   rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <!-- Font Awesome Pro 5.15.1 by  - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                        <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+                                    </svg>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="https://twitter.com/csasingapore"
+                                   target="_blank"
+                                   title="Twitter"
+                                   aria-label="Twitter"
+                                   rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <!-- Font Awesome Pro 5.15.1 by  - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                        <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                                    </svg>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a href="https://www.linkedin.com/company/cyber-security-agency-of-singapore-csa-"
+                                   target="_blank"
+                                   title="Linkedin"
+                                   aria-label="Linkedin"
+                                   rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <!-- Font Awesome Pro 5.15.1 by  - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                        <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                                    </svg>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://instagram.com/csasingapore"
+                                   target="_blank"
+                                   title="Instagram"
+                                   aria-label="Instagram"
+                                   rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <!-- Font Awesome Pro 5.15.1 by  - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                    </svg>
+                                </a>
+                            </li>
+                                            </ul>
+            </div>
+        </div>
+    </section>
+    <section class="o-site-footer__sec-nav-wrapper">
+        <div class="container-fluid">
+            <div class="o-site-footer__sec-nav">
+                <ul class="m-nav-basic">
+                        <li class="m-nav-basic__item">
+                            <a href="https://form.gov.sg/#!/5d3e5580c90d0b0012c329a5" aria-label="Feedback" class="m-nav-basic__link" target="_blank">
+                                <span>Feedback</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="/faq" aria-label="Frequently Asked Questions" class="m-nav-basic__link" target="_blank">
+                                <span>Frequently Asked Questions</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="/subscribe-to-singcert" aria-label="Subscribe for Updates" class="m-nav-basic__link" target="_blank">
+                                <span>Subscribe for Updates</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="/Privacy-Statement" aria-label="Privacy Statement" class="m-nav-basic__link" target="_blank">
+                                <span>Privacy Statement</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="/TermsOfUse" aria-label="Terms of Use" class="m-nav-basic__link" target="_blank">
+                                <span>Terms of Use</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="https://www.tech.gov.sg/report_vulnerability" aria-label="Report Vulnerability" class="m-nav-basic__link" target="_blank">
+                                <span>Report Vulnerability</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="/sitemap" aria-label="Sitemap" class="m-nav-basic__link" target="_blank">
+                                <span>Sitemap</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="https://www.gov.sg/" aria-label="GOV" class="m-nav-basic__link" target="_blank">
+                                <span>GOV</span>
+                            </a>
+                        </li>
+                        <li class="m-nav-basic__item">
+                            <a href="https://www.reach.gov.sg/" aria-label="REACH" class="m-nav-basic__link" target="_blank">
+                                <span>REACH</span>
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="o-site-footer__note-wrapper">
+        <div class="container-fluid">
+            <div class="o-site-footer__note">
+                <div class="o-site-footer__copyright">
+                    © 2022, Government of Singapore
+                </div>
+                <div class="o-site-footer__last-upd">Last updated 06 May 2023</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+ <!-- end of footer -->   <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/jquery.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/modernizr.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/plugins.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/main.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/password-checkers/zxcvbn.min.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/password-checkers/password-checker.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/Anchor/Anchor.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/xss.js"></script> <script type="text/javascript" src="/ResourcePackages/CsaResources/assets/dist/scripts/sf-cookies.js" defer></script> <script src="/WebResource.axd?d=68_Kc0UfkElUsNZSJpkFgLpFG-fzzYBDN5PRZI3jlFGm9_6oLRO4BBZ2QjXUy_6sTFAVliQ0ZsgPF5Z2CYjeEDF7QaLG9HV93iCkiskqdqcJokVbBRIQqdqRXD0pvKuv_qQUobzWhmmSbO-z6UxjSw2&amp;t=638188131820000000" type="text/javascript"></script><script type="application/json" id="PersonalizationTracker">
+	{"IsPagePersonalizationTarget":false,"IsUrlPersonalizationTarget":false,"PageId":"5cf55430-09c2-4e7e-aa40-8331d3fa672f"}
+</script><script type="text/javascript" src="/WebResource.axd?d=Oiw5o8i74rDb2VpVaCaMSqDIQcmA2f0sIisLYS1dU3n8R_LsUpSuX_gUBFiiV_J78C3DzV_E2AlnnTukwyd8l895HV6y1UtlJaWbKFpAVxmnjXf-N7A8r5siLRv9rtKAocNelZbCXRdvaz8DGbnN87FHJvf6KOWc2FPm_Dd8iQduV_Hwq1l1OCMlDRf237ZwB_2a2KmT5sY1ssS3jJdkpe-xDMOmCdZ869KgGugoC4c1&amp;t=638044078040000000">
+
+</script> <!-- Back to Top --> <div class="a-back-to-top js-back-to-top" aria-hidden="true" role="none"> <span class="sr-only" tabindex="-1">Back To&nbsp;Top</span> </div> <!-- End of Back to Top --> </body> </html>

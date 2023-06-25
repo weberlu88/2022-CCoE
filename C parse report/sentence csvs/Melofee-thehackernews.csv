@@ -1,0 +1,24 @@
+Number,Content
+Sentence 1,"Mélofée: Researchers Uncover New Linux Malware Linked to Chinese APT Groups
+Mar 29, 2023Ravie Lakshmanan
+
+An unknown Chinese state-sponsored hacking group has been linked to a novel piece of malware aimed at Linux servers."
+Sentence 2,"French cybersecurity firm ExaTrack, which found three samples of the previously documented malicious software that date back to early 2022, dubbed it Mélofée."
+Sentence 3,The newest of the three artifacts is designed to drop a kernel-mode rootkit that's based on an open source project referred to as Reptile.
+Sentence 4,"According to the vermagic metadata, it is compiled for a kernel version 5.10.112-108.499.amzn2.x86_64, the company said in a report."
+Sentence 5,"The rootkit has a limited set of features, mainly installing a hook designed for hiding itself."
+Sentence 6,Both the implant and the rootkit are said to be deployed using shell commands that download an installer and a custom binary package from a remote server.
+Sentence 7,The installer takes the binary package as an argument and then extracts the rootkit as well as a server implant module that's currently under active development.
+Sentence 8,"Mélofée's features are no different from other backdoors of its kind, enabling it to contact a remote server and receive instructions that allow it to carry out file operations, create sockets, launch a shell, and execute arbitrary commands."
+Sentence 9,The malware's ties to China come from infrastructure overlaps with groups such as APT41 (aka Winnti) and Earth Berberoka (aka GamblingPuppet).
+Sentence 10,Earth Berberoka is the name given to a state-sponsored actor chiefly targeting gambling websites in China since at least 2020 using multi-platform malware like HelloBot and Pupy RAT.
+Sentence 11,"According to Trend Micro, some samples of the Python-based Pupy RAT have been concealed using the Reptile rootkit."
+Sentence 12,"UPCOMING WEBINAR
+Mastering API Security: Understanding Your True Attack Surface
+Discover the untapped vulnerabilities in your API ecosystem and take proactive steps towards ironclad security."
+Sentence 13,Join our insightful webinar!
+Sentence 14,"Join Today
+Also discovered by ExaTrack is another implant codenamed AlienReverse, which shares code similarities with Mélofée and makes use of publicly-available tools like EarthWorm and socks_proxy."
+Sentence 15,"The Mélofée implant family is another tool in the arsenal of Chinese state sponsored attackers, which show constant innovation and development, the company said."
+Sentence 16,"The capabilities offered by Mélofée are relatively simple, but may enable adversaries to conduct their attacks under the radar."
+Sentence 17,"These implants were not widely seen, showing that the attackers are likely limiting its usage to high value targets."

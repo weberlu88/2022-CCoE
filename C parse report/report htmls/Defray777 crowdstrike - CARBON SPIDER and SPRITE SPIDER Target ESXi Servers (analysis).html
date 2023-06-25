@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" country="us">
+<head>
+
+<script data-cfasync="false">
+        !function(e,a,n,t){
+            var i=e.head;
+            if(i){
+                if (a) return;
+                var o=e.createElement("style");
+                o.id="alloy-prehiding",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)
+            }
+        }(document, document.location.href.indexOf("adobe_authoring_enabled") !== -1, "[data-target-location='true'] { opacity: 0 !important}", 3000);
+        function loadScript(t,a,e){(a=t.createElement("script")).type="text/javascript",a.dataset.cfasync=!1,a.async=!1,a.onload=function(){},a.src=e,t.getElementsByTagName("head")[0].appendChild(a)}
+        if (window.location.hostname.startsWith('www.crowdstrike.')) {
+            ((e,t)=>loadScript(e,t,"https://assets.adobedtm.com/d72cd986aea0/09e1256af957/launch-6cccf53edc18.min.js"))(document);
+        } else {
+            ((e,t)=>loadScript(e,t,"https://assets.adobedtm.com/d72cd986aea0/09e1256af957/launch-19765e16f88b-development.min.js"))(document);
+        }
+    </script>
+
+
+<script data-cfasync="false">(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5V5LPNC');</script>
+
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/bee15b7c-b632-450e-9003-9c8b60b3b978/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script=bee15b7c-b632-450e-9003-9c8b60b3b978></script>
+<script type="text/javascript">
+    function OptanonWrapper() { }
+</script>
+<meta charset="UTF-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="cleartype" content="on">
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<title>New Ransomware Tactic: Adversaries Target ESXi Servers | CrowdStrike</title>
+<meta name="description" content="By deploying ransomware on ESXi hosts, adversaries quickly increased the scope of affected systems, further pressuring victims to pay the ransom demands." />
+<link rel="canonical" href="https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="New Ransomware Tactic: Adversaries Target ESXi Servers | CrowdStrike" />
+<meta property="og:description" content="By deploying ransomware on ESXi hosts, adversaries quickly increased the scope of affected systems, further pressuring victims to pay the ransom demands." />
+<meta property="og:url" content="https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/" />
+<meta property="og:site_name" content="crowdstrike.com" />
+<meta property="article:publisher" content="https://www.facebook.com/CrowdStrike/" />
+<meta property="article:published_time" content="2021-02-26T12:15:59+00:00" />
+<meta property="article:modified_time" content="2021-08-30T21:09:23+00:00" />
+<meta property="og:image" content="https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1.jpg" />
+<meta property="og:image:width" content="1060" />
+<meta property="og:image:height" content="698" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@CrowdStrike" />
+<meta name="twitter:site" content="@CrowdStrike" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Eric Loui - Sergei Frankoff" />
+<meta name="twitter:label2" content="Est. reading time" />
+<meta name="twitter:data2" content="10 minutes" />
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.crowdstrike.com/#organization","name":"CrowdStrike","url":"https://www.crowdstrike.com/","sameAs":["https://www.instagram.com/crowdstrike/","https://www.linkedin.com/company/crowdstrike/","https://www.youtube.com/user/CrowdStrike","https://www.facebook.com/CrowdStrike/","https://twitter.com/CrowdStrike"],"logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.crowdstrike.com/#/schema/logo/image/","url":"https://www.crowdstrike.com/wp-content/uploads/2022/08/CS_Logos_2022_Inline_Red-Black_RGB.png","contentUrl":"https://www.crowdstrike.com/wp-content/uploads/2022/08/CS_Logos_2022_Inline_Red-Black_RGB.png","width":112,"height":112,"caption":"CrowdStrike"},"image":{"@id":"https://www.crowdstrike.com/#/schema/logo/image/"}},{"@type":"WebSite","@id":"https://www.crowdstrike.com/#website","url":"https://www.crowdstrike.com/","name":"crowdstrike.com","description":"Next-Generation Endpoint Protection","publisher":{"@id":"https://www.crowdstrike.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.crowdstrike.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#primaryimage","url":"https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1.jpg","contentUrl":"https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1.jpg","width":1060,"height":698,"caption":"menacing illustration"},{"@type":"WebPage","@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#webpage","url":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/","name":"New Ransomware Tactic: Adversaries Target ESXi Servers | CrowdStrike","isPartOf":{"@id":"https://www.crowdstrike.com/#website"},"primaryImageOfPage":{"@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#primaryimage"},"datePublished":"2021-02-26T12:15:59+00:00","dateModified":"2021-08-30T21:09:23+00:00","description":"By deploying ransomware on ESXi hosts, adversaries quickly increased the scope of affected systems, further pressuring victims to pay the ransom demands.","breadcrumb":{"@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/"]}]},{"@type":"BreadcrumbList","@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Hypervisor Jackpotting, Part 1: CARBON SPIDER and SPRITE SPIDER Target ESXi Servers With Ransomware to Maximize Impact"}]},{"@type":"Article","@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#article","isPartOf":{"@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#webpage"},"author":{"@id":"https://www.crowdstrike.com/#/schema/person/3a9cecfe6c7c25e823b6f09f1f7d5398"},"headline":"Hypervisor Jackpotting, Part 1: CARBON SPIDER and SPRITE SPIDER Target ESXi Servers With Ransomware to Maximize Impact","datePublished":"2021-02-26T12:15:59+00:00","dateModified":"2021-08-30T21:09:23+00:00","mainEntityOfPage":{"@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#webpage"},"wordCount":1886,"publisher":{"@id":"https://www.crowdstrike.com/#organization"},"image":{"@id":"https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/#primaryimage"},"thumbnailUrl":"https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1.jpg","keywords":["featured","Home Feature"],"articleSection":["Research &amp; Threat Intel"],"inLanguage":"en-US"},{"@type":"Person","@id":"https://www.crowdstrike.com/#/schema/person/3a9cecfe6c7c25e823b6f09f1f7d5398","name":"Eric Loui - Sergei Frankoff","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.crowdstrike.com/#/schema/person/image/","url":"http://2.gravatar.com/avatar/eaba9d0db7af33b2328ffbb952dfda89?s=96&d=mm&r=g","contentUrl":"http://2.gravatar.com/avatar/eaba9d0db7af33b2328ffbb952dfda89?s=96&d=mm&r=g","caption":"Eric Loui - Sergei Frankoff"},"url":"https://www.crowdstrike.com/blog/author/eric-loui-sergei-frankoff/"}]}</script>
+
+<link rel="preload" href="https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/header/megamenu-content.json" as="json"><link rel="preload" href="https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/header/top-nav.json" as="json"><link rel="preload" href="https://www.crowdstrike.com/wp-content/themes/main-theme/dist/data/blog/blog-nav.json" as="json"><style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='single-post.min.css-css' href='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/styles/pages/single-post.min.css?ver=1666282758' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-styles-css' href='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/styles/theme-styles.min.css?ver=1666282758' type='text/css' media='screen' />
+<link rel='stylesheet' id='tablepress-default-css' href='https://www.crowdstrike.com/wp-content/tablepress-combined.min.css?ver=25' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-official-css' href='https://use.fontawesome.com/releases/v6.2.0/css/all.css' type='text/css' media='all' integrity="sha384-SOnAn/m2fVJCwnbEYgD4xzrPtvsXdElhOVvR8ND1YjB5nhGNwwf7nBQlhfAwHAZC" crossorigin="anonymous" />
+<link rel='stylesheet' id='font-awesome-official-v4shim-css' href='https://use.fontawesome.com/releases/v6.2.0/css/v4-shims.css' type='text/css' media='all' integrity="sha384-MAgG0MNwzSXBbmOw4KK9yjMrRaUNSCk3WoZPkzVC1rmhXzerY4gqk/BLNYtdOFCO" crossorigin="anonymous" />
+<script type='text/javascript' src='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/fetch-inject.js?ver=1666282758' id='fetch-inject-js'></script>
+<script type='text/javascript' src='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/components/blog-navigation.min.js?ver=1666282758' id='blog-navigation-js'></script>
+<script type='text/javascript' src='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/components/blog-categories.min.js?ver=1666282758' id='blog-categories-js'></script>
+<script type='text/javascript' src='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/components/blog-category-sidebar.min.js?ver=1666282758' id='blog-category-sidebar-js'></script>
+<link rel='shortlink' href='https://www.crowdstrike.com/?p=28744' />
+<link rel="icon" href="https://www.crowdstrike.com/wp-content/uploads/2018/09/favicon-96x96.png" sizes="32x32" />
+<link rel="icon" href="https://www.crowdstrike.com/wp-content/uploads/2018/09/favicon-96x96.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.crowdstrike.com/wp-content/uploads/2018/09/favicon-96x96.png" />
+<meta name="msapplication-TileImage" content="https://www.crowdstrike.com/wp-content/uploads/2018/09/favicon-96x96.png" />
+</head>
+<body class="post-template-default single single-post postid-28744 single-format-standard lang-en">
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V5LPNC&nojs=1"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "CrowdStrike",
+        "url": "http://www.crowdstrike.com",
+        "logo": "http://www.crowdstrike.com/wp-content/img/cs_logo.png",
+        "sameAs": [
+            "http://www.facebook.com/CrowdStrike/",
+            "http://www.twitter.com/CrowdStrike/",
+            "https://plus.google.com/101967380457820256808/",
+            "http://www.linkedin.com/company/crowdstrike",
+            "http://www.youtube.com/user/CrowdStrike"
+        ]
+    }
+</script>
+<div data-id="wistia_player_embed"></div>
+<div id="modal-mask" class="modal_insert_location">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div id="modal-inner-mask" class="modal_mask">
+<div class="close_button"><i id="modal-close" class="fa fa-close"></i></div>
+<div id="modal-insert" class="modal_content"></div>
+</div>
+</div>
+</div>
+</div>
+</div><div id="blogNavInsertLocation"></div>
+<div class="cs_page_container ">
+<div class="search_modal">
+<div class="cs_header_container search_modal__section centered">
+
+<input type="text" id="addsearchfield" class="addsearch" disabled="disabled" placeholder="Search" />
+<script type="text/javascript" async="async" src="https://addsearch.com/js/?key=7737a29b854de71521b1cd72c4118cfc"></script>
+</div>
+</div>
+<header id="megaMenu" class="cs_main_menu 0">
+<div id="headerPromobar"></div>
+<nav class="header_top_menu">
+<div class="cs_header_container centered">
+<div id="megamenu_top_insert" class="menu_inner_section"></div>
+</div>
+</nav>
+<nav class="header_bottom_menu">
+<div class="mega_menu">
+<div class="cs_header_container centered mega_menu__header">
+<div class="header_logo">
+<a href="/">
+<svg width="173px" height="32px" viewBox="0 0 173 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<g id="Home" transform="translate(-72.000000, -7240.000000)" fill="#FEFEFE">
+<g id="Group-24" transform="translate(72.000000, 7240.000000)">
+<g id="Group-7" transform="translate(13.000000, 3.526700)">
+<path d="M14.5154,12.2448 L14.5154,11.9378 L11.9154,9.6998 L11.6124,9.6998 C10.8974,10.4898 9.7934,11.0818 8.5584,11.0818 C6.6304,11.0818 5.1134,9.6118 5.1134,7.5938 C5.1134,5.5758 6.6304,4.1058 8.5584,4.1058 C9.7934,4.1058 10.8974,4.6978 11.6124,5.4878 L11.9154,5.4878 L14.5154,3.2498 L14.5154,2.9428 C13.1504,1.2758 11.0064,0.2008 8.5794,0.2008 C4.1174,0.2008 0.7384,3.3598 0.7384,7.5938 C0.7384,7.7578 0.7754,7.9088 0.7864,8.0698 C2.6124,9.3118 4.2244,10.3058 5.6124,11.2158 C7.6134,12.4818 9.2284,13.6468 10.5584,14.7298 C12.2164,14.3108 13.5604,13.4018 14.5154,12.2448 M2.3674,12.1658 C3.4094,13.4458 4.8804,14.3638 6.6154,14.7558 C5.4434,14.0968 4.3084,13.4498 3.2514,12.7338 C2.9414,12.5418 2.6654,12.3558 2.3674,12.1658" id="Fill-1"></path>
+<path d="M29.571,14.0437 L28.921,11.2357 L28.683,11.0817 C28.553,11.1477 28.445,11.2357 28.12,11.2357 C27.621,11.2357 27.318,10.7087 27.058,10.2927 C26.625,9.6337 26.278,9.2827 25.975,9.1297 C27.556,8.4277 28.618,7.1117 28.618,5.2247 C28.618,2.3067 26.625,0.4637 22.921,0.4637 L16.465,0.4637 L16.465,14.7237 L20.754,14.7237 L20.754,9.7217 L21.144,9.7217 C22.097,9.7217 23.311,11.7837 23.874,12.7057 C25.044,14.5707 25.975,14.9867 27.643,14.9867 C28.423,14.9867 29.073,14.7017 29.463,14.3507 L29.571,14.0437 Z M24.242,5.4657 C24.242,6.4097 23.549,6.8697 22.747,6.8697 L20.754,6.8697 L20.754,3.9737 L22.747,3.9737 C23.549,3.9737 24.242,4.5007 24.242,5.4657 L24.242,5.4657 Z" id="Fill-3"></path>
+<path d="M46.1426,7.5939 C46.1426,3.3599 42.7636,0.2009 38.2796,0.2009 C33.7946,0.2009 30.4156,3.3599 30.4156,7.5939 C30.4156,11.8279 33.7946,14.9869 38.2796,14.9869 C42.7636,14.9869 46.1426,11.8059 46.1426,7.5939 M41.7666,7.5939 C41.7666,9.6339 40.2066,11.0819 38.2796,11.0819 C36.3516,11.0819 34.7916,9.6339 34.7916,7.5939 C34.7916,5.5539 36.3516,4.1059 38.2796,4.1059 C40.2066,4.1059 41.7666,5.5539 41.7666,7.5939" id="Fill-5"></path>
+</g>
+<polygon id="Fill-8" points="80.6103 3.9906 76.5163 3.9906 73.9813 11.8886 71.2953 3.9906 68.6963 3.9906 66.0313 11.8446 63.4973 3.9906 59.4023 3.9906 59.2073 4.3196 64.4503 18.2506 67.0493 18.2506 69.9953 10.4846 72.9633 18.2506 75.5633 18.2506 80.8053 4.3196"></polygon>
+<path d="M96.5105,11.0987 C96.5105,6.8427 93.6725,3.9907 89.0585,3.9907 L82.4945,3.9907 L82.4945,18.2507 L89.0585,18.2507 C93.6725,18.2507 96.5105,15.3987 96.5105,11.0987 M92.1345,11.1207 C92.1345,13.4457 90.7695,14.7407 88.8855,14.7407 L86.7835,14.7407 L86.7835,7.5007 L88.8855,7.5007 C90.7695,7.5007 92.1345,8.7957 92.1345,11.1207" id="Fill-9"></path>
+<polygon id="Fill-11" points="119.2316 7.5008 123.5206 7.5008 123.5206 3.9908 110.6536 3.9908 110.6536 7.5008 114.9426 7.5008 114.9426 18.2508 119.2316 18.2508"></polygon>
+<path d="M137.233,8.7513 C137.233,5.8333 135.24,3.9903 131.536,3.9903 L125.08,3.9903 L125.08,18.2503 L129.37,18.2503 L129.37,13.2483 L130.388,13.2483 L133.052,18.2503 L137.32,18.2503 L137.515,17.9213 L134.655,12.6343 C136.193,11.9103 137.233,10.6163 137.233,8.7513 M132.857,8.9923 C132.857,9.9363 132.164,10.3963 131.362,10.3963 L129.37,10.3963 L129.37,7.5003 L131.362,7.5003 C132.164,7.5003 132.857,8.0273 132.857,8.9923" id="Fill-12"></path>
+<polygon id="Fill-14" points="139.832 18.2507 144.121 18.2507 144.121 3.9907 139.832 3.9907"></polygon>
+<polygon id="Fill-15" points="154.9957 10.3747 159.8477 4.3197 159.6527 3.9907 155.0827 3.9907 151.1177 9.0587 151.1177 3.9907 146.8287 3.9907 146.8287 18.2507 151.1177 18.2507 151.1177 13.8627 151.8977 12.9417 155.5377 18.2507 160.0217 18.2507 160.2167 17.9217"></polygon>
+<polygon id="Fill-16" points="161.3862 3.9903 161.3862 18.2513 172.1732 18.2513 172.1732 14.7413 165.6742 14.7413 165.6742 12.7663 170.5702 12.7663 170.5702 9.4753 165.6742 9.4753 165.6742 7.5013 172.1092 7.5013 172.1092 3.9903"></polygon>
+<g id="Group-23" transform="translate(0.000000, 0.526700)">
+<path d="M103.7658,17.8933 C106.9078,17.8933 109.6348,16.3583 109.6348,13.3983 C109.6348,10.1723 106.8858,9.3383 104.4598,8.6363 C103.5058,8.3513 102.5298,8.0213 102.5298,7.3193 C102.5298,6.8143 103.0718,6.5073 103.8958,6.5073 C105.3048,6.5073 106.4958,7.3853 107.1018,7.9563 L107.4048,7.9563 L109.4188,5.5433 L109.4188,5.2363 C108.3578,4.0303 106.1928,3.1093 103.8088,3.1093 C100.4728,3.1093 98.1568,4.9073 98.1568,7.5173 C98.1568,10.3263 100.7108,11.5553 102.8768,12.1693 C104.2858,12.5643 105.2408,12.6303 105.2408,13.3983 C105.2408,13.9473 104.5678,14.2763 103.5268,14.2763 C102.2048,14.2763 100.6028,13.4203 99.8238,12.6523 L99.5208,12.6523 L97.5288,15.1533 L97.5288,15.4603 C98.8058,16.8853 101.1008,17.8933 103.7658,17.8933" id="Fill-17"></path>
+<path d="M29.8197,30.9998 C28.7807,28.6218 26.6937,25.5708 18.5177,21.2138 C14.7477,19.1178 8.3067,15.8908 2.5137,9.7578 C3.0387,11.9718 5.7287,16.8368 17.2987,22.9118 C20.5027,24.6648 25.9207,26.3088 29.8197,30.9998" id="Fill-19"></path>
+<path d="M29.298,26.9271 C28.312,24.1171 26.532,20.5191 18.091,15.1751 C13.98,12.4811 7.945,9.0981 0,0.4731 C0.568,2.7981 3.078,8.8441 15.73,16.6931 C19.886,19.5091 25.25,21.2461 29.298,26.9271" id="Fill-21"></path>
+</g>
+</g>
+</g>
+</g>
+</svg> </a>
+</div>
+<div id="megaSearch" data-id="search" class="search_btn fa-solid fa-magnifying-glass"></div>
+<div id="csMobileMenuBtn" class="mobile_menu_btn"><span></span></div>
+<div class="mega_menu__content">
+<ul id="megamenu_bottom_nav_insert" class="mega_menu__links"></ul>
+<div id="megamenu_bottom_nav_content" class="mega_menu__body"></div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="cs_page_content">
+<div class="mobile_nav_section">
+<div class="mobile_nav_content">
+<div id="megamenu_mobile_main_nav" class="list_items_content"></div>
+</div>
+</div>
+<div class="cs_main_section">
+<main class="main"> <article>
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg-8">
+<h1>Hypervisor Jackpotting, Part 1: CARBON SPIDER and SPRITE SPIDER Target ESXi Servers With Ransomware to Maximize Impact</h1>
+<div class="publish_info">
+<p>February 26, 2021</p> <a href="https://www.crowdstrike.com/blog/author/eric-loui-sergei-frankoff/" title="Posts by Eric Loui - Sergei Frankoff" rel="author">Eric Loui - Sergei Frankoff</a> <a href="https://www.crowdstrike.com/blog/category/threat-intel-research/" title="Research &amp; Threat Intel">Research &amp; Threat Intel</a> </div>
+<div class="post_image"><img width="1060" height="698" src="https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="menacing illustration" srcset="https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1.jpg 1060w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1-300x198.jpg 300w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1-1024x674.jpg 1024w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-blog-1-768x506.jpg 768w" sizes="(max-width: 1060px) 100vw, 1060px" /></div>
+<div class="blog_content">
+<p><strong><em>This is Part 1 of a two-part blog series. Read Part 2 <a href="https://www.crowdstrike.com/blog/hypervisor-jackpotting-ecrime-actors-increase-targeting-of-esxi-servers/">here</a>. </em></strong></p>
+<p><span style="font-weight: 400;">Targeted large-scale ransomware campaigns, referred to as </span><a href="https://www.crowdstrike.com/blog/big-game-hunting-the-evolution-of-indrik-spider-from-dridex-wire-fraud-to-bitpaymer-targeted-ransomware/"><span style="font-weight: 400;">big game hunting</span></a><span style="font-weight: 400;"> (BGH), remained the primary eCrime threat to organizations across all sectors in 2020. The relentless volume and pace of these campaigns mean that some sophisticated BGH actors have not attracted much attention. Two such groups are SPRITE SPIDER, the operators of the </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> ransomware (aka </span><em><span style="font-weight: 400;">Defray</span><span style="font-weight: 400;">, </span><span style="font-weight: 400;">Defray 2018</span><span style="font-weight: 400;">, </span><span style="font-weight: 400;">Target777</span><span style="font-weight: 400;">, </span><span style="font-weight: 400;">RansomX</span><span style="font-weight: 400;">, </span><span style="font-weight: 400;">RansomEXX</span></em><span style="font-weight: 400;">), and <a href="https://adversary.crowdstrike.com/adversary/carbon-spider/">CARBON SPIDER</a>, a group formerly focused on compromising point-of-sale (POS) devices, and that was responsible for introducing the </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> ransomware.</span></p>
+<p><span style="font-weight: 400;">While </span><a href="https://www.crowdstrike.com/cybersecurity-101/ransomware/"><span style="font-weight: 400;">ransomware</span></a><span style="font-weight: 400;"> for Linux has existed for many years, BGH actors have not historically targeted Linux, much less the ESXi hypervisor specifically. This likely reflects the overwhelming dominance of the Windows operating system in businesses and large organizations. However, in the second half of 2020, SPRITE SPIDER and CARBON SPIDER began deploying Linux versions of </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> and </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">, respectively, designed specifically to affect ESXi.</span></p>
+<p><span style="font-weight: 400;">Affected victims include organizations that have used virtualization to host many of their corporate systems on a few ESXi servers, creating a virtual jackpot for the ransomware. By deploying ransomware on these ESXi hosts, adversaries were able to quickly increase the scope of affected systems within the victim environments, resulting in additional pressure on victims to pay a ransom demand. This is a new BGH tactic CrowdStrike refers to as </span><em><span style="font-weight: 400;">Hypervisor Jackpotting</span></em><span style="font-weight: 400;">.</span></p>
+<h2><span style="font-weight: 400;">What Is ESXi?</span></h2>
+<p><span style="font-weight: 400;">ESXi is a Type-1 hypervisor (aka a “bare-metal” hypervisor) developed by VMware.</span><span style="font-weight: 400;"> A hypervisor is software that runs and manages virtual machines (VMs). In contrast to Type-2 hypervisors that run on a conventional host operating system, a Type-1 hypervisor runs directly on a dedicated host’s hardware. ESXi systems are commonly managed by vCenter, a centralized server administration tool that can control multiple ESXi devices.</span><span style="font-weight: 400;"> While ESXi is not a Linux operating system, it is possible to run some Linux-compiled ELF binaries within the ESXi command shell.</span></p>
+<p><span style="font-weight: 400;">According to multiple estimates, VMware holds an overwhelming majority of the worldwide virtual machine market share</span><span style="font-weight: 400;">, well ahead of its nearest competitor. This means that threat actors seeking to encrypt virtual infrastructure may prioritize developing </span><a href="https://www.crowdstrike.com/cybersecurity-101/malware/"><span style="font-weight: 400;">malware</span></a><span style="font-weight: 400;"> that can affect VMware environments.</span></p>
+<h2><span style="font-weight: 400;">SPRITE SPIDER and Defray777 Ransomware</span></h2>
+<p><span style="font-weight: 400;">SPRITE SPIDER is an eCrime actor that conducts low-volume BGH </span><a href="https://www.crowdstrike.com/cybersecurity-101/ransomware/ransomware-examples/"><span style="font-weight: 400;">ransomware campaigns</span></a><span style="font-weight: 400;"> using the </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> ransomware. Other tools used by SPRITE SPIDER include the </span><em><span style="font-weight: 400;">Vatet</span></em><span style="font-weight: 400;"> loader and the </span><em><span style="font-weight: 400;">PyXie</span></em><span style="font-weight: 400;"> remote access tool (RAT). The adversary has established initial access by exploiting vulnerable Citrix Application Delivery Controllers, as well as by using </span><a href="https://www.crowdstrike.com/blog/sin-ful-spiders-wizard-spider-and-lunar-spider-sharing-the-same-web/"><span style="font-weight: 400;">LUNAR SPIDER</span></a><span style="font-weight: 400;">’s </span><em><span style="font-weight: 400;">BokBot</span></em><span style="font-weight: 400;"> trojan. To avoid detection, SPRITE SPIDER often stages payloads on internal servers within a victim network and uses in-memory-only deployments of its later-stage tooling. SPRITE SPIDER uses both </span><em><span style="font-weight: 400;">PyXie</span></em><span style="font-weight: 400;"> and </span><em><span style="font-weight: 400;">Cobalt Strike</span></em><span style="font-weight: 400;"> to move laterally within a victim environment after obtaining initial access.  </span></p>
+<p><span style="font-weight: 400;">Like other BGH actors, SPRITE SPIDER first attempts to compromise domain controllers (DCs). After acquiring DC access, SPRITE SPIDER collects and exfiltratrates sensitive victim data, then deploys its </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> ransomware. In November 2020, SPRITE SPIDER launched a dedicated leak site (DLS) on a Tor hidden service domain to publish files from noncompliant ransomware victims.</span></p>
+<p><span style="font-weight: 400;">Leaking stolen data in an effort to pressure victims into paying is part of a </span><a href="https://www.crowdstrike.com/blog/double-trouble-ransomware-data-leak-extortion-part-1/"><span style="font-weight: 400;">broader trend across the BGH ecosystem</span></a><span style="font-weight: 400;">. Compared to other BGH actors, SPRITE SPIDER was relatively late to adopt this tactic, possibly due to a desire to avoid attention. </span></p>
+<p><span style="font-weight: 400;">In July 2020, SPRITE SPIDER began using a Linux version of its </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> ransomware. The Linux version contains the same file scanning and encryption logic as its Windows counterpart, and is designed to receive a command-line argument with a path to the directory where it will begin its recursive encryption process. Files are encrypted using AES in ECB mode with a 256-bit key that is uniquely generated for each file. The key is then encrypted using an embedded 4096-bit RSA public key and appended to the encrypted file. Each victim is targeted with a unique build of </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> containing a unique RSA public key. If a victim pays the ransom, they receive a decryption tool containing an RSA private key that corresponds to the public encryption key.</span></p>
+<h3><span style="font-weight: 400;">ESXi Access</span></h3>
+<p><span style="font-weight: 400;">In order to compromise ESXi devices, SPRITE SPIDER attempts to harvest credentials that can be used to authenticate to the vCenter web interface. SPRITE SPIDER uses </span><em><span style="font-weight: 400;">PyXie</span></em><span style="font-weight: 400;">’s LaZagne module to recover vCenter credentials stored in web browsers, and also runs </span><em><span style="font-weight: 400;">Mimikatz</span></em><span style="font-weight: 400;"> to steal credentials from host memory. After authenticating to vCenter, SPRITE SPIDER enables SSH to permit persistent access to ESXi devices. In some cases, the adversary will also change the root account password or the host’s SSH keys.</span></p>
+<h3><span style="font-weight: 400;">ESXi Encryption</span></h3>
+<p><span style="font-weight: 400;">While SPRITE SPIDER uses an in-memory deployment technique for the Windows variant of  </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;">, on ESXi, the adversary typically writes the Linux version of </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> to </span><code><span style="font-weight: 400;">/tmp/</span></code><span style="font-weight: 400;">, using a filename attempting to masquerade as a legitimate tool (e.g., svc-new). SPRITE SPIDER enumerates system information and processes on the ESXi host using the </span><code><span style="font-weight: 400;">uname</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">df</span></code><span style="font-weight: 400;">, and </span><code><span style="font-weight: 400;">esxcli</span> <span style="font-weight: 400;">vm process list</span></code><span style="font-weight: 400;"> commands. </span></p>
+<p><span style="font-weight: 400;">Before executing </span><span style="font-weight: 400;">Defray777</span><span style="font-weight: 400;">, SPRITE SPIDER terminates running VMs in order to allow the ransomware to encrypt files associated with the VMs. SPRITE SPIDER may also uninstall VMware Fault Domain Manager (FDM) using a bash script named </span><code><span style="font-weight: 400;">VMware-fdm-uninstall.sh</span></code><span style="font-weight: 400;">. FDM is a tool that monitors VMs and reboots them when a VM fails. </span></p>
+<h2><span style="font-weight: 400;">CARBON SPIDER and Darkside Ransomware</span></h2>
+<p><span style="font-weight: 400;">Since 2016, CARBON SPIDER has traditionally targeted companies operating POS devices, with initial access being gained using low-volume </span><a href="https://www.crowdstrike.com/cybersecurity-101/phishing/"><span style="font-weight: 400;">phishing campaigns</span></a><span style="font-weight: 400;"> against this sector. CARBON SPIDER has used a variety of backdoors and RATs to enable persistent access. The adversary’s signature persistent access tools include the </span><em><span style="font-weight: 400;">Sekur </span></em><span style="font-weight: 400;">(aka </span><em><span style="font-weight: 400;">Anunak</span></em><span style="font-weight: 400;">) implant, which has been used since 2016, and the </span><em><span style="font-weight: 400;">Harpy</span></em><span style="font-weight: 400;"> (aka </span><em><span style="font-weight: 400;">Griffon</span></em><span style="font-weight: 400;">) backdoor, which has been used from 2018 through 2020. CARBON SPIDER extensively uses </span><em><span style="font-weight: 400;">Cobalt Strike</span></em><span style="font-weight: 400;"> for </span><a href="https://www.crowdstrike.com/cybersecurity-101/lateral-movement/"><span style="font-weight: 400;">lateral movement</span></a><span style="font-weight: 400;">, as well as open-source post-exploitation tools like </span><em><span style="font-weight: 400;">PowerSploit</span></em><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;">In April 2020, the adversary abruptly shifted its operational model away from narrow campaigns focused entirely on companies operating POS devices, to broad, opportunistic operations attempting to infect large numbers of victims across almost all sectors. The goal of these campaigns was to deliver the </span><em><span style="font-weight: 400;">REvil</span></em><span style="font-weight: 400;"> ransomware, which CARBON SPIDER obtained from </span><a href="https://www.crowdstrike.com/cybersecurity-101/ransomware/ransomware-as-a-service-raas/"><span style="font-weight: 400;">ransomware-as-a-service (RaaS) </span></a><span style="font-weight: 400;">vendor PINCHY SPIDER. It is likely CARBON SPIDER pivoted to BGH in response to the COVID-19 pandemic, which dramatically reduced in-person retail sales and hospitality business. Similar to SPRITE SPIDER, CARBON SPIDER typically seeks to compromise a DC first before exfiltrating data and deploying ransomware.</span></p>
+<p><span style="font-weight: 400;">CARBON SPIDER deepened its commitment to BGH through 2020 by introducing its own ransomware, </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">. In August 2020, the adversary began deploying </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">, likely in order to avoid sharing profits from BGH campaigns with PINCHY SPIDER, the </span><em><span style="font-weight: 400;">REvil</span></em><span style="font-weight: 400;"> vendor. In November 2020, the adversary took another step into the world of BGH by establishing a RaaS affiliate program for </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">, allowing other actors to use the ransomware while paying CARBON SPIDER a cut. Similar to SPRITE SPIDER and others, CARBON SPIDER operates a DLS for </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">, which has been active since August 2020. </span></p>
+<p><span style="font-weight: 400;">In August 2020, CARBON SPIDER also began using a Linux variant of </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> configured specifically to affect ESXi hosts. The ESXi version of </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> targets files relating to VMware virtual machines, including files with the following file extensions: </span><code><span style="font-weight: 400;">vmdk</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vswp</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vmem</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vmsn</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">nvram</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vmsd</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vmss</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vmx</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">vmxf</span></code><span style="font-weight: 400;">, </span><code><span style="font-weight: 400;">log</span></code><span style="font-weight: 400;">. Files are encrypted using the ChaCha20 algorithm with a 32-byte key and 8-byte nonce, uniquely generated per file. The ChaCha20 key and nonce are then encrypted using a 4096-bit RSA public key that is embedded in the ransomware. To speed up the encryption process, </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> also has a configurable encryption size that can be used to control how much of each file is encrypted. In samples recovered by CrowdStrike Intelligence, the encryption size was set to 50MB, which is enough data to prevent the recovery of the virtual machine files. An example of the </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> configuration, as written to its log file, is shown in Figure 1. </span></p>
+<div id="attachment_28750" style="width: 990px" class="wp-caption alignnone"><img aria-describedby="caption-attachment-28750" loading="lazy" class="wp-image-28750 size-large" src="https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-fig-1-1-1024x289.png" alt="redacted code" width="980" height="277" srcset="https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-fig-1-1-1024x289.png 1024w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-fig-1-1-300x85.png 300w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-fig-1-1-768x216.png 768w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-fig-1-1-1536x433.png 1536w, https://www.crowdstrike.com/wp-content/uploads/2021/02/hypervisor-fig-1-1-2048x577.png 2048w" sizes="(max-width: 980px) 100vw, 980px" /><p id="caption-attachment-28750" class="wp-caption-text">Figure 1. Darkside configuration from log file</p></div>
+<h3><span style="font-weight: 400;">ESXi Access</span></h3>
+<p><span style="font-weight: 400;">Similar to SPRITE SPIDER, CARBON SPIDER has gained access to ESXi servers using valid credentials. The adversary has typically accessed these systems via the vCenter web interface, using legitimate credentials, but has also logged in over SSH using the Plink utility to drop </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">.</span></p>
+<h3><span style="font-weight: 400;">ESXi Encryption</span></h3>
+<p><span style="font-weight: 400;">CARBON SPIDER writes </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> to </span><code><span style="font-weight: 400;">/tmp/</span></code><span style="font-weight: 400;"> on ESXi hosts with a generic filename. The adversary typically does not do the same amount of host reconnaissance that SPRITE SPIDER does. CARBON SPIDER has used built-in VMware Tools scripts to shut down guest VMs in order to make sure these VMs are encrypted by </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;">.</span></p>
+<h2><span style="font-weight: 400;">Conclusion</span></h2>
+<p><span style="font-weight: 400;">By deploying ransomware on ESXi, SPRITE SPIDER and CARBON SPIDER likely intend to impose greater harm on victims than could be achieved by their respective Windows ransomware families alone. Encrypting one ESXi server inflicts the same amount of damage as individually deploying ransomware on each VM hosted on a given server. Consequently, targeting ESXi hosts can also improve the speed of BGH operations.</span></p>
+<p><span style="font-weight: 400;">If these ransomware attacks on ESXi servers continue to be successful, it is likely that more adversaries will begin to target virtualization infrastructure in the medium term.</span></p>
+<h2><span style="font-weight: 400;">MITRE ATT&amp;CK</span><sup><span style="font-weight: 400;">®</span></sup><span style="font-weight: 400;"> TTP Comparison</span></h2>
+<p><span style="font-weight: 400;">The following table provides an overview of SPRITE SPIDER and CARBON SPIDER’s tactics, techniques and procedures (TTPs) specific to ESXi ransomware attacks.</span></p>
+<table class="orange">
+<tbody>
+<tr class="top-row bg-orange">
+<td><strong>Tactic</strong></td>
+<td><strong>Technique</strong></td>
+<td><strong>SPRITE SPIDER</strong></td>
+<td><strong>CARBON SPIDER</strong></td>
+<td><strong>Summary</strong></td>
+</tr>
+<tr>
+<td>Initial Access</td>
+<td>T1078 &#8211; Valid Accounts</td>
+<td>Y</td>
+<td>Y</td>
+<td>Both SPRITE SPIDER and CARBON SPIDER authenticate to vCenter using valid credentials</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>T1059.004 &#8211; Command and Scripting Interpreter: Unix Shell</td>
+<td>Y</td>
+<td>Y</td>
+<td>The adversaries use the ESXi command shell to transfer and execute the ransomware</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>T1078 &#8211; Valid Accounts</td>
+<td>Y</td>
+<td>Y</td>
+<td>Previously compromised credentials enable persistent access</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>T-1098.004 &#8211; SSH Authorized Keys</td>
+<td>Y</td>
+<td></td>
+<td>SPRITE SPIDER has changed root SSH keys for ESXi hosts</td>
+</tr>
+<tr>
+<td>Defense Evasion</td>
+<td>T1222.002 &#8211; File and Directory Permissions Modification: Linux and Mac File and Directory Permissions Modification</td>
+<td>Y</td>
+<td>Y</td>
+<td>Both adversaries mark their respective ransomware binaries as executable using <code>chmod</code></td>
+</tr>
+<tr>
+<td>Defense Evasion</td>
+<td>T1036.005 &#8211; Masquerading: Match Legitimate Name or Location</td>
+<td>Y</td>
+<td>Y</td>
+<td><em>Defray777</em> and <em>Darkside</em> use filenames that appear to be innocuous or legitimate</td>
+</tr>
+<tr>
+<td>Defense Evasion</td>
+<td>T1070.004 &#8211; Indicator Removal on Host: File Deletion</td>
+<td>Y</td>
+<td></td>
+<td>SPRITE SPIDER may delete the <em>Defray777</em> binary after execution</td>
+</tr>
+<tr>
+<td>Discovery</td>
+<td>T1082 &#8211; System Information Discovery</td>
+<td>Y</td>
+<td></td>
+<td>SPRITE SPIDER performs basic reconnaissance (e.g., <code>uname</code>, <code>df</code>)</td>
+</tr>
+<tr>
+<td>Discovery</td>
+<td>T1057 &#8211; Process Discovery</td>
+<td>Y</td>
+<td></td>
+<td>SPRITE SPIDER performs basic reconnaissance (e.g., <code>esxcli vm process list</code>)</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>T1489 &#8211; Service Stop</td>
+<td>Y</td>
+<td>Y</td>
+<td>Both adversaries may attempt to terminate running VMs</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>T1486 &#8211; Data Encrypted for Impact</td>
+<td>Y</td>
+<td>Y</td>
+<td><em>Defray777</em> and <em>Darkside</em> encrypt victim systems</td>
+</tr>
+</tbody>
+</table>
+<h2><span style="font-weight: 400;">Indicators of Compromise</span></h2>
+<p><span style="font-weight: 400;">Example SHA256 hashes of </span><em><span style="font-weight: 400;">Darkside</span></em><span style="font-weight: 400;"> and </span><em><span style="font-weight: 400;">Defray777</span></em><span style="font-weight: 400;"> Linux variants:</span></p>
+<table class="orange">
+<tbody>
+<tr class="top-row bg-orange">
+<td><strong>Description</strong></td>
+<td><strong>SHA256 hash</strong></td>
+</tr>
+<tr>
+<td><em>Darkside</em> Linux Binary</td>
+<td><code>da3bb9669fb983ad8d2ffc01aab9d56198bd9cedf2cc4387f19f4604a070a9b5</code></td>
+</tr>
+<tr>
+<td><em>Defray777</em> Linux Binary</td>
+<td><code>cb408d45762a628872fa782109e8fcfc3a5bf456074b007de21e9331bb3c5849</code></td>
+</tr>
+</tbody>
+</table>
+<h4><span style="font-weight: 400;">Additional Resources</span></h4>
+<ul>
+<li aria-level="1"><em>Read Part 2 of this two-part blog series, <span style="font-weight: 400;"><a href="https://www.crowdstrike.com/blog/hypervisor-jackpotting-ecrime-actors-increase-targeting-of-esxi-servers/">Hypervisor Jackpotting (Part 2): eCrime Actors Increase Targeting of ESXi Servers with Ransomware</a>.</span></em></li>
+<li style="font-weight: 400;" aria-level="1"><em><span style="font-weight: 400;">Read more about big game hunting adversaries tracked by CrowdStrike Intelligence in 2020 in the new </span><a href="https://www.crowdstrike.com/resources/reports/global-threat-report/"><span style="font-weight: 400;">CrowdStrike 2021 Global Threat Report</span></a><span style="font-weight: 400;">.</span></em></li>
+<li style="font-weight: 400;" aria-level="1"><em><span style="font-weight: 400;">Check out the </span><a href="https://www.crowdstrike.com/global-threat-report/"><span style="font-weight: 400;">Global Threat Report resource hub</span></a><span style="font-weight: 400;"> to learn more about today’s adversaries.</span></em></li>
+<li style="font-weight: 400;" aria-level="1"><em><span style="font-weight: 400;">To learn more about how to incorporate intelligence on threat actors into your security strategy, visit the </span><a href="https://www.crowdstrike.com/endpoint-security-products/falcon-x-threat-intelligence/"><span style="font-weight: 400;">CROWDSTRIKE FALCON® INTELLIGENCE&#x2122; Threat Intelligence page</span></a><span style="font-weight: 400;">.</span></em></li>
+<li style="font-weight: 400;" aria-level="1"><em><span style="font-weight: 400;">Learn more about the powerful, cloud-native </span><a href="https://www.crowdstrike.com/endpoint-security-products/"><span style="font-weight: 400;">CrowdStrike Falcon® platform by visiting the product webpage. </span></a></em></li>
+<li style="font-weight: 400;" aria-level="1"><em><a href="https://go.crowdstrike.com/try-falcon-prevent.html">Get a full-featured free trial of CrowdStrike Falcon® Prevent&#x2122; </a>and learn how true next-gen AV performs against today’s most sophisticated threats.</em></li>
+</ul>
+</div>
+<style>
+    .list-share-buttons{
+        margin-bottom: 40px;
+        margin-left: auto;
+    }
+
+    .share-button {
+        float: left;
+        color: #999;
+        border: 1px solid #e4e4e4;
+        text-align: center;
+        transition: all 0.15s ease;
+        margin-right: 5px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        font-size: 13px;
+        padding: 0.5em 0.9em;
+    }
+
+    .tweet-btn{
+        color: #999999;
+    }
+    .li-btn{
+        color: #999999;
+    }
+    .tweet-btn:hover{
+        color: #1DA1F2;
+    }
+
+    .li-btn:hover{
+        color: #2867B2;
+    }
+
+    .fa{
+        margin-right:5px;
+    }
+
+</style>
+<div>
+<ul class="list-share-buttons">
+
+<li class="share-button">
+<a class="tweet-btn " target="_blank" rel="noopener noreferrer" href="https://twitter.com/share?text=Hypervisor+Jackpotting%2C+Part+1%3A+CARBON+SPIDER+and+SPRITE+SPIDER+Target+ESXi+Servers+With+Ransomware+to+Maximize+Impact&amp;url=https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/" onclick="window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');">
+<span class="fa-brands fa-twitter"></span>
+<span>Tweet</span>
+</a>
+</li>
+
+<li class="share-button">
+<a class="li-btn" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.crowdstrike.com/blog/carbon-spider-sprite-spider-target-esxi-servers-with-ransomware/&amp;title=Hypervisor+Jackpotting%2C+Part+1%3A+CARBON+SPIDER+and+SPRITE+SPIDER+Target+ESXi+Servers+With+Ransomware+to+Maximize+Impact" onclick="window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');">
+<span class="fa-brands fa-linkedin"></span>
+<span>Share</span>
+</a>
+</li>
+</ul>
+</div>
+<a href="https://go.crowdstrike.com/try-falcon-prevent.html">
+<img class="post_cta" src="https://www.crowdstrike.com/wp-content/themes/main-theme/dist/images/blog/breaches-stop-here-post-cta.jpeg">
+</a>
+<h5>Related Content</h5>
+<div class="row recent_articles">
+<a class="col-12 col-md-4 recent_articles_item" href="/blog/playing-hide-and-seek-with-ransomware-part-2/">
+<div class="post_image">
+<img src="https://www.crowdstrike.com/wp-content/uploads/2022/10/1022_02_Hide-and-seek-with-Ransomware_Blog_1060x698.jpeg" alt="">
+</div>
+<div class="post_info">
+<h6>Playing Hide-and-Seek with Ransomware, Part 2</h6>
+<div class="excerpt"></div>
+</div>
+</a>
+<a class="col-12 col-md-4 recent_articles_item" href="/blog/new-supply-chain-attack-leverages-comm100-chat-installer/">
+<div class="post_image">
+<img src="https://www.crowdstrike.com/wp-content/uploads/2022/09/0922_10_SupplyChain_Malware_Trojanized-Comms100-Chat-Installers_Blog_1060x698.jpeg" alt="">
+</div>
+<div class="post_info">
+<h6>CrowdStrike Falcon® Platform Identifies Supply Chain Attack via a Trojanized Comm100 Chat Installer</h6>
+<div class="excerpt"></div>
+</div>
+</a>
+<a class="col-12 col-md-4 recent_articles_item" href="/blog/protective-penguin-adversary-quest-walkthrough-2022/">
+<div class="post_image">
+<img src="https://www.crowdstrike.com/wp-content/uploads/2022/08/Picture1-3.jpeg" alt="">
+</div>
+<div class="post_info">
+<h6>Adversary Quest 2022 Walkthrough, Part 3: Four PROTECTIVE PENGUIN Challenges</h6>
+<div class="excerpt"></div>
+</div>
+</a>
+</div>
+</div>
+<div class="col-12 col-lg-4 sidebar">
+<div class="blog_subsection">
+<div class="blog_section_subtitle">
+<div class="title">Categories</div>
+</div>
+</div>
+<div class="blog_featured_category_list" id="blog_category_sidebar_item"></div>
+<div class="social">
+<h6>Connect with Us</h6>
+<div class="social_icons">
+<a href="https://www.twitter.com/CrowdStrike"><span class="fa-brands fa-twitter"></span></a>
+<a href="https://www.facebook.com/CrowdStrike"><span class="fa-brands fa-facebook"></span></a>
+<a href="https://www.linkedin.com/company/crowdstrike"><span class="fa-brands fa-linkedin"></span></a>
+<a href="https://www.youtube.com/user/CrowdStrike"><span class="fa-brands fa-youtube"></span></a>
+<a href="https://www.crowdstrike.com/blog/feed"><span class="fa fa-rss"></span></a>
+</div>
+</div>
+<a class="free_trial_sidebar" href="https://www.crowdstrike.com/resources/reports/forrester-wave-endpoint-detection-and-response-2022/">
+<img src="https://www.crowdstrike.com/wp-content/uploads/2021/07/Sidebar_EPP_ForresterWave_EDR.jpeg">
+</a>
+<div id="sideBarFeaturedArticles"></div>
+<div class="subscribe_cta">
+<h6>SUBSCRIBE</h6>
+<p>Sign up now to receive the latest notifications and updates from CrowdStrike.</p>
+<a class="button white-text white-outline white-text-hover dark-red-background-hover dark-red-outline-hover" data-behavior="modal" data-template-id="modal-42284" href="#">Sign Up</a>
+</div>
+<div class="demo_cta">
+<img src="https://www.crowdstrike.com/wp-content/uploads/2021/07/red-falcon.svg">
+<h6>See CrowdStrike Falcon® in Action</h6>
+<p>Detect, prevent, and respond to attacks— even malware-free intrusions—at any stage, with next-generation endpoint protection.</p>
+<a class="button white-text red-background red-outline white-text-hover dark-red-background-hover dark-red-outline-hover" href="https://www.crowdstrike.com/see-demo/">See Demo</a>
+</div>
+</div>
+</div>
+<div class="post_nav row">
+<div class="col-12">
+<div class="links"><span class="fa fa-angle-double-left"></span> <a href="https://www.crowdstrike.com/blog/global-threat-report-foreword-2021/" rel="prev">2021 Global Threat Report: Analyzing a Year of Chaos and Courage</a></div>
+<div class="links"><a href="https://www.crowdstrike.com/blog/forrester-tei-study-reveals-roi-of-falcon-complete/" rel="next">See the COMPLETE Picture: New Study Reveals the Benefits of Fully Managed Detection and Response</a> <span class="fa fa-angle-double-right"></span></div>
+</div>
+</div>
+</div>
+</article>
+<section id="freeTrialCta" class="blog-free-trial-cta">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="content">
+<h1 class="free-trial-header">TRY CROWDSTRIKE FREE FOR 15 DAYS</h1>
+<a class="button white-text red-background red-outline white-text-hover dark-red-background-hover dark-red-outline-hover" id="freeTrialOpenTrigger" href="#">GET STARTED WITH A FREE TRIAL</a>
+</div>
+</div>
+</div>
+</div>
+<div id="freeTrialContent" class="free-trial-content-wrapper unstuck" style="display: none;">
+<div class="container">
+<p class="free-trial-close textright white"><a class="free-trial-close-trigger red" id="freeTrialCloseTrigger">X</a></p>
+</div>
+<div class="container free-trial-iframe-wrapper">
+<iframe id="footer-form-frame" height="490" width="800" src="https://go.crowdstrike.com/WF-Trial-to-Pay_LP-Registration-Footer.html" class=""></iframe>
+</div>
+</div>
+</section>
+<script type="text/javascript">
+    fetchInject([
+        'https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/pages/blog.min.js?ts=1666386360000',
+    ])
+</script> </main>
+<footer class="simple">
+<div class="container">
+<div class="row">
+<div class="col-md-12 top">
+<span class="footer-logo"><a class="red" href="https://www.crowdstrike.com"><i class="cs-icon-cs-logo"> </i></a></span>
+<ul class="row social-links">
+<li class="circle-icon-outline">
+<a href="https://twitter.com/CrowdStrike" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+<li class="circle-icon-outline">
+<a href="https://www.facebook.com/CrowdStrike/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+</li>
+<li class="circle-icon-outline">
+<a href="https://www.linkedin.com/company/crowdstrike" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+</li>
+<li class="circle-icon-outline">
+<a href="http://www.youtube.com/user/CrowdStrike" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+</li>
+</ul>
+</div>
+<div class="col-md-12 bottom">
+<ul class="row footer-lower-links">
+<li class="footer-copyright">Copyright © 2022 CrowdStrike</li>
+<li><a href="https://www.crowdstrike.com/privacy-notice/">Privacy</a></li>
+<li><a href="https://www.crowdstrike.com/request-information/">Request Info</a></li>
+<li><a href="https://www.crowdstrike.com/blog">Blog</a></li>
+<li><a href="https://www.crowdstrike.com/contact-us/">Contact Us</a></li>
+<li>1.888.512.8906</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<script type='text/javascript' async="async" src='https://www.crowdstrike.com/wp-content/themes/main-theme/dist/scripts/theme-scripts.min.js?ver=1666282758' id='theme-scripts-js'></script>
+</body>
+</html>

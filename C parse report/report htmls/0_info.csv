@@ -44,3 +44,40 @@ Turla,"D7,1",tech,Turla-trellix,kcm.trellix.com , Trellix Insights The Penquin T
 Turla,"D7,2",analysis,Turla-leonardo,leonardo.com , Malware Technical Insight Turla Penquin_x64 
 Turla,"D7,3",analysis,Turla-securelist,securelist.com , The Penquin Turla 
 Turla,"D7,4",tech,Turla-trendmicro,trendmicro.com , BKDR_TURLA.YKX Threat Encyclopedia 
+BPFDoor,"D9,1",analysis,BPFDoor-CrowdStrike,CrowdStrike,Hunting a Global Telecommunications Threat
+BPFDoor,"D9,2",analysis,BPFDoor-Qualys,Qualys.com,Detect the Stealthy NationState BPFDoor
+BPFDoor,"D9,3",analysis,BPFDoor-deepinstinct,deepinstinct.com,Stealthy Sniffing Backdoor ups its Game
+BPFDoor,"D9,4",analysis,BPFDoor-exatrack,exatrack.com,Tricephalic Hellkeeper a table of a passive backdoor
+BPFDoor,"D9,5",analysis,BPFDoor-github,github.io,Looking Closer at BPF Bytecode
+BPFDoor,"D9,6",news,BPFDoor-medium,medium,an active Chinese global surveillance tool
+BPFDoor,"D9,7",analysis,BPFDoor-sandflysecurity,sandflysecurity,An Evasive Linux Backdoor Technical Analysis
+BPFDoor,"D9,8",analysis,BPFDoor-unfinished.bike,unfinished.bike,Fun with the new bpfdoor
+Conti,"D10,1",analysis,Conti-SentinelOne,SentinelOne,Hypervisor Ransomware
+Conti,"D10,2",analysis,Conti-Trellix,Trellix.com,Conti Group Targets ESXi Hypervisors
+Conti,"D10,3",analysis,Conti-VMwareBlog,VMwareBlog,TAU Threat Discovery_ Conti Ransomware
+ChinaZ,"D11,1",tech,ChinaZ-TrendMicro,TrendMicro,UNIX_FLOODDOS.A Threat Encyclopedia
+ChinaZ,"D11,2",analysis,ChinaZ-ahnlab,ahnlab,ChinaZ DDoS Bot Malware Distributed to Linux SSH Servers
+Defray777,"D12,1",analysis,Defray777-Medium,Medium,RansomEXX — Analysis of the Ransomware
+Defray777,"D12,2",analysis,Defray777-crowdstrike,crowdstrike,CARBON SPIDER and SPRITE SPIDER Target ESXi Servers
+Defray777,"D12,3",analysis,Defray777-securelist,securelist,RansomEXX Trojan attacks Linux systems
+Demonbot,"D13,1",analysis,Demonbot-bitdefender,bitdefender,threat group running an active cryptojacking campaign
+Demonbot,"D13,2",tech,Demonbot-trendmicro,trendmicro,Backdoor.Linux.BASHLITE.SMJC2
+EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users
+FontOnLake,"D15,1",tech,FontOnLake-eset.tech,WeLiveSecurity,Previously unknown malware family targeting Linux
+FontOnLake,"D15,2",analysis,FontOnLake-eset.wp,eset,Research white papers
+HCRootkit,"D16,1",analysis,HCRootkit-lacework,lacework,Sutersu Linux Rootkit Analysis
+KEYPLUG,"D17,1",tech,KEYPLUG-csa.gov,CSAsingapore,New Indicators of Compromise Discovered
+KEYPLUG,"D17,2",analysis,KEYPLUG-Mandiant,Mandiant,Does This Look Infected A Summary of APT41
+KEYPLUG,"D17,3",analysis,KEYPLUG-cta,cta,Steals From Wide Field of Targets
+Lightning,"D18,1",analysis,Lightning-intezer,intezer,New Undetected “Swiss Army Knife”
+Melofee,"D19,1",analysis,Melofee-exatrack,blog.exatrack.com,a new alien malware in the Panda's toolset targeting Linux hosts
+Melofee,"D19,2",news,Melofee-thehackernews,thehackernews,New Linux Malware Linked to Chinese APT Groups
+Moose,"D20,1",news,Moose-gosecure,gosecure,cybercrime performed by the Linux_Moose botnet
+Moose,"D20,2",news,Moose-lwm,lwn.net,Interesting but ineffective
+Moose,"D20,3",analysis,Moose-eset.dissectPDF,welivesecurity,Dissecting LinuxMoose
+Moose,"D20,4",analysis,Moose-eset.breath,welivesecurity,Still breathing
+Moose,"D20,5",news,Moose-eset.routerworm,welivesecurity,the router worm with an appetite for social networks
+XMRigMiner,"D21,1",analysis,XMRigMiner-intezer.newgolan,intezer.com,New Golang Worm Drops XMRig Miner on Servers
+XMRigMiner,"D21,2",news,XMRigMiner-intezer.rockegroup,intezer.com,Rocke Group Targets the Cloud
+XMRigMiner,"D21,3",analysis,XMRigMiner-intezer.teamTNT,intezer.com,TeamTNT Cryptomining Explosion
+XMRigMiner,"D21,4",analysis,XMRigMiner-securelist,securelist,On the trail of the XMRig miner

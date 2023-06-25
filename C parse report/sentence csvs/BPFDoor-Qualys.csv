@@ -1,0 +1,194 @@
+Number,Content
+Sentence 1,"Here’s a Simple Script to Detect the Stealthy Nation-State BPFDoor
+Harshal Tupsamudre
+Harshal Tupsamudre
+August 1, 2022 - 9 min read
+24
+Last updated on: December 22, 2022
+Table of Contents
+Technical Analysis of BPFDoor
+BPFDoor Detection using Qualys Custom Assessment & Remediation
+BPFDoor Detection using Qualys Multi-Vector EDR
+Conclusion
+MITRE ATT&CK Techniques
+IoC (Indicators of Compromise)
+Contributors:
+In this blog, the Qualys Research Team explains the mechanics of a Linux malware variant named BPFdoor."
+Sentence 2,"We then demonstrate the efficacy of Qualys Custom Assessment and Remediation to detect it, and Qualys Multi-Vector EDR to protect against it."
+Sentence 3,BPFDoor is a Linux/Unix backdoor that allows threat actors to remotely connect to a Linux shell to gain complete access to a compromised device.
+Sentence 4,"It supports multiple protocols for communicating with a command & control server (C2) including TCP, UDP, and ICMP."
+Sentence 5,It notably utilizes Berkeley Packet Filters (BPF) along with several other techniques to achieve these goals.
+Sentence 6,"BPF is a hooking function that allows a user-space program to attach a network filter onto any socket, and then allows or disallows certain types of data to come through that socket."
+Sentence 7,"BPFDoor has been attributed to a Chinese threat actor group named Red Menshen (aka DecisiveArchitect), where the attackers have used it to gain stealthy remote access to compromised devices starting back in 2018 to the present day."
+Sentence 8,"Systems have been compromised across the US, South Korea, Hong Kong, Turkey, India, Vietnam, and Myanmar."
+Sentence 9,"Targets have included telecommunications, government, education, and logistics organizations."
+Sentence 10,The group has been seen sending commands to BPFDoor victims via Virtual Private Servers (VPS) hosted at a well-known provider.
+Sentence 11,"In turn, these VPSs are administered via compromised routers based in Taiwan that the threat actor uses as VPN tunnels."
+Sentence 12,"Target Geographies: Middle East, Asia
+Target Sectors: Logistics, Education, Government
+Malware Tools: Mangzamel, Gh0st, Gh0st, Metasploit, BPFDoor
+Technical Analysis of BPFDoor
+Execution
+The threat actor leverages a custom implant tracked by the name “JustForFun”."
+Sentence 13,"When executed, the implant overwrites the process command line within the process environment by randomly selecting a new binary name from one of ten hard-coded options (shown in Figure 1)."
+Sentence 14,This masquerading technique is used to evade security solutions.
+Sentence 15,"Figure 1: List of process names for Masquerading
+The attacker interacts with the implant through the bash process to establish an interactive shell on a system."
+Sentence 16,The command indicates the usage of Postfix queue manager (shown in Fig.
+Sentence 17,2).
+Sentence 18,"qmgr -l -t fifo -u
+Figure 2: Encoded shell and qmgr commands
+Masquerading (Rename the process)
+Figure 3: Code uses prctl to rename the malware process
+The malware will rename itself using the prctl function with the argument PR_SET_NAME, and a random legitimate-looking name (Fig."
+Sentence 19,3).
+Sentence 20,These names are hardcoded in the binary and vary between the samples.
+Sentence 21,"Timestomping
+Figure 4: Code for Timestomping
+The implant sets a fake time to timestomp the binary before deletion."
+Sentence 22,A function dubbed set_time was called to alter the access and modification timestamp of the binary using the utimes function (Fig.
+Sentence 23,4).
+Sentence 24,"The timestamp used was always set to Thursday, October 30, 2008 7:17:16 PM (GMT)."
+Sentence 25,"
+PID File
+The implant creates a zero-byte PID file at /var/run/haldrund.pid (Fig."
+Sentence 26,5).
+Sentence 27,"The file has two conditions:
+This file is deleted if the implant terminates normally,
+The file is not deleted, if there is a problem like hard shutdown or crash."
+Sentence 28,The implant will not resume if this file is present as it describes the running state for the backdoor.
+Sentence 29,"Figure 5: Encoded command for creating PID file
+"
+Sentence 30,"
+BPFDoor Detection using Qualys Custom Assessment & Remediation
+Qualys Custom Assessment and Remediation can be leveraged to create and execute custom detection logics for zero-day threats."
+Sentence 31,"This cloud service supports multiple scripting languages including Perl, Shell, Python, Lua, PowerShell, and VBScript with no vendor-specific syntax or restrictions."
+Sentence 32,"Select the language of your choice and start by leveraging out-of-the-box scripts or creating your own scripts for custom detection, validation, and remediation."
+Sentence 33,We created the Shell script as part of our detection logic via the Qualys scripting service and executed it across the network.
+Sentence 34,"Using this script, we are looking for packet sniffing processes under the entire process stack and checking if an existing process has opened a raw socket using the default Linux utility lsof."
+Sentence 35,Refer the following screenshots of the script (Fig.
+Sentence 36,6) and its output (Fig.
+Sentence 37,7).
+Sentence 38,"Figure 6: Script to detect BPFdoor
+Figure 7: BPFdoor detection
+BPFDoor Detection using Qualys Multi-Vector EDR
+Qualys Multi-Vector EDR, armed with YARA scanning techniques, detects the BPFdoor RAT with a threat score of 5/10 (Fig."
+Sentence 39,8).
+Sentence 40,"Figure 8: Qualys Multi-Vector EDR detection for BPFdoor
+"
+Sentence 41,"
+After execution, the binary masquerades its name by selecting from one of 10 names randomly:
+/sbin/udevd -d
+/sbin/mingetty /dev/tty7
+/usr/sbin/console-kit-daemon --no-daemon
+hald-addon-acpi: listening on acpi kernel interface /proc/acpi/event
+dbus-daemon --system
+hald-runnerpickup -l -t fifo -u
+avahi-daemon: chroot helper
+/sbin/auditd -n
+/usr/lib/systemd/systemd-journald
+"
+Sentence 42,"
+The highlighted name was used during the execution."
+Sentence 43,The names are made to look like common Linux system daemons.
+Sentence 44,The implant overwrites the argv[0] value which is used by the Linux /proc filesystem to determine the command line and command name to show for each process.
+Sentence 45,"By doing this, when a run command like ps is executed, it shows the fake name."
+Sentence 46,The renamed binary is dropped to the /dev/shm directory and runs itself as /dev/shm/kdmtmpflush (Figs.
+Sentence 47,9 and 10).
+Sentence 48,The masqueraded process with a “–init” flag tells itself to execute secondary clean-up operations and go resident.
+Sentence 49,"Figure 9: Qualys Multi-Vector EDR telemetry for detecting Masquerading
+Figure 10: BPFdoor Process Tree
+"
+Sentence 50,"
+The implant creates a zero-byte PID file at /var/run/haldrund.pid (Fig."
+Sentence 51,11).
+Sentence 52,"Figure 11: Creation of PID file by BPFdoor
+"
+Sentence 53,"
+As shown in figure 12, The original execution process deletes /dev/shm/kdmtmpflush with the following command:
+/bin/rm -f /dev/sfm/kdmtmpflush
+Figure 12: Deletion of /dev/shm/kdmtmpflush directory
+"
+Sentence 54,"
+Conclusion
+As with most remote access tools, BPFDoor is visible during the post-exploitation phase of an attack."
+Sentence 55,"It is expected that the authors behind BPFdoor will be upgrading its functionality over time, including different commands, processes, or files."
+Sentence 56,This malware has a vast arsenal at its disposal.
+Sentence 57,"Therefore, we recommend that organizations have a robust EDR solution to both detect its signatures and adequately respond to the threat."
+Sentence 58,"MITRE ATT&CK Techniques
+T1036.005- Masquerading: Match Legitimate Name or Location
+T1070.004- Indicator Removal on Host: File Deletion
+T1070.006- Indicator Removal on Host: Time Stomp
+T1059.004- Command and Scripting Interpreter: Unix Shell
+T1106- Native API
+T1548.001- Abuse Elevation Control Mechanism: Setuid and Setgid
+T1095- Non-Application Layer Protocol
+"
+Sentence 59,"
+IoC (Indicators of Compromise)
+Hashes (SHA256)
+07ecb1f2d9ffbd20a46cd36cd06b022db3cc8e45b1ecab62cd11f9ca7a26ab6d
+1925e3cd8a1b0bba0d297830636cdb9ebf002698c8fa71e0063581204f4e8345
+4c5cf8f977fc7c368a8e095700a44be36c8332462c0b1e41bff03238b2bf2a2d
+591198c234416c6ccbcea6967963ca2ca0f17050be7eed1602198308d9127c78
+599ae527f10ddb4625687748b7d3734ee51673b664f2e5d0346e64f85e185683
+5b2a079690efb5f4e0944353dd883303ffd6bab4aad1f0c88b49a76ddcb28ee9
+5faab159397964e630c4156f8852bcc6ee46df1cdd8be2a8d3f3d8e5980f3bb3
+76bf736b25d5c9aaf6a84edd4e615796fffc338a893b49c120c0b4941ce37925
+93f4262fce8c6b4f8e239c35a0679fbbbb722141b95a5f2af53a2bcafe4edd1c
+96e906128095dead57fdc9ce8688bb889166b67c9a1b8fdb93d7cff7f3836bb9
+97a546c7d08ad34dfab74c9c8a96986c54768c592a8dae521ddcf612a84fb8cc
+c796fc66b655f6107eacbe78a37f0e8a2926f01fecebd9e68a66f0e261f91276
+c80bd1c4a796b4d3944a097e96f384c85687daeedcdcf05cc885c8c9b279b09c
+f47de978da1dbfc5e0f195745e3368d3ceef034e964817c66ba01396a1953d72
+f8a5e735d6e79eb587954a371515a82a15883cf2eda9d7ddb8938b86e714ea27
+fa0defdabd9fd43fe2ef1ec33574ea1af1290bd3d763fdb2bed443f2bd996d73
+fd1b20ee5bd429046d3c04e9c675c41e9095bea70e0329bd32d7edd17ebaf68a
+144526d30ae747982079d5d340d1ff116a7963aba2e3ed589e7ebc297ba0c1b3
+fa0defdabd9fd43fe2ef1ec33574ea1af1290bd3d763fdb2bed443f2bd996d73
+76bf736b25d5c9aaf6a84edd4e615796fffc338a893b49c120c0b4941ce37925
+96e906128095dead57fdc9ce8688bb889166b67c9a1b8fdb93d7cff7f3836bb9
+c80bd1c4a796b4d3944a097e96f384c85687daeedcdcf05cc885c8c9b279b09c
+f47de978da1dbfc5e0f195745e3368d3ceef034e964817c66ba01396a1953d72
+07ecb1f2d9ffbd20a46cd36cd06b022db3cc8e45b1ecab62cd11f9ca7a26ab6d
+4c5cf8f977fc7c368a8e095700a44be36c8332462c0b1e41bff03238b2bf2a2d
+599ae527f10ddb4625687748b7d3734ee51673b664f2e5d0346e64f85e185683
+5b2a079690efb5f4e0944353dd883303ffd6bab4aad1f0c88b49a76ddcb28ee9
+5faab159397964e630c4156f8852bcc6ee46df1cdd8be2a8d3f3d8e5980f3bb3
+93f4262fce8c6b4f8e239c35a0679fbbbb722141b95a5f2af53a2bcafe4edd1c
+97a546c7d08ad34dfab74c9c8a96986c54768c592a8dae521ddcf612a84fb8cc
+c796fc66b655f6107eacbe78a37f0e8a2926f01fecebd9e68a66f0e261f91276
+f8a5e735d6e79eb587954a371515a82a15883cf2eda9d7ddb8938b86e714ea27
+fd1b20ee5bd429046d3c04e9c675c41e9095bea70e0329bd32d7edd17ebaf68a
+"
+Sentence 60,"
+Filenames
+/dev/shm/kdmtmpflush
+/dev/shm/kdumpflush
+/dev/shm/kdumpdb
+/var/run/xinetd.lock
+/var/run/kdevrund.pid
+/var/run/haldrund.pid
+/var/run/syslogd.reboot
+"
+Sentence 61,"
+Process names
+/sbin/udevd -d
+/sbin/mingetty /dev/tty7
+/usr/sbin/console-kit-daemon –no-daemon
+hald-addon-acpi: listening on acpi kernel interface /proc/acpi/event
+dbus-daemon –system
+hald-runner
+pickup -l -t fifo -u
+avahi-daemon: chroot helper
+/sbin/auditd -n
+/usr/lib/systemd/systemd-journald
+/usr/libexec/postfix/master
+qmgr -l -t fifo -u
+"
+Sentence 62,"
+Contributors:
+Viren Chaudhary (Senior Engineer, Threat Research, Qualys)
+Mukesh Choudhary (Compliance Research Analyst, Qualys)
+Lavish Jhamb (Solutions Architect, Compliance Solutions, Qualys)
+Mohd Anas Khan (Compliance Research Analyst, Qualys)"

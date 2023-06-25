@@ -1,0 +1,29 @@
+Linux/Moose: Interesting but ineffective
+By Jake Edge
+June 3, 2015
+
+The Linux/Moose worm is not particularly innovative, nor does it exploit new holes, but it does highlight a problem that is likely to only increase over time. In fact, the hubbub around the Internet of Things (IoT) reminds us that plans are afoot to put more and more devices—undoubtedly some with default or easily guessed passwords—onto the net. Taking over a device with a default administrative password is not particularly difficult, but the consequences for the device owner can be rather severe, though they generally aren't for Moose.
+
+The Moose worm was described in great detail in a 54-page PDF by Olivier Bilodeau and Thomas Dupuy of the security software firm ESET. The report is replete with various moose jokes along with an extremely detailed look at how the worm operates. The name stems from the name of the malware binary that gets installed on infected systems: elan2. Élan is French for moose.
+
+At its heart, Moose is a form of malware that targets home routers, including those that Internet Service Providers (ISPs) make available to their customers. It spreads via telnet using access credentials from a list of common or default usernames and passwords stored in the binary. Once it has broken in, it starts scanning for new victims—on the internet at large, in the ISP's range of IP addresses, and on the local net behind the firewall maintained by the router. It can also cause several other kinds of mayhem including rerouting DNS traffic, performing social network fraud using hijacked accounts, and eavesdropping on other devices that are using the router.
+
+Beyond that, there are a set of "command and control" (C&C) servers that Moose communicates with to get its marching orders, report "interesting" traffic to, or proxy requests to hosts both inside and outside the firewall, which allows bypassing network address translation (NAT). Once Moose gains access to another device by having its credentials accepted, it contacts its "report C&C" server to give it information it has gathered about the device (IP address, which credentials were used, CPU type, etc.). That server will send back obfuscated commands to be run on the victim. Those commands will typically result in the malware binary being executed on the victim, causing it to join the Moose "network".
+
+Once a system has been infected, it talks to a configuration C&C server chosen at random from a list in the binary. That server will provide the newly infected device with the IP addresses for the other two C&C servers it should use, one for reporting and one to relay traffic from. For relaying, Moose listens on port 10073 but will only connect with IP addresses from a hard-coded whitelist in the binary. For any successful connection, Moose will set up a SOCKS or HTTP proxy based on the value of the first byte sent. Those proxies can then be used to bypass NAT or to send web requests to arbitrary hosts—generally social networking sites.
+
+Moose also sniffs the traffic that is traversing the router, looking for "interesting" strings that the configuration C&C server supplied. Those strings turn out to be the HTTP cookies for sites like Twitter, Facebook, Instagram, Google, YouTube, and so on. The values get reported back to the C&C servers, which can then use them to perpetrate fraud on those social networks—adding "likes", followers, and such for anyone willing to pay for that kind of "service".
+
+There is more to Moose, of course, which is described in the report. The researchers tried to estimate how many Moose-infected routers there are, but found it difficult to do so because of the way the malware operates. It seems clear that Moose has been operating for roughly a year; ESET has been looking at it since July 2014.
+
+One "feature" that Moose is missing is persistence. A reboot of an affected device will remove the malware, though it may just get installed again if the password is not changed. Even for its seeming mission, though, Moose is relatively ineffective. Most of the social networks (with Instagram evidently being one exception) have moved to HTTPS-only access, which means that Moose can't passively sniff the cookies. It also relies on telnet to propagate, which is becoming less and less popular—at least hopefully.
+
+The basic infrastructure that Moose sets up could be used for other nefarious activities, however. Distributed denial of service, spamming, more active HTTPS interception (since most users will simply click through any browser warnings), or other schemes are all possible. In addition, the report notes that IoT or other non-router devices connected to the internet could be affected in a kind of collateral damage. It is possible that Moose's activity on, say, an internet-attached medical device could interfere with its normal operation—yet another good reason not to make such connections.
+
+As it stands, Moose doesn't pose that much of a threat. It is a clever use of well-known techniques and flaws; it could presumably be "upgraded" into something far more dangerous. Adding SSH, for example, would result in more opportunities to propagate, especially in the future, and wouldn't reduce the effectiveness of the weak-password attack. But it is good to learn as much as we can from Moose, to help recognize and repel its descendants (and siblings) down the road.
+
+The vast array of poorly configured home routers seems like a ticking time bomb of sorts. Even those that were configured with good passwords and sensible access policies may never have been updated since they were installed. Thus they are susceptible to vulnerabilities found in the meantime. Moose is simply another reminder of that threat.
+
+Index entries for this article
+Security	Botnets
+Security	Home network

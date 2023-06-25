@@ -1,0 +1,1 @@
+Conti,"D10,1",tech,Conti-Kaspersky,Kaspersky,CommonTTPsofthemodernransomware

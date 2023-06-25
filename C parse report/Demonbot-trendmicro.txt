@@ -1,0 +1,40 @@
+Backdoor.Linux.BASHLITE.SMJC2
+August 19, 2019
+
+Analysis by: Wilbert Luy
+ALIASES:
+HEUR:Backdoor.Linux.Mirai.h (Kaspersky), Backdoor:Linux/DemonBot.YA!MTB (Microsoft)
+
+TECHNICAL DETAILS
+FILE SIZE: 62,028 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: Yes
+INITIAL SAMPLES RECEIVED DATE: 19 Aug 2019
+PAYLOAD: Connects to URLs/IPs, Collects system information, Others
+Arrival Details
+
+This Backdoor arrives on a system as a file dropped by other malware or as a file downloaded unknowingly by users when visiting malicious sites.
+
+Backdoor Routine
+
+This Backdoor executes the following commands from a remote malicious user:
+
+UDP - UDP flood
+TCP - TCP flood
+HEX - UDP HEX flood
+STOP - STOP bot operation
+It connects to the following URL(s) to send and receive commands from a remote malicious user:
+
+5.{BLOCKED}.{BLOCKED}.216:41061
+Other Details
+
+This Backdoor does the following:
+
+Checks for the following folder to know architecture:
+/usr/bin/apt-get - Ubuntu
+/usr/lib/portage - Gentoo
+/usr/bin/yum - CentOS
+/usr/share/YaST2 - OpenSUSE
+/usr/local/etc/pkg - FreeBSD
+/etc/dropbear/ - Dropbear
+/etc/opkg - OpenWRT

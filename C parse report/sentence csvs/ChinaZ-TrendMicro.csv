@@ -1,0 +1,47 @@
+Number,Content
+Sentence 1,"UNIX_FLOODDOS.A
+January 21, 2015
+TECHNICAL DETAILS
+FILE SIZE: 618,948 bytes
+FILE TYPE: ELF
+MEMORY RESIDENT: No
+INITIAL SAMPLES RECEIVED DATE: 17 Jan 2015
+"
+Sentence 2,"
+Arrival Details
+This backdoor may be downloaded from remote site(s) by the following malware:
+HKTL_SHELLSHOCK
+Backdoor Routine
+"
+Sentence 3,"
+This backdoor connects to the following websites to send and receive information:
+aa."
+Sentence 4,"{BLOCKED}352.com
+{BLOCKED}352.com
+{BLOCKED}1.12."
+Sentence 5,"{BLOCKED}3.173
+"
+Sentence 6,"
+Information Theft
+This backdoor gathers the following data:
+System info
+Process info
+Memory info
+Version info
+Hostname
+Other Details
+"
+Sentence 7,"
+This backdoor does the following:
+performs DDOS attack
+floods network
+manipulate files and directories
+manipulate process and services
+download and execute arbitrary files
+execute commands
+modifies thread/process priority
+performs spoof
+"
+Sentence 8,"
+NOTES:
+It modifies /etc/rc.local to enable automatic execution at every system start up."

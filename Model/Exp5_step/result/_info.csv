@@ -44,16 +44,40 @@ Turla,"D7,1",tech,Turla-trellix,kcm.trellix.com , Trellix Insights The Penquin T
 Turla,"D7,2",analysis,Turla-leonardo,leonardo.com , Malware Technical Insight Turla Penquin_x64 ,4.0,13.0,0.0,0.0,1.0,20.0,0.0,0.0,0.3076923076923077,0.0,0.05,0.3076923076923077,3.0,0.0
 Turla,"D7,3",analysis,Turla-securelist,securelist.com , The Penquin Turla ,3.0,13.0,0.0,0.0,1.0,20.0,0.0,0.0,0.2307692307692307,0.0,0.05,0.2307692307692307,2.0,0.0
 Turla,"D7,4",tech,Turla-trendmicro,trendmicro.com , BKDR_TURLA.YKX Threat Encyclopedia ,0.0,13.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-BPFDoor,"D9,1",analysis,BPFDoor, ,  ,0.0,27.0,0.0,0.0,0.0,74.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Conti,"D10,1",analysis,Conti, ,  ,0.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-ChinaZ,"D11,1",analysis,ChinaZ, ,  ,11.0,297.0,0.0,4.0,25.0,596.0,0.0,2.0,0.037037037037037,0.0,0.0419463087248322,0.037037037037037,3.0,0.0
-Defray777,"D12,1",analysis,Defray777, ,  ,0.0,18.0,0.0,2.0,0.0,40.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Demonbot,"D13,1",analysis,Demonbot, ,  ,15.0,542.0,4.0,17.0,2.0,1436.0,0.0,15.0,0.0276752767527675,0.2352941176470588,0.0013927576601671,0.0276752767527675,9.0,1.0
-EvilGnome,"D14,1",analysis,EvilGnome, ,  ,2.0,49978.0,0.0,2.0,1.0,58329.0,0.0,0.0,4.001760774740886e-05,0.0,1.7144130706852507e-05,4.001760774740886e-05,2.0,0.0
-FontOnLake,"D15,1",analysis,FontOnLake, ,  ,6.0,22.0,0.0,0.0,19.0,73.0,0.0,0.0,0.2727272727272727,0.0,0.2602739726027397,0.2727272727272727,1.0,0.0
-HCRootkit,"D16,1",analysis,HCRootkit, ,  ,6.0,22.0,0.0,0.0,0.0,73.0,0.0,0.0,0.2727272727272727,0.0,0.0,0.2727272727272727,1.0,0.0
-KEYPLUG,"D17,1",analysis,KEYPLUG-csa.gov, ,  ,0.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-KEYPLUG,"D17,2",analysis,KEYPLUG-cta, ,  ,0.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-Lightning,"D18,1",analysis,Lightning, ,  ,3.0,23.0,1.0,1.0,0.0,36.0,0.0,0.0,0.1304347826086956,1.0,0.0,0.1304347826086956,1.0,1.0
-Melofee,"D19,1",analysis,Melofee, ,  ,5.0,859.0,0.0,49.0,1.0,1112.0,0.0,47.0,0.0058207217694994,0.0,0.0008992805755395,0.0058207217694994,7.0,0.0
-XMRigMiner,"D20,1",analysis,XMRigMiner, ,  ,19.0,252.0,0.0,5.0,13.0,494.0,0.0,0.0,0.0753968253968253,0.0,0.0263157894736842,0.0753968253968253,3.0,0.0
+BPFDoor,"D9,1",analysis,BPFDoor-CrowdStrike,CrowdStrike,Hunting a Global Telecommunications Threat,2.0,27.0,0.0,0.0,0.0,74.0,0.0,0.0,0.07407407407407407,0.0,0.0,0.07407407407407407,2.0,0.0
+BPFDoor,"D9,2",analysis,BPFDoor-Qualys,Qualys.com,Detect the Stealthy NationState BPFDoor,4.0,27.0,0.0,0.0,4.0,74.0,0.0,0.0,0.14814814814814814,0.0,0.05405405405405406,0.14814814814814814,6.0,0.0
+BPFDoor,"D9,3",analysis,BPFDoor-deepinstinct,deepinstinct.com,Stealthy Sniffing Backdoor ups its Game,1.0,27.0,0.0,0.0,1.0,74.0,0.0,0.0,0.037037037037037035,0.0,0.013513513513513514,0.037037037037037035,2.0,0.0
+BPFDoor,"D9,4",analysis,BPFDoor-exatrack,exatrack.com,Tricephalic Hellkeeper a table of a passive backdoor,2.0,27.0,0.0,0.0,16.0,74.0,0.0,0.0,0.07407407407407407,0.0,0.21621621621621623,0.07407407407407407,6.0,0.0
+BPFDoor,"D9,5",analysis,BPFDoor-github,github.io,Looking Closer at BPF Bytecode,1.0,27.0,0.0,0.0,23.0,74.0,0.0,0.0,0.037037037037037035,0.0,0.3108108108108108,0.037037037037037035,1.0,0.0
+BPFDoor,"D9,6",news,BPFDoor-medium,medium,an active Chinese global surveillance tool,0.0,27.0,0.0,0.0,0.0,74.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+BPFDoor,"D9,7",analysis,BPFDoor-sandflysecurity,sandflysecurity,An Evasive Linux Backdoor Technical Analysis,6.0,27.0,0.0,0.0,1.0,74.0,0.0,0.0,0.2222222222222222,0.0,0.013513513513513514,0.2222222222222222,5.0,0.0
+BPFDoor,"D9,8",analysis,BPFDoor-unfinished.bike,unfinished.bike,Fun with the new bpfdoor,7.0,27.0,0.0,0.0,9.0,74.0,0.0,0.0,0.25925925925925924,0.0,0.12162162162162163,0.25925925925925924,6.0,0.0
+Conti,"D10,1",analysis,Conti-SentinelOne,SentinelOne,Hypervisor Ransomware,,,,,,,,,,,,,,
+Conti,"D10,2",analysis,Conti-Trellix,Trellix.com,Conti Group Targets ESXi Hypervisors,,,,,,,,,,,,,,
+Conti,"D10,3",analysis,Conti-VMwareBlog,VMwareBlog,TAU Threat Discovery_ Conti Ransomware,,,,,,,,,,,,,,
+ChinaZ,"D11,1",tech,ChinaZ-TrendMicro,TrendMicro,UNIX_FLOODDOS.A Threat Encyclopedia,,,,,,,,,,,,,,
+ChinaZ,"D11,2",analysis,ChinaZ-ahnlab,ahnlab,ChinaZ DDoS Bot Malware Distributed to Linux SSH Servers,,,,,,,,,,,,,,
+Defray777,"D12,1",analysis,Defray777-Medium,Medium,RansomEXX — Analysis of the Ransomware,,,,,,,,,,,,,,
+Defray777,"D12,2",analysis,Defray777-crowdstrike,crowdstrike,CARBON SPIDER and SPRITE SPIDER Target ESXi Servers,,,,,,,,,,,,,,
+Defray777,"D12,3",analysis,Defray777-securelist,securelist,RansomEXX Trojan attacks Linux systems,,,,,,,,,,,,,,
+Demonbot,"D13,1",analysis,Demonbot-bitdefender,bitdefender,threat group running an active cryptojacking campaign,,,,,,,,,,,,,,
+Demonbot,"D13,2",tech,Demonbot-trendmicro,trendmicro,Backdoor.Linux.BASHLITE.SMJC2,,,,,,,,,,,,,,
+EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users,,,,,,,,,,,,,,
+FontOnLake,"D15,1",tech,FontOnLake-eset.tech,WeLiveSecurity,Previously unknown malware family targeting Linux,,,,,,,,,,,,,,
+FontOnLake,"D15,2",analysis,FontOnLake-eset.wp,eset,Research white papers,,,,,,,,,,,,,,
+HCRootkit,"D16,1",analysis,HCRootkit-lacework,lacework,Sutersu Linux Rootkit Analysis,,,,,,,,,,,,,,
+KEYPLUG,"D17,1",tech,KEYPLUG-csa.gov,CSAsingapore,New Indicators of Compromise Discovered,,,,,,,,,,,,,,
+KEYPLUG,"D17,2",analysis,KEYPLUG-Mandiant,Mandiant,Does This Look Infected A Summary of APT41,,,,,,,,,,,,,,
+KEYPLUG,"D17,3",analysis,KEYPLUG-cta,cta,Steals From Wide Field of Targets,,,,,,,,,,,,,,
+Lightning,"D18,1",analysis,Lightning-intezer,intezer,New Undetected “Swiss Army Knife”,,,,,,,,,,,,,,
+Melofee,"D19,1",analysis,Melofee-exatrack,blog.exatrack.com,a new alien malware in the Panda's toolset targeting Linux hosts,,,,,,,,,,,,,,
+Melofee,"D19,2",news,Melofee-thehackernews,thehackernews,New Linux Malware Linked to Chinese APT Groups,,,,,,,,,,,,,,
+Moose,"D20,1",news,Moose-gosecure,gosecure,cybercrime performed by the Linux_Moose botnet,,,,,,,,,,,,,,
+Moose,"D20,2",news,Moose-lwm,lwn.net,Interesting but ineffective,,,,,,,,,,,,,,
+Moose,"D20,3",analysis,Moose-eset.dissectPDF,welivesecurity,Dissecting LinuxMoose,,,,,,,,,,,,,,
+Moose,"D20,4",analysis,Moose-eset.breath,welivesecurity,Still breathing,,,,,,,,,,,,,,
+Moose,"D20,5",news,Moose-eset.routerworm,welivesecurity,the router worm with an appetite for social networks,,,,,,,,,,,,,,
+XMRigMiner,"D21,1",analysis,XMRigMiner-intezer.newgolan,intezer.com,New Golang Worm Drops XMRig Miner on Servers,,,,,,,,,,,,,,
+XMRigMiner,"D21,2",news,XMRigMiner-intezer.rockegroup,intezer.com,Rocke Group Targets the Cloud,,,,,,,,,,,,,,
+XMRigMiner,"D21,3",analysis,XMRigMiner-intezer.teamTNT,intezer.com,TeamTNT Cryptomining Explosion,,,,,,,,,,,,,,
+XMRigMiner,"D21,4",analysis,XMRigMiner-securelist,securelist,On the trail of the XMRig miner,,,,,,,,,,,,,,
