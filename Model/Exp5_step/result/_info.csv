@@ -52,9 +52,9 @@ BPFDoor,"D9,5",analysis,BPFDoor-github,github.io,Looking Closer at BPF Bytecode,
 BPFDoor,"D9,6",news,BPFDoor-medium,medium,an active Chinese global surveillance tool,1.0,27.0,0.0,0.0,1.0,74.0,0.0,0.0,0.037037037037037,0.0,0.0135135135135135,0.037037037037037,1.0,0.0
 BPFDoor,"D9,7",analysis,BPFDoor-sandflysecurity,sandflysecurity,An Evasive Linux Backdoor Technical Analysis,7.0,27.0,0.0,0.0,4.0,74.0,0.0,0.0,0.2592592592592592,0.0,0.054054054054054,0.2592592592592592,11.0,0.0
 BPFDoor,"D9,8",analysis,BPFDoor-unfinished.bike,unfinished.bike,Fun with the new bpfdoor,7.0,27.0,0.0,0.0,9.0,74.0,0.0,0.0,0.2592592592592592,0.0,0.1216216216216216,0.2592592592592592,6.0,0.0
-Conti,"D10,1",analysis,Conti-SentinelOne,SentinelOne,Hypervisor Ransomware,,,,,,,,,,,,,,
-Conti,"D10,2",analysis,Conti-Trellix,Trellix.com,Conti Group Targets ESXi Hypervisors,,,,,,,,,,,,,,
-Conti,"D10,3",analysis,Conti-VMwareBlog,VMwareBlog,TAU Threat Discovery_ Conti Ransomware,,,,,,,,,,,,,,
+Conti,"D10,1",analysis,Conti-SentinelOne,SentinelOne,Hypervisor Ransomware,0.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Conti,"D10,2",analysis,Conti-Trellix,Trellix.com,Conti Group Targets ESXi Hypervisors,1.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.1666666666666666,0.0,0.0,0.1666666666666666,1.0,0.0
+Conti,"D10,3",analysis,Conti-VMwareBlog,VMwareBlog,TAU Threat Discovery_ Conti Ransomware,0.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 ChinaZ,"D11,1",tech,ChinaZ-TrendMicro,TrendMicro,UNIX_FLOODDOS.A Threat Encyclopedia,0.0,297.0,0.0,4.0,0.0,596.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0
 ChinaZ,"D11,2",analysis,ChinaZ-ahnlab,ahnlab,ChinaZ DDoS Bot Malware Distributed to Linux SSH Servers,17.0,297.0,0.0,4.0,27.0,596.0,2.0,3.0,0.0572390572390572,0.0,0.0453020134228187,0.0572390572390572,5.0,0.0
 Defray777,"D12,1",analysis,Defray777-Medium,Medium,RansomEXX — Analysis of the Ransomware,2.0,18.0,0.0,3.0,1.0,40.0,1.0,1.0,0.1111111111111111,0.0,0.025,0.1111111111111111,2.0,0.0
@@ -62,7 +62,7 @@ Defray777,"D12,2",analysis,Defray777-crowdstrike,crowdstrike,CARBON SPIDER and S
 Defray777,"D12,3",analysis,Defray777-securelist,securelist,RansomEXX Trojan attacks Linux systems,0.0,18.0,0.0,3.0,0.0,40.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 Demonbot,"D13,1",analysis,Demonbot-bitdefender,bitdefender,threat group running an active cryptojacking campaign,72.0,542.0,4.0,21.0,2.0,1436.0,0.0,15.0,0.1328413284132841,0.1904761904761904,0.0013927576601671,0.1328413284132841,14.0,1.0
 Demonbot,"D13,2",tech,Demonbot-trendmicro,trendmicro,Backdoor.Linux.BASHLITE.SMJC2,7.0,542.0,0.0,21.0,0.0,1436.0,0.0,15.0,0.0129151291512915,0.0,0.0,0.0129151291512915,1.0,0.0
-EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users,,,,,,,,,,,,,,
+EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users,26.0,49978.0,0.0,2.0,4.0,58329.0,2.0,4.0,0.0005202289007163152,0.0,6.857652282741003e-05,0.0005202289007163152,7.0,0.0
 FontOnLake,"D15,1",tech,FontOnLake-eset.tech,WeLiveSecurity,Previously unknown malware family targeting Linux,3.0,22.0,0.0,0.0,0.0,73.0,0.0,1.0,0.1363636363636363,0.0,0.0,0.1363636363636363,2.0,0.0
 FontOnLake,"D15,2",analysis,FontOnLake-eset.wp,eset,Research white papers,9.0,22.0,0.0,0.0,20.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.273972602739726,0.4090909090909091,9.0,0.0
 HCRootkit,"D16,1",analysis,HCRootkit-lacework,lacework,Sutersu Linux Rootkit Analysis,9.0,22.0,0.0,0.0,4.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.0547945205479452,0.4090909090909091,6.0,0.0
@@ -77,7 +77,7 @@ Moose,"D20,2",news,Moose-lwm,lwn.net,Interesting but ineffective,,,,,,,,,,,,,,
 Moose,"D20,3",analysis,Moose-eset.dissectPDF,welivesecurity,Dissecting LinuxMoose,,,,,,,,,,,,,,
 Moose,"D20,4",analysis,Moose-eset.breath,welivesecurity,Still breathing,,,,,,,,,,,,,,
 Moose,"D20,5",news,Moose-eset.routerworm,welivesecurity,the router worm with an appetite for social networks,,,,,,,,,,,,,,
-XMRigMiner,"D21,1",analysis,XMRigMiner-intezer.newgolan,intezer.com,New Golang Worm Drops XMRig Miner on Servers,15.0,252.0,0.0,6.0,0.0,494.0,0.0,0.0,0.05952380952380952,0.0,0.0,0.05952380952380952,1.0,0.0
-XMRigMiner,"D21,2",news,XMRigMiner-intezer.rockegroup,intezer.com,Rocke Group Targets the Cloud,2.0,252.0,0.0,6.0,2.0,494.0,0.0,0.0,0.007936507936507936,0.0,0.004048582995951417,0.007936507936507936,2.0,0.0
-XMRigMiner,"D21,3",analysis,XMRigMiner-intezer.teamTNT,intezer.com,TeamTNT Cryptomining Explosion,40.0,252.0,0.0,6.0,13.0,494.0,0.0,0.0,0.15873015873015872,0.0,0.02631578947368421,0.15873015873015872,5.0,0.0
-XMRigMiner,"D21,4",analysis,XMRigMiner-securelist,securelist,On the trail of the XMRig miner,1.0,252.0,0.0,6.0,1.0,494.0,0.0,0.0,0.003968253968253968,0.0,0.0020242914979757085,0.003968253968253968,1.0,0.0
+XMRigMiner,"D21,1",analysis,XMRigMiner-intezer.newgolan,intezer.com,New Golang Worm Drops XMRig Miner on Servers,15.0,252.0,0.0,6.0,0.0,494.0,0.0,0.0,0.0595238095238095,0.0,0.0,0.0595238095238095,1.0,0.0
+XMRigMiner,"D21,2",news,XMRigMiner-intezer.rockegroup,intezer.com,Rocke Group Targets the Cloud,2.0,252.0,0.0,6.0,2.0,494.0,0.0,0.0,0.0079365079365079,0.0,0.0040485829959514,0.0079365079365079,2.0,0.0
+XMRigMiner,"D21,3",analysis,XMRigMiner-intezer.teamTNT,intezer.com,TeamTNT Cryptomining Explosion,40.0,252.0,0.0,6.0,13.0,494.0,0.0,0.0,0.1587301587301587,0.0,0.0263157894736842,0.1587301587301587,5.0,0.0
+XMRigMiner,"D21,4",analysis,XMRigMiner-securelist,securelist,On the trail of the XMRig miner,1.0,252.0,0.0,6.0,1.0,494.0,0.0,0.0,0.0039682539682539,0.0,0.0020242914979757,0.0039682539682539,1.0,0.0
