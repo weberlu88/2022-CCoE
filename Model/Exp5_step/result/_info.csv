@@ -68,7 +68,7 @@ FontOnLake,"D15,2",analysis,FontOnLake-eset.wp,eset,Research white papers,9.0,22
 HCRootkit,"D16,1",analysis,HCRootkit-lacework,lacework,Sutersu Linux Rootkit Analysis,9.0,22.0,0.0,0.0,4.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.0547945205479452,0.4090909090909091,6.0,0.0
 KEYPLUG,"D17,1",tech,KEYPLUG-csa.gov,CSAsingapore,New Indicators of Compromise Discovered,0.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 KEYPLUG,"D17,2",analysis,KEYPLUG-Mandiant,Mandiant,Does This Look Infected A Summary of APT41,1.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.1,0.0,0.0,0.1,1.0,0.0
-KEYPLUG,"D17,3",analysis,KEYPLUG-cta,cta,Steals From Wide Field of Targets,74.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,7.4,0.0,0.0,7.4,1.0,0.0
+KEYPLUG,"D17,3",analysis,KEYPLUG-cta,cta,Steals From Wide Field of Targets,1.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.1,0.0,0.0,0.1,1.0,0.0
 Lightning,"D18,1",analysis,Lightning-intezer,intezer,New Undetected “Swiss Army Knife”,3.0,23.0,1.0,1.0,0.0,36.0,0.0,0.0,0.1304347826086956,1.0,0.0,0.1304347826086956,1.0,1.0
 Melofee,"D19,1",analysis,Melofee-exatrack,blog.exatrack.com,a new alien malware in the Panda's toolset targeting Linux hosts,81.0,859.0,0.0,49.0,22.0,1112.0,0.0,47.0,0.0942956926658905,0.0,0.0197841726618705,0.0942956926658905,11.0,0.0
 Melofee,"D19,2",news,Melofee-thehackernews,thehackernews,New Linux Malware Linked to Chinese APT Groups,0.0,859.0,0.0,49.0,0.0,1112.0,0.0,47.0,0.0,0.0,0.0,0.0,0.0,0.0

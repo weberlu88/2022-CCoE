@@ -39,7 +39,7 @@ Sample KEYPLUG-cta.csv
 	lenght of ctd's OPset is 1
 	#numofSTobject: 1, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 74, num of asg objects: 10. R_malObj is 7.4000
+	num of ctd objects: 22, num of asg objects: 10. R_malObj is 2.2000
 		ctd_object: ['99b36963f0e93a5c59cbd205d102f6b850f02f5e74ac4f66257b6f38d9c9ef5a']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 2. R_malSysObj is 0.0000
