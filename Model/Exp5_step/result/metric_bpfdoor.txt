@@ -1,4 +1,4 @@
-asg_object: ['.*/selinux', '/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^chmod$', '^cp$', '^rm$', '^sh$']
+asg_object: ['.*/selinux', '/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}', '5faab159397964e630c4156f8852bcc6ee46df1cdd8be2a8d3f3d8e5980f3bb3', 'Permission', 'Permission:[0-9]{3}', '^GID.*', '^PID.*', '^UID.*', '^chmod$', '^cp$', '^rm$', '^sh$']
 
 Sample BPFDoor-CrowdStrike.csv
 	num of segment in report: 59, 2 of them contain ASG object(s)
@@ -9,7 +9,7 @@ Sample BPFDoor-CrowdStrike.csv
 		ctd_object: ['/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 4
+		len(asg_OPset): 26, len(ctd_OPset): 4
 	#R_malOps
 	num of matched asg op: 0, num of asg op: 74. R_malOps is 0.0000
 		refered lifecycle: []
@@ -18,18 +18,18 @@ Sample BPFDoor-CrowdStrike.csv
 		ref-sys lifecycle: []
 
 Sample BPFDoor-Qualys.csv
-	num of segment in report: 62, 7 of them contain ASG object(s)
-	lenght of ctd's OPset is 8
-	#numofSTobject: 12, numofSTobject sysRrc: 0
+	num of segment in report: 62, 8 of them contain ASG object(s)
+	lenght of ctd's OPset is 9
+	#numofSTobject: 14, numofSTobject sysRrc: 0
 	#R_malObj
-	num of ctd objects: 5, num of asg objects: 27. R_malObj is 0.1852
-		ctd_object: ['/dev/shm/.*', '/var/run/.*', '^PID.*']
+	num of ctd objects: 79, num of asg objects: 27. R_malObj is 2.9259
+		ctd_object: ['/dev/shm/.*', '/var/run/.*', '5faab159397964e630c4156f8852bcc6ee46df1cdd8be2a8d3f3d8e5980f3bb3', '^PID.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 8
+		len(asg_OPset): 26, len(ctd_OPset): 9
 	#R_malOps
 	num of matched asg op: 7, num of asg op: 74. R_malOps is 0.0946
-		refered lifecycle: [9, 11, 14, 20, 23]
+		refered lifecycle: [9, 11, 14, 22, 25]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
@@ -37,9 +37,9 @@ Sample BPFDoor-Qualys.csv
 	hits
 	<OP10 act=getpid(), obj=^PID.*>, <OP 4 act=figure, obj=PID, sent=Figure 11: Creation of PID file by BPFdoor>
 	<OP12 act=getppid(), obj=^PID.*>, <OP 4 act=figure, obj=PID, sent=Figure 11: Creation of PID file by BPFdoor>
-	<OP15 act=rm(), obj=/dev/shm/.*>, <OP 5 act=delete, obj=/dev/shm/kdmtmpflush, sent= As shown in figure 12, The original execution process deletes /dev/shm/kdmtmpflush with the following command: /bin/rm -f /dev/sfm/kdmtmpflush Figure 12: Deletion of /dev/shm/kdmtmpflush directory>
-	<OP21 act=open(), obj=/dev/shm/.*>, <OP 3 act=run, obj=/dev/shm/kdmtmpflush, sent=The renamed binary is dropped to the /dev/shm directory and runs itself as /dev/shm/kdmtmpflush (Figs>
-	<OP24 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/haldrund.pid, sent= PID File The implant creates a zero-byte PID file at /var/run/haldrund.pid (Fig>
+	<OP15 act=rm(), obj=/dev/shm/.*>, <OP 3 act=run, obj=/dev/shm/kdmtmpflush, sent=The renamed binary is dropped to the /dev/shm directory and runs itself as /dev/shm/kdmtmpflush (Figs>
+	<OP23 act=open(), obj=/dev/shm/.*>, <OP 3 act=run, obj=/dev/shm/kdmtmpflush, sent=The renamed binary is dropped to the /dev/shm directory and runs itself as /dev/shm/kdmtmpflush (Figs>
+	<OP26 act=open(), obj=/var/run/.*>, <OP 2 act=create, obj=/var/run/haldrund.pid, sent= PID File The implant creates a zero-byte PID file at /var/run/haldrund.pid (Fig>
 
 Sample BPFDoor-deepinstinct.csv
 	num of segment in report: 48, 2 of them contain ASG object(s)
@@ -50,16 +50,16 @@ Sample BPFDoor-deepinstinct.csv
 		ctd_object: ['/var/run/.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 2
+		len(asg_OPset): 26, len(ctd_OPset): 2
 	#R_malOps
 	num of matched asg op: 1, num of asg op: 74. R_malOps is 0.0135
-		refered lifecycle: [23]
+		refered lifecycle: [25]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP24 act=open(), obj=/var/run/.*>, <OP 2 act=employ, obj=/var/run/initd.lock, sent=IOCs afa8a32ec29a31f152ba20a30eb483520fe50f2dce6c9aa9135d88f7c9c511d7 – BPFDoor ELF SHA256 /var/run/initd.lock – BPFDoor mutex” MITRE ATT&CK: Tactic	Technique	Description	Observable Command and Control Defense Evasion Persistence T1205 - Traffic Signaling Attacker employs “magic” values to trigger response>
+	<OP26 act=open(), obj=/var/run/.*>, <OP 2 act=employ, obj=/var/run/initd.lock, sent=IOCs afa8a32ec29a31f152ba20a30eb483520fe50f2dce6c9aa9135d88f7c9c511d7 – BPFDoor ELF SHA256 /var/run/initd.lock – BPFDoor mutex” MITRE ATT&CK: Tactic	Technique	Description	Observable Command and Control Defense Evasion Persistence T1205 - Traffic Signaling Attacker employs “magic” values to trigger response>
 
 Sample BPFDoor-exatrack.csv
 	num of segment in report: 78, 8 of them contain ASG object(s)
@@ -70,7 +70,7 @@ Sample BPFDoor-exatrack.csv
 		ctd_object: ['/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 8
+		len(asg_OPset): 26, len(ctd_OPset): 8
 	#R_malOps
 	num of matched asg op: 16, num of asg op: 74. R_malOps is 0.2162
 		refered lifecycle: [1, 2, 15, 16]
@@ -93,7 +93,7 @@ Sample BPFDoor-github.csv
 		ctd_object: ['0x[0-9a-zA-Z]{1,16}']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 8
+		len(asg_OPset): 26, len(ctd_OPset): 8
 	#R_malOps
 	num of matched asg op: 23, num of asg op: 74. R_malOps is 0.3108
 		refered lifecycle: [1, 2, 3, 15, 16]
@@ -117,16 +117,16 @@ Sample BPFDoor-medium.csv
 		ctd_object: ['/dev/shm/.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 1
+		len(asg_OPset): 26, len(ctd_OPset): 1
 	#R_malOps
 	num of matched asg op: 1, num of asg op: 74. R_malOps is 0.0135
-		refered lifecycle: [20]
+		refered lifecycle: [22]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
-	<OP21 act=open(), obj=/dev/shm/.*>, <OP 1 act=include, obj=/dev/shm/kdmtmpflush, sent=VirusTotal — Collections — BPFDoor YARA rules: signature-base/mal_lnx_implant_may22.yar at master · Neo23x0/signature-base (github.com) ThreatHunting/BPFDoor-Unknown.yar at master · GossiTheDog/ThreatHunting (github.com) Files in /dev/shm such as /dev/shm/kdmtmpflush Sandbox report from 2019 — includes useful commands; Automated Malware Analysis Report for m8XMnec4Vb.elf — Generated by Joe Sandbox>
+	<OP23 act=open(), obj=/dev/shm/.*>, <OP 1 act=include, obj=/dev/shm/kdmtmpflush, sent=VirusTotal — Collections — BPFDoor YARA rules: signature-base/mal_lnx_implant_may22.yar at master · Neo23x0/signature-base (github.com) ThreatHunting/BPFDoor-Unknown.yar at master · GossiTheDog/ThreatHunting (github.com) Files in /dev/shm such as /dev/shm/kdmtmpflush Sandbox report from 2019 — includes useful commands; Automated Malware Analysis Report for m8XMnec4Vb.elf — Generated by Joe Sandbox>
 
 Sample BPFDoor-sandflysecurity.csv
 	num of segment in report: 215, 16 of them contain ASG object(s)
@@ -137,18 +137,18 @@ Sample BPFDoor-sandflysecurity.csv
 		ctd_object: ['/dev/shm/.*', '/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', '^PID.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 15
+		len(asg_OPset): 26, len(ctd_OPset): 15
 	#R_malOps
 	num of matched asg op: 4, num of asg op: 74. R_malOps is 0.0541
-		refered lifecycle: [14, 20, 23]
+		refered lifecycle: [14, 22, 25]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
 
 	hits
 	<OP15 act=rm(), obj=/dev/shm/.*>, <OP 5 act=delete, obj=/dev/shm/kdmtmpflush, sent=6) The original execution process deletes the timestomped /dev/shm/kdmtmpflush and exits>
-	<OP21 act=open(), obj=/dev/shm/.*>, <OP14 act=leave, obj=/dev/shm/kdmtmpflush, sent=Hunting Tactics Possible binary left behind if implant fails to load: /dev/shm/kdmtmpflush >
-	<OP24 act=open(), obj=/var/run/.*>, <OP 4 act=create, obj=/var/run/haldrund.pid, sent=5) The forked version creates a dropper at /var/run/haldrund.pid to mark it is resident and prevent multiple starts>
+	<OP23 act=open(), obj=/dev/shm/.*>, <OP14 act=leave, obj=/dev/shm/kdmtmpflush, sent=Hunting Tactics Possible binary left behind if implant fails to load: /dev/shm/kdmtmpflush >
+	<OP26 act=open(), obj=/var/run/.*>, <OP 4 act=create, obj=/var/run/haldrund.pid, sent=5) The forked version creates a dropper at /var/run/haldrund.pid to mark it is resident and prevent multiple starts>
 
 Sample BPFDoor-unfinished.bike.csv
 	num of segment in report: 46, 10 of them contain ASG object(s)
@@ -159,10 +159,10 @@ Sample BPFDoor-unfinished.bike.csv
 		ctd_object: ['/var/run/.*', '0x[0-9a-zA-Z]{1,16}', 'Permission', '^PID.*', '^UID.*']
 	#R_malSysObj
 	num of ctd objects: 0, num of asg objects: 0. R_malSysObj is 0.0000
-		len(asg_OPset): 24, len(ctd_OPset): 13
+		len(asg_OPset): 26, len(ctd_OPset): 13
 	#R_malOps
 	num of matched asg op: 9, num of asg op: 74. R_malOps is 0.1216
-		refered lifecycle: [5, 9, 10, 11, 23]
+		refered lifecycle: [5, 9, 10, 11, 25]
 	#R_malChangeOps
 	num of matched asg op: 0, num of asg op: 0. R_malChangeOps is 0.0000
 		ref-sys lifecycle: []
@@ -172,7 +172,7 @@ Sample BPFDoor-unfinished.bike.csv
 	<OP10 act=getpid(), obj=^PID.*>, <OP 9 act=file_6, obj=pid, sent=Here is another osquery and shell pair:  SELECT p.*,     COUNT(DISTINCT pmm.path) AS pmm_count FROM processes p     JOIN process_open_sockets pos ON p.pid = pos.pid     LEFT JOIN process_memory_map pmm ON p.pid = pmm.pid     AND pmm.path LIKE %.so.%     -- Yes, this is a weird performance optimization WHERE p.pid IN (         SELECT pid         FROM processes         WHERE p.euid = 0             AND p.path NOT IN (                 '/usr/bin/containerd',                 '/usr/bin/fusermount3',                 '/usr/sbin/acpid',                 '/usr/sbin/mcelog',                 '/usr/bin/docker-proxy'             )     ) GROUP BY pos.pid -- libc.so, ld-linux HAVING pmm_count = 2;   cd /proc || exit  for pid in *; do     [[ !>
 	<OP11 act=geteuid(), obj=^UID.*>, <OP10 act=continue, obj=Uid, sent=-f ${pid}/exe || ${pid} =~ self ]] && continue      euid=$(grep Uid /proc/${pid}/status | awk '{ print $2 }')     [[ ${euid} != 0 ]] && continue      sockets=$(sudo find /proc/${pid}/fd -lname socket:* | wc -l)     [[ ${sockets} == 0 ]] && continue      libs=$(sudo find /proc/${pid}/map_files/ -type l -lname *.so>
 	<OP12 act=getppid(), obj=^PID.*>, <OP 9 act=file_6, obj=pid, sent=Here is another osquery and shell pair:  SELECT p.*,     COUNT(DISTINCT pmm.path) AS pmm_count FROM processes p     JOIN process_open_sockets pos ON p.pid = pos.pid     LEFT JOIN process_memory_map pmm ON p.pid = pmm.pid     AND pmm.path LIKE %.so.%     -- Yes, this is a weird performance optimization WHERE p.pid IN (         SELECT pid         FROM processes         WHERE p.euid = 0             AND p.path NOT IN (                 '/usr/bin/containerd',                 '/usr/bin/fusermount3',                 '/usr/sbin/acpid',                 '/usr/sbin/mcelog',                 '/usr/bin/docker-proxy'             )     ) GROUP BY pos.pid -- libc.so, ld-linux HAVING pmm_count = 2;   cd /proc || exit  for pid in *; do     [[ !>
-	<OP24 act=open(), obj=/var/run/.*>, <OP 5 act=create, obj=/var/run/initd.lock, sent=2656  +++ exited with 0 +++   The only noteworthy things here are: It tries to create /var/run/initd.lock but fails because it requires root  It tries to set up a raw socket to listen to all protocols but fails because it requires root>
+	<OP26 act=open(), obj=/var/run/.*>, <OP 5 act=create, obj=/var/run/initd.lock, sent=2656  +++ exited with 0 +++   The only noteworthy things here are: It tries to create /var/run/initd.lock but fails because it requires root  It tries to set up a raw socket to listen to all protocols but fails because it requires root>
 
 
 OperationPair that changes system resources:
@@ -189,5 +189,6 @@ OperationPair that changes system resources:
     ],
     "/var/run/.*": [
         "/var/run/haldrund.pid"
-    ]
+    ],
+    "5faab159397964e630c4156f8852bcc6ee46df1cdd8be2a8d3f3d8e5980f3bb3": "./malware/5faab159397964e630c4156f8852bcc6ee46df1cdd8be2a8d3f3d8e5980f3bb3"
 }
