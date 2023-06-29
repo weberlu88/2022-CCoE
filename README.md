@@ -15,8 +15,11 @@ Note that this is a private repo.
   - `_quality_metrics.csv` store only the 4 quality metrics.
 - View or add malware CTI reports at: `\C parse report`. Each report will save as 3 formats:
   - html/pdf: Archive of the report. Download by [Singlefile](https://chrome.google.com/webstore/detail/singlefile/mpiodijhokgodhhofbcjdecpffjipkle).
-  - txt: Manual extract the text content from html. I provide a PDF crawling script.
+  - txt: Manual extract the main text content from html. I provide a PDF crawling script.
   - csv: After sentence segmentation. The evaluation code will read the csvs as input.
+  - The csv file `/C parse report/report htmls/0_info.csv` store the metadata of CTI report.
+    - The $Genre$ attribute. May belongs to *analysis*, *tech*, *news* and *campaign* 4 genres.
+    - The $Txtname$ attribute store the filename. For instance, with `Dofloo-BleepingComputer` Txtname, you can find `Dofloo-BleepingComputer.txt` and `Dofloo-BleepingComputer.csv` two origin files. The filename of txt & csv are the same, but differ from html filename.
 - View or add malware profiling system call traces at: `\C ASG\trace` or `C ASG statistics 1115ver`.
   - The sandbox is seperate from this system. The malware exec binary didn't store this repo.
 - Find malware sample information at: `CCoE\C malware info`.
