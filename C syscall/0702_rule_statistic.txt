@@ -1,0 +1,131 @@
+Total rules: 683, EntityType: ['FILE' 'RESOURCE_BYTE' 'PERMISSION' 'MEM' 'PROC' 'TIME' 'ID' 'NET'
+ 'EXIT_STATUS']
+For total 395 uq syscalls & 155 uq verbs
+
+EntityType: FILE   has 297 rules | 170 uq_syscalls | 84 uq_verbs | 21 actionType          
+	=>syscall: ['io_cancel()', 'io_destroy()', 'io_getevents()', 'io_setup()', 'io_submit()', 'ioctl()', 'ioperm()', 'iopl()', 'pciconfig_iobase()', 'pciconfig_read()', 'pciconfig_write()', 'swapoff()', 'swapon()', 'access()', 'faccessat()', 'close()', 'creat()', 'epoll_create()', 'epoll_create1()', 'flock()', 'link()', 'linkat()', 'memfd_create()', 'mkdir()', 'mkdirat()', 'mknod()', 'mknodat()', 'mmap()', 'mmap2()', 'mount()', 'name_to_handle_at()', 'open()', 'open_by_handle_at()', 'openat()', 'symlink()', 'symlinkat()', 'fremovexattr()', 'remove()', 'rmdir()', 'umount()', 'umount2()', 'unlink()', 'unlinkat()', 'getcwd()', 'getdents()', 'dup()', 'dup2()', 'dup3()', 'eventfd()', 'eventfd2()', 'signalfd()', 'userfaultfd()', '_newselect()', 'epoll_ctl()', 'epoll_pwait()', 'epoll_wait()', 'fcntl()', 'fcntl64()', 'futimesat()', 'pselect6()', 'select()', 'sendfile()', 'sendfile64()', 'signalfd4()', 'timerfd_create()', 'timerfd_settime()', 'fgetxattr()', 'flistxattr()', 'getdents64()', 'getxattr()', 'lgetxattr()', 'llistxattr()', 'pread64()', 'preadv()', 'preadv2()', 'read()', 'readahead()', 'readdir()', 'readlink()', 'readlinkat()', 'readv()', 'setxattr()', 'sysfs()', '_llseek()', 'acct()', 'chroot()', 'copy_file_range()', 'fallocate()', 'fanotify_init()', 'fdatasync()', 'fsync()', 'inotify_add_watch()', 'inotify_init()', 'inotify_init1()', 'inotify_rm_watch()', 'listxattr()', 'lookup_dcookie()', 'lseek()', 'msync()', 'quotactl()', 'sync_file_range()', 'sync_file_range2()', 'syncfs()', 'tee()', 'timerfd_gettime()', 'fstat()', 'fstat64()', 'fstatat64()', 'fstatfs()', 'fstatfs64()', 'lstat()', 'lstat64()', 'newfstatat()', 'oldfstat()', 'oldlstat()', 'oldstat()', 'stat()', 'stat64()', 'statfs()', 'statfs64()', 'statx()', 'chdir()', 'chmod()', 'chown()', 'chown32()', 'fadvise64()', 'fadvise64_64()', 'fanotify_mark()', 'fchdir()', 'fchmod()', 'fchmodat()', 'fchown()', 'fchown32()', 'fchownat()', 'fsetxattr()', 'ftruncate()', 'ftruncate64()', 'lchmod()', 'lchown()', 'lchown32()', 'lremovexattr()', 'lsetxattr()', 'pivot_root()', 'pwrite64()', 'pwritev()', 'pwritev2()', 'removexattr()', 'rename()', 'renameat()', 'renameat2()', 'sync()', 'truncate()', 'truncate64()', 'utimensat()', 'utimes()', 'write()', 'writev()', 'poll()', 'ppoll()', 'ustat()', 'perf_event_open()', 'pipe()', 'splice()', 'vmsplice()', 'unshare()', 'query_module()', 'uselib()', 'ioprio_get()', 'ioprio_set()', 'setns()']          
+	=>verb:    ['cancel', 'destroy', 'read', 'create', 'submit', 'control', 'manipulate', 'set', 'change', 'handle', 'write', 'stop', 'start', 'access', 'check', 'close', 'free', 'open', 'apply', 'remove', 'make', 'extract', 'add', 'drop', 'mount', 'creates', 'map', 'unmap', 'attach', 'obtain', 'delete', 'unmount', 'get', 'duplicate', 'allocate', 'share', 'multiplex', 'monitor', 'wait', 'find', 'transfer', 'copy', 'disarm', 'arm', 'retrieve', 'list', 'seek', 'gather', 'fetch', 'look', 'see', 'use', 'initiate', 'place', 'truncate', 'reposition', 'enable', 'switch off', 'disable', 'switch on', 'initialize', 'synchronize', 'modifies', 'extended', 'return', 'sync', 'commit', 'modify', 'predeclare', 'rename', 'update', 'format', 'overwrite', 'moving', 'wait for', 'block', 'set up', 'splice', 'move', 'disassociate', 'request', 'query', 'load', 'reassociate']          
+	=>verb:    from manpage 75, from report 9          
+	=>rule:    from manpage 255, from report 42
+	DEVICE       has 13 uq syscalls & 13 uq verbs
+	ACCESS       has  2 uq syscalls &  2 uq verbs
+	CLOSE        has  1 uq syscalls &  2 uq verbs
+	CREATE_OPEN  has 20 uq syscalls & 14 uq verbs
+	DELETE       has  7 uq syscalls &  4 uq verbs
+	DIR          has  2 uq syscalls &  1 uq verbs
+	FD_DUP       has  7 uq syscalls &  4 uq verbs
+	FD_OTHER     has 14 uq syscalls & 16 uq verbs
+	FILE_READ    has 17 uq syscalls & 15 uq verbs
+	OTHER        has 22 uq syscalls & 22 uq verbs
+	STATUS       has 16 uq syscalls &  2 uq verbs
+	UPDATE       has 36 uq syscalls & 15 uq verbs
+	WAIT         has  2 uq syscalls &  3 uq verbs
+	INFO_GET     has  1 uq syscalls &  1 uq verbs
+	INFO_SET     has  1 uq syscalls &  2 uq verbs
+	NET_CONNECT  has  1 uq syscalls &  1 uq verbs
+	PROC_COMM    has  2 uq syscalls &  2 uq verbs
+	PROC_EXE     has  1 uq syscalls &  1 uq verbs
+	PROC_GET     has  1 uq syscalls &  2 uq verbs
+	PROC_LOAD    has  1 uq syscalls &  1 uq verbs
+	PROC_SET     has  3 uq syscalls &  3 uq verbs
+
+EntityType: RESOURCE_BYTE has  9 rules |  7 uq_syscalls |  4 uq_verbs |  4 actionType          
+	=>syscall: ['ulimit()', 'getrlimit()', 'getrusage()', 'prlimit64()', 'ugetrlimit()', 'setrlimit()', 'getrandom()']          
+	=>verb:    ['set', 'get', 'obtain', 'fill']          
+	=>verb:    from manpage 4, from report 0          
+	=>rule:    from manpage 9, from report 0
+	ACCESS       has  1 uq syscalls &  2 uq verbs
+	INFO_GET     has  4 uq syscalls &  1 uq verbs
+	INFO_SET     has  1 uq syscalls &  1 uq verbs
+	PROC_GET     has  1 uq syscalls &  2 uq verbs
+
+EntityType: PERMISSION has  1 rules |  1 uq_syscalls |  1 uq_verbs |  1 actionType          
+	=>syscall: ['umask()']          
+	=>verb:    ['set']          
+	=>verb:    from manpage 1, from report 0          
+	=>rule:    from manpage 1, from report 0
+	CREATE_OPEN  has  1 uq syscalls &  1 uq verbs
+
+EntityType: MEM    has 44 rules | 35 uq_syscalls | 27 uq_verbs |  8 actionType          
+	=>syscall: ['munmap()', 'remap_file_pages()', 'madvise()', 'arch_prctl()', 'brk()', 'futex()', 'get_mempolicy()', 'mbind()', 'membarrier()', 'mlock()', 'mlock2()', 'mlockall()', 'mprotect()', 'mremap()', 'munlock()', 'munlockall()', 'pkey_mprotect()', 'set_mempolicy()', 'set_robust_list()', 'set_thread_area()', 'set_tid_address()', 'shmdt()', 'shmget()', 'personality()', 'bdflush()', 'bpf()', 'cacheflush()', 'migrate_pages()', 'mincore()', 'move_pages()', 'pkey_alloc()', 'pkey_free()', 'get_robust_list()', 'get_thread_area()', 'profil()']          
+	=>verb:    ['unmap', 'create', 'give', 'set', 'change', 'wait', 'wake', 'lock', 'retrieve', 'issue', 'remap', 'expand', 'unlock', 'detach', 'allocate', 'start', 'flush', 'tune', 'perform', 'move', 'determine', 'free', 'get', 'manipulate', 'store', 'find out', 'execute']          
+	=>verb:    from manpage 27, from report 0          
+	=>rule:    from manpage 44, from report 0
+	DELETE       has  1 uq syscalls &  1 uq verbs
+	OTHER        has  1 uq syscalls &  1 uq verbs
+	INFO_GET     has  1 uq syscalls &  1 uq verbs
+	MEM          has 20 uq syscalls & 12 uq verbs
+	PROC_EXE     has  1 uq syscalls &  1 uq verbs
+	PROC_OTHER   has  8 uq syscalls &  8 uq verbs
+	PROC_SET     has  2 uq syscalls &  3 uq verbs
+	TIME_GET     has  1 uq syscalls &  2 uq verbs
+
+EntityType: PROC   has 164 rules | 78 uq_syscalls | 68 uq_verbs | 14 actionType          
+	=>syscall: ['modify_ldt()', 'get_kernel_syms()', 'getcpu()', 'getpriority()', 'kexec_file_load()', 'kexec_load()', 'oldolduname()', 'olduname()', 'request_key()', 'sched_get_priority_max()', 'sched_get_priority_min()', 'sysinfo()', 'syslog()', 'uname()', '_sysctl()', 'add_key()', 'keyctl()', 'setpriority()', 'pipe2()', 'rt_sigqueueinfo()', 'rt_tgsigqueueinfo()', 'signal()', 'rt_sigaction()', 'rt_sigpending()', 'rt_sigprocmask()', 'sigaction()', 'sigpending()', 'sigprocmask()', 'clone()', 'execve()', 'execveat()', 'fork()', 'nfsservctl()', 'restart_syscall()', 'syscall()', 'vfork()', 'vhangup()', 'rt_sigreturn()', 'sched_rr_get_interval()', 'sigreturn()', 'kill()', 'tgkill()', 'tkill()', 'delete_module()', 'finit_module()', 'init_module()', 'create_module()', 'kcmp()', 'prctl()', 'process_vm_readv()', 'process_vm_writev()', 'reboot()', 'sched_yield()', 'seccomp()', 'vm86()', 'capget()', 'capset()', 'nice()', 'sched_getaffinity()', 'sched_getattr()', 'sched_getparam()', 'sched_getscheduler()', 'sched_setaffinity()', 'sched_setattr()', 'sched_setparam()', 'sched_setscheduler()', 'sgetmask()', 'sigaltstack()', 'ssetmask()', 'ptrace()', 'idle()', 'pause()', 'rt_sigsuspend()', 'rt_sigtimedwait()', 'sigsuspend()', 'wait4()', 'waitid()', 'waitpid()']          
+	=>verb:    ['write', 'get', 'set', 'read', 'retrieve', 'identify', 'determine', 'load', 'request', 'find', 'search for', 'return', 'gather', 'look', 'clear', 'update', 'create', 'add', 'attach', 'instantiate', 'manipulate', 'queue', 'send', 'handle', 'examine', 'change', 'fetch', 'use', 'call', 'spawn', 'fork', 'perform', 'install', 'start', 'execute', 'provide', 'restart', 'invoke', 'block', 'arrange', 'hangup', 'write into', 'send signal', 'kill', 'end', 'unload', 'remove', 'compare', 'check', 'operate', 'transfer', 'enable', 'disable', 'reboot', 'yield', 'cause', 'operate on', 'enter', 'define', 'control', 'observe', 'trace', 'lower', 'make', 'mark', 'wait for', 'replace', 'suspend']          
+	=>verb:    from manpage 57, from report 11          
+	=>rule:    from manpage 124, from report 40
+	OTHER        has  1 uq syscalls &  4 uq verbs
+	INFO_GET     has 13 uq syscalls & 14 uq verbs
+	INFO_SET     has  4 uq syscalls &  9 uq verbs
+	NET_CONNECT  has  1 uq syscalls &  1 uq verbs
+	PROC_COMM    has  3 uq syscalls &  3 uq verbs
+	PROC_EXAM    has  6 uq syscalls &  3 uq verbs
+	PROC_EXE     has  9 uq syscalls & 16 uq verbs
+	PROC_GET     has  3 uq syscalls &  3 uq verbs
+	PROC_KILL    has  3 uq syscalls &  4 uq verbs
+	PROC_LOAD    has  3 uq syscalls &  3 uq verbs
+	PROC_OTHER   has  9 uq syscalls & 12 uq verbs
+	PROC_SET     has 14 uq syscalls &  8 uq verbs
+	PROC_TRACE   has  1 uq syscalls &  5 uq verbs
+	PROC_WAIT    has  8 uq syscalls &  7 uq verbs
+
+EntityType: TIME   has 28 rules | 20 uq_syscalls | 14 uq_verbs |  7 actionType          
+	=>syscall: ['utime()', 'semtimedop()', 'nanosleep()', 'timer_delete()', 'timer_gettime()', 'alarm()', 'getitimer()', 'setitimer()', 'clock_nanosleep()', 'clock_getres()', 'clock_gettime()', 'ftime()', 'gettimeofday()', 'time()', 'times()', 'adjtimex()', 'clock_adjtime()', 'clock_settime()', 'settimeofday()', 'stime()']          
+	=>verb:    ['change', 'operate', 'perform', 'suspend', 'sleep', 'delete', 'fetch', 'arrange for', 'set', 'get', 'place', 'return', 'tune', 'retrieve']          
+	=>verb:    from manpage 14, from report 0          
+	=>rule:    from manpage 27, from report 1
+	UPDATE       has  1 uq syscalls &  1 uq verbs
+	PROC_COMM    has  1 uq syscalls &  2 uq verbs
+	PROC_OTHER   has  3 uq syscalls &  4 uq verbs
+	PROC_SET     has  3 uq syscalls &  4 uq verbs
+	PROC_WAIT    has  1 uq syscalls &  2 uq verbs
+	TIME_GET     has  6 uq syscalls &  3 uq verbs
+	TIME_SET     has  5 uq syscalls &  3 uq verbs
+
+EntityType: ID     has 58 rules | 49 uq_syscalls | 13 uq_verbs |  9 actionType          
+	=>syscall: ['getegid()', 'getegid32()', 'geteuid()', 'geteuid32()', 'getgid()', 'getgid32()', 'getgroups()', 'getgroups32()', 'getpgid()', 'getpgrp()', 'getpid()', 'getppid()', 'getresgid()', 'getresgid32()', 'getresuid()', 'getresuid32()', 'getsid()', 'gettid()', 'getuid()', 'getuid32()', 'setfsgid()', 'setfsgid32()', 'setfsuid()', 'setfsuid32()', 'setgid()', 'setgid32()', 'setgroups()', 'setgroups32()', 'setpgid()', 'setregid()', 'setregid32()', 'setresgid()', 'setresgid32()', 'setresuid()', 'setresuid32()', 'setreuid()', 'setreuid32()', 'setsid()', 'setuid()', 'setuid32()', 'msgget()', 'semget()', 'shmctl()', 'shmat()', 'semctl()', 'semop()', 'timer_getoverrun()', 'timer_create()', 'timer_settime()']          
+	=>verb:    ['get', 'retrieve', 'set', 'create', 'assign', 'obtain', 'share', 'attach', 'control', 'operate', 'perform', 'disarm', 'arm']          
+	=>verb:    from manpage 12, from report 1          
+	=>rule:    from manpage 57, from report 1
+	ID_GET       has 20 uq syscalls &  2 uq verbs
+	ID_SET       has 20 uq syscalls &  3 uq verbs
+	INFO_GET     has  2 uq syscalls &  3 uq verbs
+	INFO_SET     has  1 uq syscalls &  1 uq verbs
+	MEM          has  1 uq syscalls &  1 uq verbs
+	PROC_COMM    has  2 uq syscalls &  3 uq verbs
+	PROC_GET     has  1 uq syscalls &  1 uq verbs
+	PROC_OTHER   has  1 uq syscalls &  1 uq verbs
+	PROC_SET     has  1 uq syscalls &  2 uq verbs
+
+EntityType: NET    has 78 rules | 33 uq_syscalls | 32 uq_verbs |  7 actionType          
+	=>syscall: ['ipc()', 'setdomainname()', 'sethostname()', 'mq_unlink()', 'shutdown()', 'accept()', 'accept4()', 'bind()', 'connect()', 'mq_notify()', 'mq_open()', 'socket()', 'socketpair()', 'getpeername()', 'getsockname()', 'getsockopt()', 'mq_getsetattr()', 'setsockopt()', 'listen()', 'mq_timedreceive()', 'mq_timedsend()', 'recv()', 'recvfrom()', 'recvmmsg()', 'recvmsg()', 'send()', 'sendmmsg()', 'sendmsg()', 'sendto()', 'msgctl()', 'msgrcv()', 'msgsnd()', 'socketcall()']          
+	=>verb:    ['communicate with', 'set', 'change', 'remove', 'shut down', 'creates', 'accept', 'assign', 'bind', 'hook', 'initiate', 'connect', 'unregister for', 'register for', 'open', 'create', 'get', 'manipulate', 'modify', 'retrieve', 'listen for', 'receive', 'send', 'communicate', 'download', 'wget', 'curl', 'transfer', 'transmit', 'control', 'operate', 'provide']          
+	=>verb:    from manpage 26, from report 6          
+	=>rule:    from manpage 49, from report 29
+	INFO_GET     has  1 uq syscalls &  1 uq verbs
+	INFO_SET     has  2 uq syscalls &  2 uq verbs
+	NET_CLOSE    has  2 uq syscalls &  2 uq verbs
+	NET_CONNECT  has  8 uq syscalls & 11 uq verbs
+	NET_OPTION   has  5 uq syscalls &  5 uq verbs
+	NET_TRANSMIT has 11 uq syscalls &  9 uq verbs
+	PROC_COMM    has  4 uq syscalls &  5 uq verbs
+
+EntityType: EXIT_STATUS has  4 rules |  2 uq_syscalls |  4 uq_verbs |  1 actionType          
+	=>syscall: ['exit()', 'exit_group()']          
+	=>verb:    ['terminate', 'exit', 'kill', 'end']          
+	=>verb:    from manpage 2, from report 2          
+	=>rule:    from manpage 2, from report 2
+	PROC_KILL    has  2 uq syscalls &  4 uq verbs
+
+ttl_lenRule_manpage: 568
