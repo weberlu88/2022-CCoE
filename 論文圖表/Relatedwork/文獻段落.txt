@@ -1,0 +1,30 @@
+=== 中文版 ===
+Several studies have examined the effectiveness of threat intelligence platforms or feeds [x,x,x,…] by 自定義的 quality metrics. 這些 quality metrics 往往十分仰賴 STIX 格式，藉由 STIX object 中的屬性來計算分數。因此無法運用在 CTI report 的評估上。可惜的是，目前並沒有專門對 CTI report資訊價值的評估文獻。
+
+Mavroeidis et. al [5] 的目的是評估情資的taxonomies (如CVE, NVD, ATT&CK), sharing standards (如STIX, MAEC, OpenIOC), 和ontologies (如OVM, UCO)，作者欲研究如何建立上下文相關且明確的 CTI ontology。由於這是一篇 survey 論文，作者沒有一一對各論文提出解決方案，而是以 Detection Maturity Level Model 和 Cyber Threat Intelligence Model 作為衡量工具。在 DISCUSSION 章節我們能推論出 (1) 目前的 ontologies 彼此間並不 connected or unified (2) 若 taxonomies and existing ontologies 有更標準化的連結便能消除 ambiguity。
+
+Schlette et. al [6] 的目的是提出一個 relevant quality dimensions and metrics 來評估 CTI artifacts on the platform。當組織對一起事件發布一連串的情資報告時，會產生 inaccurate (軟體版本誤植), outdated (惡意程式已變種), or duplicated information of threat intelligence 等情形。於是作者提出了 data quality (DQ) methodologies，涵蓋了三種層面: (1) Report Level，如 reports 的數量。(2) Object Level，如 STIX-object 的 Representational Consistency，及發佈者和資料集的 reputation。(3) Attribute Level，如 Concise representation (表示資料的expressiveness和冗餘性), Timeliness (被創造和被修改的時間), Objectivity (使用機器學習方法判斷 STIX object 得內容客觀或不客觀), 等。
+
+Li et. al [7] propose a comprehensive evaluation method of threat intelligence services in user perspective. The goal is to help users choose appropriate threat intelligence vendors and services. The proposed method evaluates threat intelligence services in several dimensions, including categories, functions, properties, testing methods, and items.
+
+Li et. al [8] 的目的是提供 CTI feeds 的全面分析，比較不同的來源並判斷 CTI feeds 對特定目的的適用性。他們提出了 6 個 threat intelligence metrics: Volume, Differential Contribution, Exclusive Contribution, Latency, Coverage and Accuracy.
+
+Schaberreiter et. al [9] propose a methodology for quantitatively evaluating the trustworthiness of CTI sources. The proposed approach allows for an evaluation of sources to be carried out automatically without the need for interference by human experts, which leads to several benefits from an operational perspective. 作者定義了 10 種 parameter (如 Maintenance, False Positives, Verifiability 等)，透過各個 source 的相互比較來計算分數，並使用不同的權重來計算 CTI source 的信賴程度。
+
+=== 英文版 ===
+Several studies have explored the efficacy of threat intelligence platforms or feeds [x,x,x,...] using custom quality metrics. These quality metrics often heavily rely on the STIX format and calculate scores based on the attributes within STIX objects. Consequently, they cannot be applied to evaluate CTI reports. Unfortunately, there is currently a lack of literature specifically addressing the assessment of information value in CTI reports.
+
+% cite{mavroeidis_2017_cyber}
+Mavroeidis et al. [5] evaluate the taxonomies (such as CVE, NVD, ATT&CK), sharing standards (such as STIX, MAEC, OpenIOC), and ontologies (such as OVM, UCO) of threat intelligence. The authors aimed to investigate the establishment of contextually relevant and explicit CTI ontologies. As their work is a survey paper, the authors did not propose individual solutions for each paper examined. Instead, they utilized the Detection Maturity Level Model and Cyber Threat Intelligence Model as measurement tools. From the DISCUSSION section, we can infer the following: (1) Existing ontologies are not interconnected or unified, and (2) standardized links between taxonomies and existing ontologies could eliminate ambiguity.
+
+% \cite{schlette_2020_measuring}
+Schlette et al. [6] propose relevant quality dimensions and metrics for evaluating CTI artifacts on a platform. When organizations release a series of CTI reports for an incident, it can lead to instances of inaccurate information (such as software version typos), outdated information (when malware has evolved), or duplicated threat intelligence. To address this, the authors presented data quality (DQ) methodologies that encompass three levels: (1) Report Level, which includes metrics related to the quantity of reports. (2) Object Level, which involves metrics such as Representational Consistency of STIX objects and the reputation of both the publisher and dataset. (3) Attribute Level, which includes metrics such as Concise Representation (expressiveness and redundancy of data), Timeliness (creation and modification timestamps), and Objectivity (using machine learning methods to determine the objective or subjective nature of STIX objects).
+
+% \cite{qiang_2018_a}
+Li et al. [7] propose a comprehensive evaluation method of threat intelligence services in user perspective. The goal is to help users choose appropriate threat intelligence vendors and services. The proposed method evaluates threat intelligence services in several dimensions, including categories, functions, properties, testing methods, and items.
+
+% \cite{li_2019_reading}
+Li et al. [8] provide a comprehensive analysis of CTI feeds, comparing different sources and determining their applicability for specific purposes. They proposed six threat intelligence metrics: Volume, Differential Contribution, Exclusive Contribution, Latency, Coverage, and Accuracy.
+
+% \cite{schaberreiter_2019_a}
+Schaberreiter et al. [9] presented a methodology for quantitatively assessing the trustworthiness of CTI sources. Their approach enables automatic evaluation of sources without the need for human expert intervention, leading to operational benefits. The authors defined ten parameters (such as Maintenance, False Positives, Verifiability, etc.) and calculated scores by comparing different sources against each other. They used different weights to calculate the trustworthiness of CTI sources.
