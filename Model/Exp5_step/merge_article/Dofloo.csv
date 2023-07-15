@@ -1,0 +1,47 @@
+StepNum,DocId,Sentence
+1,"D1,3",The main method then branches to function named get_executable_name which reads the symlink /proc/self/exe via readlink(..)
+1,"D1,4","This Backdoor gathers the following data:
+
+CPU information
+Memory statistics
+IP address of infected machine
+Reads the following information from /proc:
+/proc/stat
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/dev
+/proc/self/exe
+/proc/self/maps
+/proc/sys/vm/overcommit_memory
+/proc/sys/kernel/rtsig-max
+/proc/sys/kernel/ngroups_max
+/proc/sys/kernel/osrelease
+/proc/self/fd/%d/%s
+/proc/self/fd
+/proc/net
+Other Details"
+2,"D1,3","We then read data from the C2, but first, we zero out the buffer that we are using and have a maximum size of 0x1380 that we want to receive"
+60,"D1,3","Persistence
+Persistence is achieved by the malware by adding to /etc/rc.local and the /etc/init.d/boot.local files (in the auto_boot function); however before it overwrites this file it first checks to see if it has already done so"
+60,"D1,4","Installation
+
+This Backdoor adds the following processes:
+
+sed -i -e '/exit/d' /etc/rc.local
+sed -i -e '/^\r\n|\r|\n$/d' /etc/rc.local
+sed -i -e '/%s/d' /etc/rc.local
+sed -i -e '2 i%s/%s' /etc/rc.local
+sed -i -e '2 i%s/%s start' /etc/rc.d/rc.local
+sed -i -e '2 i%s/%s start' /etc/init.d/boot.local
+Backdoor Routine"
+69,"D1,2","Trend Micro researchers also discovered that the latest variant of the AESDDoS bot can modify files i.e., /etc/rc.local and /etc/rc.d/rc.local, as an autostart technique by appending the {malware path}/{malware file name} reboot command"
+69,"D1,3","(there are several string operations, such as sed -i -e '2 i%s/%s' /etc/rc.local is formatted for example)"
+317,"D1,4","This Backdoor opens the following files:
+
+/etc/host.conf
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/suid-debug
+/etc/ld.so.cache"
+322,"D1,2",The malware also connects to 23.224.59.34:48080 to send and receive remote shell commands from the attacker
+332,"D1,3",The way the malware gets information regarding the network adapter is reading the /proc/net/dev file
