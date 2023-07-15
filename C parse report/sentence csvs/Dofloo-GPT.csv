@@ -1,0 +1,11 @@
+Number,Content
+Sentence 1,"In this malware attack activity, the initial method involves the execution of a function called get_executable_name, which reads the symlink /proc/self/exe using the readlink(..) function."
+Sentence 2,"The backdoor then proceeds to gather various data, including CPU information, memory statistics, and the IP address of the infected machine."
+Sentence 3,"It retrieves information from files located in the /proc directory, such as /proc/stat, /proc/meminfo, /proc/cpuinfo, /proc/net/dev, /proc/self/exe, /proc/self/maps, /proc/sys/vm/overcommit_memory, /proc/sys/kernel/rtsig-max, /proc/sys/kernel/ngroups_max, /proc/sys/kernel/osrelease, /proc/self/fd/%d/%s, /proc/self/fd, and /proc/net."
+Sentence 4,"To ensure persistence, the malware modifies the /etc/rc.local and /etc/init.d/boot.local files."
+Sentence 5,"Several string operations, such as using the sed command, are employed to modify these files."
+Sentence 6,"Additionally, the backdoor opens specific files, including /etc/host.conf, /etc/resolv.conf, /etc/nsswitch.conf, /etc/suid-debug, and /etc/ld.so.cache."
+Sentence 7,The backdoor establishes communication with its command and control (C2) server to receive instructions.
+Sentence 8,"The malware establishes a connection to the IP address 23.224.59.34 on port 48080, enabling the attacker to send and receive remote shell commands."
+Sentence 9,The network adapter information is obtained by reading the /proc/net/dev file.
+Sentence 10,"This malware employs tactics such as data collection, command and control communication, persistence through file modification, and remote shell interaction to carry out its malicious activities."

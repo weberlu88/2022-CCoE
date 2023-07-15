@@ -87,7 +87,7 @@ def find_verb_of_vocab(sentence: str, target_word: str, lemma=True):
         token = token.head
         # verb found
         if token.tag_.startswith('VB'):
-            if token.lemma_ in ['m6_6n3', 'se', 'resolv.conf']: # verb refinement, add a black list of ev_verb. these words are not verb.
+            if token.lemma_ in ['include', 'm6_6n3', 'se', 'resolv.conf']: # verb refinement, add a black list of ev_verb. these words are not verb.
                 continue 
             if lemma:
                 return token.lemma_

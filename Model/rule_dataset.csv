@@ -104,6 +104,8 @@ FILE,CLOSE,man,close(),close,close a file descriptor
 FILE,CLOSE,man,close(),free,the resources associated with the open file description are freed
 FILE,OTHER,man,lseek(),reposition,reposition read/write file offset
 PROC,PROC_EXE,man,execve(),execute,execute program
+PROC,PROC_EXE,None,execve(),use,use program
+PROC,PROC_EXE,None,exec(),use,use the program referred to by pathname
 PROC,PROC_EXE,man,exec(),execute,executes the program referred to by pathname
 PROC,PROC_EXE,man,exec(),replace,replaces the current process image with a new process image.
 PROC,PROC_EXE,man,clone(),create,create a child process
@@ -197,6 +199,7 @@ PROC,INFO_GET,None,sysinfo(),find,find linux kernel information
 PROC,INFO_GET,None,uname(),find,find linux kernel information
 NET,NET_CONNECT,man,connect(),initiate,initiate a connection on a socket
 NET,NET_CONNECT,man,connect(),connect,The connect() system call connects the socket referred to by the file descripton
+NET,NET_CONNECT,None,connect(),establish,establish a connection on a socket
 FILE,NET_CONNECT,man,pipe(),create,create pipe
 NET,NET_CONNECT,man,bind(),bind,bind a name to a socket
 NET,NET_CONNECT,man,bind(),assign,bind() assigns the address specified by addr to the socket

@@ -1,8 +1,9 @@
 Family,DocId,Genre,Txtname,Source,Title,objN,objD,objSysN,objSysD,opN,opD,opSysN,opSysD,obj,objSys,op,opSys,numOfSTobj,numOfSTsys
 dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS ,0.0,69.0,0.0,10.0,0.0,371.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0
-dofloo,"D1,2",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,8.0,69.0,2.0,10.0,7.0,371.0,3.0,9.0,0.1159420289855072,0.2,0.0188679245283018,0.1159420289855072,4.0,2.0
-dofloo,"D1,3",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,9.0,69.0,2.0,10.0,64.0,371.0,3.0,9.0,0.1304347826086956,0.2,0.1725067385444744,0.1304347826086956,9.0,5.0
-dofloo,"D1,4",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,10.0,69.0,6.0,10.0,10.0,371.0,0.0,9.0,0.144927536231884,0.6,0.0269541778975741,0.144927536231884,15.0,9.0
+dofloo,"D1,2",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,8.0,69.0,2.0,10.0,7.0,371.0,3.0,9.0,0.11594202898550725,0.2,0.018867924528301886,0.11594202898550725,4.0,2.0
+dofloo,"D1,3",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,9.0,69.0,2.0,10.0,64.0,371.0,3.0,9.0,0.13043478260869565,0.2,0.1725067385444744,0.13043478260869565,9.0,5.0
+dofloo,"D1,4",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,10.0,69.0,6.0,10.0,10.0,371.0,0.0,9.0,0.14492753623188406,0.6,0.026954177897574125,0.14492753623188406,15.0,9.0
+dofloo,"D1,5",gpt,Dofloo-GPT,gpt,gpt,12.0,69.0,5.0,10.0,18.0,371.0,3.0,9.0,0.17391304347826086,0.5,0.04851752021563342,0.17391304347826086,15.0,6.0
 xorddos,"D2,1",tech,Xorddos-Cdnetworks,cdnetworks.com, Understanding a XOR.DDoS Attack ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0
 xorddos,"D2,2",news,Xorddos-Crowdstrike,crowdstrike.com , LinuxTargeted Malware Increases by 35p in 2021 ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0
 xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState ,23.0,815.0,11.0,14.0,901.0,7469.0,0.0,77.0,0.0282208588957055,0.7857142857142857,0.1206319453742134,0.0282208588957055,5.0,3.0
@@ -62,7 +63,7 @@ Defray777,"D12,2",analysis,Defray777-crowdstrike,crowdstrike,CARBON SPIDER and S
 Defray777,"D12,3",analysis,Defray777-securelist,securelist,RansomEXX Trojan attacks Linux systems,0.0,18.0,0.0,3.0,0.0,40.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
 Demonbot,"D13,1",analysis,Demonbot-bitdefender,bitdefender,threat group running an active cryptojacking campaign,72.0,542.0,4.0,21.0,2.0,1436.0,0.0,15.0,0.1328413284132841,0.1904761904761904,0.0013927576601671,0.1328413284132841,14.0,1.0
 Demonbot,"D13,2",tech,Demonbot-trendmicro,trendmicro,Backdoor.Linux.BASHLITE.SMJC2,7.0,542.0,0.0,21.0,0.0,1436.0,0.0,15.0,0.0129151291512915,0.0,0.0,0.0129151291512915,1.0,0.0
-EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users,26.0,49978.0,0.0,2.0,4.0,58329.0,2.0,4.0,0.0005202289007163152,0.0,6.857652282741003e-05,0.0005202289007163152,7.0,0.0
+EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users,26.0,49978.0,0.0,2.0,4.0,58329.0,2.0,4.0,0.0005202289007163,0.0,6.857652282741003e-05,0.0005202289007163,7.0,0.0
 FontOnLake,"D15,1",tech,FontOnLake-eset.tech,WeLiveSecurity,Previously unknown malware family targeting Linux,3.0,22.0,0.0,0.0,0.0,73.0,0.0,1.0,0.1363636363636363,0.0,0.0,0.1363636363636363,2.0,0.0
 FontOnLake,"D15,2",analysis,FontOnLake-eset.wp,eset,Research white papers,9.0,22.0,0.0,0.0,20.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.273972602739726,0.4090909090909091,9.0,0.0
 HCRootkit,"D16,1",analysis,HCRootkit-lacework,lacework,Sutersu Linux Rootkit Analysis,9.0,22.0,0.0,0.0,4.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.0547945205479452,0.4090909090909091,6.0,0.0
@@ -81,3 +82,4 @@ XMRigMiner,"D21,1",analysis,XMRigMiner-intezer.newgolan,intezer.com,New Golang W
 XMRigMiner,"D21,2",news,XMRigMiner-intezer.rockegroup,intezer.com,Rocke Group Targets the Cloud,2.0,252.0,0.0,6.0,2.0,494.0,0.0,0.0,0.0079365079365079,0.0,0.0040485829959514,0.0079365079365079,2.0,0.0
 XMRigMiner,"D21,3",analysis,XMRigMiner-intezer.teamTNT,intezer.com,TeamTNT Cryptomining Explosion,40.0,252.0,0.0,6.0,13.0,494.0,0.0,0.0,0.1587301587301587,0.0,0.0263157894736842,0.1587301587301587,5.0,0.0
 XMRigMiner,"D21,4",analysis,XMRigMiner-securelist,securelist,On the trail of the XMRig miner,1.0,252.0,0.0,6.0,1.0,494.0,0.0,0.0,0.0039682539682539,0.0,0.0020242914979757,0.0039682539682539,1.0,0.0
+example,"D,",gpt,X-GPT,gpt,gpt,0.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
