@@ -1,0 +1,85 @@
+Family,DocId,Genre,Txtname,Source,Title,objN,objD,objSysN,objSysD,opN,opD,opSysN,opSysD,obj,objSys,op,opSys,numOfSTobj,numOfSTsys
+dofloo,"D1,1",news,Dofloo-BleepingComputer,bleepingcomputer.com , Exposed Docker APIs Abused by DDoS ,0.0,69.0,0.0,10.0,0.0,371.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,0.0
+dofloo,"D1,2",news,Dofloo-Securityaffairs,securityaffairs.co , AESDDoS exploits CVE20193396 flaw ,8.0,69.0,2.0,10.0,7.0,371.0,3.0,9.0,0.11594202898550725,0.2,0.018867924528301886,0.11594202898550725,4.0,2.0
+dofloo,"D1,3",analysis,Dofloo-SyscallParty,blog.syscall.party , Analysing the new Linux_AES.DDoS IoT malware ,9.0,69.0,2.0,10.0,64.0,371.0,3.0,9.0,0.13043478260869565,0.2,0.1725067385444744,0.13043478260869565,9.0,5.0
+dofloo,"D1,4",tech,Dofloo-Trendmicro,trendmicro.com , Threat Encyclopedia ,10.0,69.0,6.0,10.0,10.0,371.0,0.0,9.0,0.14492753623188406,0.6,0.026954177897574125,0.14492753623188406,15.0,9.0
+dofloo,"D1,5",gpt,Dofloo-GPT,gpt,gpt,12.0,69.0,5.0,10.0,18.0,371.0,3.0,9.0,0.17391304347826086,0.5,0.04851752021563342,0.17391304347826086,15.0,6.0
+xorddos,"D2,1",tech,Xorddos-Cdnetworks,cdnetworks.com, Understanding a XOR.DDoS Attack ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0
+xorddos,"D2,2",news,Xorddos-Crowdstrike,crowdstrike.com , LinuxTargeted Malware Increases by 35p in 2021 ,0.0,815.0,0.0,14.0,0.0,7469.0,0.0,77.0,0.0,0.0,0.0,0.0,0.0,0.0
+xorddos,"D2,3",analysis,Xorddos-Intezer,intezer.com , Linux Backdoor RedXOR Likely Operated by Chinese NationState ,23.0,815.0,11.0,14.0,901.0,7469.0,0.0,77.0,0.0282208588957055,0.7857142857142857,0.1206319453742134,0.0282208588957055,5.0,3.0
+xorddos,"D2,4",analysis,Xorddos-Ms,microsoft.com , A deeper look at the stealthy DDoS malware targeting Linux devices ,29.0,815.0,13.0,14.0,963.0,7469.0,64.0,77.0,0.0355828220858895,0.9285714285714286,0.1289329227473557,0.0355828220858895,62.0,23.0
+xorddos,"D2,5",tech,Xorddos-Trendmicro,trendmicro.com , Threat Encyclopedia ,20.0,815.0,11.0,14.0,5.0,7469.0,0.0,77.0,0.0245398773006134,0.7857142857142857,0.0006694336591243,0.0245398773006134,6.0,3.0
+xorddos,"D2,6",analysis,Xorddos-Trendmicro2,trendmicro.com ," XORDDoS, Kaiji Variants Target Exposed Docker Servers ",18.0,815.0,0.0,14.0,4.0,7469.0,0.0,77.0,0.0220858895705521,0.0,0.0005355469272995,0.0220858895705521,2.0,0.0
+Darlloz,"D3,6",analysis,Darlloz-cisco,blogs.cisco.com , Including Malware ,0.0,318.0,0.0,1.0,0.0,596.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Darlloz,"D3,1",news,Darlloz-Broadcom,community.broadcom.com , Endpoint Protection Symantec Enterprise ,0.0,318.0,0.0,1.0,0.0,596.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Darlloz,"D3,2",tech,Darlloz-Giac,giac.org , introduction linux based malware ,31.0,318.0,0.0,1.0,0.0,596.0,0.0,1.0,0.0974842767295597,0.0,0.0,0.0974842767295597,2.0,0.0
+Darlloz,"D3,3",analysis,Darlloz-Icc17,icc17 , IoT Sandbox To Analysis IoT malware Zollard ,64.0,318.0,0.0,1.0,0.0,596.0,0.0,1.0,0.2012578616352201,0.0,0.0,0.2012578616352201,2.0,0.0
+Darlloz,"D3,4",tech,Darlloz-Trendmicro,trendmicro.com , UNIX_DARLLOZ.A ,73.0,318.0,0.0,1.0,69.0,596.0,0.0,1.0,0.2295597484276729,0.0,0.1157718120805369,0.2295597484276729,155.0,0.0
+Darlloz,"D3,5",tech,Darlloz-Trendmicro2,trendmicro.com , Worm_Linux_DARLLOZ.AA ,74.0,318.0,0.0,1.0,73.0,596.0,0.0,1.0,0.2327044025157232,0.0,0.12248322147651,0.2327044025157232,136.0,0.0
+lupper,"D8,1",news,Lupper-securelist,securelist.com , Linux.Lupper reports ,0.0,72329.0,0.0,0.0,0.0,144148.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+lupper,"D8,2",analysis,Lupper-spamlaws,spamlaws.com ,  Lupper Worm ,0.0,72329.0,0.0,0.0,0.0,144148.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+lupper,"D8,3",tech,Lupper-trendmicro,trendmicro.com , Lupil_Lupper Worm Vulnerability  Threat Encyclopedia ,0.0,72329.0,0.0,0.0,0.0,144148.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0
+lupper,"D8,4",tech,Lupper-archive,web.archive.org , Linux_Lupper.worm ,1.0,72329.0,0.0,0.0,0.0,144148.0,0.0,2.0,1.382571306115113e-05,0.0,0.0,1.382571306115113e-05,1.0,0.0
+Gafgyt,"D4,1",analysis,Gafgyt-fortinet,fortinet.com , Linux Gafgyt.B!tr Exploits Netcore Vulnerability ,2.0,36.0,0.0,0.0,0.0,79.0,0.0,0.0,0.0555555555555555,0.0,0.0,0.0555555555555555,1.0,0.0
+Gafgyt,"D4,2",analysis,Gafgyt-nozominetworks,nozominetworks.com , Could Threat Actors Be Downgrading Their Malware to Evade Detection ,8.0,36.0,0.0,0.0,0.0,79.0,0.0,0.0,0.2222222222222222,0.0,0.0,0.2222222222222222,1.0,0.0
+Gafgyt,"D4,4",analysis,Gafgyt-securityscorecard,resources.securityscorecard.com , A Detailed Analysis Of The Gafgyt Malware Targeting IoT Devices ,12.0,36.0,0.0,0.0,12.0,79.0,0.0,0.0,0.3333333333333333,0.0,0.1518987341772152,0.3333333333333333,4.0,0.0
+Gafgyt,"D4,3",analysis,Gafgyt-sectrio,sectrio.com , Gafgyt Backdoor Malware report ,9.0,36.0,0.0,0.0,13.0,79.0,0.0,0.0,0.25,0.0,0.1645569620253164,0.25,2.0,0.0
+Gafgyt,"D4,5",tech,Gafgyt-trendmicro,trendmicro.com , GAFGYT Threat Encyclopedia ,0.0,36.0,0.0,0.0,0.0,79.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Gafgyt,"D4,6",analysis,Gafgyt-unit42,unit42.paloaltonetworks.com , Multiexploit IoT_Linux Botnets Mirai and Gafgyt Target Apache Struts ,3.0,36.0,0.0,0.0,0.0,79.0,0.0,0.0,0.0833333333333333,0.0,0.0,0.0833333333333333,2.0,0.0
+Gafgyt,"D4,7",analysis,Gafgyt-unit42-2,unit42.paloaltonetworks.com , Unit 42 Finds New Mirai and Gafgyt IoT_Linux Botnet Campaigns ,3.0,36.0,0.0,0.0,0.0,79.0,0.0,0.0,0.0833333333333333,0.0,0.0,0.0833333333333333,2.0,0.0
+Gafgyt,"D4,8",tech,Gafgyt-wikipedia,wikipedia.org , Wikipedia BASHLITE ,0.0,36.0,0.0,0.0,0.0,79.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Luabot,"D5,1",news,Luabot-nj.gov,cyber.nj.gov , NJCCIC Threat Profile LuaBot ,0.0,289.0,0.0,0.0,0.0,349.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Luabot,"D5,2",analysis,Luabot-malwaremustdie,malwaremustdie.org , 2016 Linux_LuaBot IoT botnet as service ,11.0,289.0,0.0,0.0,8.0,349.0,0.0,1.0,0.0380622837370242,0.0,0.0229226361031518,0.0380622837370242,9.0,0.0
+Luabot,"D5,3",tech,Luabot-microsoft,microsoft.com , Backdoor_Linux_Luabot.A threat description ,0.0,289.0,0.0,0.0,0.0,349.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Luabot,"D5,4",news,Luabot-softpedia,news.softpedia.com , LuaBot Is the First DDoS Malware Coded in Lua Targeting Linux Platforms ,0.0,289.0,0.0,0.0,0.0,349.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Luabot,"D5,5",analysis,Luabot-securityaffairs,securityaffairs.co , LuaBot is the first Linux DDoS botnet written in Lua Language ,0.0,289.0,0.0,0.0,0.0,349.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Luabot,"D5,6",tech,Luabot-trendmicro,trendmicro.com , New Linux Malware Exploits CGI Vulnerability ,8.0,289.0,0.0,0.0,4.0,349.0,0.0,1.0,0.0276816608996539,0.0,0.0114613180515759,0.0276816608996539,2.0,0.0
+Luabot,"D5,7",analysis,Luabot-w00tsec,w00tsec.blogspot , LuaBot Malware targeting cable modems ,13.0,289.0,0.0,0.0,1.0,349.0,0.0,1.0,0.0449826989619377,0.0,0.0028653295128939,0.0449826989619377,8.0,0.0
+Luabot,"D5,8",tech,Luabot-ibmcloud,xforce.ibmcloud.com , LuaBot Linux_IoT Malware ,4.0,289.0,0.0,0.0,0.0,349.0,0.0,1.0,0.0138408304498269,0.0,0.0,0.0138408304498269,1.0,0.0
+Kaiten,"D6,1",tech,Kaiten-fsecure,fsecure.com , Backdoor OSX Tsunami.A ,0.0,17.0,0.0,6.0,0.0,38.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Kaiten,"D6,2",tech,Kaiten-lacework,lacework.com , The Kek Security Network ,2.0,17.0,0.0,6.0,6.0,38.0,0.0,0.0,0.1176470588235294,0.0,0.1578947368421052,0.1176470588235294,2.0,0.0
+Kaiten,"D6,3",analysis,Kaiten-tarlogic,tarlogic.com , Attackers Abuse MobileIron’s RCE to deliver Kaiten ,3.0,17.0,0.0,6.0,0.0,38.0,0.0,0.0,0.1764705882352941,0.0,0.0,0.1764705882352941,1.0,0.0
+Kaiten,"D6,4",campaign,Kaiten-trendmicro,trendmicro.com , Exposed Docker Server Abused to Drop Cryptominer DDoS Bot,1.0,17.0,0.0,6.0,0.0,38.0,0.0,0.0,0.0588235294117647,0.0,0.0,0.0588235294117647,1.0,0.0
+Kaiten,"D6,5",tech,Kaiten-trendmicro2,trendmicro.com2 , Backdoor.Linux.KAITEN.AMV Threat Encyclopedia ,2.0,17.0,2.0,6.0,2.0,38.0,0.0,0.0,0.1176470588235294,0.3333333333333333,0.0526315789473684,0.1176470588235294,2.0,2.0
+Turla,"D7,1",tech,Turla-trellix,kcm.trellix.com , Trellix Insights The Penquin Turla ,1.0,13.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0769230769230769,0.0,0.0,0.0769230769230769,1.0,0.0
+Turla,"D7,2",analysis,Turla-leonardo,leonardo.com , Malware Technical Insight Turla Penquin_x64 ,4.0,13.0,0.0,0.0,1.0,20.0,0.0,0.0,0.3076923076923077,0.0,0.05,0.3076923076923077,3.0,0.0
+Turla,"D7,3",analysis,Turla-securelist,securelist.com , The Penquin Turla ,3.0,13.0,0.0,0.0,1.0,20.0,0.0,0.0,0.2307692307692307,0.0,0.05,0.2307692307692307,2.0,0.0
+Turla,"D7,4",tech,Turla-trendmicro,trendmicro.com , BKDR_TURLA.YKX Threat Encyclopedia ,0.0,13.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+BPFDoor,"D9,1",analysis,BPFDoor-CrowdStrike,CrowdStrike,Hunting a Global Telecommunications Threat,3.0,27.0,0.0,0.0,0.0,74.0,0.0,0.0,0.1111111111111111,0.0,0.0,0.1111111111111111,6.0,0.0
+BPFDoor,"D9,2",analysis,BPFDoor-Qualys,Qualys.com,Detect the Stealthy NationState BPFDoor,5.0,27.0,0.0,0.0,7.0,74.0,0.0,0.0,0.1851851851851851,0.0,0.0945945945945946,0.1851851851851851,12.0,0.0
+BPFDoor,"D9,3",analysis,BPFDoor-deepinstinct,deepinstinct.com,Stealthy Sniffing Backdoor ups its Game,1.0,27.0,0.0,0.0,1.0,74.0,0.0,0.0,0.037037037037037,0.0,0.0135135135135135,0.037037037037037,2.0,0.0
+BPFDoor,"D9,4",analysis,BPFDoor-exatrack,exatrack.com,Tricephalic Hellkeeper a table of a passive backdoor,3.0,27.0,0.0,0.0,16.0,74.0,0.0,0.0,0.1111111111111111,0.0,0.2162162162162162,0.1111111111111111,12.0,0.0
+BPFDoor,"D9,5",analysis,BPFDoor-github,github.io,Looking Closer at BPF Bytecode,1.0,27.0,0.0,0.0,23.0,74.0,0.0,0.0,0.037037037037037,0.0,0.3108108108108108,0.037037037037037,1.0,0.0
+BPFDoor,"D9,6",news,BPFDoor-medium,medium,an active Chinese global surveillance tool,1.0,27.0,0.0,0.0,1.0,74.0,0.0,0.0,0.037037037037037,0.0,0.0135135135135135,0.037037037037037,1.0,0.0
+BPFDoor,"D9,7",analysis,BPFDoor-sandflysecurity,sandflysecurity,An Evasive Linux Backdoor Technical Analysis,7.0,27.0,0.0,0.0,4.0,74.0,0.0,0.0,0.2592592592592592,0.0,0.054054054054054,0.2592592592592592,11.0,0.0
+BPFDoor,"D9,8",analysis,BPFDoor-unfinished.bike,unfinished.bike,Fun with the new bpfdoor,7.0,27.0,0.0,0.0,9.0,74.0,0.0,0.0,0.2592592592592592,0.0,0.1216216216216216,0.2592592592592592,6.0,0.0
+Conti,"D10,1",analysis,Conti-SentinelOne,SentinelOne,Hypervisor Ransomware,0.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Conti,"D10,2",analysis,Conti-Trellix,Trellix.com,Conti Group Targets ESXi Hypervisors,1.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.1666666666666666,0.0,0.0,0.1666666666666666,1.0,0.0
+Conti,"D10,3",analysis,Conti-VMwareBlog,VMwareBlog,TAU Threat Discovery_ Conti Ransomware,0.0,6.0,0.0,0.0,0.0,11.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ChinaZ,"D11,1",tech,ChinaZ-TrendMicro,TrendMicro,UNIX_FLOODDOS.A Threat Encyclopedia,0.0,297.0,0.0,4.0,0.0,596.0,0.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0
+ChinaZ,"D11,2",analysis,ChinaZ-ahnlab,ahnlab,ChinaZ DDoS Bot Malware Distributed to Linux SSH Servers,17.0,297.0,0.0,4.0,27.0,596.0,2.0,3.0,0.0572390572390572,0.0,0.0453020134228187,0.0572390572390572,5.0,0.0
+Defray777,"D12,1",analysis,Defray777-Medium,Medium,RansomEXX — Analysis of the Ransomware,2.0,18.0,0.0,3.0,1.0,40.0,1.0,1.0,0.1111111111111111,0.0,0.025,0.1111111111111111,2.0,0.0
+Defray777,"D12,2",analysis,Defray777-crowdstrike,crowdstrike,CARBON SPIDER and SPRITE SPIDER Target ESXi Servers,2.0,18.0,0.0,3.0,1.0,40.0,1.0,1.0,0.1111111111111111,0.0,0.025,0.1111111111111111,2.0,0.0
+Defray777,"D12,3",analysis,Defray777-securelist,securelist,RansomEXX Trojan attacks Linux systems,0.0,18.0,0.0,3.0,0.0,40.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+Demonbot,"D13,1",analysis,Demonbot-bitdefender,bitdefender,threat group running an active cryptojacking campaign,72.0,542.0,4.0,21.0,2.0,1436.0,0.0,15.0,0.1328413284132841,0.1904761904761904,0.0013927576601671,0.1328413284132841,14.0,1.0
+Demonbot,"D13,2",tech,Demonbot-trendmicro,trendmicro,Backdoor.Linux.BASHLITE.SMJC2,7.0,542.0,0.0,21.0,0.0,1436.0,0.0,15.0,0.0129151291512915,0.0,0.0,0.0129151291512915,1.0,0.0
+EvilGnome,"D14,1",analysis,EvilGnome-intezer,intezer,Rare Malware Spying on Linux Desktop Users,26.0,49978.0,0.0,2.0,4.0,58329.0,2.0,4.0,0.0005202289007163,0.0,6.857652282741003e-05,0.0005202289007163,7.0,0.0
+FontOnLake,"D15,1",tech,FontOnLake-eset.tech,WeLiveSecurity,Previously unknown malware family targeting Linux,3.0,22.0,0.0,0.0,0.0,73.0,0.0,1.0,0.1363636363636363,0.0,0.0,0.1363636363636363,2.0,0.0
+FontOnLake,"D15,2",analysis,FontOnLake-eset.wp,eset,Research white papers,9.0,22.0,0.0,0.0,20.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.273972602739726,0.4090909090909091,9.0,0.0
+HCRootkit,"D16,1",analysis,HCRootkit-lacework,lacework,Sutersu Linux Rootkit Analysis,9.0,22.0,0.0,0.0,4.0,73.0,1.0,1.0,0.4090909090909091,0.0,0.0547945205479452,0.4090909090909091,6.0,0.0
+KEYPLUG,"D17,1",tech,KEYPLUG-csa.gov,CSAsingapore,New Indicators of Compromise Discovered,0.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+KEYPLUG,"D17,2",analysis,KEYPLUG-Mandiant,Mandiant,Does This Look Infected A Summary of APT41,1.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.1,0.0,0.0,0.1,1.0,0.0
+KEYPLUG,"D17,3",analysis,KEYPLUG-cta,cta,Steals From Wide Field of Targets,1.0,10.0,0.0,2.0,0.0,28.0,0.0,0.0,0.1,0.0,0.0,0.1,1.0,0.0
+Lightning,"D18,1",analysis,Lightning-intezer,intezer,New Undetected “Swiss Army Knife”,3.0,23.0,1.0,1.0,0.0,36.0,0.0,0.0,0.1304347826086956,1.0,0.0,0.1304347826086956,1.0,1.0
+Melofee,"D19,1",analysis,Melofee-exatrack,blog.exatrack.com,a new alien malware in the Panda's toolset targeting Linux hosts,81.0,859.0,0.0,49.0,22.0,1112.0,0.0,47.0,0.0942956926658905,0.0,0.0197841726618705,0.0942956926658905,11.0,0.0
+Melofee,"D19,2",news,Melofee-thehackernews,thehackernews,New Linux Malware Linked to Chinese APT Groups,0.0,859.0,0.0,49.0,0.0,1112.0,0.0,47.0,0.0,0.0,0.0,0.0,0.0,0.0
+Moose,"D20,1",news,Moose-gosecure,gosecure,cybercrime performed by the Linux_Moose botnet,,,,,,,,,,,,,,
+Moose,"D20,2",news,Moose-lwm,lwn.net,Interesting but ineffective,,,,,,,,,,,,,,
+Moose,"D20,3",analysis,Moose-eset.dissectPDF,welivesecurity,Dissecting LinuxMoose,,,,,,,,,,,,,,
+Moose,"D20,4",analysis,Moose-eset.breath,welivesecurity,Still breathing,,,,,,,,,,,,,,
+Moose,"D20,5",news,Moose-eset.routerworm,welivesecurity,the router worm with an appetite for social networks,,,,,,,,,,,,,,
+XMRigMiner,"D21,1",analysis,XMRigMiner-intezer.newgolan,intezer.com,New Golang Worm Drops XMRig Miner on Servers,15.0,252.0,0.0,6.0,0.0,494.0,0.0,0.0,0.0595238095238095,0.0,0.0,0.0595238095238095,1.0,0.0
+XMRigMiner,"D21,2",news,XMRigMiner-intezer.rockegroup,intezer.com,Rocke Group Targets the Cloud,2.0,252.0,0.0,6.0,2.0,494.0,0.0,0.0,0.0079365079365079,0.0,0.0040485829959514,0.0079365079365079,2.0,0.0
+XMRigMiner,"D21,3",analysis,XMRigMiner-intezer.teamTNT,intezer.com,TeamTNT Cryptomining Explosion,40.0,252.0,0.0,6.0,13.0,494.0,0.0,0.0,0.1587301587301587,0.0,0.0263157894736842,0.1587301587301587,5.0,0.0
+XMRigMiner,"D21,4",analysis,XMRigMiner-securelist,securelist,On the trail of the XMRig miner,1.0,252.0,0.0,6.0,1.0,494.0,0.0,0.0,0.0039682539682539,0.0,0.0020242914979757,0.0039682539682539,1.0,0.0
+example,"D,",gpt,X-GPT,gpt,gpt,0.0,69.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

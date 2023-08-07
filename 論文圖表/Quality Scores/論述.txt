@@ -1,0 +1,5 @@
+Table x 列出了 77 篇文件在 4 個 quality metrics 中的分數，前兩個欄位是CTI document的主題malware和文章編號。我們列出每一種指標的分子還有商，分子的欄位以 "_N" 的 postfix 表示。
+
+1 Gamma obj (物件的 coverage) 的數量一定最多，因為文章需要先記載物件才有機會描述 AA description。
+2 Fop 最重要
+3 Fop 分數很低，因為ASG steps記錄了大量的記憶體操作，平均來說占了xx%，例如(action->mem)。
