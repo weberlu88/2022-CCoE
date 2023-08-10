@@ -1,0 +1,214 @@
+	Report Dofloo-BleepingComputer.csv
+
+
+	Report Dofloo-GPT.csv
+
+AA desc: <OP 9 act=open, obj=/etc/host\.conf>
+Sentence preview: Additionally, the backdoor opens specifi
+matched steps:
+ 359. 1533    -> open()     -> /etc/host.conf
+
+AA desc: <OP 4 act=locate, obj=/proc/self>
+Sentence preview: It retrieves information from files loca
+matched steps:
+   1. malware -> readlink() -> /proc/self/exe
+
+AA desc: <OP13 act=read, obj=/proc/net/dev>
+Sentence preview: The network adapter information is obtai
+matched steps:
+ 332. 1532    -> read()     -> /proc/net/dev
+
+AA desc: <OP12 act=establish, obj=ip_addr/ip_addr:port/port>
+Sentence preview: The malware establishes a connection to 
+matched steps:
+ 322. 1531    -> connect()  -> 218.60.25.91:10210
+ 366. 1533    -> connect()  -> 127.0.0.53:53
+ 371. 1533    -> connect()  -> 0.0.0.0:1020
+
+AA desc: <OP 6 act=modify, obj=/etc/rc\.local>
+Sentence preview: To ensure persistence, the malware modif
+matched steps:
+  69. /etc/sedRrSM8d -> rename()   -> /etc/rc.local
+ 145. /etc/sed7WeJOi -> rename()   -> /etc/rc.local
+ 188. /etc/sedSQpmdi -> rename()   -> /etc/rc.local
+
+AA desc: <OP 8 act=use, obj=^sed$>
+Sentence preview: Several string operations, such as using
+matched steps:
+  46. sh      -> exec()     -> sed
+  89. sh      -> exec()     -> sed
+ 122. sh      -> exec()     -> sed
+ 165. sh      -> exec()     -> sed
+ 208. sh      -> exec()     -> sed
+ 242. sh      -> exec()     -> sed
+
+AA desc: <OP10 act=open, obj=/etc/resolv\.conf>
+Sentence preview: Additionally, the backdoor opens specifi
+matched steps:
+ 317. 1531    -> open()     -> /etc/resolv.conf
+ 349. 1533    -> open()     -> /etc/resolv.conf
+
+AA desc: <OP11 act=open, obj=/etc/nsswitch\.conf>
+Sentence preview: Additionally, the backdoor opens specifi
+matched steps:
+ 354. 1533    -> open()     -> /etc/nsswitch.conf
+
+
+	Report Dofloo-Securityaffairs.csv
+
+AA desc: <OP 1 act=connect, obj=ip_addr/ip_addr:port/port>
+Sentence preview: The malware also connects to 23.224.59.3
+matched steps:
+ 368. 1533    -> send()     -> 127.0.0.53:53
+ 322. 1531    -> connect()  -> 218.60.25.91:10210
+ 366. 1533    -> connect()  -> 127.0.0.53:53
+ 371. 1533    -> connect()  -> 0.0.0.0:1020
+
+AA desc: <OP 2 act=connect, obj=ip_addr/ip_addr:port/port>
+Sentence preview: The malware also connects to 23.224.59.3
+matched steps:
+ 322. 1531    -> connect()  -> 218.60.25.91:10210
+ 366. 1533    -> connect()  -> 127.0.0.53:53
+ 371. 1533    -> connect()  -> 0.0.0.0:1020
+ 368. 1533    -> send()     -> 127.0.0.53:53
+
+AA desc: <OP 3 act=modify, obj=/etc/rc\.local>
+Sentence preview: Trend Micro researchers also discovered 
+matched steps:
+  69. /etc/sedRrSM8d -> rename()   -> /etc/rc.local
+ 145. /etc/sed7WeJOi -> rename()   -> /etc/rc.local
+ 188. /etc/sedSQpmdi -> rename()   -> /etc/rc.local
+
+
+	Report Dofloo-SyscallParty.csv
+
+AA desc: <OP10 act=read, obj=/proc/net/dev>
+Sentence preview: The way the malware gets information reg
+matched steps:
+ 332. 1532    -> read()     -> /proc/net/dev
+
+AA desc: <OP 5 act=add, obj=/etc/init\.d/.*>
+Sentence preview: Persistence Persistence is achieved by t
+matched steps:
+ 256. sed     -> open()     -> /etc/init.d/boot.local
+
+AA desc: <OP 9 act=format, obj=/etc/rc\.local>
+Sentence preview:  (there are several string operations, s
+matched steps:
+  69. /etc/sedRrSM8d -> rename()   -> /etc/rc.local
+ 145. /etc/sed7WeJOi -> rename()   -> /etc/rc.local
+ 188. /etc/sedSQpmdi -> rename()   -> /etc/rc.local
+
+AA desc: <OP16 act=have, obj=0x[0-9a-zA-Z]{1,16} (mem)>
+Sentence preview: We then read data from the C2, but first
+matched steps:
+   6. malware -> arch_prctl() -> Memory Address
+  30. sh      -> arch_prctl() -> Memory Address
+  51. sed     -> arch_prctl() -> Memory Address
+  73. sh      -> arch_prctl() -> Memory Address
+  94. sed     -> arch_prctl() -> Memory Address
+ 106. sh      -> arch_prctl() -> Memory Address
+ 127. sed     -> arch_prctl() -> Memory Address
+ 149. sh      -> arch_prctl() -> Memory Address
+ 170. sed     -> arch_prctl() -> Memory Address
+ 192. sh      -> arch_prctl() -> Memory Address
+ 213. sed     -> arch_prctl() -> Memory Address
+ 226. sh      -> arch_prctl() -> Memory Address
+ 247. sed     -> arch_prctl() -> Memory Address
+ 260. sh      -> arch_prctl() -> Memory Address
+ 281. rm      -> arch_prctl() -> Memory Address
+ 286. sh      -> arch_prctl() -> Memory Address
+ 307. rm      -> arch_prctl() -> Memory Address
+   2. malware -> mprotect() -> Memory Address
+  29. sh      -> mprotect() -> Memory Address
+  50. sed     -> mprotect() -> Memory Address
+  72. sh      -> mprotect() -> Memory Address
+  93. sed     -> mprotect() -> Memory Address
+ 105. sh      -> mprotect() -> Memory Address
+ 126. sed     -> mprotect() -> Memory Address
+ 148. sh      -> mprotect() -> Memory Address
+ 169. sed     -> mprotect() -> Memory Address
+ 191. sh      -> mprotect() -> Memory Address
+ 212. sed     -> mprotect() -> Memory Address
+ 225. sh      -> mprotect() -> Memory Address
+ 246. sed     -> mprotect() -> Memory Address
+ 259. sh      -> mprotect() -> Memory Address
+ 280. rm      -> mprotect() -> Memory Address
+ 285. sh      -> mprotect() -> Memory Address
+ 306. rm      -> mprotect() -> Memory Address
+ 311. 1531    -> mprotect() -> Memory Address
+ 339. 1532    -> mprotect() -> Memory Address
+ 348. 1533    -> mprotect() -> Memory Address
+   8. malware -> set_robust_list() -> Memory Address
+  54. sed     -> set_robust_list() -> Memory Address
+  97. sed     -> set_robust_list() -> Memory Address
+ 130. sed     -> set_robust_list() -> Memory Address
+ 173. sed     -> set_robust_list() -> Memory Address
+ 216. sed     -> set_robust_list() -> Memory Address
+ 250. sed     -> set_robust_list() -> Memory Address
+ 310. 1531    -> set_robust_list() -> Memory Address
+ 329. 1532    -> set_robust_list() -> Memory Address
+ 344. 1533    -> set_robust_list() -> Memory Address
+   7. malware -> set_tid_address() -> Memory Address
+  53. sed     -> set_tid_address() -> Memory Address
+  96. sed     -> set_tid_address() -> Memory Address
+ 129. sed     -> set_tid_address() -> Memory Address
+ 172. sed     -> set_tid_address() -> Memory Address
+ 215. sed     -> set_tid_address() -> Memory Address
+ 249. sed     -> set_tid_address() -> Memory Address
+ 369. 1533    -> set_tid_address() -> Memory Address
+
+AA desc: <OP 4 act=add, obj=/etc/rc\.local>
+Sentence preview: Persistence Persistence is achieved by t
+matched steps:
+  60. sed     -> open()     -> /etc/rc.local
+ 136. sed     -> open()     -> /etc/rc.local
+ 179. sed     -> open()     -> /etc/rc.local
+
+AA desc: <OP 3 act=read, obj=/proc/self>
+Sentence preview: The main method then branches to functio
+matched steps:
+   1. malware -> readlink() -> /proc/self/exe
+
+
+	Report Dofloo-Trendmicro.csv
+
+AA desc: <OP 5 act=read, obj=/proc/stat>
+Sentence preview:  This Backdoor gathers the following dat
+matched steps:
+ 342. 1532    -> read()     -> /proc/stat
+
+AA desc: <OP 9 act=open, obj=/etc/host\.conf>
+Sentence preview:  This Backdoor opens the following files
+matched steps:
+ 359. 1533    -> open()     -> /etc/host.conf
+
+AA desc: <OP 6 act=read, obj=/proc/net/dev>
+Sentence preview:  This Backdoor gathers the following dat
+matched steps:
+ 332. 1532    -> read()     -> /proc/net/dev
+
+AA desc: <OP 2 act=add, obj=/etc/rc\.local>
+Sentence preview:  Installation  This Backdoor adds the fo
+matched steps:
+  60. sed     -> open()     -> /etc/rc.local
+ 136. sed     -> open()     -> /etc/rc.local
+ 179. sed     -> open()     -> /etc/rc.local
+
+AA desc: <OP 8 act=file_14, obj=/proc/self>
+Sentence preview:  This Backdoor gathers the following dat
+matched steps:
+   1. malware -> readlink() -> /proc/self/exe
+
+AA desc: <OP10 act=open, obj=/etc/resolv\.conf>
+Sentence preview:  This Backdoor opens the following files
+matched steps:
+ 317. 1531    -> open()     -> /etc/resolv.conf
+ 349. 1533    -> open()     -> /etc/resolv.conf
+
+AA desc: <OP11 act=open, obj=/etc/nsswitch\.conf>
+Sentence preview:  This Backdoor opens the following files
+matched steps:
+ 354. 1533    -> open()     -> /etc/nsswitch.conf
+
+
